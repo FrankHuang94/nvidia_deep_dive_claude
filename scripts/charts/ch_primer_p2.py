@@ -96,6 +96,9 @@ def kv_cache_vs_context_length():
     ax.set_xticks([1024, 4096, 16384, 65536, 131072])
     ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _p: f"{v / 1024:g}k"))
     ax.xaxis.set_minor_formatter(NullFormatter())
+    # QA 2026-11-05: Chart.save() replaces every log-axis formatter with style.PLAIN_LOG, which printed the
+    # base-2 ticks as "1.024k … 131.072k"; keep this axis's 1k/4k/16k/64k/128k labels.
+    ax.xaxis.set_major_formatter = lambda *a, **k: None
     log_ticks(ax, "y", lambda v: f"{v:g}")
     ax.set_xlim(900, 131072 * 6)
     ax.set_ylim(0.05, 900)

@@ -66,7 +66,7 @@ SemiAnalysis's InferenceX runs each system nightly across engines, parallelism s
 
 ## Tokens per second per megawatt: the AI-factory metric
 
-A site has a fixed grid connection, so the scarce input is power. NVIDIA therefore sells an [AI factory](../../glossary.md#ai-factory) by its [tokens per second per megawatt](../../glossary.md#tokens-per-mw).
+A site has a fixed grid connection, so the scarce input is power. NVIDIA therefore sells an [AI factory](../../glossary.md#ai-factory) by its [tokens per second per megawatt](../../glossary.md#tokens-per-megawatt).
 
 ![Log-scale bar chart of DeepSeek-R1 tokens per second per megawatt of all-in power at 50 tokens/s per user (InferenceX frontier divided by SemiAnalysis power per GPU): H100 about 29 thousand, H200 about 225 thousand, B200 about 0.8 million, B300 about 1.6 million, GB200 NVL72 about 2.5 million and GB300 NVL72 about 3.0 million, ~13 times H200; AMD MI300X about 117 thousand and MI355X about 353 thousand.](../../assets/charts/08-tokens-per-mw-by-system.svg)
 

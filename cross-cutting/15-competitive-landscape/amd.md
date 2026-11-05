@@ -33,7 +33,7 @@ gantt
     title AMD Instinct vs NVIDIA flagships, 2023-2028
     dateFormat YYYY-MM-DD
     axisFormat %Y
-    tickInterval 1year
+    tickInterval 12month
     section AMD
     🟢 MI300X                    :done, a1, 2023-12-06, 2024-10-09
     🟢 MI325X                    :done, a2, 2024-10-10, 2025-06-11

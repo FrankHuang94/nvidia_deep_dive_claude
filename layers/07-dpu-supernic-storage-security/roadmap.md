@@ -18,6 +18,7 @@ gantt
     title NIC and DPU roadmap 2024-2028 (🟢 confirmed · 🟡 reported · 🔴 speculative)
     dateFormat YYYY-MM
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA
     BlueField-3 400G 🟢                 :2024-01, 2026-09
     ConnectX-8 800G 🟢                  :2025-07, 2026-09
@@ -41,7 +42,7 @@ gantt
     Google Titanium and Falcon 🟢       :2024-01, 2027-12
 ```
 
-<sub>Bars run from first availability to the expected successor; the 2027 "1.6T merchant UEC NIC" bar is repo speculation. Sources: table below, plus UEC, Azure Boost and Titanium [[S7528]](../../sources/bibliography.md#s7528)[[S7504]](../../sources/bibliography.md#s7504)[[S7520]](../../sources/bibliography.md#s7520).</sub>
+<sub>Bars run from first availability to the expected successor; the 2027 "1.6T merchant UEC NIC" bar is repo speculation. Sources: table below, plus BlueField-3 [[S269]](../../sources/bibliography.md#s269), UEC, Azure Boost, Titanium and Falcon [[S7528]](../../sources/bibliography.md#s7528)[[S7504]](../../sources/bibliography.md#s7504)[[S7520]](../../sources/bibliography.md#s7520)[[S7519]](../../sources/bibliography.md#s7519).</sub>
 
 ![Timeline chart of NIC and DPU products 2024-2028 by vendor lane. NVIDIA: BlueField-3 (400G), ConnectX-8 (800G, 2025), ConnectX-9 (1.6T, 2026), BlueField-4 (800G, 2026), ConnectX-10 and BlueField-5 (2028, no specs). AMD: Pollara and Salina (400G, 2025), Vulcano (800G, 2026), Como/Monza (2027) and Palma/Levanzo (2028), names only. Broadcom Thor Ultra (800G, sampling 2025), AWS Nitro v6 (400G per card), Microsoft Azure Boost DPU (2025), Intel IPU E2100 (200G) and Xsight Labs E1 (800G) have no disclosed successors.](../../assets/charts/07-nic-dpu-roadmap-by-vendor.svg)
 
@@ -107,6 +108,7 @@ NVIDIA's NIC and DPU roadmap is the most fully named through 2028, and its speed
 - [**S213**](../../sources/bibliography.md#s213) Inside Deep Tech, *NVIDIA Feynman: Full Guide to the 2028 GPU, Rosa and Kyber*, 2026. [Link](https://www.insidedeeptech.com/nvidia-feynman-rosa-kyber-nvl1152-full-guide/)
 - [**S228**](../../sources/bibliography.md#s228) Spheron, *AMD Helios rack-scale AI on GPU cloud: deploy MI455X inference with UALink and Ultra Ethernet (2026 guide)*, 2026. [Link](https://www.spheron.network/blog/amd-helios-rack-scale-mi455x-gpu-cloud/)
 - [**S264**](../../sources/bibliography.md#s264) NVIDIA Newsroom, *NVIDIA Announces New Switches Optimized for Trillion-Parameter GPU Computing and AI Infrastructure (Quantum-X800, Spectrum-X800, ConnectX-8)*, 2024-03-18. [Link](https://nvidianews.nvidia.com/news/networking-switches-gpu-computing-ai)
+- [**S269**](../../sources/bibliography.md#s269) NVIDIA Newsroom, *NVIDIA Extends Data Center Infrastructure Processing Roadmap with BlueField-3*, 2021-04-12. [Link](https://nvidianews.nvidia.com/news/nvidia-extends-data-center-infrastructure-processing-roadmap-with-bluefield-3)
 - [**S292**](../../sources/bibliography.md#s292) Amazon Web Services, *Elastic Fabric Adapter (EFA) and AWS Nitro System documentation*, 2025. [Link](https://aws.amazon.com/hpc/efa/)
 - [**S296**](../../sources/bibliography.md#s296) Intel, *Intel Gaudi 3 AI Accelerator white paper*, 2024-04. [Link](https://www.intel.com/content/www/us/en/content-details/817486/intel-gaudi-3-ai-accelerator-white-paper.html)
 - [**S302**](../../sources/bibliography.md#s302) Hashrate Index, *NVIDIA Vera Rubin NVL72 specs breakdown*, 2026. [Link](https://hashrateindex.com/blog/nvidia-vera-rubin-nvl72-specs-breakdown/)
@@ -121,6 +123,7 @@ NVIDIA's NIC and DPU roadmap is the most fully named through 2028, and its speed
 - [**S7504**](../../sources/bibliography.md#s7504) Blocks & Files, *Microsoft boosts Azure infrastructure with Fungible-derived DPU*, 2024-11-20. [Link](https://blocksandfiles.com/2024/11/20/microsoft-boosts-azure-infrastructure-with-fungible-derived-dpu/)
 - [**S7511**](../../sources/bibliography.md#s7511) NVIDIA Newsroom, *NVIDIA Launches BlueField-4 STX Storage Architecture With Broad Industry Adoption*, 2026-03-16. [Link](https://nvidianews.nvidia.com/news/nvidia-launches-bluefield-4-stx-storage-architecture-with-broad-industry-adoption)
 - [**S7517**](../../sources/bibliography.md#s7517) StorageNewsletter, *Xsight Labs raises more than $300 million at $2.8 billion valuation to power next-generation AI and cloud networks*, 2026-08-06. [Link](https://www.storagenewsletter.com/2026/08/06/fms-2026-xsight-labs-raises-more-than-300-million-at-2-8-billion-valuation-to-power-next-generation-ai-and-cloud-networks/)
+- [**S7519**](../../sources/bibliography.md#s7519) Converge Digest, *OCP Summit: Google opens Falcon for hardware transport*, 2023-10. [Link](https://convergedigest.com/ocp-summit-google-opens-falcon-for-hardware-transport/)
 - [**S7520**](../../sources/bibliography.md#s7520) Google Cloud, *Titanium (Google Cloud product page)*, 2024. [Link](https://cloud.google.com/titanium)
 - [**S7528**](../../sources/bibliography.md#s7528) Converge Digest, *Ultra Ethernet Consortium releases Specification 1.0*, 2025-06. [Link](https://convergedigest.com/ultra-ethernet-consortium-releases-specification-1-0/)
 - [**S7529**](../../sources/bibliography.md#s7529) StreetInsider (Broadcom press release), *Broadcom introduces industry's first 800G AI Ethernet NIC (Thor Ultra)*, 2025-10-14. [Link](https://www.streetinsider.com/Press+Releases/Broadcom+Introduces+Industry%E2%80%99s+First+800G+AI+Ethernet+NIC/25451603.html)

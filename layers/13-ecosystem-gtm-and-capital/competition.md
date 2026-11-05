@@ -15,7 +15,7 @@
 
 ## How the ecosystem contest is scored
 
-Think of a platform as a city: developers are residents, start-up programmes schools, sovereign deals treaties and capital the roads. Better buildings (chips) do not help if nobody lives there. We score developer reach, start-up programme, sovereign deals, capital firepower and channel breadth ([OEMs](../../glossary.md#oem), clouds, [global systems integrators](../../glossary.md#global-systems-integrator)).
+Think of a platform as a city: developers are residents, start-up programmes schools, sovereign deals treaties and capital the roads. Better buildings (chips) do not help if nobody lives there. We score developer reach, start-up programme, sovereign deals, capital firepower and channel breadth ([OEMs](../../glossary.md#oem), clouds, [global systems integrators](../../glossary.md#gsi)).
 
 | Rival | Developer reach | Start-up programme | Sovereign deals | Capital firepower | Channel breadth |
 |---|---|---|---|---|---|

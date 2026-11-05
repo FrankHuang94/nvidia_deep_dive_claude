@@ -17,35 +17,35 @@
 
 ```mermaid
 gantt
-    title Rack-scale roadmaps 2024-2028
+    title Rack-scale roadmaps 2024-2028 (tags = confidence)
     dateFormat YYYY-MM
     axisFormat %Y
-    tickInterval 1year
+    tickInterval 12month
     todayMarker off
     section NVIDIA
-    GB200 NVL72 (confirmed)            :done, n1, 2024-10, 2025-09
-    GB300 NVL72 (confirmed)            :done, n2, 2025-08, 2026-09
-    Vera Rubin NVL72 (confirmed)       :active, n3, 2026-08, 2027-09
-    800 VDC power rack (confirmed)     :n4, 2026-07, 2026-12
-    Kyber NVL144 plan (confirmed)      :n5, 2027-07, 2028-06
-    Kyber slip (reported)              :crit, n6, 2028-07, 2028-12
-    Feynman Kyber NVL1152 (confirmed)  :n7, 2028-01, 2028-12
+    🟢 GB200 NVL72                      :done, n1, 2024-10, 2025-09
+    🟢 GB300 NVL72                      :done, n2, 2025-08, 2026-09
+    🟢 Vera Rubin NVL72                 :active, n3, 2026-08, 2027-09
+    🟢 800 VDC power rack               :n4, 2026-07, 2026-12
+    🟢 Kyber NVL144 plan                :n5, 2027-07, 2028-06
+    🟡 Kyber slip reported              :crit, n6, 2028-07, 2028-12
+    🟢 Feynman Kyber NVL1152            :n7, 2028-01, 2028-12
     section AMD
-    Helios MI455X (confirmed)          :active, a1, 2026-09, 2027-09
-    Helios 500 MI500 (confirmed)       :a2, 2027-07, 2028-06
-    Helios 600 MI600 (confirmed)       :a3, 2028-01, 2028-12
+    🟢 Helios MI455X                    :active, a1, 2026-09, 2027-09
+    🟢 Helios 500 MI500                 :a2, 2027-07, 2028-06
+    🟢 Helios 600 MI600                 :a3, 2028-01, 2028-12
     section Hyperscalers
-    TPU Ironwood superpod              :done, g1, 2025-11, 2026-12
-    TPU 8t pod (confirmed)             :g2, 2026-11, 2027-12
-    AWS Trn3 UltraServer               :done, w1, 2025-12, 2027-03
-    Trainium4 on MGX (reported)        :w2, 2027-01, 2027-12
-    Maia 300 (confirmed)               :m1, 2027-01, 2027-12
+    🟢 TPU Ironwood superpod            :done, g1, 2025-11, 2026-12
+    🟢 TPU 8t pod                       :g2, 2026-11, 2027-12
+    🟢 AWS Trn3 UltraServer             :done, w1, 2025-12, 2027-03
+    🟡 Trainium4 on MGX                 :w2, 2027-01, 2027-12
+    🟢 Maia 300                         :m1, 2027-01, 2027-12
     section China and others
-    Atlas 950 SuperPoD (disputed)      :h1, 2026-10, 2027-09
-    Atlas 960 SuperPoD (confirmed)     :h2, 2027-10, 2028-09
-    Qualcomm AI200 rack (announced)    :q1, 2026-01, 2026-12
-    Qualcomm AI250 (announced)         :q2, 2027-01, 2027-12
-    Qualcomm AI300 (announced)         :q3, 2028-01, 2028-12
+    🔴 Atlas 950 SuperPoD shipments     :h1, 2026-10, 2027-09
+    🟢 Atlas 960 SuperPoD               :h2, 2027-10, 2028-09
+    🔴 Qualcomm AI200 rack status       :q1, 2026-01, 2026-12
+    🟢 Qualcomm AI250                   :q2, 2027-01, 2027-12
+    🟢 Qualcomm AI300                   :q3, 2028-01, 2028-12
 ```
 
 | Item | Window | Status | Confidence | Source |

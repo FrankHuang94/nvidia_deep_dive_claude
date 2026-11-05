@@ -297,7 +297,8 @@ def training_run_cost():
     ds = d[d.model == "DeepSeek-V3"].iloc[0]
     c = Chart(
         id="P1-training-run-cost",
-        title=f"Final-run compute bills span ~{hi.cost_m / ds.cost_m:.0f}×: ${ds.cost_m:.1f}M (DeepSeek-V3) to ~${hi.cost_m / 1000:.1f}B (Grok 4, Est.)",
+        # QA 2026-11-05: "Frontier" added: the chart also plots Llama 3.1 8B (below DeepSeek-V3), so the span is frontier runs
+        title=f"Frontier final-run bills span ~{hi.cost_m / ds.cost_m:.0f}×: ${ds.cost_m:.1f}M (DeepSeek-V3) to ~${hi.cost_m / 1000:.1f}B (Grok 4, Est.)",
         subtitle=f"GPU-hours × ${RENTAL_USD_PER_GPU_HOUR:.0f}/GPU-hour (DeepSeek's rental assumption), US$ M (log scale); hatched = estimate",
         alt=(f"Log-scale horizontal bars of rental-equivalent compute cost at $2 per GPU-hour: Llama 3.1 8B about "
              f"${d[d.model == 'Llama 3.1 8B'].cost_m.iloc[0]:.1f}M (1.46M GPU-hours), DeepSeek-V3 ${ds.cost_m:.1f}M "

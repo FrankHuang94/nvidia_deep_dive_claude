@@ -123,7 +123,7 @@ Public information only; values are not like-for-like.
 | 2026 | Marvell buys Celestial AI | $3.25B upfront plus [earn-outs](../../glossary.md#earn-out) | photonic memory fabric | [[S2513]](../../sources/bibliography.md#s2513) |
 
 > [!TIP]
-> **Worked example — what NVIDIA paid for Groq, in its own currency.** ~$20B is ~2.9× Groq's last private
+> **Worked example — what NVIDIA paid for Groq, in its own currency.** ~$20B (🟡 reported) is ~2.9× Groq's last private
 > valuation (~$6.9B) [[S90019]](../../sources/bibliography.md#s90019) and about **3 weeks** of NVIDIA's Q2 FY2027 Data Center revenue ($89.0B ÷ 13 weeks
 > ≈ $6.8B a week) [[S405]](../../sources/bibliography.md#s405). The licence-plus-[acquihire](../../glossary.md#acquihire) avoided a merger review, though
 > former Groq employees have sued its board [[S118]](../../sources/bibliography.md#s118).

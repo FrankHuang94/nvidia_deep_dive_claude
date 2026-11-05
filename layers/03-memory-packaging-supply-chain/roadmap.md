@@ -23,6 +23,7 @@ gantt
   title Memory and packaging roadmap 2024-2028 (tags = confidence)
   dateFormat YYYY-MM
   axisFormat %Y
+  tickInterval 12month
   section HBM supply
   HBM3E 12-high volume 🟢 :done, h1, 2024-09, 2026-06
   HBM4 volume 🟢 :active, h2, 2026-02, 2027-12
@@ -50,6 +51,8 @@ gantt
   Qualcomm AI200 and AI250 LPDDR 🔴 :q1, 2026-06, 2027-12
 ```
 
+<sub>Sources for bars not in the table below: HBM3E 12-high [[S372]](../../sources/bibliography.md#s372)[[S123]](../../sources/bibliography.md#s123); CoWoS-L 5.5× (2026) and 9.5× (2027) reticle targets [[S380]](../../sources/bibliography.md#s380); Intel EMIB-T [[S15548]](../../sources/bibliography.md#s15548)[[S15549]](../../sources/bibliography.md#s15549); MI500 with HBM4E [[S145]](../../sources/bibliography.md#s145)[[S538]](../../sources/bibliography.md#s538); CXMT HBM3E [[S3516]](../../sources/bibliography.md#s3516).</sub>
+
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
 | Rubin: 288 GB HBM4, 19.2 TB/s (launch 22) | 2026-Q3 → | shipping | 🟢 | [[S102]](../../sources/bibliography.md#s102)[[S104]](../../sources/bibliography.md#s104) |
@@ -67,7 +70,7 @@ gantt
 ![Bar chart with ranges of estimated TSMC CoWoS capacity at year end: 2023 about 15k wafers per month (13-15k), 2024 about 35k (32-40k), 2025 about 75k (65-80k), 2026 about 120k (105-130k), 2027 projected 170-200k and 2028 projected about 260k, roughly 17 times end-2023. All figures are analyst or press estimates; TSMC does not disclose CoWoS capacity in wafers.](../../assets/charts/03-cowos-capacity-outlook-2028.svg)
 
 > [!TIP]
-> **Worked example — wafers are not packages.** CoWoS capacity may grow ~2.2× from ~120k (end-2026) to ~260k wafers a month (2028) [[S3002]](../../sources/bibliography.md#s3002). But a 300 mm wafer fits ~11–16 Rubin packages and only ~4–6 four-die Rubin Ultra-class packages (repo estimate) [[S3000]](../../sources/bibliography.md#s3000). If output shifted to Ultra-class packages, 2.2× the wafers would yield roughly the same number of GPUs or fewer (🔴), which is why bigger packages keep packaging tight even as capacity grows.
+> **Worked example — wafers are not packages.** CoWoS capacity may roughly double, from ~120–130k (end-2026) to ~260k wafers a month (2028) [[S3002]](../../sources/bibliography.md#s3002). But a 300 mm wafer fits ~11–16 Rubin packages and only ~4–6 four-die Rubin Ultra-class packages (repo estimate) [[S3000]](../../sources/bibliography.md#s3000). If output shifted to Ultra-class packages, twice the wafers would yield roughly the same number of GPUs or fewer (🔴), which is why bigger packages keep packaging tight even as capacity grows.
 
 ## HBM4 to HBM4E: where the bandwidth comes from
 
@@ -122,7 +125,9 @@ A 300 mm round wafer fits fewer large rectangular interposers as packages grow t
 - [**S111**](../../sources/bibliography.md#s111) Crypto Briefing, *Nvidia's Rubin Ultra targets 768GB of HBM4E as Kyber platform stays on schedule*, 2026. [Link](https://cryptobriefing.com/nvidia-rubin-ultra-hbm4e-kyber-2027/)
 - [**S117**](../../sources/bibliography.md#s117) TechNews (Taiwan), *Nvidia Rubin CPX re-enters roadmap with HBM4 for AI prefill*, 2026-09-02. [Link](https://technews.tw/2026/09/02/nvidia-rubin-cpx-reenters-roadmap-hbm4-ai-prefill/)
 - [**S119**](../../sources/bibliography.md#s119) XenoSpectrum, *NVIDIA's Feynman May Combine TSMC A16 and N3P, Reports Say*, 2026. [Link](https://xenospectrum.com/en/nvidia-feynman-tsmc-a16-report/)
+- [**S123**](../../sources/bibliography.md#s123) Glenn K. Lockwood (blog) (Glenn K. Lockwood), *HGX B300 specifications compilation (B300 per-GPU figures)*, 2025. [Link](https://glennklockwood.com/garden/processors/B300)
 - [**S144**](../../sources/bibliography.md#s144) AMD Newsroom, *AMD Unveils Vision for an Open AI Ecosystem, Detailing New Silicon, Software and Systems at Advancing AI 2025*, 2025-06-12. [Link](https://www.amd.com/en/newsroom/press-releases/2025-6-12-amd-unveils-vision-for-an-open-ai-ecosystem-detai.html)
+- [**S145**](../../sources/bibliography.md#s145) AMD (Lisa Su), *AMD at CES 2026 (keynote: Helios, MI455X, MI440X, MI500 preview)*, 2026-01-05. [Link](https://www.amd.com/en/corporate/events/ces.html)
 - [**S156**](../../sources/bibliography.md#s156) About Amazon, *AWS re:Invent 2025: top announcements (Trainium3 GA, Trainium4 preview, Graviton5)*, 2025-12-02. [Link](https://www.aboutamazon.com/news/aws/aws-re-invent-2025-ai-news-updates)
 - [**S163**](../../sources/bibliography.md#s163) Huawei (Eric Xu), *Huawei Connect 2025 keynote: Ascend roadmap and SuperPoD interconnect (Eric Xu)*, 2025-09-18. [Link](https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech)
 - [**S330**](../../sources/bibliography.md#s330) PC Gamer, *A single Nvidia Vera Rubin rack is estimated to cost $7,803,148 with over $2 million of that figure spent on memory alone*, 2026-05. [Link](https://pcgamer.com/hardware/a-single-nvidia-vera-rubin-rack-is-estimated-to-cost-usd7-803-148-with-over-usd2-million-of-that-figure-spent-on-memory-alone)
@@ -131,6 +136,7 @@ A 300 mm round wafer fits fewer large rectangular interposers as packages grow t
 - [**S369**](../../sources/bibliography.md#s369) JEDEC, *JESD270-4: High Bandwidth Memory (HBM4) standard*, 2025-04-16. [Link](https://www.jedec.org/standards-documents/docs/jesd270-4)
 - [**S372**](../../sources/bibliography.md#s372) Samsung Electronics, *Samsung develops industry-first 36GB HBM3E 12H DRAM*, 2024-02-27. [Link](https://news.samsung.com/global/samsung-develops-industry-first-36gb-hbm3e-12h-dram)
 - [**S373**](../../sources/bibliography.md#s373) SK hynix Newsroom, *SK hynix begins industry's first mass production of 12-layer HBM3E*, 2024-09-26. [Link](https://news.skhynix.com/sk-hynix-begins-industrys-first-mass-production-of-12-layer-hbm3e/)
+- [**S380**](../../sources/bibliography.md#s380) TSMC, *TSMC 3DFabric: CoWoS-S, CoWoS-R and CoWoS-L technology overview and roadmap*, 2025. [Link](https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm)
 - [**S502**](../../sources/bibliography.md#s502) Tom's Hardware, *Nvidia updates data center roadmap with Rosa CPU and stacked Feynman GPUs; optical NVLink; Groq LPUs with NVFP4 and NVLink also on deck*, 2026-03-17. [Link](https://www.tomshardware.com/pc-components/gpus/nvidia-updates-data-center-roadmap-with-rosa-cpu-and-stacked-feynman-gpus-optical-nvlink-groq-lpus-with-nvfp4-and-nvlink-also-on-deck)
 - [**S507**](../../sources/bibliography.md#s507) Tom's Hardware, *Nvidia's Kyber rack for Rubin Ultra slips to 2028*, 2026-07-06. [Link](https://www.tomshardware.com/pc-components/gpus/nvidias-kyber-rack-for-rubin-ultra-slips-to-2028)
 - [**S508**](../../sources/bibliography.md#s508) Wccftech, *NVIDIA Quashes Rubin & Kyber Rack Delay Rumors, Says 'Chip Roadmap Is Intact'*, 2026-07. [Link](https://wccftech.com/nvidia-quashes-rubin-kyber-rack-delay-rumors-says-chip-roadmap-is-intact/)
@@ -153,6 +159,8 @@ A 300 mm round wafer fits fewer large rectangular interposers as packages grow t
 - [**S3520**](../../sources/bibliography.md#s3520) Silicon Analysts, *TrendForce: 2027 HBM blended ASP to jump 121% as HBM4/HBM4E mix shifts*, 2026-10-06. [Link](https://siliconanalysts.com/market/trendforce-2027-hbm-blended-asp-to-jump-121-as-hbm4-hbm4e-mix-shifts-2026-10-06)
 - [**S3528**](../../sources/bibliography.md#s3528) TrendForce, *SK hynix reportedly pulls forward HBM4E sample timeline, eyeing June-July shipments to key customers*, 2026-06-15. [Link](https://www.trendforce.com/news/2026/06/15/news-sk-hynix-reportedly-pulls-forward-hbm4e-sample-timeline-eyeing-june-july-shipments-to-key-customers/)
 - [**S3531**](../../sources/bibliography.md#s3531) TrendForce, *HBM4E seen hitting 40% of 2027 market; Samsung, SK hynix reportedly aim for 1H26 completion*, 2025-11-13. [Link](https://www.trendforce.com/news/2025/11/13/news-hbm4e-seen-hitting-40-of-2027-market-samsung-sk-hynix-reportedly-aim-for-1h26-completion/)
+- [**S15548**](../../sources/bibliography.md#s15548) Tom's Hardware, *Intel's EMIB-T heads for fab rollout this year*, 2026. [Link](https://www.tomshardware.com/tech-industry/semiconductors/intels-emib-t-heads-for-fab-rollout-this-year)
+- [**S15549**](../../sources/bibliography.md#s15549) DIGITIMES Asia, *Intel EMIB packaging customers and revenue timing*, 2026-05-05. [Link](https://apps.digitimes.com/news/a20260505PD217.html)
 - [**S35018**](../../sources/bibliography.md#s35018) Tom's Hardware, *Nvidia announces Rubin GPUs in 2026, Rubin Ultra in 2027, Feynman also added to roadmap*, 2025-03-18. [Link](https://www.tomshardware.com/pc-components/gpus/nvidia-announces-rubin-gpus-in-2026-rubin-ultra-in-2027-feynam-after)
 - [**S35041**](../../sources/bibliography.md#s35041) Glenn K. Lockwood (Glenn K. Lockwood), *Rubin Ultra (R300) notes*, 2026. [Link](https://glennklockwood.com/garden/processors/R300)
 - [**S90006**](../../sources/bibliography.md#s90006) TweakTown, *Nvidia cuts Vera Rubin's memory bandwidth by up to 26% and AMD's Helios now leads in memory bandwidth*, 2026-10. [Link](https://www.tweaktown.com/news/114304/nvidia-cuts-vera-rubins-memory-bandwidth-by-up-to-26-percent-and-amds-helios-now-leads-in-memory-bandwidth/index.html)

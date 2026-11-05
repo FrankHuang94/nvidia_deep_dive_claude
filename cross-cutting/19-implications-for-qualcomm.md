@@ -18,7 +18,7 @@
   Mojo) and is absent from 3 (DPUs and NICs, domain libraries, cloud capacity). It ships product in only 4 (🔴 repo map)
   [[S90031]](../sources/bibliography.md#s90031)[[S173]](../sources/bibliography.md#s173)[[S4513]](../sources/bibliography.md#s4513)[[S9511]](../sources/bibliography.md#s9511).
 - **The assets were bought quickly; the customers exist on paper.** NUVIA ($1.4B), Alphawave (~$2.4B) and Modular ($3.9B)
-  total ~$7.7B, plus Ventana at an undisclosed price [[S4538]](../sources/bibliography.md#s4538)[[S4514]](../sources/bibliography.md#s4514)[[S90057]](../sources/bibliography.md#s90057)[[S4512]](../sources/bibliography.md#s4512). HUMAIN plans 200 MW. Meta is the first
+  total ~$7.7B, plus Ventana at an undisclosed price [[S4538]](../sources/bibliography.md#s4538)[[S4514]](../sources/bibliography.md#s4514)[[S90057]](../sources/bibliography.md#s90057)[[S4512]](../sources/bibliography.md#s4512). HUMAIN plans 200 MW. 🟢 Meta is the first
   Dragonfly C1000 customer from H2 2028. AWS signed for custom inference silicon, with a warrant vesting on up to $60B of
   purchases through 2036 [[S90030]](../sources/bibliography.md#s90030)[[S90058]](../sources/bibliography.md#s90058)[[S90087]](../sources/bibliography.md#s90087). No AI200 volume shipment or MLPerf/InferenceX result was public
   🔴 [[S90028]](../sources/bibliography.md#s90028)[[S602]](../sources/bibliography.md#s602)[[S620]](../sources/bibliography.md#s620).
@@ -186,7 +186,7 @@ NVIDIA in November 2026 (`competitor_matrix.csv`).
 
 This section scores eleven segments on two axes (all 🔴 repo judgement). **Attractiveness** combines the size and growth
 of the spending pool with how well it fits a challenger's public assets. **NVIDIA defensibility** measures how hard
-NVIDIA's advantages make it to take share: [tokens per MW](../glossary.md#tokens-per-mw), the 72-GPU NVLink domain, CUDA, the
+NVIDIA's advantages make it to take share: [tokens per MW](../glossary.md#tokens-per-megawatt), the 72-GPU NVLink domain, CUDA, the
 annual cadence and supply allocation. Evidence comes from the layer pages and chapters 14, 15 and 18. Data:
 `data/x19_win_matrix.csv`.
 

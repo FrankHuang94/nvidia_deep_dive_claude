@@ -108,8 +108,11 @@ def revenue_by_era_log():
     for y in (1999, 2002, 2016, 2023, 2026):
         v = rev[y]
         txt = f"${v*1000:.0f}M" if v < 1 else f"${v:,.1f}B" if v < 10 else f"${v:,.0f}B"
-        ax.annotate(txt, (y, v), xytext=(0, -2), textcoords="offset points", ha="center", va="top",
-                    fontsize=7.2, color="#FFFFFF" if y >= 2024 else NV_DARK, fontweight="bold")
+        # QA 2026-11-05: the labels are wider than the bars ("$216B" white-on-white was clipped), so give
+        # them a white backing box and dark ink instead of white text inside the bar
+        ax.annotate(txt, (y, v), xytext=(0, -3), textcoords="offset points", ha="center", va="top",
+                    fontsize=7.2, color=NV_DARK, fontweight="bold", zorder=4,
+                    bbox=dict(boxstyle="round,pad=0.15", fc="#FFFFFF", ec="none", alpha=0.9))
     ax.set_xlim(1998.4, 2026.6)
     ax.set_xticks([1999, 2002, 2005, 2008, 2011, 2014, 2017, 2020, 2023, 2026])
     ax.set_xticklabels([f"FY{y}" for y in ax.get_xticks()])

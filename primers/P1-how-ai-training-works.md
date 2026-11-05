@@ -15,8 +15,8 @@
 - **Memory, not just math, sets the floor.** Mixed-precision training with the Adam optimizer needs **~16 bytes per parameter** before activations [[S34004]](../sources/bibliography.md#s34004), 8× BF16 inference: a 405B model carries ~6.5 TB of training state, more than 81 H100s' worth of memory.
 - **Frontier compute has grown ~4–5× per year** [[S31007]](../sources/bibliography.md#s31007): from 3.1 × 10²³ FLOPs for GPT-3 in 2020 [[S31015]](../sources/bibliography.md#s31015) to ~5 × 10²⁶ for Grok 4 in 2025 (Est., Epoch AI) [[S31008]](../sources/bibliography.md#s31008), about 1,600× in five years.
 - **The recipe changed twice.** Chinchilla (2022) showed models were under-trained (~20 tokens per parameter is compute-optimal) [[S31005]](../sources/bibliography.md#s31005); since then labs deliberately [**over-train**](../glossary.md#over-training) smaller models (Llama 3.1 8B saw ~1,875 tokens per parameter) [[S31002]](../sources/bibliography.md#s31002) and shift effort into [**post-training**](../glossary.md#post-training) and [**reinforcement learning**](../glossary.md#reinforcement-learning): Epoch AI estimates GPT-5 used *less* total compute than GPT-4.5 [[S31010]](../sources/bibliography.md#s31010).
-- **At scale, hardware fails constantly.** Llama 3's 54-day pre-training snapshot logged **466 job interruptions, 419 unplanned**, roughly one every three hours, with GPUs and HBM the leading causes [[S34006]](../sources/bibliography.md#s34006)[[S31003]](../sources/bibliography.md#s31003). Reliability, checkpointing and fast restart are part of the product.
-- **Why this matters for NVIDIA:** training is a tightly synchronized, communication-heavy job, so the winning system is not the fastest chip but the fastest *cluster*: GPUs + NVLink scale-up + InfiniBand/Ethernet scale-out + NCCL + resilient software. That bundle is NVIDIA's moat, and it is also exactly what the bear case says efficiency gains could commoditize.
+- **At scale, hardware fails constantly.** Llama 3's 54-day pre-training snapshot logged **466 job interruptions, 419 unplanned**, roughly one every three hours, with GPUs and [HBM](../glossary.md#hbm) the leading causes [[S34006]](../sources/bibliography.md#s34006)[[S31003]](../sources/bibliography.md#s31003). Reliability, checkpointing and fast restart are part of the product.
+- **Why this matters for NVIDIA:** training is a tightly synchronized, communication-heavy job, so the winning system is not the fastest chip but the fastest *cluster*: GPUs + [NVLink](../glossary.md#nvlink) [scale-up](../glossary.md#scale-up) + [InfiniBand](../glossary.md#infiniband)/Ethernet [scale-out](../glossary.md#scale-out) + NCCL + resilient software. That bundle is NVIDIA's moat, and it is also exactly what the bear case says efficiency gains could commoditize.
 
 ![Log-scale scatter of training compute for notable AI models from GPT-3 (3.1e23 FLOPs, 2020) to Grok 4 (about 5e26 FLOPs, Epoch AI estimate, 2025): roughly 1,600 times more in five years, a fitted frontier trend of about 4.9 times per year, consistent with Epoch AI's 4-5x per year. Llama 3.1 405B used 3.8e25 FLOPs; GPT-5 (about 5e25) used less than GPT-4.5 (about 3.8e26).](../assets/charts/P1-frontier-training-compute-log.svg)
 
@@ -158,8 +158,8 @@ running averages per parameter.
 
 **Lower precision is the main lever.** [FP8](../glossary.md#fp8) halves the bytes per value versus BF16 and doubles tensor-core
 throughput on Hopper and Blackwell (H100: 989 dense BF16 TFLOPS vs 1,979 dense FP8 [[S33002]](../sources/bibliography.md#s33002)). DeepSeek-V3 trained with
-an FP8 mixed-precision framework [[S34007]](../sources/bibliography.md#s34007); NVIDIA now markets Rubin's training performance in its 4-bit NVFP4 format
-(35 PFLOPS) [[S33004]](../sources/bibliography.md#s33004). The catch: every halving of precision needs new numerical tricks (scaling factors, higher-precision
+an FP8 mixed-precision framework [[S34007]](../sources/bibliography.md#s34007); NVIDIA now markets Rubin's training performance in its 4-bit [NVFP4](../glossary.md#nvfp4) format
+(35 [PFLOPS](../glossary.md#flops)) [[S33004]](../sources/bibliography.md#s33004). The catch: every halving of precision needs new numerical tricks (scaling factors, higher-precision
 accumulation) to avoid training instability.
 
 ![Log-scale line chart of dense peak compute per NVIDIA GPU by format from V100 (2017) to Rubin Ultra (2027 roadmap). Rubin reaches 35 PFLOPS FP4 and 17.5 PFLOPS FP8, 280 times V100's 125 TFLOPS FP16, while 16-bit throughput grew only 32 times and FP64 fell to about 1.4 TFLOPS on Blackwell Ultra before recovering to 33 TFLOPS on Rubin.](../assets/charts/02-flops-by-precision-log.svg)
@@ -345,7 +345,7 @@ flowchart TB
 - **[Layer 02 · GPU silicon](../layers/02-gpu-silicon/index.md):** where the 6 × N × D FLOPs are executed; precision
   formats (BF16 → FP8 → NVFP4) are the biggest generational lever.
 - **[Layer 03 · Memory, packaging and supply chain](../layers/03-memory-packaging-supply-chain/index.md):** the 16 bytes per
-  parameter live in HBM; HBM and CoWoS supply cap how many training GPUs exist.
+  parameter live in HBM; HBM and [CoWoS](../glossary.md#cowos) supply cap how many training GPUs exist.
 - **[Layer 05 · Scale-up (NVLink, NVSwitch)](../layers/05-scale-up-nvlink-nvswitch/index.md)** and
   **[Layer 06 · Scale-out networking](../layers/06-scale-out-scale-across-networking/index.md):** the all-reduce and
   sharding traffic that keeps MFU near 40% rather than collapsing; see also [P4 · Parallelism](P4-parallelism-explained.md).
@@ -380,7 +380,7 @@ flowchart TB
 1. **Utilization is the hidden value pool.** A cluster at 40% MFU leaves more than half of its peak FLOPs unused. Software that adds
    5–10 points of MFU or goodput (compilers, communication overlap, failure prediction, checkpointing) is worth more per
    dollar than marginal chip speed. Which independent companies in this space could be partners or targets, and which
-   will NVIDIA absorb into CUDA-X or Mission Control first?
+   will NVIDIA absorb into [CUDA-X](../glossary.md#cuda-x) or Mission Control first?
 2. **Who owns the training customer?** Only a handful of labs appear in Epoch AI's estimates above 10²⁶ FLOPs (xAI, OpenAI
    and Anthropic in this primer's data) [[S31011]](../sources/bibliography.md#s31011). That concentration
    gives them leverage to fund custom silicon (TPU, Trainium, MTIA) for training, the most NVIDIA-entrenched workload.

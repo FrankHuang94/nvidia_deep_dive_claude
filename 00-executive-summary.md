@@ -6,7 +6,7 @@
 
 - **The answer in one line: NVIDIA sells the whole AI factory as one system, refreshed every year, and its
   rivals sell parts of it.** It took ~87% of AI data-center silicon revenue in 2025, against ~90% in 2023, while
-  that pool grew from ~$53B to ~$224B (Est., repo calculation) [[S416]](sources/bibliography.md#s416)[[S660]](sources/bibliography.md#s660)[[S663]](sources/bibliography.md#s663). Data Center was 90% of FY2026
+  that pool grew from ~$53B to ~$224B (Est., repo calculation) [[S416]](sources/bibliography.md#s416)[[S1]](sources/bibliography.md#s1)[[S660]](sources/bibliography.md#s660)[[S661]](sources/bibliography.md#s661)[[S663]](sources/bibliography.md#s663). Data Center was 90% of FY2026
   revenue of $215.9B [[S1]](sources/bibliography.md#s1)[[S402]](sources/bibliography.md#s402).
 - **Demand is not the constraint; supply and margin are.** Q2 FY2027 revenue was $96.2B (+106% y/y) at a 75.0%
   GAAP [gross margin](glossary.md#gross-margin), and Q3 is guided to $108B ± 2% [[S405]](sources/bibliography.md#s405)[[S3]](sources/bibliography.md#s3). 🟢 Management frames ~70%
@@ -17,7 +17,7 @@
   (2.0) [[S1500]](sources/bibliography.md#s1500). The gap is narrowing in 6 of 12 layers and widening only in supply, where commitments reached
   $279B [[S407]](sources/bibliography.md#s407).
 - **The money and the moat sit in different places.** The GPU is the profit engine: a B200 costs ~$6,400 to build
-  against a $30–40K price (Est.) [[S35020]](sources/bibliography.md#s35020)[[S35026]](sources/bibliography.md#s35026). CUDA and the CUDA-X libraries, the deepest moats, are free and
+  against a $30–40K price (Est.) [[S35020]](sources/bibliography.md#s35020)[[S35026]](sources/bibliography.md#s35026). CUDA and the [CUDA-X](glossary.md#cuda-x) libraries, the deepest moats, are free and
   earn their keep by protecting that margin [[S1509]](sources/bibliography.md#s1509)[[S1510]](sources/bibliography.md#s1510).
 - **Challengers are real, and they win first on price at the largest buyers.** AMD's MI455X matches or beats Rubin
   on paper (432 vs 288 GB of [HBM](glossary.md#hbm)) [[S144]](sources/bibliography.md#s144)[[S33005]](sources/bibliography.md#s33005); Anthropic has access to up to 1M Google
@@ -63,10 +63,10 @@ modern models are bound by memory and communication, not arithmetic ([P3](primer
 [[S621]](sources/bibliography.md#s621). Per megawatt the gap over H200 is ~13× [[S621]](sources/bibliography.md#s621)[[S622]](sources/bibliography.md#s622).
 
 **2. Software turns every GPU into more tokens, every quarter.** [CUDA](glossary.md#cuda) is native in all 12 major
-frameworks and engines this repo tracks (36 of 36 points), against 26 for AMD's ROCm and 4 for Qualcomm Cloud AI
+frameworks and engines this repo tracks (36 of 36 points), against 26 for AMD's [ROCm](glossary.md#rocm) and 4 for Qualcomm Cloud AI
 [[S587]](sources/bibliography.md#s587)[[S580]](sources/bibliography.md#s580)[[S586]](sources/bibliography.md#s586)[[S596]](sources/bibliography.md#s596). New models run on it on day 0. When DeepSeek-V4-Pro launched, AMD's MI355X needed 8 days
-to run FP4 and 27 days to serve 50 tokens/s per user [[S633]](sources/bibliography.md#s633)[[S631]](sources/bibliography.md#s631). Software also lifts installed hardware. MLPerf
-DeepSeek-R1 throughput on an unchanged GB300 NVL72 rose 2.9× in a year [[S601]](sources/bibliography.md#s601)[[S603]](sources/bibliography.md#s603), and TensorRT-LLM alone took a
+to run [FP4](glossary.md#fp4) and 27 days to serve 50 tokens/s per user [[S633]](sources/bibliography.md#s633)[[S631]](sources/bibliography.md#s631). Software also lifts installed hardware. MLPerf
+DeepSeek-R1 throughput on an unchanged GB300 NVL72 rose 2.9× in a year [[S601]](sources/bibliography.md#s601)[[S603]](sources/bibliography.md#s603), and [TensorRT-LLM](glossary.md#tensorrt-llm) alone took a
 B200 from ~2,000 to 4,600 tokens/s per GPU in four months [[S646]](sources/bibliography.md#s646). The lock-in is real but uneven. 🔴 This repo
 scores it 4.5 of 5 for self-hosting enterprises and 2.75 for frontier labs, which can afford to port [[S1509]](sources/bibliography.md#s1509).
 
@@ -141,7 +141,7 @@ year, as one product, so rivals must match a moving bundle, not a part.
 ![Two-panel chart. Left: estimated share of system price paid for NVIDIA content - about 50-75% for an HGX H100/H200 8-GPU server, 72-84% for GB200 NVL72, 71-83% for GB300 NVL72 and 62-72% for Vera Rubin NVL72, where memory price inflation shifts value to HBM and LPDDR makers. Right: integrator gross margin falls from 11.1% (Supermicro, server era) to about 5% (Quanta GB racks, KGI), 2.7% (GB300 rack ODM) and 1.9% (Vera Rubin rack ODM, Morgan Stanley).](assets/charts/08-value-capture-by-generation.svg)
 
 > [!TIP]
-> **Worked example — one gigawatt through the stack.** At a PUE of 1.15, 1 GW leaves ~870 MW for IT. A GB300 NVL72
+> **Worked example — one gigawatt through the stack.** At a [PUE](glossary.md#pue) of 1.15, 1 GW leaves ~870 MW for IT. A GB300 NVL72
 > needs ~132 kW plus ~21% for its share of network and storage, so ~160 kW. That is room for **~5,400 racks and
 > ~390,000 GPUs** (layer-08 repo arithmetic) [[S1508]](sources/bibliography.md#s1508)[[S387]](sources/bibliography.md#s387)[[S337]](sources/bibliography.md#s337). NVIDIA's CEO prices such a factory at
 > **$50–60B, ~$35B of it NVIDIA content** [[S398]](sources/bibliography.md#s398). Bernstein's ~$35B and Barclays' $32.5–42B are of the same order
@@ -214,8 +214,8 @@ Each paragraph condenses the layer's index, eight-question table and competition
 recorded with evidence in `data/x00_layer_verdicts.csv` [[S1500]](sources/bibliography.md#s1500); the [cheat sheet](CHEATSHEET.md) puts them in
 one table.
 
-**[Layer 02 · GPU silicon](layers/02-gpu-silicon/index.md) — contested, 3.0 ↘.** Rubin delivers 35 PFLOPS of dense
-NVFP4, ~280× V100's 16-bit peak, though only ~32× at 16-bit, so most of the gain came from smaller number formats
+**[Layer 02 · GPU silicon](layers/02-gpu-silicon/index.md) — contested, 3.0 ↘.** Rubin delivers 35 [PFLOPS](glossary.md#flops) of dense
+[NVFP4](glossary.md#nvfp4), ~280× V100's 16-bit peak, though only ~32× at 16-bit, so most of the gain came from smaller number formats
 [[S33005]](sources/bibliography.md#s33005)[[S33010]](sources/bibliography.md#s33010)[[S100]](sources/bibliography.md#s100). The September–October 2026 revision cut Rubin's HBM4 bandwidth from 22 to 19.2 TB/s and
 NVLink 6 from 3.6 to 3.0 TB/s per GPU [[S90006]](sources/bibliography.md#s90006)[[S90007]](sources/bibliography.md#s90007). On paper AMD's MI455X now leads on memory (432 GB, 19.6
 TB/s) [[S144]](sources/bibliography.md#s144). 🔴 The silicon lead is months, not generations [[S1502]](sources/bibliography.md#s1502). The layer is still the profit engine.
@@ -229,7 +229,7 @@ made NVIDIA the shock absorber in the $4.5B H20 charge [[S414]](sources/bibliogr
 **[Layer 04 · CPU](layers/04-cpu-grace-vera/index.md) — thin, 2.0 →.** Grace and Vera matter for integration. A
 coherent NVLink-C2C link gives each Vera Rubin GPU ~900 GB/s to its host and ~750 GB of CPU memory [[S128]](sources/bibliography.md#s128)[[S4019]](sources/bibliography.md#s4019)
 [[S100]](sources/bibliography.md#s100)[[S102]](sources/bibliography.md#s102). But the CPUs are ~2% of a ~$7.8M rack (Est.) [[S331]](sources/bibliography.md#s331), and AMD's 256-core EPYC Venice anchors the Helios
-rack [[S4028]](sources/bibliography.md#s4028)[[S538]](sources/bibliography.md#s538). Agentic AI may turn standalone CPUs into a new socket market, with CPU:GPU ratios moving toward
+rack [[S4028]](sources/bibliography.md#s4028)[[S538]](sources/bibliography.md#s538). [Agentic](glossary.md#agentic-ai) AI may turn standalone CPUs into a new socket market, with CPU:GPU ratios moving toward
 1:2–1:1 [[S4012]](sources/bibliography.md#s4012)[[S4013]](sources/bibliography.md#s4013).
 
 **[Layer 05 · Scale-up (NVLink, NVSwitch)](layers/05-scale-up-nvlink-nvswitch/index.md) — deep, 4.0 ↘.** The NVL72
@@ -244,11 +244,11 @@ partners, including Qualcomm, Fujitsu, Intel and AWS Trainium4, but keeps NVIDIA
 Mellanox ($6.9B in 2019) became a ~$31.4B-a-year business [[S464]](sources/bibliography.md#s464)[[S402]](sources/bibliography.md#s402). Buyers chose Ethernet, about two-thirds of
 AI back-end switch sales in 1Q 2026 (🟡 Dell'Oro), and NVIDIA followed with [Spectrum-X](glossary.md#spectrum-x), up
 2.6× y/y [[S90054]](sources/bibliography.md#s90054)[[S408]](sources/bibliography.md#s408). Broadcom shipped a 102.4 Tb/s switch ~12 months before Spectrum-6, and Celestica led AI
-back-end switching in 1Q 2026 [[S274]](sources/bibliography.md#s274)[[S6019]](sources/bibliography.md#s6019)[[S90054]](sources/bibliography.md#s90054). NVIDIA's edge is NIC, switch and NCCL tuning sold as a bundle.
+back-end switching in 1Q 2026 [[S274]](sources/bibliography.md#s274)[[S6019]](sources/bibliography.md#s6019)[[S90054]](sources/bibliography.md#s90054). NVIDIA's edge is [NIC](glossary.md#nic), switch and [NCCL](glossary.md#nccl) tuning sold as a bundle.
 
 **[Layer 07 · DPU, SuperNIC, storage and security](layers/07-dpu-supernic-storage-security/index.md) — contested,
 3.0 ↘.** Each GPU now gets its own [SuperNIC](glossary.md#supernic): 400 Gb/s on GB200, 800 on GB300, 1.6 Tb/s on
-Vera Rubin [[S266]](sources/bibliography.md#s266)[[S264]](sources/bibliography.md#s264)[[S33004]](sources/bibliography.md#s33004). BlueField-4 turns flash into a KV-cache tier for inference [[S7511]](sources/bibliography.md#s7511). Hyperscalers
+Vera Rubin [[S266]](sources/bibliography.md#s266)[[S264]](sources/bibliography.md#s264)[[S33004]](sources/bibliography.md#s33004). BlueField-4 turns flash into a KV-cache tier for inference [[S7511]](sources/bibliography.md#s7511). [Hyperscalers](glossary.md#hyperscaler)
 run their own offload (AWS Nitro, Google Titanium), and Helios gives each GPU 2.4 Tb/s of AMD Pensando NICs
 [[S292]](sources/bibliography.md#s292)[[S228]](sources/bibliography.md#s228). Storage software margin goes to partners such as VAST Data, DDN and WEKA [[S1507]](sources/bibliography.md#s1507).
 
@@ -256,12 +256,12 @@ run their own offload (AWS Nitro, Google Titanium), and Helios gives each GPU 2.
 Power per NVIDIA system rose from 3.2 kW (DGX-1) to ~132 kW (GB300 NVL72) and ~600 kW planned for Kyber, so liquid
 cooling and 800 V DC power are now part of the product [[S310]](sources/bibliography.md#s310)[[S337]](sources/bibliography.md#s337)[[S305]](sources/bibliography.md#s305)[[S90063]](sources/bibliography.md#s90063). The output metric is
 [tokens per megawatt](glossary.md#tokens-per-megawatt), where GB300 NVL72 leads [[S621]](sources/bibliography.md#s621)[[S622]](sources/bibliography.md#s622). AMD's Helios (31 TB of
-HBM4, ~1.5× Vera Rubin's) ships from around end-Q3 2026 and leads on 3 of 7 rack metrics on paper
+[HBM4](glossary.md#hbm4), ~1.5× Vera Rubin's) ships from around end-Q3 2026 and leads on 3 of 7 rack metrics on paper
 [[S90020]](sources/bibliography.md#s90020)[[S90021]](sources/bibliography.md#s90021)[[S1508]](sources/bibliography.md#s1508).
 
 **[Layer 09 · CUDA and system software](layers/09-cuda-and-system-software/index.md) — contested, 3.5 ↘.** The moat is
 the long tail: ~6M developers, flat since 2025, and native support in every major framework [[S528]](sources/bibliography.md#s528)[[S587]](sources/bibliography.md#s587). Erosion is
-real. torch.compile, Triton, vLLM and SGLang run on several vendors, AMD's lag on a new frontier model fell to 26
+real. torch.compile, [Triton](glossary.md#triton), [vLLM](glossary.md#vllm) and [SGLang](glossary.md#sglang) run on several vendors, AMD's lag on a new frontier model fell to 26
 days, and Qualcomm closed its ~$3.9B purchase of Modular (Mojo/MAX) on 2026-07-29 [[S578]](sources/bibliography.md#s578)[[S580]](sources/bibliography.md#s580)[[S631]](sources/bibliography.md#s631)[[S9511]](sources/bibliography.md#s9511). 🔴 The
 3.5 score rounds layer 09's segment average of ~3.6 [[S1509]](sources/bibliography.md#s1509).
 
@@ -270,8 +270,8 @@ of libraries" [[S10047]](sources/bibliography.md#s10047). In this repo's 15-doma
 (GEMM, attention, collectives) is the copyable part; AMD's RCCL is built from NCCL's own code [[S10002]](sources/bibliography.md#s10002). The long tail
 of data, simulation and science libraries is not. Libraries are free; their value appears in GPU pricing.
 
-**[Layer 11 · Inference and AI software](layers/11-inference-and-ai-software/index.md) — contested, 3.0 →.** Dynamo
-1.0 shipped as Apache-2.0 open source at GTC 2026 [[S90066]](sources/bibliography.md#s90066). Splitting prefill from decode lifted B200 throughput
+**[Layer 11 · Inference and AI software](layers/11-inference-and-ai-software/index.md) — contested, 3.0 →.** [Dynamo](glossary.md#dynamo)
+1.0 shipped as Apache-2.0 open source at GTC 2026 [[S90066]](sources/bibliography.md#s90066). Splitting [prefill](glossary.md#prefill) from [decode](glossary.md#decode) lifted B200 throughput
 ~2.5× per GPU on long prompts [[S621]](sources/bibliography.md#s621). Little here locks customers in. Open engines run on AMD and TPU, and Google's
 TPU served one large model ~18% cheaper per token than B200 [[S580]](sources/bibliography.md#s580)[[S625]](sources/bibliography.md#s625). Direct software revenue is ~$2B a year,
 under 1% of Data Center [[S11011]](sources/bibliography.md#s11011); pull-through is the point.
@@ -291,7 +291,7 @@ coalition, went from ~11–14% to ~19% of NVIDIA's Data Center revenue in about 
 > [!TIP]
 > **Worked example — reading a verdict: why scale-up scores 4 but trends down.** A Vera Rubin rack's NVLink fabric
 > carries 72 × 3.0 TB/s = **216 TB/s**, while its 72 ConnectX-9 NICs carry 28.8 TB/s in both directions: **7.5×**
-> more bandwidth stays inside the rack than leaves it [[S200]](sources/bibliography.md#s200)[[S33004]](sources/bibliography.md#s33004). Matching that needs a switch, a SerDes, a
+> more bandwidth stays inside the rack than leaves it [[S200]](sources/bibliography.md#s200)[[S33004]](sources/bibliography.md#s33004). Matching that needs a switch, a [SerDes](glossary.md#serdes), a
 > copper or optical spine and a collective library, all at once. That explains the 4. AMD's Helios claims 260 TB/s
 > and UALink products are expected in 2027, so the trend is down [[S226]](sources/bibliography.md#s226)[[S90051]](sources/bibliography.md#s90051). **Conclusion:** a high score with a
 > falling arrow is the most common verdict in this repo. It describes a lead that is real today but has a visible
@@ -448,7 +448,7 @@ only and is framed as questions for leadership.
 
 Public examples show each route in use: AWS put NVLink Fusion on Trainium4 [[S90034]](sources/bibliography.md#s90034), and AMD bought rack design
 with ZT Systems ($4.9B) [[S8527]](sources/bibliography.md#s8527). Qualcomm, on public information, is on several routes at once: an NVLink Fusion CPU
-partner [[S131]](sources/bibliography.md#s131), AI200 and AI250 inference racks [[S173]](sources/bibliography.md#s173), a Dragonfly AI300 with UALink and ESUN [[S90060]](sources/bibliography.md#s90060), the ~$3.9B
+partner [[S131]](sources/bibliography.md#s131), AI200 and AI250 inference racks [[S173]](sources/bibliography.md#s173), a Dragonfly AI300 with UALink and [ESUN](glossary.md#esun) [[S90060]](sources/bibliography.md#s90060), the ~$3.9B
 Modular purchase [[S9511]](sources/bibliography.md#s9511) and a custom-silicon agreement with AWS [[S90087]](sources/bibliography.md#s90087). Chapter 19 asks which positions compound.
 
 > [!TIP]
@@ -551,6 +551,7 @@ Modular purchase [[S9511]](sources/bibliography.md#s9511) and a custom-silicon a
 - [**S646**](sources/bibliography.md#s646) NVIDIA TensorRT-LLM team, *Optimizing DeepSeek R1 Throughput on NVIDIA Blackwell GPUs: A Deep Dive for Developers (TensorRT-LLM tech blog 3)*, 2025-05-30. [Link](https://github.com/NVIDIA/TensorRT-LLM/blob/main/docs/source/blogs/tech_blog/blog03_Optimizing_DeepSeek_R1_Throughput_on_NVIDIA_Blackwell_GPUs.md)
 - [**S653**](sources/bibliography.md#s653) Anthropic, *Expanding our use of Google Cloud TPUs and Services*, 2025-10-23. [Link](https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services)
 - [**S660**](sources/bibliography.md#s660) Broadcom Inc., *Broadcom Inc. Announces Fourth Quarter and Fiscal Year 2024 Financial Results*, 2024-12-12. [Link](https://investors.broadcom.com/financial-information/quarterly-results)
+- [**S661**](sources/bibliography.md#s661) Broadcom Inc., *Broadcom Inc. Announces Fourth Quarter and Fiscal Year 2025 Financial Results*, 2025-12-11. [Link](https://investors.broadcom.com/financial-information/quarterly-results)
 - [**S663**](sources/bibliography.md#s663) AMD, *AMD Reports Fourth Quarter and Full Year 2024 Financial Results*, 2025-02-04. [Link](https://ir.amd.com/news-events/press-releases)
 - [**S1500**](sources/bibliography.md#s1500) nvidia_deep_dive_claude repository, *Repo analysis: synthesis verdicts by layer (moat score, gap trend, NVIDIA value capture) and thesis metrics*, 2026-11-05. [Link](https://github.com/FrankHuang94/nvidia_deep_dive_claude/blob/main/data/x00_layer_verdicts.csv)
 - [**S1502**](sources/bibliography.md#s1502) nvidia_deep_dive_claude repository, *Repo layer page: Layer 02, GPU silicon (index Executive Take, eight-question table, competition verdicts)*, 2026-11-05. [Link](https://github.com/FrankHuang94/nvidia_deep_dive_claude/blob/main/layers/02-gpu-silicon/index.md)

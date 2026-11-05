@@ -205,8 +205,9 @@ def syn_rival_verdicts_by_layer():
     _inside_labels(ax, y, [SHORT[k] for k in rc.index], -4.6)
     ax.set_xticks(range(0, 13, 2))
     ax.grid(axis="y", visible=False)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=4, frameon=False)
-    c.save(fig, ax, xlabel=None, legend=False, top=0.86, bottom=0.2)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=4, frameon=False)
+    # QA 2026-11-05: the count axis had no label (STYLE_GUIDE §6.3)
+    c.save(fig, ax, xlabel="Number of rivals (of 12) per verdict", legend=False, top=0.86, bottom=0.22)
 
 
 @register

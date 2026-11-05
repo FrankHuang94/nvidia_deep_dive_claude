@@ -20,6 +20,7 @@ gantt
     title Accelerated-library roadmaps 2024-2028
     dateFormat YYYY-MM-DD
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA
     cuLitho in TSMC production 🟢          :done, n1, 2024-03-18, 2024-12-31
     cuOpt open source 🟢                   :done, n2, 2025-03-19, 2025-06-30
@@ -45,7 +46,7 @@ gantt
     Trainium4 NVLink Fusion software 🔴    :w1, 2027-01-01, 2027-12-31
 ```
 
-<sub>🟢 company-confirmed · 🟡 reported or timing uncertain · 🔴 repo inference. Bars are approximate windows.</sub>
+<sub>🟢 company-confirmed · 🟡 reported or timing uncertain · 🔴 repo inference. Bars are approximate windows. Sources per row in the table below; bars not in it: cuLitho in TSMC production [[S10031]](../../sources/bibliography.md#s10031), ROCm-DS GA [[S10511]](../../sources/bibliography.md#s10511).</sub>
 
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
@@ -57,7 +58,7 @@ gantt
 | Rubin Ultra library support | H2 2027 | planned; Kyber slip reported, NVIDIA denies | 🟡 | [[S507]](../../sources/bibliography.md#s507)[[S508]](../../sources/bibliography.md#s508) |
 | Feynman-era formats | 2028 | roadmap | 🔴 | [[S90004]](../../sources/bibliography.md#s90004) |
 | ROCm 10.0 Core SDK | Aug 2026 | shipped | 🟢 | [[S586]](../../sources/bibliography.md#s586) |
-| RCCL matching NCCL 2.28.3 | listed for ROCm 7.11, unreleased in changelog | pending | 🟡 | [[S10509]](../../sources/bibliography.md#s10509) |
+| RCCL matching NCCL 2.28.3 | listed for ROCm 7.11; not in the changelog as of 2026-11-05 | pending | 🟡 | [[S10509]](../../sources/bibliography.md#s10509) |
 | AMD MI500 (2027) and MI600 (2028) software | 2027 – 2028 | chips on roadmap | 🟢 chips / 🔴 software | [[S538]](../../sources/bibliography.md#s538)[[S541]](../../sources/bibliography.md#s541) |
 | AMD joins UXL; oneDNN as PyTorch x86 default | Oct 2026 | reported | 🟡 | [[S10542]](../../sources/bibliography.md#s10542) |
 | TorchTPU replaces PyTorch/XLA | Oct – Nov 2026 | done | 🟢 | [[S553]](../../sources/bibliography.md#s553)[[S595]](../../sources/bibliography.md#s595) |
@@ -86,7 +87,7 @@ CUTLASS 4.8.0 targets Rubin as SM107 and adds FP8 and FP4 matrix paths plus a ne
 ## What would change the picture
 
 - 🟡 **Ports reach near-zero lag.** If AMD co-maintains upstream code (as RCCL already does with NCCL's licence and API), collectives stop differentiating [[S10002]](../../sources/bibliography.md#s10002).
-- 🟡 **Compilers make libraries optional.** TorchTPU, Triton backends and Qualcomm's announced Modular deal (Mojo, MAX; closing H2 2026) push kernel choice into compilers [[S553]](../../sources/bibliography.md#s553)[[S578]](../../sources/bibliography.md#s578)[[S90057]](../../sources/bibliography.md#s90057).
+- 🟡 **Compilers make libraries optional.** TorchTPU, Triton backends and Qualcomm's Modular acquisition (Mojo, MAX; closed 2026-07-29 [[S9511]](../../sources/bibliography.md#s9511)) push kernel choice into compilers [[S553]](../../sources/bibliography.md#s553)[[S578]](../../sources/bibliography.md#s578)[[S90057]](../../sources/bibliography.md#s90057).
 - 🟡 **Data platforms adopt GPUs by default.** Snowflake ML already ships cuML and cuDF in its default GPU runtime; Databricks and AWS defaults would widen NVIDIA's non-AI pull-through [[S10521]](../../sources/bibliography.md#s10521)[[S10522]](../../sources/bibliography.md#s10522).
 - 🔴 **A rival enters a domain NVIDIA alone covers** (lithography, optimization, genomics) with a partner such as an EDA vendor.
 - 🟢 **NVIDIA keeps one-month day-one support** for Rubin Ultra and Feynman: the gap persists.
@@ -120,13 +121,16 @@ CUTLASS 4.8.0 targets Rubin as SM107 and adds FP8 and FP4 matrix paths plus a ne
 - [**S582**](../../sources/bibliography.md#s582) SGLang project (GitHub: sgl-project/sglang), *SGLang README — supported hardware*, 2026-11. [Link](https://github.com/sgl-project/sglang/blob/main/README.md)
 - [**S586**](../../sources/bibliography.md#s586) AMD (GitHub: ROCm/ROCm docs), *ROCm documentation sources: release history, AI-ecosystem compatibility matrix, consolidated changelog*, 2026-08-26. [Link](https://github.com/ROCm/ROCm/blob/develop/docs/release/versions.rst)
 - [**S595**](../../sources/bibliography.md#s595) PyTorch (GitHub: pytorch/xla), *PyTorch/XLA README (deprecation notice)*, 2026-11. [Link](https://github.com/pytorch/xla/blob/master/README.md)
+- [**S9511**](../../sources/bibliography.md#s9511) Nasdaq (Qualcomm press release), *Qualcomm Completes Acquisition of Modular*, 2026-07-29. [Link](https://www.nasdaq.com/press-release/qualcomm-completes-acquisition-modular-2026-07-29)
 - [**S10002**](../../sources/bibliography.md#s10002) AMD (GitHub: ROCm/rccl), *RCCL README and LICENSE (develop branch)*, 2026-11. [Link](https://github.com/ROCm/rccl/blob/develop/README.md)
 - [**S10007**](../../sources/bibliography.md#s10007) arXiv:2511.15076 (NVIDIA authors), *GPU-Initiated Networking for NCCL*, 2025-11. [Link](https://arxiv.org/abs/2511.15076)
 - [**S10009**](../../sources/bibliography.md#s10009) NVIDIA (GitHub: NVIDIA/cutlass), *CUTLASS README (4.8.1)*, 2026-10. [Link](https://github.com/NVIDIA/cutlass/blob/main/README.md)
 - [**S10010**](../../sources/bibliography.md#s10010) NVIDIA (GitHub: NVIDIA/cutlass), *CUTLASS CHANGELOG*, 2026-10-15. [Link](https://github.com/NVIDIA/cutlass/blob/main/CHANGELOG.md)
+- [**S10031**](../../sources/bibliography.md#s10031) NVIDIA Newsroom, *TSMC and Synopsys Bring Breakthrough NVIDIA Computational Lithography Platform to Production*, 2024-03-18. [Link](https://nvidianews.nvidia.com/news/tsmc-synopsys-nvidia-culitho)
 - [**S10506**](../../sources/bibliography.md#s10506) GitHub (NVIDIA), *NVIDIA/nccl tags*, 2026-09-17. [Link](https://github.com/NVIDIA/nccl/tags)
 - [**S10507**](../../sources/bibliography.md#s10507) GitHub (NVIDIA), *NVIDIA/nccl releases (release notes v2.28.3 to v2.32.3)*, 2026-09-17. [Link](https://github.com/NVIDIA/nccl/releases)
 - [**S10509**](../../sources/bibliography.md#s10509) GitHub (ROCm/rccl), *RCCL CHANGELOG*, 2026. [Link](https://github.com/ROCm/rccl/blob/develop/CHANGELOG.md)
+- [**S10511**](../../sources/bibliography.md#s10511) AMD ROCm Documentation, *ROCm-DS 25.10 release notes*, 2025-10. [Link](https://rocm.docs.amd.com/projects/rocm-ds/en/latest/about/release-notes.html)
 - [**S10519**](../../sources/bibliography.md#s10519) NVIDIA Newsroom, *NVIDIA Introduces NVQLink — Connecting Quantum and GPU Computing for 17 Quantum Builders and Nine Scientific Labs*, 2025-10-28. [Link](https://nvidianews.nvidia.com/news/nvidia-nvqlink-quantum-gpu-computing)
 - [**S10521**](../../sources/bibliography.md#s10521) Snowflake via Business Wire, *Snowflake Supercharges Machine Learning for Enterprises with Native Integration of NVIDIA CUDA-X Libraries*, 2025-11-18. [Link](https://www.businesswire.com/news/home/20251118211131/en/Snowflake-Supercharges-Machine-Learning-for-Enterprises-with-Native-Integration-of-NVIDIA-CUDA-X-Libraries)
 - [**S10522**](../../sources/bibliography.md#s10522) NVIDIA Blog, *Every Company's Data Is Their 'Gold Mine,' NVIDIA CEO Says at Databricks Data + AI Summit*, 2024-06. [Link](https://blogs.nvidia.com/?p=72122)

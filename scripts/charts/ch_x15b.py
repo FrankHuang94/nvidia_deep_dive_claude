@@ -419,11 +419,13 @@ def qualcomm_dc_revenue_targets():
             p.set_alpha(0.75)
         _bar_label(ax, r.value_usd_b, i, f"${r.value_usd_b:.0f}B · {r.period}", fontsize=8.8)
     ax.set_yticks(y)
-    ax.set_yticklabels([f"{e} (target)" if "target" in b else e for e, b in zip(d.entity, d.basis)])
+    # QA 2026-11-05: distinct labels for the two Qualcomm targets and a wider left margin (labels were clipped)
+    ax.set_yticklabels([f"{e} ({p.replace(' target', '')} target)" if "target" in b else e
+                        for e, b, p in zip(d.entity, d.basis, d.period)])
     ax.set_xlim(0, 230)
     ax.grid(axis="x", color=INK["grid"])
     ax.grid(axis="y", visible=False)
-    _widen(fig, left=0.11, right=0.97)
+    _widen(fig, left=0.19, right=0.97)
     c.save(fig, ax, xlabel="US$ B per year")
 
 

@@ -128,12 +128,12 @@ Public information only; several valuations are press-reported.
 1. **Financing the build-out.** Neocloud capex runs 3–7× revenue, so whoever prices GPU-backed credit and backstops earns a spread. NVIDIA, Google and private credit are already there [[S12500]](../../sources/bibliography.md#s12500)[[S12503]](../../sources/bibliography.md#s12503)[[S12528]](../../sources/bibliography.md#s12528)[[S12525]](../../sources/bibliography.md#s12525).
 2. **Pre-IPO neocloud equity.** Crusoe, Lambda and Nscale are heading for public markets with combined last-round values of ~$60B 🟡 [[S12522]](../../sources/bibliography.md#s12522)[[S12521]](../../sources/bibliography.md#s12521)[[S12520]](../../sources/bibliography.md#s12520).
 3. **Utilization tooling.** Schedulers are free, but recovery, multi-cloud brokerage and inference endpoints still turn idle GPU-hours into revenue ([competition](competition.md)).
-4. **Hardware-neutral capacity.** Neoclouds that run non-NVIDIA accelerators would need neutral software (Kueue, Ray, SkyPilot, or portability stacks such as the Modular platform Qualcomm agreed to buy for $3.9B 🟡) [[S12533]](../../sources/bibliography.md#s12533)[[S12535]](../../sources/bibliography.md#s12535)[[S12534]](../../sources/bibliography.md#s12534)[[S90057]](../../sources/bibliography.md#s90057).
+4. **Hardware-neutral capacity.** Neoclouds that run non-NVIDIA accelerators would need neutral software (Kueue, Ray, SkyPilot, or portability stacks such as the Modular platform Qualcomm bought for ~$3.9B, closed 2026-07-29 [[S9511]](../../sources/bibliography.md#s9511)) [[S12533]](../../sources/bibliography.md#s12533)[[S12535]](../../sources/bibliography.md#s12535)[[S12534]](../../sources/bibliography.md#s12534)[[S90057]](../../sources/bibliography.md#s90057).
 
 ## 🎯 Corp Dev Lens
 
 1. Could an accelerator vendor win neocloud capacity by offering backstops or residual-value guarantees on its GPUs, and what would that do to its balance sheet?
-2. Which neoclouds with contracted-but-unbuilt power would trial a second accelerator, and would a hardware-portable stack (such as Modular, which Qualcomm agreed to buy) be a precondition?
+2. Which neoclouds with contracted-but-unbuilt power would trial a second accelerator, and would a hardware-portable stack (such as Modular, which Qualcomm now owns) be a precondition?
 3. With Run:ai, KAI and Slurm free, which orchestration or MLOps assets still command a premium, and to whom (clouds, chip vendors, private equity)?
 4. How should the ~$189B of NVIDIA ties be stress-tested: rental-price scenarios, customer default or mark-to-market reversal?
 
@@ -160,6 +160,7 @@ Public information only; several valuations are press-reported.
 - [**S598**](../../sources/bibliography.md#s598) NVIDIA Newsroom, *NVIDIA Announces DGX Cloud Lepton to Connect Developers to NVIDIA's Global Compute Ecosystem*, 2025-05-18. [Link](https://nvidianews.nvidia.com/news/nvidia-announces-dgx-cloud-lepton-to-connect-developers-to-nvidias-global-compute-ecosystem)
 - [**S7512**](../../sources/bibliography.md#s7512) Bloomberg Law, *Nvidia-backed Vast Data triples value to $30 billion, mulls IPO*, 2026-04. [Link](https://news.bloomberglaw.com/private-equity/nvidia-backed-vast-data-triples-value-to-30-billion-mulls-ipo)
 - [**S7513**](../../sources/bibliography.md#s7513) Built In, *VAST Data raises $1B Series F at $30B valuation*, 2026-04-23. [Link](https://builtin.com/articles/vast-data-raises-1b-series-f-30b-valuation-20260423)
+- [**S9511**](../../sources/bibliography.md#s9511) Nasdaq (Qualcomm press release), *Qualcomm Completes Acquisition of Modular*, 2026-07-29. [Link](https://www.nasdaq.com/press-release/qualcomm-completes-acquisition-modular-2026-07-29)
 - [**S12000**](../../sources/bibliography.md#s12000) NVIDIA Blog, *NVIDIA Acquires Open-Source Workload Management Provider SchedMD*, 2025-12-15. [Link](https://blogs.nvidia.com/blog/nvidia-acquires-schedmd)
 - [**S12008**](../../sources/bibliography.md#s12008) NVIDIA Newsroom, *NVIDIA DGX Cloud Lepton Connects Europe's Developers to Global NVIDIA Compute Ecosystem*, 2025-06-11. [Link](https://nvidianews.nvidia.com/news/nvidia-dgx-cloud-lepton-connects-europes-developers-to-global-nvidia-compute-ecosystem)
 - [**S12013**](../../sources/bibliography.md#s12013) MarkTechPost, *Best GPU neoclouds 2026: CoreWeave, Nebius, Lambda, Crusoe and Groq ranked by published pricing and contracted power*, 2026-08-23. [Link](https://www.marktechpost.com/2026/08/23/best-gpu-neoclouds-2026/)

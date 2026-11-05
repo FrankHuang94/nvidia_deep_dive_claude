@@ -4,9 +4,9 @@
 
 ## ⚡ The Executive Take
 
-- **For LLM inference, memory binds before compute.** Since V100, dense low-precision compute rose ~280× but [HBM](../../glossary.md#hbm) bandwidth ~21× [[S33010]](../../sources/bibliography.md#s33010)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007); bandwidth caps a 70B FP8 chat stream at ~48 tokens/s on H100 and ~274 on Rubin [[S33002]](../../sources/bibliography.md#s33002)[[S32006]](../../sources/bibliography.md#s32006).
-- **HBM is the costliest part of a GPU:** ~45% of a B200's build cost (Est., Epoch AI) [[S35020]](../../sources/bibliography.md#s35020); memory rises from ~9% to ~26% of an NVL72 rack's cost from GB300 to Vera Rubin (Est.) [[S330]](../../sources/bibliography.md#s330)[[S332]](../../sources/bibliography.md#s332).
-- **HBM4 changes the product:** a 2,048-bit bus [[S369]](../../sources/bibliography.md#s369) and a logic-process base die, often made by TSMC [[S3007]](../../sources/bibliography.md#s3007)[[S3011]](../../sources/bibliography.md#s3011). 🟢 Rubin's HBM4 is listed at 19.2 TB/s, down from 22 [[S90006]](../../sources/bibliography.md#s90006)[[S33007]](../../sources/bibliography.md#s33007).
+- **For [LLM](../../glossary.md#llm) inference, memory binds before compute.** Since V100, dense low-precision compute rose ~280× but [HBM](../../glossary.md#hbm) bandwidth ~21× [[S33010]](../../sources/bibliography.md#s33010)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007); bandwidth caps a 70B [FP8](../../glossary.md#fp8) chat stream at ~48 tokens/s on H100 and ~274 on Rubin [[S33002]](../../sources/bibliography.md#s33002)[[S32006]](../../sources/bibliography.md#s32006).
+- **HBM is the costliest part of a GPU:** ~45% of a B200's build cost (Est., Epoch AI) [[S35020]](../../sources/bibliography.md#s35020); memory rises from ~9% to ~26% of an [NVL72](../../glossary.md#nvl72) rack's cost from GB300 to Vera Rubin (Est.) [[S330]](../../sources/bibliography.md#s330)[[S332]](../../sources/bibliography.md#s332).
+- **[HBM4](../../glossary.md#hbm4) changes the product:** a 2,048-bit bus [[S369]](../../sources/bibliography.md#s369) and a logic-process base die, often made by TSMC [[S3007]](../../sources/bibliography.md#s3007)[[S3011]](../../sources/bibliography.md#s3011). 🟢 Rubin's HBM4 is listed at 19.2 TB/s, down from 22 [[S90006]](../../sources/bibliography.md#s90006)[[S33007]](../../sources/bibliography.md#s33007).
 - **Packaging is the second gate.** 🟡 TSMC's [CoWoS](../../glossary.md#cowos) capacity rose from ~15k to ~115k wafers a month, end-2023 to end-2026 (Est.), and NVIDIA booked ~60% of 2026 wafers [[S379]](../../sources/bibliography.md#s379).
 - **NVIDIA turns cash into allocation.** Supply and capacity commitments reached $279B at Q2 FY2027, up from $119B a quarter earlier, mostly memory and manufacturing [[S407]](../../sources/bibliography.md#s407)[[S404]](../../sources/bibliography.md#s404).
 - **Biggest weakness:** NVIDIA buys HBM from the same three makers as rivals. AMD's MI455X carries 432 GB at 19.6 TB/s vs Rubin's 288 GB at 19.2 [[S144]](../../sources/bibliography.md#s144)[[S33007]](../../sources/bibliography.md#s33007). Fixed commitments also make NVIDIA the shock absorber, as the $4.5B H20 charge showed [[S414]](../../sources/bibliography.md#s414).
@@ -21,7 +21,7 @@
 <details>
 <summary>🔧 Under the hood: how this layer's estimates are built</summary>
 
-Decode ceilings divide HBM bandwidth by bytes per token; HBM sizing adds FP8 weights to the KV cache implied by each model's layer and head counts; packages per wafer count interposers of a given reticle multiple on a 300-mm wafer. All are repo arithmetic on cited inputs [[S3000]](../../sources/bibliography.md#s3000), with assumptions in `data/l03_memory_scenarios.csv` and `data/l03_cowos_geometry.csv`.
+[Decode](../../glossary.md#decode) ceilings divide HBM bandwidth by bytes per token; HBM sizing adds FP8 weights to the KV cache implied by each model's layer and head counts; packages per wafer count interposers of a given reticle multiple on a 300-mm wafer. All are repo arithmetic on cited inputs [[S3000]](../../sources/bibliography.md#s3000), with assumptions in `data/l03_memory_scenarios.csv` and `data/l03_cowos_geometry.csv`.
 
 </details>
 
@@ -95,10 +95,10 @@ mindmap
 
 ## 🎯 Corp Dev Lens
 
-1. **Memory is the new margin battleground.** HBM is ~45% of a B200's cost [[S35020]](../../sources/bibliography.md#s35020). Who holds pricing power in 2027 HBM4E contracts, and what does it do to NVIDIA's ~75% gross margin [[S405]](../../sources/bibliography.md#s405)?
+1. **Memory is the new margin battleground.** HBM is ~45% of a B200's cost [[S35020]](../../sources/bibliography.md#s35020). Who holds pricing power in 2027 [HBM4E](../../glossary.md#hbm4e) contracts, and what does it do to NVIDIA's ~75% gross margin [[S405]](../../sources/bibliography.md#s405)?
 2. **Allocation is an asset that never shows on the balance sheet.** Can a new entrant buy priority with prepayments, or only with years of volume?
 3. **Custom base dies open a seam.** Logic inside the HBM stack, made at TSMC [[S3007]](../../sources/bibliography.md#s3007)[[S3008]](../../sources/bibliography.md#s3008), needs interface and controller IP. Where could Qualcomm's IP fit?
-4. **Capacity-first inference is a real alternative.** AMD (432 GB) and Qualcomm AI200 (768 GB LPDDR) trade bandwidth for capacity [[S144]](../../sources/bibliography.md#s144)[[S173]](../../sources/bibliography.md#s173). Which workloads reward that?
+4. **Capacity-first inference is a real alternative.** AMD (432 GB) and Qualcomm AI200 (768 GB [LPDDR](../../glossary.md#lpddr)) trade bandwidth for capacity [[S144]](../../sources/bibliography.md#s144)[[S173]](../../sources/bibliography.md#s173). Which workloads reward that?
 
 ## 📚 Sources
 

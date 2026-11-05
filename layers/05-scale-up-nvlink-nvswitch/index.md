@@ -4,9 +4,9 @@
 
 ## ⚡ The Executive Take
 
-- **[Scale-up](../../glossary.md#scale-up) makes many GPUs act as one.** NVLink 5 gives each Blackwell GPU 900 GB/s each way, ~9× its 800G network card, with direct memory access between GPUs [[S200]](../../sources/bibliography.md#s200)[[S264]](../../sources/bibliography.md#s264).
+- **[Scale-up](../../glossary.md#scale-up) makes many GPUs act as one.** [NVLink](../../glossary.md#nvlink) 5 gives each Blackwell GPU 900 GB/s each way, ~9× its 800G network card, with direct memory access between GPUs [[S200]](../../sources/bibliography.md#s200)[[S264]](../../sources/bibliography.md#s264).
 - **The NVL72 is the signature product:** 72 GPUs, 18 NVLink switch chips and ~5,000 copper cables deliver 130 TB/s in one rack [[S262]](../../sources/bibliography.md#s262)[[S5000]](../../sources/bibliography.md#s5000); [Vera Rubin NVL72](../../glossary.md#nvl72) reaches 216 TB/s after a 2026 cut from 260 TB/s [[S200]](../../sources/bibliography.md#s200)[[S201]](../../sources/bibliography.md#s201).
-- **Why it matters now:** [mixture-of-experts](../../glossary.md#mixture-of-experts) and reasoning models make every layer an [all-to-all](../../glossary.md#all-to-all). NVIDIA claims ~10× on MoE inference versus HGX H200 [[S5002]](../../sources/bibliography.md#s5002); same-silicon data show ~3× at throughput-heavy points [[S630]](../../sources/bibliography.md#s630).
+- **Why it matters now:** [mixture-of-experts](../../glossary.md#mixture-of-experts) and reasoning models make every layer an [all-to-all](../../glossary.md#all-to-all). NVIDIA claims ~10× on MoE inference versus [HGX](../../glossary.md#hgx) H200 [[S5002]](../../sources/bibliography.md#s5002); same-silicon data show ~3× at throughput-heavy points [[S630]](../../sources/bibliography.md#s630).
 - **Copper is the quiet moat:** it avoids ~19 kW and ~$0.7M of optics per rack (Est.) [[S5000]](../../sources/bibliography.md#s5000)[[S5016]](../../sources/bibliography.md#s5016), but 200G copper reaches only ~1 m [[S5010]](../../sources/bibliography.md#s5010), so the domain ends at the rack until co-packaged optics arrive with Feynman 🟢 [[S109]](../../sources/bibliography.md#s109).
 - **Weakness and strongest challengers:** 72 GPUs trails Google's 9,216-chip TPU pod [[S232]](../../sources/bibliography.md#s232); AMD's Helios claims 260 TB/s, above Rubin's revised 216 [[S226]](../../sources/bibliography.md#s226); [UALink](../../glossary.md#ualink) and [ESUN](../../glossary.md#esun) aim to make the layer open [[S574]](../../sources/bibliography.md#s574)[[S576]](../../sources/bibliography.md#s576).
 - **[NVLink Fusion](../../glossary.md#nvlink-fusion) opens the link but not the switch:** 13 partners including Qualcomm, Fujitsu, Intel and AWS Trainium4, with NVIDIA silicon required in every system 🟡 [[S131]](../../sources/bibliography.md#s131)[[S518]](../../sources/bibliography.md#s518)[[S5018]](../../sources/bibliography.md#s5018).
@@ -14,7 +14,7 @@
 ![Log-scale bar chart of aggregate NVLink bandwidth per scale-up domain: DGX-1 P100 1.28 TB/s (8 GPUs), DGX-1 V100 2.4, DGX-2 4.8 (16), HGX A100 4.8, HGX H100 7.2, HGX B200 14.4, GB200 and GB300 NVL72 about 130 TB/s (72 GPUs), Vera Rubin NVL72 216 TB/s on the revised production spec (launch spec 259), and Kyber NVL144 about 518 TB/s on the 2027 roadmap (144 GPUs). DGX GH200 reached 230 TB/s across 256 GPUs but saw limited deployment.](../../assets/charts/05-nvlink-domain-bandwidth-by-system.svg)
 
 > [!TIP]
-> **Worked example — what 216 TB/s per rack means.** 72 GPUs × 3.0 TB/s = **216 TB/s** [[S200]](../../sources/bibliography.md#s200). A Vera Rubin rack's 72 ConnectX-9 NICs add 72 × 200 GB/s = 14.4 TB/s each way, or 28.8 TB/s both ways [[S33004]](../../sources/bibliography.md#s33004): the NVLink fabric carries **7.5×** the rack's entire scale-out capacity. **Conclusion:** most bytes an AI rack moves never leave it, which is why NVIDIA treats the rack, not the GPU, as the unit it sells.
+> **Worked example — what 216 TB/s per rack means.** 72 GPUs × 3.0 TB/s = **216 TB/s** [[S200]](../../sources/bibliography.md#s200). A Vera Rubin rack's 72 ConnectX-9 NICs add 72 × 200 GB/s = 14.4 TB/s each way, or 28.8 TB/s both ways [[S33004]](../../sources/bibliography.md#s33004): the NVLink fabric carries **7.5×** the rack's entire [scale-out](../../glossary.md#scale-out) capacity. **Conclusion:** most bytes an AI rack moves never leave it, which is why NVIDIA treats the rack, not the GPU, as the unit it sells.
 
 ## Where this layer sits in the stack
 
@@ -98,7 +98,7 @@ mindmap
 <details>
 <summary>🔧 Under the hood: reading NVLink numbers</summary>
 
-NVIDIA quotes NVLink both ways combined (1.8 TB/s = 900 GB/s each way) while NIC speeds are per direction (800 Gb/s = 100 GB/s) [[S200]](../../sources/bibliography.md#s200)[[S264]](../../sources/bibliography.md#s264); rack figures are GPUs × per-GPU bandwidth [[S262]](../../sources/bibliography.md#s262).
+NVIDIA quotes NVLink both ways combined (1.8 TB/s = 900 GB/s each way) while [NIC](../../glossary.md#nic) speeds are per direction (800 Gb/s = 100 GB/s) [[S200]](../../sources/bibliography.md#s200)[[S264]](../../sources/bibliography.md#s264); rack figures are GPUs × per-GPU bandwidth [[S262]](../../sources/bibliography.md#s262).
 
 </details>
 

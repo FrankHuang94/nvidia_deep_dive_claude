@@ -14,4 +14,5 @@ announce_date,acquirer,target,deal_type,what_was_bought,value_usd_m,value_basis,
 2025-06,NVIDIA,CentML,acquisition,ML compiler and inference optimisation,400,reported,closed,reported,S478;S479,[recall] up to ~US$400M incl. earn-outs reported
 2025-06-04,AMD,Brium,acquisition,AI compiler and inference optimisation team,,undisclosed,closed,confirmed,S10532,Terms undisclosed
 2025-12-01,NVIDIA,Synopsys (stake),equity-investment,GPU-accelerated EDA and simulation (CUDA-X) partnership,2000,disclosed,closed,confirmed,S471,Equity stake at $414.79/share; not an acquisition
-2026-06-24,Qualcomm,Modular,acquisition,Hardware-portable AI software stack (Mojo language; MAX engine),3900,announced,announced,reported,S90057,Expected to close H2 2026
+2026-06-24,Qualcomm,Modular,acquisition,Hardware-portable AI software stack (Mojo language; MAX engine),3900,announced,closed,reported,S90057;S9511,Announced price; closed 2026-07-29 (S9511)
+2026-09-03,NVIDIA,Hugging Face,acquisition,"Open-model hub and AI software platform (transformers, TGI)",12930,announced,pending,confirmed,S11500;S11025;S90084,"Announced ~$12.9B (~$11.9B to investors + up to $1B stock incentives); close targeted H1 2027; EU review and DOJ interest reported (S11027;S11028). Added in QA 2026-11-05"

@@ -587,7 +587,8 @@ def _single_radar(comp: str, chart_id: str, color: str, story: str):
     n = len(names)
     ang = np.linspace(0, 2 * np.pi, n, endpoint=False).tolist()
     angc = ang + ang[:1]
-    fig, ax = c.figure(width=8.6, height=7.2, subplot_kw=dict(projection="polar"))
+    # QA 2026-11-05: 10.6 in wide (was 8.6) so the longest takeaway title (AMD) is not clipped at the right edge
+    fig, ax = c.figure(width=10.6, height=7.2, subplot_kw=dict(projection="polar"))
     ax.plot(angc, list(nv) + [nv[0]], color=NV, lw=1.8, ls="--", label="NVIDIA")
     ax.fill(angc, list(vals) + [vals[0]], color=color, alpha=0.28)
     ax.plot(angc, list(vals) + [vals[0]], color=color, lw=2.2, label=comp)

@@ -166,7 +166,9 @@ def transistor_count_by_generation():
     ax.set_xticks(x, [f"{lab}\n{int(n)} die" + ("s" if n > 1 else "")
                       for lab, n in zip(xlabels(d), d.dies_per_package)])
     ax.set_ylim(0, d.transistors_b.max() * 1.15)
-    c.save(fig, ax, xlabel="GPU generation (year introduced)", ylabel="Transistors per package (billions)")
+    # three-line tick labels: extra bottom margin so the x-label clears the source footer (QA 2026-11-05)
+    c.save(fig, ax, xlabel="GPU generation (year introduced)", ylabel="Transistors per package (billions)",
+           bottom=0.18)
 
 
 @register

@@ -10,13 +10,13 @@
 
 ## ⚡ The Executive Take
 
-- **Every request has two phases with opposite bottlenecks.** [Prefill](../glossary.md#prefill) reads the whole prompt at once and is *compute-bound*; [decode](../glossary.md#decode) generates one token at a time and is *memory-bandwidth-bound*, because every new token re-reads the model's weights from HBM [[S32027]](../sources/bibliography.md#s32027)[[S33013]](../sources/bibliography.md#s33013).
-- **Decode speed per user ≈ memory bandwidth ÷ bytes read per token.** One stream of Llama 3.1 70B at FP8 (70 GB of weights) can never exceed ~48 tokens/s on an H100 (3.35 TB/s) [[S33002]](../sources/bibliography.md#s33002); on Rubin (19.2 TB/s per the current spec, cut from 22 TB/s at launch) [[S33005]](../sources/bibliography.md#s33005)[[S33007]](../sources/bibliography.md#s33007) the ceiling is ~274 tokens/s.
+- **Every request has two phases with opposite bottlenecks.** [Prefill](../glossary.md#prefill) reads the whole prompt at once and is *compute-bound*; [decode](../glossary.md#decode) generates one token at a time and is *memory-bandwidth-bound*, because every new token re-reads the model's weights from [HBM](../glossary.md#hbm) [[S32027]](../sources/bibliography.md#s32027)[[S33013]](../sources/bibliography.md#s33013).
+- **Decode speed per user ≈ memory bandwidth ÷ bytes read per token.** One stream of Llama 3.1 70B at [FP8](../glossary.md#fp8) (70 GB of weights) can never exceed ~48 tokens/s on an H100 (3.35 TB/s) [[S33002]](../sources/bibliography.md#s33002); on Rubin (19.2 TB/s per the current spec, cut from 22 TB/s at launch) [[S33005]](../sources/bibliography.md#s33005)[[S33007]](../sources/bibliography.md#s33007) the ceiling is ~274 tokens/s.
 - **The [KV cache](../glossary.md#kv-cache) is inference's memory tax.** Each token in a conversation leaves keys and values in HBM: ~43 GB for one 128k-token Llama 3.1 70B conversation even with [grouped-query attention](../glossary.md#grouped-query-attention) [[S32006]](../sources/bibliography.md#s32006)[[S32010]](../sources/bibliography.md#s32010). Memory *capacity*, not FLOPs, decides how many users a GPU can hold.
 - **[Batching](../glossary.md#batching) converts idle FLOPs into throughput, at the expense of speed per user.** Continuous batching and paged KV memory raised serving throughput 2–4× at equal latency [[S32011]](../sources/bibliography.md#s32011)[[S32012]](../sources/bibliography.md#s32012). The result is a [Pareto frontier](../glossary.md#pareto-frontier) of tokens/s per GPU versus tokens/s per user; in this repo's model a B200 node serves ~4× and Rubin ~10× an H100 node's tokens per GPU at 100 tokens/s per user (Est.).
 - **The efficiency levers stack:** [quantization](../glossary.md#quantization) to FP8/[NVFP4](../glossary.md#nvfp4) [[S32017]](../sources/bibliography.md#s32017), [speculative decoding](../glossary.md#speculative-decoding) (2–3× in the original paper) [[S32013]](../sources/bibliography.md#s32013), [mixture-of-experts](../glossary.md#mixture-of-experts) (DeepSeek-V3 activates 37B of 671B parameters) [[S34007]](../sources/bibliography.md#s34007) and [disaggregated serving](../glossary.md#disaggregated-serving) of prefill and decode [[S32014]](../sources/bibliography.md#s32014)[[S32015]](../sources/bibliography.md#s32015).
 - **Demand is compounding.** Google's monthly tokens rose from 9.7 trillion (Apr 2024) to over 1.3 quadrillion (Oct 2025) [[S32018]](../sources/bibliography.md#s32018)[[S32020]](../sources/bibliography.md#s32020); Microsoft processed 100T+ tokens in Jan–Mar 2025, 5× a year earlier [[S32021]](../sources/bibliography.md#s32021). [Reasoning models](../glossary.md#reasoning-model) and [agents](../glossary.md#agentic-ai) multiply tokens per task by one to three orders of magnitude (Est.) [[S32025]](../sources/bibliography.md#s32025).
-- **Why it matters for NVIDIA:** inference is a cost-per-token contest, more divisible and more contestable than training. Specialized silicon (TPU, Trainium, Cerebras, SRAM-heavy designs) competes here first. NVIDIA's answer is rack-scale NVLink domains, FP4 and serving software (Dynamo), plus a reported ~$20B license-and-acquihire of Groq's LPU technology (Dec 2025) that now ships as a decode co-processor in the Vera Rubin platform [[S113]](../sources/bibliography.md#s113).
+- **Why it matters for NVIDIA:** inference is a cost-per-token contest, more divisible and more contestable than training. Specialized silicon (TPU, Trainium, Cerebras, SRAM-heavy designs) competes here first. NVIDIA's answer is rack-scale [NVLink](../glossary.md#nvlink) domains, [FP4](../glossary.md#fp4) and serving software ([Dynamo](../glossary.md#dynamo)), plus a reported ~$20B license-and-acquihire of Groq's LPU technology (Dec 2025) that now ships as a decode co-processor in the Vera Rubin platform [[S113]](../sources/bibliography.md#s113).
 
 ![Modeled Pareto curves of throughput per GPU versus speed per user for Llama 3.1 70B on 8-GPU nodes: bigger batches raise tokens per GPU but slow each user. At 100 tokens/s per user the model gives about 1,273 tokens/s per GPU for H100 at FP8, 2,293 for H200, 4,953 for B200 at FP8, 5,333 for B200 at FP4 and 13,297 for Rubin at FP8; at 50 tokens/s per user the B200 lead over H100 shrinks to about 2.8 times. Estimates from a simple roofline model, not benchmarks.](../assets/charts/P2-throughput-interactivity-frontier-modeled.svg)
 
@@ -68,7 +68,7 @@ of an FP8 model does ~2 FLOPs per byte (one multiply-add per one-byte weight). A
 3.35 TB/s, a "ridge point" of ~590 FLOPs per byte [[S33002]](../sources/bibliography.md#s33002); B200 is ~560 [[S33003]](../sources/bibliography.md#s33003) and Rubin ~910 [[S33005]](../sources/bibliography.md#s33005). Below the
 ridge a chip is waiting on memory. Batching lifts intensity because one weight read serves every sequence in the batch:
 at batch 256 intensity is ~512 FLOPs per byte, close to the ridge, ignoring KV-cache reads. The chart below shows the same
-picture in BF16, where both sides halve: ~1 FLOP per byte for batch-1 decode against an H100 ridge of ~295. The roofline picture is
+picture in [BF16](../glossary.md#bf16), where both sides halve: ~1 FLOP per byte for batch-1 decode against an H100 ridge of ~295. The roofline picture is
 developed in [P3 · The four bottlenecks](P3-the-four-bottlenecks.md) [[S33013]](../sources/bibliography.md#s33013).
 
 
@@ -117,7 +117,7 @@ CPUs, NICs, storage) part of inference performance, which is the hook for Layers
 many users in the same step amortizes each weight read across all of them. Early servers used *static* batching: wait
 for N requests, run them together, and let short answers sit idle until the longest one finishes. [**Continuous
 batching**](../glossary.md#continuous-batching) (iteration-level scheduling, introduced by Orca [[S32012]](../sources/bibliography.md#s32012)) lets requests join and leave the batch at every
-step. vLLM's PagedAttention added efficient KV memory management and reported **2–4× higher throughput** than
+step. [vLLM](../glossary.md#vllm)'s PagedAttention added efficient KV memory management and reported **2–4× higher throughput** than
 FasterTransformer and Orca at the same latency [[S32011]](../sources/bibliography.md#s32011).
 
 > [!TIP]
@@ -149,13 +149,13 @@ FasterTransformer and Orca at the same latency [[S32011]](../sources/bibliograph
 **The frontier.** Plot each batch size as a point: x = tokens/s per user, y = tokens/s per GPU. The curve slopes down:
 bigger batches give more total tokens but slower individual users. Hardware and software generations are judged by how
 far they push the *whole* curve up and to the right, not by one peak number. The chart at the top of this page is a
-first-principles model of that frontier (an estimate; it ignores attention compute, MoE, speculative decoding, NVL72
-scale-up and Dynamo).
+first-principles model of that frontier (an estimate; it ignores attention compute, MoE, speculative decoding, [NVL72](../glossary.md#nvl72)
+[scale-up](../glossary.md#scale-up) and Dynamo).
 
 > [!TIP]
 > **Worked example — reading the frontier as a P&L.** In the model, at 100 tokens/s per user an H100 node yields ~1,270
 > tokens/s per GPU, a B200 node ~4,950 and a Rubin node ~13,300 (Est.) [[S32025]](../sources/bibliography.md#s32025). At 50 tokens/s per user the B200 lead
-> shrinks to ~2.8×. Revenue per GPU-hour = tokens/s per GPU × 3,600 × price per token: at an illustrative $1 per million
+> shrinks to ~2.8×. Revenue per [GPU-hour](../glossary.md#gpu-hour) = tokens/s per GPU × 3,600 × price per token: at an illustrative $1 per million
 > output tokens, ~$4.60 per H100-hour vs ~$17.80 per B200-hour. The faster the product promises to be, the larger the
 > newer generation's advantage, which is why NVIDIA markets interactivity-weighted comparisons.
 
@@ -234,7 +234,7 @@ token [[S34007]](../sources/bibliography.md#s34007). For inference this splits t
 > FP8), so a stream decodes almost as fast as a 37B dense model. At large batch, different tokens hit different experts
 > and nearly all 671 GB are read every step, so aggregate bandwidth across many GPUs, and the all-to-all fabric between
 > them, set throughput. A 72-GPU NVLink domain keeps that all-to-all on the fastest links; an 8-GPU server pushes it onto
-> the slower scale-out network. This is the mechanism behind NVIDIA's claim of up to 30× more DeepSeek-R1 requests on
+> the slower [scale-out](../glossary.md#scale-out) network. This is the mechanism behind NVIDIA's claim of up to 30× more DeepSeek-R1 requests on
 > GB200 NVL72 with Dynamo (🟡 vendor claim) [[S32015]](../sources/bibliography.md#s32015); see [Layer 05](../layers/05-scale-up-nvlink-nvswitch/index.md).
 
 ## 8. Disaggregated prefill and decode
@@ -247,9 +247,9 @@ per phase, and its plans have moved fast:
 
 - **Prefill:** Rubin CPX, a GPU with 128 GB of GDDR7 instead of HBM for the compute-bound context phase, was announced in
   September 2025 for end-2026 [[S33023]](../sources/bibliography.md#s33023), then dropped from the GTC 2026 roadmap [[S115]](../sources/bibliography.md#s115); NVIDIA said it was pushed
-  out to focus on decode [[S116]](../sources/bibliography.md#s116). A reported HBM4 redesign targets 1Q27 (🟡 analyst claim, not confirmed by NVIDIA) [[S117]](../sources/bibliography.md#s117).
+  out to focus on decode [[S116]](../sources/bibliography.md#s116). A reported [HBM4](../glossary.md#hbm4) redesign targets 1Q27 (🟡 analyst claim, not confirmed by NVIDIA) [[S117]](../sources/bibliography.md#s117).
 - **Decode:** after its ~$20B Groq license and acquihire, NVIDIA added the Groq 3 LPU (LP30) to the Vera Rubin platform:
-  ~500 MB of on-chip SRAM at ~150 TB/s per chip, 256 chips per LPX rack, shipping from Q3 2026 per NVIDIA (🟡 reported)
+  ~500 MB of on-chip [SRAM](../glossary.md#sram) at ~150 TB/s per chip, 256 chips per LPX rack, shipping from Q3 2026 per NVIDIA (🟡 reported)
   [[S113]](../sources/bibliography.md#s113)[[S114]](../sources/bibliography.md#s114).
 
 ```mermaid
@@ -316,11 +316,11 @@ context, decide again, so one task can involve dozens of model calls.
 > [!NOTE]
 > **🐂 Bull view.** Token demand grew ~134× in 18 months at Google alone [[S32018]](../sources/bibliography.md#s32018)[[S32020]](../sources/bibliography.md#s32020), reasoning and agents multiply
 > tokens per task, and every point of interactivity customers pay for favors the newest, highest-bandwidth NVIDIA racks.
-> Inference becomes the larger, recurring market, and NVIDIA's software (Dynamo, TensorRT-LLM) compounds the hardware lead.
+> Inference becomes the larger, recurring market, and NVIDIA's software (Dynamo, [TensorRT-LLM](../glossary.md#tensorrt-llm)) compounds the hardware lead.
 
 > [!WARNING]
 > **🐻 Bear view.** Inference splits into many small, independent jobs that do not need NVIDIA's synchronized fabrics,
-> and cost per token is easy to benchmark, so buyers can multi-source. Hyperscalers already run large volumes on their
+> and cost per token is easy to benchmark, so buyers can multi-source. [Hyperscalers](../glossary.md#hyperscaler) already run large volumes on their
 > own silicon (🟡 Google serves its own models largely on TPUs), and efficiency gains (MoE, MLA, FP4, distillation) cut the hardware needed
 > per token, possibly faster than demand grows.
 
@@ -339,7 +339,7 @@ context, decide again, so one task can involve dozens of model calls.
 - **[Layer 08 · Systems and AI factories](../layers/08-systems-racks-ai-factories/index.md):** rack-scale systems, LPX
   decode racks and the shifting prefill-hardware plans.
 - **[Layer 11 · Inference and AI software](../layers/11-inference-and-ai-software/index.md):** TensorRT-LLM, Dynamo, NIM
-  and the open-source alternatives (vLLM, SGLang).
+  and the open-source alternatives (vLLM, [SGLang](../glossary.md#sglang)).
 - **[Layer 12 · Orchestration and cloud](../layers/12-orchestration-and-cloud-services/index.md):** autoscaling and routing
   across fleets.
 - Economics: [Chapter 14 · Training vs. inference economics](../cross-cutting/14-training-vs-inference-economics.md);
@@ -370,7 +370,7 @@ context, decide again, so one task can involve dozens of model calls.
    software companies could matter to an inference-focused datacenter roadmap?
 3. **Disaggregation opens the door to heterogeneous fleets.** Once prefill and decode run on different pools, a
    non-NVIDIA accelerator can win one phase without winning both. NVIDIA clearly sees the same split: it announced a
-   prefill GPU (Rubin CPX) [[S33023]](../sources/bibliography.md#s33023) and then spent a reported ~$20B to bring Groq's SRAM-based decode architecture
+   prefill GPU (Rubin CPX) [[S33023]](../sources/bibliography.md#s33023), pulled from the GTC 2026 roadmap [[S115]](../sources/bibliography.md#s115), and then spent a reported ~$20B to bring Groq's SRAM-based decode architecture
    in-house [[S113]](../sources/bibliography.md#s113). Is the decode pool, the context pool, or the router/scheduler software the most realistic entry
    point for a challenger, and how many decode-specialist startups remain independent?
 4. **Efficiency techniques are commoditizing fast.** Continuous batching, paged KV, speculative decoding and FP8 are open

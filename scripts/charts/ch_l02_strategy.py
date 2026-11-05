@@ -81,7 +81,7 @@ def fp8_per_watt_vs_memory():
                 xytext=(-8, 0), textcoords="offset points", va="center", ha="right", fontsize=8.5, color=INK["text"])
     offsets = {"H100": (-8, -14), "H200": (8, -12), "B200": (-10, 8), "B300": (8, 6), "GB300": (10, -12),
                "Rubin": (12, -4), "MI300X": (-6, 12), "MI325X": (8, -10), "MI350X": (8, 8), "MI355X": (10, 9),
-               "Gaudi 2": (8, -8), "Gaudi 3": (8, 6), "Maia 200": (10, 6), "Blackhole": (8, 6)}
+               "Gaudi 2": (8, -8), "Gaudi 3": (8, -9), "Maia 200": (10, 6), "Blackhole": (8, 6)}
     order = sorted(d.itertuples(), key=lambda r: (r.entity == "NVIDIA", r.label == "Rubin"))
     for r in order:
         col = NV if r.entity == "NVIDIA" else entity_color(r.entity)
@@ -244,7 +244,8 @@ ROADMAP_POINTS = [
     ("Huawei", "k", "Ascend 970", 2028, "970", "announced"),
 ]
 LABEL_OFF = {"Trn2": (0, -11), "Gaudi 3": (0, -11), "Ascend 950": (0, -11), "960": (0, -11),
-             "Ironwood": (-8, -4), "MI355X": (8, -9), "GB300": (0, 10), "Rubin": (9, -6), "MI455X": (-9, 4),
+             "Ironwood": (0, -13), "MI355X": (8, -9),  # QA 2026-11-05: Ironwood moved below its point (was under lines)
+             "GB300": (0, 10), "Rubin": (9, -6), "MI455X": (-9, 4),
              "MI300X": (0, 10), "H100": (0, 10), "B200": (0, 10)}
 TRN4_FP8_MULT = 3.0  # AWS claim: Trainium4 3x Trainium3 FP8 (S90034, S557); repo applies it to the Trn3 figure
 

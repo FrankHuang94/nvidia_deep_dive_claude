@@ -508,7 +508,7 @@ def x14_cost_vs_interactivity():
         a.axvline(100, color=INK["muted"], lw=0.8, ls=":")
         a.set_title(ttl, fontsize=9.6, loc="left", color=INK["title"])
         a.set_xlabel("Tokens/s per user (interactivity)")
-    a1.legend(loc="upper left", fontsize=8.4, frameon=False)
+    a1.legend(loc="lower right", fontsize=8.4, frameon=False)  # QA 2026-11-05: was over the H200 curve
     a2.legend(loc="upper left", fontsize=8.4, frameon=False)
     _margins(fig, left=0.08, right=0.98, wspace=0.08)
     c.save(fig, [a1, a2], ylabel="US$ per million tokens (Est., log scale)", logy=True, legend=False)

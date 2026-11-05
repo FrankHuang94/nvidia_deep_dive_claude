@@ -35,7 +35,8 @@ def preannouncement_horizon():
     amd = df[df.vendor == "AMD"]
     c = Chart(
         id="17-preannouncement-horizon",
-        title=(f"NVIDIA dates GPUs {nv.months.min():.0f}–{nv.months.max():.0f} months before they ship; "
+        # QA 2026-11-05: scoped to Rubin–Feynman (the plotted Blackwell Ultra bar is 14 months, outside "26–40")
+        title=(f"NVIDIA dates Rubin–Feynman GPUs {nv.months.min():.0f}–{nv.months.max():.0f} months ahead; "
                f"Google dates TPUs ~{goog.months.mean():.0f} months ahead"),
         subtitle="Months from the first public, dated roadmap mention to (planned) volume availability, flagship accelerators announced 2024–2026",
         alt=(f"Horizontal bar chart of how far ahead vendors publicly date their accelerators. NVIDIA named Rubin and Rubin "

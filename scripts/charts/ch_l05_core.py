@@ -515,7 +515,7 @@ def l05_deepep_nvlink_vs_rdma():
     ax2.set_xticks(list(lp.ep), [str(e) for e in lp.ep])
     ax2.minorticks_off()
     ax2.set_ylim(0, 420)
-    ax2.set_xlabel("Expert-parallel width (GPUs)")
+    ax2.set_xlabel("Expert-parallel width (GPUs, log2 scale)")  # QA 2026-11-05: log axis must say so
     ax2.set_ylabel("Microseconds per operation")
     ax2.legend(loc="lower right", fontsize=8.6)
     ax2.set_title("Low-latency kernels (128 tokens)", fontsize=10.5, color=INK["title"], loc="left")
@@ -649,7 +649,8 @@ def l05_torus_vs_switched():
     ax.set_yscale("log")
     ax.set_xlim(7, 12000)
     ax.set_ylim(20, 3000)
-    ax.legend(loc="center left", fontsize=8.4)
+    # QA 2026-11-05: legend moved off the HGX curve into the empty upper-right region
+    ax.legend(loc="upper right", bbox_to_anchor=(0.88, 0.93), fontsize=8.4)
     ax.text(11500, 23, "Torus: 8b/k per chip (b = link GB/s each way, k = chips^(1/3)); ignores OCS twisting\n"
             "and expert placement. Switched: non-blocking NIC fat tree beyond the NVLink domain.", ha="right",
             fontsize=7.8, color=INK["muted"])

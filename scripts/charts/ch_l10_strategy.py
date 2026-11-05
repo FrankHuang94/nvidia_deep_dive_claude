@@ -342,7 +342,11 @@ def software_deal_values():
     d["label"] = d.apply(lambda r: f"{r.target} ← {r.acquirer} ({r.year})", axis=1)
     d = d.sort_values(["value_usd_m", "announce_date"], na_position="first").reset_index(drop=True)
     q = d[d.acquirer.eq("Qualcomm")].value_usd_m.max()
-    others = d[d.deal_type.eq("acquisition") & ~d.acquirer.eq("Qualcomm")]
+    q_date = str(d[d.acquirer.eq("Qualcomm")].announce_date.max())
+    # "largest earlier one" = largest acquisition announced before Qualcomm-Modular (QA 2026-11-05)
+    others = d[d.deal_type.eq("acquisition") & ~d.acquirer.eq("Qualcomm") & (d.announce_date.astype(str) < q_date)]
+    later = d[d.deal_type.eq("acquisition") & (d.announce_date.astype(str) > q_date) & (d.value_usd_m > q)]
+    hf = later.loc[later.value_usd_m.idxmax()] if len(later) else None
     top = others.loc[others.value_usd_m.idxmax()]
     ratio = q / top.value_usd_m
     silo = d[d.target.eq("Silo AI")].value_usd_m.item()
@@ -351,10 +355,15 @@ def software_deal_values():
     c = Chart(
         id="10-software-deal-values",
         title=(f"{n_priced} of {n_recent} sampled software buys since 2022 have prices; Qualcomm's "
-               f"${q / 1000:.1f}B tops them"),
+               f"${q / 1000:.1f}B tops them" if hf is None else
+               f"Chip vendors' software buys: NVIDIA's pending ${hf.value_usd_m / 1000:.1f}B {hf.target} deal "
+               f"tops Qualcomm's ${q / 1000:.1f}B Modular (itself ~{q / top.value_usd_m:.0f}x any earlier deal)"),
         subtitle="Disclosed or reported value, US$ millions (log scale): a sample of library, AI-software and tools deals by chip vendors",
         alt=(f"Log-scale horizontal bar chart of a sample of library, AI-software and tools deals by chip vendors: {n_recent} "
-             f"acquisitions since 2022, {n_priced} with public prices. Qualcomm's announced ${q:,.0f}M Modular acquisition (2026) is "
+             f"acquisitions since 2022, {n_priced} with public prices. "
+             + ("" if hf is None else f"NVIDIA's pending ${hf.value_usd_m:,.0f}M {hf.target} acquisition (announced Sep 2026, "
+                "close targeted H1 2027) is the largest. ")
+             + f"Qualcomm's announced ${q:,.0f}M Modular acquisition (2026) is "
              f"~{ratio:.1f}x the largest earlier one, NVIDIA's ${top.value_usd_m:,.0f}M Run:ai (2024, reported); then $400M CentML, $300M Deci, "
              f"$250M OctoAI and $88M mental images; AMD's ${silo:,.0f}M Silo AI (2024); NVIDIA's $2,000M Synopsys equity "
              "stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, "
@@ -378,8 +387,8 @@ def software_deal_values():
         txt = f"${r.value_usd_m / 1000:.1f}B" if r.value_usd_m >= 1000 else f"~${r.value_usd_m:,.0f}M"
         if equity:
             txt += " (equity stake)"
-        elif r.status == "announced":
-            txt += " (announced)"
+        elif r.status in ("announced", "pending"):
+            txt += f" ({r.status})"
         ax.text(r.value_usd_m * 1.12, yi, txt, va="center", fontsize=8.8, color=INK["title"])
     ax.set_axisbelow(True)
     ax.set_yticks(y, d.label, fontsize=8.6)

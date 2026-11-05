@@ -7,8 +7,8 @@
 - **This layer turns NVIDIA's technology into orders:** developers on [CUDA](../../glossary.md#cuda) (~6M, flat since GTC 2025 [[S536]](../../sources/bibliography.md#s536)[[S528]](../../sources/bibliography.md#s528)), start-ups, governments, enterprises and the capital that funds buyers.
 - **The developer funnel keeps widening at the top:** GTC grew from ~1,500 attendees in 2009 to >30,000 expected in 2026 from >190 countries [[S13024]](../../sources/bibliography.md#s13024)[[S13533]](../../sources/bibliography.md#s13533); [NVIDIA Inception](../../glossary.md#nvidia-inception) reached ~10,000 start-ups by 2022 [[S531]](../../sources/bibliography.md#s531) and, per secondary sources, >22,000 by 2025 [[S13536]](../../sources/bibliography.md#s13536).
 - **[Sovereign AI](../../glossary.md#sovereign-ai) is now a demand pillar:** > ~$30B of FY2026 revenue (+80%) [[S90071]](../../sources/bibliography.md#s90071), ~14% of $215.9B [[S1]](../../sources/bibliography.md#s1). Announced country deals name ~1.03M NVIDIA GPUs, led by HUMAIN (up to 600,000) and South Korea (260,000) [[S13003]](../../sources/bibliography.md#s13003)[[S13000]](../../sources/bibliography.md#s13000).
-- **Half of Data Center demand arrives without a hyperscaler:** AI clouds, industrial and enterprise buyers were ~$40.3B, 45% of Q2 FY2027 Data Center revenue [[S406]](../../sources/bibliography.md#s406), reached through OEMs, integrators and [neoclouds](../../glossary.md#neocloud), not a large direct salesforce.
-- **NVIDIA has become a capital allocator:** private stakes rose from $3.4B (Jan 2025) to $51.2B (Jul 2026) and all stakes to ~$99B [[S13043]](../../sources/bibliography.md#s13043)[[S90072]](../../sources/bibliography.md#s90072)[[S90073]](../../sources/bibliography.md#s90073), led by ~$30B in OpenAI [[S90015]](../../sources/bibliography.md#s90015) and up to $10B in Anthropic [[S90075]](../../sources/bibliography.md#s90075).
+- **Half of Data Center demand arrives without a [hyperscaler](../../glossary.md#hyperscaler):** AI clouds, industrial and enterprise buyers were ~$40.3B, 45% of Q2 FY2027 Data Center revenue [[S406]](../../sources/bibliography.md#s406), reached through OEMs, integrators and [neoclouds](../../glossary.md#neocloud), not a large direct salesforce.
+- **NVIDIA has become a capital allocator:** private stakes rose from $3.4B (Jan 2025) to $51.2B (Jul 2026) and all stakes to ~$99B [[S13043]](../../sources/bibliography.md#s13043)[[S90072]](../../sources/bibliography.md#s90072)[[S90073]](../../sources/bibliography.md#s90073), led by ~$30B in OpenAI (🟡 reported) [[S90015]](../../sources/bibliography.md#s90015) and up to $10B in Anthropic [[S90075]](../../sources/bibliography.md#s90075).
 - **Weakness and bear case:** the loop is circular and concentrated. One direct customer was 16% of Q2 FY2027 revenue [[S90069]](../../sources/bibliography.md#s90069); H1 FY2027 net equity gains of $23.7B flatter earnings [[S90072]](../../sources/bibliography.md#s90072); sovereign GPU plans far exceed firm orders [[S13514]](../../sources/bibliography.md#s13514)[[S13516]](../../sources/bibliography.md#s13516).
 - **Strongest challenger here:** rivals compete with capital and ecosystems too. AMD gave OpenAI a warrant for up to 160M shares tied to 6 GW [[S13506]](../../sources/bibliography.md#s13506); Google is supplying Anthropic with up to 1M TPUs [[S90026]](../../sources/bibliography.md#s90026); HUMAIN also signed AMD (500 MW) and Qualcomm (200 MW) [[S13517]](../../sources/bibliography.md#s13517)[[S90030]](../../sources/bibliography.md#s90030).
 
@@ -80,7 +80,7 @@ mindmap
       Lab stakes: OpenAI, Anthropic, xAI
       Neocloud stakes and backstops
       Supplier stakes: Intel, Marvell, optics
-      M&A and licences: Mellanox, Groq
+      M&A and licences: Mellanox, Groq, Hugging Face pending
 ```
 
 ## The eight questions at a glance

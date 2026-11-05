@@ -6,7 +6,7 @@ RDMA (remote direct memory access),rdma,"A way for one computer to read or write
 RoCE (RDMA over Converged Ethernet),roce,The standard for running RDMA over Ethernet instead of InfiniBand; it traditionally needs a loss-free network to perform well.,rdma;ultra-ethernet
 DOCA,doca,"NVIDIA's software development kit and runtime for BlueField DPUs and SuperNICs, the DPU counterpart of CUDA.",dpu
 Ultra Ethernet (UEC),ultra-ethernet,"An open Ethernet transport for AI and HPC defined by the Ultra Ethernet Consortium (spec 1.0, June 2025), with multipath packet spraying, packet trimming and new congestion control.",roce;packet-spraying
-EFA (Elastic Fabric Adapter),efa,"AWS's network interface for HPC and AI instances, built on Nitro cards and the SRD transport rather than InfiniBand or standard RoCE.",srd;aws-nitro
+EFA (Elastic Fabric Adapter),efa,"AWS's network interface for HPC and AI instances, built on Nitro cards and the SRD transport rather than InfiniBand or standard RoCE.",srd;aws-nitro;packet-spraying
 SRD (Scalable Reliable Datagram),srd,"AWS's own transport protocol, used by EFA, that sprays packets across many network paths and recovers losses in hardware.",efa;packet-spraying
 AWS Nitro,aws-nitro,"AWS's family of in-house offload cards and hypervisor that run EC2 networking, storage, management and security off the host CPU; it grew out of the 2015 Annapurna Labs acquisition.",dpu;efa
 IPU (infrastructure processing unit),ipu,Intel's (and Google's) term for a DPU: a programmable network device that runs cloud infrastructure functions off the host CPU.,dpu

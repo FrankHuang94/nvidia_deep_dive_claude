@@ -187,8 +187,10 @@ def roadmap_gantt_nvidia():
             _style_bar(bar, rec.status)
             txt_col = "#FFFFFF" if rec.status == "shipping" else INK["title"]
             fs = 7.5 if lane == 0 else 6.6
+            # QA 2026-11-05: light backing on hatched (non-shipping) bars so the hatch does not strike the label
             ax.text(x0 + 0.05, yc, short, va="center", ha="left", fontsize=fs, color=txt_col, zorder=5,
-                    clip_on=True)
+                    clip_on=True, bbox=None if rec.status == "shipping" else
+                    dict(boxstyle="square,pad=0.08", fc="#FFFFFF", ec="none", alpha=0.75))
             ax.plot(x0, yc + h / 2, "o", ms=4.6, color=CONF_DOT.get(rec.confidence, "#898781"),
                     mec="white", mew=0.7, zorder=6, clip_on=False)
             mt = SHIFT_RE.search(str(rec.notes))

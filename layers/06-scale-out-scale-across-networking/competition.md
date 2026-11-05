@@ -64,7 +64,7 @@ Standard Ethernet hashes each flow onto one path (ECMP). AI traffic is a few hug
 
 **UEC and AMD.** UEC 1.0 (June 2025) gives every non-NVIDIA accelerator an open transport [[S257]](../../sources/bibliography.md#s257). AMD's Helios uses it with Pensando Vulcano NICs, first shipments around end Q3 2026 [[S290]](../../sources/bibliography.md#s290)[[S90020]](../../sources/bibliography.md#s90020).
 
-**Google and AWS.** Google's Virgo links >134,000 TPU 8t chips at 47 Pb/s using [optical circuit switches](../../glossary.md#optical-circuit-switch) [[S241]](../../sources/bibliography.md#s241)[[S293]](../../sources/bibliography.md#s293). AWS uses its [EFA](../../glossary.md#elastic-fabric-adapter) [[S292]](../../sources/bibliography.md#s292).
+**Google and AWS.** Google's Virgo links >134,000 TPU 8t chips at 47 Pb/s using [optical circuit switches](../../glossary.md#optical-circuit-switch) [[S241]](../../sources/bibliography.md#s241)[[S293]](../../sources/bibliography.md#s293). AWS uses its [EFA](../../glossary.md#efa) [[S292]](../../sources/bibliography.md#s292).
 
 > [!TIP]
 > **Worked example — fast growth, small base.** Arista's whole Q3 2026 revenue was ~$3.66B [[S6502]](../../sources/bibliography.md#s6502). NVIDIA booked ~$17.5B of networking in its Q2 FY2027 [[S408]](../../sources/bibliography.md#s408), about 4.8× as much in a quarter. Arista's 2026 AI target (≥$3.6B a year) [[S6500]](../../sources/bibliography.md#s6500) equals ~5% of NVIDIA's ~$70B annualized networking run-rate. Doubling yearly, Arista would need ~4 years to match today's NVIDIA networking; the real challenge is Broadcom silicon spread across many vendors.
@@ -90,7 +90,7 @@ quadrantChart
 ```
 
 > [!NOTE]
-> **🐂 Bull view.** NVIDIA is the only vendor shipping InfiniBand, Ethernet switches, 1.6 Tb/s NICs and NVLink. Networking runs at ~$0.24 per $1 of compute ([history](history-and-how-built.md)), and Spectrum-X turned the Ethernet shift into growth (2.6× y/y) [[S408]](../../sources/bibliography.md#s408).
+> **🐂 Bull view.** NVIDIA is the only vendor shipping all four of InfiniBand, Ethernet switches, 1.6 Tb/s NICs (ConnectX-9 with every Vera Rubin GPU [[S33004]](../../sources/bibliography.md#s33004)) and NVLink. Networking runs at ~$0.24 per $1 of compute ([history](history-and-how-built.md)), and Spectrum-X turned the Ethernet shift into growth (2.6× y/y) [[S408]](../../sources/bibliography.md#s408).
 
 > [!WARNING]
 > **🐻 Bear view.** Switch silicon has commoditised. Broadcom ships first, white boxes lead share, and UEC removes the need for NVIDIA's NIC [[S274]](../../sources/bibliography.md#s274)[[S90054]](../../sources/bibliography.md#s90054)[[S257]](../../sources/bibliography.md#s257). Once GPUs are bought separately from their network, attach falls toward the share NVIDIA wins in open bids. In those bids, white-box ODMs led by Celestica already out-sell NVIDIA [[S6523]](../../sources/bibliography.md#s6523).

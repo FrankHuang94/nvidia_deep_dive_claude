@@ -19,6 +19,7 @@ gantt
     title Layer 09 software roadmaps 2024-2028 (🟢 confirmed · 🟡 reported · 🔴 speculative)
     dateFormat YYYY-MM-DD
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA
     CUDA 12.4 to 12.9 🟢           :done, 2024-03-06, 2025-05-01
     CUDA 13.0 to 13.5 🟢           :active, 2025-08-04, 2026-11-04
@@ -36,10 +37,12 @@ gantt
     TorchTPU replaces PyTorch XLA 🟢 :active, 2026-10-01, 2026-11-15
     section Portable layers
     Helion into PyTorch Foundation 🟢 :done, 2026-03-01, 2026-04-15
-    Modular deal to close 🟢       :done, 2026-06-24, 2026-07-29
+    Modular deal signed to closed 🟢 :done, 2026-06-24, 2026-07-29
     Mojo 1.0 and open compiler 🟢  :done, 2026-08-11, 2026-08-18
     Mojo on Qualcomm silicon 🔴    :2027-01-01, 2028-12-31
 ```
+
+<sub>Sources for bars not in the table below: CUDA 12.4–12.9 release dates [[S524]](../../sources/bibliography.md#s524); ROCm 6.1–6.4 [[S586]](../../sources/bibliography.md#s586); MI500 in 2027, which sets the 🔴 ROCm window [[S538]](../../sources/bibliography.md#s538); CANN open-sourced [[S9524]](../../sources/bibliography.md#s9524); Modular deal closed 2026-07-29 [[S9511]](../../sources/bibliography.md#s9511).</sub>
 
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
@@ -48,10 +51,10 @@ gantt
 | Dynamo 1.0; 1.5.1 is the first release with enterprise support | 2026-03 → 2026-10 | shipping | 🟢 | [[S90066]](../../sources/bibliography.md#s90066)[[S521]](../../sources/bibliography.md#s521) |
 | ROCm 10.0, validated with PyTorch 2.13 and vLLM 0.27 | 2026-08-26 | shipping | 🟢 | [[S586]](../../sources/bibliography.md#s586) |
 | TorchTPU replaces PyTorch/XLA (archived 2026-11-15) | 2026-10 → 2026-11 | shipping | 🟢 | [[S553]](../../sources/bibliography.md#s553)[[S595]](../../sources/bibliography.md#s595) |
-| TorchNeuron general availability | not announced | beta | 🔴 | [[S9525]](../../sources/bibliography.md#s9525) |
+| TorchNeuron general availability | not announced (beta since 2025-12) | beta | 🔴 | [[S9525]](../../sources/bibliography.md#s9525) |
 | Helion compiles to Triton and NVIDIA TileIR | 2026 | shipping | 🟢 | [[S9523]](../../sources/bibliography.md#s9523) |
-| Mojo/MAX on Qualcomm Dragonfly AI300 (2028 part) | not announced | — | 🔴 | [[S90056]](../../sources/bibliography.md#s90056)[[S9511]](../../sources/bibliography.md#s9511) |
-| NVIDIA software news at GTC DC (keynote 2026-12-01) | after this page's date | — | 🔴 | [[S90047]](../../sources/bibliography.md#s90047) |
+| Mojo/MAX on Qualcomm Dragonfly AI300 (2028 part) | not announced (AI300 due 2028) | — | 🔴 | [[S90056]](../../sources/bibliography.md#s90056)[[S9511]](../../sources/bibliography.md#s9511) |
+| NVIDIA software news at GTC DC (keynote 2026-12-01) | 2026-12-01, after this page's date | — | 🔴 | [[S90047]](../../sources/bibliography.md#s90047) |
 
 > [!TIP]
 > **Worked example — how fast the lag is shrinking.** ROCm 1.0 came **106 months** after CUDA 1.0 (June 2007 → April 2016) [[S525]](../../sources/bibliography.md#s525)[[S586]](../../sources/bibliography.md#s586). FP4 support came **~8 months** behind: CUDA 12.8 (January 2025) versus ROCm 7.0 (September 2025) [[S524]](../../sources/bibliography.md#s524)[[S90064]](../../sources/bibliography.md#s90064). Usable DeepSeek-V4 serving came **~26 days** behind CUDA's day-0 recipes [[S631]](../../sources/bibliography.md#s631)[[S633]](../../sources/bibliography.md#s633). Each step is roughly ten times shorter, but buyers pay for the *last* gap, and it recurs with every major model release.
@@ -97,6 +100,7 @@ Software alone moves delivered performance on fixed silicon, for both vendors:
 - [**S524**](../../sources/bibliography.md#s524) Python Package Index (NVIDIA), *nvidia-cuda-runtime-cu12 (CUDA 12.x runtime wheels) release history*, 2025-06-05. [Link](https://pypi.org/project/nvidia-cuda-runtime-cu12/#history)
 - [**S525**](../../sources/bibliography.md#s525) NVIDIA Developer, *CUDA Toolkit Archive*, 2026. [Link](https://developer.nvidia.com/cuda-toolkit-archive)
 - [**S527**](../../sources/bibliography.md#s527) NVIDIA Docs, *CUDA Toolkit 13.2 Release Notes*, 2026-03-05. [Link](https://docs.nvidia.com/cuda/archive/13.2.0/cuda-toolkit-release-notes/index.html)
+- [**S538**](../../sources/bibliography.md#s538) AMD Investor Relations, *AAI 2026: AMD Delivers Full-Stack Compute for the Agentic AI Era*, 2026-07-23. [Link](https://ir.amd.com/news-events/press-releases/detail/1294/aai-2026-amd-delivers-full-stack-compute-for-the-agentic-ai-era)
 - [**S553**](../../sources/bibliography.md#s553) Google Cloud Blog (Alex Barrett), *What's new in AI infrastructure and orchestration in October*, 2026-11. [Link](https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month)
 - [**S578**](../../sources/bibliography.md#s578) OpenAI Triton (GitHub), *Triton (triton-lang/triton) README — supported hardware*, 2026-11. [Link](https://github.com/triton-lang/triton/blob/main/README.md)
 - [**S586**](../../sources/bibliography.md#s586) AMD (GitHub: ROCm/ROCm docs), *ROCm documentation sources: release history, AI-ecosystem compatibility matrix, consolidated changelog*, 2026-08-26. [Link](https://github.com/ROCm/ROCm/blob/develop/docs/release/versions.rst)
@@ -112,6 +116,7 @@ Software alone moves delivered performance on fixed silicon, for both vendors:
 - [**S9513**](../../sources/bibliography.md#s9513) modular/modular (GitHub), *Modular Platform repository README (MAX framework and Mojo language)*, 2026-11. [Link](https://github.com/modular/modular)
 - [**S9521**](../../sources/bibliography.md#s9521) Hackster.io, *NVIDIA makes GPU acceleration easier and more portable with CUDA Tiles and cuTile Python*, 2025-12. [Link](https://www.hackster.io/news/nvidia-makes-gpu-acceleration-easier-more-portable-with-cuda-tiles-cutile-python-b808c1ad7e4d)
 - [**S9523**](../../sources/bibliography.md#s9523) PyTorch Foundation, *Helion (PyTorch Foundation project page)*, 2026. [Link](https://pytorch.org/projects/helion/)
+- [**S9524**](../../sources/bibliography.md#s9524) TrendForce, *Huawei open-sources CANN toolkit for Ascend AI GPUs; taking aim at Nvidia's CUDA*, 2025-08-07. [Link](https://www.trendforce.com/news/2025/08/07/news-huawei-open-sources-cann-toolkit-for-ascend-ai-gpus-taking-aim-at-nvidias-cuda/)
 - [**S9525**](../../sources/bibliography.md#s9525) AWS Neuron SDK docs, *AWS Neuron documentation: PyTorch on Neuron (TorchNeuron) and NKI*, 2026. [Link](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/_sources/torch/index.rst)
 - [**S9538**](../../sources/bibliography.md#s9538) The Next Web, *AMD is investing $5 billion in Anthropic and deploying 2 gigawatts of Helios GPUs to run Claude*, 2026. [Link](https://thenextweb.com/news/amd-anthropic-5-billion-investment-2gw-helios-mi450)
 - [**S90027**](../../sources/bibliography.md#s90027) The Next Web, *Google is building a four-partner chip supply chain to challenge Nvidia in AI inference*, 2026. [Link](https://thenextweb.com/news/google-inference-chips-nvidia-challenge-supply-chain)

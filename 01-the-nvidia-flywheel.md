@@ -16,7 +16,7 @@
   $108B for Q3 [[S405]](sources/bibliography.md#s405). Every loop below deposits into that hub or draws on it.
 - **① Developer loop — big, but no longer accelerating.** NVIDIA's count of CUDA developers tripled
   from 2M (2020) to ~6M (2025) [[S529]](sources/bibliography.md#s529)[[S536]](sources/bibliography.md#s536), then stayed at ~6M in March 2026 [[S528]](sources/bibliography.md#s528); the
-  open-source serving stack that now carries most inference (vLLM, SGLang) runs on AMD, TPU and
+  open-source serving stack that now carries most inference ([vLLM](glossary.md#vllm), [SGLang](glossary.md#sglang)) runs on AMD, TPU and
   Ascend as well [[S580]](sources/bibliography.md#s580)[[S582]](sources/bibliography.md#s582).
 - **② Scale / R&D loop — the strongest today.** R&D rose ~14× to $18.5B in FY2026 while falling to
   ~9% of revenue [[S401]](sources/bibliography.md#s401)[[S400]](sources/bibliography.md#s400), and supply and capacity commitments reached **$279B** in Q2 FY2027
@@ -107,7 +107,7 @@ two years:
 |---|---|---|---|---|
 | ① Developer | Registered CUDA developers | 2M (2020) [[S529]](sources/bibliography.md#s529) | ~6M (Mar 2026) [[S528]](sources/bibliography.md#s528) | Large, flattening |
 | ② Scale / R&D | R&D expense | $1.33B (FY2016) [[S400]](sources/bibliography.md#s400) | $18.5B (FY2026) [[S401]](sources/bibliography.md#s401) | ~14×, lower intensity |
-| ② Scale / R&D | Supply and capacity commitments | $4.79B (Q2 FY2022) [[S420]](sources/bibliography.md#s420) | $279B (Q2 FY2027) [[S407]](sources/bibliography.md#s407) | ~58×, now > a year of revenue |
+| ② Scale / R&D | Supply and capacity commitments | $4.79B (Q2 FY2022) [[S420]](sources/bibliography.md#s420) | $279B (Q2 FY2027) [[S407]](sources/bibliography.md#s407) | ~58× (line definitions differ across years [[S90092]](sources/bibliography.md#s90092)), now > a year of revenue |
 | ③ Full stack | Networking revenue | $8.6B (FY2024) [[S416]](sources/bibliography.md#s416) | $31.4B (FY2026) [[S402]](sources/bibliography.md#s402) | ~3.7×, ~20% of data center |
 | ④ Capital | Pledged stakes and backstops | ~$0.15B disclosed (2023) [[S481]](sources/bibliography.md#s481)[[S482]](sources/bibliography.md#s482) | ~$82B (Sep 2025–Feb 2026) [[S480]](sources/bibliography.md#s480)[[S474]](sources/bibliography.md#s474)[[S469]](sources/bibliography.md#s469) | New, and the most debated |
 
@@ -159,12 +159,12 @@ models in 2022 [[S532]](sources/bibliography.md#s532) and ~10,000 start-ups buil
 
 > [!TIP]
 > **Worked example — the switching cost a developer loop creates.** A lab that has tuned an inference
-> service on NVIDIA's TensorRT-LLM, which runs only on NVIDIA GPUs [[S589]](sources/bibliography.md#s589), must re-validate kernels,
+> service on NVIDIA's [TensorRT-LLM](glossary.md#tensorrt-llm), which runs only on NVIDIA GPUs [[S589]](sources/bibliography.md#s589), must re-validate kernels,
 > quantization recipes and serving code to move. If 20 engineers spend 4 months on the port at a
 > fully loaded $400K per engineer-year, that is ~$2.7M of labor (🔴 illustrative assumptions) —
-> trivial against a $3M+ GB200 NVL72 rack [[S326]](sources/bibliography.md#s326) but meaningful for a startup, and *recurring*
+> trivial against a $3M+ GB200 [NVL72](glossary.md#nvl72) rack [[S326]](sources/bibliography.md#s326) but meaningful for a startup, and *recurring*
 > with every model generation. The loop's real lock-in is not the one-off port; it is that new
-> models, kernels (FlashAttention-style attention, new number formats such as NVFP4) and papers tend to
+> models, kernels (FlashAttention-style attention, new number formats such as [NVFP4](glossary.md#nvfp4)) and papers tend to
 > appear on CUDA first, so a non-NVIDIA buyer is always a few months behind.
 
 **Why the loop is weakening at the edges.** The developer base that matters for AI increasingly
@@ -184,9 +184,9 @@ writes Python against frameworks, not CUDA directly — and the frameworks have 
 
 > [!WARNING]
 > **Where loop ① could break.** The moat moves up a layer: if the frameworks developers actually
-> touch (PyTorch, vLLM, SGLang, Triton) are hardware-neutral, the switching cost shrinks to
-> performance tuning — and hyperscalers have the engineers to do that themselves. Google and Meta
-> open-sourced TorchTPU in October 2026 [[S553]](sources/bibliography.md#s553); AMD now ships ROCm releases on a fast cadence
+> touch ([PyTorch](glossary.md#pytorch), vLLM, SGLang, [Triton](glossary.md#triton)) are hardware-neutral, the switching cost shrinks to
+> performance tuning — and [hyperscalers](glossary.md#hyperscaler) have the engineers to do that themselves. Google and Meta
+> open-sourced TorchTPU in October 2026 [[S553]](sources/bibliography.md#s553); AMD now ships [ROCm](glossary.md#rocm) releases on a fast cadence
 > [[S586]](sources/bibliography.md#s586). NVIDIA's own developer count, flat at ~6M between GTC 2025 and GTC 2026 [[S536]](sources/bibliography.md#s536)[[S528]](sources/bibliography.md#s528), is
 > the metric to watch. Depth: [Layer 09 — CUDA](layers/09-cuda-and-system-software/index.md),
 > [Layer 10 — CUDA-X libraries](layers/10-libraries-cuda-x/index.md) and
@@ -200,7 +200,7 @@ writes Python against frameworks, not CUDA directly — and the frameworks have 
 1. **The programming model and compiler** (CUDA C++, the PTX virtual instruction set). PTX lets
    code written years ago run on new GPUs, which is why the installed base compounds. Rivals can
    imitate the model (AMD's HIP is deliberately CUDA-like), so this layer is the easiest to copy.
-2. **The libraries** — cuBLAS (matrix math), cuDNN (neural-network kernels), NCCL (multi-GPU
+2. **The libraries** — cuBLAS (matrix math), cuDNN (neural-network kernels), [NCCL](glossary.md#nccl) (multi-GPU
    communication), TensorRT-LLM (inference). These hold years of per-generation tuning; a rival
    must match them kernel by kernel. NVIDIA listed 550 SDKs and models as early as 2022 [[S532]](sources/bibliography.md#s532).
 3. **The tools** — profilers, debuggers and container images that make a cluster usable on day one.
@@ -216,7 +216,7 @@ kernels automatically for several back ends [[S578]](sources/bibliography.md#s57
 ## 3. Loop ② — the scale and R&D flywheel
 
 **The mechanism.** Revenue funds R&D and, increasingly, **pre-commitments for supply**: wafers,
-HBM, CoWoS packaging and test capacity booked years ahead. That lets NVIDIA ship a new architecture
+[HBM](glossary.md#hbm), CoWoS packaging and test capacity booked years ahead. That lets NVIDIA ship a new architecture
 every year at volume, which keeps it ahead on performance at each launch, which supports pricing and
 gross margin, which funds the next round. Each turn also raises the bar for rivals, who must match
 both the R&D and the supply bookings.
@@ -269,14 +269,15 @@ timeline
 [purchase obligations](glossary.md#purchase-obligations) — binding orders for wafers, memory,
 packaging and capacity — grew from $4.79B in Q2 FY2022 [[S420]](sources/bibliography.md#s420) to $95.2B at FY2026 year-end [[S401]](sources/bibliography.md#s401),
 $119B in Q1 FY2027 [[S404]](sources/bibliography.md#s404) and **$279B** in Q2 FY2027, mostly memory and manufacturing capacity for
-current and future architectures [[S407]](sources/bibliography.md#s407).
+current and future architectures [[S407]](sources/bibliography.md#s407). The 10-K's $95.2B and the 10-Q's supply and capacity commitments
+are different line items, so the long series is indicative; the like-for-like step is $119B → $279B in one quarter [[S90092]](sources/bibliography.md#s90092).
 
 ![Two-panel chart. Left: NVIDIA purchase obligations rose from $4.8B in Q2FY22 to $279B in Q2FY27 while inventory reached $31.6B. Right: commitments were about 1.4 times quarterly revenue before the FY2023 inventory write-downs and are now 2.9 times, mostly memory and capacity for Rubin.](assets/charts/03-purchase-obligations-over-time.svg)
 
 > [!TIP]
 > **Worked example — commitments as a moat.** $279B of commitments [[S407]](sources/bibliography.md#s407) is about **5×** TSMC's
 > entire 2026 capital-spending budget of $52–56B [[S35029]](sources/bibliography.md#s35029), and press estimates give NVIDIA ~60% of
-> TSMC's 2026 CoWoS allocation (~595K wafers vs ~150K for Broadcom and ~105K for AMD) (🟡) [[S379]](sources/bibliography.md#s379).
+> TSMC's 2026 [CoWoS](glossary.md#cowos) allocation (~595K wafers vs ~150K for Broadcom and ~105K for AMD) (🟡) [[S379]](sources/bibliography.md#s379).
 > The commitments are multi-year and include memory, so the comparison is about scale, not like for
 > like. The mechanism is what matters: in a supply-constrained market, **whoever pre-pays for the
 > scarce inputs decides who can ship**. A rival with a competitive design but no HBM or CoWoS
@@ -295,16 +296,16 @@ Analyst estimates put the B200's build cost at ~$6,400 against a $30–40K price
 > (~$348M in Q3 FY2023 alone) [[S421]](sources/bibliography.md#s421) and gross margin fell to 43.5% [[S433]](sources/bibliography.md#s433); the $4.5B H20 charge in
 > Q1 FY2026 showed the same mechanism triggered by export policy [[S444]](sources/bibliography.md#s444). Today's commitments are ~30×
 > the $9.2B outstanding in Q2 FY2023 [[S420]](sources/bibliography.md#s420)[[S407]](sources/bibliography.md#s407). Other break points: a slipped generation (the reported Kyber delay [[S507]](sources/bibliography.md#s507), Rubin's trimmed
-> HBM4 bandwidth spec [[S103]](sources/bibliography.md#s103)[[S104]](sources/bibliography.md#s104)) or a rival matching the cadence — AMD has committed to an annual
+> [HBM4](glossary.md#hbm4) bandwidth spec [[S103]](sources/bibliography.md#s103)[[S104]](sources/bibliography.md#s104)) or a rival matching the cadence — AMD has committed to an annual
 > Instinct cadence (MI400 2026, MI500 2027) [[S545]](sources/bibliography.md#s545). Depth: [Layer 02](layers/02-gpu-silicon/roadmap.md),
 > [17 — Roadmap](cross-cutting/17-roadmap-2025-2028.md).
 
 ## 4. Loop ③ — the full-stack and systems flywheel
 
-**The mechanism.** Selling a whole rack — GPUs, CPUs, NVLink switches, NICs, DPUs, reference
+**The mechanism.** Selling a whole rack — GPUs, CPUs, [NVLink](glossary.md#nvlink) switches, NICs, DPUs, reference
 design and software — raises NVIDIA's [share of wallet](glossary.md#share-of-wallet) per customer
 dollar. Owning every layer also lets NVIDIA optimize across them (a new number format in the GPU, a
-switch that does the arithmetic of all-reduce, a serving runtime that knows the topology), which
+switch that does the arithmetic of [all-reduce](glossary.md#all-reduce), a serving runtime that knows the topology), which
 makes the system faster per dollar than a mix of best-of-breed parts, which sells the next rack.
 
 ```mermaid
@@ -323,7 +324,7 @@ flowchart LR
 
 The best single measure is networking. It grew from $8.6B in FY2024 to $31.4B in FY2026 [[S416]](sources/bibliography.md#s416)[[S402]](sources/bibliography.md#s402)
 and reached $14.8B in Q1 FY2027 alone (+199% year on year) [[S409]](sources/bibliography.md#s409); in Q2 FY2027 it grew another 18%
-sequentially, with Spectrum-X Ethernet revenue up 2.6× year on year [[S408]](sources/bibliography.md#s408). That business came largely from the $6.9B Mellanox acquisition announced in 2019
+sequentially, with [Spectrum-X](glossary.md#spectrum-x) Ethernet revenue up 2.6× year on year [[S408]](sources/bibliography.md#s408). That business came largely from the $6.9B Mellanox acquisition announced in 2019
 [[S464]](sources/bibliography.md#s464) (see [CS1](case-studies/CS1-mellanox-the-best-deal.md)).
 
 ![Two-panel chart. Left: NVIDIA quarterly networking revenue from $0.9B (est.) in Q1FY24 to about $17.5B in Q2FY27, 5.5 times Q1FY25. Right: networking share of Data Center fell to 8% during the Blackwell compute ramp then rose to about 20% as NVLink, Spectrum-X and InfiniBand scaled.](assets/charts/06-networking-revenue-and-share.svg)
@@ -346,8 +347,8 @@ that NVIDIA now sells as part of the Vera Rubin platform [[S307]](sources/biblio
 > [!WARNING]
 > **Where loop ③ could break.** The largest buyers build their own racks around their own chips:
 > Google's TPU 8t/8i [[S550]](sources/bibliography.md#s550), AWS Trainium3 UltraServers [[S556]](sources/bibliography.md#s556), Microsoft Maia 200 [[S558]](sources/bibliography.md#s558) and Meta's
-> MTIA roadmap [[S561]](sources/bibliography.md#s561). Open fabrics aim to commoditize NVIDIA's interconnect: UALink 1.0 and 2.0
-> [[S573]](sources/bibliography.md#s573)[[S574]](sources/bibliography.md#s574), Ultra Ethernet 1.1 with scale-up support [[S575]](sources/bibliography.md#s575) and the OCP ESUN scale-up spec
+> MTIA roadmap [[S561]](sources/bibliography.md#s561). Open fabrics aim to commoditize NVIDIA's interconnect: [UALink](glossary.md#ualink) 1.0 and 2.0
+> [[S573]](sources/bibliography.md#s573)[[S574]](sources/bibliography.md#s574), Ultra Ethernet 1.1 with [scale-up](glossary.md#scale-up) support [[S575]](sources/bibliography.md#s575) and the OCP [ESUN](glossary.md#esun) scale-up spec
 > [[S576]](sources/bibliography.md#s576). And the biggest AI labs now dual-source: OpenAI with Broadcom (10 GW) [[S174]](sources/bibliography.md#s174) and AMD (up to
 > 6 GW) [[S546]](sources/bibliography.md#s546); Anthropic with up to 1M Google TPUs [[S547]](sources/bibliography.md#s547). Depth: [Layer 05](layers/05-scale-up-nvlink-nvswitch/index.md),
 > [Layer 06](layers/06-scale-out-scale-across-networking/index.md),
@@ -357,7 +358,7 @@ that NVIDIA now sells as part of the Vera Rubin platform [[S307]](sources/biblio
 <details>
 <summary>🔧 Under the hood: three examples of cross-layer co-design</summary>
 
-- **Number format × tensor core × software.** NVFP4 stores 4-bit values with an FP8 scale for every
+- **Number format × tensor core × software.** NVFP4 stores 4-bit values with an [FP8](glossary.md#fp8) scale for every
   16-value block plus a per-tensor scale [[S32017]](sources/bibliography.md#s32017); the GPU's tensor cores, the TensorRT-LLM kernels
   and the quantization recipes were designed together, so a customer gets the 4-bit speed-up
   without building the toolchain (see [P5 §8](primers/P5-chip-economics-101.md) for what that does
@@ -366,7 +367,7 @@ that NVIDIA now sells as part of the Vera Rubin platform [[S307]](sources/biblio
   130 TB/s of scale-up bandwidth [[S34014]](sources/bibliography.md#s34014); NVIDIA's SHARP in-network reduction lets the switches do
   the arithmetic of an all-reduce, roughly halving the data that crosses the fabric [[S34024]](sources/bibliography.md#s34024). A
   buyer mixing a third-party switch with NVIDIA GPUs loses that.
-- **Rack × serving runtime.** Dynamo splits inference into prefill and decode on different GPUs and
+- **Rack × serving runtime.** [Dynamo](glossary.md#dynamo) splits inference into [prefill](glossary.md#prefill) and [decode](glossary.md#decode) on different GPUs and
   routes requests by KV-cache location; NVIDIA claims up to 30× more requests for DeepSeek-R1 on
   GB200 NVL72 (vendor claim) [[S32015]](sources/bibliography.md#s32015), and it reached version 1.0 in March 2026 [[S520]](sources/bibliography.md#s520). The Groq 3
   LPX rack slots into the same platform as a dedicated decode engine [[S308]](sources/bibliography.md#s308).
@@ -431,7 +432,7 @@ The pace changed in late 2025. In roughly six months NVIDIA announced:
 companies whose ability to pay depends on NVIDIA's money or guarantees, so reported growth overstates
 independent demand. (2) *Hidden leverage:* backstops and capacity guarantees ($6.3B CoreWeave; $36B
 AI-cloud agreements) are contingent liabilities that crystallize exactly when demand weakens [[S473]](sources/bibliography.md#s473)[[S407]](sources/bibliography.md#s407);
-Michael Burry called the $95B of purchase obligations "troubling" before they nearly tripled [[S431]](sources/bibliography.md#s431),
+Michael Burry called the $95B of purchase obligations "troubling" [[S431]](sources/bibliography.md#s431) before the broader 10-Q commitments line reached $279B (a different line item [[S90092]](sources/bibliography.md#s90092)),
 and a secondary tally of the Q2 FY2027 10-Q counts $366B of total future commitments [[S430]](sources/bibliography.md#s430)[[S449]](sources/bibliography.md#s449).
 (3) *Earnings quality:* Q1 FY2027 net income included ~$15.9B of other income, largely unrealized
 gains on equity stakes such as Intel [[S403]](sources/bibliography.md#s403) — the stakes rise when NVIDIA's ecosystem news is good,
@@ -524,12 +525,12 @@ quadrantChart
 - **Loop ② stalls** if hyperscaler capex flattens (it was guided to ~$505B for 2026 across three
   companies [[S460]](sources/bibliography.md#s460)[[S461]](sources/bibliography.md#s461)[[S462]](sources/bibliography.md#s462)) while commitments are fixed, or if a generation slips by a year —
   customers then wait instead of buying the current part.
-- **Loop ③ stalls** if Ethernet-based scale-up (UEC 1.1, ESUN) reaches NVLink-class latency at lower
+- **Loop ③ stalls** if Ethernet-based scale-up ([UEC](glossary.md#ultra-ethernet) 1.1, ESUN) reaches NVLink-class latency at lower
   cost, letting buyers mix GPUs and ASICs in one fabric; NVIDIA's counter is to open NVLink itself
   (NVLink Fusion).
 - **Loop ④ stalls** when investee companies cannot raise follow-on capital; it reverses if NVIDIA
   must honor capacity guarantees in a falling rental market — H100 rental prices already fell from
-  ~$8 to under ~$2 per GPU-hour between 2023 and late 2024 [[S393]](sources/bibliography.md#s393).
+  ~$8 to under ~$2 per [GPU-hour](glossary.md#gpu-hour) between 2023 and late 2024 [[S393]](sources/bibliography.md#s393).
 
 </details>
 
@@ -702,3 +703,4 @@ turn. The table sets out the entry ticket per loop, using NVIDIA's numbers as th
 - [**S35026**](sources/bibliography.md#s35026) Tom's Hardware, *Nvidia's Jensen Huang says Blackwell GPU to cost $30,000-$40,000, later clarifies that pricing will vary as they won't sell just the chip*, 2024-03-19. [Link](https://www.tomshardware.com/pc-components/gpus/nvidias-jensen-huang-says-blackwell-gpu-to-cost-dollar30000-dollar40000-later-clarifies-that-pricing-will-vary-as-they-wont-sell-just-the-chip)
 - [**S35028**](sources/bibliography.md#s35028) TweakTown, *NVIDIA spent $10 billion on developing its next-generation Blackwell GPU*, 2024-03. [Link](https://www.tweaktown.com/news/96987/nvidia-spent-10-billion-on-developing-its-next-generation-blackwell-gpu/index.html)
 - [**S35029**](sources/bibliography.md#s35029) Star Tribune (Associated Press), *Taiwan computer chip maker TSMC to expand investment as profit jumps 35%*, 2026-01-15. [Link](https://www.startribune.com/taiwan-computer-chip-maker-tsmcs-to-expand-investment-as-profit-jumps-35/601564518)
+- [**S90092**](sources/bibliography.md#s90092) Nasdaq (Motley Fool), *Nvidia's supply commitments more than doubled to $279 billion: here's what it does to the stock*, 2026-09. [Link](https://www.nasdaq.com/articles/nvidias-supply-commitments-more-doubled-279-billion-heres-what-it-does-stock)

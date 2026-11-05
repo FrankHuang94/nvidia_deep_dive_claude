@@ -1,7 +1,7 @@
 item,entity,category,year,value_usd_b,basis,confidence,source_id,notes
 Silo AI acquisition,AMD,acquisition,2024,0.665,disclosed,confirmed,S10531,All-cash; closed 2024-08-12; Europe's largest private AI lab per AMD
 Run:ai acquisition,NVIDIA,acquisition,2024,0.7,reported,reported,S476;S479,Terms undisclosed by NVIDIA; ~US$700M reported
-Modular acquisition (announced),Qualcomm,acquisition,2026,3.9,announced,reported,S90057,Mojo language and MAX engine; expected to close H2 2026
+Modular acquisition (closed 2026-07),Qualcomm,acquisition,2026,3.9,announced,reported,S90057;S9511,Mojo language and MAX engine; announced price; closed 2026-07-29 (S9511)
 "AMD R&D increase, CY2022 to CY2024 (per year)",AMD,rd_delta,2024,1.451,repo calc from filings,estimate,S450,"CY2024 R&D $6.456B minus CY2022 $5.005B (peer_financials.csv, [recall] rows); hardware and software combined"
 AMD annual R&D (CY2024),AMD,annual_rd,2024,6.456,disclosed,confirmed,S450,From peer_financials.csv ([recall] row)
 NVIDIA annual R&D (FY2026),NVIDIA,annual_rd,2026,18.497,disclosed,confirmed,S401,"~31,000 of ~42,000 employees in R&D, i.e. ~US$0.6M of R&D spend per R&D employee-year"

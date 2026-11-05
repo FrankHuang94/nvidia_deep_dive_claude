@@ -216,11 +216,14 @@ def investment_dollars_by_year():
     for yr, items in lab.items():
         i = years.index(yr)
         left = yr == 2025
-        ax.annotate("\n".join(items), (i - 0.36 if left else i + 0.36, tot[yr] * 0.55), fontsize=8.5,
+        # QA 2026-11-05: lift labels on short bars clear of the next bar's "n deals, undisclosed" note
+        y_lab = max(tot[yr] * 0.55, tot.max() * 0.16)
+        ax.annotate("\n".join(items), (i - 0.36 if left else i + 0.36, y_lab), fontsize=8.5,
                     color=INK["text"], va="center", ha="right" if left else "left")
     ax.set_xticks(x)
     ax.set_xticklabels([str(y) for y in years])
-    ax.set_xlim(-0.6, len(years) - 0.1)
+    # QA 2026-11-05: room on the right for the last year's right-hand labels (they were clipped)
+    ax.set_xlim(-0.6, len(years) + (1.0 if years[-1] in lab else -0.1))
     ax.set_ylim(0, tot.max() * 1.15)
     handles = [Patch(color=TYPE_STYLE[k]["color"], label=TYPE_STYLE[k]["label"]) for k in
                ["acquisition", "acquihire-license", "equity-investment", "strategic-partnership-investment"]]

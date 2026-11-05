@@ -10,7 +10,7 @@
 
 ## ⚡ The Executive Take
 
-- **A leading-edge wafer now costs about 3× what it did two nodes ago.** Published estimates put a
+- **A leading-edge wafer now costs about 3× what it did three nodes ago (N7 → N2).** Published estimates put a
   300 mm TSMC wafer at ~$9.4K on N7 [[S35001]](../sources/bibliography.md#s35001)[[S35006]](../sources/bibliography.md#s35006), ~$17K on N5/N4 [[S35001]](../sources/bibliography.md#s35001)[[S35020]](../sources/bibliography.md#s35020) and
   ~$30K on N2 [[S35003]](../sources/bibliography.md#s35003); A16 is rumored at up to $45K [[S35004]](../sources/bibliography.md#s35004) (🔴 rumor). TSMC does not publish prices.
 - **Big dies are disproportionately expensive.** In a standard yield model an 814 mm² H100-class
@@ -29,8 +29,8 @@
   in Q2 2026 (Samsung 5.9%) [[S35035]](../sources/bibliography.md#s35035) and guided $52–56B of 2026 capex [[S35029]](../sources/bibliography.md#s35029), ~3.6× its 2019
   level [[S35032]](../sources/bibliography.md#s35032) — a scale no rival matches.
 - **Cost per FLOP keeps falling, but mostly through lower-precision math**, not cheaper silicon:
-  system price per dense PFLOPS fell ~50× from a 2017 DGX-1 at FP16 (~$155K) to a Vera Rubin NVL72
-  at NVFP4 (~$3.1K, Est.), while at BF16 it bottomed with GB200 NVL72 at ~$17K
+  system price per dense [PFLOPS](../glossary.md#flops) fell ~50× from a 2017 DGX-1 at FP16 (~$155K) to a Vera Rubin [NVL72](../glossary.md#nvl72)
+  at [NVFP4](../glossary.md#nvfp4) (~$3.1K, Est.), while at [BF16](../glossary.md#bf16) it bottomed with GB200 NVL72 at ~$17K
   [[S312]](../sources/bibliography.md#s312)[[S326]](../sources/bibliography.md#s326)[[S330]](../sources/bibliography.md#s330)[[S33005]](../sources/bibliography.md#s33005).
 
 ![Waterfall chart of an estimated B200 cost build-up: logic dies about $850, HBM3E about $2,880, CoWoS-L packaging about $1,100, packaging yield loss about $1,000 and other about $570, totalling about $6,400, against a selling price of about $35,000, implying a chip-level gross margin near 82%.](../assets/charts/P5-gpu-cost-build-up-waterfall.svg)
@@ -300,10 +300,10 @@ TSMC now earmarks 10–20% of a $52–56B 2026 capex budget for advanced packagi
 ## 6. HBM: the memory that now costs more than the GPU die
 
 [HBM](../glossary.md#hbm) is DRAM stacked 8–16 dies high and wired straight down through the stack. A
-B200 carries 192 GB of HBM3E physically [[S35020]](../sources/bibliography.md#s35020) (180 GB enabled in HGX systems [[S33003]](../sources/bibliography.md#s33003)); Rubin
-carries 288 GB of HBM4 in eight stacks [[S33006]](../sources/bibliography.md#s33006), with per-GPU bandwidth first quoted at 22 TB/s
-[[S33006]](../sources/bibliography.md#s33006) and now listed at 19.2 TB/s on NVIDIA's product page [[S33007]](../sources/bibliography.md#s33007) (🟡 reported spec change,
-Nov 2026). Memory makers price HBM at several times commodity DRAM per gigabyte, and the amount per
+B200 carries 192 GB of [HBM3E](../glossary.md#hbm3e) physically [[S35020]](../sources/bibliography.md#s35020) (180 GB enabled in [HGX](../glossary.md#hgx) systems [[S33003]](../sources/bibliography.md#s33003)); Rubin
+carries 288 GB of [HBM4](../glossary.md#hbm4) in eight stacks [[S33006]](../sources/bibliography.md#s33006), with per-GPU bandwidth first quoted at 22 TB/s
+[[S33006]](../sources/bibliography.md#s33006) and now listed at 19.2 TB/s on NVIDIA's product page [[S33007]](../sources/bibliography.md#s33007) (🟢 NVIDIA spec page, revised
+Sep–Oct 2026; cause unexplained [[S90006]](../sources/bibliography.md#s90006)). Memory makers price HBM at several times commodity DRAM per gigabyte, and the amount per
 GPU rises every generation — so HBM's share of the bill keeps climbing.
 
 ![Two bar panels: HBM share of unit cost rose from about 14% for the A100 to about 33% for the H100 and about 45% for the B200; across all AI accelerators memory's share of component spend rose from 52% in Q1 2024 to 63% in Q4 2025.](../assets/charts/P5-hbm-cost-share.svg)
@@ -344,7 +344,7 @@ analyst estimates bracket it.
 > that NVIDIA earns ~1,000% on an H100 is just $25–30K ÷ ~$3,320 [[S35025]](../sources/bibliography.md#s35025). In gross-margin terms
 > that is (27,500 − 3,320) / 27,500 ≈ **88%** at the chip level; for the B200 it is
 > (35,000 − 6,400) / 35,000 ≈ **82%** (Est.) [[S35020]](../sources/bibliography.md#s35020)[[S35026]](../sources/bibliography.md#s35026). NVIDIA's *reported* company gross
-> margin is lower — 75.0% in FY2025, 71.1% in FY2026 after a $4.5B H20 export charge, ~75% in Q2 FY2027 [[S416]](../sources/bibliography.md#s416)[[S402]](../sources/bibliography.md#s402)[[S444]](../sources/bibliography.md#s444)[[S405]](../sources/bibliography.md#s405) — for four reasons: (1) much of revenue is whole boards, NVLink
+> margin is lower — 75.0% in FY2025, 71.1% in FY2026 after a $4.5B H20 export charge, ~75% in Q2 FY2027 [[S416]](../sources/bibliography.md#s416)[[S402]](../sources/bibliography.md#s402)[[S444]](../sources/bibliography.md#s444)[[S405]](../sources/bibliography.md#s405) — for four reasons: (1) much of revenue is whole boards, [NVLink](../glossary.md#nvlink)
 > switch trays, Grace/Vera CPUs, networking and rack components carrying lower margins than a bare
 > GPU; (2) inventory and purchase-commitment charges land in cost of revenue; (3) warranty, freight
 > and depreciation of test equipment; (4) new products ramp at lower yields. R&D is *not* in gross
@@ -354,11 +354,11 @@ analyst estimates bracket it.
 > [!NOTE]
 > **🐂 Bull view.** The BOM shows NVIDIA's moat is not cheap silicon — it pays the same TSMC and
 > HBM prices as everyone else — but the ability to charge 5–6× build cost because the GPU arrives
-> with CUDA, NVLink and a system around it. Rivals using the same supply chain face the same
+> with [CUDA](../glossary.md#cuda), NVLink and a system around it. Rivals using the same supply chain face the same
 > ~$6K+ cost floor and must price below NVIDIA to win.
 
 > [!WARNING]
-> **🐻 Bear view.** A ~80% chip-level margin is an invitation. Custom ASIC buyers (Google, AWS, Meta)
+> **🐻 Bear view.** A ~80% chip-level margin is an invitation. Custom [ASIC](../glossary.md#asic) buyers (Google, AWS, Meta)
 > pay roughly the same TSMC/HBM/CoWoS costs plus a design-partner fee and skip NVIDIA's margin
 > entirely; HBM makers can capture more of the pie as memory's cost share rises. See
 > [the bear case](../cross-cutting/18-vulnerabilities-and-bear-case.md) and
@@ -369,7 +369,7 @@ analyst estimates bracket it.
 What a buyer ultimately pays for is arithmetic: dollars per unit of compute. Three levers move
 it — more transistors per package, a better architecture per transistor, and **smaller number
 formats** (a tensor core does roughly twice the operations per cycle each time the format halves,
-from BF16 to FP8 to FP4). Peak dense compute per NVIDIA flagship GPU has climbed steeply:
+from BF16 to [FP8](../glossary.md#fp8) to [FP4](../glossary.md#fp4)). Peak dense compute per NVIDIA flagship GPU has climbed steeply:
 
 | GPU (year) | Dense peak, native AI format | Dense BF16/FP16 | Source |
 |---|---|---|---|
@@ -558,3 +558,4 @@ Why does that spending translate into a near-monopoly on AI accelerators?
 - [**S35039**](../sources/bibliography.md#s35039) FourWeekMBA, *The 14% Paradox: Why Nvidia's GPU Silicon Costs Less Than Its Packaging*, 2026. [Link](https://fourweekmba.com/the-14-paradox-why-nvidias-gpu-silicon-costs-less-than-its-packaging)
 - [**S35040**](../sources/bibliography.md#s35040) Silicon Analysts, *CoWoS packaging cost: chiplet vs monolithic (2026)*, 2026. [Link](https://siliconanalysts.com/analysis/cowos-packaging-cost-chiplet-vs-monolithic-2026)
 - [**S35042**](../sources/bibliography.md#s35042) HWCooling, *Nvidia Hopper GPU architecture revealed. 4nm die & 18432 shaders*, 2022-03. [Link](https://www.hwcooling.net/en/nvidia-hopper-gpu-architecture-revealed-4nm-die-18432-shaders/)
+- [**S90006**](../sources/bibliography.md#s90006) TweakTown, *Nvidia cuts Vera Rubin's memory bandwidth by up to 26% and AMD's Helios now leads in memory bandwidth*, 2026-10. [Link](https://www.tweaktown.com/news/114304/nvidia-cuts-vera-rubins-memory-bandwidth-by-up-to-26-percent-and-amds-helios-now-leads-in-memory-bandwidth/index.html)

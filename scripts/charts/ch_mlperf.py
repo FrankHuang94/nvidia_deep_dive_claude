@@ -10,7 +10,7 @@ import pandas as pd
 from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter, LogLocator, NullFormatter
 
-from style import Chart, GEN_PAST, INK, NV, NV_DARK, entity_color, load, register, sources_of
+from style import Chart, GEN_PAST, INK, NV, NV_DARK, axis_break, entity_color, load, register, sources_of
 
 MLP = "mlperf_results.csv"
 INF = "inference_benchmarks.csv"
@@ -547,5 +547,7 @@ def inferencex_same_hardware_history():
     ax.axhline(1, color=INK["base"], lw=0.8)
     ax.set_ylim(0.7, 1.5)
     ax.set_xlim(pd.Timestamp("2025-12-01"), pd.Timestamp("2026-07-10"))
+    axis_break(ax)  # QA 2026-11-05: index axis starts at 0.7, so mark the break (STYLE_GUIDE §6.7)
     ax.legend(loc="upper left", fontsize=8.8, frameon=False, ncol=2)
-    c.save(fig, ax, xlabel="Nightly run date", ylabel="Throughput per GPU, first run = 1.0", legend=False)
+    c.save(fig, ax, xlabel="Nightly run date", ylabel="Throughput per GPU, first run = 1.0 (axis starts at 0.7)",
+           legend=False)

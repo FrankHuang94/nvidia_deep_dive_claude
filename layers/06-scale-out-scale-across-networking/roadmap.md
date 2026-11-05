@@ -21,6 +21,7 @@ gantt
     title Scale-out roadmap 2024-2028 (🟢 confirmed · 🟡 reported · 🔴 speculative)
     dateFormat YYYY-MM
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA
     Quantum-X800, Spectrum-X800, CX-8 🟢  :2024-03, 2026-06
     Spectrum-XGS scale-across 🟢          :2025-08, 2027-06
@@ -41,6 +42,8 @@ gantt
     AMD Helios 500 networking 🟢          :2027-01, 2027-12
     AMD Helios 600 networking 🟢          :2028-01, 2028-12
 ```
+
+<sub>Sources for bars not in the table below: Quantum-X800, Spectrum-X800 and ConnectX-8 [[S264]](../../sources/bibliography.md#s264); Jericho4 [[S276]](../../sources/bibliography.md#s276); Tomahawk 6-Davisson CPO [[S281]](../../sources/bibliography.md#s281).</sub>
 
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
@@ -103,6 +106,8 @@ Today's 102.4 Tb/s chips use 512 [SerDes](../../glossary.md#serdes) lanes at 200
 - [**S266**](../../sources/bibliography.md#s266) NVIDIA Newsroom, *NVIDIA Quantum-2 Takes Supercomputing to New Heights, Into the Cloud*, 2021-11-09. [Link](https://nvidianews.nvidia.com/news/nvidia-quantum-2-takes-supercomputing-to-new-heights-into-the-cloud)
 - [**S268**](../../sources/bibliography.md#s268) NVIDIA Newsroom, *NVIDIA Introduces Spectrum-XGS Ethernet to Connect Distributed Data Centers Into Giga-Scale AI Super-Factories*, 2025-08-22. [Link](https://nvidianews.nvidia.com/news/nvidia-introduces-spectrum-xgs-ethernet-to-connect-distributed-data-centers-into-giga-scale-ai-super-factories)
 - [**S274**](../../sources/bibliography.md#s274) Broadcom, *Broadcom ships Tomahawk 6: world's first 102.4 Tbps switch*, 2025-06-03. [Link](https://investors.broadcom.com/news-releases/news-release-details/broadcom-ships-tomahawk-6-worlds-first-1024-tbps-switch)
+- [**S276**](../../sources/bibliography.md#s276) Broadcom, *Broadcom ships Jericho4, enabling distributed AI computing across data centers*, 2025-08-04. [Link](https://investors.broadcom.com/news-releases/news-release-details/broadcom-ships-jericho4-enabling-distributed-ai-computing-across)
+- [**S281**](../../sources/bibliography.md#s281) Broadcom, *Broadcom Tomahawk 6-Davisson co-packaged optics Ethernet switch*, 2025-10. [Link](https://investors.broadcom.com/news-releases)
 - [**S282**](../../sources/bibliography.md#s282) Broadcom, *Broadcom delivers industry's first 51.2-Tbps co-packaged optics Ethernet switch platform (Bailly)*, 2024-03. [Link](https://investors.broadcom.com/news-releases)
 - [**S283**](../../sources/bibliography.md#s283) Broadcom, *Broadcom StrataXGS Tomahawk switch family (product pages)*, 2025. [Link](https://www.broadcom.com/products/ethernet-connectivity/switching/strataxgs)
 - [**S292**](../../sources/bibliography.md#s292) Amazon Web Services, *Elastic Fabric Adapter (EFA) and AWS Nitro System documentation*, 2025. [Link](https://aws.amazon.com/hpc/efa/)

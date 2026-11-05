@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **Share has barely moved while the pool quadrupled.** NVIDIA took ~87% of AI data-center silicon revenue in 2025 against ~90% in 2023, while the pool grew from ~$53B to ~$224B (Est., repo calculation) [[S416]](../../sources/bibliography.md#s416)[[S660]](../../sources/bibliography.md#s660)[[S663]](../../sources/bibliography.md#s663). Custom [ASICs](../../glossary.md#asic) are ~10% of revenue but TrendForce puts ASIC-based servers at ~27.8% of 2026 AI server units [[S2517]](../../sources/bibliography.md#s2517).
+- **Share has barely moved while the pool quadrupled.** NVIDIA took ~87% of AI data-center silicon revenue in 2025 against ~90% in 2023, while the pool grew from ~$53B to ~$224B (Est., repo calculation) [[S416]](../../sources/bibliography.md#s416)[[S1]](../../sources/bibliography.md#s1)[[S660]](../../sources/bibliography.md#s660)[[S661]](../../sources/bibliography.md#s661)[[S663]](../../sources/bibliography.md#s663). Custom [ASICs](../../glossary.md#asic) are ~10% of revenue but TrendForce puts ASIC-based servers at ~27.8% of 2026 AI server units [[S2517]](../../sources/bibliography.md#s2517).
 - **No rival matches the stack.** The closest, Google's [TPU](../../glossary.md#tpu), is level or ahead in 5 of NVIDIA's 12 layers; 60% of all rival-by-layer cells score "behind" in this repo's matrix [[S15014]](../../sources/bibliography.md#s15014).
 - **The chip gap has closed at AMD.** MI455X lists 432 GB of HBM4, 19.6 TB/s and 20 PFLOPS FP8 against Rubin's 288 GB, 19.2 TB/s and 17.5 PFLOPS [[S144]](../../sources/bibliography.md#s144)[[S33005]](../../sources/bibliography.md#s33005)[[S90006]](../../sources/bibliography.md#s90006). On MLPerf Llama 2 70B the MI355X matched a B200 per GPU (12,935 vs 12,994 tokens/s) [[S602]](../../sources/bibliography.md#s602).
 - **Hyperscaler chips trail per chip but win on cost.** An owned Ironwood chip-hour costs ~$1.21 against ~$2.31 for a GB300 (Est., SemiAnalysis) [[S622]](../../sources/bibliography.md#s622). Yet Rubin's HBM4 reopened the hardware gap: 2026 hyperscaler chips carry 32–45% of its memory bandwidth (repo calculation) [[S15014]](../../sources/bibliography.md#s15014).
@@ -29,14 +29,14 @@ Two kinds of seller compete. [Merchant silicon](../../glossary.md#merchant-silic
 
 <sub>Repo calculation in `data/market_share.csv` from company filings [[S416]](../../sources/bibliography.md#s416)[[S417]](../../sources/bibliography.md#s417)[[S1]](../../sources/bibliography.md#s1)[[S660]](../../sources/bibliography.md#s660)[[S661]](../../sources/bibliography.md#s661)[[S662]](../../sources/bibliography.md#s662)[[S663]](../../sources/bibliography.md#s663); China domestic (Huawei Ascend) excluded; 2026E is 🔴 speculative.</sub>
 
-![Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 14% of 2026 AI server shipments, because custom chips are far cheaper per unit.](../../assets/charts/15-merchant-vs-custom-asic-share.svg)
+![Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 28% of 2026 AI server shipments, because custom chips are far cheaper per unit.](../../assets/charts/15-merchant-vs-custom-asic-share.svg)
 
 > [!TIP]
 > **Worked example — why ASICs are ~14% of dollars but ~28% of units.** TrendForce puts ASIC-based servers at ~27.8% of 2026 AI server shipments and GPU-based servers at ~69.7% [[S2517]](../../sources/bibliography.md#s2517)[[S666]](../../sources/bibliography.md#s666). The revenue split is ~14% vs ~86% (Est., after updating Broadcom's FY2026 to ~$57B) [[S15014]](../../sources/bibliography.md#s15014). Revenue per unit, ASIC relative to GPU, is therefore (14 ÷ 27.8) ÷ (86 ÷ 69.7) ≈ 0.50 ÷ 1.23 ≈ **0.41**. A custom-ASIC server earns its suppliers roughly 40 % of what a GPU server earns NVIDIA and its partners. **Conclusion:** unit share overstates the threat to NVIDIA's revenue, but it measures the threat to its *volume* and pricing power. (Scopes differ: servers vs silicon; 🔴 repo arithmetic.)
 
 The design partners are where custom-ASIC dollars show up. Broadcom's AI revenue, which includes AI Ethernet as well as custom [XPUs](../../glossary.md#xpu), rose from ~$3.8B in 2023 to ~$20.2B in fiscal 2025 [[S660]](../../sources/bibliography.md#s660)[[S661]](../../sources/bibliography.md#s661), then to $16.7B in a single quarter (Q3 FY2026), with $21.7B guided for Q4 [[S2516]](../../sources/bibliography.md#s2516). The chart now uses ~$57B for Broadcom's FY2026 — the sum of reported and guided quarters [[S2516]](../../sources/bibliography.md#s2516).
 
-![Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025), ~$45B (2026E scenario) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.](../../assets/charts/15-custom-asic-revenue-trend.svg)
+![Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025) and ~$57B for FY2026 (Q1 and Q4 guidance, Q2 derived, Q3 reported) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.](../../assets/charts/15-custom-asic-revenue-trend.svg)
 
 **The hyperscaler wallet.** Shares of a vendor pool hide how much buyers spend overall. The Big-4 hyperscalers guide ~$728B of 2026 capex (midpoints) [[S12518]](../../sources/bibliography.md#s12518)[[S12519]](../../sources/bibliography.md#s12519). NVIDIA's hyperscale Data Center revenue annualizes to ~$173B, about a quarter of that [[S403]](../../sources/bibliography.md#s403)[[S406]](../../sources/bibliography.md#s406). Most capex goes to buildings, power, networking and memory.
 
@@ -66,7 +66,7 @@ quadrantChart
     quadrant-2 Deep specialists
     quadrant-3 Niche players
     quadrant-4 Broad but thin
-    NVIDIA: [0.97, 0.97]
+    NVIDIA: [0.95, 0.97]
     Google TPU: [0.93, 0.93]
     AWS Trainium: [0.83, 0.87]
     Huawei: [0.75, 0.80]

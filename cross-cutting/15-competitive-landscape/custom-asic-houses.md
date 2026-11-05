@@ -111,11 +111,11 @@ Jalapeño and its successor 🟡 [[S15501]](../../sources/bibliography.md#s15501
 ![Bar chart: Broadcom's quarterly AI semiconductor revenue held at about 11-14% of NVIDIA's data-center revenue from 2024-Q1 to 2026-Q1, then rose to 14% in 2026-Q2 (derived) and 19% in 2026-Q3, when Broadcom booked $16.7B against NVIDIA's $89.0B. Broadcom guides $21.7B for its next quarter.](../../assets/charts/02-broadcom-ai-vs-nvidia-dc.svg)
 
 The ratio in that chart is the cleanest single gauge of custom silicon against NVIDIA. It sat at 11–14% for two years
-and jumped to 19% in calendar Q3 2026 [[S2516]](../../sources/bibliography.md#s2516)[[S405]](../../sources/bibliography.md#s405). An earlier repo scenario of ~$45B for Broadcom's FY2026 now looks
-low against the reported run-rate; the catalog chart below still shows it, and the layer-02 data notes flag it
+and jumped to 19% in calendar Q3 2026 [[S2516]](../../sources/bibliography.md#s2516)[[S405]](../../sources/bibliography.md#s405). An earlier repo scenario of ~$45B for Broadcom's FY2026 proved too low: guidance plus the reported
+quarters now sum to ~$57B, which the chart below uses, and Broadcom's CEO cited ~$58B [[S2516]](../../sources/bibliography.md#s2516)[[S15501]](../../sources/bibliography.md#s15501)
 ([GPU silicon competition](../../layers/02-gpu-silicon/competition.md)).
 
-![Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025), ~$45B (2026E scenario) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.](../../assets/charts/15-custom-asic-revenue-trend.svg)
+![Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025) and ~$57B for FY2026 (Q1 and Q4 guidance, Q2 derived, Q3 reported) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.](../../assets/charts/15-custom-asic-revenue-trend.svg)
 
 > [!TIP]
 > **Worked example — reading the FY2027 target against NVIDIA.** Broadcom's ~$115B FY2027 goal is ~59% of NVIDIA's
@@ -196,7 +196,7 @@ not sell, and the GW pipelines show it: of OpenAI's 26 announced GW, 10 are Broa
 estimate (likely low given Broadcom's run-rate) [[S660]](../../sources/bibliography.md#s660)[[S661]](../../sources/bibliography.md#s661); on Broadcom vs NVIDIA data center, from ~12% to ~19% of a
 quarter [[S2516]](../../sources/bibliography.md#s2516)[[S405]](../../sources/bibliography.md#s405); on units, much further (27.8% of 2026 AI servers) [[S2517]](../../sources/bibliography.md#s2517).
 
-![Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 14% of 2026 AI server shipments, because custom chips are far cheaper per unit.](../../assets/charts/15-merchant-vs-custom-asic-share.svg)
+![Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 28% of 2026 AI server shipments, because custom chips are far cheaper per unit.](../../assets/charts/15-merchant-vs-custom-asic-share.svg)
 
 > [!NOTE]
 > **🐂 Bull view (for NVIDIA).** Custom programs keep NVIDIA in the rack: Trainium4 will use NVLink Fusion and MGX, and

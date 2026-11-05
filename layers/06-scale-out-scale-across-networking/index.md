@@ -4,9 +4,9 @@
 
 ## ⚡ The Executive Take
 
-- **The job ([scale-out](../../glossary.md#scale-out)):** join many NVLink domains into one machine; in a repo model, 1% of flows running 10× slow makes a training step ~3.2× longer (Est.) [[S6029]](../../sources/bibliography.md#s6029).
-- **NVIDIA sells [InfiniBand](../../glossary.md#infiniband), [Spectrum-X](../../glossary.md#spectrum-x) Ethernet and ConnectX [SuperNICs](../../glossary.md#supernic),** all from the $6.9B Mellanox deal [[S464]](../../sources/bibliography.md#s464). Networking reached a record $14.8B in Q1 FY2027 and ~$17.5B in Q2 (Est.), ~20% of Data Center revenue [[S90014]](../../sources/bibliography.md#s90014)[[S408]](../../sources/bibliography.md#s408).
-- **Generational progress:** InfiniBand ports went from 10 to 800 Gb/s (2001–2024) [[S273]](../../sources/bibliography.md#s273); per-GPU NIC bandwidth from 400 Gb/s (ConnectX-7) to 1.6 Tb/s (ConnectX-9, 2026) [[S266]](../../sources/bibliography.md#s266)[[S33004]](../../sources/bibliography.md#s33004); switch capacity 25.6 → 115.2 Tb/s from Quantum-2 to Quantum-X800 [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264).
+- **The job ([scale-out](../../glossary.md#scale-out)):** join many [NVLink](../../glossary.md#nvlink) domains into one machine; in a repo model, 1% of flows running 10× slow makes a training step ~3.2× longer (Est.) [[S6029]](../../sources/bibliography.md#s6029).
+- **NVIDIA sells [InfiniBand](../../glossary.md#infiniband), [Spectrum-X](../../glossary.md#spectrum-x) Ethernet and [ConnectX](../../glossary.md#connectx) [SuperNICs](../../glossary.md#supernic),** all from the $6.9B Mellanox deal [[S464]](../../sources/bibliography.md#s464). Networking reached a record $14.8B in Q1 FY2027 and ~$17.5B in Q2 (Est.), ~20% of Data Center revenue [[S90014]](../../sources/bibliography.md#s90014)[[S408]](../../sources/bibliography.md#s408).
+- **Generational progress:** InfiniBand ports went from 10 to 800 Gb/s (2001–2024) [[S273]](../../sources/bibliography.md#s273); per-GPU [NIC](../../glossary.md#nic) bandwidth from 400 Gb/s (ConnectX-7) to 1.6 Tb/s (ConnectX-9, 2026) [[S266]](../../sources/bibliography.md#s266)[[S33004]](../../sources/bibliography.md#s33004); switch capacity 25.6 → 115.2 Tb/s from Quantum-2 to Quantum-X800 [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264).
 - **Buyers chose Ethernet, so NVIDIA did too:** Ethernet was ~two-thirds of AI back-end switch sales in 1Q 2026 🟡 [[S90054]](../../sources/bibliography.md#s90054); Spectrum-X grew 2.6× y/y in Q2 FY2027 [[S408]](../../sources/bibliography.md#s408) and runs xAI's 100,000-GPU Colossus [[S6000]](../../sources/bibliography.md#s6000).
 - **Scale is expensive:** a 100,000-GPU fabric needs ~3,500 switches and ~350,000 optical modules in three tiers (Est.) [[S294]](../../sources/bibliography.md#s294), and networking is ~17–21% of cluster hardware capex [[S6026]](../../sources/bibliography.md#s6026)[[S324]](../../sources/bibliography.md#s324).
 - **Next:** [co-packaged optics](../../glossary.md#co-packaged-optics) (Quantum-X and Spectrum-X Photonics, 3.5×–5× power claims, 2026 shipments 🟡) [[S265]](../../sources/bibliography.md#s265)[[S6020]](../../sources/bibliography.md#s6020) and [Spectrum-XGS](../../glossary.md#spectrum-xgs) for linking data centers ([scale-across](../../glossary.md#scale-across)) [[S268]](../../sources/bibliography.md#s268).
@@ -105,7 +105,7 @@ mindmap
 
 - **One direction vs both:** this repo quotes switch capacity one direction (ports × speed); NVIDIA often doubles it (Quantum-2: 25.6 vs 51.2 Tb/s) [[S266]](../../sources/bibliography.md#s266).
 - **Port splits:** a 51.2 Tb/s switch can be 64 × 800G or 128 × 400G; radix depends on the split [[S267]](../../sources/bibliography.md#s267).
-- **"Effective bandwidth"** depends on traffic and scale; ask for NCCL bus-bandwidth curves [[S34012]](../../sources/bibliography.md#s34012).
+- **"Effective bandwidth"** depends on traffic and scale; ask for [NCCL](../../glossary.md#nccl) bus-bandwidth curves [[S34012]](../../sources/bibliography.md#s34012).
 
 </details>
 
@@ -114,7 +114,7 @@ mindmap
 1. **The network is a ~$1B line item per 100,000 GPUs** (Est.; see [Cluster topologies](cluster-topologies-100k-gpus.md)); every architecture change (tiers, planes, CPO) shifts those dollars among switch silicon, NICs, optics and integrators.
 2. **NVIDIA's leverage is the bundle.** Spectrum-X's advantage needs NVIDIA NICs and switches together; if Ultra Ethernet NICs match it, the premium shrinks to software and support [[S575]](../../sources/bibliography.md#s575).
 3. **Optics and lasers are the next bottleneck** as CPO moves value from pluggable-module makers to switch packages and laser suppliers [[S90049]](../../sources/bibliography.md#s90049).
-4. **Qualcomm question (public information only):** Qualcomm's AI200/AI250 racks [[S173]](../../sources/bibliography.md#s173) and 2028 Dragonfly roadmap [[S90056]](../../sources/bibliography.md#s90056) need scale-out fabrics; build, partner (merchant Ethernet, UEC NICs) or buy NIC and optical-I/O capability?
+4. **Qualcomm question (public information only):** Qualcomm's AI200/AI250 racks [[S173]](../../sources/bibliography.md#s173) and 2028 Dragonfly roadmap [[S90056]](../../sources/bibliography.md#s90056) need scale-out fabrics; build, partner (merchant Ethernet, [UEC](../../glossary.md#ultra-ethernet) NICs) or buy NIC and optical-I/O capability?
 
 ## 📚 Sources
 

@@ -20,6 +20,7 @@ gantt
     title Scale-up fabrics 2024-2028 (🟢 confirmed · 🟡 reported · 🔴 speculative)
     dateFormat YYYY-MM
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA
     NVLink 5 · GB200 and GB300 NVL72 🟢   :2024-10, 2026-09
     NVLink 6 · Vera Rubin NVL72 🟢        :2026-08, 2027-12
@@ -52,7 +53,7 @@ gantt
     Dragonfly AI300 UALink and ESUN 🟢    :2028-01, 2028-12
 ```
 
-<sub>Bars are availability windows; milestones are spec releases. The Kyber slip bar shows the SemiAnalysis-reported window against NVIDIA's official H2 2027. Trainium4 and UALink product windows are analyst or trade-press estimates. Sources per row are in the table below.</sub>
+<sub>Bars are availability windows; milestones are spec releases. The Kyber slip bar shows the SemiAnalysis-reported window against NVIDIA's official H2 2027. Trainium4 and UALink product windows are analyst or trade-press estimates. Sources per row are in the table below; bars not in it: MI355X 8-GPU mesh [[S229]](../../sources/bibliography.md#s229), Ironwood 9,216-chip pods [[S151]](../../sources/bibliography.md#s151), CloudMatrix 384 [[S248]](../../sources/bibliography.md#s248)[[S340]](../../sources/bibliography.md#s340).</sub>
 
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
@@ -115,6 +116,7 @@ NVLink 5, NVLink 6, UALink 1.0/2.0 and Tomahawk 6 all use 200G-class lanes [[S20
 - [**S121**](../../sources/bibliography.md#s121) NVIDIA, *NVIDIA GB200 NVL72*, 2024-03. [Link](https://www.nvidia.com/en-us/data-center/gb200-nvl72/)
 - [**S130**](../../sources/bibliography.md#s130) NVIDIA Newsroom, *NVIDIA and Intel to Develop AI Infrastructure and Personal Computing Products*, 2025-09-18. [Link](https://nvidianews.nvidia.com/news/nvidia-and-intel-to-develop-ai-infrastructure-and-personal-computing-products)
 - [**S131**](../../sources/bibliography.md#s131) NVIDIA Newsroom, *NVIDIA NVLink Fusion: semi-custom AI infrastructure partner ecosystem (Computex 2025)*, 2025-05-19. [Link](https://nvidianews.nvidia.com/news/nvidia-nvlink-fusion-semi-custom-ai-infrastructure-partner-ecosystem)
+- [**S151**](../../sources/bibliography.md#s151) Google Blog (Amin Vahdat), *Ironwood: The first Google TPU for the age of inference*, 2025-04-09. [Link](https://blog.google/products/google-cloud/ironwood-tpu-age-of-inference/)
 - [**S156**](../../sources/bibliography.md#s156) About Amazon, *AWS re:Invent 2025: top announcements (Trainium3 GA, Trainium4 preview, Graviton5)*, 2025-12-02. [Link](https://www.aboutamazon.com/news/aws/aws-re-invent-2025-ai-news-updates)
 - [**S163**](../../sources/bibliography.md#s163) Huawei (Eric Xu), *Huawei Connect 2025 keynote: Ascend roadmap and SuperPoD interconnect (Eric Xu)*, 2025-09-18. [Link](https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech)
 - [**S200**](../../sources/bibliography.md#s200) NVIDIA, *NVIDIA NVLink and NVLink Switch (product page with NVLink and NVLink Switch specification tables)*, 2026-09. [Link](https://www.nvidia.com/en-us/data-center/nvlink/)
@@ -124,8 +126,10 @@ NVLink 5, NVLink 6, UALink 1.0/2.0 and Tomahawk 6 all use 200G-class lanes [[S20
 - [**S210**](../../sources/bibliography.md#s210) SemiAnalysis, *Nvidia - GTC 2026: The Inference Kingdom Expands*, 2026-03. [Link](https://newsletter.semianalysis.com/p/nvidia-the-inference-kingdom-expands)
 - [**S223**](../../sources/bibliography.md#s223) UALink Consortium, *UALink Consortium Releases the Ultra Accelerator Link 200G 1.0 Specification (news release)*, 2025-04-08. [Link](https://ualinkconsortium.org/wp-content/uploads/2025/04/UALink-1.0-Specification-PR_FINAL.pdf)
 - [**S225**](../../sources/bibliography.md#s225) SDxCentral, *UALink Consortium 2.0 spec takes another swing at Nvidia's NVLink supremacy*, 2026-04. [Link](https://www.sdxcentral.com/news/ualink-consortium-takes-another-swing-at-nvidias-nvlink-supremacy-with-specification-20/)
+- [**S229**](../../sources/bibliography.md#s229) AMD, *AMD Instinct MI355X (product page)*, 2025-06-12. [Link](https://www.amd.com/en/products/accelerators/instinct/mi350/mi355x.html)
 - [**S238**](../../sources/bibliography.md#s238) Google, *Our eighth generation TPUs: two chips for the agentic era*, 2026-04-22. [Link](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/)
 - [**S242**](../../sources/bibliography.md#s242) Amazon Web Services, *Amazon EC2 Trn3 instances (product page)*, 2025-12-02. [Link](https://aws.amazon.com/ec2/instance-types/trn3/)
+- [**S248**](../../sources/bibliography.md#s248) arXiv (Huawei) (Huawei Cloud et al.), *Serving Large Language Models on Huawei CloudMatrix384*, 2025-06. [Link](https://arxiv.org/abs/2506.12708)
 - [**S249**](../../sources/bibliography.md#s249) Huawei (Eric Xu), *Groundbreaking SuperPoD Interconnect: Leading a New Paradigm for AI Infrastructure (Eric Xu keynote, Huawei Connect 2025)*, 2025-09-18. [Link](https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech)
 - [**S254**](../../sources/bibliography.md#s254) IEEE 802.3, *IEEE P802.3dj 200 Gb/s, 400 Gb/s, 800 Gb/s and 1.6 Tb/s Ethernet Task Force*, 2026. [Link](https://www.ieee802.org/3/dj/)
 - [**S256**](../../sources/bibliography.md#s256) Ethernet Alliance, *The Ethernet Roadmap*, 2025. [Link](https://ethernetalliance.org/technology/ethernet-roadmap/)
@@ -134,6 +138,7 @@ NVLink 5, NVLink 6, UALink 1.0/2.0 and Tomahawk 6 all use 200G-class lanes [[S20
 - [**S305**](../../sources/bibliography.md#s305) DatacenterDynamics, *Nvidia's Rubin Ultra NVL576 rack expected to be 600kW, coming second half of 2027*, 2025-03-19. [Link](https://datacenterdynamics.com/en/news/nvidias-rubin-ultra-nvl576-rack-expected-to-be-600kw-coming-second-half-of-2027)
 - [**S309**](../../sources/bibliography.md#s309) Spheron, *NVIDIA Kyber rack delayed to 2028: what it means for Rubin Ultra*, 2026. [Link](https://www.spheron.network/blog/nvidia-kyber-rack-delayed-to-2028-what-it-means-for-rubin-ul/)
 - [**S332**](../../sources/bibliography.md#s332) Tiger Brokers (iTiger), *Morgan Stanley's BOM analysis of NVIDIA's Rubin: GPU share declines; PCB, MLCC and ABF substrate values soar*, 2026-05-20. [Link](https://www.itiger.com/news/1188068712)
+- [**S340**](../../sources/bibliography.md#s340) SemiAnalysis (Dylan Patel et al.), *Huawei AI CloudMatrix 384 - China's answer to Nvidia GB200 NVL72*, 2025-04-16. [Link](https://newsletter.semianalysis.com/p/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72)
 - [**S500**](../../sources/bibliography.md#s500) NVIDIA Corporation, *NVIDIA Q2 Fiscal 2027 Quarterly Presentation (CFO commentary deck)*, 2026-08-26. [Link](https://s201.q4cdn.com/141608511/files/doc_financials/2027/Q227/NVDA-F2Q27-Quarterly-Presentation-final-1.pdf)
 - [**S502**](../../sources/bibliography.md#s502) Tom's Hardware, *Nvidia updates data center roadmap with Rosa CPU and stacked Feynman GPUs; optical NVLink; Groq LPUs with NVFP4 and NVLink also on deck*, 2026-03-17. [Link](https://www.tomshardware.com/pc-components/gpus/nvidia-updates-data-center-roadmap-with-rosa-cpu-and-stacked-feynman-gpus-optical-nvlink-groq-lpus-with-nvfp4-and-nvlink-also-on-deck)
 - [**S507**](../../sources/bibliography.md#s507) Tom's Hardware, *Nvidia's Kyber rack for Rubin Ultra slips to 2028*, 2026-07-06. [Link](https://www.tomshardware.com/pc-components/gpus/nvidias-kyber-rack-for-rubin-ultra-slips-to-2028)

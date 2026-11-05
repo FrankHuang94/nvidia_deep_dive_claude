@@ -9,13 +9,13 @@
 - **Data must bypass the CPU.** Staging network data in host memory would consume 39–150% of host memory bandwidth (Est.) [[S7000]](../../sources/bibliography.md#s7000); [GPUDirect RDMA](../../glossary.md#gpudirect-rdma) and [GPUDirect Storage](../../glossary.md#gpudirect-storage) send it straight into GPU memory [[S7009]](../../sources/bibliography.md#s7009).
 - **Storage is becoming inference memory:** BlueField-4 runs a new "G3.5" KV-cache tier, with 12 storage partners building STX systems for H2 2026 🟢 [[S7511]](../../sources/bibliography.md#s7511)[[S7027]](../../sources/bibliography.md#s7027); a 128K-token context reloads in ~0.2 s versus ~4.7 s to recompute (Est.) [[S7000]](../../sources/bibliography.md#s7000).
 - **Checkpoints make storage a goodput lever:** on a 16,384-GPU run, 1 TB/s instead of 100 GB/s storage is worth ~$30M a year of GPU time (Est.) [[S34006]](../../sources/bibliography.md#s34006)[[S7000]](../../sources/bibliography.md#s7000).
-- **Confidential computing went from one GPU (H100) to a rack (Vera Rubin NVL72)** [[S7012]](../../sources/bibliography.md#s7012)[[S7028]](../../sources/bibliography.md#s7028); measured H100 overhead is 0–7% of throughput [[S7011]](../../sources/bibliography.md#s7011).
+- **Confidential computing went from one GPU (H100) to a rack (Vera Rubin [NVL72](../../glossary.md#nvl72))** [[S7012]](../../sources/bibliography.md#s7012)[[S7028]](../../sources/bibliography.md#s7028); measured H100 overhead is 0–7% of throughput [[S7011]](../../sources/bibliography.md#s7011).
 - **Weakness and challengers:** AWS (Nitro) and Google (Titanium) build their own offload [[S292]](../../sources/bibliography.md#s292)[[S7520]](../../sources/bibliography.md#s7520); AMD's Helios gives each GPU 2.4 Tb/s of Pensando NICs, 1.5× Vera Rubin [[S228]](../../sources/bibliography.md#s228)[[S7500]](../../sources/bibliography.md#s7500); storage software margin goes to partners (VAST Data, DDN, WEKA); standard device trust (TDISP) could level confidential computing [[S7015]](../../sources/bibliography.md#s7015).
 
 ![Three-panel bar chart of NVIDIA BlueField DPUs. Arm cores: BlueField-1 16 (Cortex-A72, 2018), BlueField-2 8 (A72, 2020), BlueField-3 16 (A78, 2022), BlueField-4 64 (Neoverse V2, Grace-class, 2026). Network bandwidth: 100, 200, 400 and 800 Gb/s. Cores per 100 Gb/s: 16, 4, 4 and 8, so BlueField-4 doubles compute per bit, signalling that it runs services such as storage and KV-cache management, not just packet offload. NVIDIA claims BlueField-2 replaced ~30 CPU cores, BlueField-3 up to 300 and BlueField-4 has 6x BlueField-3's compute.](../../assets/charts/07-bluefield-generations.svg)
 
 > [!TIP]
-> **Worked example — how big this layer is in a rack.** SemiAnalysis puts a GB200 NVL72 at ~$3.1M for the rack and ~$3.9M with its share of scale-out networking and storage [[S324]](../../sources/bibliography.md#s324): **~$0.8M, ~21% of all-in cost**, sits in this layer and layer 06. On Vera Rubin, 72 GPUs × 1.6 Tb/s = **115.2 Tb/s** of SuperNIC bandwidth per rack, one full 144-port 800G Quantum-X800 switch [[S33004]](../../sources/bibliography.md#s33004)[[S264]](../../sources/bibliography.md#s264). NVIDIA's networking line, which includes NICs and DPUs, hit a record $14.8B in Q1 FY2027 [[S90014]](../../sources/bibliography.md#s90014). **Conclusion:** a fifth of cluster spend flows through this plumbing, but NVIDIA captures only the NIC, DPU and switch slices; storage systems go to partners.
+> **Worked example — how big this layer is in a rack.** SemiAnalysis puts a GB200 NVL72 at ~$3.1M for the rack and ~$3.9M with its share of [scale-out](../../glossary.md#scale-out) networking and storage [[S324]](../../sources/bibliography.md#s324): **~$0.8M, ~21% of all-in cost**, sits in this layer and layer 06. On Vera Rubin, 72 GPUs × 1.6 Tb/s = **115.2 Tb/s** of SuperNIC bandwidth per rack, one full 144-port 800G Quantum-X800 switch [[S33004]](../../sources/bibliography.md#s33004)[[S264]](../../sources/bibliography.md#s264). NVIDIA's networking line, which includes NICs and DPUs, hit a record $14.8B in Q1 FY2027 [[S90014]](../../sources/bibliography.md#s90014). **Conclusion:** a fifth of cluster spend flows through this plumbing, but NVIDIA captures only the [NIC](../../glossary.md#nic), DPU and switch slices; storage systems go to partners.
 
 ## Where this layer sits in the stack
 
@@ -106,16 +106,16 @@ mindmap
 <summary>🔧 Under the hood: how to read NIC and DPU spec sheets</summary>
 
 - **Per port vs per GPU:** ConnectX-9 ports run at up to 800 Gb/s while NVIDIA quotes 1.6 Tb/s per GPU [[S7535]](../../sources/bibliography.md#s7535)[[S33004]](../../sources/bibliography.md#s33004).
-- **Host link limits:** a PCIe Gen6 x16 link carries ~128 GB/s (~1.0 Tb/s) each way [[S222]](../../sources/bibliography.md#s222).
+- **Host link limits:** a [PCIe](../../glossary.md#pcie) Gen6 x16 link carries ~128 GB/s (~1.0 Tb/s) each way [[S222]](../../sources/bibliography.md#s222).
 - **"Core-equivalent" claims** (BlueField-2 ~30, BlueField-3 up to 300) are vendor framings, not benchmarks [[S7008]](../../sources/bibliography.md#s7008).
 
 </details>
 
 ## 🎯 Corp Dev Lens
 
-1. **Volume business on NVIDIA's coat-tails.** NIC and DPU attach scales with GPU shipments; can merchant NICs (Broadcom, AMD) win sockets in non-NVIDIA racks, or in NVIDIA racks sold to hyperscalers?
+1. **Volume business on NVIDIA's coat-tails.** NIC and DPU attach scales with GPU shipments; can merchant NICs (Broadcom, AMD) win sockets in non-NVIDIA racks, or in NVIDIA racks sold to [hyperscalers](../../glossary.md#hyperscaler)?
 2. **The DPU's best market may be storage.** BlueField-4 as controller of KV-cache flash enclosures [[S7511]](../../sources/bibliography.md#s7511) is a new socket; watch which partners make it standard.
-3. **Software is the moat, not silicon.** DOCA, NCCL, GPUDirect and Dynamo's KV placement tie the NIC to the stack; Ultra Ethernet and TDISP push the other way [[S7015]](../../sources/bibliography.md#s7015).
+3. **Software is the moat, not silicon.** DOCA, [NCCL](../../glossary.md#nccl), GPUDirect and [Dynamo](../../glossary.md#dynamo)'s KV placement tie the NIC to the stack; Ultra Ethernet and TDISP push the other way [[S7015]](../../sources/bibliography.md#s7015).
 4. **Qualcomm question (public information only):** for AI200/AI250 racks [[S173]](../../sources/bibliography.md#s173), which pieces of this layer (NIC, offload, context storage, attestation) should be built, bought or left to partners?
 
 ## 📚 Sources

@@ -485,7 +485,9 @@ def nvidia_cloud_service_commitments():
               (2, "Sep 2025: DGX Cloud\nrefocused on internal R&D")]
     for xi, txt in events:
         ax.annotate(txt, (xi, d.value.iloc[xi]), xytext=(0, 46 if xi else 58), textcoords="offset points",
-                    ha="center", fontsize=8.4, color=INK["text"], arrowprops=dict(arrowstyle="-", color=INK["base"]))
+                    ha="center", fontsize=8.4, color=INK["text"],
+                    # QA 2026-11-05: stop the leader line above the value label instead of striking through it
+                    arrowprops=dict(arrowstyle="-", color=INK["base"], shrinkB=17))
     ax.set_ylim(0, 38)
     c.save(fig, ax, ylabel="US$ B of commitments", legend=False, bottom=0.15)
 

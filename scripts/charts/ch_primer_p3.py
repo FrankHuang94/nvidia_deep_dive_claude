@@ -92,7 +92,9 @@ def roofline_h100_b200_rubin():
     for g in gpus:
         r, peak = ridges[g], df.loc[g, "bf16_tflops_dense"]
         ax.annotate(f"ridge ≈ {r:,.0f} FLOPs/B", (r, peak), xytext=offs[g], textcoords="offset points",
-                    fontsize=8.6, color=GPU_STYLE[g]["color"] if g != "H100 SXM" else INK["text"], fontweight="bold")
+                    fontsize=8.6, color=GPU_STYLE[g]["color"] if g != "H100 SXM" else INK["text"], fontweight="bold",
+                    # QA 2026-11-05: white backing so the B200 label is not struck through by its own roofline
+                    bbox=dict(boxstyle="round,pad=0.15", fc="#FFFFFF", ec="none", alpha=0.9), zorder=6)
     # workload markers
     picks = ["Decode (batch 1)", "Decode (batch 64)", "Decode (batch 256)", "Prefill (2048-token prompt)",
              "Training GEMM (16K tokens per GPU)"]

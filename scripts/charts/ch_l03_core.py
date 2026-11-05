@@ -106,8 +106,9 @@ def l03_decode_ceiling_vs_batch():
              f"{r.bmax} (~{rub_peak:,.0f} tokens/s). Rubin's 2.4x bandwidth lifts speed but not the batch, and at its limit "
              f"KV-cache reads are ~{kv_share * 100:.0f}% of bytes moved per step."),
         data=[P2], chapters=["03", "11", "P2"],
-        source="repo model (Est.) on Primer P2 inputs, ignoring compute and overhead limits",
+        source="repo model (Est.) on Primer P2 inputs",
         source_ids=["S3000", "S32006", "S32002", "S33003", "S32004", "S33007"],
+        note="Est.: ignores compute and overhead limits",  # moved out of the footer, which was clipped (QA 2026-11-05)
     )
     fig, ax = c.figure(width=10.5, height=6.0)
     for _, g in d.iterrows():

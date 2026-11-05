@@ -20,6 +20,7 @@ gantt
     title Orchestration and cloud roadmap 2024-2028 (🟢 confirmed · 🟡 reported · 🔴 speculative)
     dateFormat YYYY-MM
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA software
     Run:ai acquired and integrated 🟢      :2024-04, 2025-03
     Mission Control 🟢                     :2025-03, 2028-12
@@ -46,7 +47,7 @@ gantt
     Maia 300 multi-GW 🟡                   :2027-01, 2028-12
 ```
 
-<sub>Bars show availability or build windows; open-ended items run to the chart edge. Trainium4 timing is not disclosed 🔴. Sources per row in the table below.</sub>
+<sub>Bars show availability or build windows; open-ended items run to the chart edge. Trainium4 timing is not disclosed 🔴. Sources per row in the table below; bars not in it: Run:ai [[S476]](../../sources/bibliography.md#s476), SchedMD/Slurm [[S12000]](../../sources/bibliography.md#s12000), Trainium3 UltraServers [[S90035]](../../sources/bibliography.md#s90035).</sub>
 
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
@@ -59,7 +60,7 @@ gantt
 | Nebius ~5 GW contracted, 0.8–1 GW connected by end-2026 | 2026 → 2029 | guidance | 🟡 | [[S12503]](../../sources/bibliography.md#s12503) |
 | Crusoe ~4.9 GW contracted, ~0.2 GW energized | 2026 → | secondary data | 🟡 | [[S12013]](../../sources/bibliography.md#s12013) |
 | Anthropic $50B US data centers with Fluidstack | 2026 → | announced | 🟢 | [[S12524]](../../sources/bibliography.md#s12524) |
-| Trainium4 (NVLink Fusion support) | not dated | announced | 🟢 product / 🔴 timing | [[S90034]](../../sources/bibliography.md#s90034) |
+| Trainium4 (NVLink Fusion support) | not dated by AWS (announced 2025-12; chart placeholder 2027–28) | announced | 🟢 product / 🔴 timing | [[S90034]](../../sources/bibliography.md#s90034) |
 | Maia 300; multi-GW Maia from 2027 | 2027 → | announced / reported | 🟡 | [[S90046]](../../sources/bibliography.md#s90046)[[S90045]](../../sources/bibliography.md#s90045) |
 
 > [!TIP]
@@ -114,7 +115,9 @@ These February guides (~$505B for the big three) have since risen; Alphabet move
 - [**S461**](../../sources/bibliography.md#s461) Amazon Investor Relations, *Amazon.com Q4 2025 results and 2026 capex commentary*, 2026-02. [Link](https://ir.aboutamazon.com/)
 - [**S462**](../../sources/bibliography.md#s462) Meta Investor Relations, *Meta Q4 and full year 2025 results and 2026 capex outlook*, 2026-01. [Link](https://investor.atmeta.com/)
 - [**S472**](../../sources/bibliography.md#s472) CoreWeave Newsroom, *CoreWeave and NVIDIA expand partnership; NVIDIA invests $2B in CoreWeave Class A stock*, 2026-01-26. [Link](https://www.coreweave.com/news)
+- [**S476**](../../sources/bibliography.md#s476) NVIDIA Blog, *NVIDIA to Acquire GPU Orchestration Software Provider Run:ai*, 2024-04-24. [Link](https://blogs.nvidia.com/blog/runai/)
 - [**S598**](../../sources/bibliography.md#s598) NVIDIA Newsroom, *NVIDIA Announces DGX Cloud Lepton to Connect Developers to NVIDIA's Global Compute Ecosystem*, 2025-05-18. [Link](https://nvidianews.nvidia.com/news/nvidia-announces-dgx-cloud-lepton-to-connect-developers-to-nvidias-global-compute-ecosystem)
+- [**S12000**](../../sources/bibliography.md#s12000) NVIDIA Blog, *NVIDIA Acquires Open-Source Workload Management Provider SchedMD*, 2025-12-15. [Link](https://blogs.nvidia.com/blog/nvidia-acquires-schedmd)
 - [**S12005**](../../sources/bibliography.md#s12005) NVIDIA Blog, *New NVIDIA Software for Blackwell Infrastructure Runs AI Factories at Light Speed*, 2025-03-18. [Link](https://blogs.nvidia.com/?p=78497)
 - [**S12006**](../../sources/bibliography.md#s12006) NVIDIA Technical Blog, *Automating AI Factory Operations with NVIDIA Mission Control*, 2026. [Link](https://developer.nvidia.com/blog/automating-ai-factory-operations-with-nvidia-mission-control)
 - [**S12010**](../../sources/bibliography.md#s12010) DatacenterDynamics, *Neocloud results Q2 2026: CoreWeave, Nebius, Cerebras*, 2026-08. [Link](https://www.datacenterdynamics.com/en/news/neocloud-results-q2-2026-coreweave-nebius-cerebras/)
@@ -137,6 +140,7 @@ These February guides (~$505B for the big three) have since risen; Alphabet move
 - [**S12529**](../../sources/bibliography.md#s12529) NVIDIA Technical Blog, *Introducing NVIDIA DGX Cloud Lepton: a unified AI platform built for developers*, 2025-05. [Link](https://developer.nvidia.com/blog/introducing-nvidia-dgx-cloud-lepton-a-unified-ai-platform-built-for-developers)
 - [**S90027**](../../sources/bibliography.md#s90027) The Next Web, *Google is building a four-partner chip supply chain to challenge Nvidia in AI inference*, 2026. [Link](https://thenextweb.com/news/google-inference-chips-nvidia-challenge-supply-chain)
 - [**S90034**](../../sources/bibliography.md#s90034) NAND Research, *AWS releases Trainium3, teases Trainium4*, 2025-12. [Link](https://nand-research.com/research-note-aws-releases-trainium3-teases-trainium4/4/)
+- [**S90035**](../../sources/bibliography.md#s90035) Business Today ME, *Trainium3 UltraServers now available*, 2025-12. [Link](https://businesstoday.me/tech-news/trainium3-ultraservers-now-available-enabling-customers-to-train-and-deploy-ai-models-fasterat-lower-cost/)
 - [**S90045**](../../sources/bibliography.md#s90045) Pulse 2.0, *Microsoft to expand Azure Maia AI infrastructure to multi-gigawatt deployments starting in 2027*, 2026-10. [Link](https://pulse2.com/microsoft-to-expand-azure-maia-ai-infrastructure/)
 - [**S90046**](../../sources/bibliography.md#s90046) IT Brief UK, *Microsoft unveils Maia 300 for 2027 AI deployments*, 2026-10. [Link](https://itbrief.co.uk/story/microsoft-unveils-maia-300-for-2027-ai-deployments)
 - [**S90066**](../../sources/bibliography.md#s90066) HPCwire (NVIDIA press release), *NVIDIA enters production with Dynamo, the broadly adopted inference operating system for AI factories*, 2026-03-17. [Link](https://www.hpcwire.com/aiwire/tag/dynamo-1-0/)

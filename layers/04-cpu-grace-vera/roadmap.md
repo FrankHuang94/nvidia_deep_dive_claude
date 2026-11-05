@@ -8,7 +8,7 @@
 - **Standalone Vera is the new line:** NVIDIA called it a "multi-billion-dollar business" at GTC 2026, and Meta plans Vera-only servers after its Grace deployment 🟢 [[S90003]](../../sources/bibliography.md#s90003)[[S4519]](../../sources/bibliography.md#s4519).
 - **Next NVIDIA CPU:** Rosa, paired with Feynman in 2028, has no published specifications 🟡 [[S90004]](../../sources/bibliography.md#s90004)[[S109]](../../sources/bibliography.md#s109).
 - **[x86](../../glossary.md#x86) closes the bandwidth gap quickly:** EPYC Venice claims 1.6 TB/s in 2026 and Diamond Rapids is reported at ~2× Granite Rapids for mid-2027 🟡 [[S144]](../../sources/bibliography.md#s144)[[S4524]](../../sources/bibliography.md#s4524).
-- **Undated entrants:** Intel's NVLink x86 for NVIDIA and Qualcomm's Oryon datacenter CPU have no public dates 🔴 [[S468]](../../sources/bibliography.md#s468)[[S4516]](../../sources/bibliography.md#s4516).
+- **One undated entrant:** Intel's NVLink x86 for NVIDIA has no public date 🔴 [[S468]](../../sources/bibliography.md#s468). Qualcomm's Oryon-based Dragonfly C1000 (> 250 cores) is now dated: first deployments H2 2028, Meta the first named customer 🟢 [[S90056]](../../sources/bibliography.md#s90056)[[S90058]](../../sources/bibliography.md#s90058).
 - **[Q7 · Roadmap & what changes the picture]** Watch NVLink Fusion CPUs shipping, CPU-per-GPU ratios in agentic racks, Arm's own silicon, and whether x86 gets a coherent link above PCIe speeds.
 
 ## The 2024–2028 roadmap
@@ -18,6 +18,7 @@ gantt
     title Server CPU roadmap 2024-2028 (🟢 confirmed · 🟡 reported · 🔴 speculative)
     dateFormat YYYY-MM
     axisFormat %Y
+    tickInterval 12month
     section NVIDIA
     Grace in GB200 and GB300 🟢        :2024-10, 2026-09
     Vera in Vera Rubin NVL72 🟢        :2026-08, 2027-12
@@ -43,17 +44,17 @@ gantt
     Kunpeng 950 🟡                     :2026-10, 2027-12
     MONAKA 🟡                          :2027-04, 2028-03
     Kunpeng 960 🟡                     :2028-01, 2028-12
-    Qualcomm DC CPU 🔴                 :2027-01, 2028-12
+    Qualcomm Dragonfly C1000 🟢        :2028-07, 2028-12
 ```
 
-<sub>Bars show availability windows. Intel x86-with-NVLink and Qualcomm bars are placeholders: neither company has given a date [[S468]](../../sources/bibliography.md#s468)[[S4516]](../../sources/bibliography.md#s4516). Sources per row in the table below.</sub>
+<sub>Bars show availability windows. The Intel x86-with-NVLink bar is a placeholder: Intel has not given a date [[S468]](../../sources/bibliography.md#s468). Qualcomm's C1000 window is from its June 2026 Investor Day [[S90056]](../../sources/bibliography.md#s90056). Sources per row in the table below; EPYC Turin [[S176]](../../sources/bibliography.md#s176) and Graviton4 [[S181]](../../sources/bibliography.md#s181), which are not in the table.</sub>
 
 | Item | Window | Status | Confidence | Source |
 |---|---|---|---|---|
 | NVIDIA Vera (88 Olympus cores, 1.8 TB/s C2C) | 2026-Q3 → | shipping | 🟢 | [[S100]](../../sources/bibliography.md#s100)[[S500]](../../sources/bibliography.md#s500) |
 | NVIDIA standalone Vera | 2026–2027 | announced; Meta runs standalone Grace now, Vera next | 🟢 product / 🟡 timing | [[S90003]](../../sources/bibliography.md#s90003)[[S4519]](../../sources/bibliography.md#s4519) |
 | NVIDIA Rosa (Feynman era) | 2028 | roadmap, no specs | 🟡 | [[S90004]](../../sources/bibliography.md#s90004)[[S109]](../../sources/bibliography.md#s109) |
-| Intel custom x86 with NVLink | not disclosed | announced 2025-09-18 | 🔴 timing | [[S468]](../../sources/bibliography.md#s468) |
+| Intel custom x86 with NVLink | not disclosed (deal announced 2025-09-18) | announced | 🔴 timing | [[S468]](../../sources/bibliography.md#s468) |
 | AMD EPYC Venice (256 cores, 1.6 TB/s) | 2026-Q3 → | shipping, volume Q4 2026 | 🟢 | [[S538]](../../sources/bibliography.md#s538)[[S542]](../../sources/bibliography.md#s542) |
 | AMD EPYC Verano / Ferrara | 2027 / 2028 | roadmap | 🟢 | [[S538]](../../sources/bibliography.md#s538)[[S540]](../../sources/bibliography.md#s540) |
 | Intel Xeon 6+ Clearwater Forest (288 E-cores) | 2026 | launched at Computex | 🟡 | [[S4525]](../../sources/bibliography.md#s4525) |
@@ -64,7 +65,7 @@ gantt
 | Arm AGI CPU (136 cores) | 2026 | announced, Meta first customer | 🟢 | [[S4510]](../../sources/bibliography.md#s4510) |
 | Huawei Kunpeng 950 / 960 | Q4 2026 / Q1 2028 | roadmap | 🟡 | [[S4528]](../../sources/bibliography.md#s4528) |
 | Fujitsu MONAKA (144 cores) | FY2027 | roadmap | 🟡 | [[S187]](../../sources/bibliography.md#s187) |
-| Qualcomm Oryon datacenter CPU | not disclosed | announced; no shipments confirmed | 🔴 | [[S4516]](../../sources/bibliography.md#s4516)[[S90028]](../../sources/bibliography.md#s90028) |
+| Qualcomm Dragonfly C1000 (Oryon, > 250 cores; public information) | H2 2028 (first deployments, Meta) | announced 2026-06-24 | 🟢 announced / 🟡 timing | [[S90056]](../../sources/bibliography.md#s90056)[[S90058]](../../sources/bibliography.md#s90058)[[S4516]](../../sources/bibliography.md#s4516) |
 
 <sub>NVIDIA and AMD rows match `data/roadmap.csv` (Rosa tagged 🟡 per the repo fact sheet); other rows were verified for this page in `data/l04_cpu_roadmap_specs.csv`.</sub>
 
@@ -114,7 +115,9 @@ Peak memory bandwidth = channels × transfer rate × 8 bytes. Twelve channels of
 - [**S100**](../../sources/bibliography.md#s100) NVIDIA Technical Blog, *Inside the NVIDIA Vera Rubin Platform: Six New Chips, One AI Supercomputer*, 2026-01-05. [Link](https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/)
 - [**S109**](../../sources/bibliography.md#s109) NVIDIA Blog, *NVIDIA GTC 2026: Live Updates on What's Next in AI*, 2026-03-16. [Link](https://blogs.nvidia.com/blog/gtc-2026-news/)
 - [**S144**](../../sources/bibliography.md#s144) AMD Newsroom, *AMD Unveils Vision for an Open AI Ecosystem, Detailing New Silicon, Software and Systems at Advancing AI 2025*, 2025-06-12. [Link](https://www.amd.com/en/newsroom/press-releases/2025-6-12-amd-unveils-vision-for-an-open-ai-ecosystem-detai.html)
+- [**S176**](../../sources/bibliography.md#s176) AMD, *AMD EPYC 9005 Series (Turin)*, 2024-10-10. [Link](https://www.amd.com/en/products/processors/server/epyc/9005-series.html)
 - [**S179**](../../sources/bibliography.md#s179) Intel, *Intel Xeon 6 processors with P-cores (Granite Rapids, 6900P/6700P)*, 2024-09-24. [Link](https://www.intel.com/content/www/us/en/products/details/processors/xeon/xeon6-p-cores.html)
+- [**S181**](../../sources/bibliography.md#s181) Amazon Web Services, *AWS Graviton Processor*, 2024. [Link](https://aws.amazon.com/ec2/graviton/)
 - [**S184**](../../sources/bibliography.md#s184) Microsoft Tech Community, *Announcing Cobalt 200: Azure's next cloud-native CPU*, 2025-11-18. [Link](https://techcommunity.microsoft.com/blog/azurecompute/announcing-cobalt-200-azures-next-cloud-native-cpu/4469807)
 - [**S187**](../../sources/bibliography.md#s187) Fujitsu, *FUJITSU-MONAKA: next-generation Arm-based processor*, 2025. [Link](https://www.fujitsu.com/global/about/research/technology/monaka/)
 - [**S302**](../../sources/bibliography.md#s302) Hashrate Index, *NVIDIA Vera Rubin NVL72 specs breakdown*, 2026. [Link](https://hashrateindex.com/blog/nvidia-vera-rubin-nvl72-specs-breakdown/)
@@ -139,6 +142,7 @@ Peak memory bandwidth = channels × transfer rate × 8 bytes. Twelve channels of
 - [**S90004**](../../sources/bibliography.md#s90004) TrendForce, *Key GTC takeaways: how Samsung, Micron, Intel and more power NVIDIA's Vera Rubin and Feynman*, 2026-03-17. [Link](https://www.trendforce.com/news/2026/03/17/news-key-gtc-takeaways-how-samsung-micron-intel-more-power-nvidias-vera-rubin-and-feynman/)
 - [**S90006**](../../sources/bibliography.md#s90006) TweakTown, *Nvidia cuts Vera Rubin's memory bandwidth by up to 26% and AMD's Helios now leads in memory bandwidth*, 2026-10. [Link](https://www.tweaktown.com/news/114304/nvidia-cuts-vera-rubins-memory-bandwidth-by-up-to-26-percent-and-amds-helios-now-leads-in-memory-bandwidth/index.html)
 - [**S90009**](../../sources/bibliography.md#s90009) GamesBeat, *Nvidia Vera Rubin ramps into full production for fall launch*, 2026. [Link](https://gamesbeat.com/nvidia-vera-rubin-ramps-into-full-production-for-fall-launch-again/)
-- [**S90028**](../../sources/bibliography.md#s90028) TechRepublic, *Qualcomm unveils AI chips to rival Nvidia, AMD*, 2025-10-27. [Link](https://techrepublic.com/article/news-qualcomm-unveils-ai-chips-to-rival-nvidia-amd)
 - [**S90031**](../../sources/bibliography.md#s90031) ServeTheHome, *NVIDIA announces NVLink Fusion bringing NVLink to third-party CPUs and accelerators*, 2025-05-19. [Link](https://www.servethehome.com/nvidia-announces-nvlink-fusion-bringing-nvlink-to-third-party-cpus-and-accelerators/nvlink-fusion-partners/)
 - [**S90036**](../../sources/bibliography.md#s90036) Converge Digest, *Arm extends Neoverse with NVIDIA NVLink Fusion*, 2025-11. [Link](https://convergedigest.com/arm-extends-neoverse-with-nvidia-nvlink-fusion/)
+- [**S90056**](../../sources/bibliography.md#s90056) HPCwire (Qualcomm press release), *Qualcomm unveils data center roadmap for the agentic AI era with new Dragonfly portfolio*, 2026-06-24. [Link](https://www.hpcwire.com/off-the-wire/qualcomm-unveils-data-center-roadmap-for-the-agentic-ai-era-with-new-dragonfly-portfolio/)
+- [**S90058**](../../sources/bibliography.md#s90058) Constellation Research, *Qualcomm outlines new CPU, AI accelerator roadmap, inks deal with Meta*, 2026-06-24. [Link](https://www.constellationr.com/insights/news/qualcomm-outlines-new-cpu-ai-accelerator-roadmap-inks-deal-meta)

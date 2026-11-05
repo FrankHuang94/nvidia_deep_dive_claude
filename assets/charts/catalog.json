@@ -6406,7 +6406,8 @@
       "S450",
       "S401",
       "S10535",
-      "S90057"
+      "S90057",
+      "S9511"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -6415,9 +6416,9 @@
   },
   {
     "id": "10-software-deal-values",
-    "title": "6 of 12 sampled software buys since 2022 have prices; Qualcomm's $3.9B tops them",
+    "title": "Chip vendors' software buys: NVIDIA's pending $12.9B Hugging Face deal tops Qualcomm's $3.9B Modular (itself ~6x any earlier deal)",
     "subtitle": "Disclosed or reported value, US$ millions (log scale): a sample of library, AI-software and tools deals by chip vendors",
-    "alt": "Log-scale horizontal bar chart of a sample of library, AI-software and tools deals by chip vendors: 12 acquisitions since 2022, 6 with public prices. Qualcomm's announced $3,900M Modular acquisition (2026) is ~5.6x the largest earlier one, NVIDIA's $700M Run:ai (2024, reported); then $400M CentML, $300M Deci, $250M OctoAI and $88M mental images; AMD's $665M Silo AI (2024); NVIDIA's $2,000M Synopsys equity stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, PGI, Bright Computing and Excelero were undisclosed.",
+    "alt": "Log-scale horizontal bar chart of a sample of library, AI-software and tools deals by chip vendors: 13 acquisitions since 2022, 7 with public prices. NVIDIA's pending $12,930M Hugging Face acquisition (announced Sep 2026, close targeted H1 2027) is the largest. Qualcomm's announced $3,900M Modular acquisition (2026) is ~5.6x the largest earlier one, NVIDIA's $700M Run:ai (2024, reported); then $400M CentML, $300M Deci, $250M OctoAI and $88M mental images; AMD's $665M Silo AI (2024); NVIDIA's $2,000M Synopsys equity stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, PGI, Bright Computing and Excelero were undisclosed.",
     "data": [
       "l10_software_deals.csv"
     ],
@@ -6439,7 +6440,11 @@
       "S10531",
       "S476",
       "S471",
-      "S90057"
+      "S90057",
+      "S9511",
+      "S11500",
+      "S11025",
+      "S90084"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -10205,9 +10210,9 @@
   },
   {
     "id": "15-custom-asic-revenue-trend",
-    "title": "Broadcom's AI revenue rose 2.8x in two years to $6.5B a quarter; Marvell's is ~1/8 the size",
+    "title": "Broadcom's AI revenue rose 2.8x in two years to $6.5B a quarter and tracks ~$57B for FY2026; Marvell's is ~1/8 the size",
     "subtitle": "Left: Broadcom AI semiconductor revenue by fiscal quarter (US$ B). Right: annual AI revenue, Broadcom vs Marvell (US$ B)",
-    "alt": "Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025), ~$45B (2026E scenario) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.",
+    "alt": "Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025) and ~$57B for FY2026 (Q1 and Q4 guidance, Q2 derived, Q3 reported) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.",
     "data": [
       "market_share.csv"
     ],
@@ -10576,9 +10581,9 @@
   },
   {
     "id": "15-merchant-vs-custom-asic-share",
-    "title": "Custom ASICs reach only ~14% of AI silicon revenue by 2026E, but perhaps ~14% of units",
+    "title": "Custom ASICs reach only ~14% of AI silicon revenue by 2026E, but perhaps ~28% of units",
     "subtitle": "Merchant (NVIDIA, AMD, Intel) vs custom ASIC (Broadcom, Marvell) share, %, 2023 vs 2026E; revenue basis vs unit basis",
-    "alt": "Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 14% of 2026 AI server shipments, because custom chips are far cheaper per unit.",
+    "alt": "Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 28% of 2026 AI server shipments, because custom chips are far cheaper per unit.",
     "data": [
       "market_share.csv"
     ],
@@ -10597,6 +10602,7 @@
       "S660",
       "S661",
       "S662",
+      "S2517",
       "S666"
     ],
     "kind": "data",

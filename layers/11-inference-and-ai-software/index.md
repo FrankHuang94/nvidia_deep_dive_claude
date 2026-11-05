@@ -6,9 +6,9 @@
 
 - **Inference is the growth engine, but NVIDIA stopped sizing it.** Management last put [inference](../../glossary.md#inference) at more than 40% of Data Center revenue for the year to Q2 FY2025, at least ~$33B [[S11011]](../../sources/bibliography.md#s11011)[[S441]](../../sources/bibliography.md#s441). Since then it speaks only qualitatively: "inference is revenues" [[S11012]](../../sources/bibliography.md#s11012)[[S409]](../../sources/bibliography.md#s409).
 - **Reasoning and agents multiply tokens per task.** In this repo's illustration a reasoning answer generates ~21× a chat reply's tokens and a coding agent ~1,100× the total (Est.) [[S32025]](../../sources/bibliography.md#s32025). Google's monthly tokens rose ~134× in 18 months [[S32018]](../../sources/bibliography.md#s32018)[[S32020]](../../sources/bibliography.md#s32020).
-- **Systems are judged on a curve, not a peak.** At 50 tokens/s per user, GB300 NVL72 serves ~6,261 tokens/s per GPU on DeepSeek-R1, ~20× H200; per megawatt the gap is ~13× [[S621]](../../sources/bibliography.md#s621)[[S622]](../../sources/bibliography.md#s622).
+- **Systems are judged on a curve, not a peak.** At 50 tokens/s per user, GB300 [NVL72](../../glossary.md#nvl72) serves ~6,261 tokens/s per GPU on DeepSeek-R1, ~20× H200; per megawatt the gap is ~13× [[S621]](../../sources/bibliography.md#s621)[[S622]](../../sources/bibliography.md#s622).
 - **Software keeps lifting the same hardware.** MLPerf DeepSeek-R1 throughput on an unchanged GB300 NVL72 rose 2.9× in a year, cutting estimated cost per million tokens ~65% [[S601]](../../sources/bibliography.md#s601)[[S603]](../../sources/bibliography.md#s603)[[S622]](../../sources/bibliography.md#s622).
-- 🟢 **Dynamo 1.0 makes a cluster serve like one machine.** It shipped at GTC 2026 as Apache-2.0 open source [[S90066]](../../sources/bibliography.md#s90066)[[S520]](../../sources/bibliography.md#s520). Splitting [prefill](../../glossary.md#prefill) from [decode](../../glossary.md#decode) lifted B200 throughput ~2.5× per GPU on long prompts [[S621]](../../sources/bibliography.md#s621).
+- 🟢 **[Dynamo](../../glossary.md#dynamo) 1.0 makes a cluster serve like one machine.** It shipped at GTC 2026 as Apache-2.0 open source [[S90066]](../../sources/bibliography.md#s90066)[[S520]](../../sources/bibliography.md#s520). Splitting [prefill](../../glossary.md#prefill) from [decode](../../glossary.md#decode) lifted B200 throughput ~2.5× per GPU on long prompts [[S621]](../../sources/bibliography.md#s621).
 - **Direct software revenue is small; pull-through is the point.** [NVIDIA AI Enterprise](../../glossary.md#nvidia-ai-enterprise) lists at $4,500 per GPU-year [[S11013]](../../sources/bibliography.md#s11013), and software was guided to ~$2B a year exiting FY2025 [[S11011]](../../sources/bibliography.md#s11011), under 1% of Data Center revenue.
 - **Biggest weakness: little here locks customers in.** Dynamo also runs [vLLM](../../glossary.md#vllm) and [SGLang](../../glossary.md#sglang), which support AMD and others [[S11001]](../../sources/bibliography.md#s11001)[[S580]](../../sources/bibliography.md#s580)[[S582]](../../sources/bibliography.md#s582). Google's TPU served one large model ~18% cheaper per token than B200 [[S625]](../../sources/bibliography.md#s625). 🟡 The ~$12.9B [Hugging Face](../../glossary.md#hugging-face) purchase faces neutrality scrutiny [[S11026]](../../sources/bibliography.md#s11026)[[S11028]](../../sources/bibliography.md#s11028).
 
@@ -16,7 +16,7 @@
 
 ## Where this layer sits in the stack
 
-This layer sits above CUDA and its libraries ([Layer 09](../09-cuda-and-system-software/index.md), [Layer 10](../10-libraries-cuda-x/index.md)) and below cluster orchestration ([Layer 12](../12-orchestration-and-cloud-services/index.md)).
+This layer sits above [CUDA](../../glossary.md#cuda) and its libraries ([Layer 09](../09-cuda-and-system-software/index.md), [Layer 10](../10-libraries-cuda-x/index.md)) and below cluster orchestration ([Layer 12](../12-orchestration-and-cloud-services/index.md)).
 
 ```mermaid
 flowchart TB
@@ -38,7 +38,7 @@ flowchart TB
 <details>
 <summary>🔧 Under the hood: what "inference software" covers here</summary>
 
-**Compilers and runtimes**: TensorRT and TensorRT-LLM make one GPU or NVLink domain fast [[S11008]](../../sources/bibliography.md#s11008)[[S589]](../../sources/bibliography.md#s589). **Serving**: Dynamo and Dynamo-Triton route requests, split phases, move caches and autoscale [[S11001]](../../sources/bibliography.md#s11001)[[S11010]](../../sources/bibliography.md#s11010). **Packaging**: NIM containers and the AI Enterprise licence [[S11013]](../../sources/bibliography.md#s11013). **Models and tools**: Nemotron and NeMo [[S11019]](../../sources/bibliography.md#s11019)[[S11029]](../../sources/bibliography.md#s11029). Kubernetes scheduling and cloud services sit in [Layer 12](../12-orchestration-and-cloud-services/index.md).
+**Compilers and runtimes**: TensorRT and [TensorRT-LLM](../../glossary.md#tensorrt-llm) make one GPU or [NVLink](../../glossary.md#nvlink) domain fast [[S11008]](../../sources/bibliography.md#s11008)[[S589]](../../sources/bibliography.md#s589). **Serving**: Dynamo and Dynamo-Triton route requests, split phases, move caches and autoscale [[S11001]](../../sources/bibliography.md#s11001)[[S11010]](../../sources/bibliography.md#s11010). **Packaging**: NIM containers and the AI Enterprise licence [[S11013]](../../sources/bibliography.md#s11013). **Models and tools**: Nemotron and NeMo [[S11019]](../../sources/bibliography.md#s11019)[[S11029]](../../sources/bibliography.md#s11029). Kubernetes scheduling and cloud services sit in [Layer 12](../12-orchestration-and-cloud-services/index.md).
 
 </details>
 

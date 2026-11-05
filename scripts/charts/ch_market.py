@@ -147,14 +147,15 @@ def ib_vs_ethernet():
     fig, ax = c.figure(width=11, height=5.8)
     x = np.arange(len(years))
     b1 = ax.bar(x, ib, color=NV, width=0.6, edgecolor="#FFFFFF", label="InfiniBand (NVIDIA Quantum)")
-    b2 = ax.bar(x, eth, bottom=ib, color=entity_color("Broadcom"), width=0.6, edgecolor="#FFFFFF",
+    # QA 2026-11-05: Ethernet is multi-vendor (incl. NVIDIA Spectrum-X), so palette "Other" gray, not Broadcom pink
+    b2 = ax.bar(x, eth, bottom=ib, color=entity_color("other"), width=0.6, edgecolor="#FFFFFF",
                 label="Ethernet (Spectrum-X, Broadcom/Arista/Cisco, white box)")
     est = [cf != "reported" for cf in conf]
     hatch_future(b1, est)
     hatch_future(b2, est)
     for xi, a, b in zip(x, ib, eth):
         ax.text(xi, a / 2, f"~{a:.0f}%", ha="center", va="center", color="#FFFFFF", fontsize=10, fontweight="bold")
-        ax.text(xi, a + b / 2, f"~{b:.0f}%", ha="center", va="center", color="#FFFFFF", fontsize=10, fontweight="bold")
+        ax.text(xi, a + b / 2, f"~{b:.0f}%", ha="center", va="center", color=INK["title"], fontsize=10, fontweight="bold")
     ax.axhline(50, color=INK["text"], lw=0.8, ls=":")
     ax.set_axisbelow(True)
     ax.set_xticks(x)
@@ -174,15 +175,18 @@ def custom_asic_revenue_trend():
     guide = q[q.year == "2026-Q1"].iloc[0]
     b25 = a[(a.entity == "Broadcom") & (a.year == "2025")].value.iloc[0]
     m25 = a[(a.entity == "Marvell") & (a.year == "2025")].value.iloc[0]
+    b26 = a[(a.entity == "Broadcom") & (a.year == "2026E")].value.iloc[0]  # QA 2026-11-05: alt/title now data-driven
+    m26 = a[(a.entity == "Marvell") & (a.year == "2026E")].value.iloc[0]
     c = Chart(
         id="15-custom-asic-revenue-trend",
-        title=(f"Broadcom's AI revenue rose {last_act.value / first.value:.1f}x in two years to ${last_act.value:.1f}B a quarter; "
-               f"Marvell's is ~1/{round(b25 / m25)} the size"),
+        title=(f"Broadcom's AI revenue rose {last_act.value / first.value:.1f}x in two years to ${last_act.value:.1f}B a quarter "
+               f"and tracks ~${b26:.0f}B for FY2026; Marvell's is ~1/{round(b25 / m25)} the size"),
         subtitle="Left: Broadcom AI semiconductor revenue by fiscal quarter (US$ B). Right: annual AI revenue, Broadcom vs Marvell (US$ B)",
         alt=(f"Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from ${first.value:.1f}B in fiscal Q1 2024 to "
              f"${last_act.value:.1f}B in fiscal Q4 2025, with Q1 2026 guidance of ${guide.value:.1f}B hatched. Right: annual AI revenue, "
-             "Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025), ~$45B (2026E scenario) vs Marvell $0.55B, $1.5B, $2.5B, "
-             "~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU."),
+             f"Broadcom about $3.8B (2023), $12.2B (2024), ${b25:.1f}B (2025) and ~${b26:.0f}B for FY2026 (Q1 and Q4 guidance, "
+             f"Q2 derived, Q3 reported) vs Marvell $0.55B, $1.5B, $2.5B, ~${m26:.1f}B (2026E). Broadcom's figure includes AI "
+             "Ethernet networking as well as custom XPUs such as Google's TPU."),
         data=[DATA], chapters=["15", "13", "19"],
         source="Broadcom, Marvell earnings releases", source_ids=_ids(q, a),
         note="Hatched = guidance or Est.",

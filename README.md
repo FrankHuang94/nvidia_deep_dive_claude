@@ -23,7 +23,7 @@ The thesis in five bullets ([full argument](00-executive-summary.md)):
   above ~$30B in FY2026 [[S90071]](sources/bibliography.md#s90071) and non-hyperscale buyers at 45% of Data Center revenue [[S406]](sources/bibliography.md#s406) spread demand beyond
   the largest clouds. Critics call the loop [circular financing](glossary.md#circular-financing) [[S18007]](sources/bibliography.md#s18007).
 - **5 · Indispensable today, contestable at the margin.** NVIDIA kept ~87% of AI data-center silicon revenue in 2025
-  while the pool grew ~4.2× (Est.) [[S416]](sources/bibliography.md#s416)[[S660]](sources/bibliography.md#s660)[[S663]](sources/bibliography.md#s663). But AMD matches Rubin on paper [[S144]](sources/bibliography.md#s144), Anthropic has access to
+  while the pool grew ~4.2× (Est.) [[S416]](sources/bibliography.md#s416)[[S1]](sources/bibliography.md#s1)[[S660]](sources/bibliography.md#s660)[[S661]](sources/bibliography.md#s661)[[S663]](sources/bibliography.md#s663). But AMD matches Rubin on paper [[S144]](sources/bibliography.md#s144), Anthropic has access to
   up to 1M Google TPUs [[S653]](sources/bibliography.md#s653), and Broadcom's AI revenue reached ~19% of NVIDIA's Data Center revenue [[S2516]](sources/bibliography.md#s2516). 🔴 Rivals
   cap NVIDIA's [pricing power](glossary.md#pricing-power) at the largest buyers before they dent its volume [[S15014]](sources/bibliography.md#s15014).
 
@@ -230,6 +230,7 @@ Conventions: [style guide](docs/STYLE_GUIDE.md) · [contributor brief](docs/AGEN
 - [**S646**](sources/bibliography.md#s646) NVIDIA TensorRT-LLM team, *Optimizing DeepSeek R1 Throughput on NVIDIA Blackwell GPUs: A Deep Dive for Developers (TensorRT-LLM tech blog 3)*, 2025-05-30. [Link](https://github.com/NVIDIA/TensorRT-LLM/blob/main/docs/source/blogs/tech_blog/blog03_Optimizing_DeepSeek_R1_Throughput_on_NVIDIA_Blackwell_GPUs.md)
 - [**S653**](sources/bibliography.md#s653) Anthropic, *Expanding our use of Google Cloud TPUs and Services*, 2025-10-23. [Link](https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services)
 - [**S660**](sources/bibliography.md#s660) Broadcom Inc., *Broadcom Inc. Announces Fourth Quarter and Fiscal Year 2024 Financial Results*, 2024-12-12. [Link](https://investors.broadcom.com/financial-information/quarterly-results)
+- [**S661**](sources/bibliography.md#s661) Broadcom Inc., *Broadcom Inc. Announces Fourth Quarter and Fiscal Year 2025 Financial Results*, 2025-12-11. [Link](https://investors.broadcom.com/financial-information/quarterly-results)
 - [**S663**](sources/bibliography.md#s663) AMD, *AMD Reports Fourth Quarter and Full Year 2024 Financial Results*, 2025-02-04. [Link](https://ir.amd.com/news-events/press-releases)
 - [**S1500**](sources/bibliography.md#s1500) nvidia_deep_dive_claude repository, *Repo analysis: synthesis verdicts by layer (moat score, gap trend, NVIDIA value capture) and thesis metrics*, 2026-11-05. [Link](https://github.com/FrankHuang94/nvidia_deep_dive_claude/blob/main/data/x00_layer_verdicts.csv)
 - [**S1501**](sources/bibliography.md#s1501) nvidia_deep_dive_claude repository, *Repo statistics: words, visuals, sources, data files and charts (scripts/validate/stats.py and file counts, 2026-11-05)*, 2026-11-05. [Link](https://github.com/FrankHuang94/nvidia_deep_dive_claude/blob/main/PROGRESS.md)
