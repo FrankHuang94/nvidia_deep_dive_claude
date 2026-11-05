@@ -1,0 +1,22 @@
+company,period,metric,value_low,value_high,unit,confidence,source_id,notes
+CoreWeave,FY2026,revenue_guidance,12.4,13.2,USD_B,confirmed,S12500,Raised with Q2 2026 results (Aug 2026)
+CoreWeave,FY2026,capex_guidance,35.0,39.0,USD_B,confirmed,S12500,Raised with Q2 2026 results; midpoint +12% vs prior guide while revenue midpoint +2.4% (analyst reading)
+CoreWeave,Q2 2026,revenue,2.58,2.58,USD_B,confirmed,S12500;S12501,+112% y/y
+CoreWeave,2026-06-30,revenue_backlog,104.2,104.2,USD_B,confirmed,S12500,Excludes >$25B of net new commitments signed early in Q3 2026
+CoreWeave,2026-06-30,active_power,1.5,1.5,GW,reported,S12501,51 data centers
+CoreWeave,2026-12-31,active_power_target,1.85,1.85,GW,confirmed,S12500,'More than 1.85 GW' active by end-2026 (raised from >1.7 GW)
+CoreWeave,2026-06-30,contracted_power,3.7,3.7,GW,reported,S12501,About 0.5 GW more added after quarter end (~4.2 GW)
+CoreWeave,2026-06-30,debt_carrying_amount,35.1,35.1,USD_B,reported,S12501,Net of financing costs; ~$31.4B recourse and ~$3.7B non-recourse per one analysis
+CoreWeave,Q2 2026,net_interest_expense,0.64,0.64,USD_B,reported,S12501,vs $0.267B a year earlier
+CoreWeave,Q3 2026,interest_expense_guidance,0.86,0.94,USD_B,reported,S12502,
+CoreWeave,Q2 2026,net_loss,0.626,0.626,USD_B,reported,S12501,vs $0.29B a year earlier
+Nebius,FY2026,revenue_guidance,3.0,3.4,USD_B,reported,S12503;S12504,Reaffirmed Aug 2026
+Nebius,FY2026,capex_guidance,20.0,25.0,USD_B,reported,S12503;S12504,Reaffirmed Aug 2026
+Nebius,Q2 2026,revenue,0.582,0.582,USD_B,reported,S12503,+454% y/y
+Nebius,2026-06-30,annualized_run_rate,3.0,3.0,USD_B,reported,S12503,ARR target $7-9B by end-2026
+Nebius,2026-12-31,connected_power_target,0.8,1.0,GW,reported,S12503,Connected (live) power by end-2026
+Nebius,2026-12-31,contracted_power_target,5.0,5.0,GW,reported,S12503,Raised from >3.5 GW; to come online over 2-3.5 years
+CoreWeave,2025-06-30,revenue_backlog,30.1,30.1,USD_B,estimate,S12500,Derived: $104.2B at 2026-06-30 was +246% y/y => ~$30.1B a year earlier
+CoreWeave,2025-09-30,revenue_backlog,55.6,55.6,USD_B,reported,S12536,
+CoreWeave,2025-12-31,revenue_backlog,66.8,66.8,USD_B,reported,S12012,
+CoreWeave,FY2025,revenue,5.1,5.1,USD_B,reported,S12012,Per coverage of FY2025 results

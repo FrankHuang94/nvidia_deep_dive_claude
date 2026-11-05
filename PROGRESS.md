@@ -27,7 +27,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 2 | Primers P1–P5 + 01 flywheel | ✅ complete — 6 units drafted, ~24k words, 111 visuals | `phase-2-complete` (local tag) |
 | 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ✅ complete — 3 layers drafted, ~30k words, 163 visuals (44–52 % data charts) | `phase-3-complete` (local tag) |
 | 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ✅ complete — 3 layers drafted, ~30k words, ~146 visuals (42–46 % data charts) | `phase-4-complete` (local tag) |
-| 5 | Layers 08 systems, 09 CUDA, 10 libraries | ⏳ in progress (6 agents, launched early) | |
+| 5 | Layers 08 systems, 09 CUDA, 10 libraries | ✅ complete — 3 layers drafted, ~31k words, ~140 visuals (43–50 % data charts) | `phase-5-complete` (local tag) |
 | 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ⬜ planned | |
 | 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ⬜ planned | |
 | 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ⬜ planned | |
@@ -59,10 +59,10 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 07 | DPU, SuperNIC, storage, security | 4 | drafted | 10,006 | 40 | 17 (17) | 1 | 9 | 13 | 42% | 127 | pending |
 | 08 | Systems, racks and AI factories | 5 | drafted | 10,376 | 46 | 23 (23) | 2 | 10 | 11 | 50% | 172 | pending |
 | 09 | CUDA and system software | 5 | drafted | 9,996 | 42 | 18 (18) | 1 | 10 | 13 | 43% | 139 | pending |
-| 10 | Libraries (CUDA-X) | 5 | planned | 181 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 10 | Libraries (CUDA-X) | 5 | drafted | 10,531 | 50 | 22 (22) | 0 | 11 | 17 | 44% | 156 | pending |
 | 11 | Inference and AI software | 6 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 12 | Orchestration and cloud services | 6 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 13 | Ecosystem, go-to-market and capital | 6 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 12 | Orchestration and cloud services | 6 | drafted | 10,354 | 48 | 22 (22) | 0 | 13 | 13 | 46% | 125 | pending |
+| 13 | Ecosystem, go-to-market and capital | 6 | drafted | 10,001 | 52 | 25 (25) | 0 | 12 | 15 | 48% | 180 | pending |
 | 14 | Training vs. inference economics | 7 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 15 | Competitive landscape | 7 | planned | 32 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 16 | How NVIDIA built it (timeline) | 7 | planned | 35 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **106,513** | **512** | | | | | | **971** unique | |
+| **Total** | | | | **136,816** | **662** | | | | | | **1206** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **296**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **299**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)
@@ -148,7 +148,9 @@ Charts in library (`assets/charts/catalog.json`): **296**. Visual = chart/diagra
 | 4 | layer 06 CORE / STRATEGY | 10 pages, 10,046 words, 50 visuals; 06-rail-optimized-fat-tree.dot | S6000–S6031, S6500–S6527 | done |
 | 4 | layer 07 CORE / STRATEGY | 9 pages, 10,006 words, 40 visuals; 07-dpu-offload.d2 | S7000–S7028, S7500–S7536 | done |
 | 7 | case studies CS1–CS3, CS4–CS5, CS6–CS7 | 3 agents | S21000–S27999 | running |
-| 5 | layers 08, 09, 10 CORE / STRATEGY | 6 agents | S8000–S10999 | running |
+| 5 | layer 08 CORE / STRATEGY | 9 pages, 10,376 words, 46 visuals; 08-nvl72-rack-anatomy.d2, 08-compute-tray-anatomy.d2 | S8000–S8025, S8500–S8530 | done |
+| 5 | layer 09 CORE / STRATEGY | 9 pages, 9,996 words, 42 visuals; 09-cuda-software-stack.d2 | S9000–S9030, S9500–S9538 | done |
+| 5 | layer 10 CORE / STRATEGY | 8 pages, ~11k words, ~50 visuals (STRATEGY agent's shell was blocked; orchestrator ran build/validation and fixed charts) | S10000–S10048, S10501–S10570 | done |
 
 ## Agent briefs (for resuming)
 

@@ -1,0 +1,41 @@
+library,vendor,version,release_date,release_vehicle,upstream_library,upstream_version,confidence,source_id,notes
+NCCL,NVIDIA,2.13.4,2022-07-11,GitHub tag v2.13.4-1,,,confirmed,S10506,First tag of the 2.13 minor
+NCCL,NVIDIA,2.14.3,2022-08-18,GitHub tag v2.14.3-1,,,confirmed,S10506,First tag of the 2.14 minor
+NCCL,NVIDIA,2.15.1,2022-09-27,GitHub tag v2.15.1-1,,,confirmed,S10506,First tag of the 2.15 minor
+NCCL,NVIDIA,2.15.5,2022-10-25,GitHub tag v2.15.5-1,,,confirmed,S10506,Patch matched by RCCL in ROCm 5.5.0
+NCCL,NVIDIA,2.16.2,2022-11-30,GitHub tag v2.16.2-1,,,confirmed,S10506,First tag of the 2.16 minor
+NCCL,NVIDIA,2.17.1,2023-03-01,GitHub tag v2.17.1-1,,,confirmed,S10506,First tag of the 2.17 minor
+NCCL,NVIDIA,2.18.1,2023-04-18,GitHub tag v2.18.1-1,,,confirmed,S10506,First tag of the 2.18 minor
+NCCL,NVIDIA,2.18.3,2023-06-14,GitHub tag v2.18.3-1,,,confirmed,S10506,Patch matched by RCCL in ROCm 6.0.0
+NCCL,NVIDIA,2.19.1,2023-09-26,GitHub tag v2.19.1-1,,,confirmed,S10506,First tag of the 2.19 minor
+NCCL,NVIDIA,2.18.6,2023-10-10,GitHub tag v2.18.6-1,,,confirmed,S10506,Patch matched by RCCL in ROCm 6.1.0
+NCCL,NVIDIA,2.20.3,2024-02-13,GitHub tag v2.20.3-1,,,confirmed,S10506,First tag of the 2.20 minor
+NCCL,NVIDIA,2.20.5,2024-02-26,GitHub tag v2.20.5-1,,,confirmed,S10506,Patch matched by RCCL in ROCm 6.2.0
+NCCL,NVIDIA,2.21.5,2024-04-02,GitHub tag v2.21.5-1,,,confirmed,S10506,First tag of the 2.21 minor
+NCCL,NVIDIA,2.22.3,2024-06-19,GitHub tag v2.22.3-1,,,confirmed,S10506,First tag of the 2.22 minor
+NCCL,NVIDIA,2.23.4,2024-09-17,GitHub tag v2.23.4-1,,,confirmed,S10506,First tag of the 2.23 minor
+NCCL,NVIDIA,2.24.3,2025-01-07,GitHub tag v2.24.3-1,,,confirmed,S10506,First tag of the 2.24 minor
+NCCL,NVIDIA,2.25.1,2025-01-27,GitHub tag v2.25.1-1,,,confirmed,S10506,First tag of the 2.25 minor
+NCCL,NVIDIA,2.26.2,2025-03-12,GitHub tag v2.26.2-1,,,confirmed,S10506,First tag of the 2.26 minor
+NCCL,NVIDIA,2.26.6,2025-05-20,GitHub tag v2.26.6-1,,,confirmed,S10506,Patch matched by RCCL in ROCm 7.0.0
+NCCL,NVIDIA,2.27.3,2025-05-30,GitHub tag v2.27.3-1,,,confirmed,S10506,First tag of the 2.27 minor
+NCCL,NVIDIA,2.27.7,2025-07-24,GitHub tag v2.27.7-1,,,confirmed,S10506,Patch matched by RCCL in ROCm 7.1.0
+NCCL,NVIDIA,2.28.3,2025-10-06,GitHub release v2.28.3-1,,,confirmed,S10507,Device API (experimental) and copy-engine collectives; year inferred from release order
+NCCL,NVIDIA,2.29.2,2025-12-24,GitHub release v2.29.2-1,,,confirmed,S10507,One-sided host APIs and NCCL4Py; year inferred from release order
+NCCL,NVIDIA,2.30.3,2026-04-15,GitHub release v2.30.3-1,,,confirmed,S10507,TMA support and elastic buffers; licence moved to Apache 2.0 in 2.29.7 (2026-02-27)
+NCCL,NVIDIA,2.31.2,2026-08-11,GitHub tag v2.31.2-1,,,confirmed,S10506;S10507,Compute Fabric Transport APIs for Blackwell
+NCCL,NVIDIA,2.32.3,2026-09-17,GitHub tag v2.32.3-1,,,confirmed,S10506;S10507,Initial Rubin platform support
+RCCL,AMD,2.13.4,2022-11-30,ROCm 5.4.0,NCCL,2.13.4,confirmed,S10509;S586,RCCL changelog: compatibility with NCCL 2.13.4; date = ROCm release date
+RCCL,AMD,2.15.5,2023-05-01,ROCm 5.5.0,NCCL,2.15.5,confirmed,S10509;S586,Compatibility with NCCL 2.15.5
+RCCL,AMD,2.16.2,2023-06-28,ROCm 5.6.0,NCCL,2.16.2,confirmed,S10509;S586,Compatibility with NCCL 2.16.2
+RCCL,AMD,2.17.1,2023-09-15,ROCm 5.7.0,NCCL,2.17.1,confirmed,S10509;S586,Compatibility with NCCL 2.17.1-1
+RCCL,AMD,2.18.3,2023-12-15,ROCm 6.0.0,NCCL,2.18.3,confirmed,S10509;S586,Compatibility with NCCL 2.18.3
+RCCL,AMD,2.18.6,2024-04-16,ROCm 6.1.0,NCCL,2.18.6,confirmed,S10509;S586,Compatibility with NCCL 2.18.6
+RCCL,AMD,2.20.5,2024-08-02,ROCm 6.2.0,NCCL,2.20.5,confirmed,S10509;S586,Compatibility with NCCL 2.20.5 and 2.19.4
+RCCL,AMD,2.21.5,2024-12-03,ROCm 6.3.0,NCCL,2.21.5,confirmed,S10509;S586,Compatibility with NCCL 2.21.5
+RCCL,AMD,2.22.3,2025-04-11,ROCm 6.4.0,NCCL,2.22.3,confirmed,S10509;S586,Compatibility with NCCL 2.22.3
+RCCL,AMD,2.26.6,2025-09-16,ROCm 7.0.0,NCCL,2.26.6,confirmed,S10509;S586,Compatibility with NCCL 2.23.4 through 2.26.6 (four minors in one jump)
+RCCL,AMD,2.27.7,2025-10-30,ROCm 7.1.0,NCCL,2.27.7,confirmed,S10509;S586,Compatibility with NCCL 2.27.7
+RCCL,AMD,2.27.7,2026-01-21,ROCm 7.2.0,NCCL,2.27.7,confirmed,S10509;S586,Same RCCL 2.27.7 carried into ROCm 7.2.0; a 2.28.3-compatible RCCL is listed as unreleased (ROCm 7.11)
+cuDF,NVIDIA,25.02,2025-02-13,GitHub release v25.02.00,,,reported,S10510,Release page shows 13 Feb without a year; 2025 inferred from the version number
+hipDF,AMD,2.0.0,2025-10,ROCm-DS 25.10 (GA),cuDF,25.02,reported,S10511,hipDF 2.0.0 aligned with RAPIDS cuDF 25.02 APIs; month precision (plotted mid-month)

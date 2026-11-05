@@ -1,0 +1,14 @@
+company,period,period_end,metric,value,unit,confidence,source_id,notes
+NVIDIA,Q2FY2027,2026-07-26,cash_and_debt_securities,56.6,USD_B,reported,S13500;S90072,"Cash, cash equivalents and marketable debt securities per the Q2 FY2027 10-Q as reported by Securities.io"
+NVIDIA,Q2FY2027,2026-07-26,marketable_equity_securities,42.8,USD_B,reported,S90072,"Publicly traded stakes (Intel, Nokia, Synopsys, CoreWeave and others) at fair value; locked-up stakes ~$5.0B are additional"
+NVIDIA,Q2FY2027,2026-07-26,non_marketable_equity_securities,51.2,USD_B,reported,S90072,Private stakes (OpenAI and others); not deployable cash
+NVIDIA,Q2FY2027,2026-07-26,buyback_authorization_remaining,99.0,USD_B,reported,S13500,Remaining repurchase authorization at quarter end; size of the May 2026 addition is disputed in press ($80B vs $150B)
+NVIDIA,Q1FY2027,2026-04-26,free_cash_flow_quarter,48.6,USD_B,confirmed,S403,As reported by NVIDIA; Q2 FY2027 free cash flow not captured in this repo
+AMD,Q3 2026,2026-09-26,cash_and_short_term_investments,15.776,USD_B,reported,S13501,Record; up from $13.111B in Q2 2026 (AMD earnings slides via search snippet)
+AMD,Q3 2026,2026-09-26,total_debt,7.079,USD_B,reported,S13501,Includes a $4.75B senior notes offering in Aug 2026
+AMD,Q1 2026,2026-03-28,free_cash_flow_quarter,2.57,USD_B,estimate,S13505,Aggregator figure described as a record; AMD Q3 2026 free cash flow not found; Q2 2026 reported at ~$1.6B by another aggregator
+Broadcom,Q3FY2026,2026-08-02,cash_and_equivalents,24.0,USD_B,confirmed,S2516,Cash and cash equivalents only (no marketable securities line); up from $19.6B
+Broadcom,Q3FY2026,2026-08-02,free_cash_flow_quarter,13.7,USD_B,confirmed,S2516,Record; cash from operations $14.2B less capex $0.5B; 46% of revenue
+Qualcomm,FY2026,2026-09-27,cash_and_marketable_securities,7.681,USD_B,reported,S13503,"Cash and equivalents $4.636B plus marketable securities $3.045B (FY2026 10-K via search snippet); $12.478B a year earlier incl. $2.3B restricted for Alphawave"
+Qualcomm,FY2026,2026-09-27,total_debt,15.112,USD_B,reported,S13503,Net debt ~$7.4B; $0.5B commercial paper outstanding; revolver undrawn
+Qualcomm,Q2FY2026,2026-03-29,free_cash_flow_quarter,1.9,USD_B,estimate,S13504,"Aggregator figure; another aggregator shows $0.5B for a different quarter - conflicting, treat as approximate"

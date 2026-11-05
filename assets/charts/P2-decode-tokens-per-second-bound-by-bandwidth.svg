@@ -2509,7 +2509,7 @@ z
   </g>
   <g id="text_33">
    <!-- Upper bound on single-stream decode = HBM bandwidth ÷ weight bytes read per token, tokens/s per GPU (batch 1, KV reads ignored) -->
-   <g style="fill: #52514e" transform="translate(9.072 39.298359) scale(0.105 -0.105)">
+   <g style="fill: #52514e" transform="translate(9.072 38.971686) scale(0.100701 -0.100701)">
     <defs>
      <path id="DejaVuSans-53" d="M 1159 525 
 L 1159 -1331 

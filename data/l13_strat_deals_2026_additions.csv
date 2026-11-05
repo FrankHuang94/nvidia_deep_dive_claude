@@ -1,0 +1,6 @@
+announce_date,close_date,counterparty,deal_type,amount_usd_m,amount_basis,layer_strengthened,rationale,status,confidence,source_id,notes
+2026-01,2026-01,xAI (Series E),equity-investment,,,13,"Joined xAI's ~$20B round before SpaceX combined with xAI",closed,reported,S13039;S13528,NVIDIA amount undisclosed; supplements the shared deal file
+2026-03-02,2026-03,Lumentum,equity-investment,2000,disclosed,06,"Lasers for optics and co-packaged optics: equity plus a multibillion-dollar purchase commitment and capacity rights",announced,reported,S13529,Non-exclusive; funds a new US fab
+2026-03-02,2026-03,Coherent,equity-investment,2000,disclosed,06,"Optical components: equity plus purchase commitment and future capacity access",announced,reported,S13529,Non-exclusive
+2026-03,2026-03,Marvell,equity-investment,2000,reported,05,Extends NVLink Fusion to Marvell custom XPUs and scale-up silicon,announced,reported,S90037,Reported $2B
+2026-08-10,,"AI compute financing platforms (Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR)",strategic-partnership-investment,,,13,"MOUs to mobilise >$500B of third-party capital for NVIDIA customers (labs, enterprises, AI clouds)",announced,confirmed,S12528;S90074,NVIDIA's own capital share undisclosed; subject to final agreements

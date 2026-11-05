@@ -1146,3 +1146,40 @@ press-reported pre-IPO target. Feeds `12-neocloud-private-valuations`.
 `company,guidance_date,period,capex_low_usd_b,capex_high_usd_b,basis,confidence,source_id,notes` — calendar-2026 capex guidance
 ranges by date issued for Alphabet, Amazon, Meta and Microsoft (calendar basis, incl. finance leases where the company does).
 February 2026 rows repeat the `[recall]` rows of `peer_financials.csv`. Feeds `12-hyperscaler-capex-guidance-drift`.
+
+## Case studies CS1–CS3 (`cs1_*.csv`, `cs2_*.csv`, `cs3_*.csv`; charts in `scripts/charts/ch_cs1.py`, `ch_cs2.py`, `ch_cs3.py`)
+
+### cs1_deal_economics.csv (long)
+`record_type,period,metric,value,unit,confidence,source_id,notes`
+
+`record_type`: `mellanox_actual` (Mellanox's own filed revenue and gross margin, CY2018–19) · `deal_term` (price,
+per-share bids, rival bid, SAMR approval flag, days from announcement to close) · `nvidia_networking` (FY2021
+networking revenue estimated from NVIDIA's "~10% of revenue" disclosure) · `model_assumption` (inputs of the repo's
+payback model, all `speculative`: FY2022–FY2023 networking floor, gross-margin and Mellanox-heritage-share scenarios,
+cost of capital). Networking revenue for FY2024 onwards is read from `financials.csv`. Used by `CS1-networking-before-after`
+and `CS1-payback-scenarios`.
+
+### cs2_cuda_trough.csv (long, same schema as financials.csv)
+`period,period_type,period_end,metric,value,unit,confidence,source_id,notes`
+
+NVIDIA annual `revenue_total`, `gross_margin_gaap_pct` and `rd_expense` for FY2007–FY2015, extending `financials.csv`
+(which starts at FY2016) back through the CUDA launch years. Gross margins come from 10-K comparatives located by web
+search; rows tagged `[recall]` were transcribed from memory of the 10-K and should be re-verified. Used by
+`CS2-margin-and-rd-through-cuda-years`; `CS2-dc-revenue-per-cuda-developer` reads `software_ecosystem.csv` and
+`financials.csv` only.
+
+### cs3_tpu_generations.csv (one row per TPU generation not in competitor_accelerators.csv)
+`generation,announce_year,first_deployment,role,precision_basis,peak_tflops_per_chip,bf16_tflops_dense,memory_type,memory_capacity_gb,memory_bandwidth_gbs,max_pod_chips,status,confidence,source_id,notes`
+
+TPU v1–v3 and the eighth generation (TPU 8t, 8i). `peak_tflops_per_chip` is at `precision_basis` (INT8 for v1, FP4
+for TPU 8t); `bf16_tflops_dense` is filled only where Google states BF16. TPU v4 to v7 Ironwood are read from
+`competitor_accelerators.csv`. Used by `CS3-tpu-generations`.
+
+### cs3_tpu_economics.csv (long)
+`system,vendor,metric,value,unit,basis,confidence,source_id,notes`
+
+`metric`: `owner_tco_per_chip_hour` (SemiAnalysis AI Cloud TCO model as published in the InferenceX hardware
+registry, July 2026: capex amortisation, power and hosting per accelerator-hour; TPU7x shown both at Google's internal
+cost and for an external owner) and `rental_per_chip_hour` (SemiAnalysis July 2026 rental survey). All `estimate`.
+Per-chip values are not per-token values; per-token comparisons live in `inference_benchmarks.csv`. Used by
+`CS3-owner-tco-per-chip-hour`.

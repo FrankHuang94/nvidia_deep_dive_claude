@@ -1,0 +1,7 @@
+input,value,unit,basis,confidence,source_id,notes
+target_gpus,100000,GPUs,repo scenario: a national AI factory sized between Germany's 10k and the UK's 120k plans,estimate,S13009;S13014,Scenario parameter
+platform_rack,GB300 NVL72,text,rack used for prices and power in data/tco_model_inputs.csv,estimate,S332;S337,Rack inputs are read from tco_model_inputs.csv
+nvidia_share_rest_of_rack_low,40,pct,"repo assumption: Grace CPUs, NVLink switch trays and ConnectX share of the non-GPU, non-memory rack content",speculative,S332,"Remainder is chassis, boards, power shelves, cooling and ODM margin"
+nvidia_share_rest_of_rack_high,60,pct,repo assumption (high case),speculative,S332,
+nvidia_share_network_storage_low,50,pct,"repo assumption: Spectrum-X/InfiniBand switches and NICs as a share of scale-out networking plus storage",speculative,S324,"Storage arrays (DDN, VAST, WEKA etc.) and optics vendors take the rest"
+nvidia_share_network_storage_high,80,pct,repo assumption (high case),speculative,S324,

@@ -1,0 +1,19 @@
+record_type,item,fabric,algorithm,protocol,value,unit,confidence,source_id,notes
+latency_constant,base_latency,any,Ring,LL,6.6,us,confirmed,S10001,NCCL default tuner constant (src/tuning/cost_model.cc on master as of 2026-11-05).
+latency_constant,base_latency,any,Ring,Simple,8.4,us,confirmed,S10001,NCCL default tuner constant.
+latency_constant,base_latency,any,Tree,LL,6.8,us,confirmed,S10001,NCCL default tuner constant.
+latency_constant,base_latency,any,Tree,Simple,8.4,us,confirmed,S10001,NCCL default tuner constant.
+latency_constant,hw_latency_per_step,NVLink,Ring,LL,0.6,us,confirmed,S10001,Per-hop hardware latency over NVLink.
+latency_constant,hw_latency_per_step,NVLink,Ring,Simple,3.4,us,confirmed,S10001,Per-hop hardware latency over NVLink.
+latency_constant,hw_latency_per_step,NVLink,NVLS,Simple,25,us,confirmed,S10001,NVLink SHARP latency term (one switch round trip regardless of GPU count).
+latency_constant,hw_latency_per_step,Network,Ring,LL,2.7,us,confirmed,S10001,Per-hop latency over the network (InfiniBand/RoCE).
+latency_constant,hw_latency_per_step,Network,Ring,Simple,14.0,us,confirmed,S10001,Per-hop latency over the network.
+latency_constant,hw_latency_per_step,Network,Tree,LL,5.0,us,confirmed,S10001,Per-hop latency over the network.
+latency_constant,hw_latency_per_step,Network,Tree,Simple,14.0,us,confirmed,S10001,Per-hop latency over the network.
+scenario,model_params,any,any,any,70,billion parameters,estimate,S34011,Worked example: dense 70B model; gradients in BF16 (2 bytes per parameter) = 140 GB.
+scenario,bytes_per_param,any,any,any,2,bytes,estimate,S34011,BF16 gradients.
+scenario,n_gpus,NVLink 4 (HGX H100 NVL8),any,any,8,GPUs,confirmed,S200;S205,One 8-GPU NVLink domain; third-generation NVSwitch adds NVLink SHARP.
+scenario,n_gpus,NVLink 5 (GB200 NVL72),any,any,72,GPUs,confirmed,S200;S263,72-GPU NVLink domain with NVLink Switch (SHARP-capable).
+scenario,n_gpus,NVLink 6 (Vera Rubin NVL72),any,any,72,GPUs,confirmed,S200;S203,72-GPU NVLink 6 domain at the revised 3.0 TB/s per GPU.
+scenario,n_gpus,NDR,any,any,64,GPUs,estimate,S34024;S251,64 GPUs each with a 400 Gb/s InfiniBand NIC (as in primer P4); SHARP-capable Quantum-2 switches.
+scenario,n_gpus,XDR,any,any,64,GPUs,estimate,S34024;S251;S264,64 GPUs each with an 800 Gb/s InfiniBand NIC; SHARP-capable Quantum-X800 switches.

@@ -2132,7 +2132,7 @@ z
   </g>
   <g id="text_19">
    <!-- Reasoning multiplies generated tokens ~21×; an agentic task uses ~1,100× in total (Est.) -->
-   <g style="fill: #0b0b0b" transform="translate(9.072 16.849734) scale(0.145 -0.145)">
+   <g style="fill: #0b0b0b" transform="translate(9.072 16.743313) scale(0.143599 -0.143599)">
     <defs>
      <path id="DejaVuSans-Bold-50" d="M 3781 2919 
 Q 3994 3244 4286 3414 
@@ -2355,7 +2355,7 @@ z
   </g>
   <g id="text_20">
    <!-- Illustrative tokens per task (Est.), log scale: context read (prefill) vs tokens generated (decode, incl. hidden reasoning) -->
-   <g style="fill: #52514e" transform="translate(9.072 37.138359) scale(0.105 -0.105)">
+   <g style="fill: #52514e" transform="translate(9.072 37.060522) scale(0.103976 -0.103976)">
     <defs>
      <path id="DejaVuSans-2c" d="M 628 4666 
 L 1259 4666 

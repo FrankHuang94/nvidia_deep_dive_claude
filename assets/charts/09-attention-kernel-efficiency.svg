@@ -2480,7 +2480,7 @@ z
   </g>
   <g id="text_24">
    <!-- Share of dense 16-bit peak reached by FlashAttention kernels, by GPU (%); FA3 restored 75% on H100 and FA4 reaches 71% on B200 -->
-   <g style="fill: #52514e" transform="translate(9.072 39.298359) scale(0.105 -0.105)">
+   <g style="fill: #52514e" transform="translate(9.072 39.032414) scale(0.1015 -0.1015)">
     <defs>
      <path id="DejaVuSans-1e" d="M 750 3309 
 L 1409 3309 

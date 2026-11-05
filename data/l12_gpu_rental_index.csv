@@ -1,0 +1,9 @@
+date,gpu,series,contract_type,usd_per_gpu_hour,confidence,source_id,notes
+2023-09,H100,Neocloud market (typical),on-demand,8.0,reported,S393,Peak-shortage pricing (same point as gpu_rental_prices.csv)
+2023-12,H100,SemiAnalysis spot (as cited),spot,6.62,reported,S12531,Late-2023 figure cited by a competing marketplace's blog from SemiAnalysis; indicative
+2024-10,H100,GPU marketplaces (low end),on-demand / spot,2.0,reported,S393,Same point as gpu_rental_prices.csv
+2025-10,H100,SemiAnalysis 1-year contract index,1-year contract,1.70,reported,S12516,Index low
+2025-12-09,H100,Silicon Data H100 index,rental index,2.00,reported,S12517,
+2026-01-06,H100,Silicon Data H100 index,rental index,2.20,reported,S12517,+10% in four weeks
+2026-02,H100,SemiAnalysis spot (as cited),spot,2.83,reported,S12531,Cited by a competing marketplace's blog; indicative
+2026-03,H100,SemiAnalysis 1-year contract index,1-year contract,2.35,reported,S12516,~+40% from the Oct 2025 low; capacity through Aug-Sep 2026 already booked

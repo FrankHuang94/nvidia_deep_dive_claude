@@ -1,0 +1,20 @@
+record_type,provider,provider_type,period,metric,value,unit,confidence,source_id,notes
+gpu_purchases,Microsoft,hyperscaler,2024,hopper_gpus_bought,485000,GPUs,estimate,S12014,Omdia estimate (via FT) of H100/H200 bought in calendar 2024; part may serve OpenAI.
+gpu_purchases,Amazon,hyperscaler,2024,hopper_gpus_bought,196000,GPUs,estimate,S12014,Omdia estimate (via FT).
+gpu_purchases,Google,hyperscaler,2024,hopper_gpus_bought,169000,GPUs,estimate,S12014,Omdia estimate (via FT); Google also deploys its own TPUs.
+gpu_purchases,Meta,self-build platform,2024,hopper_gpus_bought,224000,GPUs,estimate,S12014,Omdia estimate (via FT); internal use rather than public cloud.
+gpu_purchases,xAI / Tesla,AI lab self-build,2024,hopper_gpus_bought,200000,GPUs,estimate,S12014,Omdia estimate (via FT); approximate.
+gpu_purchases,ByteDance,China platform,2024,hopper_gpus_bought,230000,GPUs,estimate,S12014,"Omdia estimate (via FT); mostly China-specific H20/H800 parts."
+gpu_purchases,Tencent,China platform,2024,hopper_gpus_bought,230000,GPUs,estimate,S12014,"Omdia estimate (via FT); mostly China-specific H20/H800 parts."
+installed_gpus,CoreWeave,neocloud,2024-12,gpus_installed,250000,GPUs,reported,S12011,"S-1: more than 250,000 GPUs (all generations) in 32 data centers at 2024-12-31; a stock, not a 2024 purchase flow."
+power,CoreWeave,neocloud,2024-12,active_power,0.36,GW,reported,S12011,S-1: more than 360 MW active power.
+power,CoreWeave,neocloud,2024-12,contracted_power,1.3,GW,reported,S12011,S-1: about 1.3 GW contracted.
+power,CoreWeave,neocloud,2025-12,active_power,0.85,GW,reported,S12012,"Q4 2025 results: more than 850 MW active (about 260 MW added in Q4), 43 data centers."
+power,CoreWeave,neocloud,2025-12,contracted_power,3.1,GW,reported,S12012,Q4 2025 results: about 3.1 GW contracted.
+power,CoreWeave,neocloud,2026-06,active_power,1.5,GW,reported,S12010,"Q2 2026: about 1.5 GW active, up nearly 500 MW in the quarter, 51 data centers."
+power,CoreWeave,neocloud,2026-06,contracted_power,3.7,GW,reported,S12010,Q2 2026 contracted power at June 30 (about 3.7 GW).
+power,CoreWeave,neocloud,2026-08,contracted_power,4.2,GW,reported,S12010,4.2 GW contracted as of the Aug 2026 earnings call.
+power,CoreWeave,neocloud,2026-12,active_power_target,1.85,GW,speculative,S12010,Management expects about 1.85 GW live by year-end 2026 (guidance).
+power,Nebius,neocloud,2026-12,contracted_power_target,5.0,GW,speculative,S12010,Nebius expects to end 2026 with about 5 GW contracted (guidance after adding ~1 GW in Q2 2026).
+power,Crusoe,neocloud,2026-08,contracted_power,4.9,GW,estimate,S12013,Secondary comparison table (MarkTechPost); not a company filing.
+power,Crusoe,neocloud,2026-08,active_power,0.2,GW,estimate,S12013,"~0.2 GW energized at Abilene per the same secondary table; Crusoe is private, so totals are not disclosed."

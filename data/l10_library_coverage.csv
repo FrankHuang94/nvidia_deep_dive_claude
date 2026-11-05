@@ -1,0 +1,91 @@
+domain_order,domain,vendor,libraries,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
+1,Dense math (BLAS/GEMM),NVIDIA,"cuBLAS, cuBLASLt",reference,cuBLAS / cuBLASLt,Shipped with CUDA 1.0 (2007); Lt API adds FP8/FP4 block-scaled GEMMs,confirmed,S10047;S525,Reference column
+1,Dense math (BLAS/GEMM),AMD,"rocBLAS, hipBLASLt",parity,rocBLAS / hipBLASLt,Full BLAS plus a Lt-style GEMM library; FP8 and FP4/FP6 since ROCm 7.0,speculative,S586;S90064,Repo verdict; evidence confirmed (AMD docs)
+1,Dense math (BLAS/GEMM),Intel,"oneMKL, oneMath",parity,oneMKL / oneMath,Mature BLAS on CPU and Intel GPU; open oneMath interfaces under UXL,speculative,S10557;S10540,Repo verdict; evidence confirmed (Intel docs)
+1,Dense math (BLAS/GEMM),Google,XLA,different,XLA (compiler),No standalone BLAS: the XLA compiler generates TPU matmuls,speculative,S10543,Compiler-first approach
+1,Dense math (BLAS/GEMM),AWS,"Neuron compiler, NKI",different,Neuron compiler + NKI,Compiler generates matmuls; NKI for hand-written kernels,speculative,S10539;S594,Compiler-first approach
+1,Dense math (BLAS/GEMM),Huawei,CANN operator library,behind,CANN ops (aclnn),Operator library tied to Ascend; open-sourcing announced Aug 2025,speculative,S10538;S10537,Repo verdict
+2,DNN primitives,NVIDIA,cuDNN,reference,cuDNN,Convolution/attention primitives since 2014; fused attention kernels,confirmed,S10047;S10039,Reference column
+2,DNN primitives,AMD,"MIOpen, AITER",behind,MIOpen (+AITER),MIOpen trails cuDNN; LLM operators moved to AITER (Triton/CK/assembly),speculative,S10559;S10514,Repo verdict
+2,DNN primitives,Intel,oneDNN,parity,oneDNN,Default x86 CPU primitives in PyTorch and other frameworks; GPU path thinner,speculative,S10554;S10542,Repo verdict; AMD-oneDNN item is a single secondary source
+2,DNN primitives,Google,XLA,different,XLA fusion,Compiler fuses operators instead of calling a primitives library,speculative,S10543,Compiler-first approach
+2,DNN primitives,AWS,Neuron compiler,different,Neuron compiler,Compiler-generated operators,speculative,S10539,Compiler-first approach
+2,DNN primitives,Huawei,CANN AOL,behind,CANN AOL,Ascend operator library; smaller model coverage,speculative,S10538,Repo verdict
+3,Kernel templates and DSLs,NVIDIA,"CUTLASS, CuTe, CuTe DSL",reference,CUTLASS / CuTe DSL,CUTLASS since Dec 2017; CuTe (2023); Python CuTe DSL (2025),confirmed,S10010,Reference column
+3,Kernel templates and DSLs,AMD,"Composable Kernel, Triton",behind,Composable Kernel,CK plus in-tree Triton; thinner documentation and user base,speculative,S10558;S578,Repo verdict
+3,Kernel templates and DSLs,Intel,"SYCL, Triton XPU backend",behind,"SYCL, Triton XPU",Out-of-tree Triton backend; no CUTLASS-class template library in oneAPI,speculative,S597;S10540,Repo verdict
+3,Kernel templates and DSLs,Google,Pallas,different,Pallas (JAX),TPU kernels are written in Pallas rather than Triton or CUDA,speculative,S578;S577,Different approach
+3,Kernel templates and DSLs,AWS,"NKI, NKI Library",different,NKI + NKI Library,Neuron Kernel Interface with a library of pre-built kernels (Trn1-Trn3),speculative,S10539,Different approach
+3,Kernel templates and DSLs,Huawei,"Ascend C, triton-ascend",behind,"Ascend C, triton-ascend",Triton-Ascend moved under the triton-lang organisation,speculative,S592,Repo verdict
+4,Collectives,NVIDIA,"NCCL, NVSHMEM",reference,NCCL,NCCL on GitHub since Apr 2016; device-initiated networking (GIN) from 2.28 (Oct 2025),confirmed,S10506;S10507,Reference column
+4,Collectives,AMD,RCCL,parity,RCCL (NCCL port),API-compatible port; 1-2 minor versions behind NCCL in 2025-26,speculative,S10509;S586,Repo verdict; lag measured in l10_port_versions.csv
+4,Collectives,Intel,oneCCL,behind,oneCCL,Few large accelerator clusters run it,speculative,S10555,Repo verdict
+4,Collectives,Google,"XLA collectives over ICI",different,XLA + ICI,Compiler-scheduled collectives across 9216-chip pods,speculative,S10543;S547,Different approach; arguably strongest at pod scale
+4,Collectives,AWS,"Neuron collectives, NxD",different,Neuron CC (NxD),Collectives inside NeuronX Distributed,speculative,S594,Different approach
+4,Collectives,Huawei,HCCL,behind,HCCL,Ascend collective library inside CANN,speculative,S10538,Repo verdict
+5,Inference engine,NVIDIA,"TensorRT-LLM, Dynamo, NIXL",reference,"TensorRT-LLM, Dynamo",NVIDIA-only engine plus open-source Dynamo 1.0 and NIXL,confirmed,S589;S90066,Reference column
+5,Inference engine,AMD,"vLLM, SGLang, AITER",behind,vLLM/SGLang + AITER,First-class in open engines; disaggregated serving and KV tiering lagged (2025 analyst view),speculative,S580;S582;S10514;S10570,Repo verdict; may have narrowed in 2026
+5,Inference engine,Intel,"OpenVINO, vllm-gaudi",behind,OpenVINO,Strong at edge and CPU; Gaudi via the vllm-gaudi plugin,speculative,S10553;S581,Repo verdict
+5,Inference engine,Google,"vLLM TPU, llm-d",different,"vLLM-TPU, llm-d",TPU serving through vLLM JAX/TorchTPU plugins and llm-d,speculative,S553;S581,Different approach
+5,Inference engine,AWS,vLLM Neuron plugin,behind,vLLM Neuron (beta),Neuron plugin labelled beta,speculative,S581,Repo verdict
+5,Inference engine,Huawei,vllm-ascend,behind,vllm-ascend,vLLM plugin maintained in the vLLM project,speculative,S581,Repo verdict
+6,Dataframes and ETL,NVIDIA,"cuDF, RAPIDS Accelerator for Apache Spark",reference,"cuDF, Spark RAPIDS",RAPIDS since Oct 2018; native in Snowflake ML since Nov 2025,confirmed,S10517;S10521,Reference column
+6,Dataframes and ETL,AMD,hipDF (ROCm-DS),behind,hipDF (RAPIDS fork),GA Oct 2025 aligned to cuDF 25.02 APIs (~8 months behind),speculative,S10511;S10512,Repo verdict
+6,Dataframes and ETL,Intel,none on GPU,behind,no GPU dataframe lib,Not among oneAPI toolkit libraries,speculative,S10540,Repo verdict (absence in vendor library index)
+6,Dataframes and ETL,Google,BigQuery,different,BigQuery (service),Managed warehouse service rather than a library,speculative,S10552,Different approach
+6,Dataframes and ETL,AWS,none in Neuron SDK,behind,none in Neuron SDK,No dataframe library in the Neuron stack,speculative,S10539,Repo verdict (absence in vendor library index)
+6,Dataframes and ETL,Huawei,none found,behind,none found,No dataframe library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+7,Classical ML,NVIDIA,cuML,reference,cuML,Zero-code-change scikit-learn acceleration; inside Snowflake ML,confirmed,S10047;S10521,Reference column
+7,Classical ML,AMD,none GA,behind,no cuML port (GA),ROCm-DS lists hipDF/hipMM/hipRAFT/hipVS but no cuML equivalent,speculative,S10511;S10512,Repo verdict
+7,Classical ML,Intel,"oneDAL, Extension for scikit-learn",different,oneDAL (CPU),CPU-optimised scikit-learn acceleration,speculative,S10556,Different approach (CPU)
+7,Classical ML,Google,BigQuery ML,different,BigQuery ML,In-warehouse ML as a service,speculative,S10552,Different approach
+7,Classical ML,AWS,none in Neuron SDK,behind,none in Neuron SDK,No classical-ML library in the Neuron stack,speculative,S10539,Repo verdict (absence in vendor library index)
+7,Classical ML,Huawei,none found,behind,none found,No classical-ML library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+8,Graph analytics,NVIDIA,cuGraph,reference,cuGraph,GPU graph analytics in RAPIDS,confirmed,S10047,Reference column
+8,Graph analytics,AMD,hipGRAPH,behind,hipGRAPH (early access),Still early access in ROCm-DS 26.03,speculative,S10512,Repo verdict
+8,Graph analytics,Intel,none on GPU,behind,none on GPU,Not among oneAPI toolkit libraries,speculative,S10540,Repo verdict (absence in vendor library index)
+8,Graph analytics,Google,none,behind,no TPU graph library,No graph-analytics library in the XLA/JAX stack,speculative,S10543;S577,Repo verdict (absence in vendor library index)
+8,Graph analytics,AWS,Amazon Neptune,different,Neptune (service),Managed graph database service,speculative,S10551,Different approach
+8,Graph analytics,Huawei,none found,behind,none found,No graph library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+9,Optimization (LP/MIP/routing),NVIDIA,cuOpt,reference,cuOpt (Apache 2.0),LP/QP/routing solver; open-sourcing announced GTC 2025,confirmed,S10026;S10027,Reference column
+9,Optimization (LP/MIP/routing),AMD,none,behind,none found,No optimization solver in ROCm,speculative,S586,Repo verdict (absence in vendor library index)
+9,Optimization (LP/MIP/routing),Intel,none,behind,none found,No solver among oneAPI libraries,speculative,S10540,Repo verdict (absence in vendor library index)
+9,Optimization (LP/MIP/routing),Google,OR-Tools,different,OR-Tools (CPU),Widely used open-source CPU solver suite,speculative,S10544,Different approach (CPU)
+9,Optimization (LP/MIP/routing),AWS,none,behind,none found,No solver in the Neuron stack,speculative,S10539,Repo verdict (absence in vendor library index)
+9,Optimization (LP/MIP/routing),Huawei,none found,behind,none found,No solver found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+10,FFT / sparse / solvers,NVIDIA,"cuFFT, cuSPARSE, cuSOLVER",reference,"cuFFT, cuSPARSE",cuFFT shipped with CUDA 1.0 (2007),confirmed,S10047;S525,Reference column
+10,FFT / sparse / solvers,AMD,"rocFFT, rocSPARSE, rocSOLVER",parity,"rocFFT, rocSPARSE",Full HPC math set; HIP wrappers mirror CUDA APIs,speculative,S586,Repo verdict
+10,FFT / sparse / solvers,Intel,oneMKL,parity,oneMKL,"FFT, sparse and LAPACK on CPU and GPU",speculative,S10557,Repo verdict
+10,FFT / sparse / solvers,Google,XLA FFT,behind,XLA FFT only,Basic FFT op; no sparse/solver library,speculative,S10543,Repo verdict
+10,FFT / sparse / solvers,AWS,none,behind,none found,No HPC math library in the Neuron stack,speculative,S10539,Repo verdict (absence in vendor library index)
+10,FFT / sparse / solvers,Huawei,limited,behind,limited,HPC math coverage thin in CANN,speculative,S10538,Repo verdict
+11,Quantum simulation,NVIDIA,"cuQuantum, CUDA-Q, NVQLink",reference,"cuQuantum, CUDA-Q",CUDA-Q (2022) and NVQLink with 17 quantum builders (Oct 2025),confirmed,S10519;S10520,Reference column
+11,Quantum simulation,AMD,none,behind,none first-party,No quantum SDK in ROCm,speculative,S586,Repo verdict (absence in vendor library index)
+11,Quantum simulation,Intel,none on GPU,behind,none on GPU,No GPU quantum simulator among oneAPI libraries,speculative,S10540,Repo verdict (absence in vendor library index)
+11,Quantum simulation,Google,"qsim, Cirq",different,qsim/Cirq + own QPUs,Simulator plus in-house quantum hardware,speculative,S10547,Different approach
+11,Quantum simulation,AWS,Amazon Braket,different,Braket (service),Managed quantum-computing service,speculative,S10548,Different approach
+11,Quantum simulation,Huawei,none found,behind,none found,No quantum library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+12,Computational lithography,NVIDIA,cuLitho,reference,cuLitho,In production at TSMC and Synopsys (2024); ~45-60x vs CPU flows (vendor claim),confirmed,S10031;S10518,Reference column
+12,Computational lithography,AMD,none,behind,none found,No lithography library,speculative,S586,Repo verdict (absence in vendor library index)
+12,Computational lithography,Intel,none,behind,none found,No lithography library,speculative,S10540,Repo verdict (absence in vendor library index)
+12,Computational lithography,Google,none,behind,none found,No lithography library,speculative,S10543,Repo verdict (absence in vendor library index)
+12,Computational lithography,AWS,none,behind,none found,No lithography library,speculative,S10539,Repo verdict (absence in vendor library index)
+12,Computational lithography,Huawei,none found,behind,none found,No lithography library found,speculative,S10538,Repo verdict (absence in vendor library index)
+13,Genomics,NVIDIA,Parabricks,reference,Parabricks,GPU-accelerated secondary analysis (alignment and variant calling),confirmed,S10047,Reference column
+13,Genomics,AMD,none,behind,none first-party,No genomics library in ROCm,speculative,S586,Repo verdict (absence in vendor library index)
+13,Genomics,Intel,none on GPU,behind,none on GPU,Not among oneAPI toolkit libraries,speculative,S10540,Repo verdict (absence in vendor library index)
+13,Genomics,Google,DeepVariant,different,DeepVariant (model),Open-source deep-learning variant caller,speculative,S10546,Different approach
+13,Genomics,AWS,AWS HealthOmics,different,HealthOmics (service),Managed omics workflow service,speculative,S10549,Different approach
+13,Genomics,Huawei,none found,behind,none found,No genomics library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+14,Simulation and physics-ML,NVIDIA,"Warp, PhysicsNeMo, PhysX",reference,"Warp, PhysicsNeMo",Python GPU simulation (Warp) and physics-ML (PhysicsNeMo); PhysX since 2008,confirmed,S10047;S484,Reference column
+14,Simulation and physics-ML,AMD,none first-party,behind,no first-party lib,No first-party simulation or physics-ML library in ROCm,speculative,S586,Repo verdict (absence in vendor library index)
+14,Simulation and physics-ML,Intel,none first-party,behind,no first-party lib,Not among oneAPI toolkit libraries,speculative,S10540,Repo verdict
+14,Simulation and physics-ML,Google,Brax,different,Brax (JAX),Open-source physics engine in JAX (research-grade),speculative,S10569,Different approach
+14,Simulation and physics-ML,AWS,none,behind,none found,No simulation library in the Neuron stack,speculative,S10539,Repo verdict (absence in vendor library index)
+14,Simulation and physics-ML,Huawei,none found,behind,none found,No simulation library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)
+15,Vector search,NVIDIA,cuVS (CAGRA),reference,cuVS (CAGRA),Billed with cuDF as a foundation library at GTC 2026,confirmed,S10047;S10504,Reference column
+15,Vector search,AMD,hipVS,behind,hipVS (port),Production component since ROCm-DS 25.10,speculative,S10511,Repo verdict
+15,Vector search,Intel,none on GPU,behind,no GPU library,Not among oneAPI toolkit libraries,speculative,S10540,Repo verdict (absence in vendor library index)
+15,Vector search,Google,ScaNN,different,ScaNN (CPU),Open-source approximate nearest-neighbour search,speculative,S10545,Different approach (CPU)
+15,Vector search,AWS,Amazon OpenSearch Service,different,OpenSearch (service),Managed vector search service,speculative,S10550,Different approach
+15,Vector search,Huawei,none found,behind,none found,No vector-search library found in CANN documentation,speculative,S10538,Repo verdict (absence in vendor library index)

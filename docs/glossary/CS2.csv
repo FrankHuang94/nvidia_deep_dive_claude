@@ -1,0 +1,5 @@
+term,slug,definition,see_also
+AlexNet,alexnet,"The 2012 neural network by Krizhevsky, Sutskever and Hinton that won the ImageNet image-recognition contest by a wide margin. It was trained on two GeForce GTX 580 gaming GPUs using CUDA.",cuda
+PyTorch,pytorch,"The open-source deep-learning framework created at Meta (2016-17) and now the default in AI research. Models are written once in Python; vendor backends (CUDA first, then ROCm, TPU and others) run them.",triton;xla
+Unified shader architecture,unified-shader-architecture,"A GPU design, introduced by NVIDIA's G80 in 2006, in which one pool of identical programmable cores handles every graphics stage. Those general-purpose cores are what CUDA exposed for non-graphics work.",gpgpu;cuda
+Registered developer,registered-developer,"Someone who has signed up to NVIDIA's developer programme. The count is cumulative and self-reported, so it measures reach rather than how many people actively write CUDA code today.",cuda

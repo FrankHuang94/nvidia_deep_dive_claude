@@ -1,0 +1,12 @@
+period,period_end,metric,value,unit,confidence,source_id,notes
+Q4FY26,2026-01-25,marketable_equity,12.886,USD_B,confirmed,S90070,Balance-sheet comparative in the Q1 FY2027 10-Q; read via web-search summary 2026-11-05 (sec.gov blocked)
+Q4FY26,2026-01-25,non_marketable_equity,22.251,USD_B,confirmed,S90070,Balance-sheet comparative in the Q1 FY2027 10-Q; read via web-search summary 2026-11-05
+Q1FY27,2026-04-26,marketable_equity,30.237,USD_B,confirmed,S90070,Q1 FY2027 10-Q balance sheet via web-search summary; a 10% price fall would cut publicly-held equity by $3.9B (vs $1.8B in Jan 2026)
+Q1FY27,2026-04-26,non_marketable_equity,43.364,USD_B,reported,S90070,Web-search summary of the balance sheet gives $43.364B; registry note for S90070 gives ~$42.3B; ~$21B jump coincides with the ~$30B OpenAI investment (Feb 2026)
+Q2FY27,2026-07-26,marketable_equity,42.783,USD_B,reported,S90072;S90069,Secondary reading of the Q2 FY2027 10-Q
+Q2FY27,2026-07-26,non_marketable_equity,51.157,USD_B,reported,S90072;S90069,Secondary reading; another article gives $47.9B for private holdings (definition differs)
+Q2FY27,2026-07-26,locked_up_public_equity,5.0,USD_B,reported,S90072;S90073,Shown as a separate line in the secondary reading; the ~$99B total is a CNBC aggregation of three lines
+H1FY27,2026-07-26,equity_purchases,42.4,USD_B,reported,S90072,Purchases of equity securities in the first half of FY2027 (cash-flow statement per secondary reading)
+H1FY26,2025-07-27,equity_purchases,1.2,USD_B,reported,S90072,Prior-year comparison
+H1FY27,2026-07-26,net_equity_gains,23.7,USD_B,reported,S90072;S403,Q1 ~$15.9B (largely unrealized) + Q2 $7.8B
+Q2FY27,2026-07-26,equity_commitments_outstanding,25.0,USD_B,reported,S90069,Further equity investment commitments per secondary reading of the 10-Q

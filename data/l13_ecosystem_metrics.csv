@@ -1,0 +1,20 @@
+record_type,date,metric,value,unit,confidence,source_id,notes
+gtc,2009-10,gtc_attendees_in_person,1500,attendees,reported,S13024,"First GTC at the Fairmont San Jose; roughly 1,500 attendees (secondary source)"
+gtc,2024-03,gtc_attendees_in_person,16000,attendees,reported,S13021,"Pre-event projection: >16,000 in person and ~300,000 online"
+gtc,2025-03,gtc_attendees_in_person,25000,attendees,reported,S13020,"NVIDIA pre-event estimate: ~25,000 in person and ~300,000 virtual"
+gtc,2026-03,gtc_attendees_in_person,30000,attendees,reported,S13533;S13022,"NVIDIA pre-event release: >30,000 attendees expected from >190 countries; no final count found"
+gtc,2024-03,gtc_attendees_virtual,300000,attendees,reported,S13021,Projection
+gtc,2025-03,gtc_attendees_virtual,300000,attendees,reported,S13020,NVIDIA estimate
+gtc,2026-03,gtc_sessions,500,sessions,confirmed,S13023,500+ sessions plus 70+ paid training labs
+inception,2017,inception_members,2000,startups,confirmed,S13027,2000th member less than 18 months after the 2016 launch
+inception,2020-12,inception_members,7000,startups,confirmed,S13025,+25% in a year
+inception,2021-08,inception_members,8500,startups,reported,S13026,Members from 90 countries had raised >$60B
+inception,2021-12,inception_members,9000,startups,confirmed,S13028,About two-thirds of the world's AI start-ups by PitchBook's count
+inception,2022-03,inception_members,10000,startups,reported,S531,"'10,000 start-ups' using NVIDIA's platform at GTC 2022; the source does not name the program"
+inception,2025,inception_members,22000,startups,estimate,S13536,"Secondary page citing PitchBook (>22,000 active); other secondary pages cite 19,000-30,000; no official count found"
+dli,2017,dli_training_target,100000,developers,confirmed,S13031,Target for calendar 2017
+dli,2020-05,dli_developers_trained_cumulative,200000,developers,reported,S13032,"More than 200,000 trained; >550 certified instructors"
+nventures,2022,nventures_deals,1,deals,reported,S13029,PitchBook via press
+nventures,2025,nventures_deals,30,deals,reported,S13029,Another outlet reports 21
+corporate,2024,nvidia_venture_rounds,54,deals,reported,S13029,"PitchBook via TechCrunch; another outlet cites 48"
+corporate,2025,nvidia_venture_rounds,67,deals,reported,S13029,"PitchBook via TechCrunch; unclear whether NVentures deals are included"

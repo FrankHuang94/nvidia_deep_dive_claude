@@ -1,0 +1,21 @@
+version,minor,first_pypi_upload,package,feature,confidence,source_id,notes
+2.13,13,2022-07-27,nvidia-nccl-cu11,,confirmed,S10038,First upload of 2.13.4 on PyPI (earliest NCCL wheel with a real version number).
+2.14,14,2022-08-31,nvidia-nccl-cu11,,confirmed,S10038,
+2.15,15,2022-11-08,nvidia-nccl-cu11,,confirmed,S10038,
+2.16,16,2022-12-09,nvidia-nccl-cu12,,confirmed,S10038,First CUDA 12 wheel.
+2.17,17,2023-03-31,nvidia-nccl-cu12,,confirmed,S10038,Hopper-era release; NVLink SHARP (NVLS) support arrived around 2.17-2.18 [recall].
+2.18,18,2023-05-04,nvidia-nccl-cu12,,confirmed,S10038,
+2.19,19,2023-10-24,nvidia-nccl-cu12,NVLink SHARP buffer registration,confirmed,S10038;S10042,Release notes list local user-buffer registration for NVLink SHARP and Hopper performance work.
+2.20,20,2024-03-06,nvidia-nccl-cu12,,confirmed,S10038,
+2.21,21,2024-04-03,nvidia-nccl-cu12,,confirmed,S10038,
+2.22,22,2024-06-19,nvidia-nccl-cu12,,confirmed,S10038,
+2.23,23,2024-09-11,nvidia-nccl-cu12,PAT algorithm for scale,reported,S10038;S10043,Parallel Aggregated Trees for all-gather/reduce-scatter at large scale [recall].
+2.24,24,2025-01-07,nvidia-nccl-cu12,,confirmed,S10038,
+2.25,25,2025-01-24,nvidia-nccl-cu12,,confirmed,S10038,
+2.26,26,2025-03-13,nvidia-nccl-cu12,,confirmed,S10038,
+2.27,27,2025-06-03,nvidia-nccl-cu12,Symmetric-memory kernels,reported,S10038;S10044,Low-latency NVLink kernels aimed at small inference messages [recall].
+2.28,28,2025-09-06,nvidia-nccl-cu12,Device API and GPU-initiated networking,confirmed,S10038;S10008;S10007,"Device API (load/store, multimem, GIN); GIN from 2.28.7 per the docs."
+2.29,29,2026-01-07,nvidia-nccl-cu12,,confirmed,S10038,
+2.30,30,2026-04-20,nvidia-nccl-cu12,,confirmed,S10038,
+2.31,31,2026-08-11,nvidia-nccl-cu12,,confirmed,S10038,
+2.32,32,2026-09-22,nvidia-nccl-cu12,Current release (2.32.3),confirmed,S10038;S10000,makefiles/version.mk on master reads 2.32.3.

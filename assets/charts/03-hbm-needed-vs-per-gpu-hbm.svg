@@ -2683,7 +2683,7 @@ z
   </g>
   <g id="text_23">
    <!-- HBM needed for FP8 weights + FP8 KV cache, GB (stacked) vs memory per GPU (dashed lines) · GPU counts assume 90% of HBM is usable -->
-   <g style="fill: #52514e" transform="translate(9.072 39.838359) scale(0.105 -0.105)">
+   <g style="fill: #52514e" transform="translate(9.072 39.393056) scale(0.09914 -0.09914)">
     <defs>
      <path id="DejaVuSans-5a" d="M 269 3500 
 L 844 3500 

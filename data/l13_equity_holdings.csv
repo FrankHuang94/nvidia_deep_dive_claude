@@ -1,0 +1,11 @@
+period,period_end,metric,value,unit,confidence,source_id,notes
+FY2025,2025-01-26,non_marketable_equity,3.387,USD_B,confirmed,S13043,Opening balance of the FY2026 10-K roll-forward
+FY2026,2026-01-25,non_marketable_equity,22.251,USD_B,confirmed,S13043,"Net additions $17.444B, unrealized gains $2.369B, $0.848B reclassified to marketable"
+Q1FY27,2026-04-26,non_marketable_equity,42.3,USD_B,confirmed,S90070,Q1 FY2027 10-Q
+Q2FY27,2026-07-26,non_marketable_equity,51.2,USD_B,reported,S90072;S90069,Secondary reading of the Q2 FY2027 10-Q
+Q2FY27,2026-07-26,marketable_equity,42.8,USD_B,reported,S90072;S90073,Publicly traded stakes (e.g. Intel); much of the growth is mark-to-market
+Q2FY27,2026-07-26,lockedup_public_equity,5.0,USD_B,reported,S90072;S90073,Public equity subject to lock-up
+H1FY26,2025-07-27,equity_purchases_half_year,1.2,USD_B,reported,S90072,Purchases of equity securities in H1 FY2026
+H1FY27,2026-07-26,equity_purchases_half_year,42.4,USD_B,reported,S90072,Purchases of equity securities in H1 FY2027
+Q2FY27,2026-07-26,net_equity_gains_quarter,7.8,USD_B,reported,S90072,H1 FY2027 net gains $23.7B
+Q2FY27,2026-07-26,further_equity_commitments,25,USD_B,reported,S90069;S90073,Approximate unfunded equity commitments

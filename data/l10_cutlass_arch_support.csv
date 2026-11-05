@@ -1,0 +1,7 @@
+architecture,sm_target,milestone,cutlass_version,cutlass_date,what_landed,confidence,source_id,notes
+Ampere,SM80,first support,2.2.0,2020-06-08,"Ampere SM80 features: TF32, BF16, FP64 and INT4 tensor-core GEMMs",confirmed,S10010,First volume availability from gpu_architecture_cadence.csv (2020-05)
+Hopper,SM90,first support,2.11.0,2022-11-19,Hopper double-precision GEMM and FP8 type definitions,confirmed,S10010,First volume availability 2022-10 (gpu_architecture_cadence.csv)
+Hopper,SM90,native kernels,3.0.0,2023-01-23,"TMA and WGMMA GEMMs built on the new CuTe layout library",confirmed,S10010,CuTe introduced as the core of CUTLASS 3.0
+Blackwell,SM100,first support,3.8.0,2025-01-25,"tcgen05 tensor cores and tensor memory; NVFP4, MXFP4/6/8 block-scaled GEMMs",confirmed,S10010,First volume availability 2024-11 placeholder (gpu_architecture_cadence.csv)
+Blackwell Ultra,SM103,first support,4.2.0,2025-09-15,SM103 (B300) kernels and NVFP4 GEMV,confirmed,S10010,First volume availability 2025-08 placeholder (gpu_architecture_cadence.csv)
+Rubin,SM107,first support,4.8.0,2026-09-17,"Initial Rubin dense GEMMs incl. NVFP4 with UE5M3 scale factors",confirmed,S10010,Production shipments from early Aug 2026 (gpu_architecture_cadence.csv); NCCL 2.32.3 added Rubin the same day

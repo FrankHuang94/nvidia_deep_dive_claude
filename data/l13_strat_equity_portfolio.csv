@@ -1,0 +1,11 @@
+period,period_end,metric,value,unit,confidence,source_id,notes
+FY2026,2026-01-25,non_marketable_equity,22.3,USD_B,reported,S90070,Secondary reading of the Q1 FY2027 10-Q (prior year-end balance)
+Q1FY2027,2026-04-26,non_marketable_equity,42.3,USD_B,reported,S90070,Jump reflects the OpenAI stake
+Q2FY2027,2026-07-26,non_marketable_equity,51.2,USD_B,reported,S90072,
+Q2FY2027,2026-07-26,marketable_equity,42.8,USD_B,reported,S90072,Fair value of listed stakes
+Q2FY2027,2026-07-26,locked_up_public_equity,5.0,USD_B,reported,S90072,Listed stakes under lock-up
+H1FY2026,2025-07-27,equity_purchases,1.2,USD_B,reported,S90072,Purchases of equity securities in the first half a year earlier
+H1FY2027,2026-07-26,equity_purchases,42.4,USD_B,reported,S90072;S90069,Purchases of equity securities (cash flow statement reading)
+H1FY2027,2026-07-26,net_equity_gains,23.7,USD_B,reported,S90069;S90072,Net gains on equity securities through other income; largely mark-to-market
+Q2FY2027,2026-07-26,net_equity_gains,7.8,USD_B,reported,S90069;S90072,
+Q2FY2027,2026-07-26,further_equity_commitments,25.0,USD_B,reported,S90069;S90073,Further equity investment commitments (approx.)

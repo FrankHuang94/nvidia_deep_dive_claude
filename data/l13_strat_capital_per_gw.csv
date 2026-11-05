@@ -1,0 +1,11 @@
+deal,supplier,counterparty,announce_date,instrument,capital_usd_b,capital_basis,committed_gw,capital_per_gw_usd_b,status,confidence,source_id,notes
+NVIDIA to OpenAI (Sept 2025 LOI),NVIDIA,OpenAI,2025-09-22,progressive equity per GW deployed,100,up-to,10,10.0,superseded,confirmed,S467;S90016,Up to $100B as 10 GW of NVIDIA systems come online; shelved Feb 2026
+NVIDIA to OpenAI (2026 equity),NVIDIA,OpenAI,2026-02,direct equity with no deployment milestones,30,reported,,,closed,reported,S90015;S13526,Part of a ~$110B round; not tied to GW so no per-GW value
+NVIDIA to Anthropic,NVIDIA,Anthropic,2025-11-18,equity,10,up-to,1,10.0,announced,confirmed,S469;S90075,Anthropic commits up to 1 GW on Grace Blackwell / Vera Rubin; Microsoft adds up to $5B
+NVIDIA to xAI,NVIDIA,xAI,2025-10,equity,2,up-to,1,2.0,closed,reported,S483,Colossus 2 first ~1 GW (reported); xAI since combined with SpaceX (reported)
+NVIDIA to CoreWeave (equity),NVIDIA,CoreWeave,2026-01-26,equity,2.35,disclosed,5,0.47,closed,reported,S472;S473,Cumulative equity $0.1B + $0.25B + $2B against a >5 GW-by-2030 target; excludes the $6.3B capacity backstop
+NVIDIA to Poolside,NVIDIA,Poolside,2025-10,equity,1,up-to,2,0.5,announced,reported,S483,Project Horizon 2 GW campus (reported)
+AMD to OpenAI (warrant at $600 hurdle),AMD,OpenAI,2025-10-06,warrant for 160M AMD shares at $0.01,96,estimate,6,16.0,active,estimate,S13506;S13507,"Repo calc: 160M shares x $600 (share-price condition reported for the final tranche) / 6 GW; value exists only if AMD stock reaches $600"
+AMD to OpenAI (warrant at $200 illustrative),AMD,OpenAI,2025-10-06,warrant for 160M AMD shares at $0.01,32,estimate,6,5.33,active,speculative,S13506,"Repo calc at an illustrative $200 per share; tranches vest from 1 GW (MI450, H2 2026) to 6 GW"
+Broadcom to OpenAI (10 GW custom chips),Broadcom,OpenAI,2025-10-13,no vendor capital disclosed,0,disclosed,10,0.0,active,reported,S174,OpenAI designs the accelerator; Broadcom co-develops and supplies racks; deployments H2 2026 to 2029
+AMD to Anthropic (equity),AMD,Anthropic,2026,equity,5,up-to,2,2.5,announced,reported,S9538,Up to $5B with 2 GW of MI450-class Helios; month of announcement not verified

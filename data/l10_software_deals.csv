@@ -1,0 +1,17 @@
+announce_date,acquirer,target,deal_type,what_was_bought,value_usd_m,value_basis,status,confidence,source_id,notes
+2007-11,NVIDIA,mental images,acquisition,Ray-tracing renderers (mental ray; iray),88,reported,closed,reported,S484,[recall] per acquisitions_investments.csv
+2008-02,NVIDIA,Ageia Technologies,acquisition,PhysX physics engine ported to CUDA,,undisclosed,closed,confirmed,S484,[recall] terms undisclosed
+2013-07,NVIDIA,The Portland Group (PGI),acquisition,"HPC compilers (OpenACC, CUDA Fortran)",,undisclosed,closed,confirmed,S484,[recall] terms undisclosed
+2022-01,NVIDIA,Bright Computing,acquisition,HPC cluster management (now Base Command Manager),,undisclosed,closed,confirmed,S478,Terms undisclosed
+2022-03-07,NVIDIA,Excelero,acquisition,NVMesh software-defined block storage,,undisclosed,closed,confirmed,S10534,Terms undisclosed
+2022-06,Intel,Codeplay Software,acquisition,SYCL compilers and tools for oneAPI,,undisclosed,closed,confirmed,S10533,Terms undisclosed
+2023-08,AMD,Mipsology,acquisition,AI inference software,,undisclosed,closed,confirmed,S10529,Terms undisclosed
+2023-10-10,AMD,Nod.ai,acquisition,Open-source AI compiler team,,undisclosed,closed,confirmed,S10530,Definitive agreement date; terms undisclosed
+2024-04-24,NVIDIA,Run:ai,acquisition,Kubernetes GPU orchestration,700,reported,closed,reported,S476;S479,~US$700M reported; closed 2024-12-30
+2024-04,NVIDIA,Deci,acquisition,Neural-architecture search and efficient inference models,300,reported,closed,reported,S478;S479,[recall] press-reported value
+2024-07-10,AMD,Silo AI,acquisition,Europe's largest private AI lab (per AMD),665,disclosed,closed,confirmed,S10531,All-cash; closed 2024-08-12
+2024-09,NVIDIA,OctoAI,acquisition,Inference serving and model optimisation (Apache TVM founders),250,reported,closed,reported,S478;S479,[recall] press-reported value
+2025-06,NVIDIA,CentML,acquisition,ML compiler and inference optimisation,400,reported,closed,reported,S478;S479,[recall] up to ~US$400M incl. earn-outs reported
+2025-06-04,AMD,Brium,acquisition,AI compiler and inference optimisation team,,undisclosed,closed,confirmed,S10532,Terms undisclosed
+2025-12-01,NVIDIA,Synopsys (stake),equity-investment,GPU-accelerated EDA and simulation (CUDA-X) partnership,2000,disclosed,closed,confirmed,S471,Equity stake at $414.79/share; not an acquisition
+2026-06-24,Qualcomm,Modular,acquisition,Hardware-portable AI software stack (Mojo language; MAX engine),3900,announced,announced,reported,S90057,Expected to close H2 2026

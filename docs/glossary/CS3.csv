@@ -1,0 +1,4 @@
+term,slug,definition,see_also
+TPU (Tensor Processing Unit),tpu,"Google's in-house family of AI accelerator chips, from the 2015 inference card (v1) to Ironwood (v7, 2025) and the 2026 TPU 8t/8i. Each chip is built around large matrix-multiply units and chips are wired into pods of up to ~9,600.",asic;ici;systolic-array
+Vertical integration,vertical-integration,"Owning successive layers of a value chain (chip, network, compiler, datacenter, model) so they can be designed together and no supplier margin is paid between them.",co-design
+TorchTPU,torchtpu,"Google's native PyTorch stack for TPUs, open-sourced with Meta in October 2026 to replace PyTorch/XLA, so PyTorch models can run on TPUs without rewriting them in JAX.",pytorch;jax;xla

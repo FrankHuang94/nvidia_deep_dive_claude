@@ -1,0 +1,4 @@
+engine,instance_type,nodes,hardware_per_node,runtime_h,on_demand_usd_per_node_hr,total_job_cost_usd,speed_vs_native_x,confidence,source_id,notes
+Native Spark (JVM),c5d.12xlarge,8,"48 vCPU, 96 GiB RAM, NVMe SSD",1.7,2.30,31.28,1.0,confirmed,S10020,"Baseline. TPC-DS-derived 1 TB, 104 queries x 3 iterations, Spark 3.5.2, Amazon EKS, benchmark dated 2026-01-12."
+Gluten + Velox (vectorized CPU),c5d.12xlarge,8,"48 vCPU, 96 GiB RAM, NVMe SSD",1.0,2.30,18.40,1.7,confirmed,S10020,Fastest engine overall in this test.
+cuDF plugin for Spark (GPU),g6.2xlarge,4,"8 vCPU, 32 GiB RAM, 1x NVIDIA L4 (24 GB)",1.6,0.98,6.27,1.06,confirmed,S10020,RAPIDS v25.12.0 with CUDA 12.9; 30.32 min per iteration; lowest total job cost. Not an official TPC-DS result.

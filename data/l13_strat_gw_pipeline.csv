@@ -1,0 +1,11 @@
+buyer,supplier,program,announce_date,deploy_window,gw,gw_basis,status,confidence,source_id,notes
+OpenAI,NVIDIA,10 GW NVIDIA systems (LOI),2025-09-22,H2 2026 onward,10,letter of intent,superseded,reported,S467;S90016,LOI's progressive $100B investment shelved Feb 2026 for ~$30B equity without milestones; whether the full 10 GW proceeds is unclear
+OpenAI,Broadcom,OpenAI-designed accelerators and Broadcom Ethernet racks,2025-10-13,H2 2026 to 2029,10,announced programme,active,confirmed,S174,Custom silicon; Broadcom supplies no vendor capital
+OpenAI,AMD,Instinct MI450 onward (Helios),2025-10-06,H2 2026 (first 1 GW) to 6 GW,6,definitive agreement,active,confirmed,S13506;S90020,Warrant for up to 160M AMD shares vests by tranche
+Anthropic,Google (TPU),Up to 1M TPUs,2025-10,2026,1,announced (>1 GW in 2026),active,confirmed,S90026,Tens of billions of dollars; a further multi-GW TPU expansion from 2027 is unquantified (S655)
+Anthropic,NVIDIA,Grace Blackwell / Vera Rubin,2025-11-18,2026 onward,1,up to,announced,confirmed,S469;S90075,Paired with NVIDIA's up-to-$10B investment
+xAI,NVIDIA,Colossus 2,2025,2026,1,company claim (contested),active,reported,S90076;S90077,Satellite analysis suggested ~350 MW of cooling capacity in Jan 2026
+HUMAIN,NVIDIA,GB300 and successors,2025-05-13,2025-2030,0.5,up to,active,reported,S13005;S13516,Includes 84 MW expansion (Oct 2026) and 70 MW of Vera Rubin from mid-2027
+HUMAIN,AMD,Instinct systems,2025-05,five years,0.5,up to,announced,reported,S13517,Up to $10B
+HUMAIN,Qualcomm,AI200 / AI250 racks,2025-10-27,from 2026,0.2,announced,announced,reported,S90030;S90028,Public information only; no 2026 shipment confirmation found
+Anthropic,AMD,Helios (MI450-class),2026,2026 onward,2,up to,announced,reported,S9538,Paired with AMD's up-to-$5B investment; month of announcement not verified

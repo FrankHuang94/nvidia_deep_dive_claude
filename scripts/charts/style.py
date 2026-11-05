@@ -285,10 +285,13 @@ class Chart:
             if a.get_xscale() == "log":
                 a.xaxis.set_major_formatter(PLAIN_LOG)
                 a.xaxis.set_minor_formatter(NULL_FMT)
-        # Title block
-        fig.text(0.012, 0.985, self.title, ha="left", va="top", fontsize=14.5, fontweight="bold",
-                 color=INK["title"], wrap=True)
-        fig.text(0.012, 0.925, self.subtitle, ha="left", va="top", fontsize=10.5, color=INK["text"])
+        # Title block: shrink (never wrap) long titles/subtitles so they cannot collide.
+        w_in = fig.get_size_inches()[0]
+        t_fs = max(10.0, min(14.5, 14.5 * (8.3 * w_in) / max(len(self.title), 1)))
+        s_fs = max(8.0, min(10.5, 10.5 * (11.6 * w_in) / max(len(self.subtitle), 1)))
+        fig.text(0.012, 0.985, self.title, ha="left", va="top", fontsize=t_fs, fontweight="bold",
+                 color=INK["title"])
+        fig.text(0.012, 0.925, self.subtitle, ha="left", va="top", fontsize=s_fs, color=INK["text"])
         if logy or logx:
             fig.text(0.988, 0.925, "LOG SCALE", ha="right", va="top", fontsize=8.5,
                      fontweight="bold", color="#FFFFFF",
@@ -298,10 +301,10 @@ class Chart:
         more = " …" if len(self.source_ids) > 6 else ""
         foot = f"Source: data from {self.source} {ids}{more}; chart by repo · As of {self.asof}"
         fig.text(0.012, 0.012, foot, ha="left", va="bottom", fontsize=8.2, color=INK["muted"])
-        if self.note:
-            fig.text(0.988, 0.012, self.note, ha="right", va="bottom", fontsize=8.2,
+        if self.note:  # own line above the source footer, so long footers never collide with it
+            fig.text(0.988, 0.040, self.note, ha="right", va="bottom", fontsize=8.2,
                      color=INK["muted"], style="italic")
-        fig.subplots_adjust(top=top or 0.84, bottom=bottom or 0.13, left=0.08, right=0.97)
+        fig.subplots_adjust(top=top or 0.84, bottom=(bottom or 0.13) + (0.03 if self.note else 0.0), left=0.08, right=0.97)
         OUT_SVG.mkdir(parents=True, exist_ok=True)
         out = OUT_SVG / f"{self.id}.svg"
         fig.savefig(out, format="svg", metadata={"Date": None, "Creator": "nvidia-deep-dive"})

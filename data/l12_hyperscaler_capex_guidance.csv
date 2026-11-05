@@ -1,0 +1,10 @@
+company,guidance_date,period,capex_low_usd_b,capex_high_usd_b,basis,confidence,source_id,notes
+Alphabet,2026-02,CY2026,175,185,first 2026 guide,reported,S460,[recall] row in peer_financials.csv
+Alphabet,2026-04,CY2026,180,190,raised,reported,S12518,Prior range cited when July raise was announced
+Alphabet,2026-07-22,CY2026,195,205,raised,reported,S12518,Q2 2026 capex $44.9B; 'significant' increase again in 2027
+Amazon,2026-02,CY2026,200,200,first 2026 guide,reported,S461,[recall] ~$200B
+Amazon,2026-10,CY2026,220,220,latest,reported,S12519,~$220B cash capex maintained after Q3 2026 results (per summary)
+Meta,2026-01,CY2026,115,135,first 2026 guide,reported,S462,[recall] includes finance-lease principal
+Meta,2026-07,CY2026,130,145,latest,reported,S12518,Includes finance-lease principal; April range reported as $125-145B
+Microsoft,2026-07,CY2026,175,175,first CY2026 figure found,reported,S12518,Calendar 2026 incl. finance leases (Microsoft's fiscal year ends June)
+Microsoft,2026-10,CY2026,170,170,latest,reported,S12519,Trimmed for third-party capacity delays (per summary)

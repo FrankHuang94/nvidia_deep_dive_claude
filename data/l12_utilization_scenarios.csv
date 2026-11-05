@@ -1,0 +1,25 @@
+record_type,scenario,item,value,unit,basis,confidence,source_id,notes
+utilization_level,all,low,30,pct,illustrative utilization level (share of installed GPU-hours doing useful work),estimate,S12015;S34006,"Brackets the evidence: Alibaba's fleet allocated 68% of GPUs before a scheduler fix (S12015) and Llama 3 delivered ~38-41% MFU (S34006); 30% is a poorly scheduled shared cluster."
+utilization_level,all,mid,60,pct,illustrative utilization level,estimate,S12015;S34006,Roughly Alibaba's pre-fix allocation ratio (68%) less failure/restart losses (~10%).
+utilization_level,all,high,90,pct,illustrative utilization level,estimate,S12015;S34006,"Roughly Alibaba's post-fix allocation ratio (93%) or Llama 3's >90% effective training time; best case, not typical."
+cost_input,all,cluster_uplift_pct,26,pct,"scale-out network + storage on top of the rack price: SemiAnalysis GB200 NVL72 all-in $3.9M vs $3.1M rack only",estimate,S324,"(3.9-3.1)/3.1 = 25.8%; applied to every system in the utilization model."
+cost_input,all,useful_life_base_years,6,years,"straight-line life used by Microsoft, Alphabet and CoreWeave for servers",confirmed,S382;S383;S386,Base case of the utilization model (same life as chart 14-capex-vs-power-cost-per-gpu-year).
+cost_input,all,useful_life_short_years,5,years,Amazon's 2025 life for part of its servers and networking (AI technology pace),confirmed,S385,Sensitivity case.
+cost_input,all,power_hours_basis,8760,hours per year,"electricity charged at max IT power x PUE for all 8,760 hours (upper bound; idle GPUs draw less)",estimate,S387;S389,"Power is 12-19% of yearly cost in chart 14, so the simplification moves $/useful hour by cents, not dollars."
+funnel,before_fix,installed,100,pct of installed GPU-hours,starting point,estimate,S12015,Composite illustration (repo Est.) combining Alibaba fleet data with Llama 3 training data.
+funnel,before_fix,allocated,68,pct of installed GPU-hours,GPU allocation ratio in Alibaba's 155k-GPU fleet before its fragmentation-aware scheduler,reported,S12015,Figure from the OSDI '26 paper abstract (via search extract); fragmentation was the primary reason idle GPUs were unallocatable.
+funnel,before_fix,effective_time,90,pct of allocated hours,"share of allocated time doing useful training after interruptions, restarts and checkpoints (Llama 3: >90% effective training time)",reported,S34006,Meta reported higher than 90% effective training time over a 54-day snapshot; 90% used as the rounded value.
+funnel,before_fix,mfu,40,pct of peak FLOPs while productive,model FLOPs utilization of the Llama 3 405B run (38-41% BF16),reported,S34006,Applies a frontier-training MFU to the whole cluster; inference fleets are often lower (Alibaba online inference median SM utilization ~6%).
+funnel,after_fix,installed,100,pct of installed GPU-hours,starting point,estimate,S12015,Composite illustration (repo Est.).
+funnel,after_fix,allocated,93,pct of installed GPU-hours,GPU allocation ratio after Alibaba's fragmentation-aware scheduling change,reported,S12015,Figure from the OSDI '26 paper abstract (via search extract).
+funnel,after_fix,effective_time,90,pct of allocated hours,as before_fix,reported,S34006,
+funnel,after_fix,mfu,40,pct of peak FLOPs while productive,as before_fix,reported,S34006,
+failure_model,llama3_405b,gpus_in_job,16384,GPUs,largest Llama 3 pre-training job (H100),reported,S34006,
+failure_model,llama3_405b,snapshot_days,54,days,observation window,reported,S34006;S31003,
+failure_model,llama3_405b,unexpected_interruptions,419,interruptions,unexpected job interruptions in the window (of 466 total),reported,S34006;S31003,"About 78% attributed to confirmed or suspected hardware issues; roughly one every three hours."
+failure_model,assumption,recovery_minutes_fast,3,minutes,"detect, isolate the bad node, restart from an in-memory or recent checkpoint",speculative,S12005;S12006,Repo assumption for a highly automated stack (Mission Control-class autonomous recovery).
+failure_model,assumption,recovery_minutes_mid,15,minutes,"automated restart from a checkpoint every ~15-20 minutes",speculative,S12005;S12006,Repo assumption.
+failure_model,assumption,recovery_minutes_slow,60,minutes,"manual triage, node replacement and rollback to an hourly checkpoint",speculative,S12005;S12006,Repo assumption; NVIDIA claims its autonomous recovery is up to 10x faster than traditional methods (vendor claim).
+fragmentation_model,nvl72_cluster,racks,18,racks,"illustrative cluster size (1,296 GPUs)",estimate,S102,Repo assumption for the fragmentation illustration.
+fragmentation_model,nvl72_cluster,gpus_per_rack,72,GPUs,one NVLink domain per NVL72 rack,confirmed,S102,A tensor-parallel group that spans the rack needs all 72 GPUs in the same NVLink domain.
+fragmentation_model,nvl72_cluster,small_job_gpus,8,GPUs,size of each small job (typical fine-tuning/inference replica),estimate,S12015;S12017,"Repo assumption; Alibaba traces show most jobs request far less than a full node/rack."

@@ -1,0 +1,7 @@
+term,slug,definition,see_also
+Activist investor,activist-investor,"A shareholder that builds a sizeable stake and presses management for change (board seats, cost cuts, a sale). Starboard's 2017-18 campaign at Mellanox preceded the company's auction.",
+SAMR,samr,"China's State Administration for Market Regulation. Its anti-monopoly bureau reviews mergers between companies with sizeable China sales and can approve them with conditions, delay them or block them.",behavioural-remedy
+Behavioural remedy,behavioural-remedy,"A merger condition that governs how the combined company behaves (for example no bundling, keep supplying rivals, stay interoperable) instead of forcing it to sell assets.",samr
+Payback period,payback-period,"The time until cumulative profit or cash from an investment equals the price paid. A discounted payback first grows the price at a cost of capital, so it takes longer.",
+ConnectX,connectx,"NVIDIA's (originally Mellanox's) family of network adapters for InfiniBand and Ethernet. Reference designs put one ConnectX NIC or SuperNIC beside every GPU, so it ships with GPU orders.",supernic;infiniband
+BlueField,bluefield,"NVIDIA's (originally Mellanox's) DPU family: a ConnectX network adapter combined with Arm CPU cores that offloads networking, storage and security work from the host CPU.",dpu;connectx

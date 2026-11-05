@@ -6151,7 +6151,7 @@
   },
   {
     "id": "10-port-lag-amd-vs-nvidia",
-    "title": "RCCL's lag behind NCCL fell from ~10 months (ROCm 6.4.0) to ~3 (ROCm 7.1.0); hipDF trails cuDF ~8",
+    "title": "AMD's NCCL port now trails by ~3 months, down from ~10; hipDF trails cuDF ~8 months",
     "subtitle": "Days from NVIDIA's release of a version to AMD shipping the matching port (RCCL in ROCm; hipDF in ROCm-DS)",
     "alt": "Bar chart of how long AMD's ported libraries trail NVIDIA's originals. RCCL, AMD's port of NCCL, shipped NCCL-compatible versions 142, 188, 210, 198, 184, 189, 158, 245, 296, 119, 98 days after NVIDIA's matching NCCL tag across ROCm releases from 5.4 (2022) to 7.1 (2025): the lag peaked at 296 days with ROCm 6.4.0 and fell to 98 days with ROCm 7.1.0. hipDF 2.0.0 (ROCm-DS 25.10) aligned with cuDF 25.02 APIs, about 244 days or 8 months behind.",
     "data": [
@@ -6236,9 +6236,9 @@
   },
   {
     "id": "10-software-deal-values",
-    "title": "Chip vendors bought 12 software teams since 2022; 6 prices are public, topped by Qualcomm's $3.9B",
-    "subtitle": "Disclosed or reported value, US$ millions (log scale): AI-software, library and tools deals by chip vendors",
-    "alt": "Log-scale horizontal bar chart of library, AI-software and tools deals by chip vendors: 12 acquisitions since 2022, 6 with public prices. Qualcomm's announced $3,900M Modular acquisition (2026) is ~5.6x the largest earlier one, NVIDIA's $700M Run:ai (2024, reported); then $400M CentML, $300M Deci, $250M OctoAI and $88M mental images; AMD's $665M Silo AI (2024); NVIDIA's $2,000M Synopsys equity stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, PGI, Bright Computing and Excelero were undisclosed.",
+    "title": "6 of 12 sampled software buys since 2022 have prices; Qualcomm's $3.9B tops them",
+    "subtitle": "Disclosed or reported value, US$ millions (log scale): a sample of library, AI-software and tools deals by chip vendors",
+    "alt": "Log-scale horizontal bar chart of a sample of library, AI-software and tools deals by chip vendors: 12 acquisitions since 2022, 6 with public prices. Qualcomm's announced $3,900M Modular acquisition (2026) is ~5.6x the largest earlier one, NVIDIA's $700M Run:ai (2024, reported); then $400M CentML, $300M Deci, $250M OctoAI and $88M mental images; AMD's $665M Silo AI (2024); NVIDIA's $2,000M Synopsys equity stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, PGI, Bright Computing and Excelero were undisclosed.",
     "data": [
       "l10_software_deals.csv"
     ],
@@ -6686,7 +6686,7 @@
     "id": "11-inference-startup-valuations",
     "title": "Inference clouds price like chip start-ups: Fireworks ~$15B vs Etched $10.3B",
     "subtitle": "Last disclosed or reported valuation, US$ millions (log scale); Cerebras at IPO pricing; acquisitions at deal price",
-    "alt": "Log-scale horizontal bar chart of inference start-up valuations. Inference clouds: Fireworks AI ~$15,000M (talks, May 2026), Together AI $8,300M (Jul 2026), Baseten $5,000M (Jan 2026), Modal ~$2,500M (talks). Serving software: Hugging Face $12,930M (NVIDIA acquisition announced Sep 2026, pending), Modular $3,900M (acquired by Qualcomm, 2026), Inferact (vLLM) $800M and RadixArk (SGLang) $400M seed valuations. Silicon: Cerebras ~${cb:,.0f}M at its May 2026 IPO, Etched ${et:,.0f}M, Groq $6,900M before its ~$20B NVIDIA licence, Positron $5,000M, Tenstorrent ~$2,700M, d-Matrix $2,000M, SambaNova ~$1,600M (Intel offer talks); MatX and FuriosaAI valuations undisclosed.",
+    "alt": "Log-scale horizontal bar chart of inference start-up valuations. Inference clouds: Fireworks AI ~$15,000M (talks, May 2026), Together AI $8,300M (Jul 2026), Baseten $5,000M (Jan 2026), Modal ~$2,500M (talks). Serving software: Hugging Face $12,930M (NVIDIA acquisition announced Sep 2026, pending), Modular $3,900M (acquired by Qualcomm, 2026), Inferact (vLLM) $800M and RadixArk (SGLang) $400M seed valuations. Silicon: Cerebras ~$40,000M at its May 2026 IPO, Etched $10,300M, Groq $6,900M before its ~$20B NVIDIA licence, Positron $5,000M, Tenstorrent ~$2,700M, d-Matrix $2,000M, SambaNova ~$1,600M (Intel offer talks); MatX and FuriosaAI valuations undisclosed.",
     "data": [
       "l11_private_companies.csv"
     ],
@@ -7408,9 +7408,9 @@
   },
   {
     "id": "13-deal-structure-mix",
-    "title": "Since 2023 only 18% of NVIDIA's 66 logged deals were acquisitions; 47 were stakes",
+    "title": "Since 2023 only 19% of NVIDIA's 70 logged deals were acquisitions; 48 were stakes",
     "subtitle": "NVIDIA deals per year by structure (count, announce year), 2019–2026 YTD; pre-2023 venture stakes are under-recorded",
-    "alt": "Stacked bar chart of NVIDIA deals by year and structure, 2019 to 2026. In 2019-2022 acquisitions (Mellanox, Cumulus, Bright, the failed Arm bid) were 100% of 7 deals. In 2023-2026 there were 66 deals and acquisitions fell to 18%: 32 stakes in customers such as OpenAI, Anthropic, xAI, CoreWeave and Mistral, 15 stakes in suppliers and partners such as Intel, Nokia, Synopsys, Marvell, Lumentum and Coherent, 2 licence-plus-acquihire deals (Enfabrica, Groq) and 5 capacity or financing commitments including the CoreWeave backstop and the 2026 financing platforms.",
+    "alt": "Stacked bar chart of NVIDIA deals by year and structure, 2019 to 2026. In 2019-2022 acquisitions (Mellanox, Cumulus, Bright, the failed Arm bid) were 100% of 7 deals. In 2023-2026 there were 70 deals and acquisitions fell to 19%: 33 stakes in customers such as OpenAI, Anthropic, xAI, CoreWeave and Mistral, 15 stakes in suppliers and partners such as Intel, Nokia, Synopsys, Marvell, Lumentum and Coherent, 2 licence-plus-acquihire deals (Enfabrica, Groq) and 7 capacity or financing commitments including the CoreWeave backstop and the 2026 financing platforms.",
     "data": [
       "acquisitions_investments.csv",
       "l13_strat_deals_2026_additions.csv"
@@ -7447,10 +7447,16 @@
       "S472",
       "S480",
       "S404",
+      "S11500",
+      "S11025",
+      "S90084",
+      "S11027",
+      "S11028",
       "S13039",
-      "S13528",
+      "S13040",
       "S13529",
       "S90037",
+      "S13528",
       "S12528",
       "S90074"
     ],
@@ -7461,9 +7467,9 @@
   },
   {
     "id": "13-deals-count-by-layer",
-    "title": "Layer 13 draws 23 of 77 deals, nearly all stakes; M&A concentrates in layer 11 (8)",
-    "subtitle": "Number of logged NVIDIA deals (77) by the stack layer each strengthens, split by M&A vs investment",
-    "alt": "Horizontal stacked bar chart of 77 NVIDIA deals by layer: layer 13 (labs and ecosystem) has 23 deals, almost all equity stakes; layer 12 (orchestration and cloud) has 18 mixing tuck-ins like Run:ai with neocloud stakes; layer 11 (inference software) has 10, mostly acquisitions; silicon, CPU and networking layers have few but large deals (Mellanox, Arm, Intel).",
+    "title": "Layer 13 draws 24 of 81 deals, nearly all stakes; M&A concentrates in layer 11 (9)",
+    "subtitle": "Number of logged NVIDIA deals (81) by the stack layer each strengthens, split by M&A vs investment",
+    "alt": "Horizontal stacked bar chart of 81 NVIDIA deals by layer: layer 13 (labs and ecosystem) has 24 deals, almost all equity stakes; layer 12 (orchestration and cloud) has 18 mixing tuck-ins like Run:ai with neocloud stakes; layer 11 (inference software) has 11, mostly acquisitions; silicon, CPU and networking layers have few but large deals (Mellanox, Arm, Intel).",
     "data": [
       "acquisitions_investments.csv"
     ],
@@ -7499,7 +7505,16 @@
       "S471",
       "S472",
       "S480",
-      "S404"
+      "S404",
+      "S11500",
+      "S11025",
+      "S90084",
+      "S11027",
+      "S11028",
+      "S13039",
+      "S13040",
+      "S13529",
+      "S90037"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -7508,9 +7523,9 @@
   },
   {
     "id": "13-deals-timeline-by-layer",
-    "title": "Since 2023, 47 of NVIDIA's 61 logged deals were stakes in customers and partners, not M&A",
+    "title": "Since 2023, 50 of NVIDIA's 65 logged deals were stakes in customers and partners, not M&A",
     "subtitle": "Each deal by announcement date and the stack layer it strengthens; marker area ∝ US$ amount (small hollow = undisclosed)",
-    "alt": "Timeline scatter of 77 NVIDIA acquisitions, acquihire-licence deals and strategic investments from 2000 to 2026, placed on the stack layer each strengthened. Early deals were GPU and mobile silicon tuck-ins; Mellanox ($6.9B, 2019) built the networking layer; since 2023 47 of 61 deals are equity stakes, led by OpenAI, Anthropic, Intel and CoreWeave, plus the ~$20B Groq licence.",
+    "alt": "Timeline scatter of 81 NVIDIA acquisitions, acquihire-licence deals and strategic investments from 2000 to 2026, placed on the stack layer each strengthened. Early deals were GPU and mobile silicon tuck-ins; Mellanox ($6.9B, 2019) built the networking layer; since 2023 50 of 65 deals are equity stakes, led by OpenAI, Anthropic, Intel and CoreWeave, plus the ~$20B Groq licence.",
     "data": [
       "acquisitions_investments.csv"
     ],
@@ -7547,7 +7562,16 @@
       "S471",
       "S472",
       "S480",
-      "S404"
+      "S404",
+      "S11500",
+      "S11025",
+      "S90084",
+      "S11027",
+      "S11028",
+      "S13039",
+      "S13040",
+      "S13529",
+      "S90037"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -7891,7 +7915,7 @@
     "id": "13-investment-dollars-by-year",
     "title": "NVIDIA's deal commitments jumped to ~$51B in 2025, 5× all its deals before 2025",
     "subtitle": "Disclosed or press-reported deal value by announcement year, US$ B; excludes blocked Arm and superseded OpenAI LOI",
-    "alt": "Stacked bar chart of NVIDIA deal dollars by year 2019–2026: Mellanox ($6.9B) dominates 2019, small software tuck-ins follow, then ~$51B in 2025 (Groq licence ~$20B, Anthropic up to $10B, CoreWeave $6.3B backstop, Intel $5B, Synopsys $2B, xAI up to $2B, Nokia $1B) and ~$32B in 2026 (OpenAI ~$30B, CoreWeave $2B); all pre-2025 deals total about $10B.",
+    "alt": "Stacked bar chart of NVIDIA deal dollars by year 2019–2026: Mellanox ($6.9B) dominates 2019, small software tuck-ins follow, then ~$51B in 2025 (Groq licence ~$20B, Anthropic up to $10B, CoreWeave $6.3B backstop, Intel $5B, Synopsys $2B, xAI up to $2B, Nokia $1B) and ~$51B in 2026 (OpenAI ~$30B, CoreWeave $2B); all pre-2025 deals total about $10B.",
     "data": [
       "acquisitions_investments.csv"
     ],
@@ -7921,7 +7945,14 @@
       "S471",
       "S472",
       "S480",
-      "S404"
+      "S404",
+      "S11500",
+      "S11025",
+      "S90084",
+      "S11027",
+      "S11028",
+      "S13529",
+      "S90037"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -9614,9 +9645,9 @@
   },
   {
     "id": "CS3-owner-tco-per-chip-hour",
-    "title": "Est.: an owned Ironwood chip-hour costs ~$1.21 ($1.03 inside Google), about half a GB300's $2.31",
+    "title": "Est.: an owned Ironwood chip-hour costs ~$1.21, about half a GB300's $2.31",
     "subtitle": "All-in owner cost per accelerator-hour (capex amortisation, power, hosting), US$, SemiAnalysis model, July 2026",
-    "alt": "Horizontal bar chart of estimated owner TCO per accelerator-hour: TPU7x Ironwood $1.03 for Google itself and $1.21 for an external owner, H100 $1.17, H200 $1.22, AMD MI355X $1.50, B200 $1.73, GB200 NVL72 $1.86, B300 $2.26, GB300 NVL72 $2.31 and Vera Rubin NVL72 $3.61. These are per chip, not per unit of work: a GB300 delivers more tokens per chip than an Ironwood, so the per-token gap is smaller (about 18% versus B200 on one SemiAnalysis workload).",
+    "alt": "Horizontal bar chart of estimated owner TCO per accelerator-hour: TPU7x Ironwood $1.03 for Google itself and $1.21 for an external owner, H100 $1.17, H200 $1.22, AMD MI355X $1.50, B200 $1.73, GB200 NVL72 $1.86, B300 $2.26, GB300 NVL72 $2.31 and Vera Rubin NVL72 $3.61. These are per chip, not per unit of work: Ironwood's hour is 30% cheaper than a B200's, but on one SemiAnalysis workload its cost per token was only about 18% lower, because chips differ in throughput.",
     "data": [
       "cs3_tpu_economics.csv"
     ],
@@ -9855,8 +9886,8 @@
   },
   {
     "id": "CS6-china-parts-tpp",
-    "title": "H20 was cut to ~2,400 TPP, half the 4,800 control line and 1/7 of H200, yet kept 4 TB/s of HBM",
-    "subtitle": "Total processing performance (TPP = dense TFLOPS × bit width) per package; labels = HBM bandwidth and scale-up link",
+    "title": "H20 was cut to ~2,400 TPP, half the 4,800 licence line and 1/7 of H200, but kept 4 TB/s HBM",
+    "subtitle": "TPP (dense TFLOPS × bit width) per package; label = TPP · HBM bandwidth · China status; hatched = reported/leaked",
     "alt": "Horizontal bar chart of TPP, the US export-control metric, per accelerator with a dashed line at the 4,800 licence threshold. NVIDIA B200 36,000; H200 15,832; H800 15,832 (NVLink cut to 400 GB/s); H100 15,832; A800 4,992 (NVLink 400 GB/s); A100 4,992; H20 2,368 with 96 GB and 4.0 TB/s of HBM; Huawei Ascend 910C about 12,800 on paper (FP16) and Ascend 950PR about 8,000 (FP8). The H20 sits far below the line on compute while keeping more memory bandwidth than an H100.",
     "data": [
       "cs6_china_parts.csv"
@@ -9866,7 +9897,7 @@
       "02",
       "15"
     ],
-    "source": "NVIDIA datasheets, SemiAnalysis (H20 leak), Huawei roadmap, BIS rules",
+    "source": "NVIDIA datasheets, SemiAnalysis (H20 leak), Huawei, BIS",
     "source_ids": [
       "S33009",
       "S26002",
@@ -9891,7 +9922,7 @@
   {
     "id": "CS6-china-revenue-share",
     "title": "China fell from ~26% of NVIDIA revenue (FY2022) to ~9% (FY2026) and 6–8% in FY2027",
-    "subtitle": "China incl. Hong Kong as % of total revenue; left: fiscal years (two reporting bases); right: quarters, customer-HQ basis",
+    "subtitle": "China incl. Hong Kong as % of total revenue; left: fiscal years (two reporting bases); right: quarters, customer-HQ basis (hatched = secondary reading of the 10-Q)",
     "alt": "Two-panel chart of China's share of NVIDIA revenue. Left, by fiscal year on the old billing basis: 23.9% FY2019, 25.0% FY2020, 23.3% FY2021, 26.4% FY2022, 21.4% FY2023, 16.9% FY2024, 13.1% FY2025; on the new customer-headquarters basis: 20.2% FY2024, 19.2% FY2025 ($25.0B, the dollar peak) and 9.1% FY2026 ($19.7B). Right, by quarter on the headquarters basis: 21.9% in Q1 FY2026, 8.6% in Q2 FY2026 after the H20 licence requirement, 5.6% in Q1 FY2027 and 8.2% in Q2 FY2027 (all platforms, including gaming).",
     "data": [
       "cs6_china_revenue.csv"
@@ -9921,8 +9952,8 @@
   },
   {
     "id": "CS6-levy-vs-ban-gross-profit",
-    "title": "Est.: a 25% levy costs ~$4.4B of gross profit a year on $17.5B of China sales; a ban costs up to ~$13B",
-    "subtitle": "Annual NVIDIA gross profit from a ~$17.5B/yr China data-center market at 75% gross margin, by policy regime ($B, repo scenarios)",
+    "title": "Est.: the 25% levy costs ~$4.4B/yr of gross profit on $17.5B of sales; a ban up to ~$13B",
+    "subtitle": "Gross profit per year from a ~$17.5B China data-center market at 75% gross margin, by regime ($B; hatched = depends on resale)",
     "alt": "Horizontal bar chart of repo estimates of NVIDIA's annual gross profit from a $17.5B China data-center market at a 75% gross margin: unrestricted sales $13.1B; an H20-style 15% revenue share $10.5B; the H200 deal with 25% of revenue to the US government $8.75B; a ban where the capacity is resold to other buyers about $13.1B (no short-run loss when supply is constrained); and a ban with idle capacity $0. The levy falls one-for-one on gross profit.",
     "data": [
       "cs6_scenarios.csv"
@@ -9947,6 +9978,131 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/CS6-levy-vs-ban-gross-profit.svg",
+    "html": null
+  },
+  {
+    "id": "CS7-breakeven-vs-utilization",
+    "title": "Est.: a 1 GW Vera Rubin site breaks even at ~$4.8–5.4/GPU-hr at 89% use",
+    "subtitle": "Break-even $/GPU-hour vs utilisation: capital charge + power only (excl. staff, software, taxes); ~246k GPUs, ~$46B capex",
+    "alt": "Line chart of the estimated break-even price per GPU-hour for a 1 GW Vera Rubin NVL72 site with about 246 thousand GPUs and about $46B of capex, counting only the capital charge (6-year IT life, 20-year facility life) and power at $0.081/kWh. At 8% cost of capital the break-even falls from about $10.3 at 40% utilisation to $4.3 at 100%; at 12% from $11.8 to $4.9. At 89% utilisation (Meta-style 11% hot spares) it is $4.8-5.4. Utilisation moves the answer far more than the cost of capital.",
+    "data": [
+      "cs7_gw_build_inputs.csv"
+    ],
+    "chapters": [
+      "CS7",
+      "14",
+      "08",
+      "12"
+    ],
+    "source": "repo model on Morgan Stanley BOM, EIA power price, hyperscaler useful lives",
+    "source_ids": [
+      "S398",
+      "S387",
+      "S388",
+      "S302",
+      "S340",
+      "S336",
+      "S102",
+      "S330",
+      "S332",
+      "S324",
+      "S331",
+      "S6025",
+      "S389",
+      "S382",
+      "S357",
+      "S12501"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS7-breakeven-vs-utilization.svg",
+    "html": null
+  },
+  {
+    "id": "CS7-cost-per-gw-estimates",
+    "title": "A gigawatt of AI capacity costs ~$30–60B; the repo's Vera Rubin build-up lands at ~$46B",
+    "subtitle": "Capex per GW by estimator and component ($B); whiskers = stated range; NVIDIA CEO split = NVIDIA content vs the rest",
+    "alt": "Stacked horizontal bar chart of capital cost per gigawatt of AI data center. NVIDIA's CEO (Aug 2025): $50-60B with about $35B of NVIDIA content. Repo bottom-up for Vera Rubin NVL72 (estimate): about $46B (range $42-50B), of which NVIDIA about $22B, other IT about $11B and facility about $12B. Bernstein's 2026 note: up to $39.5B for Vera Rubin. Barclays: $32.5-42B. Bernstein (Oct 2025): about $35B, 39% GPUs, 13% networking and about one-third electrical and mechanical. Bloomberg on Abilene: about $30B including $17B of chips.",
+    "data": [
+      "cs7_cost_per_gw.csv",
+      "cs7_gw_build_inputs.csv"
+    ],
+    "chapters": [
+      "CS7",
+      "08",
+      "14",
+      "13"
+    ],
+    "source": "NVIDIA, Bernstein, Barclays, Bloomberg, Morgan Stanley BOM; repo model",
+    "source_ids": [
+      "S398",
+      "S6025",
+      "S27013",
+      "S27015",
+      "S27012",
+      "S27016",
+      "S387",
+      "S388",
+      "S302",
+      "S340",
+      "S336",
+      "S102",
+      "S330",
+      "S332",
+      "S324",
+      "S331",
+      "S389",
+      "S382",
+      "S357",
+      "S12501"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS7-cost-per-gw-estimates.svg",
+    "html": null
+  },
+  {
+    "id": "CS7-site-scale-mw",
+    "title": "AI sites grew from ~150 MW (2024) to 0.35–0.74 GW in use in 2026; plans reach 1–5 GW",
+    "subtitle": "Site power (MW): solid = best public evidence of power in use (hatched = repo Est.); light = announced plan; ◆ = claim; gray = silicon undisclosed",
+    "alt": "Horizontal bar chart of AI site power. xAI Colossus 1 about 150 MW (repo estimate for 100,000 H100s in 2024, ~300 MW planned at 200,000 GPUs); Stargate Abilene 200+ MW live in Sept 2025 of a 1.2 GW campus; Microsoft Fairwater Wisconsin about 737 MW of IT power (Epoch estimate, 2026); xAI Colossus 2 about 350 MW of cooling seen by satellite in Jan 2026 against a 1 GW claim and a ~2 GW plan; Meta Prometheus 1 GW planned with its first phase complete in Oct 2026; Meta Hyperion up to 5 GW; Stargate UAE 1 GW (first 200 MW in 2026); HUMAIN's NVIDIA build up to 500 MW.",
+    "data": [
+      "cs7_gigawatt_projects.csv"
+    ],
+    "chapters": [
+      "CS7",
+      "08",
+      "13"
+    ],
+    "source": "company releases, Epoch AI, satellite analysis, repo estimates",
+    "source_ids": [
+      "S6000",
+      "S6001",
+      "S318",
+      "S8013",
+      "S27001",
+      "S27003",
+      "S27004",
+      "S27005",
+      "S6004",
+      "S90076",
+      "S90077",
+      "S90078",
+      "S8015",
+      "S27007",
+      "S27009",
+      "S27010",
+      "S27008",
+      "S13007",
+      "S13008",
+      "S13514",
+      "S13003",
+      "S13006",
+      "S13516"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS7-site-scale-mw.svg",
     "html": null
   },
   {
