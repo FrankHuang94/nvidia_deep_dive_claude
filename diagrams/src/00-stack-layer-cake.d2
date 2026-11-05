@@ -1,0 +1,52 @@
+# NVIDIA full-stack "layer cake": the 12 layers covered by this repository.
+direction: down
+
+title: "NVIDIA's AI stack — twelve layers, one vendor" {
+  near: top-center
+  shape: text
+  style.font-size: 28
+  style.bold: true
+}
+
+software: "SOFTWARE & SERVICES" {
+  style.fill: "#EEF5E3"
+  style.stroke: "#5F9E00"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 12
+  l13: "13 · Ecosystem, go-to-market & capital\nInception · sovereign AI · OEM/GSI channel · strategic investments" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"}
+  l12: "12 · Orchestration & cloud services\nRun:ai · Mission Control · DGX Cloud · Lepton" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"}
+  l11: "11 · Inference & AI software\nTensorRT-LLM · Dynamo · NIM · NeMo · Nemotron" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"}
+  l10: "10 · Libraries (CUDA-X)\ncuBLAS · cuDNN · CUTLASS · NCCL · RAPIDS" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"}
+  l09: "09 · CUDA & system software\ncompiler · runtime · driver · PTX · Nsight" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"}
+}
+systems: "SYSTEMS" {
+  style.fill: "#E3EEF9"
+  style.stroke: "#2A78D6"
+  style.font-size: 20
+  grid-columns: 1
+  l08: "08 · Systems, racks & AI factories\nHGX · DGX · MGX · NVL72 racks · 800 V DC · liquid cooling" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#2A78D6"}
+}
+connect: "CONNECTIVITY" {
+  style.fill: "#F1EEFB"
+  style.stroke: "#6250D6"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 12
+  l07: "07 · DPU, SuperNIC, storage & security\nBlueField · ConnectX · GPUDirect" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#6250D6"}
+  l06: "06 · Scale-out & scale-across networking\nInfiniBand Quantum · Spectrum-X Ethernet · co-packaged optics" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#6250D6"}
+  l05: "05 · Scale-up\nNVLink · NVSwitch · NVLink Fusion" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#6250D6"}
+}
+silicon: "SILICON & SUPPLY" {
+  style.fill: "#FBF1E1"
+  style.stroke: "#C98500"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 12
+  l04: "04 · CPU\nGrace · Vera · NVLink-C2C" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#C98500"}
+  l03: "03 · Memory, packaging & supply chain\nHBM · CoWoS · ODMs · purchase commitments" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#C98500"}
+  l02: "02 · GPU silicon\nSMs · tensor cores · number formats · multi-die packages" {width: 760; style.fill: "#FFFFFF"; style.stroke: "#C98500"}
+}
+software -> systems: "runs on" {style.stroke: "#898781"}
+systems -> connect: "integrates" {style.stroke: "#898781"}
+connect -> silicon: "links" {style.stroke: "#898781"}

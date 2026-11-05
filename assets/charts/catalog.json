@@ -1,0 +1,26 @@
+[
+  {
+    "id": "00-nvidia-revenue-by-fiscal-year",
+    "title": "NVIDIA revenue grew ~20× in six fiscal years, from $10.9B to $216B",
+    "subtitle": "Total revenue by fiscal year, US$ billions (NVIDIA's fiscal year ends in late January)",
+    "alt": "Bar chart of NVIDIA total revenue by fiscal year: $10.9B in FY2020 rising to $215.9B in FY2026, roughly 20 times higher, with the inflection in FY2024.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "00",
+      "01",
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 10-K and 8-K filings",
+    "source_ids": [
+      "S2",
+      "S1"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-nvidia-revenue-by-fiscal-year.svg",
+    "html": null
+  }
+]

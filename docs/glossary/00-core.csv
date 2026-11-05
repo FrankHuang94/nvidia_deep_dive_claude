@@ -1,0 +1,20 @@
+term,slug,definition,see_also
+GPU (graphics processing unit),gpu,"A processor with thousands of simple cores that run the same instruction on many pieces of data at once, which suits the matrix multiplications at the heart of neural networks. In this repo 'GPU' usually means the whole package a customer buys (e.g. a B200), which can contain more than one die.",die;tensor-core
+Die,die,"A single piece of silicon cut from a wafer. Modern AI GPUs such as Blackwell put two (and Rubin Ultra four) compute dies in one package.",gpu;reticle-limit
+HBM (high-bandwidth memory),hbm,"Stacked DRAM placed millimetres from the GPU on a silicon interposer and connected through a very wide bus, giving terabytes per second of bandwidth. HBM capacity and bandwidth often limit AI performance more than raw compute.",cowos;memory-wall
+FLOPS,flops,"Floating-point operations per second: the rate at which a chip does arithmetic. Quoted at a given number format (FP64, BF16, FP8, FP4) and as dense or sparse peak; 1 PFLOPS = 10^15 operations per second. 'FLOPs' (lower-case s) is a count of operations, not a rate.",tensor-core
+Tensor core,tensor-core,"A specialised unit inside an NVIDIA GPU that multiplies small matrices in one step, delivering most of the GPU's AI throughput. Introduced with Volta (2017).",gpu;flops
+CUDA,cuda,"NVIDIA's programming platform (language extensions, compiler, runtime, driver and libraries) launched in 2006 that lets developers run general-purpose code on GPUs. The basis of NVIDIA's software moat.",cuda-x
+CUDA-X,cuda-x,"NVIDIA's umbrella name for its hundreds of domain libraries built on CUDA (cuBLAS, cuDNN, NCCL, RAPIDS and others).",cuda
+NVLink,nvlink,"NVIDIA's proprietary high-speed GPU-to-GPU link used for scale-up. NVLink 5 (Blackwell) provides 1.8 TB/s per GPU, many times a PCIe slot.",nvswitch;scale-up
+NVSwitch,nvswitch,"A switch chip that connects many GPUs' NVLink ports so every GPU can talk to every other at full NVLink speed, forming one scale-up domain (e.g. 72 GPUs in an NVL72 rack).",nvlink;scale-up
+Scale-up,scale-up,"Tightly coupling a group of accelerators with a very fast memory-semantic fabric (NVLink, ICI, Infinity Fabric) so they behave like one large GPU.",scale-out;nvlink
+Scale-out,scale-out,"Connecting many scale-up domains or servers across a datacenter network (InfiniBand or Ethernet) to train or serve at cluster scale.",scale-up;scale-across
+Scale-across,scale-across,"Linking AI clusters in different datacenters (tens to thousands of kilometres apart) so they can work on one job; NVIDIA's Spectrum-XGS targets this.",scale-out
+CoWoS,cowos,"Chip-on-Wafer-on-Substrate: TSMC's 2.5D advanced packaging that places GPU dies and HBM stacks side by side on a silicon interposer (CoWoS-S) or on bridge-based variants (CoWoS-L, CoWoS-R). Capacity has been a key bottleneck for AI accelerators.",hbm
+Reticle limit,reticle-limit,"The maximum area a lithography scanner can expose in one shot (~858 mm² for today's EUV tools), which caps the size of a single die and pushes designers to multi-die packages.",die
+Memory wall,memory-wall,"The gap between how fast processors compute and how fast memory can feed them data. In LLM inference (especially the decode phase) performance is often bound by memory bandwidth, not FLOPS.",hbm
+Data center (NVIDIA segment),data-center-segment,"NVIDIA's reporting segment for AI and HPC products sold into datacenters, split into compute (GPUs, systems) and networking (NVLink, InfiniBand, Ethernet, NICs, DPUs).",
+ASIC,asic,"Application-specific integrated circuit: a chip designed for one workload. In AI it means custom accelerators such as Google's TPU or AWS Trainium, trading flexibility for efficiency.",gpu
+TCO (total cost of ownership),tco,"All-in cost of running infrastructure over its life: capital cost (depreciated) plus power, cooling, space, networking, software and operations. In AI it is often normalised to $ per million tokens.",
+Token,token,"The unit of text a language model reads or writes, roughly three-quarters of an English word. AI economics are increasingly quoted in tokens per second and dollars per million tokens.",

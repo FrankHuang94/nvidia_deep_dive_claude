@@ -1,0 +1,8 @@
+period,period_type,period_end,metric,value,unit,confidence,source_id,notes
+FY2020,FY,2020-01-26,revenue_total,10.918,USD_B,confirmed,S2,seed row (Phase 0 smoke test)
+FY2021,FY,2021-01-31,revenue_total,16.675,USD_B,confirmed,S2,seed row
+FY2022,FY,2022-01-30,revenue_total,26.914,USD_B,confirmed,S2,seed row
+FY2023,FY,2023-01-29,revenue_total,26.974,USD_B,confirmed,S2,seed row
+FY2024,FY,2024-01-28,revenue_total,60.922,USD_B,confirmed,S2,seed row
+FY2025,FY,2025-01-26,revenue_total,130.497,USD_B,confirmed,S2,seed row
+FY2026,FY,2026-01-25,revenue_total,215.9,USD_B,confirmed,S1,seed row

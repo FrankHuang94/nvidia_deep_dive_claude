@@ -1,0 +1,8 @@
+{
+  "name": "nvidia-full-stack-deep-dive",
+  "private": true,
+  "description": "Validation tooling (Mermaid render check) for the NVIDIA full-stack deep dive",
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "11.4.2"
+  }
+}

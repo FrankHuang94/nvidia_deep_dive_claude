@@ -1,0 +1,45 @@
+# Chapter manifest: the machine-readable twin of the chapter table in PROGRESS.md.
+# status: planned -> drafted -> complete -> qa-passed   (quotas are enforced from "drafted" on)
+# qa:     pending | passed | issues-logged
+quotas:
+  layer:         {visuals: 12, words: 6000, data_share: 0.40}
+  primer:        {visuals: 5}
+  chapter:       {visuals: 8}
+  cross-cutting: {visuals: 8}
+  case-study:    {visuals: 4}
+  synthesis:     {visuals: 10}
+  repo_total: 250
+enforce_statuses: [drafted, complete, qa-passed]
+units:
+  - {id: SYN, title: "README + Executive Summary + Cheat Sheet", type: synthesis, phase: 8, status: planned, qa: pending, paths: [README.md, 00-executive-summary.md, CHEATSHEET.md]}
+  - {id: "01", title: "The NVIDIA flywheel", type: chapter, phase: 2, status: planned, qa: pending, paths: [01-the-nvidia-flywheel.md]}
+  - {id: P1, title: "How AI training works", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P1-how-ai-training-works.md]}
+  - {id: P2, title: "How AI inference works", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P2-how-ai-inference-works.md]}
+  - {id: P3, title: "The four bottlenecks", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P3-the-four-bottlenecks.md]}
+  - {id: P4, title: "Parallelism explained", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P4-parallelism-explained.md]}
+  - {id: P5, title: "Chip economics 101", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P5-chip-economics-101.md]}
+  - {id: "02", title: "GPU silicon", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/02-gpu-silicon]}
+  - {id: "03", title: "Memory, packaging and supply chain", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/03-memory-packaging-supply-chain]}
+  - {id: "04", title: "CPU (Grace, Vera)", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/04-cpu-grace-vera]}
+  - {id: "05", title: "Scale-up (NVLink, NVSwitch)", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/05-scale-up-nvlink-nvswitch]}
+  - {id: "06", title: "Scale-out and scale-across networking", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/06-scale-out-scale-across-networking]}
+  - {id: "07", title: "DPU, SuperNIC, storage, security", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/07-dpu-supernic-storage-security]}
+  - {id: "08", title: "Systems, racks and AI factories", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/08-systems-racks-ai-factories]}
+  - {id: "09", title: "CUDA and system software", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/09-cuda-and-system-software]}
+  - {id: "10", title: "Libraries (CUDA-X)", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/10-libraries-cuda-x]}
+  - {id: "11", title: "Inference and AI software", type: layer, phase: 6, status: planned, qa: pending, paths: [layers/11-inference-and-ai-software]}
+  - {id: "12", title: "Orchestration and cloud services", type: layer, phase: 6, status: planned, qa: pending, paths: [layers/12-orchestration-and-cloud-services]}
+  - {id: "13", title: "Ecosystem, go-to-market and capital", type: layer, phase: 6, status: planned, qa: pending, paths: [layers/13-ecosystem-gtm-and-capital]}
+  - {id: "14", title: "Training vs. inference economics", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/14-training-vs-inference-economics.md]}
+  - {id: "15", title: "Competitive landscape", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/15-competitive-landscape]}
+  - {id: "16", title: "How NVIDIA built it (timeline)", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/16-how-nvidia-built-it-timeline.md]}
+  - {id: "17", title: "Roadmap 2025–2028", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/17-roadmap-2025-2028.md]}
+  - {id: "18", title: "Vulnerabilities and bear case", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/18-vulnerabilities-and-bear-case.md]}
+  - {id: "19", title: "Implications for Qualcomm", type: cross-cutting, phase: 8, status: planned, qa: pending, paths: [cross-cutting/19-implications-for-qualcomm.md]}
+  - {id: CS1, title: "Mellanox: the best deal", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS1-mellanox-the-best-deal.md]}
+  - {id: CS2, title: "CUDA: the 15-year bet", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS2-cuda-the-15-year-bet.md]}
+  - {id: CS3, title: "Google TPU: the credible alternative", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS3-google-tpu-the-credible-alternative.md]}
+  - {id: CS4, title: "AMD, OpenAI and the second source", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS4-amd-openai-and-the-second-source.md]}
+  - {id: CS5, title: "The DeepSeek moment and the efficiency shock", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS5-deepseek-moment-and-efficiency-shock.md]}
+  - {id: CS6, title: "China export controls: H20 and beyond", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS6-china-export-controls-h20-and-beyond.md]}
+  - {id: CS7, title: "Gigawatt AI factories: xAI, Stargate and others", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS7-gigawatt-ai-factories-xai-stargate-etc.md]}

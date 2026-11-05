@@ -1,0 +1,1 @@
+vendor,product,chip_type,year,status,availability,process_node,transistors_b,memory_type,memory_capacity_gb,memory_bandwidth_tbs,bf16_tflops_dense,fp8_tflops_dense,fp4_tflops_dense,int8_tops_dense,tdp_w,scale_up_tech,scale_up_bw_gbs_bidir,max_scale_up_domain,confidence,source_id,notes
