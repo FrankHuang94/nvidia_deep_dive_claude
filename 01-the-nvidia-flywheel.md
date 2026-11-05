@@ -287,7 +287,7 @@ current and future architectures [[S407]](sources/bibliography.md#s407).
 FY2025 [[S400]](sources/bibliography.md#s400)[[S416]](sources/bibliography.md#s416), held ~73–78% through the Blackwell ramp, and was ~75% in Q2 FY2027 [[S405]](sources/bibliography.md#s405).
 Analyst estimates put the B200's build cost at ~$6,400 against a $30–40K price [[S35020]](sources/bibliography.md#s35020)[[S35026]](sources/bibliography.md#s35026).
 
-![Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY26 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.](assets/charts/13-gross-margin-trend.svg)
+![Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY2026 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.](assets/charts/13-gross-margin-trend.svg)
 
 > [!WARNING]
 > **Where loop ② could break.** The same commitments that lock rivals out lock NVIDIA in. When demand

@@ -41,5 +41,5 @@ units:
   - {id: CS3, title: "Google TPU: the credible alternative", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS3-google-tpu-the-credible-alternative.md]}
   - {id: CS4, title: "AMD, OpenAI and the second source", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS4-amd-openai-and-the-second-source.md]}
   - {id: CS5, title: "The DeepSeek moment and the efficiency shock", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS5-deepseek-moment-and-efficiency-shock.md]}
-  - {id: CS6, title: "China export controls: H20 and beyond", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS6-china-export-controls-h20-and-beyond.md]}
-  - {id: CS7, title: "Gigawatt AI factories: xAI, Stargate and others", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS7-gigawatt-ai-factories-xai-stargate-etc.md]}
+  - {id: CS6, title: "China export controls: H20 and beyond", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS6-china-export-controls-h20-and-beyond.md]}
+  - {id: CS7, title: "Gigawatt AI factories: xAI, Stargate and others", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS7-gigawatt-ai-factories-xai-stargate-etc.md]}

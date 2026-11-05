@@ -43,7 +43,7 @@ B200 price,Substrate test and other,570
 > cost leaves ~82% [[S35020]](../../sources/bibliography.md#s35020). NVIDIA reports less because it also sells boards and racks with lower-margin content
 > and books inventory charges: the $4.5B H20 charge pulled Q1 FY2026 GAAP margin to 60.5% [[S444]](../../sources/bibliography.md#s444)[[S414]](../../sources/bibliography.md#s414).
 
-![Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY26 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.](../../assets/charts/13-gross-margin-trend.svg)
+![Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY2026 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.](../../assets/charts/13-gross-margin-trend.svg)
 
 > [!TIP]
 > **Worked example — memory makers' rising take.** B200: 192 GB × ~$15/GB ≈ $2.9K of HBM [[S35020]](../../sources/bibliography.md#s35020). Rubin: 288 GB

@@ -1,0 +1,11 @@
+estimate,estimator,date,component,value_usd_b,low_usd_b,high_usd_b,confidence,source_id,notes
+NVIDIA CEO (Aug 2025),NVIDIA,2025-08-27,nvidia_or_gpu,35,,,reported,S398,"~$35B of NVIDIA content per GW"
+NVIDIA CEO (Aug 2025),NVIDIA,2025-08-27,unallocated,20,15,25,reported,S398,"Midpoint $55B of $50-60B all-in minus $35B NVIDIA content"
+Bernstein (Oct 2025),Bernstein,2025-10,nvidia_or_gpu,13.65,,,estimate,S6025;S27013,"39% of ~$35B on GPUs"
+Bernstein (Oct 2025),Bernstein,2025-10,other_it,4.55,,,estimate,S6025,"Networking ~13%"
+Bernstein (Oct 2025),Bernstein,2025-10,facility,11.55,,,estimate,S6025,"Electrical and mechanical systems roughly one-third (cooling ~4% inside it); split from secondary summaries of the Reuters article"
+Bernstein (Oct 2025),Bernstein,2025-10,unallocated,5.25,,,estimate,S6025,"Remainder (land, buildings, servers ex-GPU, storage, other) = $35B minus the three named parts"
+Bloomberg: Abilene (2025),Bloomberg,2025,nvidia_or_gpu,17,,,reported,S27015,"Chips"
+Bloomberg: Abilene (2025),Bloomberg,2025,unallocated,13,,,reported,S27015,"Rest of a ~$30B 1 GW site"
+Barclays (Sep 2025),Barclays,2025-09,unallocated,37.25,32.5,42,estimate,S27012,"Range $32.5-42B per GW; no split published in the source"
+Bernstein (2026 note),Bernstein,2026,unallocated,39.5,34.6,39.5,estimate,S27016,"Top of a $34.6-39.5B range across accelerator designs = Vera Rubin NVL72"

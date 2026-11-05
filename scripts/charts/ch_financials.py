@@ -94,7 +94,7 @@ def revenue_mix_stacked_area():
         id="01-revenue-mix-stacked-area",
         title=f"Data Center went from {s0:.0f}% to {s1:.0f}% of NVIDIA's quarterly revenue in {len(periods) - 1} quarters",
         subtitle=(f"Revenue by market platform, US$ B per quarter, {first[:2]} {first[2:]}–{last[:2]} {last[2:]}; "
-                  "networking split back-calculated for FY24 and Q2 FY27"),
+                  "networking split back-calculated for FY2024 and Q2 FY2027"),
         alt=(f"Stacked area chart of NVIDIA quarterly revenue by segment from {first} to {last}. Data Center rose from "
              f"${dc[0]:.1f}B ({s0:.0f}% of ${tot[0]:.1f}B) to ${dc[-1]:.1f}B ({s1:.0f}% of ${tot[-1]:.1f}B); networking reached "
              f"about ${net[-1]:.1f}B a quarter while gaming and other segments stayed below $8B combined."),
@@ -107,7 +107,7 @@ def revenue_mix_stacked_area():
     split = ~np.isnan(comp)
     i_split = int(np.argmax(split))            # first quarter with a compute/networking split
     edge_start = int(np.argmax(np.isnan(gam) & ~np.isnan(tot))) if np.isnan(gam).any() else len(periods)
-    # --- Data Center not split (FY23) ---
+    # --- Data Center not split (FY2023) ---
     seg = slice(0, i_split + 1)
     ax.fill_between(x[seg], 0, dc[seg], color=GEN_PAST, lw=0, label="Data Center (split not disclosed)")
     # --- compute / networking ---
@@ -121,14 +121,14 @@ def revenue_mix_stacked_area():
             xs = np.array([lo, hi])
             ax.fill_between(xs, np.interp(xs, x, np.nan_to_num(comp)), np.interp(xs, x, dc),
                             facecolor="none", hatch="///", edgecolor="#FFFFFF", lw=0)
-    # --- Gaming and other (to Q4 FY26), then Edge Computing combined ---
+    # --- Gaming and other (to Q4 FY2026), then Edge Computing combined ---
     seg = slice(0, edge_start)
     ax.fill_between(x[seg], dc[seg], dc[seg] + gam[seg], color=GRAY_GAMING, lw=0, label="Gaming")
     ax.fill_between(x[seg], dc[seg] + gam[seg], tot[seg], color=GRAY_OTHER, lw=0, label="ProViz, Automotive, OEM & other")
     if edge_start < len(periods):
         seg = slice(edge_start - 1, len(periods))
         ax.fill_between(x[seg], dc[seg], tot[seg], color="#A9A89F", lw=0, hatch="..",
-                        edgecolor="#FFFFFF", label="Edge Computing (gaming + other, combined from Q1 FY27)")
+                        edgecolor="#FFFFFF", label="Edge Computing (gaming + other, combined from Q1 FY2027)")
     ax.plot(x, tot, color=INK["title"], lw=1.0)
     ax.set_xlim(0, len(periods) - 1 + 2.4)
     ax.set_ylim(0, tot.max() * 1.08)
@@ -166,7 +166,7 @@ def annual_revenue_by_segment():
     c = Chart(
         id="00-annual-revenue-by-segment",
         title=f"Data Center grew from {s0:.0f}% of NVIDIA revenue in {p0} to {s1:.0f}% in {p1}",
-        subtitle="Revenue by market platform, US$ B per fiscal year (FY ends late Jan); FY26 gaming/other = sum of quarters",
+        subtitle="Revenue by market platform, US$ B per fiscal year (FY ends late Jan); FY2026 gaming/other = sum of quarters",
         alt=(f"Stacked bar chart of NVIDIA annual revenue by segment {p0}–{p1}: Data Center rose from "
              f"${w.revenue_data_center.iloc[0]:.2f}B ({s0:.0f}%) to ${w.revenue_data_center.iloc[-1]:.1f}B ({s1:.0f}%) "
              f"while gaming grew from ${w.revenue_gaming.iloc[0]:.1f}B to about ${w.revenue_gaming.iloc[-1]:.0f}B; "
@@ -273,9 +273,9 @@ def gross_margin_trend():
         id="13-gross-margin-trend",
         title=f"Gross margin climbed from {g.iloc[i_low]:.1f}% to ~{g.iloc[-1]:.0f}%, broken only by the H20 write-down",
         subtitle=(f"GAAP and non-GAAP gross margin, % of revenue, {periods[0][:2]} {periods[0][2:]}–{periods[-1][:2]} "
-                  f"{periods[-1][2:]}; from Q1 FY27 non-GAAP includes stock-based comp"),
+                  f"{periods[-1][2:]}; from Q1 FY2027 non-GAAP includes stock-based comp"),
         alt=(f"Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at {g.iloc[i_low]:.1f}% in {periods[i_low]} "
-             f"(gaming inventory charges), rose above 75% during the Hopper ramp, dropped to {g.iloc[i_h20]:.1f}% in Q1 FY26 "
+             f"(gaming inventory charges), rose above 75% during the Hopper ramp, dropped to {g.iloc[i_h20]:.1f}% in Q1 FY2026 "
              f"because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about {g.iloc[-1]:.0f}% "
              f"in {periods[-1]}."),
         data=[FIN], chapters=["13", "14", "18", "CS6"],
@@ -290,10 +290,10 @@ def gross_margin_trend():
         i = periods.index(p)
         ax.scatter([i], [v], marker="D", s=46, facecolor="#FFFFFF", edgecolor=NV_DARK, zorder=4,
                    label="Non-GAAP excl. H20 charge")
-    ax.annotate("Q1 FY26: $4.5B H20 export-licence\ncharge → 60.5% GAAP", (i_h20, g.iloc[i_h20]),
+    ax.annotate("Q1 FY2026: $4.5B H20 export-licence\ncharge → 60.5% GAAP", (i_h20, g.iloc[i_h20]),
                 xytext=(i_h20 - 6.2, 47), fontsize=8.5, color=INK["text"],
                 arrowprops=dict(arrowstyle="->", color=INK["muted"]))
-    ax.annotate("Q2 FY23: gaming channel\ncorrection, inventory charges", (i_low, g.iloc[i_low]),
+    ax.annotate("Q2 FY2023: gaming channel\ncorrection, inventory charges", (i_low, g.iloc[i_low]),
                 xytext=(i_low + 1.0, 40.0), fontsize=8.5, color=INK["text"],
                 arrowprops=dict(arrowstyle="->", color=INK["muted"]))
     ax.annotate(f"{g.iloc[-1]:.0f}%", (x[-1], g.iloc[-1]), xytext=(6, 0), textcoords="offset points", va="center",
@@ -421,7 +421,7 @@ def purchase_obligations_over_time():
              f"FY2023 inventory write-downs and are now {ratio.iloc[-1]:.1f} times, mostly memory and capacity for Rubin."),
         data=[FIN], chapters=["03", "18", "13"],
         source="NVIDIA 10-Q/10-K", source_ids=sources_of(_rows(df, "Q", mets, periods)),
-        note="Definition widened from Q3 FY26",
+        note="Definition widened from Q3 FY2026",
     )
     fig, axes = c.figure_grid(1, 2, width=11.0, height=5.6, gridspec_kw={"width_ratios": [1.35, 1]})
     ax, ax2 = axes
@@ -442,7 +442,7 @@ def purchase_obligations_over_time():
     for i in (periods.index("Q2FY23"), len(periods) - 1):
         ax2.annotate(f"{ratio.iloc[i]:.1f}×", (i, ratio.iloc[i]), xytext=(0, 3), textcoords="offset points", ha="center",
                      fontsize=8.5, color=INK["title"])
-    ax2.annotate("pre-bust\n(FY23)", (periods.index("Q1FY23"), ratio["Q1FY23"]), xytext=(1.5, ratio.max() * 0.75),
+    ax2.annotate("pre-bust\n(FY2023)", (periods.index("Q1FY23"), ratio["Q1FY23"]), xytext=(1.5, ratio.max() * 0.75),
                  fontsize=8, color=RED, arrowprops=dict(arrowstyle="->", color=INK["muted"]))
     _qticks(ax2, periods, fontsize=7.5)
     ax2.set_ylim(0, ratio.max() * 1.2)
@@ -528,7 +528,7 @@ def quarterly_revenue_and_guidance():
         subtitle="NVIDIA revenue per fiscal quarter (bars) and the guidance midpoint issued one quarter earlier (markers), US$ B",
         alt=(f"Bar chart of NVIDIA quarterly revenue from {periods[0]} to {periods[-2]} with guidance markers: revenue fell to "
              f"${actual[i0]:.1f}B in {periods[i0]} and then rose to ${np.nanmax(actual):.1f}B; actual revenue landed above "
-             f"the guidance midpoint in every quarter since Q1 FY24, and the outlook for {nxt} is ${guide[-1]:.0f}B ±2%."),
+             f"the guidance midpoint in every quarter since Q1 FY2024, and the outlook for {nxt} is ${guide[-1]:.0f}B ±2%."),
         data=[FIN], chapters=["00", "13"],
         source="NVIDIA 8-K releases",
         source_ids=sources_of(_rows(df, "Q", ["revenue_total", "guidance_next_q_revenue"])),
@@ -549,7 +549,7 @@ def quarterly_revenue_and_guidance():
         ax.annotate(f"${actual[i]:.1f}B", (i, actual[i]), xytext=(0, 4), textcoords="offset points", ha="center",
                     fontsize=8.5, color=INK["title"])
     miss = periods.index("Q2FY23")
-    ax.annotate("Q2 FY23: missed\nguide by 17%", (miss, guide[miss]), xytext=(miss + 1.2, 35), fontsize=8.5,
+    ax.annotate("Q2 FY2023: missed\nguide by 17%", (miss, guide[miss]), xytext=(miss + 1.2, 35), fontsize=8.5,
                 color=INK["text"], arrowprops=dict(arrowstyle="->", color=INK["muted"]))
     _qticks(ax, periods)
     ax.set_ylim(0, np.nanmax(guide) * 1.15)
@@ -578,7 +578,7 @@ def guidance_beat_history():
         title=f"NVIDIA beat its revenue-guide midpoint {streak} quarters running, by +{avg:.1f}% on average",
         subtitle="Actual quarterly revenue vs the guidance midpoint issued the prior quarter, % difference",
         alt=(f"Bar chart of NVIDIA's revenue surprise versus its own guidance midpoint from {p[0]} to {p[-1]}: a {worst:.0f}% "
-             f"miss in Q2 FY23 during the gaming correction, then {streak} consecutive beats averaging {avg:.1f}%, the largest "
+             f"miss in Q2 FY2023 during the gaming correction, then {streak} consecutive beats averaging {avg:.1f}%, the largest "
              f"+{beat.max():.0f}% in {p[int(np.argmax(beat))]}."),
         data=[FIN], chapters=["13", "18"],
         source="NVIDIA 8-K releases",
@@ -612,7 +612,7 @@ def free_cash_flow_and_buybacks():
     tf, tr = both.free_cash_flow.sum(), both.shareholder_returns.sum()
     c = Chart(
         id="13-free-cash-flow-and-buybacks",
-        title=f"NVIDIA returned ${tr:.0f}B of ${tf:.0f}B free cash flow ({tr / tf * 100:.0f}%) to shareholders since FY23",
+        title=f"NVIDIA returned ${tr:.0f}B of ${tf:.0f}B free cash flow ({tr / tf * 100:.0f}%) to shareholders since FY2023",
         subtitle="Free cash flow (operating cash flow − capex) vs repurchases + dividends, US$ B per quarter; n/a = not in dataset",
         alt=(f"Grouped bar chart of NVIDIA quarterly free cash flow and shareholder returns {periods[0]}–{periods[-1]}: "
              f"over the {len(both)} quarters with both figures, free cash flow totalled ${tf:.0f}B and returns ${tr:.0f}B "
@@ -669,7 +669,7 @@ def operating_leverage():
         ax.plot(x, s, color=col, marker="o", ms=5, label=lab)
         ax.annotate(f"{lab} {s.iloc[-1]:.0f}%", (x[-1], s.iloc[-1]), xytext=(6, 0), textcoords="offset points",
                     va="center", fontsize=8.5, color=col if col != GEN_PAST else NV_DARK, fontweight="bold")
-    ax.annotate("FY23: Arm write-off +\ninventory charges", (list(w.index).index("FY2023"), om["FY2023"]),
+    ax.annotate("FY2023: Arm write-off +\ninventory charges", (list(w.index).index("FY2023"), om["FY2023"]),
                 xytext=(4.2, 45), fontsize=8.5, color=INK["text"], arrowprops=dict(arrowstyle="->", color=INK["muted"]))
     ax.set_xticks(x)
     ax.set_xticklabels(xl)

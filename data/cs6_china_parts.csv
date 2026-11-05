@@ -1,0 +1,10 @@
+vendor,product,year,china_status,status_short,tpp_basis,dense_tflops_used,bits_used,tpp,memory_gb,memory_bw_tbs,scale_up_bw_gbs_bidir,confidence,source_id,notes
+NVIDIA,A100 SXM,2020,licence required (Oct 2022),licence needed (Oct 2022),BF16 dense,312,16,4992,80,2.0,600,confirmed,S33009;S26002,TPP = dense TFLOPS x bit width (= 2 x MAC rate x bits); 600 GB/s NVLink also met the 2022 interconnect test
+NVIDIA,A800,2022,compliant Oct 2022; caught Oct 2023,"compliant 2022, caught 2023",BF16 dense,312,16,4992,80,2.0,400,reported,S26001;S26002,A100 compute with NVLink cut to 400 GB/s to pass the 2022 600 GB/s test
+NVIDIA,H100 SXM,2022,licence required (Oct 2022),licence needed (Oct 2022),FP8 dense,1979,8,15832,80,3.35,900,confirmed,S33002;S26002,Same TPP via BF16 (989 x 16)
+NVIDIA,H800,2023,compliant Oct 2022; caught Oct 2023,"compliant 2022, caught 2023",FP8 dense,1979,8,15832,80,3.35,400,reported,S26001;S34007,"H100 compute with NVLink cut to 400 GB/s; DeepSeek-V3 was trained on 2,048 H800s"
+NVIDIA,H20,2024,compliant Oct 2023; licence Apr 2025; some licences Aug 2025,"compliant 2023, licence Apr 2025",FP8 dense,296,8,2368,96,4.0,900,reported,S26003;S90081,"Leaked specs (no NVIDIA datasheet); other reports put TPP at ~2,500"
+NVIDIA,H200,2024,licence with 25% revenue share (Dec 2025 / Jan 2026),licensed with 25% levy,FP8 dense,1979,8,15832,141,4.8,900,confirmed,S32002;S90032,Same compute as H100; more and faster HBM3E
+NVIDIA,B200 (HGX),2024,not licensed for China,not licensed for China,FP8 dense,4500,8,36000,180,8.0,1800,confirmed,S33003;S101,"Shown for scale; FP4 dense 9,000 x 4 gives the same TPP"
+Huawei,Ascend 910C,2025,domestic,domestic,FP16 dense,800,16,12800,128,3.2,784,reported,S163;S164,"Huawei roadmap figure (FP16; no FP8); on-paper TPP, supply-constrained"
+Huawei,Ascend 950PR,2026,domestic,domestic,FP8 (Huawei; dense vs sparse not stated),1000,8,8000,128,1.6,2000,reported,S163;S90042,Q1 2026; 950DT (Q4 2026) has 144 GB at 4.0 TB/s

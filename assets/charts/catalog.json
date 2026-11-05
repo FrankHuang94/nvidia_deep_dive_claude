@@ -2,7 +2,7 @@
   {
     "id": "00-annual-revenue-by-segment",
     "title": "Data Center grew from 7% of NVIDIA revenue in FY2016 to 90% in FY2026",
-    "subtitle": "Revenue by market platform, US$ B per fiscal year (FY ends late Jan); FY26 gaming/other = sum of quarters",
+    "subtitle": "Revenue by market platform, US$ B per fiscal year (FY ends late Jan); FY2026 gaming/other = sum of quarters",
     "alt": "Stacked bar chart of NVIDIA annual revenue by segment FY2016–FY2026: Data Center rose from $0.34B (7%) to $193.7B (90%) while gaming grew from $2.8B to about $16B; total revenue went from $5.0B to $216B.",
     "data": [
       "financials.csv"
@@ -62,7 +62,7 @@
     "id": "00-quarterly-revenue-and-guidance",
     "title": "Quarterly revenue rose from $5.9B to $96.2B in 15 quarters; the Q3 FY27 guide is $108B",
     "subtitle": "NVIDIA revenue per fiscal quarter (bars) and the guidance midpoint issued one quarter earlier (markers), US$ B",
-    "alt": "Bar chart of NVIDIA quarterly revenue from Q1FY23 to Q2FY27 with guidance markers: revenue fell to $5.9B in Q3FY23 and then rose to $96.2B; actual revenue landed above the guidance midpoint in every quarter since Q1 FY24, and the outlook for Q3FY27 is $108B ±2%.",
+    "alt": "Bar chart of NVIDIA quarterly revenue from Q1FY23 to Q2FY27 with guidance markers: revenue fell to $5.9B in Q3FY23 and then rose to $96.2B; actual revenue landed above the guidance midpoint in every quarter since Q1 FY2024, and the outlook for Q3FY27 is $108B ±2%.",
     "data": [
       "financials.csv"
     ],
@@ -216,7 +216,7 @@
   {
     "id": "01-revenue-mix-stacked-area",
     "title": "Data Center went from 45% to 93% of NVIDIA's quarterly revenue in 17 quarters",
-    "subtitle": "Revenue by market platform, US$ B per quarter, Q1 FY23–Q2 FY27; networking split back-calculated for FY24 and Q2 FY27",
+    "subtitle": "Revenue by market platform, US$ B per quarter, Q1 FY23–Q2 FY27; networking split back-calculated for FY2024 and Q2 FY2027",
     "alt": "Stacked area chart of NVIDIA quarterly revenue by segment from Q1FY23 to Q2FY27. Data Center rose from $3.8B (45% of $8.3B) to $89.0B (93% of $96.2B); networking reached about $17.5B a quarter while gaming and other segments stayed below $8B combined.",
     "data": [
       "financials.csv"
@@ -7667,7 +7667,7 @@
   },
   {
     "id": "13-free-cash-flow-and-buybacks",
-    "title": "NVIDIA returned $112B of $202B free cash flow (55%) to shareholders since FY23",
+    "title": "NVIDIA returned $112B of $202B free cash flow (55%) to shareholders since FY2023",
     "subtitle": "Free cash flow (operating cash flow − capex) vs repurchases + dividends, US$ B per quarter; n/a = not in dataset",
     "alt": "Grouped bar chart of NVIDIA quarterly free cash flow and shareholder returns Q1FY23–Q2FY27: over the 16 quarters with both figures, free cash flow totalled $202B and returns $112B (55%); free cash flow reached $48.6B in Q1FY27 and returns $26B in Q2FY27.",
     "data": [
@@ -7716,8 +7716,8 @@
   {
     "id": "13-gross-margin-trend",
     "title": "Gross margin climbed from 43.5% to ~75%, broken only by the H20 write-down",
-    "subtitle": "GAAP and non-GAAP gross margin, % of revenue, Q1 FY23–Q2 FY27; from Q1 FY27 non-GAAP includes stock-based comp",
-    "alt": "Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY26 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.",
+    "subtitle": "GAAP and non-GAAP gross margin, % of revenue, Q1 FY23–Q2 FY27; from Q1 FY2027 non-GAAP includes stock-based comp",
+    "alt": "Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY2026 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.",
     "data": [
       "financials.csv"
     ],
@@ -7797,7 +7797,7 @@
     "id": "13-guidance-beat-history",
     "title": "NVIDIA beat its revenue-guide midpoint 16 quarters running, by +7.1% on average",
     "subtitle": "Actual quarterly revenue vs the guidance midpoint issued the prior quarter, % difference",
-    "alt": "Bar chart of NVIDIA's revenue surprise versus its own guidance midpoint from Q1FY23 to Q2FY27: a -17% miss in Q2 FY23 during the gaming correction, then 16 consecutive beats averaging 7.1%, the largest +23% in Q2FY24.",
+    "alt": "Bar chart of NVIDIA's revenue surprise versus its own guidance midpoint from Q1FY23 to Q2FY27: a -17% miss in Q2 FY2023 during the gaming correction, then 16 consecutive beats averaging 7.1%, the largest +23% in Q2FY24.",
     "data": [
       "financials.csv"
     ],

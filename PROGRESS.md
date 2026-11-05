@@ -74,9 +74,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS3 | Google TPU: the credible alternative | 7 | drafted | 2,189 | 10 | 6 (6) | 0 | 2 | 2 | 60% | 49 | pending |
 | CS4 | AMD, OpenAI and the second source | 7 | drafted | 2,615 | 10 | 4 (4) | 0 | 3 | 3 | 40% | 65 | pending |
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
-| CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **158,045** | **762** | | | | | | **1361** unique | |
+| CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
+| CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
+| **Total** | | | | **162,594** | **782** | | | | | | **1397** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **299**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
@@ -152,7 +152,7 @@ Charts in library (`assets/charts/catalog.json`): **299**. Visual = chart/diagra
 | 6 | layer 13 CORE / STRATEGY | 9 pages, 10,001 words, 52 visuals | S13000–S13043, S13500–S13536 | done |
 | 7 | case studies CS1–CS3 | 3 pages, ~6,500 words, 34 visuals | S21000–S23010 | done |
 | 7 | case studies CS4–CS5 | 2 pages, ~4,950 words, 19 visuals | S24000–S25012 | done |
-| 7 | case studies CS6–CS7 | 1 agent | S26000–S27999 | running |
+| 7 | case studies CS6–CS7 | 2 pages, ~4,600 words, 20 visuals | S26000–S27016 | done |
 | 5 | layer 08 CORE / STRATEGY | 9 pages, 10,376 words, 46 visuals; 08-nvl72-rack-anatomy.d2, 08-compute-tray-anatomy.d2 | S8000–S8025, S8500–S8530 | done |
 | 5 | layer 09 CORE / STRATEGY | 9 pages, 9,996 words, 42 visuals; 09-cuda-software-stack.d2 | S9000–S9030, S9500–S9538 | done |
 | 5 | layer 10 CORE / STRATEGY | 8 pages, ~11k words, ~50 visuals (STRATEGY agent's shell was blocked; orchestrator ran build/validation and fixed charts) | S10000–S10048, S10501–S10570 | done |

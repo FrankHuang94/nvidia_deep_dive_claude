@@ -1,0 +1,6 @@
+scenario,order,china_revenue_usd_b,gross_margin_pct,levy_pct,capacity_resold,confidence,source_id,notes
+Unrestricted sales,1,17.5,75,0,no,estimate,S416;S401;S90011,"Repo scenario: midpoint of a ~$15-20B/yr China data-center market (FY2025 China revenue $17.1B billing basis / $25.0B HQ basis incl. all platforms); 75% = NVIDIA GAAP gross margin in Q2 FY2027"
+H20-style deal: 15% revenue share,2,17.5,75,15,no,estimate,S26004,"Same revenue and margin as the base case so only the levy differs; in practice H20 carried a lower price and margin"
+H200 deal: 25% to US government,3,17.5,75,25,no,estimate,S90032;S90083,"Levy is on revenue, so it falls 1:1 on gross profit"
+Ban with capacity resold elsewhere,4,17.5,75,0,yes,estimate,S90012;S26012,"Supply-constrained case: the wafers, HBM and CoWoS go to other buyers at similar margin (CFO called the FY2028 outlook supply-constrained); short-run cost ~0"
+Ban with capacity idle,5,0,75,0,no,estimate,S90082,"Demand-constrained case (as in April 2025, when $4.5B of H20 inventory and purchase obligations were written down)"

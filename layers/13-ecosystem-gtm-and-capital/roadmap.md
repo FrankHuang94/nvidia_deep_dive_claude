@@ -86,7 +86,7 @@ Private stakes appear as non-marketable equity securities, measured at cost and 
 
 **5. What would help NVIDIA.** Final agreements on the >$500B financing platforms would shift funding risk to third parties [[S12528]](../../sources/bibliography.md#s12528); 16 straight quarters of beating its own guidance (chart below) help with financiers.
 
-![Bar chart of NVIDIA's revenue surprise versus its own guidance midpoint from Q1FY23 to Q2FY27: a -17% miss in Q2 FY23 during the gaming correction, then 16 consecutive beats averaging 7.1%, the largest +23% in Q2FY24.](../../assets/charts/13-guidance-beat-history.svg)
+![Bar chart of NVIDIA's revenue surprise versus its own guidance midpoint from Q1FY23 to Q2FY27: a -17% miss in Q2 FY2023 during the gaming correction, then 16 consecutive beats averaging 7.1%, the largest +23% in Q2FY24.](../../assets/charts/13-guidance-beat-history.svg)
 
 | Signal to watch | Leading indicator | Direction for NVIDIA |
 |---|---|---|

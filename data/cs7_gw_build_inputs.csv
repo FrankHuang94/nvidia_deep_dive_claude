@@ -1,0 +1,21 @@
+input,value,unit,basis,confidence,source_id,notes
+site_power_at_meter,1000,MW,repo scenario: a 1 GW site measured at the utility meter,estimate,S398,"'Gigawatt' claims usually quote facility or contracted power, not IT load"
+pue,1.15,ratio,repo assumption for a new direct-liquid-cooled AI hall,estimate,S387;S388,"Same value as tco_model_inputs.csv pue_assumption_liquid_cooled"
+rack_kw_low,190,kW,"Vera Rubin NVL72, Max-Q profile",reported,S302,
+rack_kw_high,230,kW,"Vera Rubin NVL72, Max-P profile",reported,S302,
+non_rack_it_overhead,0.21,ratio,"scale-out network, storage, CPU head nodes and management per rack kW (GB200: 145 kW all-in vs 120 kW rack)",estimate,S340;S336,
+gpus_per_rack,72,GPUs,Vera Rubin NVL72,confirmed,S102,
+rack_price,7.8,USD M,"ODM price to a CSP, Morgan Stanley (May 2026)",estimate,S330;S332,"Bernstein $9.1M and quotes of $5-8.8M also exist (tco_model_inputs.csv)"
+network_storage_to_rack_ratio,0.26,ratio,"scale-out networking + storage capex per $ of rack (GB200: $0.8M on a $3.1M rack, SemiAnalysis)",estimate,S324,
+nvidia_share_of_rack_low,62,pct,NVIDIA content share of a Vera Rubin NVL72 rack (low),estimate,S332;S331;S330,"From l08_value_capture.csv; includes HBM4 resold by NVIDIA"
+nvidia_share_of_rack_high,72,pct,NVIDIA content share of a Vera Rubin NVL72 rack (high),estimate,S332;S331;S330,
+nvidia_share_network_storage_low,50,pct,"NVIDIA switches/NICs share of network + storage (low)",speculative,S324,"Same assumption as l13_ai_factory_model.csv"
+nvidia_share_network_storage_high,80,pct,"NVIDIA switches/NICs share of network + storage (high)",speculative,S324,
+facility_capex_low,11,USD B per GW,"power, cooling, electrical plant, shell and land (low)",estimate,S6025,"Bernstein puts electrical and mechanical at roughly one-third of a ~$35B GW (~$11.6B); land and buildings extra"
+facility_capex_high,13,USD B per GW,"power, cooling, electrical plant, shell and land (high)",estimate,S6025,
+electricity_price,0.081,USD/kWh,EIA US average industrial price 2024,reported,S389,
+it_life_years,6,years,hyperscaler server useful life,confirmed,S382,"Microsoft and Alphabet use 6 years; Meta 5.5; Amazon 5 for some servers"
+facility_life_years,20,years,repo assumption for shell and electrical plant,estimate,S357,"Morgan Stanley's retracted model used 10 years for facility depreciation; 20 is closer to building lives"
+wacc_low,8,pct,repo assumption: investment-grade hyperscaler,estimate,S12501,"CoreWeave's interest burden (S12501) illustrates the high end"
+wacc_high,12,pct,repo assumption: leveraged neocloud / project finance,estimate,S12501,
+power_draw_floor,0.3,ratio,share of full power drawn by an idle site (repo assumption),speculative,S387,"Power = floor + (1 - floor) x utilisation"
