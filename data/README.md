@@ -746,7 +746,7 @@ Modular's Series C valuation and total capital raised, used to benchmark Qualcom
 
 DeepSeek-V4-Pro (released 2026-04-24) day-0 software maturity from SemiAnalysis InferenceX: `frontier` = MI355X
 peak tok/s per GPU by date on the AMD SGLang branch; `iso` = throughput at 15 tok/s per user; `spec_ratio` = MI355X ÷
-B200 paper specs; `reference` = B200 vLLM tokens/s per provisioned MW on day 0 and day 42. Feeds `09-mi355x-deepseek-v4-catchup`.
+B200 paper specs; `reference` = B200 vLLM tokens/s per provisioned MW on day 0 and day 42; `tco` = MI355X owner TCO per GPU-hour (SemiAnalysis, `estimate`) used to convert throughput into US$ per million tokens. Feeds `09-mi355x-deepseek-v4-catchup`.
 
 ### l09_software_price_per_gpu.csv (one row per price point)
 `item,group,value_usd_per_gpu_year,basis,confidence,source_id,notes`
@@ -787,3 +787,124 @@ estimates).
 
 Days between a CUDA milestone and the matching ROCm milestone: platform 1.0 (month-level dates), FP4 toolkit support
 and usable serving of DeepSeek-V4-Pro (from the day-0 run). Feeds `09-rocm-lag-behind-cuda`.
+
+## Layer 08 — systems, racks and AI factories, STRATEGY pages (`l08_*` strategy files; charts in `scripts/charts/ch_l08_strategy.py`; sources S8500–S8530)
+
+### l08_rack_verdicts.csv (long: rival × dimension)
+`competitor,system_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes` — repo verdict
+(`leads` | `parity` | `behind` | `different`) of seven rival rack-scale systems against NVIDIA Vera Rubin NVL72 on seven
+dimensions (compute, memory and power per rack, scale-up domain, liquid-cooling maturity, time to deploy, openness).
+All rows are analyst judgement (`speculative`) built on the cited specs. Feeds `08-rack-system-verdict-heatmap`.
+
+### l08_system_vendor_financials.csv (long)
+`company,role,period,period_end,metric,value,unit,profit_basis,confidence,source_id,notes` — reported revenue, profit
+and margins for NVIDIA, Dell (ISG and AI servers), Supermicro, HPE (Cloud and AI), Vertiv, Quanta, Foxconn and
+Morgan Stanley's ODM-per-rack estimates. `profit_basis` = `gross` | `operating` | `adjusted operating`. Periods are
+each company's fiscal periods (mid-2026 quarters are compared side by side). Rows with `estimate` are repo calculations
+(e.g. gross profit = revenue × margin). Feeds `08-oem-ai-server-revenue-ramp`, `08-system-layer-margin-ladder` and
+`08-ai-hardware-profit-pool`.
+
+### l08_infra_deals.csv (one row per deal)
+`announce_date,close_date,acquirer,target,category,value_usd_m,value_basis,status,rationale,confidence,source_id,notes`
+— rack-adjacent M&A since 2024 (AMD–ZT, Sanmina–ZT manufacturing, Eaton–Boyd Thermal, Schneider–Motivair,
+Vertiv–PurgeRite and Great Lakes, HPE–Juniper, AIP/GIP/MGX–Aligned). `value_basis` = `disclosed` | `reported` | `up-to`.
+Feeds `08-infra-deal-values` and `08-zt-deal-net-cost` (the latter uses the Sanmina cash/premium/earn-out split in `notes`).
+
+### l08_value_capture.csv (long: system × metric)
+`system,era,metric,low,high,unit,confidence,source_id,method,notes` — repo estimates of NVIDIA's content as a share of
+system price (`nvidia_content_share_pct`, low–high) and of integrator gross margin (`integrator_gross_margin_pct`) for
+HGX H100/H200 servers, GB200, GB300 and Vera Rubin NVL72. `method` documents each calculation; inputs mix years and
+analyst sources, so ranges are wide. Feeds `08-value-capture-by-generation`. `08-rack-spec-roadmap` reads
+`system_specs.csv` only.
+
+## Layer 11 CORE — inference and AI software (`l11_*` core files; charts in `scripts/charts/ch_l11_core.py`; sources S11000–S11035)
+
+### l11_inference_share.csv (one row per management estimate)
+`window,window_end,metric,value,unit,qualifier,confidence,source_id,notes` — NVIDIA management's quantified estimates of the
+share of Data Center revenue that went to AI inference (`metric = inference_share_of_dc_revenue`, `unit = pct`).
+`qualifier` keeps the wording (`approximately` 40% for the year to Q4 FY2024; `more than` 40% for the year to Q2 FY2025).
+Every row is `estimate` (a CFO estimate, not a reported segment). No later percentage was found; later calls are
+qualitative. `11-inference-share-of-dc-revenue` applies the shares to trailing-four-quarter Data Center revenue
+summed from `financials.csv` and draws later years without a split (a dotted 40% line is a scale illustration only).
+
+### l11_nemotron_models.csv (one row per open Nemotron model)
+`model,family,release_date,date_basis,total_params_b,active_params_b,architecture,max_context_tokens,confidence,source_id,notes`
+— total and active (per-token) parameters in billions for NVIDIA's flagship open models, from the Nemotron developer
+repository and technical reports. `date_basis` says how the date is known; Nemotron 3.5 release months were not
+verified (`release_date = 2026`). Used by `11-nemotron-total-vs-active-parameters`.
+
+Two further CORE charts need no new file: `11-disaggregation-vs-aggregated-b200` reads the B200 Pareto-frontier rows of
+`inference_benchmarks.csv` and splits them by serving mode (`disagg` in `notes`); `11-cost-per-m-tokens-software-releases`
+divides a fixed SemiAnalysis owner TCO per GPU-hour (S622: GB300 $2.31, GB200 $1.86, B200 $1.73, H100 $1.17) by
+same-hardware throughput series from `mlperf_results.csv` (Server scenario) and `inference_benchmarks.csv`.
+
+## Layer 05 — Scale-up, CORE pages (`l05_*.csv`; charts in `scripts/charts/ch_l05_core.py`; sources S5000–S5499)
+
+### l05_rack_fabric.csv (wide, one row per NVLink domain / system)
+`system,year,status,nvlink_generation,gpus_in_domain,links_per_gpu,pairs_per_gpu,pair_gbps,bidirectional_pairs,per_gpu_bw_gbs_bidir,domain_bw_tbs_bidir,switch_chips,switch_trays,physical_medium,rack_copper_pairs,cables_reported,cable_miles_reported,confidence,source_id,notes`
+
+NVLink fabric facts per system, DGX-1 (2016) → Kyber NVL144 (2027 roadmap). `pairs_per_gpu` = links × lanes × directions
+(one differential pair per lane per direction; for NVLink 6/7 two bidirectional pairs per link, per SemiAnalysis) and
+`pair_gbps` = Gb/s carried per pair, both directions combined — both are **repo calcs** because NVIDIA publishes link and
+lane counts, not pair counts. `domain_bw_tbs_bidir` = GPUs × per-GPU NVLink (bidirectional). `rack_copper_pairs` covers
+cable spines and (Kyber) midplane traces. Vera Rubin NVL72 has two rows: the CES 2026 design spec (3.6 TB/s per GPU) and
+the revised production spec (3.0 TB/s). `cables_reported` / `cable_miles_reported` are NVIDIA's GTC 2024 keynote figures.
+
+### l05_copper_vs_optics.csv (long)
+`record_type,item,lane_gbps,metric,value_low,value_high,unit,confidence,source_id,notes`
+
+`record_type`: `reach` (passive copper reach by lane rate, m; IEEE objectives and vendor listings), `cost` (US$ per 800G
+DAC link and per 800G DSP optical module; single-vendor or rough market prices, ranges in `value_low`/`value_high`),
+`claim` (NVIDIA GTC 2024 spine figures: cables, miles, kW of optics avoided) and `assumption` (modules an optical NVL72
+spine would need). Optics power per technology is read from `optics_power_estimates.csv`.
+
+### l05_moe_comm.csv (long)
+`record_type,item,metric,value,unit,confidence,source_id,notes`
+
+Inputs for the MoE all-to-all charts. `model_config` (DeepSeek-V3: hidden size, layers, experts, dispatch/combine bytes,
+MLA cache width), `serving` (DeepSeek's published production EP degrees and throughput), `deepep_normal` and
+`deepep_low_latency` (DeepEP README v1.2.1 measurements on H800 + 400G InfiniBand: bottleneck GB/s and µs per operation),
+`system_link` (per-direction NVLink and NIC GB/s and NVLink domain size per system) and `scenario` (the repo model's
+128 tokens per GPU and 64-way EP). The model is bandwidth-only: per layer, time = max(off-domain bytes ÷ NIC,
+in-domain bytes ÷ NVLink), × 58 MoE layers.
+
+### l05_nvlink_fusion_partners.csv (one row per partner)
+`partner,role,category,announce_date,status,confidence,source_id,notes`
+
+Publicly announced NVLink Fusion partners with announcement date and category (`Design services and IP`, `EDA tools`,
+`Connectivity and optics`, `CPUs`, `Accelerators`). Ayar Labs and Lightmatter rest on a single low-authority report
+(`reported`). Qualcomm rows use public information only.
+
+## Layer 12 CORE — orchestration and utilization mechanisms (`l12_utilization_scenarios.csv`, `l12_gpu_cloud_capacity.csv`; charts in `scripts/charts/ch_l12_core.py`; sources S12000–S12022)
+
+### l12_utilization_scenarios.csv (long)
+`record_type,scenario,item,value,unit,basis,confidence,source_id,notes`
+
+Inputs for the GPU utilization-economics charts. `record_type`: `utilization_level` (the 30/60/90 % illustration points, bracketed by Alibaba fleet and Llama 3 evidence) · `cost_input` (network/storage uplift on rack price, 6- and 5-year useful lives, power basis) · `funnel` (installed → allocated → productive → MFU chain for a `before_fix`/`after_fix` scheduler scenario) · `failure_model` (Llama 3's 419 unexpected interruptions in 54 days on 16,384 GPUs, plus assumed 3/15/60-minute recovery times) · `fragmentation_model` (18-rack NVL72 cluster filled with 8-GPU jobs). Rack prices, power, PUE and $/kWh are read from `tco_model_inputs.csv` and `system_specs.csv`, so the model stays consistent with chapter 14. Documented assumptions: cost per installed GPU-hour = rack price ÷ 72 × (1 + 26 % network/storage uplift) ÷ useful life ÷ 8,760 h + max IT power per GPU × PUE × $/kWh (power charged for all hours, an upper bound); facility capex, staff, software and financing are excluded, so every $/useful-hour figure is a floor. Recovery loss uses a renewal model: lost share = λT ÷ (1 + λT), with λ = per-GPU failure rate × GPUs in the job and T = recovery time. The funnel is a composite illustration (repo Est.), not one cluster's measurement.
+
+### l12_gpu_cloud_capacity.csv (long)
+`record_type,provider,provider_type,period,metric,value,unit,confidence,source_id,notes`
+
+`record_type`: `gpu_purchases` (Omdia's estimate of Hopper GPUs bought in calendar 2024, via the FT) · `installed_gpus` (company-disclosed installed base) · `power` (active vs contracted data-center power in GW, company disclosures and guidance; secondary figures marked `estimate`, targets `speculative`). `provider_type`: `hyperscaler` · `neocloud` · `self-build platform` · `AI lab self-build` · `China platform`. Purchases (a flow) and installed GPUs (a stock) are different metrics and are drawn differently. The power rows back the page text; the layer-12 STRATEGY chart `12-neocloud-contracted-vs-active-power` plots neocloud power from its own file.
+
+## Layer 09 CORE — CUDA and system software (`l09_*.csv` below; charts in `scripts/charts/ch_l09_core.py`; sources S9000–S9030)
+
+### l09_kernel_efficiency.csv (one row per kernel × GPU)
+`kernel,hardware,architecture,kernel_year,precision,achieved_tflops,peak_dense_tflops,utilization_low_pct,utilization_high_pct,kernel_matches_gpu,confidence,source_id,notes`
+
+Share of dense peak FLOPS reached by FlashAttention 1–4 as published in the papers (ranges where the paper gives one). `kernel_matches_gpu = no` marks a previous-generation kernel run on a newer GPU (FA2 on H100). Peaks come from `gpu_product_specs.csv` sources. The FA3 FP8 row is repo arithmetic (Est.) and not plotted. Feeds `09-attention-kernel-efficiency`.
+
+### l09_port_effort.csv (one row per porting phase)
+`phase,order,low_engineer_months,high_engineer_months,evidence,confidence,source_id,notes`
+
+Repo estimate (all rows `speculative`) of engineer-months to port one FlashAttention-class kernel to a new accelerator family, anchored on public bring-up evidence cited per row. The last row is a recurring yearly re-tune. Feeds `09-attention-kernel-port-effort`.
+
+### l09_dsv4_bringup.csv (long)
+`record_type,date,days_after_release,platform,vendor,engine,milestone,metric,value,unit,confidence,source_id,notes`
+
+DeepSeek-V4-Pro (released 2026-04-24) bring-up by platform from SemiAnalysis InferenceX articles. `record_type = milestone`: `value` = days after release to the milestone (the day-43 AMD multi-node row is censored, i.e. not achieved by then; the MTP row's day is a placeholder for "week 4"). `record_type = throughput`: MI355X SGLang tokens/s per GPU at 15 tok/s/user (interpolated on each date's Pareto frontier; blank = unreachable) and peak, plus B200 vLLM tokens/s per provisioned MW. Feeds `09-dsv4-day0-readiness` and `09-dsv4-mi355x-bringup`.
+
+### l09_moat_by_segment.csv (long: segment × workload)
+`segment,segment_order,workload,workload_order,score_1_5,rationale,confidence,source_id,notes`
+
+Repo scoring (all `speculative`) of switching cost off CUDA, 1 = can move within months, 5 = prohibitive, for seven customer segments × four workloads, each with a one-line rationale and sources. Feeds `09-moat-strength-by-segment`.

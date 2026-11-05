@@ -26,7 +26,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 1 | Data foundation (14 CSVs) + ≥ 60 core charts | ✅ complete — 37 CSVs, 2,830 rows, 126 charts | `phase-1-complete` (local tag) |
 | 2 | Primers P1–P5 + 01 flywheel | ✅ complete — 6 units drafted, ~24k words, 111 visuals | `phase-2-complete` (local tag) |
 | 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ✅ complete — 3 layers drafted, ~30k words, 163 visuals (44–52 % data charts) | `phase-3-complete` (local tag) |
-| 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ⏳ in progress (6 agents) | |
+| 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ✅ complete — 3 layers drafted, ~30k words, ~146 visuals (42–46 % data charts) | `phase-4-complete` (local tag) |
 | 5 | Layers 08 systems, 09 CUDA, 10 libraries | ⏳ in progress (6 agents, launched early) | |
 | 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ⬜ planned | |
 | 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ⬜ planned | |
@@ -54,7 +54,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 02 | GPU silicon | 3 | drafted | 9,915 | 63 | 33 (33) | 1 | 11 | 18 | 52% | 191 | pending |
 | 03 | Memory, packaging and supply chain | 3 | drafted | 10,078 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 173 | pending |
 | 04 | CPU (Grace, Vera) | 3 | drafted | 9,995 | 43 | 19 (19) | 1 | 10 | 13 | 44% | 149 | pending |
-| 05 | Scale-up (NVLink, NVSwitch) | 4 | planned | 191 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 05 | Scale-up (NVLink, NVSwitch) | 4 | drafted | 10,168 | 56 | 26 (26) | 3 | 12 | 15 | 46% | 182 | pending |
 | 06 | Scale-out and scale-across networking | 4 | drafted | 10,046 | 50 | 21 (21) | 1 | 12 | 16 | 42% | 126 | pending |
 | 07 | DPU, SuperNIC, storage, security | 4 | drafted | 10,006 | 40 | 17 (17) | 1 | 9 | 13 | 42% | 127 | pending |
 | 08 | Systems, racks and AI factories | 5 | planned | 211 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **76,576** | **368** | | | | | | **719** unique | |
+| **Total** | | | | **86,553** | **424** | | | | | | **816** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **266**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **280**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)
@@ -144,7 +144,10 @@ Charts in library (`assets/charts/catalog.json`): **266**. Visual = chart/diagra
 | 3 | layer 03 CORE / STRATEGY | 10 pages, 10,078 words, 57 visuals; ch_l03_core/strategy; 03-hbm-stack-cross-section.d2 | S3000–S3018, S3500–S3538 | done |
 | 3 | layer 04 CORE / STRATEGY | 9 pages, 9,995 words, 43 visuals; ch_l04_core/strategy; 04-host-attach-pcie-vs-superchip.d2 | S4000–S4033, S4500–S4547 | done |
 | 3 | orchestrator research | docs/research/2026-fact-sheet.md (verified 2026 facts) | S90001–S90066 | done |
-| 4 | layers 05, 06, 07 CORE / STRATEGY | 6 agents | S5000–S7999 | running |
+| 4 | layer 05 CORE / STRATEGY | 10 pages, ~10,170 words, 56 visuals; 05-nvlink-switch-tray-anatomy.d2, 05-nvl72-all-to-all-topology.dot, 05-nvl72-vs-tpu-pod-topology.d2 | S5000–S5022, S5500–S5528 | done |
+| 4 | layer 06 CORE / STRATEGY | 10 pages, 10,046 words, 50 visuals; 06-rail-optimized-fat-tree.dot | S6000–S6031, S6500–S6527 | done |
+| 4 | layer 07 CORE / STRATEGY | 9 pages, 10,006 words, 40 visuals; 07-dpu-offload.d2 | S7000–S7028, S7500–S7536 | done |
+| 7 | case studies CS1–CS3, CS4–CS5, CS6–CS7 | 3 agents | S21000–S27999 | running |
 | 5 | layers 08, 09, 10 CORE / STRATEGY | 6 agents | S8000–S10999 | running |
 
 ## Agent briefs (for resuming)

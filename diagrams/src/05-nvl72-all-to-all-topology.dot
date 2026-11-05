@@ -1,0 +1,47 @@
+// Layer 05: GB200 NVL72 NVLink topology - 72 GPUs x 18 NVLink 5 links, one to each of 18 NVLink 5 Switch chips.
+// Original drawing from public specifications (NVIDIA GB200 NVL72 and NVLink pages). Only GPU 1 and GPU 72 are
+// wired in full; every other GPU is wired the same way.
+digraph nvl72 {
+  graph [bgcolor="white", rankdir=TB, nodesep=0.25, ranksep=1.8, fontname="DejaVu Sans", fontsize=22, labelloc=t,
+         label=<<b>GB200 NVL72: every GPU has one NVLink to every switch chip, so any two GPUs are one switch hop apart</b><br/> >, pad=0.3];
+  node [fontname="DejaVu Sans", fontsize=13];
+  edge [dir=none, penwidth=1.1];
+  SW [shape=plaintext, label=<<table border="1" cellborder="1" cellspacing="6" cellpadding="4" bgcolor="#EEF5E3" color="#3F6B00" style="rounded"><tr><td colspan="18" border="0"><b>9 NVLink switch trays = 18 NVLink 5 Switch chips</b> (72 ports each: one port per GPU; 7.2 TB/s per chip)</td></tr><tr><td port="p1" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S1</font></td><td port="p2" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S2</font></td><td port="p3" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S3</font></td><td port="p4" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S4</font></td><td port="p5" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S5</font></td><td port="p6" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S6</font></td><td port="p7" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S7</font></td><td port="p8" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S8</font></td><td port="p9" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S9</font></td><td port="p10" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S10</font></td><td port="p11" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S11</font></td><td port="p12" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S12</font></td><td port="p13" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S13</font></td><td port="p14" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S14</font></td><td port="p15" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S15</font></td><td port="p16" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S16</font></td><td port="p17" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S17</font></td><td port="p18" bgcolor="#5F9E00" border="1" color="#3F6B00" width="46" height="34"><font color="white">S18</font></td></tr></table>>];
+  GP [shape=plaintext, label=<<table border="1" cellborder="1" cellspacing="8" cellpadding="6" bgcolor="#F7F7F4" color="#52514E" style="rounded"><tr><td port="g1" bgcolor="#3F6B00" color="#3F6B00" style="rounded"><font color="white"><b>GPU 1</b><br/>18 links x 100 GB/s<br/>= 1.8 TB/s</font></td><td bgcolor="#A9CC73" color="#5F9E00" style="rounded">GPUs 2-4<br/>(tray 1)</td><td bgcolor="white" color="#898781" style="rounded">GPUs 5-68 (trays 2-17)<br/>wired identically:<br/>1 link to each of the 18 chips</td><td bgcolor="#A9CC73" color="#5F9E00" style="rounded">GPUs 69-71<br/>(tray 18)</td><td port="g72" bgcolor="#C98500" color="#8A5B00" style="rounded"><font color="white"><b>GPU 72</b><br/>18 links x 100 GB/s<br/>= 1.8 TB/s</font></td></tr><tr><td colspan="5" border="0"><b>18 compute trays = 72 Blackwell GPUs + 36 Grace CPUs</b><br/><br/>Check: 72 GPUs x 18 links = 1,296 links = 18 chips x 72 ports.<br/>Each link = 2 lanes x 200 Gb/s each way = 4 copper pairs, so the spine holds 5,184 pairs (repo calc).<br/>GPU 1 to GPU 72: out on any of its 18 links, through one switch chip, into that chip&#39;s port for GPU 72.</td></tr></table>>];
+  SW:p1:s -> GP:g1:n [color="#3F6B00"];
+  SW:p2:s -> GP:g1:n [color="#3F6B00"];
+  SW:p3:s -> GP:g1:n [color="#3F6B00"];
+  SW:p4:s -> GP:g1:n [color="#3F6B00"];
+  SW:p5:s -> GP:g1:n [color="#3F6B00"];
+  SW:p6:s -> GP:g1:n [color="#3F6B00"];
+  SW:p7:s -> GP:g1:n [color="#3F6B00"];
+  SW:p8:s -> GP:g1:n [color="#3F6B00"];
+  SW:p9:s -> GP:g1:n [color="#3F6B00"];
+  SW:p10:s -> GP:g1:n [color="#3F6B00"];
+  SW:p11:s -> GP:g1:n [color="#3F6B00"];
+  SW:p12:s -> GP:g1:n [color="#3F6B00"];
+  SW:p13:s -> GP:g1:n [color="#3F6B00"];
+  SW:p14:s -> GP:g1:n [color="#3F6B00"];
+  SW:p15:s -> GP:g1:n [color="#3F6B00"];
+  SW:p16:s -> GP:g1:n [color="#3F6B00"];
+  SW:p17:s -> GP:g1:n [color="#3F6B00"];
+  SW:p18:s -> GP:g1:n [color="#3F6B00"];
+  SW:p1:s -> GP:g72:n [color="#C98500"];
+  SW:p2:s -> GP:g72:n [color="#C98500"];
+  SW:p3:s -> GP:g72:n [color="#C98500"];
+  SW:p4:s -> GP:g72:n [color="#C98500"];
+  SW:p5:s -> GP:g72:n [color="#C98500"];
+  SW:p6:s -> GP:g72:n [color="#C98500"];
+  SW:p7:s -> GP:g72:n [color="#C98500"];
+  SW:p8:s -> GP:g72:n [color="#C98500"];
+  SW:p9:s -> GP:g72:n [color="#C98500"];
+  SW:p10:s -> GP:g72:n [color="#C98500"];
+  SW:p11:s -> GP:g72:n [color="#C98500"];
+  SW:p12:s -> GP:g72:n [color="#C98500"];
+  SW:p13:s -> GP:g72:n [color="#C98500"];
+  SW:p14:s -> GP:g72:n [color="#C98500"];
+  SW:p15:s -> GP:g72:n [color="#C98500"];
+  SW:p16:s -> GP:g72:n [color="#C98500"];
+  SW:p17:s -> GP:g72:n [color="#C98500"];
+  SW:p18:s -> GP:g72:n [color="#C98500"];
+}

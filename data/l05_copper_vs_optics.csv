@@ -5,7 +5,7 @@ reach,100G/lane PAM4 passive copper (IEEE 802.3ck),100,passive_copper_reach,2,2,
 reach,200G/lane PAM4 passive copper (IEEE 802.3dj),200,passive_copper_reach,1,1,m,reported,S5010;S5011,802.3dj objective: at least 1.0 m of twin-axial copper at 200 Gb/s per lane; Keysight demonstrates 1 m. NVLink 5 and 6 run 200G-class lanes.
 cost,800G passive copper DAC (1 m),100,usd_per_link,200,300,USD,reported,S5015,"Single vendor's list-style price; one cable is one complete 800G link. The NVL72 spine uses bespoke cable cartridges whose price is not public, so this is an analog."
 cost,800G DSP pluggable optical module,100,usd_per_module,500,600,USD,reported,S5016,Rough market price per module; an optical link needs two modules (one per end) plus fiber (fiber excluded).
-claim,GB200 NVL72 NVLink copper cables (GTC 2024),,cables,5000,5000,count,reported,S5000;S5001,Keynote figure; the repo's pair count is 5,184.
-claim,GB200 NVL72 NVLink copper length (GTC 2024),,cable_length,2,2,miles,reported,S5000,About 3.2 km; ~0.6 m average per pair if spread over 5,184 pairs (repo calc).
+claim,GB200 NVL72 NVLink copper cables (GTC 2024),,cables,5000,5000,count,reported,S5000;S5001,"Keynote figure; the repo's pair count is 5,184."
+claim,GB200 NVL72 NVLink copper length (GTC 2024),,cable_length,2,2,miles,reported,S5000,"About 3.2 km; ~0.6 m average per pair if spread over 5,184 pairs (repo calc)."
 claim,Transceiver power avoided by a copper NVL72 spine (GTC 2024),,power,20,20,kW,reported,S5000,Vendor claim (transceivers plus retimers).
 assumption,800G optical modules needed for an optical NVL72 spine,100,modules,1296,1296,count,estimate,S200;S262,"72 GPUs x 900 GB/s per direction = 518.4 Tb/s per direction = 648 links of 800G, x 2 module ends (repo calc)."

@@ -1,0 +1,90 @@
+# Layer 05: anatomy of an NVLink switch tray (GB200 / GB300 NVL72 generation).
+# Original schematic drawn from public specifications (NVIDIA NVLink, GB200 NVL72 and DGX SuperPOD documentation;
+# SemiAnalysis for the Vera Rubin note). Not to scale and not traced from any vendor image.
+direction: right
+grid-columns: 2
+grid-gap: 50
+
+title: "Anatomy of an NVLink switch tray (GB200 / GB300 NVL72 generation, schematic)" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+tray: "1U NVLink switch tray - top view (front on the left, rear on the right)" {
+  style.fill: "#F7F7F4"
+  style.stroke: "#52514E"
+  style.font-size: 19
+  grid-columns: 3
+  grid-gap: 40
+
+  front: "① FRONT PANEL" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#898781"
+    style.font-size: 16
+    grid-columns: 1
+    grid-gap: 18
+    bmc: "BMC module\nout-of-band management\n(health, firmware, power)" {width: 230; style.fill: "#EEF2F7"; style.stroke: "#52514E"; style.font-size: 14}
+    mgmt: "Management port\nto the rack's\nmanagement network" {width: 230; style.fill: "#EEF2F7"; style.stroke: "#52514E"; style.font-size: 14}
+  }
+
+  board: "② SWITCH BOARD" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#5F9E00"
+    style.font-size: 16
+    grid-columns: 1
+    grid-gap: 22
+    asic1: "NVLink 5 Switch ASIC #1\n72 NVLink ports\n7.2 TB/s (28.8 Tb/s each way)\nSHARP in-network reductions" {
+      width: 300
+      style.fill: "#5F9E00"
+      style.stroke: "#3F6B00"
+      style.font-color: "#FFFFFF"
+      style.font-size: 15
+      style.bold: true
+    }
+    asic2: "NVLink 5 Switch ASIC #2\n72 NVLink ports\n7.2 TB/s (28.8 Tb/s each way)\nSHARP in-network reductions" {
+      width: 300
+      style.fill: "#5F9E00"
+      style.stroke: "#3F6B00"
+      style.font-color: "#FFFFFF"
+      style.font-size: 15
+      style.bold: true
+    }
+    cold: "③ Liquid cold plates sit on both ASICs\n(the NVL72 rack is liquid-cooled)" {width: 300; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 13}
+  }
+
+  rear: "④ REAR (blind-mate into the rack)" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#3F6B00"
+    style.font-size: 16
+    grid-columns: 1
+    grid-gap: 18
+    conn: "NVLink spine connectors\n144 ports = 576 copper pairs\n(2 lanes x 2 directions per port)\nmate with cable cartridges" {width: 270; style.fill: "#EEF5E3"; style.stroke: "#3F6B00"; style.font-size: 14; style.bold: true}
+    power: "⑤ DC power input\nfrom the rack power shelves" {width: 270; style.fill: "#FBF3E4"; style.stroke: "#C98500"; style.font-size: 14}
+    coolant: "⑥ Coolant quick-disconnects\nto the rack manifold" {width: 270; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 14}
+  }
+}
+
+side: "" {
+  style.opacity: 0
+  grid-columns: 1
+  grid-gap: 30
+  spine: "COPPER NVLINK SPINE (back of rack)\ntwinax cable cartridges\n~5,000 cables, ~2 miles (GTC 2024)\nruns to the 18 compute trays\nabove and below the switch trays" {
+    style.fill: "#EEF5E3"
+    style.stroke: "#3F6B00"
+    style.font-size: 15
+    style.bold: true
+  }
+
+  rack: "RACK CONTEXT\n9 switch trays = 18 ASICs = 1,296 GPU-facing ports\n72 GPUs x 18 links: each GPU lands one link on every ASIC\n9 trays x 576 pairs = 5,184 copper pairs (repo calc)\n\nVera Rubin NVL72: 36 NVLink 6 Switch chips per rack;\nbidirectional SerDes carry twice the traffic\nover the same pair count (SemiAnalysis)" {
+    shape: text
+    style.font-size: 15
+    style.italic: true
+  }
+}
+
+tray.front.bmc -> tray.board.asic1: "manages" {style.stroke: "#898781"; style.stroke-dash: 4}
+tray.board.asic1 -> tray.rear.conn: "72 ports" {style.stroke: "#3F6B00"; style.stroke-width: 3}
+tray.board.asic2 -> tray.rear.conn: "72 ports" {style.stroke: "#3F6B00"; style.stroke-width: 3}
+tray.rear.conn -> side.spine: "blind-mate" {style.stroke: "#3F6B00"; style.stroke-width: 4}
