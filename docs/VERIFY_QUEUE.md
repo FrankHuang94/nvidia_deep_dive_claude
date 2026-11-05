@@ -5,13 +5,13 @@ notes say it was entered from memory or needs re-verification. Phase 1–2 resea
 whose network policy blocked direct page fetches (sec.gov, nvidia.com, vendor and analyst sites) and capped
 web searches, so these items should be re-checked first in any session with full network access.
 
-**816 data rows** and **160 sources** flagged.
+**811 data rows** and **160 sources** flagged.
 
 ## Flagged rows by file
 
 | File | Flagged rows |
 |---|---:|
-| `data/financials.csv` | 460 |
+| `data/financials.csv` | 455 |
 | `data/hbm_and_packaging.csv` | 79 |
 | `data/acquisitions_investments.csv` | 64 |
 | `data/peer_financials.csv` | 60 |
@@ -442,7 +442,6 @@ web searches, so these items should be re-checked first in any session with full
 | `financials.csv` | 157 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] purchases related to property and equipment and intangible assets |
 | `financials.csv` | 158 | FY2024 · FY · 2024-01-28 | S417 | [recall] direct customer, Compute & Networking; 10-K also estimated one indirect customer (buying via Customer A and others) at ~19% |
 | `financials.csv` | 159 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
-| `financials.csv` | 161 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
 | `financials.csv` | 162 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
 | `financials.csv` | 163 | FY2024 · FY · 2024-01-28 | S417 | [recall] NVIDIA estimate of an indirect customer (widely reported to be Microsoft) |
 | `financials.csv` | 164 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] (fiscal year-end balance) |
@@ -452,7 +451,6 @@ web searches, so these items should be re-checked first in any session with full
 | `financials.csv` | 168 | FY2024 · FY · 2024-01-28 | S417 | [recall] inventory purchase and long-term supply and capacity obligations |
 | `financials.csv` | 169 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
 | `financials.csv` | 170 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
-| `financials.csv` | 171 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] market-platform revenue as originally reported |
 | `financials.csv` | 174 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
 | `financials.csv` | 175 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
 | `financials.csv` | 176 | FY2024 · FY · 2024-01-28 | S417;S2 | [recall] |
@@ -463,15 +461,12 @@ web searches, so these items should be re-checked first in any session with full
 | `financials.csv` | 183 | FY2025 · FY · 2025-01-26 | S416 | [recall] |
 | `financials.csv` | 184 | FY2025 · FY · 2025-01-26 | S416 | [recall] |
 | `financials.csv` | 185 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
-| `financials.csv` | 187 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
-| `financials.csv` | 188 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
 | `financials.csv` | 189 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] checked via web search 2026-11-05 (fiscal year-end balance) |
 | `financials.csv` | 190 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
 | `financials.csv` | 191 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
 | `financials.csv` | 192 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
 | `financials.csv` | 194 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] checked via web search 2026-11-05 |
 | `financials.csv` | 195 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
-| `financials.csv` | 196 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] market-platform revenue as originally reported |
 | `financials.csv` | 197 | FY2025 · FY · 2025-01-26 | S416;S443 | [recall] sum of quarters; matches '$102.2B' in 10-K |
 | `financials.csv` | 198 | FY2025 · FY · 2025-01-26 | S416;S443 | [recall] sum of quarters; matches '$13.0B, +51%' in 10-K |
 | `financials.csv` | 199 | FY2025 · FY · 2025-01-26 | S416;S2 | [recall] |
