@@ -781,3 +781,9 @@ GPU TDP from `system_specs.csv` / `gpu_product_specs.csv`, and PUE, electricity 
 all-in/IT power ratio (145/120 kW, SemiAnalysis) from `tco_model_inputs.csv`. `08-gpu-heat-flux-by-generation` divides
 `tdp_w` by `dies_per_package × die_area_mm2_per_die` in `gpu_product_specs.csv` (die areas for Blackwell and Rubin are
 estimates).
+
+### l09_rocm_lag.csv (one row per milestone pair)
+`capability,cuda_milestone,cuda_date,rocm_milestone,rocm_date,lag_days,confidence,source_id,notes`
+
+Days between a CUDA milestone and the matching ROCm milestone: platform 1.0 (month-level dates), FP4 toolkit support
+and usable serving of DeepSeek-V4-Pro (from the day-0 run). Feeds `09-rocm-lag-behind-cuda`.

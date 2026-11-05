@@ -96,7 +96,7 @@ def l07_bluefield_generations():
         id="07-bluefield-generations",
         title=(f"BlueField-4 carries {bf4.arm_cores:.0f} Arm cores, {bf4.arm_cores / bf3.arm_cores:.0f}× BlueField-3, "
                f"for {bf4.network_gbps / bf3.network_gbps:.0f}× the bandwidth ({bf4.network_gbps:.0f} Gb/s)"),
-        subtitle="Arm cores per DPU, network Gb/s per direction and cores per 100 Gb/s, BlueField-1 to BlueField-4; hatched = announced (2026)",
+        subtitle="Arm cores, network Gb/s per direction and cores per 100 Gb/s, BlueField-1 to -4; hatched = 2026 launch; * = NVIDIA claim",
         alt=("Three-panel bar chart of NVIDIA BlueField DPUs. Arm cores: BlueField-1 16 (Cortex-A72, 2018), BlueField-2 8 "
              "(A72, 2020), BlueField-3 16 (A78, 2022), BlueField-4 64 (Neoverse V2, Grace-class, 2026). Network bandwidth: "
              "100, 200, 400 and 800 Gb/s. Cores per 100 Gb/s: 16, 4, 4 and 8, so BlueField-4 doubles compute per bit, "
@@ -128,12 +128,11 @@ def l07_bluefield_generations():
         if g in claims:
             axes[0].text(xi, d.arm_cores.max() * 1.17, claims[g], ha="center", va="center", fontsize=7.6,
                          color=INK["muted"], style="italic")
-    for xi, ct in zip(x, d.core_type):
-        short = ct.replace("Arm ", "").replace(" (Grace-class)", "\n(Grace-class)")
-        axes[0].text(xi, 0.6, short, ha="center", va="bottom", fontsize=7.2, color="#FFFFFF" if xi == 3 else INK["title"],
-                     rotation=90)
-    c.note = "* NVIDIA claims, not independent benchmarks"
-    c.save(fig, list(axes), ylabel="Count / Gb/s", legend=False, top=0.80, bottom=0.16)
+    core_short = [ct.replace("Arm ", "").replace(" (Grace-class)", "") for ct in d.core_type]
+    axes[0].set_xticks(x, [f"{lab}\n{cs}" for lab, cs in zip(labels, core_short)], fontsize=8.4)
+    axes[1].set_ylabel("Gb/s per direction")
+    axes[2].set_ylabel("Arm cores per 100 Gb/s")
+    c.save(fig, list(axes), ylabel="Arm cores", legend=False, top=0.80, bottom=0.18)
 
 
 # --------------------------------------------------------------------------------------
@@ -164,14 +163,13 @@ def l07_infrastructure_tax_estimates():
             ax.barh(yi, h - l, left=l, color=col, height=0.5, zorder=2)
             ax.text(h + 0.6, yi, f"{l:.0f}–{h:.0f}%", va="center", fontsize=9.5, color=INK["title"])
         elif l == 0:
-            b = ax.barh(yi, h, color="white", edgecolor=col, height=0.5, zorder=2, linewidth=1.4)
-            b.patches[0].set_hatch("///")
+            ax.barh(yi, h, color=col, alpha=0.35, height=0.5, zorder=2, hatch="///", edgecolor=col, linewidth=1.2)
             ax.text(h + 0.6, yi, f"up to {h:.0f}%", va="center", fontsize=9.5, color=INK["title"])
         else:
             ax.barh(yi, h, color=col, height=0.5, zorder=2)
             ax.text(h + 0.6, yi, f"{h:.1f}%  ({cf:.0f} of {ct:.0f} cores)", va="center", fontsize=9.5, color=INK["title"])
     ax.set_yticks(y, d.estimate)
-    ax.set_xlim(0, 45)
+    ax.set_xlim(0, 62)
     ax.grid(axis="x")
     ax.grid(axis="y", visible=False)
     ax.legend(handles=[Patch(color=NV, label="NVIDIA (DPU vendor) test or claim"),
@@ -197,8 +195,8 @@ def l07_offload_value_per_tray():
     ]
     c = Chart(
         id="07-offload-value-per-tray",
-        title=(f"Est.: freed CPU cores are worth ~${o['hw_low'] / 1e3:.1f}–{o['hw_high'] / 1e3:.1f}K a year per Vera Rubin tray; "
-               f"1–3% more GPU time, ${o['gpu_low'] / 1e3:.1f}–{o['gpu_high'] / 1e3:.1f}K"),
+        title=(f"Est.: 1–3% more GPU time is worth ${o['gpu_low'] / 1e3:.1f}–{o['gpu_high'] / 1e3:.1f}K per tray a year; "
+               f"freed CPU cores ~${o['hw_low'] / 1e3:.1f}–{o['hw_high'] / 1e3:.1f}K"),
         subtitle="US$ per compute tray (4 Rubin GPUs, 2 Vera CPUs) per year, by source of DPU value; repo estimate from cited inputs",
         alt=(f"Range bar chart (estimates) of the annual value of DPU offload per Vera Rubin compute tray: freed host cores, "
              f"{o['freed_low']:.0f}-{o['freed_high']:.0f} of {o['cores']:.0f} Vera cores valued at about ${o['per_core']:.0f} per core "
@@ -207,9 +205,9 @@ def l07_offload_value_per_tray():
              f"${v['gpu_rental_price']:.2f} per hour is worth about ${o['gpu_low']:,.0f}-{o['gpu_high']:,.0f}. In AI servers the "
              f"DPU's value lies in GPU utilization and tenant isolation, not in CPU cycles."),
         data=[OFF], chapters=CH, source="Morgan Stanley via press (Vera price), NVIDIA, EIA, Lambda; repo model",
-        source_ids=sources_of(raw), note="Estimates; inputs in data/l07_offload_model.csv",
+        source_ids=sources_of(raw),
     )
-    fig, ax = c.figure(width=10.6, height=4.9)
+    fig, ax = c.figure(width=11.2, height=4.9)
     y = np.arange(len(rows))[::-1]
     for yi, (lab, lo, hi, col, how) in zip(y, rows):
         b = ax.barh(yi, hi - lo, left=lo, color=col, height=0.52, zorder=2, edgecolor=NV_DARK if col == NV else col)
@@ -226,49 +224,58 @@ def l07_offload_value_per_tray():
 
 
 # --------------------------------------------------------------------------------------
-# 4. Scale-out (NIC) bandwidth per accelerator by system
+# 4. Without GPUDirect: host-memory bandwidth needed to stage NIC traffic
 # --------------------------------------------------------------------------------------
+def bounce_load() -> pd.DataFrame:
+    """Share of host DRAM bandwidth that staging inbound NIC traffic would consume (write + read = 2x)."""
+    d = load(NIC)
+    d = d[d.host_cpu.notna()].copy()
+    cpu = load("cpu_specs.csv").set_index("product")
+    d["nic_gbs_unit"] = d.scale_out_gbps_per_accelerator * d.accelerators_per_unit / 8
+    d["host_bw_gbs"] = [cpu.loc[c, "memory_bw_gbs"] * n for c, n in zip(d.host_cpu, d.host_cpus_per_unit)]
+    d["bounce_gbs"] = 2 * d.nic_gbs_unit
+    d["share"] = d.bounce_gbs / d.host_bw_gbs * 100
+    d.attrs["cpu_sources"] = sources_of(cpu.loc[d.host_cpu.unique()].reset_index())
+    return d.sort_values("year").reset_index(drop=True)
+
+
 @register
-def l07_scale_out_bandwidth_per_gpu():
-    d = load(NIC).sort_values(["year", "scale_out_gbps_per_accelerator"]).reset_index(drop=True)
-    s = d.set_index("system")
-    first, vr, hel = s.loc["DGX-1 (V100)"], s.loc["Vera Rubin NVL72"], s.loc["AMD Helios (MI455X)"]
-    mult = vr.scale_out_gbps_per_accelerator / first.scale_out_gbps_per_accelerator
+def l07_gpudirect_host_memory_load():
+    d = bounce_load()
+    lo, hi = d.share.min(), d.share.max()
+    h100 = d.set_index("system").loc["DGX H100"]
     c = Chart(
-        id="07-scale-out-bandwidth-per-gpu",
-        title=(f"Scale-out bandwidth per GPU rose {mult:.0f}× from DGX-1 ({first.scale_out_gbps_per_accelerator:.0f} Gb/s) to "
-               f"Vera Rubin ({vr.scale_out_gbps_per_accelerator / 1000:.1f} Tb/s); AMD Helios offers "
-               f"{hel.scale_out_gbps_per_accelerator / 1000:.1f} Tb/s"),
-        subtitle="NIC bandwidth per accelerator for the back-end (scale-out) fabric, Gb/s per direction, by system and first-volume year",
-        alt=("Horizontal bar chart of scale-out NIC bandwidth per accelerator: DGX-1 V100 50 Gb/s (4 x 100G EDR for 8 GPUs, 2017), "
-             "DGX A100 200 (2020), DGX H100 400 (2022), AWS P5 400 (EFAv2, 2023), AWS Trn2 200 per Trainium2 (2024), GB200 NVL72 400 "
-             "(ConnectX-7, 2024), GB300 NVL72 800 (ConnectX-8, 2025), Vera Rubin NVL72 1,600 (ConnectX-9, 2026) and AMD Helios 2,400 "
-             "(three 800G Pensando Vulcano NICs per MI455X, 2026). NVIDIA moved to one NIC per GPU with DGX A100 and doubled per-GPU "
-             "bandwidth with each of the last two generations."),
-        data=[NIC], chapters=CH + ["06"], source="NVIDIA DGX/NVL72 specs, AWS EFA docs, AMD Helios", source_ids=sources_of(d),
+        id="07-gpudirect-host-memory-load",
+        title=f"Without GPUDirect, staging NIC data in CPU memory would use {lo:.0f}–{hi:.0f}% of its bandwidth",
+        subtitle="Inbound NIC data staged in host DRAM (written, then read = 2×) as % of host CPUs' peak memory bandwidth; one direction",
+        alt=("Bar chart (repo arithmetic): if inbound network data had to be staged in CPU memory before reaching the GPUs, each byte "
+             "would cross host DRAM twice. That would need 100 GB/s of a DGX-1's 154 GB/s (65%), 400 of a DGX A100's 410 GB/s (98%), "
+             "800 of a DGX H100's 614 GB/s (130%), 400 of a GB200 tray's 1,024 GB/s (39%), 800 of a GB300 tray's 1,024 (78%), "
+             "1,600 of a Vera Rubin tray's 2,400 (67%) and, for a whole AMD Helios rack, 43,200 of its 18 EPYC Venice CPUs' 28,800 GB/s (150%). "
+             "GPUDirect RDMA removes this traffic by letting the NIC write straight into GPU memory."),
+        data=[NIC, "cpu_specs.csv"], chapters=CH + ["04", "06"], source="NVIDIA, AMD system specs; CPU datasheets; repo arithmetic",
+        source_ids=sources_of(d) + [s for s in d.attrs["cpu_sources"] if s not in sources_of(d)] + ["S7000"],
     )
-    fig, ax = c.figure(width=10.6, height=5.8)
-    y = np.arange(len(d))[::-1]
-    cols = []
-    for r in d.itertuples():
-        if r.vendor == "NVIDIA":
-            cols.append(NV if r.year >= 2025 else GEN_PAST)
-        else:
-            cols.append(entity_color(r.vendor))
-    ax.barh(y, d.scale_out_gbps_per_accelerator, color=cols, height=0.62, zorder=2)
-    for yi, r in zip(y, d.itertuples()):
-        nic = r.nic if pd.isna(r.nics_per_accelerator) else (f"{r.nics_per_accelerator:g} × {r.nic}" if r.nics_per_accelerator != 1 else r.nic)
-        ax.text(r.scale_out_gbps_per_accelerator + 25, yi, f"{r.scale_out_gbps_per_accelerator:,.0f}  ·  {nic}", va="center",
-                fontsize=8.6, color=INK["title"])
-    ax.set_yticks(y, [f"{r.system} ({r.year})" for r in d.itertuples()])
-    ax.set_xlim(0, d.scale_out_gbps_per_accelerator.max() * 1.62)
-    ax.grid(axis="x")
-    ax.grid(axis="y", visible=False)
-    ax.legend(handles=[Patch(color=GEN_PAST, label="NVIDIA, earlier generations"), Patch(color=NV, label="NVIDIA, 2025–26"),
-                       Patch(color=entity_color("AWS"), label="AWS (EFA / Nitro)"), Patch(color=entity_color("AMD"), label="AMD")],
-              loc="lower right", fontsize=8.4)
-    _left_margin(fig, 0.24)
-    c.save(fig, ax, xlabel="Scale-out bandwidth per accelerator, Gb/s per direction", legend=False, top=0.82)
+    fig, ax = c.figure(width=11.2, height=5.6)
+    x = np.arange(len(d))
+    cols = [entity_color(v) if v != "NVIDIA" else (NV if y >= 2024 else GEN_PAST) for v, y in zip(d.vendor, d.year)]
+    ax.bar(x, d.share, color=cols, width=0.62, zorder=2)
+    ax.axhline(100, color=entity_color("AMD"), lw=1.3, ls="--", zorder=3)
+    ax.text(3.5, 103, "100% = all of the host's memory bandwidth", ha="center", va="bottom", fontsize=8.6,
+            color=entity_color("AMD"))
+    for xi, r in zip(x, d.itertuples()):
+        ax.text(xi, r.share + 3, f"{r.share:.0f}%", ha="center", va="bottom", fontsize=10, color=INK["title"], fontweight="bold")
+        ax.text(xi, r.share / 2, f"{r.bounce_gbs:,.0f}\nof\n{r.host_bw_gbs:,.0f}\nGB/s", ha="center", va="center", fontsize=7.8,
+                color="#FFFFFF" if (r.share > 45 and not (r.vendor == "NVIDIA" and r.year < 2024)) else INK["title"])
+    short = {"Xeon E5-2698 v4 (Broadwell-EP)": "Xeon E5", "EPYC 7742 (Rome)": "EPYC Rome", "Grace": "Grace", "Vera": "Vera",
+             "Xeon Platinum 8480+ (Sapphire Rapids)": "Xeon SPR", "EPYC Venice (Zen 6)": "EPYC Venice"}
+    labels = [f"{r.system.replace(' (V100)', '').replace(' (MI455X)', '')}\n{r.accelerators_per_unit:.0f} GPU : "
+              f"{r.host_cpus_per_unit:.0f} {short[r.host_cpu]}" for r in d.itertuples()]
+    ax.set_xticks(x, labels, fontsize=8.4)
+    ax.set_ylim(0, max(170, d.share.max() * 1.18))
+    ax.legend(handles=[Patch(color=GEN_PAST, label="NVIDIA, x86 host"), Patch(color=NV, label="NVIDIA, Grace/Vera host"),
+                       Patch(color=entity_color("AMD"), label="AMD Helios")], loc="upper left", fontsize=8.6)
+    c.save(fig, ax, ylabel="% of host peak memory bandwidth", legend=False, top=0.80, bottom=0.2)
 
 
 # --------------------------------------------------------------------------------------
@@ -282,7 +289,7 @@ def l07_gds_bandwidth_dgx2():
         id="07-gds-bandwidth-dgx2",
         title=(f"Bypassing the CPU lifted a DGX-2's storage-to-GPU ceiling from ~{base.bandwidth_gbs:.0f} GB/s "
                f"to {d.bandwidth_gbs.iloc[2]:.0f}–{d.bandwidth_gbs.max():.0f} GB/s"),
-        subtitle="Aggregate bandwidth into the GPUs of one DGX-2 (16 V100) by data path, GB/s; NVIDIA measurements (2019–20); hatched = theoretical sum",
+        subtitle="GB/s into the 16 V100 GPUs of one DGX-2, by data path; NVIDIA measurements (2019–20); hatched = theoretical sum",
         alt=("Horizontal bar chart of storage-to-GPU bandwidth in an NVIDIA DGX-2: the classic path through a CPU bounce buffer in "
              "system memory tops out at about 50 GB/s; with GPUDirect Storage, local NVMe drives deliver 53+ GB/s, remote storage "
              "via the NICs 100 GB/s or more, RAID cards in eight PCIe slots 112 GB/s, and all sources together a theoretical "
@@ -298,11 +305,11 @@ def l07_gds_bandwidth_dgx2():
     for yi, v in zip(y, d.bandwidth_gbs):
         ax.text(v + 3, yi, f"{v:.0f} GB/s  ({v / base.bandwidth_gbs:.1f}×)", va="center", fontsize=9.3, color=INK["title"])
     ax.set_yticks(y, d.path)
-    ax.set_xlim(0, d.bandwidth_gbs.max() * 1.3)
+    ax.set_xlim(0, d.bandwidth_gbs.max() * 1.42)
     ax.grid(axis="x")
     ax.grid(axis="y", visible=False)
     ax.legend(handles=[Patch(color=GRAY, label="Without GPUDirect Storage"), Patch(color=NV, label="With GPUDirect Storage")],
-              loc="lower right", fontsize=8.6)
+              loc="upper right", fontsize=8.6)
     _left_margin(fig, 0.33)
     c.save(fig, ax, xlabel="GB/s into GPU memory (one DGX-2)", legend=False, top=0.80, bottom=0.17)
 
@@ -321,8 +328,8 @@ def l07_checkpoint_write_time():
     t100, t7k = ll * 1000 / r.iloc[0], ll * 1000 / r.iloc[2]
     c = Chart(
         id="07-checkpoint-write-time",
-        title=f"A 405B model's {ll:.1f} TB training checkpoint takes ~{t100:.0f} s at 100 GB/s and {t7k:.1f} s at Meta's 7 TB/s",
-        subtitle=f"Seconds to write one full checkpoint (weights + FP32 master + Adam states = {bpp:.0f} bytes/parameter) vs aggregate storage bandwidth",
+        title=f"A 405B model's {ll:.1f} TB checkpoint takes ~{t100:.0f} s at 100 GB/s, {t7k:.1f} s at Meta's 7 TB/s",
+        subtitle=f"Seconds to write one full training checkpoint ({bpp:.0f} bytes/parameter) vs aggregate storage bandwidth",
         alt=(f"Log-log line chart of checkpoint write time against storage bandwidth for four model sizes at {bpp:.0f} bytes per "
              f"parameter: Llama 3.1 70B (~0.98 TB), Llama 3.1 405B (~{ll:.1f} TB), DeepSeek-V3 671B (~9.4 TB) and a 1-trillion-parameter "
              f"model (14 TB). At 100 GB/s, the line rate of one BlueField-4 port, the 405B checkpoint takes about {t100:.0f} seconds; "
@@ -337,10 +344,8 @@ def l07_checkpoint_write_time():
     for _, m in models.iterrows():
         tb = float(m.value) * 1e9 * bpp / 1e12
         ls = "--" if "illustrative" in m["item"] else "-"
-        ax.plot(bw, tb * 1000 / bw, color=shades[m["item"]], lw=2.6 if "405B" in m["item"] else 2, ls=ls, zorder=3)
-        ax.annotate(f"{m['item'].replace(' (illustrative)', '')} · {tb:.1f} TB", (bw[0], tb * 1000 / bw[0]),
-                    xytext=(4, 4), textcoords="offset points", fontsize=8.6, color=shades[m["item"]] if "405B" not in m["item"] else NV_DARK,
-                    fontweight="bold")
+        ax.plot(bw, tb * 1000 / bw, color=shades[m["item"]], lw=2.6 if "405B" in m["item"] else 2, ls=ls, zorder=3,
+                label=f"{m['item']} · {tb:.1f} TB")
     for name, val in r.items():
         ax.axvline(val, color=INK["base"], lw=1, ls=":", zorder=1)
         short = {"One BlueField-4 link (800 Gb/s)": "1 BlueField-4 port\n100 GB/s",
@@ -356,6 +361,9 @@ def l07_checkpoint_write_time():
     ax.set_xlim(10, 20000)
     ax.set_ylim(0.03, 4000)
     ax.grid(axis="x", which="major")
+    h, lab = ax.get_legend_handles_labels()
+    ax.legend(h[::-1], lab[::-1], loc="lower left", fontsize=8.6, title="Checkpoint size (weights + FP32 master + Adam)",
+              title_fontsize=8.6)
     c.save(fig, ax, xlabel="Aggregate storage write bandwidth, GB/s (log scale)", ylabel="Seconds per checkpoint",
            logy=True, legend=False)
 
@@ -375,9 +383,9 @@ def l07_kv_cache_reload_by_tier():
         return f"{t * 1000:.1f} ms" if t < 0.1 else (f"{t * 1000:.0f} ms" if t < 1 else f"{t:.1f} s")
     c = Chart(
         id="07-kv-cache-reload-by-tier",
-        title=(f"Reloading a 128K-token 70B context: {fmt(s['G1'])} from HBM, ~{fmt(s['G3.5'])} from BlueField-4 flash, "
-               f"~{s['recompute']:.0f} s to recompute"),
-        subtitle=f"Time to move one {size:.1f} GB FP8 KV cache (Llama 3.1 70B, 131,072 tokens) into a Rubin GPU, by tier (G1–G4); log scale",
+        title=(f"128K-token 70B context: {fmt(s['G1'])} from HBM, {s['G3.5']:.1f} s from BlueField-4 flash, "
+               f"{s['recompute']:.1f} s to recompute"),
+        subtitle=f"Time to move a {size:.1f} GB FP8 KV cache (Llama 3.1 70B, 131,072 tokens) into a Rubin GPU, by tier",
         alt=(f"Log-scale horizontal bar chart of the time to restore a {size:.1f} GB KV cache (Llama 3.1 70B, 128K tokens, FP8): "
              f"G1 HBM4 at 19.2 TB/s about {fmt(s['G1'])}; G2 Vera LPDDR5X over NVLink-C2C at ~450 GB/s about {fmt(s['G2'])}; "
              f"G3.5 BlueField-4 context-memory storage over an 800 Gb/s link about {fmt(s['G3.5'])}; G3 one local PCIe Gen5 x4 SSD "
@@ -385,9 +393,9 @@ def l07_kv_cache_reload_by_tier():
              f"(estimate); and a per-GPU share of Meta's 7 TB/s Llama 3 storage cluster about {s['G4']:.0f} s. The G3.5 tier is "
              f"~{s['recompute'] / s['G3.5']:.0f}x faster than recomputing."),
         data=[KV], chapters=CH + ["11", "03"], source="NVIDIA (Rubin, Vera, BlueField-4), Meta (Llama 3), PCI-SIG; repo arithmetic",
-        source_ids=sources_of(d), note="Recompute = Est. (2·params·tokens + causal attention FLOPs)",
+        source_ids=sources_of(d),
     )
-    fig, ax = c.figure(width=10.6, height=5.4)
+    fig, ax = c.figure(width=11.6, height=5.4)
     y = np.arange(len(d))[::-1]
     cols = [NV if t in ("G1", "G2", "G3.5") else (GRAY if t == "recompute" else GEN_PAST) for t in d.tier]
     bars = ax.barh(y, d.seconds, color=cols, height=0.6, zorder=2)
@@ -396,12 +404,15 @@ def l07_kv_cache_reload_by_tier():
             b.set_hatch("///")
     for yi, (t, sec) in zip(y, zip(d.tier, d.seconds)):
         ax.text(sec * 1.25, yi, fmt(sec), va="center", fontsize=9.5, color=INK["title"], fontweight="bold")
-    ax.set_yticks(y, [f"{t} · {lab}" if t != "recompute" else lab for t, lab in zip(d.tier, d.label)])
+    short = {"G3.5": "BlueField-4 context storage (800G link)", "G4": "Shared storage, per-GPU share (Llama 3)",
+             "G2": "Vera LPDDR5X via NVLink-C2C"}
+    ax.set_yticks(y, [f"{t} · {short.get(t, lab)}" if t != "recompute" else "Recompute the prefill (Est., 50% of FP8 peak)"
+                      for t, lab in zip(d.tier, d.label)])
     ax.set_xscale("log")
     ax.set_xlim(5e-4, 600)
     ax.grid(axis="x", which="major")
     ax.grid(axis="y", visible=False)
-    _left_margin(fig, 0.36)
+    _left_margin(fig, 0.34)
     c.save(fig, ax, xlabel="Seconds to restore the context", logx=True, legend=False, top=0.82)
 
 
@@ -418,7 +429,7 @@ def l07_confidential_computing_overhead():
     ttft = d[d.metric.str.startswith("time")].overhead_pct.iloc[0]
     c = Chart(
         id="07-confidential-computing-overhead",
-        title=f"Confidential mode cost an H100 {t8:.1f}% of throughput on an 8B model and ~0% on a 70B model",
+        title=f"Confidential mode cost an H100 {t8:.2f}% of throughput on an 8B model, ~0% on 70B",
         subtitle="Performance overhead of running an LLM inside an H100 TEE vs normal mode, %; one published benchmark (2024)",
         alt=(f"Bar chart of H100 confidential-computing overhead from a 2024 benchmark: throughput overhead {t8:.2f}% for "
              f"Llama-3.1-8B, 4.58% for Phi-3-14B and {t70:.2f}% (about zero) for Llama-3.1-70B; time-to-first-token overhead "
@@ -431,7 +442,7 @@ def l07_confidential_computing_overhead():
     cols = [NV if "throughput" in m else GEN_PAST for m in d.metric]
     ax.bar(x, d.ov, color=cols, width=0.58, zorder=2, edgecolor=NV_DARK, linewidth=0.6)
     for xi, (v, raw) in enumerate(zip(d.ov, d.overhead_pct)):
-        lab = f"{raw:.2f}%" if abs(raw) < 1 else f"{raw:.1f}%"
+        lab = f"{raw:.2f}%"
         if raw < 0:
             lab += "\n(≈0, noise)"
         ax.text(xi, v + 0.4, lab, ha="center", va="bottom", fontsize=9.8, color=INK["title"], fontweight="bold")

@@ -124,8 +124,8 @@ def dpu_nic_deal_values():
     lo, hi = others.value_usd_m.min(), others.value_usd_m.max()
     c = Chart(
         id="07-dpu-nic-deal-values",
-        title=(f"DPU and NIC teams sold for ${lo/1000:.2f}B–${hi/1000:.1f}B; NVIDIA paid ${mel/1000:.1f}B for all of "
-               f"Mellanox ({mel/pen:.1f}× Pensando)"),
+        title=(f"NIC/DPU teams sold for ${lo/1000:.2f}–{hi/1000:.1f}B; NVIDIA paid ${mel/1000:.1f}B "
+               f"({mel/pen:.1f}× Pensando) for all of Mellanox"),
         subtitle="Disclosed or reported deal value, US$ millions (log scale), NIC/DPU-related acquisitions 2014–2025, by close year",
         alt=(f"Log-scale horizontal bar chart of NIC and DPU deals: NVIDIA's ${mel:,.0f}M Mellanox acquisition (closed 2020), AMD's "
              f"${pen:,.0f}M Pensando purchase (2022), NVIDIA's reported >$900M Enfabrica team-and-licence deal (2025), Mellanox's "
@@ -146,7 +146,8 @@ def dpu_nic_deal_values():
         if r.value_basis in ("reported", "up-to"):
             bar.patches[0].set_hatch("///")
             bar.patches[0].set_alpha(0.8)
-        txt = f"${r.value_usd_m/1000:.1f}B" if r.value_usd_m >= 1000 else f"~${r.value_usd_m:,.0f}M"
+        tilde = "~" if r.value_basis == "reported" else ""
+        txt = f"${r.value_usd_m/1000:.1f}B" if r.value_usd_m >= 1000 else f"{tilde}${r.value_usd_m:,.0f}M"
         if r.value_basis == "up-to":
             txt = f"up to ${r.value_usd_m:,.0f}M"
         if r.target.startswith("Enfabrica"):
@@ -195,33 +196,41 @@ def nic_speed_tier_arrival():
              "reached 400G in 2025; Xsight Labs' E1 DPU 800G in 2026; Intel's IPU E2100 sits at 200G (2022). No rival has "
              "announced a 1.6T NIC as of 2026-11."),
         data=[TIERS], chapters=["07", "15", "17"], source="vendor announcements and AWS documentation",
-        source_ids=sources_of(d), note="Hollow = sampling, not volume",
+        source_ids=sources_of(d), note="Hollow = sampling",
     )
     fig, ax = c.figure(width=10.5, height=5.6)
     tiers = [200, 400, 800, 1600]
-    offs = {v: (i - (len(TIER_VENDORS) - 1) / 2) * 0.11 for i, v in enumerate(TIER_VENDORS)}
     mk = {"NVIDIA": "o", "AMD": "D", "Broadcom": "s", "AWS": "P", "Xsight Labs": "v", "Intel": "^"}
+    seen: dict = {}
     for v in TIER_VENDORS:
         s = d[d.vendor.eq(v)]
         col = entity_color(v) if v != "Xsight Labs" else entity_color("startups")
         for r in s.itertuples():
-            yi = tiers.index(r.speed_tier_gbps) + offs[v]
+            key = (r.year, r.speed_tier_gbps)
+            k = seen.get(key, 0)
+            seen[key] = k + 1
+            yi = tiers.index(r.speed_tier_gbps) + (0 if k == 0 else (-0.2 if k == 1 else 0.2))
             samp = r.status == "sampling"
-            ax.scatter(r.year, yi, s=140 if v == "NVIDIA" else 110, marker=mk[v], facecolor="white" if samp else col,
+            ax.scatter(r.year, yi, s=150 if v == "NVIDIA" else 115, marker=mk[v], facecolor="white" if samp else col,
                        edgecolor=col, linewidth=2.2, zorder=5 if v == "NVIDIA" else 3)
             ax.annotate(r.product.replace("Pensando ", "").replace(" SuperNIC", "").replace(" (per card)", ""),
-                        (r.year, yi), xytext=(9, 0), textcoords="offset points", va="center", fontsize=8.2,
+                        (r.year, yi), xytext=(10, 0), textcoords="offset points", va="center", fontsize=8.4,
                         color=INK["title"], fontweight="bold" if v == "NVIDIA" else "normal")
         ax.scatter([], [], s=90, marker=mk[v], color=col, label=TIER_LABEL[v])
     for t in (400, 800):
         y0 = tiers.index(t)
         lag = riv[riv.speed_tier_gbps.eq(t)].lag
-        ax.annotate(f"rivals +{lag.min():.0f} to +{lag.max():.0f} yr", (nv[t], y0 - 0.38), fontsize=8.4,
-                    color=INK["text"], style="italic", ha="left")
-    ax.annotate("no rival 1.6T NIC announced", (2026.15, 3 - 0.36), fontsize=8.4, color=INK["text"], style="italic")
+        x1 = nv[t] + lag.max()
+        if lag.max() > 0:
+            ax.annotate("", xy=(x1 - 0.08, y0 + 0.33), xytext=(nv[t], y0 + 0.33),
+                        arrowprops=dict(arrowstyle="->", color=INK["text"], lw=1.3))
+        rng = f"+{lag.max():.0f} yr" if lag.min() == lag.max() else f"+{lag.min():.0f} to +{lag.max():.0f} yr"
+        ax.text((nv[t] + x1) / 2 if lag.max() > 0 else nv[t], y0 + 0.43, f"rivals {rng}", fontsize=8.6,
+                color=INK["text"], style="italic", ha="center")
+    ax.text(2026, 3.43, "no rival 1.6T NIC announced", fontsize=8.6, color=INK["text"], style="italic", ha="center")
     ax.set_yticks(range(len(tiers)), ["200G", "400G", "800G", "1.6T"])
-    ax.set_ylim(-0.6, 3.6)
-    ax.set_xlim(2021.5, 2027.6)
+    ax.set_ylim(-0.6, 3.75)
+    ax.set_xlim(2021.5, 2027.4)
     ax.set_xticks(range(2022, 2028))
     ax.grid(axis="x")
     ax.grid(axis="y", visible=False)
@@ -250,8 +259,7 @@ def nic_dpu_roadmap_by_vendor():
     named_2028 = d[d.date.str.startswith("2028")].vendor.unique().tolist()
     c = Chart(
         id="07-nic-dpu-roadmap-by-vendor",
-        title=(f"Only {' and '.join(named_2028)} name NIC/DPU parts for 2028; NVIDIA's 1.6T ConnectX-9 is a speed step "
-               "ahead of 800G rivals"),
+        title=f"Only {' and '.join(named_2028)} name NIC/DPU parts for 2028; ConnectX-9 is a speed step ahead",
         subtitle="NIC, SuperNIC and DPU availability by vendor, 2024–2028; label = product · Gb/s per device; hollow = announced, sampling or roadmap",
         alt=("Timeline chart of NIC and DPU products 2024-2028 by vendor lane. NVIDIA: BlueField-3 (400G), ConnectX-8 (800G, "
              "2025), ConnectX-9 (1.6T, 2026), BlueField-4 (800G, 2026), ConnectX-10 and BlueField-5 (2028, no specs). AMD: "
@@ -270,27 +278,31 @@ def nic_dpu_roadmap_by_vendor():
             s = s[~s.category.eq("supernic")]
         col = entity_color(vendor) if vendor != "Xsight Labs" else entity_color("startups")
         ax.axhline(i, color=INK["grid"], lw=0.8, zorder=0)
+        prev_t, prev_up = -99.0, False
         for k, r in enumerate(s.sort_values("t").itertuples()):
             future = r.status != "shipping"
             ax.scatter(r.t, i, s=150 if vendor == "NVIDIA" else 120, marker="o", facecolor="white" if future else col,
-                       edgecolor=col, linewidth=2.2, zorder=4, hatch="////" if r.status == "roadmap" else None)
+                       edgecolor=col, linewidth=2.2, zorder=4, linestyle=(0, (2, 1.5)) if r.status == "roadmap" else "-")
             bwl = f"{r.bandwidth_gbps/1000:.1f}T" if pd.notna(r.bandwidth_gbps) and r.bandwidth_gbps >= 1000 else (
                 f"{r.bandwidth_gbps:.0f}G" if pd.notna(r.bandwidth_gbps) else "spec n/d")
             lab_txt = f"{SHORTP.get(r.product, r.product)} · {bwl}"
-            dy = 12 if k % 2 == 0 else -13
+            up = not (r.t - prev_t < 0.6 and prev_up)
+            dy = 12 if up else -13
+            prev_t, prev_up = r.t, up
             ax.annotate(lab_txt, (r.t, i), xytext=(0, dy), textcoords="offset points", ha="center", va="center",
                         fontsize=8.1, color=INK["title"], fontweight="bold" if vendor == "NVIDIA" else "normal")
     ax.axvline(_ym("2026-11"), color=INK["text"], lw=1, ls=":")
-    ax.text(_ym("2026-11") + 0.04, len(LANES) - 0.45, "as of\n2026-11", fontsize=8, color=INK["text"], va="top")
+    ax.text(_ym("2026-11") + 0.04, -0.55, "as of 2026-11", fontsize=8, color=INK["text"], va="center")
     ax.set_yticks(range(len(LANES)), [lab for _, _, lab in LANES])
-    ax.set_ylim(len(LANES) - 0.4, -0.7)
+    ax.set_ylim(len(LANES) - 0.4, -0.8)
     ax.set_xlim(2023.7, 2029.0)
     ax.set_xticks(range(2024, 2029))
     ax.grid(False)
     ax.scatter([], [], s=110, color=INK["text"], label="shipping")
     ax.scatter([], [], s=110, facecolor="white", edgecolor=INK["text"], linewidth=2, label="announced / sampling")
-    ax.scatter([], [], s=110, facecolor="white", edgecolor=INK["text"], linewidth=2, hatch="////", label="roadmap (no specs)")
-    ax.legend(loc="lower left", fontsize=8.6, ncol=3)
+    ax.scatter([], [], s=110, facecolor="white", edgecolor=INK["text"], linewidth=2, linestyle=(0, (2, 1.5)),
+               label="roadmap (dashed)")
+    ax.legend(loc="lower right", fontsize=8.6, ncol=1)
     _margins(fig, left=0.14, right=0.98)
     c.save(fig, ax, xlabel="Availability (calendar year)", legend=False)
 
@@ -312,17 +324,16 @@ def nic_dpu_content_per_rack():
     vr = tot.loc["Vera Rubin NVL72"]
     c = Chart(
         id="07-nic-dpu-content-per-rack",
-        title=(f"Est.: SuperNICs and DPUs add ~${tot.lo.min():.0f}K–${tot.hi.max():.0f}K per NVL72 rack, only "
-               f"~{tot.pct_lo.min():.0f}–{tot.pct_hi.max():.0f}% of rack price"),
-        subtitle=("Estimated NIC + DPU silicon per rack, US$ thousands (bar = midpoint, whisker = low–high case); "
-                  "72 SuperNICs per rack (1 per GPU) and 18–36 DPUs"),
+        title=(f"Est.: NICs + DPUs are ~${tot.lo.min()/1000:.1f}–{tot.hi.max()/1000:.1f}M per NVL72 rack, "
+               f"~{tot.pct_lo.min():.0f}–{tot.pct_hi.max():.0f}% of its price"),
+        subtitle="Est. SuperNIC + DPU silicon per rack, US$ thousands; bar = midpoint, whisker = low–high; 72 SuperNICs + 18–36 DPUs",
         alt=(f"Stacked bar chart of estimated SuperNIC and DPU content per NVL72 rack: GB200 about ${tot.lo.iloc[0]:.0f}K-"
              f"${tot.hi.iloc[0]:.0f}K ({tot.pct_lo.iloc[0]:.1f}-{tot.pct_hi.iloc[0]:.1f}% of a ~$3.0M rack), GB300 "
              f"${tot.lo.iloc[1]:.0f}K-${tot.hi.iloc[1]:.0f}K ({tot.pct_lo.iloc[1]:.1f}-{tot.pct_hi.iloc[1]:.1f}% of ~$3.99M) and "
              f"Vera Rubin ${vr.lo:.0f}K-${vr.hi:.0f}K ({vr.pct_lo:.1f}-{vr.pct_hi:.1f}% of ~$7.8M). Unit prices are repo "
              "assumptions anchored on BlueField-3 retail listings of $1.9K-$6.0K; NIC count is one per GPU."),
-        data=[RACK], chapters=["07", "08", "14"], source="repo estimate; rack prices HSBC and Morgan Stanley; retail listings",
-        source_ids=sources_of(d), note="Est. (repo, speculative): hatched",
+        data=[RACK], chapters=["07", "08", "14"], source="repo Est.; HSBC, Morgan Stanley, listings",
+        source_ids=sources_of(d), note="Est. (repo)",
     )
     fig, ax = c.figure(width=10.2, height=5.8)
     x = np.arange(len(racks))
@@ -335,7 +346,7 @@ def nic_dpu_content_per_rack():
     ax.errorbar(x, tot.mid.values, yerr=[tot.mid - tot.lo, tot.hi - tot.mid], fmt="none", ecolor=INK["title"],
                 capsize=6, lw=1.4)
     for xi, r in zip(x, tot.itertuples()):
-        ax.annotate(f"${r.lo:.0f}K–${r.hi:.0f}K\n{r.pct_lo:.1f}–{r.pct_hi:.1f}% of ~${r.price:.2g}M rack",
+        ax.annotate(f"${r.lo:.0f}K–${r.hi:.0f}K\n{r.pct_lo:.1f}–{r.pct_hi:.1f}% of ~${r.price:g}M rack",
                     (xi, r.hi), xytext=(0, 8), textcoords="offset points", ha="center", fontsize=8.8, color=INK["title"])
     ax.set_xticks(x, racks)
     ax.set_ylim(0, max(tot.hi) * 1.35)
@@ -356,8 +367,8 @@ def ai_storage_and_dpu_valuations():
     show = pd.concat([priv.sort_values("valuation_usd_m", ascending=False), exits.sort_values("valuation_usd_m", ascending=False)])
     c = Chart(
         id="07-ai-storage-and-dpu-valuations",
-        title=(f"VAST Data's ${v['VAST Data']/1000:.0f}B mark is ~{v['VAST Data']/v['DDN']:.0f}× DDN's and "
-               f"~{v['VAST Data']/v['WEKA']:.0f}× WEKA's; DPU startups exited for $0.2–1.9B"),
+        title=(f"VAST Data's ${v['VAST Data']/1000:.0f}B mark is ~{v['VAST Data']/v['DDN']:.0f}× DDN's, "
+               f"~{v['VAST Data']/v['WEKA']:.0f}× WEKA's; DPU exits were $0.2–1.9B"),
         subtitle="Last disclosed post-money valuation (private) or exit price (acquired), US$ millions (log scale); year of the mark in label",
         alt=(f"Log-scale horizontal bar chart: VAST Data valued at ${v['VAST Data']:,.0f}M (2026, up from "
              f"${first_vast.valuation_usd_m:,.0f}M in 2023), DDN ${v['DDN']:,.0f}M (2025), Xsight Labs ${v['Xsight Labs']:,.0f}M "
@@ -365,7 +376,7 @@ def ai_storage_and_dpu_valuations():
              "DPU and NIC start-ups were bought for $1,900M (Pensando by AMD), >$900M (Enfabrica team by NVIDIA) and ~$190M "
              "(Fungible by Microsoft)."),
         data=[PRIV], chapters=["07", "13"], source="company releases and press", source_ids=sources_of(d),
-        note="Marks are from different dates; hatched = exit price",
+        note="Hatched = exit price",
     )
     fig, ax = c.figure(width=10.5, height=5.8)
     show = show.iloc[::-1].reset_index(drop=True)

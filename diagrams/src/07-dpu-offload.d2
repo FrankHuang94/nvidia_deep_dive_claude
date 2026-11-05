@@ -1,0 +1,78 @@
+# Layer 07: what a DPU takes off the host - a GPU server without a DPU vs with a BlueField DPU.
+# Original drawing from public descriptions (NVIDIA BlueField/DOCA documentation and white papers); not traced from vendor art.
+
+title: "What a DPU offloads: infrastructure software moves off the host CPU onto the BlueField" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+grid-columns: 2
+grid-gap: 90
+
+without: "A · Without a DPU (plain NIC)" {
+  style.fill: "#F3F3F1"
+  style.stroke: "#898781"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 34
+
+  host: "Host CPU cores" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#898781"
+    style.font-size: 17
+    grid-columns: 2
+    grid-gap: 20
+    apps: "Tenant / AI work\ndata loading, serving,\nagent tools\n~67-81% of cores" {width: 230; style.fill: "#A9CC73"; style.stroke: "#3F6B00"; style.font-size: 15}
+    infra: "Infrastructure tax\n~19-33% of cores\nvirtual switch, overlays,\nfirewall, IPsec/TLS,\nNVMe-oF initiator,\ntelemetry, provider agents" {width: 260; style.fill: "#F4C7C3"; style.stroke: "#C4314B"; style.font-size: 14}
+  }
+  nic: "Plain NIC\n(moves packets; little else)" {width: 520; style.fill: "#FFFFFF"; style.stroke: "#898781"; style.font-size: 16}
+  net: "Network and storage fabric\n(Ethernet / InfiniBand, NVMe-oF targets, object stores)" {width: 520; style.fill: "#FFFFFF"; style.stroke: "#52514E"; style.font-size: 15}
+  risk: "Provider's control plane runs on a host the tenant can reach:\nweak isolation for bare-metal GPU clouds" {
+    shape: text
+    style.font-size: 15
+    style.italic: true
+    style.font-color: "#C4314B"
+  }
+}
+
+with: "B · With a BlueField DPU (or SuperNIC + DPU)" {
+  style.fill: "#EEF5E3"
+  style.stroke: "#5F9E00"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 34
+
+  host: "Host CPU cores" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#5F9E00"
+    style.font-size: 17
+    apps: "Tenant / AI work gets ~100% of cores\n(tenant may own the whole OS: bare metal)" {width: 520; style.fill: "#5F9E00"; style.stroke: "#3F6B00"; style.font-size: 15; style.font-color: "#FFFFFF"; style.bold: true}
+  }
+  dpu: "BlueField DPU = NIC + Arm cores + accelerators (DOCA software)" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#3F6B00"
+    style.stroke-width: 3
+    style.font-size: 16
+    grid-columns: 3
+    grid-gap: 14
+    net: "Networking\nOVS virtual switch,\nVXLAN overlays,\nRoCE congestion ctl" {width: 160; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 13}
+    sto: "Storage\nNVMe-oF, NVMe\nemulation to host,\nKV-cache placement" {width: 160; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 13}
+    sec: "Security\ninline IPsec/TLS/\nMACsec crypto,\nstateful firewall" {width: 160; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 13}
+    ten: "Multi-tenancy\nisolated control plane,\nbare-metal provisioning,\nroot of trust" {width: 160; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 13}
+    tel: "Telemetry\nflow and congestion\nmonitoring at\nline rate" {width: 160; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 13}
+    gen: "BF-3: 16 Arm A78\n400 Gb/s\nBF-4: 64 Neov. V2\n128 GB, 800 Gb/s" {width: 160; style.fill: "#5F9E00"; style.stroke: "#3F6B00"; style.font-size: 13; style.font-color: "#FFFFFF"}
+  }
+  net: "Network and storage fabric\n(Spectrum-X / InfiniBand, NVMe-oF targets, object stores)" {width: 520; style.fill: "#FFFFFF"; style.stroke: "#52514E"; style.font-size: 15}
+  note: "Provider's software runs on the DPU, out of the tenant's reach;\nGPUs receive data directly (GPUDirect RDMA / Storage)" {
+    shape: text
+    style.font-size: 15
+    style.italic: true
+  }
+}
+
+without.host.infra -> without.nic: "every packet and I/O\ncrosses host cores" {style.stroke: "#C4314B"; style.font-size: 13}
+with.host.apps -> with.dpu: "PCIe" {style.stroke: "#3F6B00"; style.font-size: 13}
+without.nic -> without.net: "" {style.stroke: "#898781"}
+with.dpu -> with.net: "400-800 Gb/s per DPU" {style.stroke: "#3F6B00"; style.stroke-width: 3; style.font-size: 13}

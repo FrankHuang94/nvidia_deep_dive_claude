@@ -5699,6 +5699,33 @@
     "html": "assets/interactive/09-moat-strength-by-segment.html"
   },
   {
+    "id": "09-rocm-lag-behind-cuda",
+    "title": "ROCm's lag behind CUDA fell from ~9 years to ~8 months to 26 days",
+    "subtitle": "Days between a CUDA milestone and the matching ROCm milestone, three successive eras",
+    "alt": "Horizontal log-scale bar chart of how far AMD ROCm trailed NVIDIA CUDA: platform 1.0 came 3,227 days (about 8.8 years) later (June 2007 vs April 2016); FP4 support came 236 days (about 8 months) later (CUDA 12.8 in January 2025 vs ROCm 7.0 in September 2025); usable serving of DeepSeek-V4-Pro came 26 days after CUDA's day-0 recipes (April to May 2026). Each gap is roughly ten times shorter than the last, but a gap still recurs with every new model.",
+    "data": [
+      "l09_rocm_lag.csv"
+    ],
+    "chapters": [
+      "09",
+      "15",
+      "17"
+    ],
+    "source": "CUDA/ROCm release histories; SemiAnalysis InferenceX",
+    "source_ids": [
+      "S525",
+      "S586",
+      "S524",
+      "S90064",
+      "S633",
+      "S631"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-rocm-lag-behind-cuda.svg",
+    "html": null
+  },
+  {
     "id": "09-software-deal-values",
     "title": "Qualcomm's ~$3.9B for Modular: 5.6× Run:ai, 2.4× Modular's 2025 valuation",
     "subtitle": "Disclosed or reported prices of AI-software acquisitions, US$ M; gray = Modular funding reference points",
@@ -5785,6 +5812,252 @@
     "html": null
   },
   {
+    "id": "10-cuda-x-library-timeline",
+    "title": "18 of 29 major CUDA-X libraries arrived since 2018; 12 serve data, science or quantum",
+    "subtitle": "Cumulative count of a dated sample of major NVIDIA libraries, by domain; diamonds = zero-code-change framework integrations",
+    "alt": "Stacked step chart of a sample of 29 major CUDA-X libraries by first public release year. 11 appeared from 2007 to 2017 (cuBLAS, cuFFT, cuSPARSE, cuRAND, cuDNN, NCCL, TensorRT, CUTLASS and others) and 18 from 2018 to 2025, of which 12 target data analytics, optimization, vector search, simulation, lithography, climate or quantum rather than AI models. 5 zero-code-change integrations (Spark, pandas, Polars, scikit-learn, Faiss) arrived from 2020 to 2025. NVIDIA itself cites hundreds of libraries; this is a dated sample.",
+    "data": [
+      "l10_library_timeline.csv"
+    ],
+    "chapters": [
+      "10",
+      "09",
+      "01"
+    ],
+    "source": "changelogs, PyPI, CUDA archive, press",
+    "source_ids": [
+      "S525",
+      "S484",
+      "S10035",
+      "S10039",
+      "S10000",
+      "S10040",
+      "S10045",
+      "S10010",
+      "S10012",
+      "S10016",
+      "S10048",
+      "S34001",
+      "S10019",
+      "S10038",
+      "S10029",
+      "S10028",
+      "S10031",
+      "S10032",
+      "S10030",
+      "S522",
+      "S10014",
+      "S10024",
+      "S10036",
+      "S10018",
+      "S10017",
+      "S32015",
+      "S10015",
+      "S10025",
+      "S10026",
+      "S10027",
+      "S10009"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/10-cuda-x-library-timeline.svg",
+    "html": null
+  },
+  {
+    "id": "10-nccl-allreduce-70b-ring-vs-innetwork",
+    "title": "In-switch reduction halves a 70B gradient all-reduce: 0.31 to 0.16 s on GB200 NVL72",
+    "subtitle": "Ideal time to all-reduce 140 GB of BF16 gradients: ring vs SHARP (InfiniBand) or NVLS (NVLink)",
+    "alt": "Grouped horizontal bar chart of the ideal time to all-reduce 140 GB of BF16 gradients. Ring vs in-network reduction: 400G InfiniBand 5.5 s vs 2.8 s; 800G InfiniBand 2.8 s vs 1.4 s; NVLink 4 on 8 H100s 0.54 s vs 0.31 s; NVLink 5 on GB200 NVL72 0.31 s vs 0.16 s; NVLink 6 on Vera Rubin NVL72 0.18 s vs 0.09 s. Switch-side adds cut the data each GPU sends from about 2x to 1x the gradient, so in-network reduction is up to ~2x faster.",
+    "data": [
+      "l10_nccl_model.csv",
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "10",
+      "06",
+      "05",
+      "P4"
+    ],
+    "source": "link specs + ring/SHARP formulas",
+    "source_ids": [
+      "S34011",
+      "S200",
+      "S205",
+      "S263",
+      "S203",
+      "S34024",
+      "S251",
+      "S264",
+      "S262",
+      "S201",
+      "S202",
+      "S33004",
+      "S252",
+      "S253"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/10-nccl-allreduce-70b-ring-vs-innetwork.svg",
+    "html": null
+  },
+  {
+    "id": "10-nccl-latency-ring-vs-tree",
+    "title": "Ring latency grows with every node: ~11 ms at 2,048 nodes vs ~0.12 ms for a tree",
+    "subtitle": "Latency term of one all-reduce across N nodes, from NCCL's default tuner constants (no bandwidth term)",
+    "alt": "Log-log line chart of the latency term of an all-reduce versus number of nodes, built from NCCL's default tuner constants. A ring pays 2(N-1) network hops: about 11 ms at 2,048 nodes with the low-latency LL protocol and 57 ms with the Simple protocol. A tree pays 2 log2(N) hops: about 117 microseconds (LL) and 316 microseconds (Simple). Inside one NVLink domain, NVLink SHARP has a flat ~25 microsecond term. This is why NCCL switches algorithms by message size and scale.",
+    "data": [
+      "l10_nccl_model.csv"
+    ],
+    "chapters": [
+      "10",
+      "06",
+      "P4"
+    ],
+    "source": "NCCL source, default tuner constants",
+    "source_ids": [
+      "S10001"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/10-nccl-latency-ring-vs-tree.svg",
+    "html": null
+  },
+  {
+    "id": "10-nccl-release-cadence",
+    "title": "NCCL shipped 19 minor versions in 50 months, from 2.13 (Jul 2022) to 2.32 (Sep 2026)",
+    "subtitle": "NCCL minor version by first PyPI wheel upload (any CUDA variant), with selected feature milestones",
+    "alt": "Step chart of NCCL minor versions over time from PyPI release history: 2.13 in July 2022 to 2.32 in September 2026, 19 minor versions in 50 months or one every ~2.6 months. Milestones: NVLink SHARP buffer registration in 2.19 (Oct 2023), PAT scaling algorithm in 2.23 (Sep 2024), symmetric-memory low-latency kernels in 2.27 (Jun 2025) and the device API with GPU-initiated networking in 2.28 (Sep 2025).",
+    "data": [
+      "l10_nccl_releases.csv"
+    ],
+    "chapters": [
+      "10",
+      "09",
+      "06"
+    ],
+    "source": "PyPI nvidia-nccl wheels; NCCL docs",
+    "source_ids": [
+      "S10038",
+      "S10042",
+      "S10043",
+      "S10044",
+      "S10008",
+      "S10007",
+      "S10000"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/10-nccl-release-cadence.svg",
+    "html": null
+  },
+  {
+    "id": "10-published-library-speedups",
+    "title": "Published GPU-library speedups run from 0.48x to 150x; the top non-NVIDIA test is 65x",
+    "subtitle": "Runtime speedup vs the stated CPU (or older GPU) baseline, as published; each test uses its own data and hardware",
+    "alt": "Horizontal log-scale bar chart of published runtime speedups for CUDA-X libraries, colored by who ran the test. NVIDIA or NVIDIA-partner figures: cudf.pandas about 150x, cuLitho 45x, Polars GPU engine up to 13x, cuml.accel 5.8x median and 0.48x (slower) for a low-rank PCA. Third-party, customer or peer-reviewed figures: Parabricks germline calling up to 65x (BMC Bioinformatics) and 24x (Terra), an independent cudf.pandas re-test ~60x, FINRA Spark 14x, cuVS CAGRA index build 12.3x vs CPU HNSW (Meta), cuVS IVF 4.7x vs older GPU code, and an AWS Spark TPC-DS-derived run at 1.06x vs native Spark and 0.63x vs Velox.",
+    "data": [
+      "l10_library_speedups.csv"
+    ],
+    "chapters": [
+      "10",
+      "15",
+      "01"
+    ],
+    "source": "vendor, customer and third-party tests",
+    "source_ids": [
+      "S10015",
+      "S10020",
+      "S10025",
+      "S10018",
+      "S10021",
+      "S10034",
+      "S10031",
+      "S10046",
+      "S10033",
+      "S10014"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/10-published-library-speedups.svg",
+    "html": null
+  },
+  {
+    "id": "10-spark-tpcds-time-vs-cost",
+    "title": "On a 1 TB Spark test, GPUs were barely faster (1.06x) but cut job cost 80%",
+    "subtitle": "AWS data-on-eks, Jan 2026: TPC-DS-derived 1 TB, 104 queries x 3 runs on Amazon EKS; runtime and job cost",
+    "alt": "Two-panel bar chart from an AWS-run Spark benchmark (TPC-DS-derived, 1 TB). Runtime: native Spark on 8 c5d.12xlarge CPU nodes 1.7 h, Gluten plus Velox vectorized CPU 1.0 h, NVIDIA's cuDF plugin on 4 g6.2xlarge nodes with one L4 GPU each 1.6 h. Job cost: $31.28, $18.40 and $6.27. The GPU run was only 1.06x faster than native Spark and slower than Velox, but about 80% cheaper than native Spark and 66% cheaper than Velox.",
+    "data": [
+      "l10_spark_benchmark.csv"
+    ],
+    "chapters": [
+      "10",
+      "14",
+      "15"
+    ],
+    "source": "AWS Labs data-on-eks benchmark",
+    "source_ids": [
+      "S10020"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/10-spark-tpcds-time-vs-cost.svg",
+    "html": null
+  },
+  {
+    "id": "11-cost-per-m-tokens-software-releases",
+    "title": "Software alone cut the estimated cost per million tokens on GB300 NVL72 by 65% in a year ($0.22 → $0.08)",
+    "subtitle": "Est. US$ per million tokens = fixed owner TCO $/GPU-hr ÷ measured tokens/s per GPU on unchanged hardware; each line is its own workload, so compare slopes, not levels",
+    "alt": "Log-scale line chart of estimated cost per million tokens on unchanged NVIDIA hardware as software improved, holding each GPU's owner TCO fixed (SemiAnalysis: GB300 $2.31, GB200 $1.86, B200 $1.73, H100 $1.17 per GPU-hour). GB300 NVL72 · DeepSeek-R1 (MLPerf Server): $0.221 to $0.077 (65% lower, Sep 2025 to Sep 2026); GB200 NVL72 · DeepSeek-R1 (MLPerf Server): $0.222 to $0.094 (58% lower, Sep 2025 to Sep 2026); H100 · Llama 2 70B (MLPerf Server): $0.126 to $0.084 (34% lower, Mar 2024 to Apr 2025); B200 · DeepSeek-R1 max throughput (TensorRT-LLM blog): $0.240 to $0.104 (57% lower, Feb 2025 to May 2025); B200 · DeepSeek-R1, SGLang conc 128 (InferenceX): $0.269 to $0.201 (25% lower, Dec 2025 to May 2026). The hardware bill did not change; throughput per GPU did, so cost per token fell.",
+    "data": [
+      "mlperf_results.csv",
+      "inference_benchmarks.csv"
+    ],
+    "chapters": [
+      "11",
+      "14",
+      "09"
+    ],
+    "source": "MLCommons MLPerf Inference; NVIDIA TensorRT-LLM blog; SemiAnalysis InferenceX and TCO registry; repo arithmetic",
+    "source_ids": [
+      "S601",
+      "S602",
+      "S603",
+      "S604",
+      "S605",
+      "S600",
+      "S646",
+      "S621",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-cost-per-m-tokens-software-releases.svg",
+    "html": null
+  },
+  {
+    "id": "11-disaggregation-vs-aggregated-b200",
+    "title": "Splitting prefill from decode lifted B200 throughput ~2.5× per GPU with 8k-token prompts",
+    "subtitle": "InferenceX frontier points on B200, DeepSeek-R1-0528, FP4, no speculative decoding, by serving mode",
+    "alt": "Two-panel log-scale scatter of B200 frontier points by serving mode. Left, 8k-token input and 1k output: the disaggregated Dynamo plus TensorRT-LLM setup (prefill and decode on separate GPUs, 44 GPUs in total) delivers about 12,147 tokens/s per GPU at 32 tokens/s per user, versus about 4,815 for the best aggregated 8-GPU TensorRT-LLM setup at 37, about 2.5 times. Right, 1k input and 1k output: aggregated setups hold the frontier at low interactivity and disaggregation appears only above about 100 tokens/s per user, so the gain depends on prompt length.",
+    "data": [
+      "inference_benchmarks.csv"
+    ],
+    "chapters": [
+      "11",
+      "05",
+      "P2"
+    ],
+    "source": "SemiAnalysis InferenceX public-API snapshot (Oct 2026)",
+    "source_ids": [
+      "S621",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-disaggregation-vs-aggregated-b200.svg",
+    "html": null
+  },
+  {
     "id": "11-inference-engine-release-velocity",
     "title": "vLLM ships a stable release every ~15 days; TensorRT-LLM mostly ships RCs",
     "subtitle": "Versions first uploaded to PyPI per calendar year (solid = stable, hatched = rc/alpha/beta; nightlies excluded; 2026 to Nov 5)",
@@ -5803,6 +6076,56 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/11-inference-engine-release-velocity.svg",
+    "html": null
+  },
+  {
+    "id": "11-inference-share-of-dc-revenue",
+    "title": "NVIDIA last put inference at '>40%' of Data Center revenue (≥$33B a year) in mid-2024, and has not updated the split since",
+    "subtitle": "Trailing-four-quarter Data Center revenue, US$ B; hatched = inference at management's estimated share; gray = split not disclosed; dotted = 40% applied for scale only (repo illustration)",
+    "alt": "Bar chart of trailing-twelve-month NVIDIA Data Center revenue. To Q4 FY2024 $47.5B, of which about 40% (~$19B) was inference by management's estimate; to Q2 FY2025 $81.8B with more than 40% (at least ~$33B) inference. Later bars, FY2025 $115.2B, FY2026 $193.7B and the year to Q2 FY2027 $277.7B, have no disclosed split; a dotted marker shows what 40% would be ($111B for the latest year) purely for scale. Management now calls inference the main growth driver without giving a percentage.",
+    "data": [
+      "l11_inference_share.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "11",
+      "14",
+      "13"
+    ],
+    "source": "NVIDIA earnings calls (CFO estimates) and reported Data Center revenue; repo arithmetic",
+    "source_ids": [
+      "S9516",
+      "S11011",
+      "S436",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S1",
+      "S402",
+      "S403",
+      "S405"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-inference-share-of-dc-revenue.svg",
     "html": null
   },
   {
@@ -5854,6 +6177,30 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/11-mlperf-same-hardware-software-gains.svg",
+    "html": null
+  },
+  {
+    "id": "11-nemotron-total-vs-active-parameters",
+    "title": "Nemotron went sparse: Nemotron 3 models use ~10–11% of their weights per token (Ultra: 55B of 550B) vs all 340B in 2024",
+    "subtitle": "NVIDIA's open Nemotron models: total vs active parameters per token, billions (log scale), in release order",
+    "alt": "Log-scale paired horizontal bars of total and active parameters for NVIDIA's open Nemotron models: Nemotron-4 340B (June 2024, dense) 340B total and 340B active; Nemotron 3 Nano 30B-A3B (2025-12-15) 31.6B total, 3.6B active (11%); Nemotron 3 Super 120B-A12B (2026-03) 120.6B total, 12.7B active (11%); Nemotron 3 Ultra 550B-A55B (2026-03-16) 550B total, 55B active (10%); Nemotron 3.5 Lightning 30B-A3B (2026) 30B total, 3B active (10%); Nemotron 3.5 Super VL 120B-A12B (2026) 120B total, 12B active (10%). The Nemotron 3 generation uses hybrid Mamba-Transformer mixture-of-experts designs that activate about a tenth of the weights per token, cutting the memory bandwidth and compute each generated token needs.",
+    "data": [
+      "l11_nemotron_models.csv"
+    ],
+    "chapters": [
+      "11"
+    ],
+    "source": "NVIDIA Nemotron developer repository and technical reports; press coverage for dates",
+    "source_ids": [
+      "S34020",
+      "S11019",
+      "S11021",
+      "S11020",
+      "S11035"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-nemotron-total-vs-active-parameters.svg",
     "html": null
   },
   {
@@ -5913,6 +6260,92 @@
     "html": null
   },
   {
+    "id": "12-cloud-competitor-heatmap",
+    "title": "5 of 9 rivals own the cloud customer NVIDIA rarely bills; none out-control its accelerators",
+    "subtitle": "Repo verdict for each rival vs NVIDIA's layer-12 position (DGX Cloud/Lepton, Run:ai/KAI, Slurm, DSX OS, allocation, capital)",
+    "alt": "Heatmap of 9 orchestration and cloud rivals against NVIDIA on five dimensions. AWS, Google Cloud, Microsoft Azure, CoreWeave and Nebius lead on customer ownership and owned capacity (CoreWeave $104B backlog, 1.5 GW active); none leads on accelerator control, where AWS Trainium and Google TPU are at parity and NVIDIA-only neoclouds are behind; schedulers are mostly at parity; 4 open-source tools and marketplaces lead on hardware and cloud neutrality.",
+    "data": [
+      "l12_competitor_verdicts.csv"
+    ],
+    "chapters": [
+      "12",
+      "15"
+    ],
+    "source": "repo analysis of company disclosures (l12_competitor_verdicts.csv)",
+    "source_ids": [
+      "S90035",
+      "S90034",
+      "S90026",
+      "S90025",
+      "S12533",
+      "S90027",
+      "S90044",
+      "S12526",
+      "S90046",
+      "S12500",
+      "S12501",
+      "S12530",
+      "S12503",
+      "S12512",
+      "S12535",
+      "S12532",
+      "S12534",
+      "S393"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-cloud-competitor-heatmap.svg",
+    "html": null
+  },
+  {
+    "id": "12-gpu-purchases-by-buyer-2024",
+    "title": "Est.: three hyperscalers bought ~850K of ~1.73M tracked Hopper GPUs in 2024 (49%); neocloud CoreWeave already ran 250K+",
+    "subtitle": "Hopper (H100/H200/H20/H800) GPUs bought in calendar 2024 by buyer, thousands (Omdia via FT) · CoreWeave = installed base, all generations",
+    "alt": "Horizontal bar chart of estimated 2024 Hopper GPU purchases (Omdia): Microsoft 485,000; ByteDance and Tencent about 230,000 each (mostly China-specific H20/H800); Meta 224,000; xAI/Tesla about 200,000; Amazon 196,000; Google 169,000. The three hyperscalers total about 850K, 49% of the 1.73 million tracked. For comparison, CoreWeave reported more than 250K GPUs of all generations installed at the end of 2024.",
+    "data": [
+      "l12_gpu_cloud_capacity.csv"
+    ],
+    "chapters": [
+      "12",
+      "13"
+    ],
+    "source": "Omdia via Financial Times / DCD; CoreWeave S-1",
+    "source_ids": [
+      "S12014",
+      "S12011"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-gpu-purchases-by-buyer-2024.svg",
+    "html": null
+  },
+  {
+    "id": "12-hyperscaler-capex-guidance-drift",
+    "title": "2026 capex guides kept rising: Alphabet, Amazon and Meta from ~$505B to ~$558B; ~$728B with Microsoft",
+    "subtitle": "Calendar-2026 capital-expenditure guidance midpoints by date issued, US$ B (whiskers = guided range)",
+    "alt": "Line chart of 2026 capex guidance midpoints: Alphabet rose from $180B (Feb 2026) to $185B (Apr) and $200B (Jul); Amazon from about $200B to about $220B; Meta from $125B (Jan) to about $137.5B (Jul); Microsoft's calendar-2026 figure was about $175B in July and about $170B in October. Combined, the big three rose from about $505B to $558B and the big four total about $728B; other tallies on different bases reach $803-828B.",
+    "data": [
+      "l12_hyperscaler_capex_guidance.csv"
+    ],
+    "chapters": [
+      "12",
+      "18",
+      "08"
+    ],
+    "source": "company guidance as reported",
+    "source_ids": [
+      "S460",
+      "S12518",
+      "S461",
+      "S12519",
+      "S462"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-hyperscaler-capex-guidance-drift.svg",
+    "html": null
+  },
+  {
     "id": "12-investments-in-customers-bubble",
     "title": "NVIDIA pledged up to ~$45B to five customers planning ~19 GW of compute",
     "subtitle": "x: NVIDIA equity committed (US$ B, log); y: customer's announced compute plan (GW); bubble area ∝ NVIDIA US$ B per GW",
@@ -5942,6 +6375,304 @@
     "html": null
   },
   {
+    "id": "12-neocloud-capex-vs-revenue-2026",
+    "title": "Neoclouds plan $2.9 (CoreWeave) to $7.0 (Nebius) of 2026 capex per $1 of 2026 revenue",
+    "subtitle": "Company guidance for calendar 2026, US$ B (bar = midpoint, whisker = range); CoreWeave backlog shown for scale",
+    "alt": "Grouped bar chart of 2026 guidance: CoreWeave revenue $12.4–13.2B versus capex $35–39B (about 2.9 dollars of capex per dollar of revenue) with a $104.2B revenue backlog; Nebius revenue $3.0–3.4B versus capex $20–25B (about 7.0 to 1). The gap is funded by debt, customer prepayments and equity, which is why financing terms drive neocloud economics.",
+    "data": [
+      "l12_neocloud_metrics.csv"
+    ],
+    "chapters": [
+      "12",
+      "14",
+      "18"
+    ],
+    "source": "CoreWeave and Nebius Q2 2026 results",
+    "source_ids": [
+      "S12500",
+      "S12503",
+      "S12504"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-neocloud-capex-vs-revenue-2026.svg",
+    "html": null
+  },
+  {
+    "id": "12-neocloud-contracted-vs-active-power",
+    "title": "Two neoclouds have ~8.7 GW contracted but will run only ~2.9 GW by end-2026",
+    "subtitle": "Live (active/connected) vs contracted data-center power, gigawatts; CoreWeave at Jun 30, 2026 and end-2026 target, Nebius end-2026 targets",
+    "alt": "Horizontal bar chart of neocloud power: CoreWeave had 1.5 GW active and 3.7 GW contracted at June 30, 2026 (about 4.2 GW after later additions) and targets more than 1.85 GW active by end-2026; Nebius targets 0.8–1.0 GW connected and 5 GW contracted by end-2026, coming online over two to three and a half years. The gap between contracted and live power is the build-out still to be financed.",
+    "data": [
+      "l12_neocloud_metrics.csv"
+    ],
+    "chapters": [
+      "12",
+      "08",
+      "17"
+    ],
+    "source": "CoreWeave and Nebius Q2 2026 results",
+    "source_ids": [
+      "S12501",
+      "S12500",
+      "S12503"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-neocloud-contracted-vs-active-power.svg",
+    "html": null
+  },
+  {
+    "id": "12-neocloud-power-active-vs-contracted",
+    "title": "CoreWeave's live power grew ~4× to 1.5 GW in 18 months; neocloud contracts of 4–5 GW each run ~3× ahead of what is live",
+    "subtitle": "Data-center power, GW · active = energized and billing; contracted = signed future capacity · targets and secondary figures hatched",
+    "alt": "Two panels. Left, CoreWeave: active power 0.36 GW at end-2024, 0.85 GW at end-2025 and 1.5 GW in mid-2026, with about 1.85 GW targeted for end-2026; contracted power rose from 1.3 GW to 3.1 GW and 4.2 GW by August 2026. Right, contracted vs active: CoreWeave 4.2 vs 1.5 GW; Nebius targets about 5 GW contracted by end-2026; Crusoe about 4.9 GW contracted and 0.2 GW energized at Abilene (secondary estimate).",
+    "data": [
+      "l12_gpu_cloud_capacity.csv"
+    ],
+    "chapters": [
+      "12",
+      "08"
+    ],
+    "source": "CoreWeave filings and results; DCD; MarkTechPost (secondary)",
+    "source_ids": [
+      "S12011",
+      "S12012",
+      "S12010",
+      "S12013"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-neocloud-power-active-vs-contracted.svg",
+    "html": null
+  },
+  {
+    "id": "12-neocloud-private-valuations",
+    "title": "Six private AI-cloud companies carry ~$100B of last-round value; NVIDIA backs 5 of them",
+    "subtitle": "Latest reported valuation, US$ B, with round and date; hatched = target or reported, not company-confirmed",
+    "alt": "Horizontal bar chart of private AI-infrastructure valuations: Crusoe $30.9B (Series F, Sep 2026), VAST Data $30B (Series F, Apr 2026), Nscale $14.6B (Series C, Mar 2026, plus $3.36B pre-IPO convertibles), Lambda about $14.5B (pre-IPO target, Oct 2026), Fluidstack $7B (Apr 2026, Google-backstopped leases) and Together AI $3.3B (2025). NVIDIA is an investor in 5 of the six; several are preparing IPOs.",
+    "data": [
+      "l12_private_companies.csv"
+    ],
+    "chapters": [
+      "12",
+      "13"
+    ],
+    "source": "company announcements and press as cited",
+    "source_ids": [
+      "S12522",
+      "S481",
+      "S12523",
+      "S12524",
+      "S12525",
+      "S12521",
+      "S483",
+      "S12520",
+      "S7513",
+      "S7512"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-neocloud-private-valuations.svg",
+    "html": null
+  },
+  {
+    "id": "12-nvidia-cloud-capacity-commitments",
+    "title": "NVIDIA's pledges to buy back cloud capacity grew from $2.2B to ~$65B, incl. $36B of AI-cloud backstops",
+    "subtitle": "Multi-year cloud service agreements and AI-cloud capacity agreements disclosed in NVIDIA filings (US$ B, at period end)",
+    "alt": "Stacked bar chart of NVIDIA's commitments to buy cloud capacity: multi-year cloud service agreements of $2.23B in January 2023, $10.6B in April 2025, $27B in January 2026, $30B in April 2026 and $29B in July 2026; in July 2026 the 10-Q also lists $36B of AI-cloud capacity agreements under which NVIDIA buys capacity partners cannot resell, for about $65B in total. The CoreWeave $6.3B backstop is one such agreement.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "12",
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 10-K and 10-Q filings",
+    "source_ids": [
+      "S418",
+      "S414",
+      "S401",
+      "S404",
+      "S407",
+      "S430"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-nvidia-cloud-capacity-commitments.svg",
+    "html": null
+  },
+  {
+    "id": "12-nvidia-cloud-service-commitments",
+    "title": "NVIDIA's multi-year cloud-service commitments rose ~13× to $29B by Q2 FY2027: it is now a large GPU-cloud tenant itself",
+    "subtitle": "Multi-year cloud service agreements disclosed in 10-K/10-Q filings, US$ B at period end (capacity NVIDIA rents back)",
+    "alt": "Bar chart of NVIDIA's disclosed multi-year cloud service agreements: $2.23B at the end of FY2023 (January 2023, just before DGX Cloud launched), $10.6B at Q1 FY2026 (April 2025), $27.0B at FY2026 year-end (January 2026), $30B at Q1 FY2027 and $29B at Q2 FY2027 (July 2026). The commitments pay for capacity NVIDIA leases from cloud partners for DGX Cloud and, increasingly, its own research.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "12",
+      "13"
+    ],
+    "source": "NVIDIA 10-K and 10-Q filings",
+    "source_ids": [
+      "S418",
+      "S414",
+      "S401",
+      "S404",
+      "S407"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-nvidia-cloud-service-commitments.svg",
+    "html": null
+  },
+  {
+    "id": "12-nvidia-equity-holdings-by-quarter",
+    "title": "NVIDIA's equity stakes rose from ~$35B to ~$99B in two quarters: $42B new money, $24B gains",
+    "subtitle": "Equity securities on NVIDIA's balance sheet (US$ B) at quarter end, and the H1 FY2027 bridge (Feb–Jul 2026)",
+    "alt": "Two-panel chart. Left: stacked bars of NVIDIA's equity holdings: $35.1B at Jan 2026 ($12.9B marketable, $22.3B non-marketable), $73.6B at Apr 2026 and $98.9B at Jul 2026 ($42.8B marketable, $51.2B non-marketable, $5.0B locked-up), the ~$99B figure. Right: bridge showing $42.4B of purchases in H1 FY2027 (vs $1.2B a year earlier) and $23.7B of net gains, mostly mark-to-market.",
+    "data": [
+      "l12_equity_holdings.csv"
+    ],
+    "chapters": [
+      "12",
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 10-Q filings as read by secondary sources",
+    "source_ids": [
+      "S90070",
+      "S90072",
+      "S90069",
+      "S90073",
+      "S403"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-nvidia-equity-holdings-by-quarter.svg",
+    "html": null
+  },
+  {
+    "id": "12-recovery-loss-vs-job-size",
+    "title": "Est.: at Llama 3's failure rate a 100k-GPU job breaks every ~30 min; 15-min recovery wastes ~33% of its time, 3-min ~9%",
+    "subtitle": "Share of wall-clock time lost to recovery vs GPUs in one synchronous job · failure rate = 419 unexpected interruptions / 54 days / 16,384 GPUs · lost = λT ÷ (1 + λT)",
+    "alt": "Line chart, log-scale x-axis. Using Llama 3's 419 unexpected interruptions in 54 days on 16,384 GPUs (one every ~3.1 hours), the time a single job loses to recovery grows with its size. At 16,384 GPUs: 1.6% with 3-minute recovery, 7.5% with 15 minutes and 24% with 60 minutes. At 100,000 GPUs (one failure every ~30 minutes): 9%, 33% and 66%. At 800,000 GPUs even 3-minute recovery loses 44%. Fast automated recovery and fault-tolerant training are what make giant jobs viable.",
+    "data": [
+      "l12_utilization_scenarios.csv",
+      "l06_cluster_examples.csv"
+    ],
+    "chapters": [
+      "12",
+      "06"
+    ],
+    "source": "Meta Llama 3 paper; cluster sizes from layer 06 data (repo model)",
+    "source_ids": [
+      "S34006",
+      "S31003",
+      "S12005",
+      "S12006",
+      "S6006",
+      "S6007",
+      "S6002",
+      "S34022",
+      "S6000",
+      "S6001",
+      "S6008"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-recovery-loss-vs-job-size.svg",
+    "html": null
+  },
+  {
+    "id": "12-rental-cost-per-pflops-hour",
+    "title": "Same-provider list prices: a Blackwell PFLOPS-hour costs 1.4–1.6× less than H100 at FP8, 2.7–3.3× less at FP4",
+    "subtitle": "On-demand list price ÷ dense peak PFLOPS per GPU, US$ per PFLOPS-hour · H100 has no FP4, so its best format is FP8",
+    "alt": "Grouped horizontal bar chart of rental price per dense PFLOPS-hour, 2025 list prices. CoreWeave: H100 $6.16/GPU-hr = $3.11 per FP8 PFLOPS-hour; B200 $8.60 = $1.91 at FP8 and $0.96 at FP4; GB200 $10.50 = $2.10 at FP8 and $1.05 at FP4. Lambda: H100 $2.99 = $1.51; B200 $4.99 = $1.11 at FP8 and $0.55 at FP4. Blackwell is 1.4-1.6 times cheaper per FLOP at the same precision and 2.7-3.3 times cheaper using FP4.",
+    "data": [
+      "gpu_rental_prices.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "12",
+      "14"
+    ],
+    "source": "CoreWeave and Lambda list prices; NVIDIA datasheets",
+    "source_ids": [
+      "S394",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S121",
+      "S395"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-rental-cost-per-pflops-hour.svg",
+    "html": null
+  },
+  {
+    "id": "12-utilization-funnel",
+    "title": "Est.: of 100 GPU-hours bought, only ~24–33 hours' worth of peak FLOPs reach the model; better scheduling lifts it 1.37×",
+    "subtitle": "Share of installed GPU-hours surviving each loss, % · allocation from Alibaba's 155k-GPU fleet before/after a fragmentation-aware scheduler; failures and MFU from Llama 3",
+    "alt": "Grouped bar chart of where installed GPU-hours go (composite estimate). Before a scheduler fix: 100 installed, 68 allocated (Alibaba's 68% allocation ratio), 61.2 productive after about 10% lost to failures, restarts and checkpoints (Llama 3 reported over 90% effective training time) and 24.5 worth of peak FLOPs at 40% MFU. After the fix: 93 allocated, 83.7 productive and 33.5 used, 1.37 times more useful work from the same hardware.",
+    "data": [
+      "l12_utilization_scenarios.csv"
+    ],
+    "chapters": [
+      "12",
+      "14"
+    ],
+    "source": "Alibaba OSDI '26 trace paper; Meta Llama 3 paper (repo composite)",
+    "source_ids": [
+      "S12015",
+      "S34006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-utilization-funnel.svg",
+    "html": null
+  },
+  {
+    "id": "13-capital-per-gigawatt",
+    "title": "AMD's OpenAI warrant could be worth ~$16B per GW at $600 a share, above NVIDIA's ~$10B/GW pledges; Broadcom pays $0",
+    "subtitle": "Vendor capital offered per gigawatt of committed compute, US$ B per GW (equity, or warrant value at a given AMD share price)",
+    "alt": "Horizontal bar chart of vendor capital per gigawatt of compute a customer commits to: AMD's warrant for 160 million shares is worth about $16B per GW to OpenAI if AMD reaches the reported $600 share-price hurdle, or ~$5.3B per GW at an illustrative $200; NVIDIA's pledges were about $10B per GW for Anthropic (up to $10B, 1 GW) and for OpenAI's superseded letter of intent ($100B, 10 GW); NVIDIA's xAI stake ~$2B per GW, Poolside ~$0.5B and CoreWeave ~$0.47B; Broadcom's 10 GW OpenAI programme carries no disclosed vendor capital. NVIDIA's 2026 $30B OpenAI equity has no GW tie.",
+    "data": [
+      "l13_capital_per_gw.csv"
+    ],
+    "chapters": [
+      "13",
+      "12",
+      "15",
+      "CS4"
+    ],
+    "source": "company announcements and press reports; repo arithmetic (l13_capital_per_gw.csv)",
+    "source_ids": [
+      "S467",
+      "S90016",
+      "S90015",
+      "S13526",
+      "S469",
+      "S90075",
+      "S483",
+      "S472",
+      "S473",
+      "S13506",
+      "S13507",
+      "S174"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-capital-per-gigawatt.svg",
+    "html": null
+  },
+  {
     "id": "13-customer-concentration-over-time",
     "title": "Customers at ≥10% of revenue rose from 1 (13%) in FY2024 to 4 (61%) in Q3FY26",
     "subtitle": "Share of revenue per disclosed direct customer, %; letters are not the same company across periods; mostly OEMs/ODMs",
@@ -5966,6 +6697,83 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/13-customer-concentration-over-time.svg",
+    "html": null
+  },
+  {
+    "id": "13-dc-revenue-by-customer-type",
+    "title": "AI clouds, industrial and enterprise buyers took ~$40B, 45% of Q2 FY2027 Data Center revenue",
+    "subtitle": "NVIDIA Data Center revenue by customer type, US$ B per quarter (new disclosure from Q1 FY2027)",
+    "alt": "Stacked bar chart of NVIDIA Data Center revenue by customer type: Q1 FY2027 hyperscale about $38B and AI clouds, industrial and enterprise (ACIE) about $37B (49%); Q2 FY2027 hyperscale about $48.7B and ACIE about $40.3B (45%). Non-hyperscale buyers reached through partners and neoclouds are nearly half of Data Center demand.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "12",
+      "18"
+    ],
+    "source": "NVIDIA Q1 and Q2 FY2027 results and CFO commentary",
+    "source_ids": [
+      "S403",
+      "S409",
+      "S406"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-dc-revenue-by-customer-type.svg",
+    "html": null
+  },
+  {
+    "id": "13-deal-structure-mix",
+    "title": "Acquisitions fell from 100% of NVIDIA deals in 2019–22 to 18% in 2023–26 as stakes (47) took over",
+    "subtitle": "Number of NVIDIA deals per year by structure (announce year), 2019–2026 YTD; stakes split by counterparty role",
+    "alt": "Stacked bar chart of NVIDIA deals by year and structure, 2019 to 2026. In 2019-2022 acquisitions (Mellanox, Cumulus, Bright, the failed Arm bid) were 100% of 7 deals. In 2023-2026 there were 66 deals and acquisitions fell to 18%: 32 stakes in customers such as OpenAI, Anthropic, xAI, CoreWeave and Mistral, 15 stakes in suppliers and partners such as Intel, Nokia, Synopsys, Marvell, Lumentum and Coherent, 2 licence-plus-acquihire deals (Enfabrica, Groq) and 5 capacity or financing commitments including the CoreWeave backstop and the 2026 financing platforms.",
+    "data": [
+      "acquisitions_investments.csv",
+      "l13_deals_2026_additions.csv"
+    ],
+    "chapters": [
+      "13",
+      "12",
+      "19"
+    ],
+    "source": "NVIDIA, counterparties and press, as logged in the repo deal files",
+    "source_ids": [
+      "S464",
+      "S2",
+      "S478",
+      "S465",
+      "S466",
+      "S418",
+      "S476",
+      "S479",
+      "S475",
+      "S474",
+      "S481",
+      "S473",
+      "S482",
+      "S477",
+      "S483",
+      "S468",
+      "S401",
+      "S467",
+      "S412",
+      "S470",
+      "S469",
+      "S471",
+      "S472",
+      "S480",
+      "S404",
+      "S13527",
+      "S13528",
+      "S13529",
+      "S90037",
+      "S13530",
+      "S90074"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-deal-structure-mix.svg",
     "html": null
   },
   {
@@ -6062,6 +6870,87 @@
     "asof": "2026-11-05",
     "svg": "assets/charts/13-deals-timeline-by-layer.svg",
     "html": "assets/interactive/13-deals-timeline-by-layer.html"
+  },
+  {
+    "id": "13-deployable-capital-vs-peers",
+    "title": "NVIDIA's ~$57B of cash and debt securities exceeds AMD, Broadcom and Qualcomm combined (~$47B)",
+    "subtitle": "Left: cash and liquid securities at latest quarter end (US$ B). Right: free cash flow in the latest quarter found (US$ B). Hatched = aggregator estimate",
+    "alt": "Two-panel bar chart. Left: cash and liquid securities at the latest quarter end: NVIDIA $56.6B of cash and debt securities (July 2026) plus $42.8B of listed equity stakes, Broadcom $24.0B (August 2026), AMD $15.8B (September 2026, debt $7.1B) and Qualcomm $7.7B (September 2026, debt $15.1B), so the three peers together hold about $47B. Right: latest quarterly free cash flow: NVIDIA $48.6B (Q1 FY2027), Broadcom $13.7B, AMD about $2.6B and Qualcomm about $1.9B (aggregator estimates).",
+    "data": [
+      "l13_peer_capital.csv"
+    ],
+    "chapters": [
+      "13",
+      "15",
+      "19"
+    ],
+    "source": "company filings and press releases via search snippets (l13_peer_capital.csv)",
+    "source_ids": [
+      "S13500",
+      "S90072",
+      "S403",
+      "S13501",
+      "S13505",
+      "S13502",
+      "S2516",
+      "S13503",
+      "S13504"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-deployable-capital-vs-peers.svg",
+    "html": null
+  },
+  {
+    "id": "13-equity-holdings-growth",
+    "title": "NVIDIA's private stakes grew 15× in 18 months to $51B; with public stakes it holds ~$99B",
+    "subtitle": "Carrying value of NVIDIA's equity securities, US$ B, at fiscal period ends (Jan 2025 - Jul 2026)",
+    "alt": "Bar chart of NVIDIA's non-marketable (private) equity securities: $3.4B at end-January 2025, $22.3B at end-January 2026, $42.3B in April 2026 and $51.2B in July 2026, about 15 times in 18 months. A final stacked bar adds $42.8B of marketable equity and $5.0B of locked-up public equity for about $99B in July 2026. Equity purchases were $42.4B in H1 FY2027 versus $1.2B a year earlier; much of the rest is mark-to-market gains.",
+    "data": [
+      "l13_equity_holdings.csv"
+    ],
+    "chapters": [
+      "13",
+      "12",
+      "18"
+    ],
+    "source": "NVIDIA 10-K/10-Q filings and secondary readings",
+    "source_ids": [
+      "S13043",
+      "S90070",
+      "S90072",
+      "S90069",
+      "S90073"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-equity-holdings-growth.svg",
+    "html": null
+  },
+  {
+    "id": "13-equity-portfolio-build",
+    "title": "NVIDIA bought $42.4B of equity in H1 FY2027, ~35× a year earlier; private stakes reached $51.2B",
+    "subtitle": "Left: purchases of equity securities and net equity gains, first half of fiscal year (US$ B). Right: non-marketable (private) equity at quarter end (US$ B)",
+    "alt": "Two-panel bar chart. Left: NVIDIA's purchases of equity securities rose from $1.2B in the first half of FY2026 to $42.4B in the first half of FY2027, about 35 times, while net gains on equity securities booked through other income were $23.7B, largely mark-to-market. Right: non-marketable equity rose from $22.3B (January 2026) to $42.3B (April 2026, after the OpenAI stake) and $51.2B (July 2026); listed stakes added $42.8B.",
+    "data": [
+      "l13_equity_portfolio.csv"
+    ],
+    "chapters": [
+      "13",
+      "12",
+      "18"
+    ],
+    "source": "NVIDIA 10-Q filings as read by press (l13_equity_portfolio.csv)",
+    "source_ids": [
+      "S90070",
+      "S90072",
+      "S90069",
+      "S90073"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-equity-portfolio-build.svg",
+    "html": null
   },
   {
     "id": "13-free-cash-flow-and-buybacks",
@@ -6165,6 +7054,33 @@
     "html": null
   },
   {
+    "id": "13-gtc-attendance",
+    "title": "GTC grew ~20× from ~1,500 attendees (2009) to >30k expected in person in 2026, plus ~300k online",
+    "subtitle": "In-person attendees at the spring GTC in San Jose; 2024-26 are NVIDIA pre-event figures (no final counts published)",
+    "alt": "Bar chart of in-person attendance at NVIDIA's spring GTC: about 1,500 at the first GTC in 2009, more than 16,000 projected for 2024, about 25,000 estimated by NVIDIA for 2025 with about 300,000 online, and more than 30,000 from over 190 countries expected for 2026, when the agenda listed 500+ sessions. Attendance grew about 20-fold, making GTC a launch platform for partners as well as NVIDIA.",
+    "data": [
+      "l13_ecosystem_metrics.csv"
+    ],
+    "chapters": [
+      "13",
+      "01",
+      "09"
+    ],
+    "source": "NVIDIA announcements and press previews",
+    "source_ids": [
+      "S13024",
+      "S13021",
+      "S13020",
+      "S13533",
+      "S13022",
+      "S13023"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-gtc-attendance.svg",
+    "html": null
+  },
+  {
     "id": "13-guidance-beat-history",
     "title": "NVIDIA beat its revenue-guide midpoint 16 quarters running, by +7.1% on average",
     "subtitle": "Actual quarterly revenue vs the guidance midpoint issued the prior quarter, % difference",
@@ -6219,6 +7135,32 @@
     "html": null
   },
   {
+    "id": "13-inception-members",
+    "title": "NVIDIA Inception grew 5× to ~10k start-ups by 2022; secondary sources put it above 22k by 2025",
+    "subtitle": "Member companies of NVIDIA's free start-up program (launched 2016); dashed = secondary estimate, not an NVIDIA figure",
+    "alt": "Line chart of NVIDIA Inception membership: 2,000 start-ups in 2017 (under 18 months after the 2016 launch), 7,000 in December 2020 (+25% in a year), 8,500 in August 2021 from 90 countries with more than $60B raised, 9,000 in late 2021 (about two-thirds of the world's AI start-ups by PitchBook's count) and about 10,000 in March 2022. A dashed segment shows a secondary, PitchBook-based estimate of more than 22,000 active members in 2025; NVIDIA has not published an official recent count.",
+    "data": [
+      "l13_ecosystem_metrics.csv"
+    ],
+    "chapters": [
+      "13",
+      "01"
+    ],
+    "source": "NVIDIA blogs and press releases; press coverage",
+    "source_ids": [
+      "S13027",
+      "S13025",
+      "S13026",
+      "S13028",
+      "S531",
+      "S13536"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-inception-members.svg",
+    "html": null
+  },
+  {
     "id": "13-investment-dollars-by-year",
     "title": "NVIDIA's deal commitments jumped to ~$51B in 2025, 5× all its deals before 2025",
     "subtitle": "Disclosed or press-reported deal value by announcement year, US$ B; excludes blocked Arm and superseded OpenAI LOI",
@@ -6257,6 +7199,47 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/13-investment-dollars-by-year.svg",
+    "html": null
+  },
+  {
+    "id": "13-national-ai-factory-cost",
+    "title": "Est.: a 100k-GPU national AI factory costs ~$8.5B up front; NVIDIA invoices ~63%-71%",
+    "subtitle": "US$ B for 1,389 GB300 NVL72 racks, scale-out network, storage and a ~232 MW liquid-cooled facility; all values estimates",
+    "alt": "Waterfall chart estimating the up-front cost of a 100,000-GPU national AI factory built from 1,389 GB300 NVL72 racks at about $3.99M each: NVIDIA GPUs about $3.5B, HBM and LPDDR memory about $0.5B, the rest of the rack (Grace CPUs, NVLink switch trays, boards, power, cooling, ODM margin) about $1.5B, scale-out networking and storage about $1.4B and the facility shell and power plant for ~232 MW about $1.5B, totalling about $8.5B. NVIDIA would invoice an estimated $5.3-6.1B; electricity adds ~$164M a year.",
+    "data": [
+      "tco_model_inputs.csv",
+      "l13_ai_factory_model.csv"
+    ],
+    "chapters": [
+      "13",
+      "08",
+      "14"
+    ],
+    "source": "Morgan Stanley and SemiAnalysis rack estimates, Uptime, EIA; repo model",
+    "source_ids": [
+      "S332",
+      "S325",
+      "S328",
+      "S327",
+      "S331",
+      "S334",
+      "S32004",
+      "S337",
+      "S324",
+      "S340",
+      "S357",
+      "S387",
+      "S388",
+      "S389",
+      "S13009",
+      "S13014",
+      "S332",
+      "S337",
+      "S324"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-national-ai-factory-cost.svg",
     "html": null
   },
   {
@@ -6342,6 +7325,73 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/13-rd-expense-vs-peers.svg",
+    "html": null
+  },
+  {
+    "id": "13-sovereign-gpu-commitments",
+    "title": "Announced sovereign deals name ~1.03M NVIDIA GPUs; HUMAIN and South Korea are 84% of them",
+    "subtitle": "GPUs named in country-level AI-factory announcements, May 2024 - Feb 2026; hatched = press-reported terms",
+    "alt": "Horizontal bar chart of NVIDIA GPUs named in sovereign AI announcements: Saudi Arabia's HUMAIN up to 600,000 over three years (across Saudi Arabia and the US, Nov 2025), South Korea 260,000 (Oct 2025: government 50,000, Samsung, SK and Hyundai 50,000 each, Naver 60,000), United Kingdom 120,000 by end-2026, India's Yotta 20,736 B300, France's Mistral Compute 18,000 Grace Blackwell and Germany's Deutsche Telekom 10,000. About 1.03M GPUs in total, 84% of them in the Saudi and Korean deals. Stargate UAE (1 GW) and Japan's subsidised clouds (>$740M) disclosed no GPU count.",
+    "data": [
+      "l13_sovereign_commitments.csv"
+    ],
+    "chapters": [
+      "13",
+      "01",
+      "18",
+      "19"
+    ],
+    "source": "NVIDIA and partner announcements and press coverage",
+    "source_ids": [
+      "S13016",
+      "S13007",
+      "S13008",
+      "S13011",
+      "S13012",
+      "S13009",
+      "S13010",
+      "S13000",
+      "S13001",
+      "S13014",
+      "S13015",
+      "S13013",
+      "S13003",
+      "S13004",
+      "S13006",
+      "S13017",
+      "S13018",
+      "S13019"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-sovereign-gpu-commitments.svg",
+    "html": null
+  },
+  {
+    "id": "13-sovereign-gpu-pipeline",
+    "title": "Sovereign plans are large on paper: Korea 260k and HUMAIN 600k GPUs, vs firm orders of 18k–27k",
+    "subtitle": "Announced NVIDIA GPU volumes in sovereign / national AI programmes, 2025–2026 (GPU packages); hatched = plan or export cap, solid = firm order",
+    "alt": "Horizontal bar chart of sovereign AI GPU announcements: South Korea's national build-out of 260,000 NVIDIA GPUs (Oct 2025, value and timing undisclosed); HUMAIN's plan for up to 600,000 GPUs over three years; US export approvals capped at 35,000 Blackwell-equivalent chips each for HUMAIN and G42; firm orders are much smaller: HUMAIN's first 18,000 GB300 (May 2025) and a ~27,000-GPU, 84 MW expansion (Oct 2026); Deutsche Telekom's industrial AI cloud up to 10,000 GPUs.",
+    "data": [
+      "l13_sovereign_deals.csv"
+    ],
+    "chapters": [
+      "13",
+      "12",
+      "18"
+    ],
+    "source": "Reuters and press reports via search snippets (l13_sovereign_deals.csv)",
+    "source_ids": [
+      "S13518",
+      "S13514",
+      "S13516",
+      "S13515",
+      "S13512",
+      "S13513"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-sovereign-gpu-pipeline.svg",
     "html": null
   },
   {

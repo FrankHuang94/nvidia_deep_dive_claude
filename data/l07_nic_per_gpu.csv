@@ -4,7 +4,7 @@ DGX A100,NVIDIA,2020,eol,A100,ConnectX-6 HDR InfiniBand,1,200,200,server,8,EPYC 
 DGX H100,NVIDIA,2022,shipping,H100,ConnectX-7 NDR,1,400,400,server,8,Xeon Platinum 8480+ (Sapphire Rapids),2,confirmed,S318;S266;S33022,8 x 400 Gb/s ConnectX-7 (one per GPU); host is 2 x Xeon 8480C (8480+ bandwidth used).
 GB200 NVL72,NVIDIA,2024,shipping,B200 (GB200),ConnectX-7,1,400,400,compute tray,4,Grace,2,confirmed,S266;S262,One 400 Gb/s ConnectX-7 per GPU for the scale-out fabric.
 GB300 NVL72,NVIDIA,2025,shipping,B300 (GB300),ConnectX-8 SuperNIC,1,800,800,compute tray,4,Grace,2,confirmed,S264,One 800 Gb/s ConnectX-8 per GPU.
-Vera Rubin NVL72,NVIDIA,2026,shipping,Rubin,ConnectX-9 SuperNIC,1,800,1600,compute tray,4,Vera,2,confirmed,S33004;S7019;S100,1.6 Tb/s per GPU (NVIDIA); ConnectX-9 ports run up to 800 Gb/s; third parties describe two ConnectX-9 per GPU (S7020).
+Vera Rubin NVL72,NVIDIA,2026,shipping,Rubin,ConnectX-9 SuperNIC,1,800,1600,compute tray,4,Vera,2,confirmed,S33004;S7535;S100,1.6 Tb/s per GPU (NVIDIA); ConnectX-9 ports run up to 800 Gb/s; third parties describe two ConnectX-9 per GPU (S7020).
 AWS P5 (EFAv2),AWS,2023,shipping,H100,EFA v2 (Nitro),,,400,instance,8,,,reported,S292,"3,200 Gb/s per 8-GPU p5.48xlarge."
 AWS Trn2 (EFAv3),AWS,2024,shipping,Trainium2,EFA v3 (Nitro),,,200,instance,16,,,reported,S292,3.2 Tb/s per 16-chip Trn2 instance.
 AMD Helios (MI455X),AMD,2026,shipping,MI455X,Pensando Vulcano 800G,3,800,2400,rack,72,EPYC Venice (Zen 6),18,confirmed,S290;S226;S228;S538,Three 800 Gb/s Vulcano NICs per GPU (2.4 Tb/s); 18 EPYC Venice per 72 GPUs.
