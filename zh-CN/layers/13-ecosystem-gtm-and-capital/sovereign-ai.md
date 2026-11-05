@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **[主权 AI](../../../glossary.md#sovereign-ai) 已成为需求支柱。** 管理层称 FY2026 主权收入 > ~$30B，增长 ~80% 🟡 [[S90071]](../../../sources/bibliography.md#s90071)，约占英伟达 $215.9B 收入的 14% [[S1]](../../../sources/bibliography.md#s1)。
+- **[主权 AI](../../glossary.md#sovereign-ai) 已成为需求支柱。** 管理层称 FY2026 主权收入 > ~$30B，增长 ~80% 🟡 [[S90071]](../../../sources/bibliography.md#s90071)，约占英伟达 $215.9B 收入的 14% [[S1]](../../../sources/bibliography.md#s1)。
 - **已公布的国家级交易合计涉及 ~1.03M 颗英伟达 GPU。** HUMAIN（沙特阿拉伯）计划在三年内于沙特和美国站点部署最多 600,000 颗 [[S13003]](../../../sources/bibliography.md#s13003)。韩国为 260,000 颗 [[S13000]](../../../sources/bibliography.md#s13000)，英国到 2026 年底最多 120,000 颗 [[S13009]](../../../sources/bibliography.md#s13009)，印度 Yotta 20,736 颗 [[S13017]](../../../sources/bibliography.md#s13017)，法国 Mistral 18,000 颗 [[S13011]](../../../sources/bibliography.md#s13011)，德国电信（Deutsche Telekom）10,000 颗 [[S13014]](../../../sources/bibliography.md#s13014)。
 - **规划远远跑在确定订单之前。** HUMAIN 迄今的确定分期为 18,000 颗 GB300（2025 年 5 月）和 ~27,000 颗 GPU / 84 MW（2026 年 10 月）[[S13514]](../../../sources/bibliography.md#s13514)[[S13516]](../../../sources/bibliography.md#s13516)。美国许可证最初将 HUMAIN 和 G42 各自限制在 35,000 颗 Blackwell 等效芯片 🟡 [[S13515]](../../../sources/bibliography.md#s13515)。
-- **一座 100,000 颗 GPU 的国家级 [AI 工厂](../../../glossary.md#ai-factory)前期成本约 ~$8.5B（估计）。** 其中英伟达开票约 ~$5.3–6.1B，因此主权收入约相当于每年五座这样的工厂 🔴。
+- **一座 100,000 颗 GPU 的国家级 [AI 工厂](../../glossary.md#ai-factory)前期成本约 ~$8.5B（估计）。** 其中英伟达开票约 ~$5.3–6.1B，因此主权收入约相当于每年五座这样的工厂 🔴。
 - **出口管制决定谁能购买。** 美国允许向获批的中国买方出售 H200，但需将 25% 的收入上缴美国政府 [[S90032]](../../../sources/bibliography.md#s90032)。英伟达尚未确认任何 H200 收入，且业绩指引不含中国数据中心计算业务 [[S90081]](../../../sources/bibliography.md#s90081)[[S3]](../../../sources/bibliography.md#s3)。
 - **看空情景：**主权买方会对冲。HUMAIN 还与 AMD 签订最多 500 MW 的协议 [[S13517]](../../../sources/bibliography.md#s13517)，与高通签订 200 MW 的协议 [[S90030]](../../../sources/bibliography.md#s90030)。韩国的交易既未披露金额，也没有时间表 [[S13001]](../../../sources/bibliography.md#s13001)。
 
@@ -18,7 +18,7 @@
 
 ## 各国为何购买 AI 工厂
 
-主权 AI 工厂类似于国家航空公司或电力公用事业：即便从美国云厂商租用更便宜，各国政府仍希望拥有本土算力，原因包括数据驻留、本地语言模型、产业政策和议价能力。建设方通常是国家龙头企业（HUMAIN、G42）、电信运营商（德国电信、SK）或本地[新兴云服务商（neocloud）](../../../glossary.md#neocloud)（Nscale、Yotta），并常以一家前沿实验室作为锚定租户：沙特的 xAI [[S13004]](../../../sources/bibliography.md#s13004)，以及 Stargate UAE 和 Stargate UK 中的 OpenAI [[S13007]](../../../sources/bibliography.md#s13007)[[S13010]](../../../sources/bibliography.md#s13010)。
+主权 AI 工厂类似于国家航空公司或电力公用事业：即便从美国云厂商租用更便宜，各国政府仍希望拥有本土算力，原因包括数据驻留、本地语言模型、产业政策和议价能力。建设方通常是国家龙头企业（HUMAIN、G42）、电信运营商（德国电信、SK）或本地[新兴云服务商（neocloud）](../../glossary.md#neocloud)（Nscale、Yotta），并常以一家前沿实验室作为锚定租户：沙特的 xAI [[S13004]](../../../sources/bibliography.md#s13004)，以及 Stargate UAE 和 Stargate UK 中的 OpenAI [[S13007]](../../../sources/bibliography.md#s13007)[[S13010]](../../../sources/bibliography.md#s13010)。
 
 英伟达出售的是整套方案（GPU、网络、参考设计、软件、本地 Inception 初创企业），从而把硬件销售变成国家级项目。
 
@@ -41,14 +41,14 @@
 | 日本 | 2024-05 | KDDI、软银、Sakura Internet、GMO 等 | > $740M 国家补贴 [[S13016]](../../../sources/bibliography.md#s13016) | 未披露 GPU 数量；2026 年项目的相关报道仅有单一来源 🔴 |
 
 > [!TIP]
-> **算例 —— 以美元和兆瓦衡量韩国的 260,000 颗 GPU。** 按每个 GB300 [NVL72](../../../glossary.md#nvl72) 机架 72 颗 GPU 计算，260,000 颗 GPU 约为 ~3,611 个机架。按每机架 ~$3.99M（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)，即**约 ~$14.4B 的机架**。按每机架含网络约 ~145 kW [[S340]](../../../sources/bibliography.md#s340)、[PUE](../../../glossary.md#pue) 为 1.15 [[S387]](../../../sources/bibliography.md#s387)[[S388]](../../../sources/bibliography.md#s388) 计算，需要 **~600 MW**。路透社报道称，该交易将使韩国的英伟达 GPU 保有量从 ~65,000 颗提升至 >300,000 颗 [[S13513]](../../../sources/bibliography.md#s13513)。🔴 本资料库测算。
+> **算例 —— 以美元和兆瓦衡量韩国的 260,000 颗 GPU。** 按每个 GB300 [NVL72](../../glossary.md#nvl72) 机架 72 颗 GPU 计算，260,000 颗 GPU 约为 ~3,611 个机架。按每机架 ~$3.99M（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)，即**约 ~$14.4B 的机架**。按每机架含网络约 ~145 kW [[S340]](../../../sources/bibliography.md#s340)、[PUE](../../glossary.md#pue) 为 1.15 [[S387]](../../../sources/bibliography.md#s387)[[S388]](../../../sources/bibliography.md#s388) 计算，需要 **~600 MW**。路透社报道称，该交易将使韩国的英伟达 GPU 保有量从 ~65,000 颗提升至 >300,000 颗 [[S13513]](../../../sources/bibliography.md#s13513)。🔴 本资料库测算。
 
 ## 算例：一座 100,000 颗 GPU 的国家级 AI 工厂要花多少钱
 
 ![瀑布图，估算由 1,389 个 GB300 NVL72 机架（每个约 $3.99M）构成的 100,000 颗 GPU 国家级 AI 工厂的前期成本：英伟达 GPU 约 $3.5B，HBM 与 LPDDR 内存约 $0.5B，机架其余部分（Grace CPU、NVLink 交换托盘、电路板、供电、散热、ODM 利润）约 $1.5B，横向扩展网络与存储约 $1.4B，~232 MW 的设施主体与电力设施约 $1.5B，合计约 $8.5B。英伟达开票估计为 $5.3-6.1B；电费每年另增 ~$164M。](../../../assets/charts/13-national-ai-factory-cost.svg)
 
 > [!TIP]
-> **算例 —— 1,389 个机架的账单。** 100,000 颗 GPU ÷ 72 = 1,389 个 GB300 NVL72 机架。每个约 ~$3.99M，其中 GPU 约 ~$2.52M、内存约 ~$0.37M（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)，机架合计 **~$5.5B**。[横向扩展（scale-out）](../../../glossary.md#scale-out)网络与存储约占整套集群的 ~20.5%（估计，SemiAnalysis）[[S324]](../../../sources/bibliography.md#s324)，增加 **~$1.4B**。按每机架 ~145 kW [[S340]](../../../sources/bibliography.md#s340)、PUE 1.15 计算，站点功耗为 **~232 MW**。按每 MW $6.6M（取自摩根士丹利一个后来撤回的模型，此处仅作示意）[[S357]](../../../sources/bibliography.md#s357)，设施主体与电力设施成本为 **~$1.5B**。合计 **~$8.5B**，另按 $0.081/kWh 计每年电费约 ~$164M [[S389]](../../../sources/bibliography.md#s389)。英伟达开票约 ~$5.3–6.1B（63–71%），具体取决于其供应多少 CPU、交换机和网络 🔴。
+> **算例 —— 1,389 个机架的账单。** 100,000 颗 GPU ÷ 72 = 1,389 个 GB300 NVL72 机架。每个约 ~$3.99M，其中 GPU 约 ~$2.52M、内存约 ~$0.37M（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)，机架合计 **~$5.5B**。[横向扩展（scale-out）](../../glossary.md#scale-out)网络与存储约占整套集群的 ~20.5%（估计，SemiAnalysis）[[S324]](../../../sources/bibliography.md#s324)，增加 **~$1.4B**。按每机架 ~145 kW [[S340]](../../../sources/bibliography.md#s340)、PUE 1.15 计算，站点功耗为 **~232 MW**。按每 MW $6.6M（取自摩根士丹利一个后来撤回的模型，此处仅作示意）[[S357]](../../../sources/bibliography.md#s357)，设施主体与电力设施成本为 **~$1.5B**。合计 **~$8.5B**，另按 $0.081/kWh 计每年电费约 ~$164M [[S389]](../../../sources/bibliography.md#s389)。英伟达开票约 ~$5.3–6.1B（63–71%），具体取决于其供应多少 CPU、交换机和网络 🔴。
 
 ```mermaid
 flowchart LR
@@ -73,7 +73,7 @@ flowchart LR
 
 ## 出口管制：主权 AI 的另一半
 
-催生主权 AI 的逻辑，同样催生了[出口管制](../../../glossary.md#export-controls)：由美国决定哪些国家和买方能获得顶级 GPU，以及能获得多少。
+催生主权 AI 的逻辑，同样催生了[出口管制](../../glossary.md#export-controls)：由美国决定哪些国家和买方能获得顶级 GPU，以及能获得多少。
 
 - **中国。** 2025 年 4 月，美国要求 H20 级芯片须获得许可证，英伟达因此计提约 ~$4.5B 的费用 [[S90081]](../../../sources/bibliography.md#s90081)[[S90082]](../../../sources/bibliography.md#s90082)。2025 年 12 月，美国允许向获批的中国买方出售 H200，但需将 25% 的收入上缴美国政府 [[S90032]](../../../sources/bibliography.md#s90032)。英伟达于 2026 年 3 月收到采购订单 [[S90033]](../../../sources/bibliography.md#s90033)，但尚未确认任何 H200 收入，其业绩指引仍不含中国数据中心计算业务 [[S90081]](../../../sources/bibliography.md#s90081)[[S3]](../../../sources/bibliography.md#s3)。
 - **海湾地区。** 交易在获得美国批准后签署，但许可证是分批计量发放的：首批批准将 HUMAIN 和 G42 各自限制在 35,000 颗 Blackwell 等效芯片 🟡 [[S13515]](../../../sources/bibliography.md#s13515)。

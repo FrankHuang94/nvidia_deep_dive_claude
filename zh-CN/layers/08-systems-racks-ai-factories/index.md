@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **产品已变成整个机架。** 英伟达（NVIDIA）的销售单元从 2016 年售价 $129K 的 DGX-1 服务器，扩大到约 $4.0M 的 GB300 NVL72 机架，以及约 $7.8M 的 Vera Rubin NVL72（估计，摩根士丹利），72 颗 GPU 处于同一个 [NVLink](../../../glossary.md#nvlink) 域（[NVL72](../../../glossary.md#nvl72)）中 [[S310]](../../../sources/bibliography.md#s310)[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
-- **几乎全部由英伟达设计，由 ODM 制造。** 英伟达规定计算托盘、交换托盘、约 5,000 根线缆组成的铜缆背板（spine）、电源架和液冷方案；富士康（约占 AI 服务器的 40%）等 [ODM](../../../glossary.md#odm) 负责组装，毛利率仅约 2–3% [[S5000]](../../../sources/bibliography.md#s5000)[[S3014]](../../../sources/bibliography.md#s3014)[[S332]](../../../sources/bibliography.md#s332)。
-- **单系统功耗十年间上升约 190 倍：** 从 3.2 kW（DGX-1）到约 132 kW（GB300 NVL72）、约 190–230 kW（Vera Rubin，🟡 有报道），以及 2027 年 Kyber 计划的约 600 kW（🟢 已发布）；因此[液冷](../../../glossary.md#liquid-cooling)成为必选项，并催生了 [800 V 直流](../../../glossary.md#hvdc-800v)供电标准 [[S310]](../../../sources/bibliography.md#s310)[[S337]](../../../sources/bibliography.md#s337)[[S303]](../../../sources/bibliography.md#s303)[[S305]](../../../sources/bibliography.md#s305)[[S90063]](../../../sources/bibliography.md#s90063)。
-- **产出指标是[每兆瓦 token 数](../../../glossary.md#tokens-per-megawatt)：** 在每用户 50 tokens/s 的速度下，GB300 NVL72 运行 DeepSeek-R1 的每兆瓦 token 数约为 H200 的 13 倍（本资料库根据 InferenceX 估计）；在中等速度下，Vera Rubin 还能再提升约 2 倍 [[S621]](../../../sources/bibliography.md#s621)[[S622]](../../../sources/bibliography.md#s622)[[S626]](../../../sources/bibliography.md#s626)。
+- **产品已变成整个机架。** 英伟达（NVIDIA）的销售单元从 2016 年售价 $129K 的 DGX-1 服务器，扩大到约 $4.0M 的 GB300 NVL72 机架，以及约 $7.8M 的 Vera Rubin NVL72（估计，摩根士丹利），72 颗 GPU 处于同一个 [NVLink](../../glossary.md#nvlink) 域（[NVL72](../../glossary.md#nvl72)）中 [[S310]](../../../sources/bibliography.md#s310)[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
+- **几乎全部由英伟达设计，由 ODM 制造。** 英伟达规定计算托盘、交换托盘、约 5,000 根线缆组成的铜缆背板（spine）、电源架和液冷方案；富士康（约占 AI 服务器的 40%）等 [ODM](../../glossary.md#odm) 负责组装，毛利率仅约 2–3% [[S5000]](../../../sources/bibliography.md#s5000)[[S3014]](../../../sources/bibliography.md#s3014)[[S332]](../../../sources/bibliography.md#s332)。
+- **单系统功耗十年间上升约 190 倍：** 从 3.2 kW（DGX-1）到约 132 kW（GB300 NVL72）、约 190–230 kW（Vera Rubin，🟡 有报道），以及 2027 年 Kyber 计划的约 600 kW（🟢 已发布）；因此[液冷](../../glossary.md#liquid-cooling)成为必选项，并催生了 [800 V 直流](../../glossary.md#hvdc-800v)供电标准 [[S310]](../../../sources/bibliography.md#s310)[[S337]](../../../sources/bibliography.md#s337)[[S303]](../../../sources/bibliography.md#s303)[[S305]](../../../sources/bibliography.md#s305)[[S90063]](../../../sources/bibliography.md#s90063)。
+- **产出指标是[每兆瓦 token 数](../../glossary.md#tokens-per-megawatt)：** 在每用户 50 tokens/s 的速度下，GB300 NVL72 运行 DeepSeek-R1 的每兆瓦 token 数约为 H200 的 13 倍（本资料库根据 InferenceX 估计）；在中等速度下，Vera Rubin 还能再提升约 2 倍 [[S621]](../../../sources/bibliography.md#s621)[[S622]](../../../sources/bibliography.md#s622)[[S626]](../../../sources/bibliography.md#s626)。
 - **真正的约束往往是电力而非芯片：** 文中引用的 AI 工厂在 4–15 个月内建成，但美国新增发电项目在并网排队中要等待四年以上，北弗吉尼亚的接电等待期最长可达七年 [[S6000]](../../../sources/bibliography.md#s6000)[[S8013]](../../../sources/bibliography.md#s8013)[[S8009]](../../../sources/bibliography.md#s8009)[[S8010]](../../../sources/bibliography.md#s8010)。
-- **英伟达如今出售整座 [AI 工厂](../../../glossary.md#ai-factory)：** 包括 DGX SuperPOD、Vera Rubin DSX 参考设计、Omniverse DSX 数字孪生以及 Mission Control 软件 [[S396]](../../../sources/bibliography.md#s396)[[S8017]](../../../sources/bibliography.md#s8017)[[S8019]](../../../sources/bibliography.md#s8019)。
-- **弱点与最强挑战者：** 72 颗 GPU 的机架是一个巨大的故障域，并被锁定在英伟达的物料清单（BOM）上。AMD 的 Helios 机架（72 颗 MI455X、31 TB [HBM4](../../../glossary.md#hbm4)，约为 Vera Rubin [HBM](../../../glossary.md#hbm) 容量的 1.5 倍）约从 2026 年第三季度末开始出货；谷歌（Google）的 TPU pod 可扩展至 9,216 颗芯片 [[S90021]](../../../sources/bibliography.md#s90021)[[S90020]](../../../sources/bibliography.md#s90020)[[S350]](../../../sources/bibliography.md#s350)。
+- **英伟达如今出售整座 [AI 工厂](../../glossary.md#ai-factory)：** 包括 DGX SuperPOD、Vera Rubin DSX 参考设计、Omniverse DSX 数字孪生以及 Mission Control 软件 [[S396]](../../../sources/bibliography.md#s396)[[S8017]](../../../sources/bibliography.md#s8017)[[S8019]](../../../sources/bibliography.md#s8019)。
+- **弱点与最强挑战者：** 72 颗 GPU 的机架是一个巨大的故障域，并被锁定在英伟达的物料清单（BOM）上。AMD 的 Helios 机架（72 颗 MI455X、31 TB [HBM4](../../glossary.md#hbm4)，约为 Vera Rubin [HBM](../../glossary.md#hbm) 容量的 1.5 倍）约从 2026 年第三季度末开始出货；谷歌（Google）的 TPU pod 可扩展至 9,216 颗芯片 [[S90021]](../../../sources/bibliography.md#s90021)[[S90020]](../../../sources/bibliography.md#s90020)[[S350]](../../../sources/bibliography.md#s350)。
 
 ![英伟达各代系统最大功耗柱状图：DGX-1 为 3.2 kW（2016），DGX-2 为 10 kW，DGX A100 为 6.5 kW，DGX H100 为 10.2 kW，DGX B200 为 14.3 kW；随后进入机架级：GB200 NVL72 约 120 kW，GB300 NVL72 约 132 kW，Vera Rubin NVL72 约 190-230 kW，Rubin Ultra Kyber 机架约 600 kW，约为 DGX-1 的 190 倍。](../../../assets/charts/08-kw-per-rack-by-generation.svg)
 
 > [!TIP]
-> **算例 —— 用英伟达的口径看 1 吉瓦。** 在 [PUE](../../../glossary.md#pue) 为 1.15 时，1 GW 可留出约 870 MW 给 IT 负载 [[S387]](../../../sources/bibliography.md#s387)[[S388]](../../../sources/bibliography.md#s388)。一个 GB300 NVL72 机架需要约 132 kW，再加上约 21% 分摊的网络与存储功耗，合计约 160 kW [[S337]](../../../sources/bibliography.md#s337)[[S340]](../../../sources/bibliography.md#s340)，因此 1 GW 可容纳**约 5,400 个机架、约 390,000 颗 GPU**（本资料库测算）。英伟达 CEO 对这样一座工厂的报价为 **$50–60B，其中约 $35B 属于英伟达的产品**含量 [[S398]](../../../sources/bibliography.md#s398)。**结论：**在这一层，英伟达出售的是以兆瓦计的成品算力，1 吉瓦预算中约 58–70% 流向英伟达。
+> **算例 —— 用英伟达的口径看 1 吉瓦。** 在 [PUE](../../glossary.md#pue) 为 1.15 时，1 GW 可留出约 870 MW 给 IT 负载 [[S387]](../../../sources/bibliography.md#s387)[[S388]](../../../sources/bibliography.md#s388)。一个 GB300 NVL72 机架需要约 132 kW，再加上约 21% 分摊的网络与存储功耗，合计约 160 kW [[S337]](../../../sources/bibliography.md#s337)[[S340]](../../../sources/bibliography.md#s340)，因此 1 GW 可容纳**约 5,400 个机架、约 390,000 颗 GPU**（本资料库测算）。英伟达 CEO 对这样一座工厂的报价为 **$50–60B，其中约 $35B 属于英伟达的产品**含量 [[S398]](../../../sources/bibliography.md#s398)。**结论：**在这一层，英伟达出售的是以兆瓦计的成品算力，1 吉瓦预算中约 58–70% 流向英伟达。
 
 ## 本层在技术栈中的位置
 
@@ -108,7 +108,7 @@ mindmap
 <details>
 <summary>🔧 技术细节：本层如何与相邻层衔接</summary>
 
-机架封装了[第 05 层](../05-scale-up-nvlink-nvswitch/index.md)的 NVLink 交换机、[第 04 层](../../../layers/04-cpu-grace-vera/index.md)的 CPU 以及[第 07 层](../07-dpu-supernic-storage-security/index.md)的 SuperNIC；它接入[第 06 层](../../../layers/06-scale-out-scale-across-networking/index.md)的网络；电力与机架数量决定了[第 12 层](../../../layers/12-orchestration-and-cloud-services/index.md)中云服务商可出租的算力上限（[第 14 章](../../../cross-cutting/14-training-vs-inference-economics.md)对每 token 成本进行建模）。
+机架封装了[第 05 层](../05-scale-up-nvlink-nvswitch/index.md)的 NVLink 交换机、[第 04 层](../04-cpu-grace-vera/index.md)的 CPU 以及[第 07 层](../07-dpu-supernic-storage-security/index.md)的 SuperNIC；它接入[第 06 层](../06-scale-out-scale-across-networking/index.md)的网络；电力与机架数量决定了[第 12 层](../12-orchestration-and-cloud-services/index.md)中云服务商可出租的算力上限（[第 14 章](../../cross-cutting/14-training-vs-inference-economics.md)对每 token 成本进行建模）。
 
 </details>
 
@@ -117,7 +117,7 @@ mindmap
 1. **价值已转移到 BOM 规格之中。** 谁来编写机架的物料清单，谁就拿走利润；ODM 仅保留约 2–3%（估计）[[S332]](../../../sources/bibliography.md#s332)。哪些机架部件（电源、散热、连接器）仍向独立供应商开放？
 2. **电力成为新的配额货币。** 在许多地区，已通电的站点、现场发电和 800 V 直流设备比 GPU 更稀缺 [[S8009]](../../../sources/bibliography.md#s8009)[[S90061]](../../../sources/bibliography.md#s90061)；基础设施合作的重要性可能不亚于芯片设计。
 3. **进入机架级市场需要制造与集成能力：** AMD 选择了收购（ZT Systems）而非自建 [[S8527]](../../../sources/bibliography.md#s8527)。
-4. **高通（Qualcomm）的问题（仅基于公开信息）：** 鉴于 AI200/AI250 机架功耗约 160 kW 并采用直接液冷 [[S173]](../../../sources/bibliography.md#s173)，更好的路径是融入与英伟达兼容的机架生态（MGX、[NVLink Fusion](../../../glossary.md#nvlink-fusion)），还是打造一款以每兆瓦 token 数论成败的独立推理机架？
+4. **高通（Qualcomm）的问题（仅基于公开信息）：** 鉴于 AI200/AI250 机架功耗约 160 kW 并采用直接液冷 [[S173]](../../../sources/bibliography.md#s173)，更好的路径是融入与英伟达兼容的机架生态（MGX、[NVLink Fusion](../../glossary.md#nvlink-fusion)），还是打造一款以每兆瓦 token 数论成败的独立推理机架？
 
 ## 📚 来源（Sources）
 

@@ -7,20 +7,20 @@
 
 ## ⚡ 要点速览
 
-- **推理使用的是一架“内存阶梯”。** 每往下一级，都是以带宽换容量：片上 [SRAM](../../../glossary.md#sram)、[高带宽内存（HBM）](../../../glossary.md#hbm)、[GDDR7](../../../glossary.md#gddr)、[LPDDR5X](../../../glossary.md#lpddr5x)，然后是 NVMe 闪存。Rubin 的 [HBM4](../../../glossary.md#hbm4) 速度是 Vera 的 LPDDR5X 的 16 倍，但容量只有其五分之一（19.2 TB/s、288 GB 对 1.2 TB/s、1.5 TB）[[S33007]](../../../sources/bibliography.md#s33007)[[S100]](../../../sources/bibliography.md#s100)。
-- **[预填充（prefill）](../../../glossary.md#prefill)与[解码（decode）](../../../glossary.md#decode)需要不同的内存。** 预填充受算力限制，解码受带宽限制 [[S33025]](../../../sources/bibliography.md#s33025)，因此[分离式服务（disaggregated serving）](../../../glossary.md#disaggregated-serving)将二者拆开 [[S32014]](../../../sources/bibliography.md#s32014)；英伟达（NVIDIA）的 [Dynamo](../../../glossary.md#dynamo) 自 2026 年 3 月起已在生产环境中进行这种调度 [[S520]](../../../sources/bibliography.md#s520)[[S90066]](../../../sources/bibliography.md#s90066)。
-- **英伟达如今每一层级都在卖。** Vera 通过 1.8 TB/s 链路在两颗 GPU 之后增加最多 1.5 TB 的 LPDDR5X [[S100]](../../../sources/bibliography.md#s100)；🟢 BlueField-4 存储为 [KV 缓存卸载（KV-cache offload）](../../../glossary.md#kv-cache-offload)增加了一个 NVMe 层级 [[S3012]](../../../sources/bibliography.md#s3012)；源自 Groq 的 LPU 则增加了 SRAM 层级 [[S114]](../../../sources/bibliography.md#s114)。
-- 🟡 **[Rubin CPX](../../../glossary.md#rubin-cpx) 前途未卜。** 它于 2025 年作为采用 GDDR7 的预填充 GPU 发布（30 [PFLOPS](../../../glossary.md#flops) [NVFP4](../../../glossary.md#nvfp4)、128 GB）[[S33023]](../../../sources/bibliography.md#s33023)，却未出现在 GTC 2026 路线图上 [[S115]](../../../sources/bibliography.md#s115)；🔴 有分析师报道其将以 HBM4 版本于 2027 年 Q1 复活 [[S117]](../../../sources/bibliography.md#s117)。
-- **竞争对手从容量端发起进攻。** AMD 的 MI455X 搭载 432 GB HBM4 [[S144]](../../../sources/bibliography.md#s144)；高通（Qualcomm）的 AI200 每卡搭载 768 GB [LPDDR](../../../glossary.md#lpddr)，其 2028 年的 AI300 宣称内存带宽为 AI200 的 54 倍（公开信息）[[S173]](../../../sources/bibliography.md#s173)[[S90060]](../../../sources/bibliography.md#s90060)。
+- **推理使用的是一架“内存阶梯”。** 每往下一级，都是以带宽换容量：片上 [SRAM](../../glossary.md#sram)、[高带宽内存（HBM）](../../glossary.md#hbm)、[GDDR7](../../glossary.md#gddr)、[LPDDR5X](../../glossary.md#lpddr5x)，然后是 NVMe 闪存。Rubin 的 [HBM4](../../glossary.md#hbm4) 速度是 Vera 的 LPDDR5X 的 16 倍，但容量只有其五分之一（19.2 TB/s、288 GB 对 1.2 TB/s、1.5 TB）[[S33007]](../../../sources/bibliography.md#s33007)[[S100]](../../../sources/bibliography.md#s100)。
+- **[预填充（prefill）](../../glossary.md#prefill)与[解码（decode）](../../glossary.md#decode)需要不同的内存。** 预填充受算力限制，解码受带宽限制 [[S33025]](../../../sources/bibliography.md#s33025)，因此[分离式服务（disaggregated serving）](../../glossary.md#disaggregated-serving)将二者拆开 [[S32014]](../../../sources/bibliography.md#s32014)；英伟达（NVIDIA）的 [Dynamo](../../glossary.md#dynamo) 自 2026 年 3 月起已在生产环境中进行这种调度 [[S520]](../../../sources/bibliography.md#s520)[[S90066]](../../../sources/bibliography.md#s90066)。
+- **英伟达如今每一层级都在卖。** Vera 通过 1.8 TB/s 链路在两颗 GPU 之后增加最多 1.5 TB 的 LPDDR5X [[S100]](../../../sources/bibliography.md#s100)；🟢 BlueField-4 存储为 [KV 缓存卸载（KV-cache offload）](../../glossary.md#kv-cache-offload)增加了一个 NVMe 层级 [[S3012]](../../../sources/bibliography.md#s3012)；源自 Groq 的 LPU 则增加了 SRAM 层级 [[S114]](../../../sources/bibliography.md#s114)。
+- 🟡 **[Rubin CPX](../../glossary.md#rubin-cpx) 前途未卜。** 它于 2025 年作为采用 GDDR7 的预填充 GPU 发布（30 [PFLOPS](../../glossary.md#flops) [NVFP4](../../glossary.md#nvfp4)、128 GB）[[S33023]](../../../sources/bibliography.md#s33023)，却未出现在 GTC 2026 路线图上 [[S115]](../../../sources/bibliography.md#s115)；🔴 有分析师报道其将以 HBM4 版本于 2027 年 Q1 复活 [[S117]](../../../sources/bibliography.md#s117)。
+- **竞争对手从容量端发起进攻。** AMD 的 MI455X 搭载 432 GB HBM4 [[S144]](../../../sources/bibliography.md#s144)；高通（Qualcomm）的 AI200 每卡搭载 768 GB [LPDDR](../../glossary.md#lpddr)，其 2028 年的 AI300 宣称内存带宽为 AI200 的 54 倍（公开信息）[[S173]](../../../sources/bibliography.md#s173)[[S90060]](../../../sources/bibliography.md#s90060)。
 
 ![双对数散点图：每颗芯片的内存容量与带宽。SRAM 方案位于左上：英伟达 Groq 3 LPU 0.5 GB、约 150 TB/s，d-Matrix Corsair 2 GB、150 TB/s，Cerebras WSE-3 44 GB、21,000 TB/s。HBM 位于中间：H100 80 GB、3.35 TB/s，B300 288 GB、8 TB/s，Rubin 288 GB、19.2 TB/s，AMD MI455X 432 GB、23.3 TB/s。LPDDR 位于右下：Grace 480 GB、0.5 TB/s，Vera 1,536 GB、1.2 TB/s，高通 AI 100 Ultra 128 GB、0.55 TB/s；高通 AI200（768 GB）与 Rubin CPX（128 GB GDDR7）未披露带宽。通往 NVMe 上下文存储的 BlueField-4 链路传输速率约 0.1 TB/s。](../../../assets/charts/03-memory-tiers-bandwidth-vs-capacity.svg)
 
 ## 预填充与解码：内存需求截然相反的两项工作
 
-**机制。** 预填充一次性读取整个提示词，每个权重在数千个 token 间复用：一个 2,048 token 的提示词运算强度约为 1,365 FLOPs/字节，因此瓶颈在 FLOPS [[S33025]](../../../sources/bibliography.md#s33025)。随后的解码每生成一个 token 都要重读权重与 [KV 缓存](../../../glossary.md#kv-cache)，因此瓶颈在带宽（见[内存墙](the-memory-wall.md)）。**类比：** 首次印刷用大型印刷机，后续每一页则靠快递员快速送达。
+**机制。** 预填充一次性读取整个提示词，每个权重在数千个 token 间复用：一个 2,048 token 的提示词运算强度约为 1,365 FLOPs/字节，因此瓶颈在 FLOPS [[S33025]](../../../sources/bibliography.md#s33025)。随后的解码每生成一个 token 都要重读权重与 [KV 缓存](../../glossary.md#kv-cache)，因此瓶颈在带宽（见[内存墙](the-memory-wall.md)）。**类比：** 首次印刷用大型印刷机，后续每一页则靠快递员快速送达。
 
 > [!TIP]
-> **算例 —— 70B 模型上的 128k token 提示词。** 预填充 ≈ 2 × 70B × 131,072 ≈ 1.8 × 10¹⁶ FLOPs，再加上注意力计算：按 Rubin 17.5 PFLOPS [FP8](../../../glossary.md#fp8) 的 50% 计约需 2.1 s，按 CPX 公布的 30 PFLOPS NVFP4 的 50% 计约需 1.2 s，且无需 HBM [[S33005]](../../../sources/bibliography.md#s33005)[[S33023]](../../../sources/bibliography.md#s33023)[[S32025]](../../../sources/bibliography.md#s32025)。由此产生的约 21.5 GB FP8 KV 缓存，经 3.0 TB/s 的 [NVLink](../../../glossary.md#nvlink) 6 传给解码 GPU 约需 7 ms，而经 800 Gb/s 链路约需 0.2 s [[S33007]](../../../sources/bibliography.md#s33007)[[S272]](../../../sources/bibliography.md#s272)。**商业解读：** 只有交接足够快，分离式架构才划算，这利好 NVLink 机架。
+> **算例 —— 70B 模型上的 128k token 提示词。** 预填充 ≈ 2 × 70B × 131,072 ≈ 1.8 × 10¹⁶ FLOPs，再加上注意力计算：按 Rubin 17.5 PFLOPS [FP8](../../glossary.md#fp8) 的 50% 计约需 2.1 s，按 CPX 公布的 30 PFLOPS NVFP4 的 50% 计约需 1.2 s，且无需 HBM [[S33005]](../../../sources/bibliography.md#s33005)[[S33023]](../../../sources/bibliography.md#s33023)[[S32025]](../../../sources/bibliography.md#s32025)。由此产生的约 21.5 GB FP8 KV 缓存，经 3.0 TB/s 的 [NVLink](../../glossary.md#nvlink) 6 传给解码 GPU 约需 7 ms，而经 800 Gb/s 链路约需 0.2 s [[S33007]](../../../sources/bibliography.md#s33007)[[S272]](../../../sources/bibliography.md#s272)。**商业解读：** 只有交接足够快，分离式架构才划算，这利好 NVLink 机架。
 
 ## 各个层级：HBM、LPDDR、GDDR7 与 NVMe
 
@@ -29,10 +29,10 @@
 | 片上 SRAM | Groq 3 LPU | 每芯片约 0.5 GB；每机架 128 GB | 每芯片约 150 TB/s | 超低延迟解码 [[S114]](../../../sources/bibliography.md#s114) |
 | HBM4 | Rubin | 288 GB | 19.2 TB/s | 权重、热 KV 缓存 [[S33007]](../../../sources/bibliography.md#s33007) |
 | GDDR7 | Rubin CPX（已发布） | 128 GB | 本资料库无数据 | 预填充 [[S33023]](../../../sources/bibliography.md#s33023) |
-| LPDDR5X（[SOCAMM](../../../glossary.md#socamm)） | Vera，由两颗 GPU 共享 | 最多 1.5 TB | 约 1.2 TB/s；到 GPU 为 1.8 TB/s | 温 KV 缓存 [[S100]](../../../sources/bibliography.md#s100) |
+| LPDDR5X（[SOCAMM](../../glossary.md#socamm)） | Vera，由两颗 GPU 共享 | 最多 1.5 TB | 约 1.2 TB/s；到 GPU 为 1.8 TB/s | 温 KV 缓存 [[S100]](../../../sources/bibliography.md#s100) |
 | NVMe 闪存 | BlueField-4 存储 | pod 级规模 | 每个 800 Gb/s BlueField-4 约 0.1 TB/s | 冷的、共享的 KV 缓存 [[S3012]](../../../sources/bibliography.md#s3012)[[S272]](../../../sources/bibliography.md#s272) |
 
-🟢 英伟达的[推理上下文内存存储（inference context memory storage）](../../../glossary.md#context-memory-storage)平台（CES 2026）通过 BlueField-4 与 Dynamo 在节点之间共享 KV 缓存块，宣称每秒 token 数可达传统存储的 5 倍（厂商宣称）[[S3012]](../../../sources/bibliography.md#s3012)[[S3013]](../../../sources/bibliography.md#s3013)。
+🟢 英伟达的[推理上下文内存存储（inference context memory storage）](../../glossary.md#context-memory-storage)平台（CES 2026）通过 BlueField-4 与 Dynamo 在节点之间共享 KV 缓存块，宣称每秒 token 数可达传统存储的 5 倍（厂商宣称）[[S3012]](../../../sources/bibliography.md#s3012)[[S3013]](../../../sources/bibliography.md#s3013)。
 
 ```mermaid
 sequenceDiagram
@@ -61,7 +61,7 @@ sequenceDiagram
 <details>
 <summary>🔧 技术细节：为什么 LPDDR5X 与 GDDR7 不只是“慢一点的 HBM”</summary>
 
-三者都是 DRAM，区别在于封装与信号传输。HBM 通过中介层使用数千根低速导线。GDDR7 则在普通电路板上使用几百根极高速导线，因此不需要 [CoWoS](../../../glossary.md#cowos)，但每比特能耗更高。LPDDR5X 为手机而生，以速度换取低功耗与高密度；在 Vera 上，它安装在 CPU 旁可更换的 SOCAMM 模组上 [[S100]](../../../sources/bibliography.md#s100)。GPU 通过 NVLink-C2C 访问它，因此在 GPU 看来，这是一个更慢但大得多的内存池。
+三者都是 DRAM，区别在于封装与信号传输。HBM 通过中介层使用数千根低速导线。GDDR7 则在普通电路板上使用几百根极高速导线，因此不需要 [CoWoS](../../glossary.md#cowos)，但每比特能耗更高。LPDDR5X 为手机而生，以速度换取低功耗与高密度；在 Vera 上，它安装在 CPU 旁可更换的 SOCAMM 模组上 [[S100]](../../../sources/bibliography.md#s100)。GPU 通过 NVLink-C2C 访问它，因此在 GPU 看来，这是一个更慢但大得多的内存池。
 
 </details>
 
@@ -87,7 +87,7 @@ sequenceDiagram
 | Cerebras WSE-3 | 晶圆级 SRAM | 44 GB、21 PB/s [[S166]](../../../sources/bibliography.md#s166) | 🟦 带宽极高，容量很小 |
 
 > [!TIP]
-> **算例 —— 面向大型[混合专家模型（MoE）](../../../glossary.md#mixture-of-experts)：容量优先对比带宽优先。** DeepSeek-V3 在 FP8 下服务 64 位用户、32k 上下文约需 745 GB（估计）[[S3000]](../../../sources/bibliography.md#s3000)：一张 768 GB 的 AI200 卡或三颗 Rubin [[S173]](../../../sources/bibliography.md#s173)。解码时每个 token 读取约 37 GB 的激活参数 [[S34007]](../../../sources/bibliography.md#s34007)；🔴 假设带宽约为 1.2 TB/s（Vera 级 LPDDR5X；高通未披露带宽），单个流的上限约为 30 tokens/s，而在 19.2 TB/s 下约为 500。**商业解读：** 容量优先更适合批处理与后台智能体，而非交互式对话。
+> **算例 —— 面向大型[混合专家模型（MoE）](../../glossary.md#mixture-of-experts)：容量优先对比带宽优先。** DeepSeek-V3 在 FP8 下服务 64 位用户、32k 上下文约需 745 GB（估计）[[S3000]](../../../sources/bibliography.md#s3000)：一张 768 GB 的 AI200 卡或三颗 Rubin [[S173]](../../../sources/bibliography.md#s173)。解码时每个 token 读取约 37 GB 的激活参数 [[S34007]](../../../sources/bibliography.md#s34007)；🔴 假设带宽约为 1.2 TB/s（Vera 级 LPDDR5X；高通未披露带宽），单个流的上限约为 30 tokens/s，而在 19.2 TB/s 下约为 500。**商业解读：** 容量优先更适合批处理与后台智能体，而非交互式对话。
 
 > [!NOTE]
 > **🐂 看多观点：** 英伟达把每一个层级（HBM、Vera LPDDR5X、BlueField-4 闪存、Groq SRAM）整合成一个由 Dynamo 统一调度的系统 [[S3012]](../../../sources/bibliography.md#s3012)[[S520]](../../../sources/bibliography.md#s520)；大多数竞争对手只能提供其中一层。

@@ -7,7 +7,7 @@
 
 ## ⚡ 要点速览
 
-- **[AI 工厂](../../../glossary.md#ai-factory)是以单位电力产出来衡量的数据中心。** 英伟达（NVIDIA）的核心指标是[每兆瓦每秒 token 数](../../../glossary.md#tokens-per-megawatt)：它给出的数字是 GB300 [NVL72](../../../glossary.md#nvl72) 为 2.8M，[HGX](../../../glossary.md#hgx) H200 为 54K，即在其自选工作点上宣称的 50 倍 [[S8021]](../../../sources/bibliography.md#s8021)[[S32004]](../../../sources/bibliography.md#s32004)。
+- **[AI 工厂](../../glossary.md#ai-factory)是以单位电力产出来衡量的数据中心。** 英伟达（NVIDIA）的核心指标是[每兆瓦每秒 token 数](../../glossary.md#tokens-per-megawatt)：它给出的数字是 GB300 [NVL72](../../glossary.md#nvl72) 为 2.8M，[HGX](../../glossary.md#hgx) H200 为 54K，即在其自选工作点上宣称的 50 倍 [[S8021]](../../../sources/bibliography.md#s8021)[[S32004]](../../../sources/bibliography.md#s32004)。
 - **独立数据缩小了差距，但证实了差距的存在：** 根据 InferenceX 的 DeepSeek-R1 数据，在每用户 50 tok/s 时，GB300 NVL72 每兆瓦产出约 2.95M tokens/s，而 H200 约为 225K，约 13 倍（本资料库估计）[[S621]](../../../sources/bibliography.md#s621)[[S622]](../../../sources/bibliography.md#s622)。
 - **Vera Rubin 进一步拉大差距：** SemiAnalysis 基于早期工程样品测得，在每用户 100 tok/s 以内，其每兆瓦 token 数约为 GB300 的 2 倍，在接近 200 tok/s 时约为 4 倍 [[S626]](../../../sources/bibliography.md#s626)。
 - **蓝图卖的是整个站点：** DGX SuperPOD（8 个 GB200 机架）、40 个机架的 Vera Rubin POD、配有 Omniverse DSX 数字孪生的 Vera Rubin DSX 参考设计，以及用于运营的 Mission Control 软件 [[S396]](../../../sources/bibliography.md#s396)[[S511]](../../../sources/bibliography.md#s511)[[S8017]](../../../sources/bibliography.md#s8017)[[S8019]](../../../sources/bibliography.md#s8019)。
@@ -18,9 +18,9 @@
 
 ## 1. AI 工厂的框架：输入电力，输出 token
 
-对 AI 数据中心而言，稀缺的投入是**兆瓦**（电网接入需要数年，参见[电力与散热](power-and-cooling.md)），产出是 **token**。衡量标准是*在给定的每用户速度下*（[交互速度](../../../glossary.md#interactivity)）每兆瓦每秒的 token 数，因为批处理更多用户会提高吞吐量，但会拖慢每个用户（即[帕累托前沿](../../../glossary.md#pareto-frontier)）。
+对 AI 数据中心而言，稀缺的投入是**兆瓦**（电网接入需要数年，参见[电力与散热](power-and-cooling.md)），产出是 **token**。衡量标准是*在给定的每用户速度下*（[交互速度](../../glossary.md#interactivity)）每兆瓦每秒的 token 数，因为批处理更多用户会提高吞吐量，但会拖慢每个用户（即[帕累托前沿](../../glossary.md#pareto-frontier)）。
 
-**[Q2 · 关键指标]** 五个数字决定了这一层的经济性：（1）在给定交互速度下的**每兆瓦 tokens/s**；（2）**每机架 kW 与每 GPU [全口径功耗](../../../glossary.md#all-in-power)**（GB300：约 132 kW、约 2.12 kW）[[S337]](../../../sources/bibliography.md#s337)[[S622]](../../../sources/bibliography.md#s622)；（3）**[PUE](../../../glossary.md#pue)**（2025 年行业平均 1.54，最佳超大规模机群约 1.1）[[S8007]](../../../sources/bibliography.md#s8007)[[S388]](../../../sources/bibliography.md#s388)；（4）**通电时间与首个 token 产出时间**；（5）**每 [GPU 小时](../../../glossary.md#gpu-hour)成本**，即每百万 token 美元成本的分母（[第 14 章](../../../cross-cutting/14-training-vs-inference-economics.md)）。
+**[Q2 · 关键指标]** 五个数字决定了这一层的经济性：（1）在给定交互速度下的**每兆瓦 tokens/s**；（2）**每机架 kW 与每 GPU [全口径功耗](../../glossary.md#all-in-power)**（GB300：约 132 kW、约 2.12 kW）[[S337]](../../../sources/bibliography.md#s337)[[S622]](../../../sources/bibliography.md#s622)；（3）**[PUE](../../glossary.md#pue)**（2025 年行业平均 1.54，最佳超大规模机群约 1.1）[[S8007]](../../../sources/bibliography.md#s8007)[[S388]](../../../sources/bibliography.md#s388)；（4）**通电时间与首个 token 产出时间**；（5）**每 [GPU 小时](../../glossary.md#gpu-hour)成本**，即每百万 token 美元成本的分母（[第 14 章](../../cross-cutting/14-training-vs-inference-economics.md)）。
 
 > [!TIP]
 > **算例 —— 100 MW 能产出什么。** 按每颗 GB300 GPU 全口径约 2.12 kW 计 [[S622]](../../../sources/bibliography.md#s622)，100 MW 可运行**约 47,000 颗 GPU**。按每兆瓦约 2.95M tokens/s（DeepSeek-R1，每用户 50 tok/s，估计）计，该站点每秒产出**约 295M 个 token**，满负荷利用下每年约 **9.3 千万亿（quadrillion）个 token**。同样 100 MW 的 H200（每兆瓦约 225K）每秒只产出约 22M 个 token，**约少 13 倍** [[S621]](../../../sources/bibliography.md#s621)[[S622]](../../../sources/bibliography.md#s622)。GPU 小时数则方向相反：1 MW 可容纳 472 颗 GB300（**每年 4.1M GPU 小时**），而 H200 为 730 颗（6.4M），但每个 GB300 GPU 小时产出约 22.5M 个 token，H200 仅约 1.1M（本资料库测算）。**结论：**在电力受限的站点中，一兆瓦旧 GPU 只能赚到零头的 token。
@@ -57,9 +57,9 @@ flowchart TB
   class DSX,REF,POD,RACK,NET,SW nvidia
 ```
 
-- **[DGX SuperPOD](../../../glossary.md#superpod)：** 8 个 GB200 NVL72 机架，576 颗 GPU，稀疏 [FP4](../../../glossary.md#fp4) 算力 11.5 EF [[S396]](../../../sources/bibliography.md#s396)；Vera Rubin POD 跨 40 个机架，约 60 EF [[S511]](../../../sources/bibliography.md#s511)。
-- **[Omniverse DSX](../../../glossary.md#digital-twin)：** 面向吉瓦级站点的数字孪生蓝图（2025 年 10 月）[[S8018]](../../../sources/bibliography.md#s8018)，自 GTC 2026 起随 Vera Rubin DSX 参考设计全面推出，目标是提升每瓦 token 数并缩短投产时间。维谛（Vertiv，预制化 OneCore Rubin DSX）、Switch 以及携手卡特彼勒（Caterpillar）的 Nscale 均基于它进行建设 [[S8017]](../../../sources/bibliography.md#s8017)[[S90063]](../../../sources/bibliography.md#s90063)。
-- **[Mission Control](../../../glossary.md#mission-control)**（GTC 2025）将 Base Command Manager 与 Run:ai 相结合，实现资源调配、监控和故障诊断的自动化，英伟达称其可将利用率最高提升 5 倍（厂商说法）[[S8019]](../../../sources/bibliography.md#s8019)[[S8020]](../../../sources/bibliography.md#s8020)；[Dynamo](../../../glossary.md#dynamo) 1.0 负责推理调度 [[S90066]](../../../sources/bibliography.md#s90066)（[第 11 层](../../../layers/11-inference-and-ai-software/index.md)）。
+- **[DGX SuperPOD](../../glossary.md#superpod)：** 8 个 GB200 NVL72 机架，576 颗 GPU，稀疏 [FP4](../../glossary.md#fp4) 算力 11.5 EF [[S396]](../../../sources/bibliography.md#s396)；Vera Rubin POD 跨 40 个机架，约 60 EF [[S511]](../../../sources/bibliography.md#s511)。
+- **[Omniverse DSX](../../glossary.md#digital-twin)：** 面向吉瓦级站点的数字孪生蓝图（2025 年 10 月）[[S8018]](../../../sources/bibliography.md#s8018)，自 GTC 2026 起随 Vera Rubin DSX 参考设计全面推出，目标是提升每瓦 token 数并缩短投产时间。维谛（Vertiv，预制化 OneCore Rubin DSX）、Switch 以及携手卡特彼勒（Caterpillar）的 Nscale 均基于它进行建设 [[S8017]](../../../sources/bibliography.md#s8017)[[S90063]](../../../sources/bibliography.md#s90063)。
+- **[Mission Control](../../glossary.md#mission-control)**（GTC 2025）将 Base Command Manager 与 Run:ai 相结合，实现资源调配、监控和故障诊断的自动化，英伟达称其可将利用率最高提升 5 倍（厂商说法）[[S8019]](../../../sources/bibliography.md#s8019)[[S8020]](../../../sources/bibliography.md#s8020)；[Dynamo](../../glossary.md#dynamo) 1.0 负责推理调度 [[S90066]](../../../sources/bibliography.md#s90066)（[第 11 层](../11-inference-and-ai-software/index.md)）。
 
 > [!TIP]
 > **算例 —— 1 吉瓦中有多少属于英伟达。** 英伟达 CEO 估计一座 1 GW 的 AI 工厂全部投入约 $50–60B，其中约 $35B 为英伟达的产品 [[S398]](../../../sources/bibliography.md#s398)：**约 58–70%**。我们假设的 100,000 颗 GPU 的 GB300 站点（约 255 MW，见[电力与散热](power-and-cooling.md)）按摩根士丹利的价格计，机架约 $5.5B，其中仅 GPU 就约 $3.5B（估计）[[S332]](../../../sources/bibliography.md#s332)。**结论：**参考设计让英伟达能够把剩下的 30–40%（供电、散热、建筑、网络）引导给符合其规格的合作伙伴。
@@ -67,14 +67,14 @@ flowchart TB
 ### 是什么把价值从 OEM 和 ODM 转移给英伟达
 
 1. **BOM 规格：** 英伟达固定了托盘、交换机、背板、供电和散热接口；摩根士丹利预计 ODM 毛利率将从约 2.7%（GB300）降至约 1.9%（Vera Rubin）[[S332]](../../../sources/bibliography.md#s332)。
-2. **预装托盘：** 据报道，英伟达将交付 [L10](../../../glossary.md#l6-l10-l11) 级 Vera Rubin 计算托盘，约占服务器成本的 90%（🟡）[[S8022]](../../../sources/bibliography.md#s8022)[[S329]](../../../sources/bibliography.md#s329)。
+2. **预装托盘：** 据报道，英伟达将交付 [L10](../../glossary.md#l6-l10-l11) 级 Vera Rubin 计算托盘，约占服务器成本的 90%（🟡）[[S8022]](../../../sources/bibliography.md#s8022)[[S329]](../../../sources/bibliography.md#s329)。
 3. **蓝图与软件：** 设施按 DSX 设计，而 Mission Control 和 Dynamo 占据了过去 OEM 管理工具的位置 [[S8017]](../../../sources/bibliography.md#s8017)[[S8019]](../../../sources/bibliography.md#s8019)。
 
-OEM 保留了企业服务和融资业务，[超大规模云厂商](../../../glossary.md#hyperscaler)则为自研芯片设计机架；具体的美元分配见[价值链与企业发展](value-chain-and-corp-dev.md)。
+OEM 保留了企业服务和融资业务，[超大规模云厂商](../../glossary.md#hyperscaler)则为自研芯片设计机架；具体的美元分配见[价值链与企业发展](value-chain-and-corp-dev.md)。
 
 ## 3. 首个 token 产出时间：从选址到投产
 
-对一个集群而言，“首个 token 产出时间”是指从选定站点到开始出售 token 所需的月数。链条为**选址与许可 → 电力 → 主体建筑与冷却站 → 机架交付 → [老化测试](../../../glossary.md#burn-in) → 投产**，而电力通常是耗时最长的环节。
+对一个集群而言，“首个 token 产出时间”是指从选定站点到开始出售 token 所需的月数。链条为**选址与许可 → 电力 → 主体建筑与冷却站 → 机架交付 → [老化测试](../../glossary.md#burn-in) → 投产**，而电力通常是耗时最长的环节。
 
 ![以月为单位的横向柱状图。建设里程碑：xAI Colossus 1 从首个机架到开始训练用时 19 天（0.6 个月），设施加 100,000 GPU 集群用时 122 天（4 个月）；Stargate Abilene 首批两栋建筑（200+ MW）自开工起约 15 个月；整个 1.2 GW 园区约 24 个月（目标为 2026 年年中，后来的估计为 2026 年第四季度）。电网里程碑：美国新增发电项目从并网申请到投运的中位时间超过 48 个月（LBNL）；在 Dominion 的北弗吉尼亚服务区，大型数据中心接电最长需 84 个月。](../../../assets/charts/08-build-vs-grid-timelines.svg)
 
@@ -105,7 +105,7 @@ gantt
 <details>
 <summary>🔧 技术细节：老化测试对机架级系统为何重要</summary>
 
-一台 NVL72 必须以整机架形式通过 [NVLink](../../../glossary.md#nvlink)、液冷回路和供电测试，才能开始创收。SemiAnalysis 指出，GB200 铜缆背板在上量期间出现过可靠性问题，并预计得益于无线缆托盘，Vera Rubin 的上量会更快；CoreWeave 首批 Vera Rubin 结果来自一个没有[横向扩展](../../../glossary.md#scale-out)网络的试产机架 [[S626]](../../../sources/bibliography.md#s626)。
+一台 NVL72 必须以整机架形式通过 [NVLink](../../glossary.md#nvlink)、液冷回路和供电测试，才能开始创收。SemiAnalysis 指出，GB200 铜缆背板在上量期间出现过可靠性问题，并预计得益于无线缆托盘，Vera Rubin 的上量会更快；CoreWeave 首批 Vera Rubin 结果来自一个没有[横向扩展](../../glossary.md#scale-out)网络的试产机架 [[S626]](../../../sources/bibliography.md#s626)。
 
 </details>
 

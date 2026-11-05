@@ -6,37 +6,37 @@
 
 ## ⚡ 要点速览
 
-- **一个标签下其实是两个市场。**AI [后端网络](../../../glossary.md#back-end-network)[网卡（NIC）](../../../glossary.md#nic)（每颗 GPU 一块 [SuperNIC](../../../glossary.md#supernic)）默认随英伟达机架出货；而负责卸载云网络、存储与安全的[数据处理器（DPU）](../../../glossary.md#dpu)，则是最大买家选择自研的领域 [[S264]](../../../sources/bibliography.md#s264)[[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)。
+- **一个标签下其实是两个市场。**AI [后端网络](../../glossary.md#back-end-network)[网卡（NIC）](../../glossary.md#nic)（每颗 GPU 一块 [SuperNIC](../../glossary.md#supernic)）默认随英伟达机架出货；而负责卸载云网络、存储与安全的[数据处理器（DPU）](../../glossary.md#dpu)，则是最大买家选择自研的领域 [[S264]](../../../sources/bibliography.md#s264)[[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)。
 - **在速度上英伟达领先一步：**ConnectX-9 随 Vera Rubin 以每颗 GPU 1.6 Tb/s 出货；博通（Broadcom）的 Thor Ultra 和 AMD 的 Vulcano 为 800 Gb/s [[S33004]](../../../sources/bibliography.md#s33004)[[S7529]](../../../sources/bibliography.md#s7529)[[S7500]](../../../sources/bibliography.md#s7500)。
-- **每一步都被更快地复制：**竞争对手追平 400G 用了约 3 年，追平 800G 最多只用了 1 年，这得益于开放的[超以太网（Ultra Ethernet）](../../../glossary.md#ultra-ethernet) 1.0 规范（2025 年 6 月）（见[路线图](roadmap.md)）[[S266]](../../../sources/bibliography.md#s266)[[S289]](../../../sources/bibliography.md#s289)[[S7528]](../../../sources/bibliography.md#s7528)。
+- **每一步都被更快地复制：**竞争对手追平 400G 用了约 3 年，追平 800G 最多只用了 1 年，这得益于开放的[超以太网（Ultra Ethernet）](../../glossary.md#ultra-ethernet) 1.0 规范（2025 年 6 月）（见[路线图](roadmap.md)）[[S266]](../../../sources/bibliography.md#s266)[[S289]](../../../sources/bibliography.md#s289)[[S7528]](../../../sources/bibliography.md#s7528)。
 - **AMD 用网卡数量换带宽：**Helios 为每颗 MI455X 配三块 800G Vulcano 网卡，即 2.4 Tb/s，而 Rubin 为 1.6 Tb/s [[S228]](../../../sources/bibliography.md#s228)[[S7500]](../../../sources/bibliography.md#s7500)。
-- **[Q5 · 最强挑战者]** [超大规模云厂商](../../../glossary.md#hyperscaler)的自研卸载方案，以 [AWS Nitro](../../../glossary.md#aws-nitro) 为首：当前每一代 EC2 实例都运行在它之上，AWS 的 GPU 实例通过自有的 [EFA](../../../glossary.md#efa)、而非 [ConnectX](../../../glossary.md#connectx) 进行横向扩展 [[S7503]](../../../sources/bibliography.md#s7503)[[S292]](../../../sources/bibliography.md#s292)。微软（Microsoft，Azure Boost DPU）和谷歌（Google，Titanium、Falcon）沿用同一套打法 [[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)[[S7519]](../../../sources/bibliography.md#s7519)。
+- **[Q5 · 最强挑战者]** [超大规模云厂商](../../glossary.md#hyperscaler)的自研卸载方案，以 [AWS Nitro](../../glossary.md#aws-nitro) 为首：当前每一代 EC2 实例都运行在它之上，AWS 的 GPU 实例通过自有的 [EFA](../../glossary.md#efa)、而非 [ConnectX](../../glossary.md#connectx) 进行横向扩展 [[S7503]](../../../sources/bibliography.md#s7503)[[S292]](../../../sources/bibliography.md#s292)。微软（Microsoft，Azure Boost DPU）和谷歌（Google，Titanium、Falcon）沿用同一套打法 [[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)[[S7519]](../../../sources/bibliography.md#s7519)。
 - **这块价值池增长迅速：**Dell'Oro 数据显示，SmartNIC 与 DPU 收入在 1Q 2025 同比增长 71%，在 2Q 2025 翻倍 [[S7522]](../../../sources/bibliography.md#s7522)[[S7523]](../../../sources/bibliography.md#s7523)。
 
 ![8 家网卡与 DPU 挑战者在六个维度上对标英伟达的热力图。5 家竞争对手在单设备带宽上落后（AWS Nitro v6 每卡 400G，AMD Vulcano 和博通 Thor Ultra 800G，英特尔 IPU 200G，而 ConnectX-9 为 1.6 Tb/s）；AMD Pensando 和博通借助超以太网在 AI 传输特性上与英伟达持平；博通在开放性上领先，AWS Nitro 在部署规模上领先（共 2 个“领先”单元格）；谷歌、微软和 AWS 大多为“路线不同”，因为其卸载芯片为自用（共 17 个此类单元格）。](../../../assets/charts/07-nic-dpu-competitor-heatmap.svg)
 
 ## 网卡与 DPU 之争如何评分
 
-在一座工厂里，SuperNIC 是 GPU 的**装卸码头**，DPU 则是核查访客、隔离租户的**前台**。码头比拼吞吐量；前台比拼可编程性与控制力。因此，竞争对手分为两类：商用网卡厂商（博通、AMD、Xsight Labs），以及拥有[自用芯片（captive silicon）](../../../glossary.md#captive-silicon)的云运营商（AWS、微软、谷歌）。
+在一座工厂里，SuperNIC 是 GPU 的**装卸码头**，DPU 则是核查访客、隔离租户的**前台**。码头比拼吞吐量；前台比拼可编程性与控制力。因此，竞争对手分为两类：商用网卡厂商（博通、AMD、Xsight Labs），以及拥有[自用芯片（captive silicon）](../../glossary.md#captive-silicon)的云运营商（AWS、微软、谷歌）。
 
 | 竞争对手（最佳产品） | 单设备带宽 | 可编程性 | AI 传输特性 | 商用可得性 | 生态 / 软件 |
 |---|---|---|---|---|---|
-| AWS Nitro v6 + EFA | 🟥 每卡 400G，对比 1.6T | 🟦 AWS 专有固件 | 🟨 [SRD](../../../glossary.md#srd) 多路径 | 🟦 不对外销售 | 🟦 覆盖全部 EC2 |
-| AMD Pensando Vulcano / Salina | 🟥 800G（每 GPU 3 块） | 🟨 [P4](../../../glossary.md#p4-language) 对 [DOCA](../../../glossary.md#doca) | 🟨 支持 UEC 1.0 | 🟨 对外销售；Helios 默认配置 | 🟥 SDK 用户基础小 |
+| AWS Nitro v6 + EFA | 🟥 每卡 400G，对比 1.6T | 🟦 AWS 专有固件 | 🟨 [SRD](../../glossary.md#srd) 多路径 | 🟦 不对外销售 | 🟦 覆盖全部 EC2 |
+| AMD Pensando Vulcano / Salina | 🟥 800G（每 GPU 3 块） | 🟨 [P4](../../glossary.md#p4-language) 对 [DOCA](../../glossary.md#doca) | 🟨 支持 UEC 1.0 | 🟨 对外销售；Helios 默认配置 | 🟥 SDK 用户基础小 |
 | Broadcom Thor Ultra | 🟥 800G | 🟥 固定功能 | 🟨 UEC 包裁剪（trimming）、多路径 | 🟩 适配任意 UEC 交换机 | 🟥 2025-10 起送样 |
-| Intel IPU E2100（与谷歌合作） | 🟥 200G | 🟨 P4 + 16 个 Arm 核心 | 🟦 [Falcon](../../../glossary.md#falcon-transport) 平台 | 🟥 基本只有一个客户 | 🟥 出售评估后该部门得以保留 |
+| Intel IPU E2100（与谷歌合作） | 🟥 200G | 🟨 P4 + 16 个 Arm 核心 | 🟦 [Falcon](../../glossary.md#falcon-transport) 平台 | 🟥 基本只有一个客户 | 🟥 出售评估后该部门得以保留 |
 | Microsoft Azure Boost DPU | 🟦 未披露 | 🟨 可编程 SoC | 🟦 侧重前端 | 🟦 不对外销售 | 🟦 仅限 Azure |
 | Xsight Labs E1 | 🟨 800G = BlueField-4 | 🟨 Arm、SONiC-DASH | 🟥 侧重前端 | 🟨 商用 | 🟥 初创公司 |
 
 <sub>评级 = 竞争对手对比英伟达最接近的同类产品（🟩 对手领先 · 🟨 持平 · 🟥 对手落后 · 🟦 路线不同）。规格来源：[[S7503]](../../../sources/bibliography.md#s7503)[[S7500]](../../../sources/bibliography.md#s7500)[[S228]](../../../sources/bibliography.md#s228)[[S7529]](../../../sources/bibliography.md#s7529)[[S291]](../../../sources/bibliography.md#s291)[[S7519]](../../../sources/bibliography.md#s7519)[[S7518]](../../../sources/bibliography.md#s7518)[[S7504]](../../../sources/bibliography.md#s7504)[[S7517]](../../../sources/bibliography.md#s7517)[[S512]](../../../sources/bibliography.md#s512)。</sub>
 
 > [!TIP]
-> **算例 —— 1.6 Tb/s 能为一个训练步带来什么。**假设每颗 GPU 必须跨机架对 2 GB 梯度做[全规约（all-reduce）](../../../glossary.md#all-reduce)。环形全规约发送的数据量约为消息的 2×，即每颗 GPU 约 32 Gb：在 800 Gb/s 下约 40 ms，在 ConnectX-9 的 1.6 Tb/s 下约 20 ms，在 Helios 的 2.4 Tb/s 下约 13 ms [[S33004]](../../../sources/bibliography.md#s33004)[[S228]](../../../sources/bibliography.md#s228)。如果这部分流量无法被计算掩盖，在 500 ms 的训练步上节省 20 ms 就意味着有效 GPU 时间增加 4%，对于一个年成本 $1B 的集群约合每年 $40M（估计，本资料库 🔴）。
+> **算例 —— 1.6 Tb/s 能为一个训练步带来什么。**假设每颗 GPU 必须跨机架对 2 GB 梯度做[全规约（all-reduce）](../../glossary.md#all-reduce)。环形全规约发送的数据量约为消息的 2×，即每颗 GPU 约 32 Gb：在 800 Gb/s 下约 40 ms，在 ConnectX-9 的 1.6 Tb/s 下约 20 ms，在 Helios 的 2.4 Tb/s 下约 13 ms [[S33004]](../../../sources/bibliography.md#s33004)[[S228]](../../../sources/bibliography.md#s228)。如果这部分流量无法被计算掩盖，在 500 ms 的训练步上节省 20 ms 就意味着有效 GPU 时间增加 4%，对于一个年成本 $1B 的集群约合每年 $40M（估计，本资料库 🔴）。
 
 <details>
 <summary>🔧 技术细节：“AI 传输特性”指什么</summary>
 
-传统的 [RoCE](../../../glossary.md#roce)（基于以太网的 [RDMA](../../../glossary.md#rdma)）假设网络无损，一旦丢包就重传全部数据，因此一条拥塞链路就会拖停整个集合通信。[Spectrum-X](../../../glossary.md#spectrum-x) 由交换机把数据包分散到多条路径、再由 SuperNIC 重新排序，因此两端都必须是英伟达的设备 [[S271]](../../../sources/bibliography.md#s271)。AWS 的 SRD 将数据包喷洒到多条路径上，并在 Nitro 硬件中完成丢包恢复 [[S292]](../../../sources/bibliography.md#s292)。超以太网 1.0 则把同样的理念（[数据包喷洒](../../../glossary.md#packet-spraying)、包裁剪、乱序交付）标准化，供任何厂商使用 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)。悬而未决的问题是：谁能同时掌控线路的两端。
+传统的 [RoCE](../../glossary.md#roce)（基于以太网的 [RDMA](../../glossary.md#rdma)）假设网络无损，一旦丢包就重传全部数据，因此一条拥塞链路就会拖停整个集合通信。[Spectrum-X](../../glossary.md#spectrum-x) 由交换机把数据包分散到多条路径、再由 SuperNIC 重新排序，因此两端都必须是英伟达的设备 [[S271]](../../../sources/bibliography.md#s271)。AWS 的 SRD 将数据包喷洒到多条路径上，并在 Nitro 硬件中完成丢包恢复 [[S292]](../../../sources/bibliography.md#s292)。超以太网 1.0 则把同样的理念（[数据包喷洒](../../glossary.md#packet-spraying)、包裁剪、乱序交付）标准化，供任何厂商使用 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)。悬而未决的问题是：谁能同时掌控线路的两端。
 
 </details>
 
@@ -44,7 +44,7 @@
 
 ### AWS Nitro 与 EFA：最强挑战者
 
-亚马逊于 2015 年以据报道约 $350–370M 收购 Annapurna Labs；完整的 Nitro System（卸载[虚拟机管理程序（hypervisor）](../../../glossary.md#hypervisor)、网络、存储与安全）在 re:Invent 2017 上亮相 [[S4540]](../../../sources/bibliography.md#s4540)[[S7533]](../../../sources/bibliography.md#s7533)。AWS 目前列出的第六代 Nitro 每卡最高 400 Gb/s，并在近期的 GPU 实例上支持基于 EFA 的 RDMA [[S7503]](../../../sources/bibliography.md#s7503)。EFA 为 p5（8× H100）或 p6-b200（8× B200）实例提供 3.2 Tb/s，即每颗 GPU 400 Gb/s [[S292]](../../../sources/bibliography.md#s292)。
+亚马逊于 2015 年以据报道约 $350–370M 收购 Annapurna Labs；完整的 Nitro System（卸载[虚拟机管理程序（hypervisor）](../../glossary.md#hypervisor)、网络、存储与安全）在 re:Invent 2017 上亮相 [[S4540]](../../../sources/bibliography.md#s4540)[[S7533]](../../../sources/bibliography.md#s7533)。AWS 目前列出的第六代 Nitro 每卡最高 400 Gb/s，并在近期的 GPU 实例上支持基于 EFA 的 RDMA [[S7503]](../../../sources/bibliography.md#s7503)。EFA 为 p5（8× H100）或 p6-b200（8× B200）实例提供 3.2 Tb/s，即每颗 GPU 400 Gb/s [[S292]](../../../sources/bibliography.md#s292)。
 
 **最有力的论据：**谁掌控虚拟机管理程序，谁就掌控网卡；AWS 本来就需要在每台服务器中部署 Nitro，因此加上 RDMA 传输的边际成本很低。**已缩小的差距：**AWS 追平了 H100 时代每颗 GPU 400 Gb/s 的水平，但一块 Nitro v6 卡的带宽仅为 ConnectX-9 的四分之一，且不在 AWS 以外销售 [[S7503]](../../../sources/bibliography.md#s7503)[[S33004]](../../../sources/bibliography.md#s33004)。
 
@@ -85,10 +85,10 @@ quadrantChart
 
 ![12 家竞争对手对标英伟达 12 个技术栈层级的热力图。谷歌 TPU 在 12 层中的 5 层持平或领先，是所有对手中最多的；全部单元格中有 60% 为“落后”，24 个软件与软件库单元格中有 19 个落后。超大规模云厂商仅在云服务上领先；博通在以太网交换上领先；谷歌 TPU 在推理成本上领先。](../../../assets/charts/15-layer-competitor-heatmap.svg)
 
-<sub>交换机领域的竞争对手：[第 06 层竞争](../../../layers/06-scale-out-scale-across-networking/competition.md)；所有层级：[竞争格局](../../../cross-cutting/15-competitive-landscape/index.md)。</sub>
+<sub>交换机领域的竞争对手：[第 06 层竞争](../06-scale-out-scale-across-networking/competition.md)；所有层级：[竞争格局](../../cross-cutting/15-competitive-landscape/index.md)。</sub>
 
 > [!NOTE]
-> **🐂 看多观点。**每个 [NVL72](../../../glossary.md#nvl72) 机架出货 72 块 SuperNIC，而 ConnectX-9 是唯一已量产的 1.6 Tb/s 网卡 [[S33004]](../../../sources/bibliography.md#s33004)[[S501]](../../../sources/bibliography.md#s501)。BlueField-4 则增加了在存储领域的立足点：十二家存储厂商基于其 STX 参考架构进行协同设计 [[S7511]](../../../sources/bibliography.md#s7511)。竞争对手会复制每一次速度跃升，但英伟达总能率先迈出下一步。
+> **🐂 看多观点。**每个 [NVL72](../../glossary.md#nvl72) 机架出货 72 块 SuperNIC，而 ConnectX-9 是唯一已量产的 1.6 Tb/s 网卡 [[S33004]](../../../sources/bibliography.md#s33004)[[S501]](../../../sources/bibliography.md#s501)。BlueField-4 则增加了在存储领域的立足点：十二家存储厂商基于其 STX 参考架构进行协同设计 [[S7511]](../../../sources/bibliography.md#s7511)。竞争对手会复制每一次速度跃升，但英伟达总能率先迈出下一步。
 
 > [!WARNING]
 > **🐻 看空观点。**最大的买家拥有自己的网卡：Nitro 与 EFA、Azure Boost、Titanium 与 Falcon [[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)。超以太网将 AI 网卡变成一种标准部件，博通和 AMD 可将其销往搭配任意交换机的系统 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)。如果机架不再属于英伟达，网卡也就不再属于它。

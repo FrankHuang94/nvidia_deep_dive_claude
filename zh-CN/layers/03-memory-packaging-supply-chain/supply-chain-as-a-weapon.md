@@ -7,17 +7,17 @@
 
 ## ⚡ 要点速览
 
-- **英伟达（NVIDIA）提前买下瓶颈。** 截至 Q2 FY2027，供应与产能承诺（[采购义务](../../../glossary.md#purchase-obligations)）达 $279B，较上一季度的 $119B 大幅上升，主要为内存与制造产能 [[S407]](../../../sources/bibliography.md#s407)[[S404]](../../../sources/bibliography.md#s404)。
+- **英伟达（NVIDIA）提前买下瓶颈。** 截至 Q2 FY2027，供应与产能承诺（[采购义务](../../glossary.md#purchase-obligations)）达 $279B，较上一季度的 $119B 大幅上升，主要为内存与制造产能 [[S407]](../../../sources/bibliography.md#s407)[[S404]](../../../sources/bibliography.md#s404)。
 - **这一规模前所未有。** 该数字在 FY2023 末为 $4.9B，在 FY2026 末为 $95.2B [[S419]](../../../sources/bibliography.md#s419)[[S401]](../../../sources/bibliography.md#s401)，但 10-K 中的“采购义务”科目与 10-Q 中口径更宽的“供应与产能承诺”（$119B → $279B）并不严格可比 [[S90092]](../../../sources/bibliography.md#s90092)；目前约为 $96.2B 季度营收的 2.9 倍 [[S405]](../../../sources/bibliography.md#s405)。10-Q 还列示了 $29B 的云服务协议，以及 $36B 的 AI 云产能兜底承诺 [[S407]](../../../sources/bibliography.md#s407)。
-- **一条长链把芯片变成机架。** [ODM](../../../glossary.md#odm)（富士康、广达、纬创）制造板卡、托盘与机架（[L6/L10/L11](../../../glossary.md#l6-l10-l11)）；[OEM](../../../glossary.md#oem)（戴尔、慧与、超微）销售自有品牌系统。🟡 富士康称其占据约 40% 的 AI 服务器市场 [[S3014]](../../../sources/bibliography.md#s3014)。
-- **短缺时期，配额优势会自我强化。** 🟡 据报道，英伟达拿下了台积电（TSMC）2026 年一半以上的 [CoWoS](../../../glossary.md#cowos) 产能 [[S379]](../../../sources/bibliography.md#s379)[[S3003]](../../../sources/bibliography.md#s3003)，以及 SK 海力士最大份额的[高带宽内存（HBM）](../../../glossary.md#hbm)配额 [[S90041]](../../../sources/bibliography.md#s90041)；首席财务官称 FY2028 将“受供应限制” [[S90012]](../../../sources/bibliography.md#s90012)。
+- **一条长链把芯片变成机架。** [ODM](../../glossary.md#odm)（富士康、广达、纬创）制造板卡、托盘与机架（[L6/L10/L11](../../glossary.md#l6-l10-l11)）；[OEM](../../glossary.md#oem)（戴尔、慧与、超微）销售自有品牌系统。🟡 富士康称其占据约 40% 的 AI 服务器市场 [[S3014]](../../../sources/bibliography.md#s3014)。
+- **短缺时期，配额优势会自我强化。** 🟡 据报道，英伟达拿下了台积电（TSMC）2026 年一半以上的 [CoWoS](../../glossary.md#cowos) 产能 [[S379]](../../../sources/bibliography.md#s379)[[S3003]](../../../sources/bibliography.md#s3003)，以及 SK 海力士最大份额的[高带宽内存（HBM）](../../glossary.md#hbm)配额 [[S90041]](../../../sources/bibliography.md#s90041)；首席财务官称 FY2028 将“受供应限制” [[S90012]](../../../sources/bibliography.md#s90012)。
 - **🐻 这一杠杆是双刃剑。** 2022 年，英伟达在一个季度内计提了约 $1.34B 的存货减值 [[S433]](../../../sources/bibliography.md#s433)；2025 年的 H20 禁令则带来了 $4.5B 的存货与采购义务相关费用 [[S414]](../../../sources/bibliography.md#s414)。
 
 ![两联图。左：英伟达采购义务从 Q2FY22 的 $4.8B 增至 Q2FY27 的 $279B，存货达到 $31.6B。右：在 FY2023 存货减值之前，承诺额约为季度营收的 1.4 倍，如今为 2.9 倍，主要是面向 Rubin 的内存与产能。](../../../assets/charts/03-purchase-obligations-over-time.svg)
 
 ## 承诺与预付款：在产能存在之前就买下它
 
-**机制。** HBM 产线、CoWoS 设备与基板工厂需要一到两年才能建成，而供应商只会针对确定的需求扩产。英伟达以不可撤销承诺的形式提供这种确定性，有时还预先支付现金（[预付款](../../../glossary.md#prepayment)）。供应商获得有保障的回报；英伟达获得产出的优先认领权。**类比：** 为两年后的一场活动，交定金订下城里所有好酒店。
+**机制。** HBM 产线、CoWoS 设备与基板工厂需要一到两年才能建成，而供应商只会针对确定的需求扩产。英伟达以不可撤销承诺的形式提供这种确定性，有时还预先支付现金（[预付款](../../glossary.md#prepayment)）。供应商获得有保障的回报；英伟达获得产出的优先认领权。**类比：** 为两年后的一场活动，交定金订下城里所有好酒店。
 
 > [!TIP]
 > **算例 —— $279B 有多大？** $96.2B 的季度营收、约 75% 的毛利率意味着季度营业成本约 $24B [[S405]](../../../sources/bibliography.md#s405)，因此 $279B 约相当于 11.6 个季度、约 2.9 年的当前销货成本（🔴 本资料库测算）[[S407]](../../../sources/bibliography.md#s407)。2022 年年中，$9.2B 的采购义务约为 $6.7B 季度营收的 1.4 倍 [[S420]](../../../sources/bibliography.md#s420)[[S433]](../../../sources/bibliography.md#s433)。**商业解读：** 英伟达大约锁定了三年的投入品，需求坚挺时这是护城河，否则就是一项固定负债。
@@ -61,7 +61,7 @@ flowchart LR
 ![桑基图：一台 GB300 NVL72 机架及其分摊的网络部分的估计价值流向：约 $4.8M 中，英伟达 GPU 毛利约 $2.27M，台积电逻辑晶圆约 $0.14M、CoWoS-L 封装约 $0.09M，HBM 厂商约 $0.31M，LPDDR5X 约 $0.06M，其他机架内容约 $0.94M，液冷 $0.05M，ODM 利润约 $0.11M，横向扩展网络与存储约 $0.8M。](../../../assets/charts/03-supply-chain-value-sankey.svg)
 
 > [!TIP]
-> **算例 —— 一台机架上谁赚多少。** 一台 GB300 [NVL72](../../../glossary.md#nvl72) 加网络约 $4.8M，其中英伟达 GPU 毛利约 $2.27M（约 47%），HBM 厂商约 $0.31M，台积电约 $0.23M，ODM 约 $0.11M（约 2%）（估计）[[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)[[S35020]](../../../sources/bibliography.md#s35020)。**商业解读：** ODM 是低利润的集成商，但能制造约 100 kW 以上液冷机架的产能本身就是稀缺资源。
+> **算例 —— 一台机架上谁赚多少。** 一台 GB300 [NVL72](../../glossary.md#nvl72) 加网络约 $4.8M，其中英伟达 GPU 毛利约 $2.27M（约 47%），HBM 厂商约 $0.31M，台积电约 $0.23M，ODM 约 $0.11M（约 2%）（估计）[[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)[[S35020]](../../../sources/bibliography.md#s35020)。**商业解读：** ODM 是低利润的集成商，但能制造约 100 kW 以上液冷机架的产能本身就是稀缺资源。
 
 **交付周期。** 🟡 台积电 2026 年的 CoWoS 产能已被订满 [[S90039]](../../../sources/bibliography.md#s90039)，缺口约 20% [[S3003]](../../../sources/bibliography.md#s3003)；Rubin 的量产爬坡将持续到 2027 年上半年 [[S90009]](../../../sources/bibliography.md#s90009)[[S500]](../../../sources/bibliography.md#s500)。下单晚的买家只能等待，或接受上一代产品。
 

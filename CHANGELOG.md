@@ -1,5 +1,18 @@
 # Changelog
 
+## zh-CN — 2026-11-05
+
+Simplified-Chinese reference translation (参考译文，仅供参考；以英文原文为准).
+
+- `zh-CN/` mirrors every content page (143 pages + glossary) with the same file names; each page opens with a
+  note linking to its English original. Numbers, citations and Sources lists are kept verbatim; charts stay in
+  English with Chinese alt text; Mermaid labels are translated (four sankey diagrams keep English labels).
+- Print-ready A4 PDFs in five volumes in `zh-CN/pdf/` (`make zh-pdf`), with cover, table of contents with page
+  numbers, running headers and a bibliography appendix.
+- Tooling: `scripts/build/zh_links.py` (link rewriting, run by `make build`), `scripts/validate/check_zh.py`
+  (structural parity with the English, `make zh-check`), `scripts/build/zh_pdf.py`, `mermaid_render.mjs`,
+  `print_pdf.cjs`. Conventions and terminology: `zh-CN/TRANSLATION_NOTES.md`.
+
 ## v1.0 — 2026-11-05
 
 First complete release. As-of date for data and charts: 2026-11-05.

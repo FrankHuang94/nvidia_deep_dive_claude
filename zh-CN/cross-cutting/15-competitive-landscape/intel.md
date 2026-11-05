@@ -10,18 +10,18 @@
 - **作为加速器竞争对手，英特尔（Intel）至今未能形成实质威胁。** 它先后收购了 Nervana（2016 年）和 Habana（~$2B，2019 年）[[S2514]](../../../sources/bibliography.md#s2514)，
   未能实现 2024 年 $500M 的 Gaudi 收入目标 [[S668]](../../../sources/bibliography.md#s668)，并于 2025 年 1 月取消了 Falcon Shores 的产品化
   [[S15546]](../../../sources/bibliography.md#s15546)[[S564]](../../../sources/bibliography.md#s564)。
-- **重启路线是先做推理 GPU，后做机架。** Crescent Island（Xe3P，160 GB [LPDDR5X](../../../glossary.md#lpddr5x)，
-  风冷）将于 2026 年下半年送样，并在 OCP 2026 上更名为 GPU D-Series；机架级产品 Jaguar Shores（SK 海力士 [HBM4](../../../glossary.md#hbm4)、
+- **重启路线是先做推理 GPU，后做机架。** Crescent Island（Xe3P，160 GB [LPDDR5X](../../glossary.md#lpddr5x)，
+  风冷）将于 2026 年下半年送样，并在 OCP 2026 上更名为 GPU D-Series；机架级产品 Jaguar Shores（SK 海力士 [HBM4](../../glossary.md#hbm4)、
   硅光子）尚无确定日期，2027 年前推出的可能性不大 🟡 [[S162]](../../../sources/bibliography.md#s162)[[S15543]](../../../sources/bibliography.md#s15543)[[S15544]](../../../sources/bibliography.md#s15544)[[S15545]](../../../sources/bibliography.md#s15545)。
 - **其数据中心业务本质上是 CPU 业务，且已恢复增长。** 数据中心与 AI 事业部 2026 年第三季度收入 ~$7.3B
   （同比 +78%），约为英伟达（NVIDIA）最近一个季度数据中心收入的 8% [[S15543]](../../../sources/bibliography.md#s15543)[[S405]](../../../sources/bibliography.md#s405)。按出货量计，英特尔仍占服务器
-  CPU 的 54.9%，但按收入计，AMD 已占 [x86](../../../glossary.md#x86) 服务器市场的 ~46% [[S4503]](../../../sources/bibliography.md#s4503)[[S4505]](../../../sources/bibliography.md#s4505)。
-- **英伟达持有其 ~4% 股份。** 英伟达 $5B 的入股（以 $23.28 认购 ~214.7M 股）已于 2025-12-26 完成交割，用于资助通过 [NVLink](../../../glossary.md#nvlink) 连接的定制 x86
+  CPU 的 54.9%，但按收入计，AMD 已占 [x86](../../glossary.md#x86) 服务器市场的 ~46% [[S4503]](../../../sources/bibliography.md#s4503)[[S4505]](../../../sources/bibliography.md#s4505)。
+- **英伟达持有其 ~4% 股份。** 英伟达 $5B 的入股（以 $23.28 认购 ~214.7M 股）已于 2025-12-26 完成交割，用于资助通过 [NVLink](../../glossary.md#nvlink) 连接的定制 x86
   CPU，以及 x86 RTX PC 芯片；数据中心产品尚无公开日期 🔴 [[S4009]](../../../sources/bibliography.md#s4009)[[S15547]](../../../sources/bibliography.md#s15547)[[S130]](../../../sources/bibliography.md#s130)。
-- **供应商角色在于封装。** 英特尔的 [EMIB](../../../glossary.md#emib)-T 是大型 AI 封装绕开台积电（TSMC）的主要路径；
+- **供应商角色在于封装。** 英特尔的 [EMIB](../../glossary.md#emib)-T 是大型 AI 封装绕开台积电（TSMC）的主要路径；
   据报道谷歌（Google）和亚马逊正在洽谈 🟡；估计显示，2027 年 EMIB-T 产能约为每月 ~15–20k 片 CoWoS 等效晶圆，
   而台积电 2026 年底的 CoWoS 产能为 ~130k（估计）[[S3532]](../../../sources/bibliography.md#s3532)[[S3002]](../../../sources/bibliography.md#s3002)。
-- **在[纵向扩展（scale-up）](../../../glossary.md#scale-up)之争中，英特尔两边下注：** 它既是 [UALink](../../../glossary.md#ualink) 董事会成员，又是通过 NVLink 连接的 x86
+- **在[纵向扩展（scale-up）](../../glossary.md#scale-up)之争中，英特尔两边下注：** 它既是 [UALink](../../glossary.md#ualink) 董事会成员，又是通过 NVLink 连接的 x86
   合作伙伴 [[S573]](../../../sources/bibliography.md#s573)[[S130]](../../../sources/bibliography.md#s130)。美国政府（9.9%）、软银（$2B）和英伟达如今都是其股东 [[S15550]](../../../sources/bibliography.md#s15550)[[S15547]](../../../sources/bibliography.md#s15547)。
 - **本资料库判断 🔴：** 作为加速器供应商威胁较低；但作为英伟达的 x86 合作伙伴，以及西方唯一的
   先进封装第二供应来源，其重要性正在上升。
@@ -57,7 +57,7 @@ flowchart LR
 ```
 
 本页其余部分依次讨论这三种角色。CPU 细节见
-[CPU 竞争](../../../layers/04-cpu-grace-vera/competition.md)；封装细节见
+[CPU 竞争](../../layers/04-cpu-grace-vera/competition.md)；封装细节见
 [CoWoS 与先进封装](../../layers/03-memory-packaging-supply-chain/cowos-and-advanced-packaging.md)。
 
 ## 作为竞争对手的英特尔：Gaudi 的结局与 GPU 重启
@@ -74,7 +74,7 @@ timeline
     2027+ : Jaguar Shores 机架级产品（无日期）
 ```
 
-纸面上，Gaudi 3 与其发布时对标的 GPU 相比颇具竞争力。它在 900 W 模组中提供 1,835 TFLOPS 稠密 [BF16](../../../glossary.md#bf16)/FP8 算力和 128 GB
+纸面上，Gaudi 3 与其发布时对标的 GPU 相比颇具竞争力。它在 900 W 模组中提供 1,835 TFLOPS 稠密 [BF16](../../glossary.md#bf16)/FP8 算力和 128 GB
 HBM2e（带宽 3.7 TB/s）[[S161]](../../../sources/bibliography.md#s161)，而 H100 为 80 GB、3.35 TB/s [[S33002]](../../../sources/bibliography.md#s33002)。但它卖不动。原因
 正是本资料库反复发现的那些：软件（大多数模型首先适配 CUDA）、纵向扩展（Gaudi 使用 24 个 200 GbE 端口，
 其中 21 个用于 8 芯片全交换（all-to-all），因此不存在机架级互连域）[[S296]](../../../sources/bibliography.md#s296)，以及路线图可信度（先是 Gaudi，然后是
@@ -90,16 +90,16 @@ Falcon Shores，再到 Jaguar Shores）[[S2515]](../../../sources/bibliography.m
 | NVIDIA Rubin | 2026 | 288 GB HBM4 | 19.2 TB/s | 17,500 TFLOPS | NVLink 6，72 个封装 | 爬坡中 | [[S90006]](../../../sources/bibliography.md#s90006)[[S90009]](../../../sources/bibliography.md#s90009) |
 
 > [!TIP]
-> **算例 —— 为何出色的规格没有转化为收入。** Gaudi 3 在稠密 [FP8](../../../glossary.md#fp8) 上与 H100 相当，在内存上更胜一筹
+> **算例 —— 为何出色的规格没有转化为收入。** Gaudi 3 在稠密 [FP8](../../glossary.md#fp8) 上与 H100 相当，在内存上更胜一筹
 > （128 GB 对 80 GB）[[S161]](../../../sources/bibliography.md#s161)[[S33002]](../../../sources/bibliography.md#s33002)，但 2024 年 Gaudi 收入仍低于 $500M [[S668]](../../../sources/bibliography.md#s668)，而英伟达 FY2025 数据中心
-> 收入为 $115.2B [[S416]](../../../sources/bibliography.md#s416)。以一台 8 芯片的 Gaudi 3 节点为例：其纵向扩展域为 8 颗芯片，而一台 GB200 [NVL72](../../../glossary.md#nvl72) 可将 72
+> 收入为 $115.2B [[S416]](../../../sources/bibliography.md#s416)。以一台 8 芯片的 Gaudi 3 节点为例：其纵向扩展域为 8 颗芯片，而一台 GB200 [NVL72](../../glossary.md#nvl72) 可将 72
 > 颗 GPU 连入同一个 NVLink 域。对于把专家分布在数十颗芯片上的混合专家模型（MoE）而言，决定吞吐量的是节点边界，
 > 而不是单颗芯片（[为何互连域规模至关重要](../../layers/05-scale-up-nvlink-nvswitch/why-domain-size-matters.md)）。
 > 规格让英特尔进入了评估环节；系统与软件上的差距则把它挡在了部署之外。
 
 2026 年的计划收窄了目标。Crescent Island 是一款风冷推理卡，配备 160 GB LPDDR5X [[S162]](../../../sources/bibliography.md#s162)：这与
-高通（Qualcomm）每张 AI200 卡配备 768 GB [LPDDR](../../../glossary.md#lpddr) 的“以容量换带宽”取舍如出一辙（[高通](qualcomm.md)）。
-它瞄准的是液冷和[高带宽内存（HBM）](../../../glossary.md#hbm)成本构成门槛的企业推理服务器，而非前沿训练。
+高通（Qualcomm）每张 AI200 卡配备 768 GB [LPDDR](../../glossary.md#lpddr) 的“以容量换带宽”取舍如出一辙（[高通](qualcomm.md)）。
+它瞄准的是液冷和[高带宽内存（HBM）](../../glossary.md#hbm)成本构成门槛的企业推理服务器，而非前沿训练。
 
 <details>
 <summary>🔧 技术细节：“机架级 + 硅光子”对 Jaguar Shores 意味着什么</summary>
@@ -120,14 +120,14 @@ Falcon Shores，再到 Jaguar Shores）[[S2515]](../../../sources/bibliography.m
 每一颗英伟达 GPU 都需要一颗主机 CPU。在英伟达自家的 GB 系列机架中，主机是 Grace 或 Vera；而在规模大得多的
 x86 服务器世界里，主机是 Xeon 或 EPYC。2025 年 9 月的协议使英特尔成为定制 x86 CPU 的供应商，由英伟达
 通过 NVLink 将其集成到自家平台中，同时还包括集成 RTX 小芯片的 x86 PC SoC [[S130]](../../../sources/bibliography.md#s130)[[S468]](../../../sources/bibliography.md#s468)。英特尔也被列为
-[NVLink Fusion](../../../glossary.md#nvlink-fusion) 的 CPU 合作伙伴之一 [[S90031]](../../../sources/bibliography.md#s90031)。
+[NVLink Fusion](../../glossary.md#nvlink-fusion) 的 CPU 合作伙伴之一 [[S90031]](../../../sources/bibliography.md#s90031)。
 
 ![NVLink Fusion 合作伙伴的时间线点图。2025 年 5 月 19 日发布时：联发科、美满电子和世芯（设计服务），Synopsys 和 Cadence（EDA），Astera Labs（互连），高通和富士通（CPU）。此后：英特尔 x86 CPU（2025 年 9 月）、Arm Neoverse（2025 年 11 月）、AWS Trainium4（2025 年 12 月，唯一的超大规模云厂商加速器），以及有报道但未确认的光学领域 Ayar Labs 和 Lightmatter（2026 年 6 月）。AMD、博通和谷歌缺席。](../../../assets/charts/05-nvlink-fusion-partner-timeline.svg)
 
 > [!TIP]
-> **算例 —— NVLink 对 x86 主机为何重要。** 一条 [PCIe](../../../glossary.md#pcie) Gen6 x16 主机链路带宽 ~256 GB/s；Vera 的
-> [NVLink-C2C](../../../glossary.md#nvlink-c2c) 为 1.8 TB/s，约高出 7 倍 [[S100]](../../../sources/bibliography.md#s100)[[S144]](../../../sources/bibliography.md#s144)。对于将
-> [KV 缓存](../../../glossary.md#kv-cache)溢出到 CPU 内存的推理而言，主机链路决定了上下文重新加载的速度。通过 NVLink 连接的 Xeon
+> **算例 —— NVLink 对 x86 主机为何重要。** 一条 [PCIe](../../glossary.md#pcie) Gen6 x16 主机链路带宽 ~256 GB/s；Vera 的
+> [NVLink-C2C](../../glossary.md#nvlink-c2c) 为 1.8 TB/s，约高出 7 倍 [[S100]](../../../sources/bibliography.md#s100)[[S144]](../../../sources/bibliography.md#s144)。对于将
+> [KV 缓存](../../glossary.md#kv-cache)溢出到 CPU 内存的推理而言，主机链路决定了上下文重新加载的速度。通过 NVLink 连接的 Xeon
 > 可让只用 x86 的企业在不转向 Arm 的情况下获得英伟达的一致性 CPU–GPU 通路，这也是为什么这项协议保护的是
 > 英伟达的机架，而非英特尔的加速器。
 
@@ -138,11 +138,11 @@ x86 服务器世界里，主机是 Xeon 或 EPYC。2025 年 9 月的协议使英
 
 ## 作为供应商的英特尔：18A 以及作为 CoWoS 替代方案的 EMIB
 
-台积电的 [CoWoS](../../../glossary.md#cowos) 将所有裸片放在一块大型硅中介层上，好比把整个庭院都铺平，让每条
-路径都平整顺畅。英特尔的 [EMIB](../../../glossary.md#emib) 则只在两颗裸片相接之处，于有机基板中嵌入小块硅桥，
+台积电的 [CoWoS](../../glossary.md#cowos) 将所有裸片放在一块大型硅中介层上，好比把整个庭院都铺平，让每条
+路径都平整顺畅。英特尔的 [EMIB](../../glossary.md#emib) 则只在两颗裸片相接之处，于有机基板中嵌入小块硅桥，
 好比只在道路交叉处架设人行天桥。用硅更少，意味着可以以更低成本做出更大的封装；EMIB-T 增加了
-[硅通孔](../../../glossary.md#through-silicon-via)（TSV），使 HBM 堆栈可以经由硅桥获得供电和信号 [[S15548]](../../../sources/bibliography.md#s15548)。
-[Foveros](../../../glossary.md#foveros) 则将裸片垂直堆叠。英特尔将 EMIB-T 定位为一种只需极少重新设计即可让方案脱离 CoWoS 的途径，
+[硅通孔](../../glossary.md#through-silicon-via)（TSV），使 HBM 堆栈可以经由硅桥获得供电和信号 [[S15548]](../../../sources/bibliography.md#s15548)。
+[Foveros](../../glossary.md#foveros) 则将裸片垂直堆叠。英特尔将 EMIB-T 定位为一种只需极少重新设计即可让方案脱离 CoWoS 的途径，
 这样计算裸片仍可由台积电制造 [[S15548]](../../../sources/bibliography.md#s15548)。
 
 ![估计值双子图。左：台积电 CoWoS 产能 2023 年底约每月 15k 片晶圆，2024 年 35k，2025 年 75k，2026 年约 115k，增长约 8 倍。右：在 2026 年约 1,000k 片的 CoWoS 需求中，英伟达约 595k（60%），博通 150k，AMD 105k，其他约 150k。](../../../assets/charts/03-cowos-capacity-and-nvidia-share.svg)
@@ -151,7 +151,7 @@ x86 服务器世界里，主机是 Xeon 或 EPYC。2025 年 9 月的协议使英
 > **算例 —— EMIB-T 作为第二供应来源有多大体量？** 机构估计，EMIB-T 在 2027 年约为每月 ~15–20k 片
 > CoWoS 等效晶圆，2028 年 ~40–45k；相比之下，台积电 CoWoS 在 2026 年底 ~130k，到 2028 年底将达 ~260k
 > （估计）[[S3002]](../../../sources/bibliography.md#s3002)。按 2027 年区间中值计，17.5k ÷ 130k ≈ 台积电 2026 年底基数的 13%。这足以拯救
-> 一个排在英伟达 ~60% CoWoS 配额之后的 [ASIC](../../../glossary.md#asic) 项目 [[S379]](../../../sources/bibliography.md#s379)，但不足以改变英伟达自身的供应地位。
+> 一个排在英伟达 ~60% CoWoS 配额之后的 [ASIC](../../glossary.md#asic) 项目 [[S379]](../../../sources/bibliography.md#s379)，但不足以改变英伟达自身的供应地位。
 
 客户是悬而未决的问题。据报道谷歌和亚马逊正在洽谈封装合作；英特尔 CEO 表示，客户
 愿意协助预付基板供应商的款项 🟡 [[S3532]](../../../sources/bibliography.md#s3532)。DIGITIMES 将英伟达列为有报道的订单来源之一（未确认

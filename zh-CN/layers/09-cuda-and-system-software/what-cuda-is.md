@@ -7,9 +7,9 @@
 
 ## ⚡ 要点速览
 
-- **[CUDA](../../../glossary.md#cuda) 是一整套软件栈，而不是一门语言：** 它包括编程模型、C++ 扩展、[nvcc](../../../glossary.md#nvcc) 编译器、[PTX](../../../glossary.md#ptx) 虚拟指令集、运行时、驱动程序、工具和软件库。首个工具包于 2007 年 6 月发布 [[S525]](../../../sources/bibliography.md#s525)。
-- **核心思想：** 一个[内核（kernel）](../../../glossary.md#gpu-kernel)就是一份菜谱，由成千上万名厨师同时执行，每人处理自己的那一份食材。一颗 H100 可在 132 个[流式多处理器（SM）](../../../glossary.md#streaming-multiprocessor)上同时驻留约 270,000 个这样的线程 [[S33024]](../../../sources/bibliography.md#s33024)[[S2022]](../../../sources/bibliography.md#s2022)。
-- **PTX 是兼容性引擎。** 应用程序在机器码（[SASS](../../../glossary.md#sass)）旁一并附带 PTX，这样较新的驱动程序就能为发布时尚不存在的 GPU 编译它。针对 `sm_90a`/`sm_100a` 张量核心特性构建的代码是例外 [[S9025]](../../../sources/bibliography.md#s9025)。
+- **[CUDA](../../glossary.md#cuda) 是一整套软件栈，而不是一门语言：** 它包括编程模型、C++ 扩展、[nvcc](../../glossary.md#nvcc) 编译器、[PTX](../../glossary.md#ptx) 虚拟指令集、运行时、驱动程序、工具和软件库。首个工具包于 2007 年 6 月发布 [[S525]](../../../sources/bibliography.md#s525)。
+- **核心思想：** 一个[内核（kernel）](../../glossary.md#gpu-kernel)就是一份菜谱，由成千上万名厨师同时执行，每人处理自己的那一份食材。一颗 H100 可在 132 个[流式多处理器（SM）](../../glossary.md#streaming-multiprocessor)上同时驻留约 270,000 个这样的线程 [[S33024]](../../../sources/bibliography.md#s33024)[[S2022]](../../../sources/bibliography.md#s2022)。
+- **PTX 是兼容性引擎。** 应用程序在机器码（[SASS](../../glossary.md#sass)）旁一并附带 PTX，这样较新的驱动程序就能为发布时尚不存在的 GPU 编译它。针对 `sm_90a`/`sm_100a` 张量核心特性构建的代码是例外 [[S9025]](../../../sources/bibliography.md#s9025)。
 - **兼容不等于性能。** FlashAttention-2 在 A100 上最高可用到峰值的 73%，在 H100 上却只有 35%，直到 FA3 达到 75% [[S9002]](../../../sources/bibliography.md#s9002)[[S9003]](../../../sources/bibliography.md#s9003)。
 - **CUDA 13.x：** 13.0 于 2025 年 8 月发布，13.5 于 2026-11-04 发布 [[S523]](../../../sources/bibliography.md#s523)。它放弃了对 Maxwell、Pascal 和 Volta 的支持 [[S90065]](../../../sources/bibliography.md#s90065)，13.1 新增了基于 tile（分块）的 cuTile 语言 [[S9007]](../../../sources/bibliography.md#s9007)。
 - **英伟达正把 CUDA 迁入 Python**（CUDA Python、cuTile、CuTe DSL）[[S9008]](../../../sources/bibliography.md#s9008)[[S9030]](../../../sources/bibliography.md#s9030)，而这正是 Triton 和 Mojo 展开竞争的层级（[侵蚀路径](erosion-vectors.md)）。
@@ -21,14 +21,14 @@
 CPU 就像一位厨师依次做一百万份煎蛋卷。GPU 则把同一份菜谱——即**内核**——交给数万名厨师，每人只负责一个鸡蛋。这些厨师分为四个层级：
 
 - **线程（thread）：** 一名厨师，处理一个数据元素。
-- **[Warp](../../../glossary.md#warp)：** 32 名厨师步调一致地执行同一步骤。如果其中一些人走了不同的分支，其余的人就得等待。
-- **[线程块（thread block）](../../../glossary.md#thread-block)：** 最多 1,024 名厨师共用一个操作台（[共享内存](../../../glossary.md#shared-memory)），并且可以相互同步 [[S2022]](../../../sources/bibliography.md#s2022)。
-- **[网格（grid）](../../../glossary.md#cuda-grid)：** 一次启动中的全部线程块。硬件在 SM 空闲时把线程块分派给它们，因此同一份代码可以从笔记本 GPU 一路扩展到 B200。
+- **[Warp](../../glossary.md#warp)：** 32 名厨师步调一致地执行同一步骤。如果其中一些人走了不同的分支，其余的人就得等待。
+- **[线程块（thread block）](../../glossary.md#thread-block)：** 最多 1,024 名厨师共用一个操作台（[共享内存](../../glossary.md#shared-memory)），并且可以相互同步 [[S2022]](../../../sources/bibliography.md#s2022)。
+- **[网格（grid）](../../glossary.md#cuda-grid)：** 一次启动中的全部线程块。硬件在 SM 空闲时把线程块分派给它们，因此同一份代码可以从笔记本 GPU 一路扩展到 B200。
 
 语法本身很少（用 `<<<blocks, threads>>>` 启动的 `__global__` 函数）；难的是语法之外的一切。
 
 > [!TIP]
-> **算例 —— 在 H100 上将两个十亿元素的向量相加。** 每个元素一个线程、每个线程块 256 个线程，共得到约 390 万个线程块。每个 SM 最多驻留 2,048 个线程，共 132 个 SM [[S33024]](../../../sources/bibliography.md#s33024)[[S2022]](../../../sources/bibliography.md#s2022)，这些线程块需要约 3,700 波次才能执行完毕。每个元素的数据量为 12 字节，合计 12 GB，按 3.35 TB/s 的[高带宽内存（HBM）](../../../glossary.md#hbm)带宽计算需 **约 3.6 ms** [[S33002]](../../../sources/bibliography.md#s33002)。**结论：** 即使是极简单的内核，瓶颈也在内存而非计算，因此调优比语法更重要。
+> **算例 —— 在 H100 上将两个十亿元素的向量相加。** 每个元素一个线程、每个线程块 256 个线程，共得到约 390 万个线程块。每个 SM 最多驻留 2,048 个线程，共 132 个 SM [[S33024]](../../../sources/bibliography.md#s33024)[[S2022]](../../../sources/bibliography.md#s2022)，这些线程块需要约 3,700 波次才能执行完毕。每个元素的数据量为 12 字节，合计 12 GB，按 3.35 TB/s 的[高带宽内存（HBM）](../../glossary.md#hbm)带宽计算需 **约 3.6 ms** [[S33002]](../../../sources/bibliography.md#s33002)。**结论：** 即使是极简单的内核，瓶颈也在内存而非计算，因此调优比语法更重要。
 
 **[Q1 · 职能与失效后果]** 本层把模型的数学运算转化为能让张量核心和 HBM 保持满负荷的指令，覆盖每一代 GPU，且从新模型或新芯片面世的第一天起就要做到。如果这一层薄弱，峰值算力就会被闲置：FlashAttention-2 在 H100 上浪费了 65% 的注意力计算峰值 [[S9003]](../../../sources/bibliography.md#s9003)。新模型也会卡住：在 AMD 的首日软件栈上，DeepSeek-V4-Pro 的速度仅为每用户 1–2 tokens/s [[S633]](../../../sources/bibliography.md#s633)。
 
@@ -50,11 +50,11 @@ flowchart LR
   class PTX,DRV nvidia
 ```
 
-**nvcc** 将 GPU 代码编译为 **PTX**——一份用通用厨房语言写成的菜谱。**ptxas** 再把它翻译成面向某一 GPU 系列的 **SASS**，应用程序随附一个同时包含两者的 [fatbinary](../../../glossary.md#fatbinary)。**运行时**负责内存、[流（stream）](../../../glossary.md#cuda-stream)、[CUDA Graphs](../../../glossary.md#cuda-graphs) 与内核启动。**驱动程序**负责加载代码、为新 GPU [即时编译（JIT）](../../../glossary.md#jit-compilation) PTX，并调度工作。
+**nvcc** 将 GPU 代码编译为 **PTX**——一份用通用厨房语言写成的菜谱。**ptxas** 再把它翻译成面向某一 GPU 系列的 **SASS**，应用程序随附一个同时包含两者的 [fatbinary](../../glossary.md#fatbinary)。**运行时**负责内存、[流（stream）](../../glossary.md#cuda-stream)、[CUDA Graphs](../../glossary.md#cuda-graphs) 与内核启动。**驱动程序**负责加载代码、为新 GPU [即时编译（JIT）](../../glossary.md#jit-compilation) PTX，并调度工作。
 
 | 层级 | 英伟达 | AMD ROCm 对应组件 |
 |---|---|---|
-| 语言 | CUDA C++、CuTe DSL、cuTile [[S9030]](../../../sources/bibliography.md#s9030)[[S9007]](../../../sources/bibliography.md#s9007) | [HIP](../../../glossary.md#hip)，语法几乎相同 [[S586]](../../../sources/bibliography.md#s586) |
+| 语言 | CUDA C++、CuTe DSL、cuTile [[S9030]](../../../sources/bibliography.md#s9030)[[S9007]](../../../sources/bibliography.md#s9007) | [HIP](../../glossary.md#hip)，语法几乎相同 [[S586]](../../../sources/bibliography.md#s586) |
 | 编译器 | nvcc → PTX → ptxas → SASS | hipcc / LLVM → 面向各目标的代码（gfx942、gfx950）[[S586]](../../../sources/bibliography.md#s586) |
 | 稳定的虚拟指令集 | PTX（`a` 目标除外）[[S9025]](../../../sources/bibliography.md#s9025) | 无直接对应物；代码需按每个 GPU 目标分别构建 |
 | 调优内核 | cuBLAS、cuDNN、CUTLASS、NCCL | hipBLASLt、Composable Kernel、AITER、RCCL [[S9000]](../../../sources/bibliography.md#s9000)[[S586]](../../../sources/bibliography.md#s586) |
@@ -90,15 +90,15 @@ sequenceDiagram
   G-->>Py: 结果就绪（异步）
 ```
 
-在 eager（即时执行）模式下，[PyTorch](../../../glossary.md#pytorch) 调用 [cuBLAS](../../../glossary.md#cublas)/cuBLASLt，后者通过启发式算法从众多预编译内核中选出一个，这些内核在 tile 形状和流水线深度上各不相同。在 [torch.compile](../../../glossary.md#torch-compile) 下，[TorchInductor](../../../glossary.md#torchinductor) 可能仍调用 cuBLAS 完成矩阵乘法，但会在其周围生成融合的 [Triton](../../../glossary.md#triton) 内核 [[S9021]](../../../sources/bibliography.md#s9021)。这些内核经由 LLVM 编译为 PTX 和 SASS。
+在 eager（即时执行）模式下，[PyTorch](../../glossary.md#pytorch) 调用 [cuBLAS](../../glossary.md#cublas)/cuBLASLt，后者通过启发式算法从众多预编译内核中选出一个，这些内核在 tile 形状和流水线深度上各不相同。在 [torch.compile](../../glossary.md#torch-compile) 下，[TorchInductor](../../glossary.md#torchinductor) 可能仍调用 cuBLAS 完成矩阵乘法，但会在其周围生成融合的 [Triton](../../glossary.md#triton) 内核 [[S9021]](../../../sources/bibliography.md#s9021)。这些内核经由 LLVM 编译为 PTX 和 SASS。
 
 > [!TIP]
-> **算例 —— 在 H100 上执行一次 8,192³ 的 [BF16](../../../glossary.md#bf16) 矩阵乘法。** 计算量为 2 × 8,192³ ≈ **1.1 × 10¹² FLOPs**：按 989 dense BF16 TFLOPS 计算需 1.1 ms [[S33002]](../../../sources/bibliography.md#s33002)，按更现实的 75% 利用率计算约需 1.5 ms。采用 128 × 256 的输出 tile 时，网格共有 **2,048 个线程块**，在 132 个 SM 上需 15.5 波次 [[S33024]](../../../sources/bibliography.md#s33024)。最后一波只有一半负载，约损失 3%；改用 128 × 128 的 tile 则为 31.0 波次，没有尾部浪费。**结论：** 最优内核取决于形状 × 数据类型 × GPU 的组合，这就是 [CUTLASS](../../../glossary.md#cutlass) 和 cuBLAS 要提供如此多变体的原因，也是竞争对手必须匹配整个内核目录的原因。
+> **算例 —— 在 H100 上执行一次 8,192³ 的 [BF16](../../glossary.md#bf16) 矩阵乘法。** 计算量为 2 × 8,192³ ≈ **1.1 × 10¹² FLOPs**：按 989 dense BF16 TFLOPS 计算需 1.1 ms [[S33002]](../../../sources/bibliography.md#s33002)，按更现实的 75% 利用率计算约需 1.5 ms。采用 128 × 256 的输出 tile 时，网格共有 **2,048 个线程块**，在 132 个 SM 上需 15.5 波次 [[S33024]](../../../sources/bibliography.md#s33024)。最后一波只有一半负载，约损失 3%；改用 128 × 128 的 tile 则为 31.0 波次，没有尾部浪费。**结论：** 最优内核取决于形状 × 数据类型 × GPU 的组合，这就是 [CUTLASS](../../glossary.md#cutlass) 和 cuBLAS 要提供如此多变体的原因，也是竞争对手必须匹配整个内核目录的原因。
 
 <details>
 <summary>🔧 技术细节：由谁来选内核</summary>
 
-- cuBLASLt 在每次调用时对候选内核进行排序；应用程序可以先做一次基准测试，再缓存胜出者（[自动调优](../../../glossary.md#autotuning)）。
+- cuBLASLt 在每次调用时对候选内核进行排序；应用程序可以先做一次基准测试，再缓存胜出者（[自动调优](../../glossary.md#autotuning)）。
 - TorchInductor 在 GPU 上生成 Triton 代码，在 CPU 上生成 C++ 代码 [[S9021]](../../../sources/bibliography.md#s9021)。CUTLASS 4.8.1 以 CuTe DSL 的形式在 Python 中开放英伟达的构建模块，FlashAttention-4 正是用它编写的 [[S9030]](../../../sources/bibliography.md#s9030)[[S9000]](../../../sources/bibliography.md#s9000)。
 
 </details>
@@ -121,9 +121,9 @@ sequenceDiagram
 
 ## 🎯 企业发展视角
 
-1. **控制点在哪里？** 不在语法——[HIP](../../../glossary.md#hip) 已经照搬了语法——而在 PTX 兼容性、调优内核目录和驱动程序。挑战者可以授权获取、自行重建，或者让其中哪一项变得无关紧要？
+1. **控制点在哪里？** 不在语法——[HIP](../../glossary.md#hip) 已经照搬了语法——而在 PTX 兼容性、调优内核目录和驱动程序。挑战者可以授权获取、自行重建，或者让其中哪一项变得无关紧要？
 2. **Python 是新的正门。** 如果 cuTile 和 CuTe DSL 赢得开发者心智 [[S9007]](../../../sources/bibliography.md#s9007)[[S9030]](../../../sources/bibliography.md#s9030)，可移植 DSL 在英伟达硬件上就失去了存在的理由。
-3. **高通需要思考的问题（仅基于公开信息）：** 在 Modular 的编译器栈已纳入麾下的情况下 [[S9511]](../../../sources/bibliography.md#s9511)，图中哪些层必须自有，哪些可以借用开源成果（Triton、[vLLM](../../../glossary.md#vllm)、PyTorch）？
+3. **高通需要思考的问题（仅基于公开信息）：** 在 Modular 的编译器栈已纳入麾下的情况下 [[S9511]](../../../sources/bibliography.md#s9511)，图中哪些层必须自有，哪些可以借用开源成果（Triton、[vLLM](../../glossary.md#vllm)、PyTorch）？
 
 ## 📚 来源（Sources）
 

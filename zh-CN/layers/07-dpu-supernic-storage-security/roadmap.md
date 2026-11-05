@@ -6,12 +6,12 @@
 
 ## ⚡ 要点速览
 
-- **2026 年是“双发”之年：**ConnectX-9 [SuperNIC](../../../glossary.md#supernic)（每颗 GPU 1.6 Tb/s）和 BlueField-4 [数据处理器（DPU）](../../../glossary.md#dpu)（800 Gb/s，集成 64 核 Grace CPU）随 Vera Rubin 于 H2 2026 出货；ConnectX-9 固件已于 2026 年 2 月正式发布（GA）🟢 [[S33004]](../../../sources/bibliography.md#s33004)[[S7535]](../../../sources/bibliography.md#s7535)[[S512]](../../../sources/bibliography.md#s512)。
-- **DPU 正被改作存储之用：**BlueField-4 STX 是一套面向[上下文内存存储](../../../glossary.md#context-memory-storage)（将 KV 缓存存放在闪存上）的参考设计，将于 H2 2026 进入合作伙伴的平台；英伟达宣称 token 吞吐量最高提升 5×，但未说明对比基线 🟢 [[S7511]](../../../sources/bibliography.md#s7511)[[S3012]](../../../sources/bibliography.md#s3012)。
+- **2026 年是“双发”之年：**ConnectX-9 [SuperNIC](../../glossary.md#supernic)（每颗 GPU 1.6 Tb/s）和 BlueField-4 [数据处理器（DPU）](../../glossary.md#dpu)（800 Gb/s，集成 64 核 Grace CPU）随 Vera Rubin 于 H2 2026 出货；ConnectX-9 固件已于 2026 年 2 月正式发布（GA）🟢 [[S33004]](../../../sources/bibliography.md#s33004)[[S7535]](../../../sources/bibliography.md#s7535)[[S512]](../../../sources/bibliography.md#s512)。
+- **DPU 正被改作存储之用：**BlueField-4 STX 是一套面向[上下文内存存储](../../glossary.md#context-memory-storage)（将 KV 缓存存放在闪存上）的参考设计，将于 H2 2026 进入合作伙伴的平台；英伟达宣称 token 吞吐量最高提升 5×，但未说明对比基线 🟢 [[S7511]](../../../sources/bibliography.md#s7511)[[S3012]](../../../sources/bibliography.md#s3012)。
 - **2028 年只有名字、没有细节：**Feynman 将搭配 ConnectX-10 和 BlueField-5，但尚无公开规格 🟡 [[S109]](../../../sources/bibliography.md#s109)[[S502]](../../../sources/bibliography.md#s502)[[S90004]](../../../sources/bibliography.md#s90004)；二手资料对其速率的说法相互矛盾 🔴 [[S213]](../../../sources/bibliography.md#s213)。
 - **只有 AMD 的命名时间跨度与英伟达相当：**Vulcano（2026）、Como/Monza（2027）和 Palma/Levanzo（2028）均已命名，但没有规格 🟢 [[S538]](../../../sources/bibliography.md#s538)[[S7500]](../../../sources/bibliography.md#s7500)。
-- **尚无竞争对手发布 1.6T [网卡（NIC）](../../../glossary.md#nic)：**博通（Broadcom）的 Thor Ultra（800G）自 2025 年 10 月起送样，AWS 的 Nitro v6 每卡最高 400 Gb/s [[S7529]](../../../sources/bibliography.md#s7529)[[S7503]](../../../sources/bibliography.md#s7503)。
-- **[Q7 · 路线图与变数]** 路线图在速度上稳妥；可能改变格局的是商业因素：[超以太网（Ultra Ethernet）](../../../glossary.md#ultra-ethernet)网卡在大规模部署中得到验证、网卡被吸收进加速器或光学器件，以及[超大规模云厂商](../../../glossary.md#hyperscaler)将[自用芯片（captive silicon）](../../../glossary.md#captive-silicon)扩展到[后端网络](../../../glossary.md#back-end-network)。
+- **尚无竞争对手发布 1.6T [网卡（NIC）](../../glossary.md#nic)：**博通（Broadcom）的 Thor Ultra（800G）自 2025 年 10 月起送样，AWS 的 Nitro v6 每卡最高 400 Gb/s [[S7529]](../../../sources/bibliography.md#s7529)[[S7503]](../../../sources/bibliography.md#s7503)。
+- **[Q7 · 路线图与变数]** 路线图在速度上稳妥；可能改变格局的是商业因素：[超以太网（Ultra Ethernet）](../../glossary.md#ultra-ethernet)网卡在大规模部署中得到验证、网卡被吸收进加速器或光学器件，以及[超大规模云厂商](../../glossary.md#hyperscaler)将[自用芯片（captive silicon）](../../glossary.md#captive-silicon)扩展到[后端网络](../../glossary.md#back-end-network)。
 
 ## 2024–2028 路线图
 
@@ -62,7 +62,7 @@ gantt
 | Xsight Labs E1，800G DPU | 2026 | 获得早期运营商订单 | 🟡 | [[S7517]](../../../sources/bibliography.md#s7517) |
 
 > [!TIP]
-> **算例 —— 为什么网卡在设计上就落后于 [NVLink](../../../glossary.md#nvlink)。**在 Vera Rubin 上，NVLink 6 为每颗 GPU 提供 3.0 TB/s，ConnectX-9 提供 1.6 Tb/s = 0.2 TB/s，比例为 15:1 [[S90006]](../../../sources/bibliography.md#s90006)[[S33004]](../../../sources/bibliography.md#s33004)。即使 ConnectX-10 翻倍至 3.2 Tb/s（🔴，未经证实 [[S213]](../../../sources/bibliography.md#s213)），只要 NVLink 不同步增长，这一比例仍为 7.5:1。因此，通信最频繁的流量（张量并行与专家并行）留在 NVLink 域内（[第 05 层](../05-scale-up-nvlink-nvswitch/roadmap.md)），网卡只需跟上数据并行与流水线并行的节奏。
+> **算例 —— 为什么网卡在设计上就落后于 [NVLink](../../glossary.md#nvlink)。**在 Vera Rubin 上，NVLink 6 为每颗 GPU 提供 3.0 TB/s，ConnectX-9 提供 1.6 Tb/s = 0.2 TB/s，比例为 15:1 [[S90006]](../../../sources/bibliography.md#s90006)[[S33004]](../../../sources/bibliography.md#s33004)。即使 ConnectX-10 翻倍至 3.2 Tb/s（🔴，未经证实 [[S213]](../../../sources/bibliography.md#s213)），只要 NVLink 不同步增长，这一比例仍为 7.5:1。因此，通信最频繁的流量（张量并行与专家并行）留在 NVLink 域内（[第 05 层](../05-scale-up-nvlink-nvswitch/roadmap.md)），网卡只需跟上数据并行与流水线并行的节奏。
 
 ## 规格演进
 
@@ -70,7 +70,7 @@ gantt
 
 ![按年份的网卡带宽对数坐标图：英伟达 ConnectX 从 56 Gb/s（ConnectX-3，2011）历经 100（ConnectX-4/5）、200（ConnectX-6）、400（ConnectX-7）、800（ConnectX-8）升至 1,600 Gb/s（ConnectX-9，2026）；BlueField DPU 从 100 升至 800 Gb/s（BlueField-4）；博通 Thor Ultra 和 AMD Vulcano 于 2025-26 年达到 800 Gb/s，英特尔 IPU E2100 为 200 Gb/s。](../../../assets/charts/07-nic-bandwidth-by-generation.svg)
 
-英伟达自身的迭代节奏已经加快（四年从 400G 到 1.6T，而在 Mellanox 时期，上一次 3.6× 的提升用了六年，见[发展历程](history-and-how-built.md)），而竞争对手的滞后时间则从 400G 时的约 3 年缩短到 800G 时的不到一年，因为每通道 200G 的 [SerDes](../../../glossary.md#serdes) 和 UEC 传输协议如今已成为行业公共资产，而非 Mellanox 的独门诀窍 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)。
+英伟达自身的迭代节奏已经加快（四年从 400G 到 1.6T，而在 Mellanox 时期，上一次 3.6× 的提升用了六年，见[发展历程](history-and-how-built.md)），而竞争对手的滞后时间则从 400G 时的约 3 年缩短到 800G 时的不到一年，因为每通道 200G 的 [SerDes](../../glossary.md#serdes) 和 UEC 传输协议如今已成为行业公共资产，而非 Mellanox 的独门诀窍 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)。
 
 > [!TIP]
 > **算例 —— 用 800G 网卡对标 Rubin 的成本。**一个定制加速器机架若想用 800G 商用网卡实现 Rubin 每芯片 1.6 Tb/s 的带宽，每颗芯片需要两块网卡：72 颗加速器需要 144 块网卡，而不是 72 块。按每块 800G 网卡假设 $1,500–3,000 计（估计，本资料库 🔴），每个机架需 $216–432K，而 72 块 ConnectX-9 按每块 $2,500–4,500 计为 $180–324K（同一套假设，见[价值链](value-chain-and-corp-dev.md)）。落后一档的代价体现在网卡数量、功耗和光学器件上。
@@ -78,7 +78,7 @@ gantt
 <details>
 <summary>🔧 技术细节：为什么 1.6 Tb/s 会把网卡变成一个 PCIe 交换芯片</summary>
 
-1.6 Tb/s 即每个方向 200 GB/s。一条 [PCIe](../../../glossary.md#pcie) Gen6 x16 链路在扣除开销前单向约承载 ~128 GB/s，因此 1.6T 网卡无法通过一条标准 x16 主机链路以线速运行；它需要更多通道或不同的连接方式（本文所用资料未详述 ConnectX-9 的主机接口）。英伟达已在 ConnectX-8 中内置了 PCIe Gen6 交换芯片，因此网卡位于 GPU 与主机之间，而不是挂在 CPU 下面 [[S264]](../../../sources/bibliography.md#s264)。ConnectX-10 合乎逻辑的下一步是采用直接的裸片间（die-to-die）或 NVLink 级连接，或在网卡封装上集成光学器件（🔴 本资料库推断）；无论哪种，都会让网卡更难被第三方产品替换。
+1.6 Tb/s 即每个方向 200 GB/s。一条 [PCIe](../../glossary.md#pcie) Gen6 x16 链路在扣除开销前单向约承载 ~128 GB/s，因此 1.6T 网卡无法通过一条标准 x16 主机链路以线速运行；它需要更多通道或不同的连接方式（本文所用资料未详述 ConnectX-9 的主机接口）。英伟达已在 ConnectX-8 中内置了 PCIe Gen6 交换芯片，因此网卡位于 GPU 与主机之间，而不是挂在 CPU 下面 [[S264]](../../../sources/bibliography.md#s264)。ConnectX-10 合乎逻辑的下一步是采用直接的裸片间（die-to-die）或 NVLink 级连接，或在网卡封装上集成光学器件（🔴 本资料库推断）；无论哪种，都会让网卡更难被第三方产品替换。
 
 </details>
 
@@ -86,14 +86,14 @@ gantt
 
 英伟达的网卡与 DPU 路线图是截至 2028 年命名最完整的，其速度领先是真实的，但只领先一步。可能改变格局的因素大多不在其芯片本身：
 
-- **超以太网在大规模部署中得到验证。**若一个采用 Thor Ultra 或 Vulcano 网卡的 10 万加速器集群达到 [Spectrum-X](../../../glossary.md#spectrum-x) 的效果，AI 网卡就会变成标准部件 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)[[S7500]](../../../sources/bibliography.md#s7500)。
-- **超大规模云厂商将自用网卡扩展到后端。**AWS 已在 GPU 实例上使用 EFA；若微软和谷歌跟进，1:1 的 SuperNIC 配套将萎缩到只剩[新兴云服务商（neocloud）](../../../glossary.md#neocloud)、主权客户和企业客户 [[S292]](../../../sources/bibliography.md#s292)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)。
+- **超以太网在大规模部署中得到验证。**若一个采用 Thor Ultra 或 Vulcano 网卡的 10 万加速器集群达到 [Spectrum-X](../../glossary.md#spectrum-x) 的效果，AI 网卡就会变成标准部件 [[S7528]](../../../sources/bibliography.md#s7528)[[S7529]](../../../sources/bibliography.md#s7529)[[S7500]](../../../sources/bibliography.md#s7500)。
+- **超大规模云厂商将自用网卡扩展到后端。**AWS 已在 GPU 实例上使用 EFA；若微软和谷歌跟进，1:1 的 SuperNIC 配套将萎缩到只剩[新兴云服务商（neocloud）](../../glossary.md#neocloud)、主权客户和企业客户 [[S292]](../../../sources/bibliography.md#s292)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)。
 - **网卡消融于其他器件之中。**英特尔的 Gaudi 3 已在裸片上集成 24 × 200 GbE；共封装光学或裸片间网卡连接可能以更高速率实现同样的效果 [[S296]](../../../sources/bibliography.md#s296)。
 - **上下文内存成为标准存储层级。**届时 BlueField-4 将在存储服务器中获得配套，除非存储厂商能用商用芯片实现同样的效果 [[S7511]](../../../sources/bibliography.md#s7511)[[S3012]](../../../sources/bibliography.md#s3012)。
 - 🔴 **ConnectX-10 的速率。**3.2 Tb/s 将重新拉开差距；1.6 Tb/s 则会让竞争对手追上来。
 
 > [!TIP]
-> **算例 —— 有多少网卡收入取决于配套问题。**按每个 Vera Rubin [NVL72](../../../glossary.md#nvl72) 机架约 230 kW（Max-P，有报道）计，1 GW 的 IT 功率可容纳约 4,350 个机架、约 313,000 颗 GPU [[S302]](../../../sources/bibliography.md#s302)[[S303]](../../../sources/bibliography.md#s303)。每颗配一块 ConnectX-9、每块 $2,500–4,500（估计，本资料库 🔴），即每吉瓦 $0.8–1.4B 的网卡芯片收入。拥有自用网卡的买家每部署一吉瓦，这笔钱就从英伟达的盘子里移走。
+> **算例 —— 有多少网卡收入取决于配套问题。**按每个 Vera Rubin [NVL72](../../glossary.md#nvl72) 机架约 230 kW（Max-P，有报道）计，1 GW 的 IT 功率可容纳约 4,350 个机架、约 313,000 颗 GPU [[S302]](../../../sources/bibliography.md#s302)[[S303]](../../../sources/bibliography.md#s303)。每颗配一块 ConnectX-9、每块 $2,500–4,500（估计，本资料库 🔴），即每吉瓦 $0.8–1.4B 的网卡芯片收入。拥有自用网卡的买家每部署一吉瓦，这笔钱就从英伟达的盘子里移走。
 
 ## 🎯 企业发展视角
 

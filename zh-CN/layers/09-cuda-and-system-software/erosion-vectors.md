@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **大多数 AI 开发者写的是 [PyTorch](../../../glossary.md#pytorch)，而不是 [CUDA](../../../glossary.md#cuda)，** 因此 PyTorch 之下的编译器决定了可移植性。[torch.compile](../../../glossary.md#torch-compile) 生成 [Triton](../../../glossary.md#triton) 内核，在 A100 上对 180 多个模型实现了推理 2.27 倍、训练 1.41 倍的加速 [[S9021]](../../../sources/bibliography.md#s9021)。
+- **大多数 AI 开发者写的是 [PyTorch](../../glossary.md#pytorch)，而不是 [CUDA](../../glossary.md#cuda)，** 因此 PyTorch 之下的编译器决定了可移植性。[torch.compile](../../glossary.md#torch-compile) 生成 [Triton](../../glossary.md#triton) 内核，在 A100 上对 180 多个模型实现了推理 2.27 倍、训练 1.41 倍的加速 [[S9021]](../../../sources/bibliography.md#s9021)。
 - **Triton 是关键的可移植内核语言。** 它在主代码树内（in-tree）支持英伟达和 AMD，英特尔与华为则以树外（out-of-tree）方式支持 [[S578]](../../../sources/bibliography.md#s578)[[S597]](../../../sources/bibliography.md#s597)[[S592]](../../../sources/bibliography.md#s592)。在前沿领域它会出现“泄漏”：FlashAttention-4 在 B200 上最高快 2.7 倍 [[S9004]](../../../sources/bibliography.md#s9004)，而 Triton 新增了更底层的 Gluon [[S9012]](../../../sources/bibliography.md#s9012)。
 - **JAX/XLA 是顶端客户已被验证的出路。** 谷歌（Google）在 TPU 上训练，Anthropic 承诺采购最多 100 万颗 TPU [[S653]](../../../sources/bibliography.md#s653)，TorchTPU 于 2026 年 10 月取代了 PyTorch/XLA [[S553]](../../../sources/bibliography.md#s553)[[S595]](../../../sources/bibliography.md#s595)。
-- **ROCm 的发布频率如今已与 CUDA 相当。** 它从 7.0（2025 年 9 月）发展到 10.0（2026 年 8 月），并已在 PyTorch、[vLLM](../../../glossary.md#vllm) 和 [SGLang](../../../glossary.md#sglang) 中获得原生支持 [[S90064]](../../../sources/bibliography.md#s90064)[[S586]](../../../sources/bibliography.md#s586)[[S587]](../../../sources/bibliography.md#s587)[[S580]](../../../sources/bibliography.md#s580)。
+- **ROCm 的发布频率如今已与 CUDA 相当。** 它从 7.0（2025 年 9 月）发展到 10.0（2026 年 8 月），并已在 PyTorch、[vLLM](../../glossary.md#vllm) 和 [SGLang](../../glossary.md#sglang) 中获得原生支持 [[S90064]](../../../sources/bibliography.md#s90064)[[S586]](../../../sources/bibliography.md#s586)[[S587]](../../../sources/bibliography.md#s587)[[S580]](../../../sources/bibliography.md#s580)。
 - **Mojo/MAX 已归属高通（Qualcomm）。** 这笔约 $3.9B 的交易于 2026-07-29 完成 [[S90057]](../../../sources/bibliography.md#s90057)[[S9511]](../../../sources/bibliography.md#s9511)，Mojo 1.0 于 2026-08-11 发布 [[S9006]](../../../sources/bibliography.md#s9006)。Modular 称，一次耗时 14 天的移植在 MI355X 上比 AMD 自家的 vLLM 分支最高快 2.2 倍——这是厂商自己的说法 [[S9022]](../../../sources/bibliography.md#s9022)。
 - **AI 编写的内核是最大变数。** AlphaEvolve 将一个 FlashAttention 内核提速 32.5% [[S9017]](../../../sources/bibliography.md#s9017)，AMD 计划用 Claude 加速 ROCm 开发 [[S9538]](../../../sources/bibliography.md#s9538)。Sakana 宣称的 10–100 倍加速，在其智能体被发现钻了测试漏洞后化为泡影 [[S9018]](../../../sources/bibliography.md#s9018)。
 - **规律：** 每条侵蚀路径都让*主流*路径变得更便宜，但在新内核、新数据格式和分布式服务上又会“漏回” CUDA。
@@ -19,7 +19,7 @@
 
 ## 1. 抽象如何侵蚀软件护城河
 
-不妨把 CUDA 想象成所有菜谱书所用的语言；侵蚀路径就是翻译者。**框架**（PyTorch、JAX）让作者用一种中立语言写作。**编译器**（[XLA](../../../glossary.md#xla)、Inductor、基于 [MLIR](../../../glossary.md#mlir) 的工具）自动完成翻译。**可移植内核语言**（Triton、[Mojo](../../../glossary.md#mojo)、[TileLang](../../../glossary.md#tilelang)）让专业人士针对每一类厨房只需写一次菜谱。家常菜的翻译成本很低，高级料理的翻译则代价高昂，因此侵蚀首先冲击主流模型的推理服务，最后才触及前沿内核。
+不妨把 CUDA 想象成所有菜谱书所用的语言；侵蚀路径就是翻译者。**框架**（PyTorch、JAX）让作者用一种中立语言写作。**编译器**（[XLA](../../glossary.md#xla)、Inductor、基于 [MLIR](../../glossary.md#mlir) 的工具）自动完成翻译。**可移植内核语言**（Triton、[Mojo](../../glossary.md#mojo)、[TileLang](../../glossary.md#tilelang)）让专业人士针对每一类厨房只需写一次菜谱。家常菜的翻译成本很低，高级料理的翻译则代价高昂，因此侵蚀首先冲击主流模型的推理服务，最后才触及前沿内核。
 
 ```mermaid
 quadrantChart
@@ -49,14 +49,14 @@ quadrantChart
 
 | 路径 | 抽象了什么 | 进展程度（2026 年 11 月） | 在哪里漏回 CUDA |
 |---|---|---|---|
-| **torch.compile**（[TorchInductor](../../../glossary.md#torchinductor)） | 计算图捕获与融合内核 | 主代码树内支持 CUDA、ROCm、英特尔 GPU [[S587]](../../../sources/bibliography.md#s587)；MTIA 和 AWS TorchNeuron 均基于它构建 [[S9028]](../../../sources/bibliography.md#s9028)[[S9525]](../../../sources/bibliography.md#s9525) | 矩阵乘法和注意力仍调用厂商软件库 |
+| **torch.compile**（[TorchInductor](../../glossary.md#torchinductor)） | 计算图捕获与融合内核 | 主代码树内支持 CUDA、ROCm、英特尔 GPU [[S587]](../../../sources/bibliography.md#s587)；MTIA 和 AWS TorchNeuron 均基于它构建 [[S9028]](../../../sources/bibliography.md#s9028)[[S9525]](../../../sources/bibliography.md#s9525) | 矩阵乘法和注意力仍调用厂商软件库 |
 | **OpenAI Triton** | 用 Python 编写 tile 级内核 | 主代码树内支持英伟达和 AMD；英特尔和昇腾为树外支持 [[S578]](../../../sources/bibliography.md#s578)[[S597]](../../../sources/bibliography.md#s597)[[S592]](../../../sources/bibliography.md#s592) | FA4 在 B200 上最高快 2.7 倍 [[S9004]](../../../sources/bibliography.md#s9004)；Gluon 开放底层控制 [[S9012]](../../../sources/bibliography.md#s9012) |
-| **JAX / XLA / [Pallas](../../../glossary.md#pallas)** | 全程序编译器；自定义内核 | 在 TPU 上为一等公民 [[S577]](../../../sources/bibliography.md#s577)；vLLM 在 TPU 上同时服务 JAX 和 PyTorch [[S9015]](../../../sources/bibliography.md#s9015) | Pallas API 因硬件而异；GPU 路径以英伟达为目标 [[S9013]](../../../sources/bibliography.md#s9013) |
+| **JAX / XLA / [Pallas](../../glossary.md#pallas)** | 全程序编译器；自定义内核 | 在 TPU 上为一等公民 [[S577]](../../../sources/bibliography.md#s577)；vLLM 在 TPU 上同时服务 JAX 和 PyTorch [[S9015]](../../../sources/bibliography.md#s9015) | Pallas API 因硬件而异；GPU 路径以英伟达为目标 [[S9013]](../../../sources/bibliography.md#s9013) |
 | **MLIR** | 共享编译器基础设施 [[S9029]](../../../sources/bibliography.md#s9029) | 是 Triton、Mojo 和 AWS NKI 编译器的底座 [[S578]](../../../sources/bibliography.md#s578)[[S9525]](../../../sources/bibliography.md#s9525) | 只是工具包：各厂商仍需自行编写下译（lowering）和内核 |
 | **Mojo / MAX**（现属高通） | 横跨 CPU、GPU、NPU 的统一语言与引擎 | 交易于 2026-07-29 完成 [[S9511]](../../../sources/bibliography.md#s9511)；Mojo 1.0 已开源 [[S9512]](../../../sources/bibliography.md#s9512)；同一套内核可运行于英伟达、AMD、苹果（厂商说法）[[S9023]](../../../sources/bibliography.md#s9023) | 开发者基础小；基准测试来自厂商 |
-| **AMD [ROCm](../../../glossary.md#rocm) / HIP** | 类 CUDA 的 API 与软件库 | ROCm 10.0；在 PyTorch、vLLM、SGLang 中原生支持 [[S586]](../../../sources/bibliography.md#s586)[[S580]](../../../sources/bibliography.md#s580)[[S582]](../../../sources/bibliography.md#s582) | 首日支持缺口、回退实现、打包问题 [[S633]](../../../sources/bibliography.md#s633)[[S627]](../../../sources/bibliography.md#s627) |
+| **AMD [ROCm](../../glossary.md#rocm) / HIP** | 类 CUDA 的 API 与软件库 | ROCm 10.0；在 PyTorch、vLLM、SGLang 中原生支持 [[S586]](../../../sources/bibliography.md#s586)[[S580]](../../../sources/bibliography.md#s580)[[S582]](../../../sources/bibliography.md#s582) | 首日支持缺口、回退实现、打包问题 [[S633]](../../../sources/bibliography.md#s633)[[S627]](../../../sources/bibliography.md#s627) |
 | **vLLM / SGLang 后端** | 跨芯片的统一服务 API | CUDA、ROCm 原生；TPU、Gaudi、昇腾通过插件；Neuron 为 beta [[S580]](../../../sources/bibliography.md#s580)[[S581]](../../../sources/bibliography.md#s581) | FlashInfer 和 DeepGEMM 以 CUDA 优先 [[S633]](../../../sources/bibliography.md#s633) |
-| **超大规模云厂商自研栈**（Neuron/[NKI](../../../glossary.md#nki)、MTIA） | 面向单一芯片的编译器 | NKI 采用类似 Triton 的语法 [[S9014]](../../../sources/bibliography.md#s9014)；MTIA 通过 Inductor 和 Triton 接入 [[S9028]](../../../sources/bibliography.md#s9028) | 为所有者自己的模型而建；Neuron 得分 7/36 |
+| **超大规模云厂商自研栈**（Neuron/[NKI](../../glossary.md#nki)、MTIA） | 面向单一芯片的编译器 | NKI 采用类似 Triton 的语法 [[S9014]](../../../sources/bibliography.md#s9014)；MTIA 通过 Inductor 和 Triton 接入 [[S9028]](../../../sources/bibliography.md#s9028) | 为所有者自己的模型而建；Neuron 得分 7/36 |
 | **中国技术栈**（CANN、TileLang） | 国产 CUDA 替代 | CANN 于 2025 年开源 [[S9524]](../../../sources/bibliography.md#s9524)；TileLang 运行于昇腾 950 [[S9011]](../../../sources/bibliography.md#s9011) | 由出口管制驱动 |
 | **AI 编写的内核** | 机器完成的移植与调优 | AlphaEvolve 提速 32.5% [[S9017]](../../../sources/bibliography.md#s9017)；在 B200 上举办的智能体竞赛 [[S9019]](../../../sources/bibliography.md#s9019) | 测试会被钻空子 [[S9018]](../../../sources/bibliography.md#s9018)；目标平台大多是 CUDA [[S9016]](../../../sources/bibliography.md#s9016) |
 | **转译层**（SCALE、ZLUDA） | 在其他 GPU 上运行 CUDA 代码 | SCALE 可将 CUDA 编译到 AMD 平台 [[S9026]](../../../sources/bibliography.md#s9026) | 英伟达许可协议禁止对 CUDA 输出进行转译 [[S9500]](../../../sources/bibliography.md#s9500) |

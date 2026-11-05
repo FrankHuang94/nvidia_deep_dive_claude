@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **对[大语言模型（LLM）](../../../glossary.md#llm)推理而言，内存先于算力成为瓶颈。** 自 V100 以来，稠密低精度算力提升约 280 倍，而[高带宽内存（HBM）](../../../glossary.md#hbm)带宽仅提升约 21 倍 [[S33010]](../../../sources/bibliography.md#s33010)[[S33005]](../../../sources/bibliography.md#s33005)[[S33007]](../../../sources/bibliography.md#s33007)；受带宽所限，一个 70B [FP8](../../../glossary.md#fp8) 对话流在 H100 上的上限约为 48 tokens/s，在 Rubin 上约为 274 [[S33002]](../../../sources/bibliography.md#s33002)[[S32006]](../../../sources/bibliography.md#s32006)。
-- **HBM 是 GPU 中最昂贵的部件：** 约占 B200 制造成本的 45%（估计，Epoch AI）[[S35020]](../../../sources/bibliography.md#s35020)；从 GB300 到 Vera Rubin，内存占 [NVL72](../../../glossary.md#nvl72) 机架成本的比重由约 9% 升至约 26%（估计）[[S330]](../../../sources/bibliography.md#s330)[[S332]](../../../sources/bibliography.md#s332)。
-- **[HBM4](../../../glossary.md#hbm4) 改变了产品形态：** 2,048 位总线 [[S369]](../../../sources/bibliography.md#s369)，以及采用逻辑工艺、通常由台积电（TSMC）制造的基础裸片（base die）[[S3007]](../../../sources/bibliography.md#s3007)[[S3011]](../../../sources/bibliography.md#s3011)。🟢 Rubin 的 HBM4 标称带宽为 19.2 TB/s，低于此前的 22 [[S90006]](../../../sources/bibliography.md#s90006)[[S33007]](../../../sources/bibliography.md#s33007)。
-- **封装是第二道关口。** 🟡 从 2023 年底到 2026 年底，台积电 [CoWoS](../../../glossary.md#cowos) 产能由每月约 15k 片晶圆增至约 115k 片（估计），英伟达（NVIDIA）预订了 2026 年约 60% 的晶圆 [[S379]](../../../sources/bibliography.md#s379)。
+- **对[大语言模型（LLM）](../../glossary.md#llm)推理而言，内存先于算力成为瓶颈。** 自 V100 以来，稠密低精度算力提升约 280 倍，而[高带宽内存（HBM）](../../glossary.md#hbm)带宽仅提升约 21 倍 [[S33010]](../../../sources/bibliography.md#s33010)[[S33005]](../../../sources/bibliography.md#s33005)[[S33007]](../../../sources/bibliography.md#s33007)；受带宽所限，一个 70B [FP8](../../glossary.md#fp8) 对话流在 H100 上的上限约为 48 tokens/s，在 Rubin 上约为 274 [[S33002]](../../../sources/bibliography.md#s33002)[[S32006]](../../../sources/bibliography.md#s32006)。
+- **HBM 是 GPU 中最昂贵的部件：** 约占 B200 制造成本的 45%（估计，Epoch AI）[[S35020]](../../../sources/bibliography.md#s35020)；从 GB300 到 Vera Rubin，内存占 [NVL72](../../glossary.md#nvl72) 机架成本的比重由约 9% 升至约 26%（估计）[[S330]](../../../sources/bibliography.md#s330)[[S332]](../../../sources/bibliography.md#s332)。
+- **[HBM4](../../glossary.md#hbm4) 改变了产品形态：** 2,048 位总线 [[S369]](../../../sources/bibliography.md#s369)，以及采用逻辑工艺、通常由台积电（TSMC）制造的基础裸片（base die）[[S3007]](../../../sources/bibliography.md#s3007)[[S3011]](../../../sources/bibliography.md#s3011)。🟢 Rubin 的 HBM4 标称带宽为 19.2 TB/s，低于此前的 22 [[S90006]](../../../sources/bibliography.md#s90006)[[S33007]](../../../sources/bibliography.md#s33007)。
+- **封装是第二道关口。** 🟡 从 2023 年底到 2026 年底，台积电 [CoWoS](../../glossary.md#cowos) 产能由每月约 15k 片晶圆增至约 115k 片（估计），英伟达（NVIDIA）预订了 2026 年约 60% 的晶圆 [[S379]](../../../sources/bibliography.md#s379)。
 - **英伟达把现金转化为配额。** 截至 Q2 FY2027，供应与产能承诺达到 $279B，较上一季度的 $119B 大幅上升，主要为内存与制造 [[S407]](../../../sources/bibliography.md#s407)[[S404]](../../../sources/bibliography.md#s404)。
 - **最大弱点：** 英伟达与竞争对手向同样的三家厂商采购 HBM。AMD 的 MI455X 搭载 432 GB、23.3 TB/s，而 Rubin 为 288 GB、19.2 TB/s，容量约为其 1.5 倍、带宽约为其 1.2 倍 [[S144]](../../../sources/bibliography.md#s144)[[S90093]](../../../sources/bibliography.md#s90093)[[S33007]](../../../sources/bibliography.md#s33007)。固定承诺也使英伟达成为冲击的缓冲垫，$4.5B 的 H20 减值即为例证 [[S414]](../../../sources/bibliography.md#s414)。
 
@@ -24,7 +24,7 @@
 <details>
 <summary>🔧 技术细节：本层估算的构建方法</summary>
 
-[解码（decode）](../../../glossary.md#decode)上限 = HBM 带宽 ÷ 每个 token 所需字节数；HBM 容量测算 = FP8 权重 + 由各模型层数与注意力头数推算的 KV 缓存；每片晶圆封装数 = 在 300 mm 晶圆上可容纳的、具有给定光罩倍数的中介层数量。以上均为本资料库基于所引输入数据的测算 [[S3000]](../../../sources/bibliography.md#s3000)，假设见 `data/l03_memory_scenarios.csv` 与 `data/l03_cowos_geometry.csv`。
+[解码（decode）](../../glossary.md#decode)上限 = HBM 带宽 ÷ 每个 token 所需字节数；HBM 容量测算 = FP8 权重 + 由各模型层数与注意力头数推算的 KV 缓存；每片晶圆封装数 = 在 300 mm 晶圆上可容纳的、具有给定光罩倍数的中介层数量。以上均为本资料库基于所引输入数据的测算 [[S3000]](../../../sources/bibliography.md#s3000)，假设见 `data/l03_memory_scenarios.csv` 与 `data/l03_cowos_geometry.csv`。
 
 </details>
 
@@ -73,7 +73,7 @@ mindmap
 
 | # | 问题 | 简要回答 | 详见 |
 |---|---|---|---|
-| Q1 | 职能是什么，薄弱时会出什么问题？ | 以足够快的速度为张量核心供数，并容纳模型与 [KV 缓存](../../../glossary.md#kv-cache)；进而生产足够的 HBM 与 CoWoS。薄弱时：算力闲置、GPU 无法出货。 | [内存墙](the-memory-wall.md) |
+| Q1 | 职能是什么，薄弱时会出什么问题？ | 以足够快的速度为张量核心供数，并容纳模型与 [KV 缓存](../../glossary.md#kv-cache)；进而生产足够的 HBM 与 CoWoS。薄弱时：算力闲置、GPU 无法出货。 | [内存墙](the-memory-wall.md) |
 | Q2 | 关键指标？ | 每颗 GPU 的 HBM 带宽（TB/s）与容量（GB）、每 token 字节数、CoWoS 晶圆数 × 每片晶圆封装数、承诺额 ÷ 营收。 | [内存墙](the-memory-wall.md) |
 | Q3 | 代际进步？ | P100 → Rubin：0.73 → 19.2 TB/s（26 倍），16 → 288 GB（18 倍），4 → 8 个堆栈 [[S125]](../../../sources/bibliography.md#s125)[[S33007]](../../../sources/bibliography.md#s33007)。 | [HBM 详解](hbm-explained.md) |
 | Q4 | 优势来源？ | 供应与执行：最大的承诺型买家，且每一代 HBM 都率先导入。 | [发展历程与构建方式](history-and-how-built.md) |
@@ -98,10 +98,10 @@ mindmap
 
 ## 🎯 企业发展视角
 
-1. **内存是新的利润率争夺战场。** HBM 约占 B200 成本的 45% [[S35020]](../../../sources/bibliography.md#s35020)。在 2027 年的 [HBM4E](../../../glossary.md#hbm4e) 合约中，谁握有定价权？这又会对英伟达约 75% 的毛利率产生什么影响 [[S405]](../../../sources/bibliography.md#s405)？
+1. **内存是新的利润率争夺战场。** HBM 约占 B200 成本的 45% [[S35020]](../../../sources/bibliography.md#s35020)。在 2027 年的 [HBM4E](../../glossary.md#hbm4e) 合约中，谁握有定价权？这又会对英伟达约 75% 的毛利率产生什么影响 [[S405]](../../../sources/bibliography.md#s405)？
 2. **产能配额是一项永远不会出现在资产负债表上的资产。** 新进入者能否靠预付款买到优先权，还是只能靠多年的采购量换取？
 3. **定制基础裸片打开了一道缝隙。** 在台积电制造、置于 HBM 堆栈内部的逻辑电路 [[S3007]](../../../sources/bibliography.md#s3007)[[S3008]](../../../sources/bibliography.md#s3008) 需要接口与控制器 IP。高通（Qualcomm）的 IP 可以在哪里切入？
-4. **容量优先的推理是一条真实可行的替代路线。** AMD（432 GB，且无带宽损失）与高通 AI200（768 GB [LPDDR](../../../glossary.md#lpddr)，以带宽换容量）都押注容量 [[S144]](../../../sources/bibliography.md#s144)[[S173]](../../../sources/bibliography.md#s173)。哪些工作负载会因此受益？
+4. **容量优先的推理是一条真实可行的替代路线。** AMD（432 GB，且无带宽损失）与高通 AI200（768 GB [LPDDR](../../glossary.md#lpddr)，以带宽换容量）都押注容量 [[S144]](../../../sources/bibliography.md#s144)[[S173]](../../../sources/bibliography.md#s173)。哪些工作负载会因此受益？
 
 ## 📚 来源（Sources）
 

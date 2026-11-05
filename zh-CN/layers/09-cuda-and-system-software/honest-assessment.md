@@ -11,26 +11,26 @@
 - **主流模型的推理是最薄弱的环节**（2.7/5，而训练和新架构约为 3.9）。它所需的内核少、对成本敏感，而且运行规模大到足以覆盖移植成本。
 - **顶端的侵蚀是真实的。** Anthropic 承诺采购最多 100 万颗 TPU [[S653]](../../../sources/bibliography.md#s653)；OpenAI 签下了 6 GW 的 AMD 产能 [[S546]](../../../sources/bibliography.md#s546) 以及 10 GW 由博通（Broadcom）打造的加速器 [[S174]](../../../sources/bibliography.md#s174)；Meta 运行 MTIA 并租用 TPU [[S561]](../../../sources/bibliography.md#s561)[[S90025]](../../../sources/bibliography.md#s90025)。
 - **英伟达的吸引力同样真实。** Q2 FY2027 营收为 $96.2B，其中数据中心约 $89.0B [[S3]](../../../sources/bibliography.md#s3)[[S90011]](../../../sources/bibliography.md#s90011)。Anthropic 也采购了最多 1 GW 的英伟达系统 [[S654]](../../../sources/bibliography.md#s654)，Meta 同意购买数百万颗英伟达芯片 [[S4006]](../../../sources/bibliography.md#s4006)。
-- **DeepSeek 是一把双刃剑。** 它深入到 [CUDA](../../../glossary.md#cuda) *之下*的 PTX 和 SASS 层面 [[S5005]](../../../sources/bibliography.md#s5005)[[S9010]](../../../sources/bibliography.md#s9010)，随后又于 2026 年 9 月发布了其内核库的昇腾版本 [[S9009]](../../../sources/bibliography.md#s9009)[[S9010]](../../../sources/bibliography.md#s9010)。
-- **软件只是领先优势的一部分。** GB300 [NVL72](../../../glossary.md#nvl72) 在每用户 50 tokens/s 下以每百万输出 token 约 $0.156 的成本服务 DeepSeek-V4-Pro，这得益于其 72-GPU 的 [NVLink](../../../glossary.md#nvlink) 域 [[S633]](../../../sources/bibliography.md#s633)。
+- **DeepSeek 是一把双刃剑。** 它深入到 [CUDA](../../glossary.md#cuda) *之下*的 PTX 和 SASS 层面 [[S5005]](../../../sources/bibliography.md#s5005)[[S9010]](../../../sources/bibliography.md#s9010)，随后又于 2026 年 9 月发布了其内核库的昇腾版本 [[S9009]](../../../sources/bibliography.md#s9009)[[S9010]](../../../sources/bibliography.md#s9010)。
+- **软件只是领先优势的一部分。** GB300 [NVL72](../../glossary.md#nvl72) 在每用户 50 tokens/s 下以每百万输出 token 约 $0.156 的成本服务 DeepSeek-V4-Pro，这得益于其 72-GPU 的 [NVLink](../../glossary.md#nvlink) 域 [[S633]](../../../sources/bibliography.md#s633)。
 
 ![热力图：针对七类客户、四类工作负载，以 1 至 5 分对 CUDA 锁定程度评分。平均分：学术界 4.75，企业 4.50，主权 AI 3.75，初创公司与新兴云服务商 3.75，超大规模云厂商 3.00，前沿实验室 2.75，中国实验室 2.50。主流模型推理是最弱的一列（平均 2.7），而预训练和新架构约为 3.9。](../../../assets/charts/09-moat-strength-by-segment.svg)
 
 ## 1. 训练与推理之别
 
-**训练**周期长且脆弱：内核、[NCCL](../../../glossary.md#nccl) 集合通信与数值行为必须连续数月保持稳定，因此在一代模型训练中途切换平台风险很高。谷歌和 Anthropic 之所以能做到，完全是靠芯片、编译器和模型的协同设计 [[S653]](../../../sources/bibliography.md#s653)[[S656]](../../../sources/bibliography.md#s656)。
+**训练**周期长且脆弱：内核、[NCCL](../../glossary.md#nccl) 集合通信与数值行为必须连续数月保持稳定，因此在一代模型训练中途切换平台风险很高。谷歌和 Anthropic 之所以能做到，完全是靠芯片、编译器和模型的协同设计 [[S653]](../../../sources/bibliography.md#s653)[[S656]](../../../sources/bibliography.md#s656)。
 
-**主流模型推理**范围窄：单一模型、固定的内核集合、可度量的每 token 成本，以及规模大到足以为移植买单的机群。AMD 的 DeepSeek-V4 冲刺、Modular 的 MI355X 移植以及 [vLLM](../../../glossary.md#vllm) 的 TPU 后端，瞄准的都是推理服务 [[S631]](../../../sources/bibliography.md#s631)[[S9022]](../../../sources/bibliography.md#s9022)[[S9015]](../../../sources/bibliography.md#s9015)。**新模型与[智能体（agentic）](../../../glossary.md#agentic-ai)推理**则重新倒向英伟达：首日内核和 KV 卸载库都是在 CUDA 上成熟起来的 [[S627]](../../../sources/bibliography.md#s627)。
+**主流模型推理**范围窄：单一模型、固定的内核集合、可度量的每 token 成本，以及规模大到足以为移植买单的机群。AMD 的 DeepSeek-V4 冲刺、Modular 的 MI355X 移植以及 [vLLM](../../glossary.md#vllm) 的 TPU 后端，瞄准的都是推理服务 [[S631]](../../../sources/bibliography.md#s631)[[S9022]](../../../sources/bibliography.md#s9022)[[S9015]](../../../sources/bibliography.md#s9015)。**新模型与[智能体（agentic）](../../glossary.md#agentic-ai)推理**则重新倒向英伟达：首日内核和 KV 卸载库都是在 CUDA 上成熟起来的 [[S627]](../../../sources/bibliography.md#s627)。
 
 > [!TIP]
 > **算例 —— 谁负担得起出走？** 在每用户 100 tokens/s 条件下，Ironwood TPU 服务 Qwen3.5 397B 的成本为每百万 token **$0.181**，B200 为 **$0.222** [[S625]](../../../sources/bibliography.md#s625)，**便宜约 18%**。一家每年在推理上花费 $10B 的实验室（🔴 仅为示意）可节省 **约 $1.8B**。一支 200 人的移植团队按人均约 $0.6M 计算 [[S401]](../../../sources/bibliography.md#s401)，成本 **约 $0.12B**，几周就能回本。一家支出 $5M 的企业只能节省约 $0.9M，仅够雇约 1.5 名工程师，远不足以完成一次约需 1.8–5.5 工程师·年的内核移植。**结论：** 算力支出越高，锁定越弱，因此英伟达最大的客户恰恰最有动力出走。
 
 ## 2. 按客户类型划分
 
-- **前沿实验室（2.75）和[超大规模云厂商](../../../glossary.md#hyperscaler)（3.0）** 同时运行多套软件栈：Anthropic 使用 TPU、Trainium 和英伟达 [[S653]](../../../sources/bibliography.md#s653)，微软（Microsoft）用 Maia 200 支撑 Copilot [[S90044]](../../../sources/bibliography.md#s90044)。它们对英伟达的依赖集中在研究原型阶段，而这一阶段仍从英伟达起步。
+- **前沿实验室（2.75）和[超大规模云厂商](../../glossary.md#hyperscaler)（3.0）** 同时运行多套软件栈：Anthropic 使用 TPU、Trainium 和英伟达 [[S653]](../../../sources/bibliography.md#s653)，微软（Microsoft）用 Maia 200 支撑 Copilot [[S90044]](../../../sources/bibliography.md#s90044)。它们对英伟达的依赖集中在研究原型阶段，而这一阶段仍从英伟达起步。
 - **中国实验室（2.5）** 被出口管制推离英伟达。DeepSeek-V4 实现了昇腾首日支持 [[S633]](../../../sources/bibliography.md#s633)，TileLang 也新增了昇腾 950 后端 [[S9011]](../../../sources/bibliography.md#s9011)。
 - **主权 AI（3.75）** 在 FY2026 采购了超过 $30B 的英伟达系统（管理层表述）[[S90071]](../../../sources/bibliography.md#s90071)，且很少雇用内核工程师。
-- **初创公司与[新兴云服务商（neocloud）](../../../glossary.md#neocloud)（3.75）** 在主流模型上会因价格而切换（在 GLM-5 [FP8](../../../glossary.md#fp8) 上，MI355X 每 token 成本最多比 B200 低 29.6% [[S637]](../../../sources/bibliography.md#s637)），但任何新东西仍留在英伟达上运行。
+- **初创公司与[新兴云服务商（neocloud）](../../glossary.md#neocloud)（3.75）** 在主流模型上会因价格而切换（在 GLM-5 [FP8](../../glossary.md#fp8) 上，MI355X 每 token 成本最多比 B200 低 29.6% [[S637]](../../../sources/bibliography.md#s637)），但任何新东西仍留在英伟达上运行。
 - **企业（4.5）和学术界（4.75）** 依赖长尾、教程和工具；对它们而言，这条护城河几乎是绝对的。
 
 > [!TIP]
@@ -48,10 +48,10 @@
 | 谷歌 TPU | 在 Qwen3.5 上每 token 成本比 B200 低约 18% [[S625]](../../../sources/bibliography.md#s625)；已销售进入客户自有数据中心 [[S90027]](../../../sources/bibliography.md#s90027) | 框架覆盖广度 14/36，而 CUDA 为 36/36 [[S577]](../../../sources/bibliography.md#s577)[[S587]](../../../sources/bibliography.md#s587) |
 
 > [!WARNING]
-> **误区与事实：“CUDA 就是护城河。”** 在 DeepSeek-V4 上，GB300 NVL72 的领先在很大程度上来自把专家并行流量限制在单个 72-GPU NVLink 域内 [[S633]](../../../sources/bibliography.md#s633)，而且据报道英伟达握有台积电（TSMC）约 60% 的 [CoWoS](../../../glossary.md#cowos) 产能分配 [[S90039]](../../../sources/bibliography.md#s90039)。**事实：** 护城河是软件 + [纵向扩展（scale-up）](../../../glossary.md#scale-up)网络 + 供应能力的组合。即使追平 CUDA，若没有 NVLink 级别的机架或 CoWoS 产能，依然会丢单（[第 05 层](../05-scale-up-nvlink-nvswitch/index.md)、[第 03 层](../03-memory-packaging-supply-chain/index.md)）。
+> **误区与事实：“CUDA 就是护城河。”** 在 DeepSeek-V4 上，GB300 NVL72 的领先在很大程度上来自把专家并行流量限制在单个 72-GPU NVLink 域内 [[S633]](../../../sources/bibliography.md#s633)，而且据报道英伟达握有台积电（TSMC）约 60% 的 [CoWoS](../../glossary.md#cowos) 产能分配 [[S90039]](../../../sources/bibliography.md#s90039)。**事实：** 护城河是软件 + [纵向扩展（scale-up）](../../glossary.md#scale-up)网络 + 供应能力的组合。即使追平 CUDA，若没有 NVLink 级别的机架或 CoWoS 产能，依然会丢单（[第 05 层](../05-scale-up-nvlink-nvswitch/index.md)、[第 03 层](../03-memory-packaging-supply-chain/index.md)）。
 
 > [!WARNING]
-> **误区与事实：“DeepSeek 证明了不需要 CUDA。”** DeepSeek 2025 年的代码*更深地*依赖英伟达特有的 PTX 和 SASS [[S5005]](../../../sources/bibliography.md#s5005)[[S9010]](../../../sources/bibliography.md#s9010)；其昇腾移植版是 2026 年在出口管制下才推出的。**事实：** 它证明的是效率胜过 GPU 数量（[CS5](../../../case-studies/CS5-deepseek-moment-and-efficiency-shock.md)），而不是 CUDA 可有可无。
+> **误区与事实：“DeepSeek 证明了不需要 CUDA。”** DeepSeek 2025 年的代码*更深地*依赖英伟达特有的 PTX 和 SASS [[S5005]](../../../sources/bibliography.md#s5005)[[S9010]](../../../sources/bibliography.md#s9010)；其昇腾移植版是 2026 年在出口管制下才推出的。**事实：** 它证明的是效率胜过 GPU 数量（[CS5](../../case-studies/CS5-deepseek-moment-and-efficiency-shock.md)），而不是 CUDA 可有可无。
 
 > [!NOTE]
 > **🐂 看多观点。** 每条侵蚀路径在前沿都会漏回 CUDA，新模型也总是先在 CUDA 上运行 [[S633]](../../../sources/bibliography.md#s633)。英伟达选择拥抱而非对抗抽象层，而每季度约 $89B 的数据中心营收 [[S90011]](../../../sources/bibliography.md#s90011) 足以供养比任何竞争对手都多的内核工程师。
@@ -77,7 +77,7 @@
 
 1. **细分机会。** 挑战者只需拿下锁定程度低的单元格：超大规模云厂商、前沿实验室和价格敏感型新兴云服务商的主流模型推理。在没有顶级实验室作为锚定客户的情况下，新进入者能触达其中哪些？
 2. **买广度，而不只是买速度。** 适配差距以周计；广度差距（36 vs 26 vs 4）以年计。上游维护者和打包/CI 团队的复利效应最强。
-3. **高通需要思考的问题（仅基于公开信息）：** 在完成 Modular 交易之后 [[S9511]](../../../sources/bibliography.md#s9511)，目标是在开源软件栈（vLLM、[Triton](../../../glossary.md#triton)、[PyTorch](../../../glossary.md#pytorch)）中获得一等公民地位，还是打造一套平行的 Mojo/MAX 软件栈？前者可以借力侵蚀路径；后者则必须从零开始争取开发者。
+3. **高通需要思考的问题（仅基于公开信息）：** 在完成 Modular 交易之后 [[S9511]](../../../sources/bibliography.md#s9511)，目标是在开源软件栈（vLLM、[Triton](../../glossary.md#triton)、[PyTorch](../../glossary.md#pytorch)）中获得一等公民地位，还是打造一套平行的 Mojo/MAX 软件栈？前者可以借力侵蚀路径；后者则必须从零开始争取开发者。
 4. **关注锚定交易。** 每一笔 1–10 GW 的交易（Anthropic–TPU、OpenAI–AMD、OpenAI–博通）都在为软件开发提供资金，从而降低后来者面临的锁定程度。
 
 ## 📚 来源（Sources）

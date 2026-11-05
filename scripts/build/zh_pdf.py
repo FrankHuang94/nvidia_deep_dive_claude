@@ -66,7 +66,7 @@ def volumes():
          [folder_order(ZH / "layers" / d) for d in LAYER_DIRS[:6]]),
         ("vol3-layers-08-13", "卷三 · 系统、软件与生态", "第 08–13 层：系统与机架、CUDA、软件库、推理软件、云服务、生态与资本",
          [folder_order(ZH / "layers" / d) for d in LAYER_DIRS[6:]]),
-        ("vol4-cross-cutting", "卷四 · 跨领域专题", "第 14–19 章：经济学、竞争格局、发展史、路线图、看空情景、对高通的启示",
+        ("vol4-cross-cutting", "卷四 · 跨层专题", "第 14–19 章：经济学、竞争格局、发展史、路线图、看空情景、对高通的启示",
          [[z("cross-cutting/14-training-vs-inference-economics.md")],
           folder_order(ZH / "cross-cutting" / "15-competitive-landscape"),
           [z("cross-cutting/16-how-nvidia-built-it-timeline.md")], [z("cross-cutting/17-roadmap-2025-2028.md")],
@@ -150,7 +150,8 @@ body { font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', 'WenQuanYi Zen Hei'
 h1, h2, h3, h4, .cover, .toc, figcaption, table, .admonition-title, .summary
        { font-family: 'Noto Sans CJK SC', 'WenQuanYi Zen Hei', sans-serif; }
 h1 { font-size: 19pt; line-height: 1.3; margin: 0 0 0.6em; padding-bottom: 0.25em; border-bottom: 2.5pt solid #5F9E00;
-     page-break-before: always; color: #0b0b0b; text-align: left; }
+     color: #0b0b0b; text-align: left; }
+section.ch { page-break-before: always; }
 h2 { font-size: 13.5pt; color: #3F6B00; margin: 1.3em 0 0.45em; page-break-after: avoid; text-align: left; }
 h3 { font-size: 11.5pt; margin: 1.1em 0 0.35em; page-break-after: avoid; text-align: left; }
 h4 { font-size: 10.5pt; margin: 1em 0 0.3em; page-break-after: avoid; }
@@ -184,7 +185,7 @@ blockquote { margin: 0.6em 0; padding: 2pt 9pt; border-left: 2.5pt solid #c3c2b7
 .details { margin: 0.7em 0; padding: 3pt 9pt 5pt; border: 0.6pt dashed #a5a5a5; border-radius: 3pt; font-size: 9.4pt; background: #fbfbfa; }
 .details .summary { font-weight: 700; color: #3F6B00; margin: 0.2em 0; }
 hr { border: none; border-top: 0.5pt solid #ccc; margin: 1em 0; }
-.mk { font-size: 1pt; color: #ffffff; }
+.mk { font-size: 1pt; line-height: 1pt; height: 1pt; margin: 0; overflow: hidden; color: #ffffff; }
 /* cover */
 .cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; text-align: left; }
 .cover .band { height: 6pt; width: 60mm; background: #5F9E00; margin-bottom: 14mm; }
@@ -205,8 +206,10 @@ hr { border: none; border-top: 0.5pt solid #ccc; margin: 1em 0; }
 .toc .e .d { flex: 1 1 auto; border-bottom: 0.6pt dotted #aaa; margin: 0 0.4em; transform: translateY(-0.25em); }
 .toc .e .n { flex: 0 0 auto; font-variant-numeric: tabular-nums; min-width: 2.2em; text-align: right; }
 /* appendices */
-.glossary ul { column-count: 2; column-gap: 7mm; font-size: 8.4pt; line-height: 1.5; list-style: none; margin-left: 0; }
+.glossary .gcols { column-count: 2; column-gap: 7mm; }
+.glossary ul { font-size: 8.4pt; line-height: 1.5; list-style: none; margin: 0; }
 .glossary li { break-inside: avoid; margin-bottom: 0.3em; }
+.glossary h2 { font-size: 12pt; margin: 0.5em 0 0.25em; break-after: avoid; }
 .bib { column-count: 2; column-gap: 6mm; font-size: 6.8pt; line-height: 1.35; font-family: 'Noto Sans CJK SC', sans-serif; }
 .bib p { margin: 0 0 0.25em; break-inside: avoid; text-align: left; }
 .bib b { color: #3F6B00; }
@@ -242,7 +245,7 @@ def bibliography_html() -> str:
         bits = [f"<b>{sid}</b>", htmllib.escape(r.get("publisher", "")), f"<i>{htmllib.escape(r.get('title', ''))}</i>",
                 htmllib.escape(r.get("date", ""))]
         rows.append("<p>" + " · ".join(b for b in bits if b and b != "<i></i>") + "</p>")
-    return ('<h1><span class="mk">@@BIB@@</span>附录 · 参考文献（Bibliography）</h1>'
+    return ('<div class="mk">@@BIB@@</div><h1>附录 · 参考文献（Bibliography）</h1>'
             '<p style="font-size:8.5pt;color:#555">按来源编号排列；书目信息保留英文原文。完整链接见仓库 sources/bibliography.md。</p>'
             f'<div class="bib">{"".join(rows)}</div>')
 
@@ -255,13 +258,17 @@ def build_volume(key, vol_title, vol_sub, groups, mermaid_jobs) -> Path:
             n += 1
             title, body = to_html(path, mermaid_jobs)
             marker = f"@@CH{n:03d}@@"
-            body = body.replace("<h1>", f'<h1><span class="mk">{marker}</span>', 1)
             if path.name == "glossary.md":
-                body = f'<div class="glossary">{body}</div>'
-            sections.append(f"<section>{body}</section>")
+                # one two-column flow for all letters (so a letter heading never ends a page alone);
+                # the on-screen "jump to" line has no use on paper
+                body = re.sub(r"<p>跳转：.*?</p>", "", body, count=1, flags=re.S)
+                k = body.find("<h2>")
+                body = f'<div class="glossary">{body[:k]}<div class="gcols">{body[k:]}</div></div>'
+            # The page-number marker sits outside the H1 so it stays out of the PDF bookmarks.
+            sections.append(f'<section class="ch"><div class="mk">{marker}</div>{body}</section>')
             toc.append((1 if i == 0 else 2, title, marker))
     if key.startswith("vol5"):
-        sections.append(f"<section>{bibliography_html()}</section>")
+        sections.append(f'<section class="ch">{bibliography_html()}</section>')
         toc.append((1, "附录 · 参考文献（Bibliography）", "@@BIB@@"))
     return sections, toc
 
@@ -296,8 +303,82 @@ def page_numbers(pdf: Path, markers: list[str]) -> dict:
     return found
 
 
+def fix_outline(pdf: Path) -> None:
+    """Chromium prefixes the bookmark title of a heading that starts a new page with a copy of its first
+    line ("TitleTitle", or "Line1Line1Line2" when the heading wraps); strip that prefix."""
+    from pypdf import PdfWriter
+    from pypdf.generic import NameObject, TextStringObject
+    writer = PdfWriter(clone_from=str(pdf))
+    outlines = writer._root_object.get("/Outlines")
+    stack = [outlines.get_object().get("/First")] if outlines else []
+    while stack:
+        node = stack.pop()
+        while node is not None:
+            item = node.get_object()
+            t = str(item.get("/Title", ""))
+            for k in range(4, len(t) // 2 + 1):
+                if t[k:].startswith(t[:k]):
+                    item[NameObject("/Title")] = TextStringObject(t[k:])
+                    break
+            if "/First" in item:
+                stack.append(item["/First"])
+            node = item.get("/Next")
+    with pdf.open("wb") as fh:
+        writer.write(fh)
+
+
+def write_index() -> Path:
+    """Write zh-CN/pdf/README.md from the PDFs on disk (page counts, sizes, chapter start pages)."""
+    rows, details = [], []
+    for key, vol_title, vol_sub, _ in volumes():
+        pdf = OUT / f"NVIDIA-deep-dive-zh-{key}.pdf"
+        if not pdf.exists():
+            continue
+        reader = PdfReader(str(pdf))
+        n_pages, size = len(reader.pages), pdf.stat().st_size / 1e6
+        rows.append(f"| **{vol_title}** | [{pdf.name}]({pdf.name}) | {vol_sub} | {n_pages} | {size:.1f} MB |")
+        items = [(x.title, reader.get_destination_page_number(x) + 1) for x in reader.outline
+                 if not isinstance(x, list) and x.title not in ("阅读说明", "目录")]
+        details.append(f"<details><summary>{vol_title} — 各章起始页</summary>\n\n"
+                       + "\n".join(f"- {t} …… 第 {pg} 页" for t, pg in items) + "\n\n</details>")
+    text = f"""# 打印版 PDF（简体中文参考译文）
+
+> [!NOTE]
+> 以下 PDF 由 `zh-CN/` 中的简体中文参考译文生成，仅供参考；如与英文原文有任何出入，以[英文原文](../../README.md "English original")为准。
+
+全书分五册，均为 A4 版式，可分册打印。每册包含封面、阅读说明、带页码的目录、页眉（书名与册名）和页脚页码，并带 PDF 书签，便于在屏幕上跳转。
+
+| 册 | 文件 | 内容 | 页数 | 大小 |
+|---|---|---|---|---|
+{chr(10).join(rows)}
+
+## 打印建议
+
+- **纸张与缩放**：A4，选择“实际大小”或 100% 缩放（页边距约 15–17 mm）；可双面打印。
+- **彩色或黑白**：图表采用色盲友好配色，建议彩色打印；黑白打印时，部分图表中不同系列的区分度会降低。
+- **图表与图注**：数据图表保留英文原版，每张图下方的灰色文字为中文图注，概括该图的结论与关键数字。
+- **引用**：正文中的灰色上标（如 S2031）为来源编号，完整书目见卷五附录“参考文献”。
+- **数据时效**：截至 {AS_OF}。
+
+## 各册目录
+
+{chr(10).join(details)}
+
+## 重新生成
+
+在仓库根目录运行 `make zh-pdf`（或 `python3 scripts/build/zh_pdf.py [vol1 …]`）。需要 Chromium（Playwright）、
+Noto CJK 字体以及 `npm ci` 安装的 Mermaid 渲染工具；中间文件写入 `.zh_pdf_build/`（不纳入版本库）。
+"""
+    out = OUT / "README.md"
+    out.write_text(text, encoding="utf-8")
+    return out
+
+
 def main(argv):
     want = [a for a in argv if not a.startswith("-")]
+    if "--index-only" in argv:
+        print(f"wrote {write_index().relative_to(REPO)}")
+        return 0
     BUILD.mkdir(exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
     results = []
@@ -312,6 +393,7 @@ def main(argv):
         first = render(key, vol_title, vol_sub, sections, toc, None)
         pages = page_numbers(first, [m for _, _, m in toc])
         final = render(key, vol_title, vol_sub, sections, toc, pages)
+        fix_outline(final)
         target = OUT / f"NVIDIA-deep-dive-zh-{key}.pdf"
         target.write_bytes(final.read_bytes())
         n_pages = len(PdfReader(str(target)).pages)
@@ -319,6 +401,7 @@ def main(argv):
         missing = [t for _, t, m in toc if m not in pages]
         results.append((key, vol_title, n_pages, size, len(toc), missing))
         print(f"{key}: {n_pages} pages, {size:.1f} MB, {len(toc)} chapters, toc misses: {len(missing)}")
+    print(f"wrote {write_index().relative_to(REPO)}")
     (BUILD / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
     return 0
 

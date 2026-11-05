@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **[CUDA](../../../glossary.md#cuda) 起步于一个研究项目。** Ian Buck 的 [Brook](../../../glossary.md#brook) 语言（斯坦福大学，2004 年）证明了类 C 代码可以在图形芯片上运行 [[S9532]](../../../sources/bibliography.md#s9532)。英伟达于 2006-11-08 随 G80 GPU 发布 CUDA，并于 2007 年 6 月推出 CUDA 1.0 [[S9528]](../../../sources/bibliography.md#s9528)[[S525]](../../../sources/bibliography.md#s525)。
+- **[CUDA](../../glossary.md#cuda) 起步于一个研究项目。** Ian Buck 的 [Brook](../../glossary.md#brook) 语言（斯坦福大学，2004 年）证明了类 C 代码可以在图形芯片上运行 [[S9532]](../../../sources/bibliography.md#s9532)。英伟达于 2006-11-08 随 G80 GPU 发布 CUDA，并于 2007 年 6 月推出 CUDA 1.0 [[S9528]](../../../sources/bibliography.md#s9528)[[S525]](../../../sources/bibliography.md#s525)。
 - **英伟达花钱创造了自己的市场。** 其首个 CUDA 卓越中心（伊利诺伊大学，2008 年）获得了 $500,000 资金和一套价值约 $800,000 的集群；到 2008 年年中，已有 41 所大学开设 CUDA 课程 [[S9529]](../../../sources/bibliography.md#s9529)。
-- **回报花了十年。** 2012 年，AlexNet 在两块 GTX 580 游戏 GPU 上完成训练 [[S9530]](../../../sources/bibliography.md#s9530)；2014 年，[cuDNN](../../../glossary.md#cudnn) 把深度学习内核打包成库 [[S9531]](../../../sources/bibliography.md#s9531)。直到 FY2018，数据中心营收才首次超过英伟达的研发总支出 [[S400]](../../../sources/bibliography.md#s400)。
-- **[Q4 · 优势来源]** 时间在存量装机基础上的复利：18 年内 13 个 CUDA 大版本，通过 [PTX](../../../glossary.md#ptx) 保持兼容，并随每一款英伟达 GPU 交付，因此研究成果率先落地 CUDA [[S525]](../../../sources/bibliography.md#s525)[[S529]](../../../sources/bibliography.md#s529)。
-- **护城河如今既在建设，也在防守。** 2024 年的一项许可条款禁止旨在让 CUDA 软件运行于竞争对手芯片的[转译层](../../../glossary.md#translation-layer) [[S9500]](../../../sources/bibliography.md#s9500)。美国司法部（DOJ）于 2024 年启动反垄断调查，中国监管机构于 2025 年 9 月就 Mellanox 收购附加条件问题作出初步违法认定 🟡 [[S9504]](../../../sources/bibliography.md#s9504)[[S9503]](../../../sources/bibliography.md#s9503)[[S9505]](../../../sources/bibliography.md#s9505)。
-- **[Q6 · 复制成本]** 估计 🔴：要在主流框架上实现推理级别的对等，需要 5–8 年和累计 $5–10B 的软件投入；要达到 CUDA 的完整广度则需 10 年以上。参照指标：已有十年历史的 [ROCm](../../../glossary.md#rocm) 在框架支持上得分 26/36；高通（Qualcomm）为 Modular 支付了约 $3.9B，约为其融资额的 10 倍 [[S586]](../../../sources/bibliography.md#s586)[[S90057]](../../../sources/bibliography.md#s90057)[[S9510]](../../../sources/bibliography.md#s9510)。
+- **回报花了十年。** 2012 年，AlexNet 在两块 GTX 580 游戏 GPU 上完成训练 [[S9530]](../../../sources/bibliography.md#s9530)；2014 年，[cuDNN](../../glossary.md#cudnn) 把深度学习内核打包成库 [[S9531]](../../../sources/bibliography.md#s9531)。直到 FY2018，数据中心营收才首次超过英伟达的研发总支出 [[S400]](../../../sources/bibliography.md#s400)。
+- **[Q4 · 优势来源]** 时间在存量装机基础上的复利：18 年内 13 个 CUDA 大版本，通过 [PTX](../../glossary.md#ptx) 保持兼容，并随每一款英伟达 GPU 交付，因此研究成果率先落地 CUDA [[S525]](../../../sources/bibliography.md#s525)[[S529]](../../../sources/bibliography.md#s529)。
+- **护城河如今既在建设，也在防守。** 2024 年的一项许可条款禁止旨在让 CUDA 软件运行于竞争对手芯片的[转译层](../../glossary.md#translation-layer) [[S9500]](../../../sources/bibliography.md#s9500)。美国司法部（DOJ）于 2024 年启动反垄断调查，中国监管机构于 2025 年 9 月就 Mellanox 收购附加条件问题作出初步违法认定 🟡 [[S9504]](../../../sources/bibliography.md#s9504)[[S9503]](../../../sources/bibliography.md#s9503)[[S9505]](../../../sources/bibliography.md#s9505)。
+- **[Q6 · 复制成本]** 估计 🔴：要在主流框架上实现推理级别的对等，需要 5–8 年和累计 $5–10B 的软件投入；要达到 CUDA 的完整广度则需 10 年以上。参照指标：已有十年历史的 [ROCm](../../glossary.md#rocm) 在框架支持上得分 26/36；高通（Qualcomm）为 Modular 支付了约 $3.9B，约为其融资额的 10 倍 [[S586]](../../../sources/bibliography.md#s586)[[S90057]](../../../sources/bibliography.md#s90057)[[S9510]](../../../sources/bibliography.md#s9510)。
 
 ![对数刻度折线图，FY2016 至 FY2026。英伟达数据中心营收在 FY2016 为 $0.34B，而研发总支出为 $1.33B；FY2018 首次超过研发（$1.93B 对 $1.80B），FY2024 达到 $47.5B，FY2026 达到 $193.7B，约为研发支出 $18.5B 的 10 倍。CUDA 1.0 于 2007 年 6 月（FY2008）发布，cuDNN 于 2014 年发布，因此该平台运行了约十年之后，数据中心业务才足以支撑公司的研发开支。](../../../assets/charts/09-dc-revenue-vs-rd.svg)
 
 ## 从图形“取巧”到平台
 
-在 CUDA 出现之前，[通用 GPU 计算（GPGPU）](../../../glossary.md#gpgpu)研究者把数学运算伪装成像素着色（矩阵被当作纹理）。Brook 用一种类 C 语言把这种技巧隐藏起来 [[S9532]](../../../sources/bibliography.md#s9532)。CUDA 走得更远：从 G80 起，每一块 GeForce 都配备了 C 编译器、硬件线程调度器和共享内存 [[S9528]](../../../sources/bibliography.md#s9528)[[S2503]](../../../sources/bibliography.md#s2503)。这直接触达了学生和研究者：到 2020 年，支持 CUDA 的 GPU 已超过 10 亿颗，其中大部分是游戏显卡 [[S529]](../../../sources/bibliography.md#s529)。
+在 CUDA 出现之前，[通用 GPU 计算（GPGPU）](../../glossary.md#gpgpu)研究者把数学运算伪装成像素着色（矩阵被当作纹理）。Brook 用一种类 C 语言把这种技巧隐藏起来 [[S9532]](../../../sources/bibliography.md#s9532)。CUDA 走得更远：从 G80 起，每一块 GeForce 都配备了 C 编译器、硬件线程调度器和共享内存 [[S9528]](../../../sources/bibliography.md#s9528)[[S2503]](../../../sources/bibliography.md#s2503)。这直接触达了学生和研究者：到 2020 年，支持 CUDA 的 GPU 已超过 10 亿颗，其中大部分是游戏显卡 [[S529]](../../../sources/bibliography.md#s529)。
 
 ```mermaid
 timeline
@@ -61,7 +61,7 @@ timeline
 1. **时间与存量装机。** 十八年的版本迭代，每一版都与新的 GPU 特性绑定 [[S525]](../../../sources/bibliography.md#s525)。
 2. **向后兼容。** 代码以 PTX 形式交付，驱动程序为每款新 GPU 重新翻译，因此旧内核能继续运行。
 3. **协同设计。** 新的数值格式在发布首日就配有内核；竞争对手要过后才能移植。
-4. **研究引力。** 新技术首先在 CUDA 上编写和进行基准测试，因此[首日（Day 0）](../../../glossary.md#day-zero-support)优势随每次模型发布而延续（[竞争格局](competition.md)）。
+4. **研究引力。** 新技术首先在 CUDA 上编写和进行基准测试，因此[首日（Day 0）](../../glossary.md#day-zero-support)优势随每次模型发布而延续（[竞争格局](competition.md)）。
 5. **防守。** 许可条款与捆绑策略，这也招来了监管机构：美国司法部的调查关注英伟达是否让切换变得更困难 [[S9503]](../../../sources/bibliography.md#s9503)。
 
 > [!TIP]
@@ -100,13 +100,13 @@ timeline
 | 如果…… | 会有什么变化 | 可能的结果（🔴 分析） |
 |---|---|---|
 | ……在 2010 年开源 CUDA？ | AMD 和英特尔推出兼容 CUDA 的编译器 | 英伟达保住软件库和协同设计上的领先，但随着切换变得轻而易举，利润率会被压缩 |
-| ……输给了 [OpenCL](../../../glossary.md#opencl)？ | 出现一个统一的可移植标准 | AI 仍会走向 GPU，但硬件将像 CPU 一样靠价格竞争 |
+| ……输给了 [OpenCL](../../glossary.md#opencl)？ | 出现一个统一的可移植标准 | AI 仍会走向 GPU，但硬件将像 CPU 一样靠价格竞争 |
 | ……只在 Tesla 计算卡上提供 CUDA？ | 支撑 AlexNet 的 GTX 580 上没有 CUDA [[S9530]](../../../sources/bibliography.md#s9530) | 深度学习会在 CPU 上停留更久；研究习惯会在别处形成 |
 
 > [!TIP]
 > **算例 —— 开放兼容会让多少利益面临风险。** 兼容 CUDA 的竞争对手每从 FY2026 数据中心营收（$193.7B）中夺走 5%，就相当于每年约 $9.7B [[S1]](../../../sources/bibliography.md#s1)。考虑到英伟达在 Q2 FY2027 的 GAAP 毛利率为 75.0% [[S3]](../../../sources/bibliography.md#s3)，首先受到冲击的将是价格，而不仅仅是份额 🔴。
 
-完整案例研究见 [CS2 · CUDA：十五年的赌注](../../../case-studies/CS2-cuda-the-15-year-bet.md)。硬件里程碑见[第 02 层发展历程](../../../layers/02-gpu-silicon/history-and-how-built.md)；跨层全景见[英伟达如何建成今日格局](../../../cross-cutting/16-how-nvidia-built-it-timeline.md)。
+完整案例研究见 [CS2 · CUDA：十五年的赌注](../../case-studies/CS2-cuda-the-15-year-bet.md)。硬件里程碑见[第 02 层发展历程](../02-gpu-silicon/history-and-how-built.md)；跨层全景见[英伟达如何建成今日格局](../../cross-cutting/16-how-nvidia-built-it-timeline.md)。
 
 ## 🎯 企业发展视角
 

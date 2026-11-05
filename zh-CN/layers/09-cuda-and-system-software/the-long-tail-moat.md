@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **护城河在于覆盖广度。** 在本资料库跟踪的全部 12 个主流 AI 框架与推理引擎中，[CUDA](../../../glossary.md#cuda) 均获原生支持（36/36）；[ROCm](../../../glossary.md#rocm) 得分为 26，华为 CANN 为 17，谷歌（Google）TPU 为 14，高通（Qualcomm）Cloud AI 为 4 [[S587]](../../../sources/bibliography.md#s587)[[S580]](../../../sources/bibliography.md#s580)[[S582]](../../../sources/bibliography.md#s582)[[S586]](../../../sources/bibliography.md#s586)[[S596]](../../../sources/bibliography.md#s596)。
-- **新模型首日（Day 0）即可在 CUDA 上运行。** DeepSeek-V4-Pro（2026-04-24 发布）在 vLLM 和 [SGLang](../../../glossary.md#sglang) 中原生运行于 CUDA。在 AMD MI355X 上，[FP4](../../../glossary.md#fp4) 用了 8 天才可用，达到每用户 50 tokens/s 的服务水平用了 27 天 [[S633]](../../../sources/bibliography.md#s633)[[S631]](../../../sources/bibliography.md#s631)。
+- **护城河在于覆盖广度。** 在本资料库跟踪的全部 12 个主流 AI 框架与推理引擎中，[CUDA](../../glossary.md#cuda) 均获原生支持（36/36）；[ROCm](../../glossary.md#rocm) 得分为 26，华为 CANN 为 17，谷歌（Google）TPU 为 14，高通（Qualcomm）Cloud AI 为 4 [[S587]](../../../sources/bibliography.md#s587)[[S580]](../../../sources/bibliography.md#s580)[[S582]](../../../sources/bibliography.md#s582)[[S586]](../../../sources/bibliography.md#s586)[[S596]](../../../sources/bibliography.md#s596)。
+- **新模型首日（Day 0）即可在 CUDA 上运行。** DeepSeek-V4-Pro（2026-04-24 发布）在 vLLM 和 [SGLang](../../glossary.md#sglang) 中原生运行于 CUDA。在 AMD MI355X 上，[FP4](../../glossary.md#fp4) 用了 8 天才可用，达到每用户 50 tokens/s 的服务水平用了 27 天 [[S633]](../../../sources/bibliography.md#s633)[[S631]](../../../sources/bibliography.md#s631)。
 - **竞争对手如今只需数周而非数个季度就能追上。** AMD 在 26 天内通过 31 个拉取请求（pull request）将 MI355X 的吞吐量提升了 110 倍，但在同等交互速度下，B200 仍领先约 5 倍 [[S631]](../../../sources/bibliography.md#s631)。
-- **研究成果率先落地英伟达平台。** FlashAttention 1–4 全部首发于英伟达 GPU。FA4 面向 Hopper 和 Blackwell，在 B200 上最高比 [Triton](../../../glossary.md#triton) 快 2.7 倍；AMD 有 FA2 级别的内核，但没有 FA4 [[S9000]](../../../sources/bibliography.md#s9000)[[S9004]](../../../sources/bibliography.md#s9004)。
+- **研究成果率先落地英伟达平台。** FlashAttention 1–4 全部首发于英伟达 GPU。FA4 面向 Hopper 和 Blackwell，在 B200 上最高比 [Triton](../../glossary.md#triton) 快 2.7 倍；AMD 有 FA2 级别的内核，但没有 FA4 [[S9000]](../../../sources/bibliography.md#s9000)[[S9004]](../../../sources/bibliography.md#s9004)。
 - **移植工作主要是调优。** 🔴 估计：一个 FlashAttention 级别的内核，每款新芯片约需 1.8–5.5 工程师·年，外加每年的重新调优。
 - **弱点：** 自 GTC 2025 以来，英伟达公布的开发者数量一直持平于约 600 万 [[S536]](../../../sources/bibliography.md#s536)[[S528]](../../../sources/bibliography.md#s528)，且在预算充足的领域长尾正在变薄。AMD 对 MiniMax-M3 的分离式服务在首日就已落地；而当年追平 DeepSeek-R1 用了数月 [[S627]](../../../sources/bibliography.md#s627)。
 
@@ -18,7 +18,7 @@
 
 ## 1. 数以千计的内核，且每个模型都在增加
 
-一个模型是由数百个算子构成的计算图，而每一种“算子 × 数据类型 × 形状 × GPU 代际”的组合都是一个独立的调优问题。所有厂商都能覆盖头部（稠密矩阵乘法、标准注意力）。**长尾**则是竞争对手退回到缓慢通用代码的地方：新的注意力变体、[混合专家模型（MoE）](../../../glossary.md#mixture-of-experts)路由、FP4 格式、KV 缓存传输，以及让这一切能够顺利安装的打包工作。在 DeepSeek-V4-Pro 发布首日，AMD 的 ATOM 引擎几乎所有热点路径都在走回退（fallback）实现 [[S633]](../../../sources/bibliography.md#s633)。
+一个模型是由数百个算子构成的计算图，而每一种“算子 × 数据类型 × 形状 × GPU 代际”的组合都是一个独立的调优问题。所有厂商都能覆盖头部（稠密矩阵乘法、标准注意力）。**长尾**则是竞争对手退回到缓慢通用代码的地方：新的注意力变体、[混合专家模型（MoE）](../../glossary.md#mixture-of-experts)路由、FP4 格式、KV 缓存传输，以及让这一切能够顺利安装的打包工作。在 DeepSeek-V4-Pro 发布首日，AMD 的 ATOM 引擎几乎所有热点路径都在走回退（fallback）实现 [[S633]](../../../sources/bibliography.md#s633)。
 
 ![12 个框架支持得分合计的横向柱状图：英伟达 CUDA 36/36（12 个原生），AMD ROCm 26（4 个原生），英特尔 18，华为 CANN 17，谷歌 TPU 14（JAX 和 TensorFlow 原生），AWS Neuron 7，高通 Cloud AI 4。](../../../assets/charts/09-framework-support-by-vendor.svg)
 
@@ -27,7 +27,7 @@
 
 ![DeepSeek-V4-Pro（2026-04-24 发布）适配进度的时间线点图：在英伟达 CUDA 上，vLLM 和 SGLang 于首日（Day 0）即原生支持，GB200 NVL72 分离式服务与 MTP 在第 3 天跑通，第 9 天发现 TensorRT-LLM 输出损坏缺陷；华为公布了昇腾的首日支持；在 AMD MI355X 上，第 1 天首次跑通时仅支持 FP8，速度为每用户 1-2 tok/s，第 8 天 FP4 可用，第 27 天达到每用户 50 tok/s，MTP 约在第 28 天可用，而到第 43 天多节点服务仍无法运行。](../../../assets/charts/09-dsv4-day0-readiness.svg)
 
-需要注意的是：英伟达自家的 [TensorRT-LLM](../../../glossary.md#tensorrt-llm) 在一周多的时间里悄无声息地输出了损坏的 V4-Pro 结果，因此 CUDA 的领先实际上是由开源引擎撑起的；华为之所以能做到首日支持，是因为该模型部分针对昇腾（Ascend）进行了协同设计 [[S633]](../../../sources/bibliography.md#s633)。
+需要注意的是：英伟达自家的 [TensorRT-LLM](../../glossary.md#tensorrt-llm) 在一周多的时间里悄无声息地输出了损坏的 V4-Pro 结果，因此 CUDA 的领先实际上是由开源引擎撑起的；华为之所以能做到首日支持，是因为该模型部分针对昇腾（Ascend）进行了协同设计 [[S633]](../../../sources/bibliography.md#s633)。
 
 ![AMD MI355X 在每用户 15 tokens/s 下运行 DeepSeek-V4-Pro 的吞吐量柱状图：第 1 天无法达到（FP8 首次跑通时从未超过每用户 2.5 tok/s），启用 FP4 后第 8 天为每 GPU 104 tok/s，第 10 天 194，第 16 天 775，经过 31 个优化 PR 后第 27 天达到 1,272——19 天内提升约 12x，但在每用户 15-30 tok/s 区间，基于 CUDA SGLang 的英伟达 B200 仍高出约 5x。](../../../assets/charts/09-dsv4-mi355x-bringup.svg)
 
@@ -39,7 +39,7 @@
 
 - **融合让内核数量成倍增加。** 每一种融合组合（RoPE 与 Hadamard 融合、归一化与量化融合）都是一个新内核；AMD 的分支为此新增了五六个 [[S631]](../../../sources/bibliography.md#s631)。
 - **系统层代码同样重要。** LMCache 的 CacheBlend 依赖仅支持 CUDA 的 FlashInfer，Mooncake 没有 ROCm wheel 包，而 vLLM 卸载功能所需的批量拷贝 API 直到 ROCm 7.14 才可用 [[S627]](../../../sources/bibliography.md#s627)。
-- **正确性问题会让人吃亏。** AMD 的 [FP8](../../../glossary.md#fp8) 编码（e4m3fnuz）与英伟达的（e4m3fn）不同，在首日导致 MiniMax-M3 的 [KV 缓存](../../../glossary.md#kv-cache)损坏，直到修复为止 [[S627]](../../../sources/bibliography.md#s627)。
+- **正确性问题会让人吃亏。** AMD 的 [FP8](../../glossary.md#fp8) 编码（e4m3fnuz）与英伟达的（e4m3fn）不同，在首日导致 MiniMax-M3 的 [KV 缓存](../../glossary.md#kv-cache)损坏，直到修复为止 [[S627]](../../../sources/bibliography.md#s627)。
 
 </details>
 
@@ -57,10 +57,10 @@ timeline
 
 | 创新成果 | 首发平台 | 其他平台情况（2026 年 11 月） |
 |---|---|---|
-| [FlashAttention](../../../glossary.md#flashattention)-2（2023） | 英伟达 Ampere–Hopper [[S9000]](../../../sources/bibliography.md#s9000) | AMD 通过 Composable Kernel 和 Triton 支持 [[S9000]](../../../sources/bibliography.md#s9000) |
+| [FlashAttention](../../glossary.md#flashattention)-2（2023） | 英伟达 Ampere–Hopper [[S9000]](../../../sources/bibliography.md#s9000) | AMD 通过 Composable Kernel 和 Triton 支持 [[S9000]](../../../sources/bibliography.md#s9000) |
 | FlashAttention-3（2024） | 仅英伟达 Hopper [[S9003]](../../../sources/bibliography.md#s9003) | 在 AMD 上仅通过 Triton 提供 FP8 接口 [[S9000]](../../../sources/bibliography.md#s9000) |
 | FlashAttention-4（2026） | 英伟达 Hopper 与 Blackwell；2026 年 11 月为 beta 4.0.0b38 [[S9006]](../../../sources/bibliography.md#s9006) | 无 |
-| PagedAttention / [vLLM](../../../glossary.md#vllm)（2023） | CUDA [[S32011]](../../../sources/bibliography.md#s32011) | ROCm 原生；TPU、Gaudi、昇腾通过插件支持 [[S580]](../../../sources/bibliography.md#s580)[[S581]](../../../sources/bibliography.md#s581) |
+| PagedAttention / [vLLM](../../glossary.md#vllm)（2023） | CUDA [[S32011]](../../../sources/bibliography.md#s32011) | ROCm 原生；TPU、Gaudi、昇腾通过插件支持 [[S580]](../../../sources/bibliography.md#s580)[[S581]](../../../sources/bibliography.md#s581) |
 | DeepEP / DeepGEMM（2025） | CUDA 加 PTX 调优 [[S5005]](../../../sources/bibliography.md#s5005)[[S9010]](../../../sources/bibliography.md#s9010) | 昇腾版本，2026 年 9 月 [[S9009]](../../../sources/bibliography.md#s9009)[[S9010]](../../../sources/bibliography.md#s9010) |
 
 > [!TIP]
@@ -86,7 +86,7 @@ timeline
 6. **开发者与发布节奏：** 约 600 万开发者 [[S528]](../../../sources/bibliography.md#s528)；CUDA 与 ROCm 每年均发布 3–4 个功能版本 [[S523]](../../../sources/bibliography.md#s523)[[S586]](../../../sources/bibliography.md#s586)。
 
 > [!TIP]
-> **算例 —— 解读开发者数量图。** 英伟达用了 13 年才达到 100 万开发者，到 2020 年达到 200 万 [[S529]](../../../sources/bibliography.md#s529)，随后到 2025 年增长两倍至约 600 万 [[S536]](../../../sources/bibliography.md#s536)。此后一直引用约 600 万这一数字 [[S528]](../../../sources/bibliography.md#s528)。**结论：** 这一标题漏斗已停止增长，原因可能是新一代 AI 开发者用 [PyTorch](../../../glossary.md#pytorch) 写代码，从不注册 CUDA。🔴
+> **算例 —— 解读开发者数量图。** 英伟达用了 13 年才达到 100 万开发者，到 2020 年达到 200 万 [[S529]](../../../sources/bibliography.md#s529)，随后到 2025 年增长两倍至约 600 万 [[S536]](../../../sources/bibliography.md#s536)。此后一直引用约 600 万这一数字 [[S528]](../../../sources/bibliography.md#s528)。**结论：** 这一标题漏斗已停止增长，原因可能是新一代 AI 开发者用 [PyTorch](../../glossary.md#pytorch) 写代码，从不注册 CUDA。🔴
 
 ## 4. 算例：移植一个新的注意力内核
 

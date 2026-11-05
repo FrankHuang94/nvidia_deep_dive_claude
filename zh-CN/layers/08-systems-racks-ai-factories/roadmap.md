@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **Vera Rubin [NVL72](../../../glossary.md#nvl72) 是 2026 年的主力机架。** 量产出货于 2026 年 8 月开始，第四季度放量 🟢 [[S500]](../../../sources/bibliography.md#s500)[[S90009]](../../../sources/bibliography.md#s90009)。谷歌云（Google Cloud）预计基于它的 A5X 实例将于 2026 年 11 月全面上市 [[S554]](../../../sources/bibliography.md#s554)。
+- **Vera Rubin [NVL72](../../glossary.md#nvl72) 是 2026 年的主力机架。** 量产出货于 2026 年 8 月开始，第四季度放量 🟢 [[S500]](../../../sources/bibliography.md#s500)[[S90009]](../../../sources/bibliography.md#s90009)。谷歌云（Google Cloud）预计基于它的 A5X 实例将于 2026 年 11 月全面上市 [[S554]](../../../sources/bibliography.md#s554)。
 - **Kyber 的时间点存在争议。** 这款 144 个封装、约 600 kW 的 Rubin Ultra 机架官方定于 2027 年下半年。SemiAnalysis 报道称，由于中板（midplane）的可制造性问题，其将推迟 12 个月以上，英伟达（NVIDIA）予以否认 🟡 [[S510]](../../../sources/bibliography.md#s510)[[S507]](../../../sources/bibliography.md#s507)[[S508]](../../../sources/bibliography.md#s508)。
-- **按每机架计，从 GB200 到 Kyber，功耗约增至 5 倍（120 → 约 600 kW），换来约 14 倍的稠密 [FP8](../../../glossary.md#fp8) 算力和约 10 倍的 [HBM](../../../glossary.md#hbm)**（按已发布数据）[[S121]](../../../sources/bibliography.md#s121)[[S336]](../../../sources/bibliography.md#s336)[[S305]](../../../sources/bibliography.md#s305)。
-- **[800 V 直流](../../../glossary.md#hvdc-800v)是起支撑作用的路线图。** 兼容 MGX 的 800 V 直流电源机架将于 2026 年下半年推出，机柜排级电力中心（每排最高 2 MW）将于 2027 年推出 [[S90063]](../../../sources/bibliography.md#s90063)。Dell'Oro 认为它目前是一种参考架构，尚非标准 [[S90062]](../../../sources/bibliography.md#s90062)。
+- **按每机架计，从 GB200 到 Kyber，功耗约增至 5 倍（120 → 约 600 kW），换来约 14 倍的稠密 [FP8](../../glossary.md#fp8) 算力和约 10 倍的 [HBM](../../glossary.md#hbm)**（按已发布数据）[[S121]](../../../sources/bibliography.md#s121)[[S336]](../../../sources/bibliography.md#s336)[[S305]](../../../sources/bibliography.md#s305)。
+- **[800 V 直流](../../glossary.md#hvdc-800v)是起支撑作用的路线图。** 兼容 MGX 的 800 V 直流电源机架将于 2026 年下半年推出，机柜排级电力中心（每排最高 2 MW）将于 2027 年推出 [[S90063]](../../../sources/bibliography.md#s90063)。Dell'Oro 认为它目前是一种参考架构，尚非标准 [[S90062]](../../../sources/bibliography.md#s90062)。
 - **竞争对手跟上了英伟达的年度节奏。** AMD：Helios（2026）、Helios 500（2027）、Helios 600（2028）[[S538]](../../../sources/bibliography.md#s538)。谷歌的 TPU 8t pod 定于 2026 年底推出 [[S550]](../../../sources/bibliography.md#s550)，Maia 300 定于 2027 年 [[S90046]](../../../sources/bibliography.md#s90046)，华为 Atlas 960 定于 2027 年第四季度 [[S567]](../../../sources/bibliography.md#s567)。
 - **[Q7 · 路线图与变数]** 有三件事比下一份规格表更重要：电网电力、液冷供应链（2025–27 年在 AI 芯片中的渗透率 33% → 53% → 约 60%），以及 600 kW 下的可靠性 🟡 [[S8528]](../../../sources/bibliography.md#s8528)。
 
@@ -67,13 +67,13 @@ gantt
 | 高通 AI200 → AI250 → AI300（公开信息） | 2026 / 2027 / 2028 | 已发布；2026 年量产未经证实 | 🟢 / 🔴 | [[S173]](../../../sources/bibliography.md#s173)[[S90060]](../../../sources/bibliography.md#s90060)[[S90028]](../../../sources/bibliography.md#s90028) |
 
 > [!TIP]
-> **算例 —— 如何解读一次推迟。** Kyber 的官方时间窗口是 2027 年下半年 [[S510]](../../../sources/bibliography.md#s510)。如果 SemiAnalysis 关于推迟 12 个月以上的报道属实 [[S507]](../../../sources/bibliography.md#s507)，2027 年的买家拿到的将是装在现有 Oberon NVL72 机架中的 Rubin Ultra，GTC 2026 已将其列为一个选项 [[S108]](../../../sources/bibliography.md#s108)。推迟的代价在于域规模而非算力：每个 [NVLink](../../../glossary.md#nvlink) 域停留在 72 颗 GPU 的时间将再延长一年。与此同时，AWS 提供 144 颗，谷歌提供 9,216 颗 [[S353]](../../../sources/bibliography.md#s353)[[S350]](../../../sources/bibliography.md#s350)。
+> **算例 —— 如何解读一次推迟。** Kyber 的官方时间窗口是 2027 年下半年 [[S510]](../../../sources/bibliography.md#s510)。如果 SemiAnalysis 关于推迟 12 个月以上的报道属实 [[S507]](../../../sources/bibliography.md#s507)，2027 年的买家拿到的将是装在现有 Oberon NVL72 机架中的 Rubin Ultra，GTC 2026 已将其列为一个选项 [[S108]](../../../sources/bibliography.md#s108)。推迟的代价在于域规模而非算力：每个 [NVLink](../../glossary.md#nvlink) 域停留在 72 颗 GPU 的时间将再延长一年。与此同时，AWS 提供 144 颗，谷歌提供 9,216 颗 [[S353]](../../../sources/bibliography.md#s353)[[S350]](../../../sources/bibliography.md#s350)。
 
 ![进度变化哑铃图（华为的为提前）：昇腾 960 -9 个月，Rubin CPX +3 个月，Quantum-X Photonics InfiniBand +3 个月，Vera Rubin NVL144 CPX 机架 +3 个月，Kyber NVL144 +12 个月。Kyber NVL144 的推迟来自 SemiAnalysis 报道，英伟达有异议；Rubin CPX 回归为分析师说法。](../../../assets/charts/17-roadmap-slips-and-pull-ins.svg)
 
 ## 为何供电决定节奏
 
-每一代机架都受限于单个机架能输送多少电力、排出多少热量。如今的机架从电源架向托盘分配约 54 V 直流电。在 600 kW 下，这需要大量铜材，并以热量形式浪费电能。英伟达的 [800 V 直流](../../../glossary.md#hvdc-800v)方案把电能转换移到建筑边界，并以高电压向机架供电 [[S33019]](../../../sources/bibliography.md#s33019)。Heron Power 等初创公司的[固态变压器](../../../glossary.md#solid-state-transformer)可将中压电网电力直接转换为 800 V [[S8519]](../../../sources/bibliography.md#s8519)。
+每一代机架都受限于单个机架能输送多少电力、排出多少热量。如今的机架从电源架向托盘分配约 54 V 直流电。在 600 kW 下，这需要大量铜材，并以热量形式浪费电能。英伟达的 [800 V 直流](../../glossary.md#hvdc-800v)方案把电能转换移到建筑边界，并以高电压向机架供电 [[S33019]](../../../sources/bibliography.md#s33019)。Heron Power 等初创公司的[固态变压器](../../glossary.md#solid-state-transformer)可将中压电网电力直接转换为 800 V [[S8519]](../../../sources/bibliography.md#s8519)。
 
 > [!TIP]
 > **算例 —— 600 kW 下 800 V 为何重要。** 电流 = 功率 ÷ 电压。一个 600 kW 的 Kyber 机架在 54 V 下需要约 11,100 A 电流；在 800 V 下约 750 A，约为前者的十五分之一 [[S305]](../../../sources/bibliography.md#s305)[[S33019]](../../../sources/bibliography.md#s33019)。电阻损耗与电流平方成正比，因此同一母排在 800 V 下的发热损耗约少 200 倍（🔴 本资料库的物理测算，未计转换损耗）。一个 2 MW 的机柜排级电力中心大约可为三个这样的机架供电 [[S90063]](../../../sources/bibliography.md#s90063)。
@@ -81,7 +81,7 @@ gantt
 <details>
 <summary>🔧 技术细节：800 V 直流生态必须交付什么</summary>
 
-2025 年 10 月的 GTC DC 上，约 20 家合作伙伴展示了 800 V 直流部件，范围涵盖芯片（英飞凌、意法半导体、纳微（Navitas）、德州仪器）、电力设备（台达、伊顿、施耐德、维谛（Vertiv）、ABB）以及电网设备（GE Vernova、日立能源、西门子）[[S90061]](../../../sources/bibliography.md#s90061)。包括 CoreWeave、Lambda 和 Nebius 在内的[新兴云服务商（neocloud）](../../../glossary.md#neocloud)正在按 800 V 进行设计 [[S90061]](../../../sources/bibliography.md#s90061)。尚待解决的问题：机房白区（white space）内高压直流的安全规范，以及[超大规模云厂商](../../../glossary.md#hyperscaler)是否会采用英伟达的版本 [[S90062]](../../../sources/bibliography.md#s90062)。
+2025 年 10 月的 GTC DC 上，约 20 家合作伙伴展示了 800 V 直流部件，范围涵盖芯片（英飞凌、意法半导体、纳微（Navitas）、德州仪器）、电力设备（台达、伊顿、施耐德、维谛（Vertiv）、ABB）以及电网设备（GE Vernova、日立能源、西门子）[[S90061]](../../../sources/bibliography.md#s90061)。包括 CoreWeave、Lambda 和 Nebius 在内的[新兴云服务商（neocloud）](../../glossary.md#neocloud)正在按 800 V 进行设计 [[S90061]](../../../sources/bibliography.md#s90061)。尚待解决的问题：机房白区（white space）内高压直流的安全规范，以及[超大规模云厂商](../../glossary.md#hyperscaler)是否会采用英伟达的版本 [[S90062]](../../../sources/bibliography.md#s90062)。
 
 </details>
 
@@ -90,10 +90,10 @@ gantt
 **[Q7 · 路线图与变数]** 纸面上各家路线图正在趋同：每家都会每年推出一款配备约 20–30 TB HBM 的机架。可能改变格局的因素：
 
 - **电力可得性。** 机架功耗从约 120 kW 升至约 600 kW，1 MW 已在视野之内 [[S90061]](../../../sources/bibliography.md#s90061)；已并网、具备 800 V 条件的机房决定了所有厂商的节奏。
-- **液冷供应。** TrendForce 预计液冷在 AI 芯片中的渗透率 2026 年约为 53%，2027 年约为 60% 🟡 [[S8528]](../../../sources/bibliography.md#s8528)。冷板和 CDU 可能会像当年的 [CoWoS](../../../glossary.md#cowos) 一样成为机架的瓶颈。
+- **液冷供应。** TrendForce 预计液冷在 AI 芯片中的渗透率 2026 年约为 53%，2027 年约为 60% 🟡 [[S8528]](../../../sources/bibliography.md#s8528)。冷板和 CDU 可能会像当年的 [CoWoS](../../glossary.md#cowos) 一样成为机架的瓶颈。
 - **机架可靠性。** 据报道，Kyber 的问题出在中板，是制造问题而非芯片问题 [[S507]](../../../sources/bibliography.md#s507)。Helios 若能顺利上量，缩小英伟达领先优势的速度将快于任何规格提升。
 - **内存成本。** 内存已升至 Vera Rubin 机架物料清单的约 26%（估计，摩根士丹利），伯恩斯坦（Bernstein）预计机架价格约 $9.1M 🟡 [[S332]](../../../sources/bibliography.md#s332)[[S333]](../../../sources/bibliography.md#s333)。
-- **开放的[纵向扩展](../../../glossary.md#scale-up)。** [UALink](../../../glossary.md#ualink) 1.0 产品预计于 2027 年推出 🟡 [[S90051]](../../../sources/bibliography.md#s90051)。届时商用机架将获得一种非英伟达的纵向扩展网络。
+- **开放的[纵向扩展](../../glossary.md#scale-up)。** [UALink](../../glossary.md#ualink) 1.0 产品预计于 2027 年推出 🟡 [[S90051]](../../../sources/bibliography.md#s90051)。届时商用机架将获得一种非英伟达的纵向扩展网络。
 
 > [!TIP]
 > **算例 —— 散热成本不高，散热供应却是大问题。** 摩根士丹利估计每个 GB300 NVL72 机架的液冷成本约 $50K，每个 Vera Rubin 机架约 $56K，不到 $7.8M 机架价格的 1% [[S334]](../../../sources/bibliography.md#s334)[[S330]](../../../sources/bibliography.md#s330)。但缺少一台 $56K 的 CDU，就会让价值 $7.8M 的算力闲置。正是这种不对称，促使伊顿以 $9.5B 收购了 Boyd Thermal [[S8508]](../../../sources/bibliography.md#s8508)。

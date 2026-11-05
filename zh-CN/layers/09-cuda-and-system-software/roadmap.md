@@ -7,11 +7,11 @@
 
 ## ⚡ 要点速览
 
-- **CUDA 如今按季度节奏发布。** [CUDA](../../../glossary.md#cuda) 13.0 于 2025-08-04 推出，此后又发布了五个 13.x 小版本，13.5 于 2026-11-04 发布 [[S523]](../../../sources/bibliography.md#s523)。CUDA 13 放弃了对 Maxwell、Pascal 和 Volta 的支持 🟡 [[S90065]](../../../sources/bibliography.md#s90065)。
-- **英伟达正把正门搬到 Python。** CUDA 13.1 推出了 CUDA Tile 和 cuTile Python，13.2 把 tile 编程扩展到 Ampere 和 Ada [[S9521]](../../../sources/bibliography.md#s9521)[[S527]](../../../sources/bibliography.md#s527)。推理服务层 [Dynamo](../../../glossary.md#dynamo) 于 2026 年 3 月以 Apache 2.0 许可发布 1.0 版 [[S90066]](../../../sources/bibliography.md#s90066)。
-- **AMD 追平了节奏，但没有追平内容。** [ROCm](../../../glossary.md#rocm) 从 7.0（2025 年 9 月）起，经由新的 Core SDK 发布线，于 2026-08-26 发展到 10.0 [[S586]](../../../sources/bibliography.md#s586)。新功能相对 CUDA 的滞后已从约九年缩短到数周，但长尾依然落后（[竞争格局](competition.md)；发布节奏图见[侵蚀路径](erosion-vectors.md)）。
-- **竞争对手 2026 年的动作都围绕开放展开。** 谷歌（Google）的 TorchTPU 取代了 [PyTorch](../../../glossary.md#pytorch)/XLA（后者于 2026-11-15 归档）；AWS 的 TorchNeuron 处于公开 beta；[Mojo](../../../glossary.md#mojo) 的编译器于 2026 年 8 月开源 [[S553]](../../../sources/bibliography.md#s553)[[S595]](../../../sources/bibliography.md#s595)[[S9525]](../../../sources/bibliography.md#s9525)[[S9512]](../../../sources/bibliography.md#s9512)。
-- **[Q7 · 路线图与变数]** 预计英伟达会在添加自有 Python 层的同时，让 CUDA 继续成为每个可移植层（Triton、Helion、[vLLM](../../../glossary.md#vllm)）支持最好的目标平台。如果 AI 编写的内核让移植变得廉价，或者某家[超大规模云厂商](../../../glossary.md#hyperscaler)把开放软件栈与商用硬件结合起来，格局就会改变 🔴。
+- **CUDA 如今按季度节奏发布。** [CUDA](../../glossary.md#cuda) 13.0 于 2025-08-04 推出，此后又发布了五个 13.x 小版本，13.5 于 2026-11-04 发布 [[S523]](../../../sources/bibliography.md#s523)。CUDA 13 放弃了对 Maxwell、Pascal 和 Volta 的支持 🟡 [[S90065]](../../../sources/bibliography.md#s90065)。
+- **英伟达正把正门搬到 Python。** CUDA 13.1 推出了 CUDA Tile 和 cuTile Python，13.2 把 tile 编程扩展到 Ampere 和 Ada [[S9521]](../../../sources/bibliography.md#s9521)[[S527]](../../../sources/bibliography.md#s527)。推理服务层 [Dynamo](../../glossary.md#dynamo) 于 2026 年 3 月以 Apache 2.0 许可发布 1.0 版 [[S90066]](../../../sources/bibliography.md#s90066)。
+- **AMD 追平了节奏，但没有追平内容。** [ROCm](../../glossary.md#rocm) 从 7.0（2025 年 9 月）起，经由新的 Core SDK 发布线，于 2026-08-26 发展到 10.0 [[S586]](../../../sources/bibliography.md#s586)。新功能相对 CUDA 的滞后已从约九年缩短到数周，但长尾依然落后（[竞争格局](competition.md)；发布节奏图见[侵蚀路径](erosion-vectors.md)）。
+- **竞争对手 2026 年的动作都围绕开放展开。** 谷歌（Google）的 TorchTPU 取代了 [PyTorch](../../glossary.md#pytorch)/XLA（后者于 2026-11-15 归档）；AWS 的 TorchNeuron 处于公开 beta；[Mojo](../../glossary.md#mojo) 的编译器于 2026 年 8 月开源 [[S553]](../../../sources/bibliography.md#s553)[[S595]](../../../sources/bibliography.md#s595)[[S9525]](../../../sources/bibliography.md#s9525)[[S9512]](../../../sources/bibliography.md#s9512)。
+- **[Q7 · 路线图与变数]** 预计英伟达会在添加自有 Python 层的同时，让 CUDA 继续成为每个可移植层（Triton、Helion、[vLLM](../../glossary.md#vllm)）支持最好的目标平台。如果 AI 编写的内核让移植变得廉价，或者某家[超大规模云厂商](../../glossary.md#hyperscaler)把开放软件栈与商用硬件结合起来，格局就会改变 🔴。
 
 ![对数刻度横向柱状图，显示 AMD ROCm 落后英伟达 CUDA 的时间：平台 1.0 晚了 3,227 天（约 8.8 年）（2007 年 6 月对 2016 年 4 月）；FP4 支持晚了 236 天（约 8 个月）（2025 年 1 月的 CUDA 12.8 对 2025 年 9 月的 ROCm 7.0）；DeepSeek-V4-Pro 的可用服务比 CUDA 的首日方案晚了 26 天（2026 年 4 月至 5 月）。每次差距都比上一次缩短约十倍，但每个新模型发布时差距都会再次出现。](../../../assets/charts/09-rocm-lag-behind-cuda.svg)
 
@@ -60,7 +60,7 @@ gantt
 | 英伟达在 GTC DC 上的软件发布（主题演讲 2026-12-01） | 2026-12-01，晚于本页日期 | — | 🔴 | [[S90047]](../../../sources/bibliography.md#s90047) |
 
 > [!TIP]
-> **算例 —— 滞后缩短得有多快。** ROCm 1.0 比 CUDA 1.0 晚了 **106 个月**（2007 年 6 月 → 2016 年 4 月）[[S525]](../../../sources/bibliography.md#s525)[[S586]](../../../sources/bibliography.md#s586)。[FP4](../../../glossary.md#fp4) 支持晚了 **约 8 个月**：CUDA 12.8（2025 年 1 月）对 ROCm 7.0（2025 年 9 月）[[S524]](../../../sources/bibliography.md#s524)[[S90064]](../../../sources/bibliography.md#s90064)。DeepSeek-V4 的可用服务比 CUDA 的首日方案晚了 **约 26 天** [[S631]](../../../sources/bibliography.md#s631)[[S633]](../../../sources/bibliography.md#s633)。每一步都缩短了约十倍，但买家要为*最后*那段差距买单，而且每次重要模型发布时它都会重现。
+> **算例 —— 滞后缩短得有多快。** ROCm 1.0 比 CUDA 1.0 晚了 **106 个月**（2007 年 6 月 → 2016 年 4 月）[[S525]](../../../sources/bibliography.md#s525)[[S586]](../../../sources/bibliography.md#s586)。[FP4](../../glossary.md#fp4) 支持晚了 **约 8 个月**：CUDA 12.8（2025 年 1 月）对 ROCm 7.0（2025 年 9 月）[[S524]](../../../sources/bibliography.md#s524)[[S90064]](../../../sources/bibliography.md#s90064)。DeepSeek-V4 的可用服务比 CUDA 的首日方案晚了 **约 26 天** [[S631]](../../../sources/bibliography.md#s631)[[S633]](../../../sources/bibliography.md#s633)。每一步都缩短了约十倍，但买家要为*最后*那段差距买单，而且每次重要模型发布时它都会重现。
 
 长尾依然落后：vLLM 用于 KV 缓存卸载的批量主机到设备拷贝，直到 ROCm 7.14（2026 年 7 月）才可用；框架支持得分为 36 分中的 26 分，而 CUDA 为 36 分 [[S627]](../../../sources/bibliography.md#s627)[[S586]](../../../sources/bibliography.md#s586)[[S587]](../../../sources/bibliography.md#s587)。
 
@@ -71,7 +71,7 @@ gantt
 <details>
 <summary>🔧 技术细节：为何 tile 编程是英伟达路线图上对 Triton 的回应</summary>
 
-[Triton](../../../glossary.md#triton) 让程序员以 *tile*（矩阵分块）为单位描述工作，由编译器把 tile 映射到线程上，这正是它能跨厂商移植的原因 [[S578]](../../../sources/bibliography.md#s578)。CUDA Tile 在英伟达自己的软件栈内做同样的事。cuTile Python 编译为 Tile IR——一种由驱动程序针对每款 GPU 即时编译的虚拟指令集，类似于经典 CUDA 中的 [PTX](../../../glossary.md#ptx) [[S9521]](../../../sources/bibliography.md#s9521)。如果 Helion 和其他前端在英伟达硬件上生成 TileIR，那么即使源代码是可移植的，英伟达也能保住性能优势 [[S9523]](../../../sources/bibliography.md#s9523)。
+[Triton](../../glossary.md#triton) 让程序员以 *tile*（矩阵分块）为单位描述工作，由编译器把 tile 映射到线程上，这正是它能跨厂商移植的原因 [[S578]](../../../sources/bibliography.md#s578)。CUDA Tile 在英伟达自己的软件栈内做同样的事。cuTile Python 编译为 Tile IR——一种由驱动程序针对每款 GPU 即时编译的虚拟指令集，类似于经典 CUDA 中的 [PTX](../../glossary.md#ptx) [[S9521]](../../../sources/bibliography.md#s9521)。如果 Helion 和其他前端在英伟达硬件上生成 TileIR，那么即使源代码是可移植的，英伟达也能保住性能优势 [[S9523]](../../../sources/bibliography.md#s9523)。
 
 </details>
 
@@ -80,7 +80,7 @@ gantt
 **[Q7 · 路线图与变数]**
 
 - **能编写可移植且高速内核的 AI。** MI355X 在 DeepSeek-V4 上的追赶主要依靠新的 TileLang、Triton 和 FlyDSL 内核 [[S631]](../../../sources/bibliography.md#s631)。AMD 和 Anthropic 计划使用 Claude 加速 ROCm 开发 🟡 [[S9538]](../../../sources/bibliography.md#s9538)，SemiAnalysis 估计 GitHub 上约 4% 的公开提交已由 Claude Code 编写 [[S627]](../../../sources/bibliography.md#s627)。如果一个月的内核工作缩短为一天，CUDA 的首日优势也会随之缩小 🔴。
-- **PyTorch 在所有平台上默认采用 Triton 或 Helion**（通过 [torch.compile](../../../glossary.md#torch-compile)）。一次编写的内核可为任何后端编译；英伟达的反制在于 Helion 同样以 TileIR 为目标 [[S9523]](../../../sources/bibliography.md#s9523)。
+- **PyTorch 在所有平台上默认采用 Triton 或 Helion**（通过 [torch.compile](../../glossary.md#torch-compile)）。一次编写的内核可为任何后端编译；英伟达的反制在于 Helion 同样以 TileIR 为目标 [[S9523]](../../../sources/bibliography.md#s9523)。
 - **超大规模云厂商同时开放软件栈和芯片。** TorchTPU 和 NKI 都已开源 [[S553]](../../../sources/bibliography.md#s553)[[S9525]](../../../sources/bibliography.md#s9525)，另据报道谷歌正在向客户自有数据中心销售 TPU 🟡 [[S90027]](../../../sources/bibliography.md#s90027)。运行于商用硬件上的开放软件，将是第一个兼具规模与开放性的竞争对手。
 - **监管救济。** 来自美国司法部或中国市场监管总局（SAMR）的互操作性要求，将以行政命令的方式降低切换成本 🔴 [[S9503]](../../../sources/bibliography.md#s9503)[[S9505]](../../../sources/bibliography.md#s9505)。
 

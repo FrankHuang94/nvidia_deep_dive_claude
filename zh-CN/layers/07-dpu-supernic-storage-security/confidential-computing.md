@@ -6,12 +6,12 @@
 
 ## ⚡ 要点速览
 
-- **[机密计算](../../../glossary.md#confidential-computing)保护的是使用中的数据。**权重、提示词和 KV 缓存始终位于一个[可信执行环境（TEE）](../../../glossary.md#trusted-execution-environment)内，云运营方、虚拟机管理程序（hypervisor）和主机操作系统都无法读取；客户在发送机密数据之前通过[远程证明（attestation）](../../../glossary.md#attestation)来验证这一点。
-- **英伟达在 GPU 上率先行动：**H100 是首款支持机密计算的 GPU，以片上[硬件信任根](../../../glossary.md#root-of-trust)为锚点；Blackwell 增加了 TEE-I/O 和在线 [NVLink](../../../glossary.md#nvlink) 保护；Vera Rubin [NVL72](../../../glossary.md#nvl72) 将其扩展到整个机架 [[S7012]](../../../sources/bibliography.md#s7012)[[S301]](../../../sources/bibliography.md#s301)[[S7028]](../../../sources/bibliography.md#s7028)。
+- **[机密计算](../../glossary.md#confidential-computing)保护的是使用中的数据。**权重、提示词和 KV 缓存始终位于一个[可信执行环境（TEE）](../../glossary.md#trusted-execution-environment)内，云运营方、虚拟机管理程序（hypervisor）和主机操作系统都无法读取；客户在发送机密数据之前通过[远程证明（attestation）](../../glossary.md#attestation)来验证这一点。
+- **英伟达在 GPU 上率先行动：**H100 是首款支持机密计算的 GPU，以片上[硬件信任根](../../glossary.md#root-of-trust)为锚点；Blackwell 增加了 TEE-I/O 和在线 [NVLink](../../glossary.md#nvlink) 保护；Vera Rubin [NVL72](../../glossary.md#nvl72) 将其扩展到整个机架 [[S7012]](../../../sources/bibliography.md#s7012)[[S301]](../../../sources/bibliography.md#s301)[[S7028]](../../../sources/bibliography.md#s7028)。
 - **对大模型而言，实测成本很小：**在 H100 上，机密模式使 Llama-3.1-8B 的吞吐量下降 6.85%、Phi-3-14B 下降 4.58%、Llama-3.1-70B 约 0%，但使 8B 模型的首 token 时间增加 19% [[S7011]](../../../sources/bibliography.md#s7011)。
 - **Blackwell“几乎相同”的吞吐量是厂商说法**；本资料库未找到任何关于 Blackwell 或 Rubin 机密模式的独立基准测试 🔴 [[S7012]](../../../sources/bibliography.md#s7012)。
 - **公有云已提供该能力：**Azure 的机密 H100 虚拟机于 2024 年 9 月正式商用（GA）[[S7013]](../../../sources/bibliography.md#s7013)；谷歌（Google）的 A3 H100 机密虚拟机将 GPU 与 Intel TDX 配对 [[S7016]](../../../sources/bibliography.md#s7016)。
-- **弱点：**GPU TEE 依赖 CPU TEE（Intel [TDX](../../../glossary.md#intel-tdx)、AMD [SEV-SNP](../../../glossary.md#sev-snp)），而 AMD 和英特尔 CPU 即将支持的 PCIe 标准 [TDISP](../../../glossary.md#tdisp) 设备模型，可能使英伟达的先发优势商品化 [[S7014]](../../../sources/bibliography.md#s7014)[[S7015]](../../../sources/bibliography.md#s7015)。
+- **弱点：**GPU TEE 依赖 CPU TEE（Intel [TDX](../../glossary.md#intel-tdx)、AMD [SEV-SNP](../../glossary.md#sev-snp)），而 AMD 和英特尔 CPU 即将支持的 PCIe 标准 [TDISP](../../glossary.md#tdisp) 设备模型，可能使英伟达的先发优势商品化 [[S7014]](../../../sources/bibliography.md#s7014)[[S7015]](../../../sources/bibliography.md#s7015)。
 
 ![2024 年一项基准测试中 H100 机密计算开销的柱状图：吞吐量开销 Llama-3.1-8B 为 6.85%，Phi-3-14B 为 4.58%，Llama-3.1-70B 为 -0.13%（约为零）；首 token 时间开销 Llama-3.1-8B 为 19%。开销主要来自对 CPU-GPU 传输的加密，因此随着模型增大（即每搬运一个字节对应的计算量增加）而缩小。](../../../assets/charts/07-confidential-computing-overhead.svg)
 
@@ -21,7 +21,7 @@
 
 1. **CPU 上的机密虚拟机。**Intel TDX 或 AMD SEV-SNP 对虚拟机内存加密，并阻止虚拟机管理程序访问 [[S7014]](../../../sources/bibliography.md#s7014)[[S7016]](../../../sources/bibliography.md#s7016)。
 2. **处于机密模式的 GPU。**固件锁定 GPU，使主机无法读取其显存；身份密钥保存在片上信任根中 [[S7012]](../../../sources/bibliography.md#s7012)。
-3. **受保护的链路。**在 H100 上，穿越 [PCIe](../../../glossary.md#pcie) 的数据由驱动程序加密、由 GPU 解密，这是开销的主要来源 [[S7011]](../../../sources/bibliography.md#s7011)。Blackwell 的 TEE-I/O 则在硬件中对该链路和 NVLink 进行在线保护 [[S7012]](../../../sources/bibliography.md#s7012)。
+3. **受保护的链路。**在 H100 上，穿越 [PCIe](../../glossary.md#pcie) 的数据由驱动程序加密、由 GPU 解密，这是开销的主要来源 [[S7011]](../../../sources/bibliography.md#s7011)。Blackwell 的 TEE-I/O 则在硬件中对该链路和 NVLink 进行在线保护 [[S7012]](../../../sources/bibliography.md#s7012)。
 4. **远程证明。**GPU 对其固件和模式签发一份报告；在密钥服务释放权重或数据之前，由客户的验证方对报告进行核验。
 
 ```mermaid
@@ -56,10 +56,10 @@ sequenceDiagram
 
 - **主权 AI 项目**需要证明外国运营方或芯片厂商的固件无法看到本国数据；远程证明把“请相信我们”变成了一项由客户自己执行的核验。
 - **受监管行业**（医疗、金融、公共部门）只要使用中的数据受到保护，就可以使用共享 GPU 云。
-- **模型所有者**越来越多地将前沿模型权重部署在自己无法控制的数据中心：[新兴云服务商（neocloud）](../../../glossary.md#neocloud)、主权站点、企业自有机房。加密的权重只会在通过远程证明的 GPU 内部解密。
+- **模型所有者**越来越多地将前沿模型权重部署在自己无法控制的数据中心：[新兴云服务商（neocloud）](../../glossary.md#neocloud)、主权站点、企业自有机房。加密的权重只会在通过远程证明的 GPU 内部解密。
 
 > [!TIP]
-> **算例 —— 被保护的是什么。**Meta 报告训练 Llama 3.1 405B 用了 30.84M H100 GPU 小时 [[S31002]](../../../sources/bibliography.md#s31002)。按每 [GPU 小时](../../../glossary.md#gpu-hour) $2–3 计，一套权重凝结了 **约 $62–92M 的算力**（估计），这还未计入数据、人力和后训练。在 H100 上保护它的代价是推理服务吞吐量的 0–7% [[S7011]](../../../sources/bibliography.md#s7011)。**结论：**对于向第三方站点授权模型权重的实验室而言，机密计算是一份廉价的保险，这也是英伟达将 Vera Rubin NVL72 作为机架级机密计算平台来推广的原因 [[S7012]](../../../sources/bibliography.md#s7012)[[S7028]](../../../sources/bibliography.md#s7028)。
+> **算例 —— 被保护的是什么。**Meta 报告训练 Llama 3.1 405B 用了 30.84M H100 GPU 小时 [[S31002]](../../../sources/bibliography.md#s31002)。按每 [GPU 小时](../../glossary.md#gpu-hour) $2–3 计，一套权重凝结了 **约 $62–92M 的算力**（估计），这还未计入数据、人力和后训练。在 H100 上保护它的代价是推理服务吞吐量的 0–7% [[S7011]](../../../sources/bibliography.md#s7011)。**结论：**对于向第三方站点授权模型权重的实验室而言，机密计算是一份廉价的保险，这也是英伟达将 Vera Rubin NVL72 作为机架级机密计算平台来推广的原因 [[S7012]](../../../sources/bibliography.md#s7012)[[S7028]](../../../sources/bibliography.md#s7028)。
 
 ## 3. AMD、英特尔和 Arm 在平台层面的比较
 
@@ -67,13 +67,13 @@ sequenceDiagram
 
 | 能力 | 英伟达 | AMD | 英特尔 | Arm 生态 |
 |---|---|---|---|---|
-| CPU 机密虚拟机 | 🟨 Vera Rubin NVL72 宣称覆盖从 CPU 到 NVLink 的路径 [[S301]](../../../sources/bibliography.md#s301)[[S7028]](../../../sources/bibliography.md#s7028) | 🟩 EPYC 上的 SEV-SNP [[S7014]](../../../sources/bibliography.md#s7014) | 🟩 TDX；用于谷歌的 H100 机密虚拟机 [[S7016]](../../../sources/bibliography.md#s7016) | 🟦 [Arm CCA](../../../glossary.md#arm-cca) Realms；未发现搭配 GPU 的云服务 🔴 |
+| CPU 机密虚拟机 | 🟨 Vera Rubin NVL72 宣称覆盖从 CPU 到 NVLink 的路径 [[S301]](../../../sources/bibliography.md#s301)[[S7028]](../../../sources/bibliography.md#s7028) | 🟩 EPYC 上的 SEV-SNP [[S7014]](../../../sources/bibliography.md#s7014) | 🟩 TDX；用于谷歌的 H100 机密虚拟机 [[S7016]](../../../sources/bibliography.md#s7016) | 🟦 [Arm CCA](../../glossary.md#arm-cca) Realms；未发现搭配 GPU 的云服务 🔴 |
 | 加速器 TEE | 🟩 自 H100（2022）起 [[S7012]](../../../sources/bibliography.md#s7012) | 🟥 未发现公开的 Instinct GPU TEE 🔴 | 🟥 未发现 Gaudi 相关方案 🔴 | 🟦 取决于加速器厂商 |
 | 设备链路（TDISP / TEE-I/O） | 🟩 Blackwell TEE-I/O [[S7012]](../../../sources/bibliography.md#s7012) | 🟨 EPYC 9005 列出 SEV-TIO；已有面向 Venice 及 PCIe 6.0 的 Linux 补丁 [[S7014]](../../../sources/bibliography.md#s7014)[[S7015]](../../../sources/bibliography.md#s7015) | 🟨 TDX Connect 是英特尔的对应方案；状态未确认 🔴 | 🟦 未发现 |
 | 纵向扩展链路加密 | 🟩 在线 NVLink 保护，Rubin 上达到机架级 [[S7012]](../../../sources/bibliography.md#s7012)[[S301]](../../../sources/bibliography.md#s301) | 🟥 未发现 Infinity Fabric 或 UALink 的相关方案 🔴 | 不适用 | 不适用 |
 
 > [!TIP]
-> **算例 —— 为什么 NVLink 加密才是真正的突破口。**[FP8](../../../glossary.md#fp8) 格式的 Llama 3.1 405B 仅权重就需要约 405 GB [[S32008]](../../../sources/bibliography.md#s32008)：至少需要 **6 颗 H100**（每颗 80 GB）或 **2 颗 Rubin GPU**（每颗 288 GB）[[S100]](../../../sources/bibliography.md#s100)，这还未计入任何 [KV 缓存](../../../glossary.md#kv-cache)；一个万亿参数的 FP8 模型至少需要 **4 颗 Rubin GPU**。前沿规模的机密推理必然是多 GPU 的，而这些 GPU 之间通过 NVLink 通信，英伟达从 Blackwell 起对其进行在线保护 [[S7012]](../../../sources/bibliography.md#s7012)。**结论：**让前沿模型的机密推理服务变得可行的，是受保护的[纵向扩展（scale-up）](../../../glossary.md#scale-up)链路，而非单 GPU TEE，且目前尚无竞争对手公开达到同等水平（🔴 本资料库截至 2026-11-05 的判断）。
+> **算例 —— 为什么 NVLink 加密才是真正的突破口。**[FP8](../../glossary.md#fp8) 格式的 Llama 3.1 405B 仅权重就需要约 405 GB [[S32008]](../../../sources/bibliography.md#s32008)：至少需要 **6 颗 H100**（每颗 80 GB）或 **2 颗 Rubin GPU**（每颗 288 GB）[[S100]](../../../sources/bibliography.md#s100)，这还未计入任何 [KV 缓存](../../glossary.md#kv-cache)；一个万亿参数的 FP8 模型至少需要 **4 颗 Rubin GPU**。前沿规模的机密推理必然是多 GPU 的，而这些 GPU 之间通过 NVLink 通信，英伟达从 Blackwell 起对其进行在线保护 [[S7012]](../../../sources/bibliography.md#s7012)。**结论：**让前沿模型的机密推理服务变得可行的，是受保护的[纵向扩展（scale-up）](../../glossary.md#scale-up)链路，而非单 GPU TEE，且目前尚无竞争对手公开达到同等水平（🔴 本资料库截至 2026-11-05 的判断）。
 
 > [!NOTE]
 > **🐂 看多观点。**英伟达拥有唯一已出货、且具备受保护纵向扩展链路的 GPU TEE [[S7012]](../../../sources/bibliography.md#s7012)；要求远程证明的主权客户和受监管客户最终会选择英伟达机架，而且该功能对大模型的成本很低 [[S7011]](../../../sources/bibliography.md#s7011)。

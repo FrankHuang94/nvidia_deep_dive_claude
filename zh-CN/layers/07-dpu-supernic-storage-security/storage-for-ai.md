@@ -6,12 +6,12 @@
 
 ## ⚡ 要点速览
 
-- **AI 存储承担三项职能：**流式供给训练数据、吸收突发性的[检查点](../../../glossary.md#checkpoint)写入，以及 2026 年新增的——充当 [KV 缓存](../../../glossary.md#kv-cache)的推理“上下文内存” [[S3012]](../../../sources/bibliography.md#s3012)[[S7511]](../../../sources/bibliography.md#s7511)。
+- **AI 存储承担三项职能：**流式供给训练数据、吸收突发性的[检查点](../../glossary.md#checkpoint)写入，以及 2026 年新增的——充当 [KV 缓存](../../glossary.md#kv-cache)的推理“上下文内存” [[S3012]](../../../sources/bibliography.md#s3012)[[S7511]](../../../sources/bibliography.md#s7511)。
 - **检查点体量巨大：**权重、FP32 主副本与 Adam 优化器状态合计每参数 14 字节 [[S34004]](../../../sources/bibliography.md#s34004)，因此一个 Llama 3.1 405B 检查点约 5.7 TB：在 100 GB/s 下约需 57 s，在 Meta 的 Llama 3 存储集群（7,500 台服务器、240 PB）约 7 TB/s 的峰值下不到 1 s [[S34006]](../../../sources/bibliography.md#s34006)[[S7000]](../../../sources/bibliography.md#s7000)。
 - **故障让速度变得值钱：**Llama 3 在 16,384 颗 GPU 上运行的 54 天里遭遇了 466 次作业中断 [[S34006]](../../../sources/bibliography.md#s34006)。将存储从 100 GB/s 提升到 1 TB/s，可将检查点加返工造成的损失从 GPU 时间的约 10% 降至约 3%，按每 GPU 小时 $2.99 计约合每年 $30M（估计）[[S395]](../../../sources/bibliography.md#s395)[[S7000]](../../../sources/bibliography.md#s7000)。
 - **KV 缓存层级新增“G3.5”**：介于本地 SSD 与共享存储之间、由 BlueField-4 管理的 Pod 级闪存 [[S7026]](../../../sources/bibliography.md#s7026)[[S7027]](../../../sources/bibliography.md#s7027)。从该层重新加载一个 128K token 的 70B 模型上下文约需 0.2 s，而重新计算约需 4.7 s（估计）[[S7000]](../../../sources/bibliography.md#s7000)。
 - **英伟达不卖存储，但制定参考设计。**AI Data Platform（GTC 2025）和 BlueField-4 STX（GTC 2026）都是提供给合作伙伴的蓝图 [[S7022]](../../../sources/bibliography.md#s7022)[[S7511]](../../../sources/bibliography.md#s7511)[[S7004]](../../../sources/bibliography.md#s7004)；🟢 12 家厂商正在协同设计预计于 H2 2026 推出的 STX 系统，厂商宣称 token 吞吐量提升 5×、能效提升 4× [[S7511]](../../../sources/bibliography.md#s7511)。
-- **弱点：**存储软件的利润归属 VAST Data（2026 年估值约 $30B）[[S7512]](../../../sources/bibliography.md#s7512)、DDN 和 WEKA 等合作伙伴。英伟达拿到的是[数据处理器（DPU）](../../../glossary.md#dpu)、[网卡（NIC）](../../../glossary.md#nic)以及起粘合作用的软件。
+- **弱点：**存储软件的利润归属 VAST Data（2026 年估值约 $30B）[[S7512]](../../../sources/bibliography.md#s7512)、DDN 和 WEKA 等合作伙伴。英伟达拿到的是[数据处理器（DPU）](../../glossary.md#dpu)、[网卡（NIC）](../../glossary.md#nic)以及起粘合作用的软件。
 
 ![检查点写入时间与存储带宽关系的双对数折线图，涵盖四种模型规模（每参数 14 字节）：Llama 3.1 70B（约 0.98 TB）、Llama 3.1 405B（约 5.7 TB）、DeepSeek-V3 671B（约 9.4 TB）和一个万亿参数模型（14 TB）。在 100 GB/s（即一个 BlueField-4 端口的线速）下，405B 检查点约需 57 秒；在 1 TB/s 下约 5.7 s；在 Meta Llama 3 存储集群约 7 TB/s 的峰值下约 0.8 s。](../../../assets/charts/07-checkpoint-write-time.svg)
 
@@ -19,7 +19,7 @@
 
 - **数据集流式读取（读）：**token、图像或视频源源不断地流向数据加载器。
 - **检查点（突发写入）：**每隔几分钟，所有 GPU 同时转储各自分担的模型和优化器状态；Meta 称每颗 GPU 为 1 MB 至 4 GB，突发流量足以打满存储网络 [[S34006]](../../../sources/bibliography.md#s34006)。
-- **上下文内存（低延迟读写）：**推理服务器把会话状态（即 KV 缓存，见 [P2](../../../primers/P2-how-ai-inference-works.md)）暂存起来，待用户返回时重新加载。
+- **上下文内存（低延迟读写）：**推理服务器把会话状态（即 KV 缓存，见 [P2](../../primers/P2-how-ai-inference-works.md)）暂存起来，待用户返回时重新加载。
 
 **[Q1 · 职能与失效后果]** 对存储而言，失效后果就是 GPU 空转：训练要么在检查点写完之前被阻塞，要么在节点故障时丢失自上一个检查点以来的全部工作；推理则要重新计算本可直接重新加载的上下文，使首 token 时间增加数秒。
 
@@ -30,13 +30,13 @@
 <summary>🔧 技术细节：团队如何缩短检查点停顿</summary>
 
 - **分片检查点：**每颗 GPU 只写入自己的分片，因此带宽随存储服务器数量扩展。
-- **异步检查点：**GPU 在数秒内把状态复制到 CPU 内存后即恢复计算，再由 CPU 将其写入存储，这需要大容量主机内存（见[第 04 层](../../../layers/04-cpu-grace-vera/index.md)）。
+- **异步检查点：**GPU 在数秒内把状态复制到 CPU 内存后即恢复计算，再由 CPU 将其写入存储，这需要大容量主机内存（见[第 04 层](../04-cpu-grace-vera/index.md)）。
 
 </details>
 
 ## 2. 并行文件系统、对象存储与合作伙伴生态
 
-**[并行文件系统](../../../glossary.md#parallel-file-system)**将每个文件条带化分布到众多存储服务器上，使数千颗 GPU 能同时读写同一个检查点。**[对象存储](../../../glossary.md#object-storage)**（S3 接口）按键存储完整对象：每 PB 成本更低、规模几乎无上限，但速度较慢。典型的 AI 工厂将原始数据集放在对象存储上，将检查点放在并行文件系统或全闪存文件层上。
+**[并行文件系统](../../glossary.md#parallel-file-system)**将每个文件条带化分布到众多存储服务器上，使数千颗 GPU 能同时读写同一个检查点。**[对象存储](../../glossary.md#object-storage)**（S3 接口）按键存储完整对象：每 PB 成本更低、规模几乎无上限，但速度较慢。典型的 AI 工厂将原始数据集放在对象存储上，将检查点放在并行文件系统或全闪存文件层上。
 
 > [!TIP]
 > **算例 —— 为什么条带化至关重要。**Meta 的 Llama 3 存储集群由 7,500 台服务器提供约 7 TB/s 的峰值 [[S34006]](../../../sources/bibliography.md#s34006)，约合 **每台服务器 0.93 GB/s**。单台这样的服务器吸收一个 5.67 TB 的检查点需要 **约 1.7 小时**；条带化分布到全部 7,500 台后，**不到一秒**即可完成。**结论：**AI 存储的速度靠“广度”买来（服务器、网卡和闪存并行），因此单端口 DPU 带宽（BlueField-4 为 800 Gb/s）决定了扩展的基本单元 [[S7001]](../../../sources/bibliography.md#s7001)。
@@ -55,7 +55,7 @@
 
 ## 3. KV 缓存层级：存储成为推理内存
 
-智能体需要维持长对话，每个对话都有一个随每个 token 增长的 KV 缓存。重新计算要耗费 GPU 时间；把它们全部放在[高带宽内存（HBM）](../../../glossary.md#hbm)中又不可能。英伟达的答案是一套阶梯式层级（[存储分层](../../../glossary.md#storage-tiering)），由 [Dynamo](../../../glossary.md#dynamo) 和 NIXL 在各层之间搬运 KV 块 [[S3013]](../../../sources/bibliography.md#s3013)[[S7026]](../../../sources/bibliography.md#s7026)：
+智能体需要维持长对话，每个对话都有一个随每个 token 增长的 KV 缓存。重新计算要耗费 GPU 时间；把它们全部放在[高带宽内存（HBM）](../../glossary.md#hbm)中又不可能。英伟达的答案是一套阶梯式层级（[存储分层](../../glossary.md#storage-tiering)），由 [Dynamo](../../glossary.md#dynamo) 和 NIXL 在各层之间搬运 KV 块 [[S3013]](../../../sources/bibliography.md#s3013)[[S7026]](../../../sources/bibliography.md#s7026)：
 
 ```mermaid
 flowchart TB
@@ -77,7 +77,7 @@ flowchart TB
 ![恢复一个 21.5 GB KV 缓存（Llama 3.1 70B，128K token，FP8）所需时间的对数坐标横向柱状图：G1 HBM4（19.2 TB/s）约 1.1 ms；G2 Vera LPDDR5X 经 NVLink-C2C（约 450 GB/s）约 47.7 ms；G3.5 BlueField-4 上下文内存存储经 800 Gb/s 链路约 215 ms；G3 单块本地 PCIe Gen5 x4 SSD 约 1.4 s；在 Rubin GPU 上以稠密 FP8 峰值的 50% 重新计算预填充约 4.7 s（估计）；按每颗 GPU 分摊 Meta 7 TB/s 的 Llama 3 存储集群约 50 s。G3.5 层比重新计算快约 22x。](../../../assets/charts/07-kv-cache-reload-by-tier.svg)
 
 > [!TIP]
-> **算例 —— 每个层级能暂存多少个长对话。**Llama 3.1 70B 每个 token 存储 163,840 字节的 [FP8](../../../glossary.md#fp8) KV 缓存 [[S32006]](../../../sources/bibliography.md#s32006)，因此一个完整的 131,072 token 上下文为 **21.5 GB**。一颗 Rubin GPU 的 288 GB [HBM4](../../../glossary.md#hbm4) 扣除约 70 GB 的 FP8 权重后，可暂存约 **10** 个这样的会话 [[S100]](../../../sources/bibliography.md#s100)。Vera 每颗 GPU 约 750 GB 的 LPDDR5X（每颗 CPU 1.5 TB，各配两颗 GPU）[[S100]](../../../sources/bibliography.md#s100) 可再增加约 **35** 个。1 PB 的 G3.5 闪存可容纳约 **46,500** 个，据报道该层级的容量可达每个 Pod 数 PB [[S7027]](../../../sources/bibliography.md#s7027)。**结论：**上下文层级把一个 GPU 时间问题转化为闪存容量问题，速度比重新计算快约 20×（估计）[[S7000]](../../../sources/bibliography.md#s7000)。
+> **算例 —— 每个层级能暂存多少个长对话。**Llama 3.1 70B 每个 token 存储 163,840 字节的 [FP8](../../glossary.md#fp8) KV 缓存 [[S32006]](../../../sources/bibliography.md#s32006)，因此一个完整的 131,072 token 上下文为 **21.5 GB**。一颗 Rubin GPU 的 288 GB [HBM4](../../glossary.md#hbm4) 扣除约 70 GB 的 FP8 权重后，可暂存约 **10** 个这样的会话 [[S100]](../../../sources/bibliography.md#s100)。Vera 每颗 GPU 约 750 GB 的 LPDDR5X（每颗 CPU 1.5 TB，各配两颗 GPU）[[S100]](../../../sources/bibliography.md#s100) 可再增加约 **35** 个。1 PB 的 G3.5 闪存可容纳约 **46,500** 个，据报道该层级的容量可达每个 Pod 数 PB [[S7027]](../../../sources/bibliography.md#s7027)。**结论：**上下文层级把一个 GPU 时间问题转化为闪存容量问题，速度比重新计算快约 20×（估计）[[S7000]](../../../sources/bibliography.md#s7000)。
 
 > [!WARNING]
 > **误区与事实。***误区：*“英伟达正在进军存储业务。”*事实：*STX 是面向合作伙伴的参考架构，而非英伟达自己销售的系统 [[S7004]](../../../sources/bibliography.md#s7004)。英伟达出售的是其中的 BlueField-4 以及负责放置 KV 块的软件；合作伙伴出售硬盘、软件和支持服务，并保留大部分存储利润。
@@ -85,9 +85,9 @@ flowchart TB
 ## 🎯 企业发展视角
 
 1. **英伟达已把自己写进了存储的物料清单。**每个 STX 机柜都需要 BlueField-4 [[S7511]](../../../sources/bibliography.md#s7511)，而英伟达的软件决定由哪个层级保存上下文。相对于硬盘和软件厂商，这能为英伟达攫取多少存储价值？见[价值链](value-chain-and-corp-dev.md)。
-2. **上下文内存可能拉动闪存需求。**如果[智能体式（agentic）](../../../glossary.md#agentic-ai)推理在每个 Pod 中保留数 PB 的 KV 缓存 [[S7027]](../../../sources/bibliography.md#s7027)，闪存和控制器厂商将受益；但 5× 吞吐量的说法仍有待独立基准测试验证 [[S7511]](../../../sources/bibliography.md#s7511)。
+2. **上下文内存可能拉动闪存需求。**如果[智能体式（agentic）](../../glossary.md#agentic-ai)推理在每个 Pod 中保留数 PB 的 KV 缓存 [[S7027]](../../../sources/bibliography.md#s7027)，闪存和控制器厂商将受益；但 5× 吞吐量的说法仍有待独立基准测试验证 [[S7511]](../../../sources/bibliography.md#s7511)。
 3. **合作伙伴估值已反映这一转变。**VAST Data 约 $30B 的估值 [[S7512]](../../../sources/bibliography.md#s7512) 显示了存储软件蕴含的价值之大，而英伟达正是 VAST 的投资方 [[S482]](../../../sources/bibliography.md#s482)。哪些合作伙伴会成为参考设计中不可或缺的一环？
-4. **高通（Qualcomm）的问题（仅基于公开信息）：**每块 AI200 卡配备 768 GB 的 [LPDDR](../../../glossary.md#lpddr) [[S173]](../../../sources/bibliography.md#s173)。这种板载容量能否减少对 G3.5 式层级的需求，还是长上下文智能体服务仍然需要这样一层？
+4. **高通（Qualcomm）的问题（仅基于公开信息）：**每块 AI200 卡配备 768 GB 的 [LPDDR](../../glossary.md#lpddr) [[S173]](../../../sources/bibliography.md#s173)。这种板载容量能否减少对 G3.5 式层级的需求，还是长上下文智能体服务仍然需要这样一层？
 
 ## 📚 来源（Sources）
 

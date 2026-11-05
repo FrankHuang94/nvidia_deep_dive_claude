@@ -7,17 +7,17 @@
 
 ## ⚡ 要点速览
 
-- **[NVL72](../../../glossary.md#nvl72) 的骨干是铜缆：** 约 5,000 根 [NVLink](../../../glossary.md#nvlink) 线缆、总长约 2 英里，将 72 颗 GPU 连接到 18 颗交换芯片 [[S5000]](../../../sources/bibliography.md#s5000)[[S5001]](../../../sources/bibliography.md#s5001)；按链路算术推得 5,184 对线（本资料库计算）。
+- **[NVL72](../../glossary.md#nvl72) 的骨干是铜缆：** 约 5,000 根 [NVLink](../../glossary.md#nvlink) 线缆、总长约 2 英里，将 72 颗 GPU 连接到 18 颗交换芯片 [[S5000]](../../../sources/bibliography.md#s5000)[[S5001]](../../../sources/bibliography.md#s5001)；按链路算术推得 5,184 对线（本资料库计算）。
 - **铜缆每机架节省约 19 kW 功耗和约 $0.5M 成本（估计）。** 若用 800G 光模块实现 130 TB/s，需约 1,300 个模块：功耗约 19 kW，与英伟达宣称的约 20 kW 相符，约占约 120 kW 机架功耗的 16% [[S5000]](../../../sources/bibliography.md#s5000)[[S295]](../../../sources/bibliography.md#s295)[[S336]](../../../sources/bibliography.md#s336)；成本约 $0.65–0.78M，而按 DAC 定价的铜缆约为 $0.13–0.19M [[S5016]](../../../sources/bibliography.md#s5016)[[S5015]](../../../sources/bibliography.md#s5015)。
 - **可靠性：** 无源铜缆没有激光器或 DSP；英伟达自己在推销共封装光学时，也称其可靠性是可插拔光模块的 10 倍 [[S265]](../../../sources/bibliography.md#s265)。
-- **问题在于传输距离。** 在每通道 200 Gb/s 下，无源铜缆传输距离约 1 m [[S5010]](../../../sources/bibliography.md#s5010)，因此铜缆[纵向扩展（scale-up）](../../../glossary.md#scale-up)域止于机架；Kyber 为 144 颗 GPU 改用印刷电路板[中板（midplane）](../../../glossary.md#midplane) [[S510]](../../../sources/bibliography.md#s510)。
-- **下一步光学将进入机架：** 英伟达 Feynman 时代的 Kyber NVL1152 将铜缆与[共封装光学（CPO）](../../../glossary.md#co-packaged-optics)结合 🟢 [[S109]](../../../sources/bibliography.md#s109)[[S108]](../../../sources/bibliography.md#s108)；华为已运行全光互连的 384 NPU 域，功耗约为 NVL72 的 3.9 倍 [[S340]](../../../sources/bibliography.md#s340)。
+- **问题在于传输距离。** 在每通道 200 Gb/s 下，无源铜缆传输距离约 1 m [[S5010]](../../../sources/bibliography.md#s5010)，因此铜缆[纵向扩展（scale-up）](../../glossary.md#scale-up)域止于机架；Kyber 为 144 颗 GPU 改用印刷电路板[中板（midplane）](../../glossary.md#midplane) [[S510]](../../../sources/bibliography.md#s510)。
+- **下一步光学将进入机架：** 英伟达 Feynman 时代的 Kyber NVL1152 将铜缆与[共封装光学（CPO）](../../glossary.md#co-packaged-optics)结合 🟢 [[S109]](../../../sources/bibliography.md#s109)[[S108]](../../../sources/bibliography.md#s108)；华为已运行全光互连的 384 NPU 域，功耗约为 NVL72 的 3.9 倍 [[S340]](../../../sources/bibliography.md#s340)。
 
 ![双面板图。左：驱动由 648 条 800G 链路组成的 NVL72 背板所需功耗：除芯片 SerDes 外，无源铜缆约 0 kW，共封装光学约 5.6 kW，线性可插拔光模块约 11 kW，DSP 可插拔光模块约 19 kW，与英伟达宣称节省 20 kW 相符。右：每机架介质成本，按 800G DAC 定价的铜缆约 $0.13-0.19M，而 1,296 个 DSP 光模块为 $0.65-0.78M。均为估计值。](../../../assets/charts/05-nvl72-spine-copper-vs-optics.svg)
 
 ## 1. 铜缆背板是什么
 
-[NVLink 铜缆背板（spine）](../../../glossary.md#nvlink-spine)是机架后部由线缆盒组成的一整面双轴（twin-axial）铜缆墙。计算托盘与[交换托盘](../../../glossary.md#nvlink-switch-tray)通过[盲插连接器](../../../glossary.md#blind-mate-connector)插入其中，因此无需有人手动插接 5,000 根线缆 [[S5007]](../../../sources/bibliography.md#s5007)；英伟达已将该机架设计贡献给开放计算项目（OCP）[[S5001]](../../../sources/bibliography.md#s5001)。Vera Rubin NVL72 沿用这一 [Oberon](../../../glossary.md#oberon) 机架，并让每对线双向传输，在相同铜缆上实现带宽翻倍 [[S203]](../../../sources/bibliography.md#s203)。
+[NVLink 铜缆背板（spine）](../../glossary.md#nvlink-spine)是机架后部由线缆盒组成的一整面双轴（twin-axial）铜缆墙。计算托盘与[交换托盘](../../glossary.md#nvlink-switch-tray)通过[盲插连接器](../../glossary.md#blind-mate-connector)插入其中，因此无需有人手动插接 5,000 根线缆 [[S5007]](../../../sources/bibliography.md#s5007)；英伟达已将该机架设计贡献给开放计算项目（OCP）[[S5001]](../../../sources/bibliography.md#s5001)。Vera Rubin NVL72 沿用这一 [Oberon](../../glossary.md#oberon) 机架，并让每对线双向传输，在相同铜缆上实现带宽翻倍 [[S203]](../../../sources/bibliography.md#s203)。
 
 ![双面板柱状图。左：每个域的 NVSwitch 芯片数，DGX-2（16 颗 GPU）为 12 颗，HGX A100 为 6 颗，HGX H100 为 4 颗，HGX B200 为 2 颗（均为 8 颗 GPU），GB200 NVL72 为 18 颗，Vera Rubin NVL72 为 36 颗，Kyber NVL144 有报道为 72 颗（Lockwood 估计为 36 颗）。右：GB200 与 GB300 NVL72 约有 5,184 对铜线（英伟达称约 5,000 根线缆、2 英里），实现 130 TB/s；Vera Rubin NVL72 沿用相同线对数，实现 216 TB/s（发布时为 260）；Kyber NVL144 在印刷电路板中板上翻倍至 10,368 对，实现约 518 TB/s。](../../../assets/charts/05-switch-chips-and-copper-pairs.svg)
 
@@ -26,12 +26,12 @@
 
 ## 2. 铜缆为何胜出：功耗、成本与可靠性
 
-光学器件需在每条链路的两端把电信号转换为光信号、再转换回来；基于 DSP 的 800G 模块为此消耗约 15 W，而无源铜缆由芯片的 [SerDes](../../../glossary.md#serdes) 直接驱动 [[S295]](../../../sources/bibliography.md#s295)[[S262]](../../../sources/bibliography.md#s262)。
+光学器件需在每条链路的两端把电信号转换为光信号、再转换回来；基于 DSP 的 800G 模块为此消耗约 15 W，而无源铜缆由芯片的 [SerDes](../../glossary.md#serdes) 直接驱动 [[S295]](../../../sources/bibliography.md#s295)[[S262]](../../../sources/bibliography.md#s262)。
 
-| 介质 | 能耗（[pJ/bit](../../../glossary.md#picojoules-per-bit)） | 传输距离 | 每条 800G 链路价格（估计） | 故障点 | 机架内评价 |
+| 介质 | 能耗（[pJ/bit](../../glossary.md#picojoules-per-bit)） | 传输距离 | 每条 800G 链路价格（估计） | 故障点 | 机架内评价 |
 |---|---|---|---|---|---|
-| 无源铜缆（[DAC](../../../glossary.md#direct-attach-copper)） | 额外约 0 [[S262]](../../../sources/bibliography.md#s262) | 约 1 m [[S5010]](../../../sources/bibliography.md#s5010) | 约 $200–300 [[S5015]](../../../sources/bibliography.md#s5015) | 连接器 | 🟩 最便宜 |
-| [线性可插拔光模块](../../../glossary.md#linear-pluggable-optics) | 约 10.6 [[S295]](../../../sources/bibliography.md#s295) | 数十米 | 不适用 | 激光器 | 🟨 折中 |
+| 无源铜缆（[DAC](../../glossary.md#direct-attach-copper)） | 额外约 0 [[S262]](../../../sources/bibliography.md#s262) | 约 1 m [[S5010]](../../../sources/bibliography.md#s5010) | 约 $200–300 [[S5015]](../../../sources/bibliography.md#s5015) | 连接器 | 🟩 最便宜 |
+| [线性可插拔光模块](../../glossary.md#linear-pluggable-optics) | 约 10.6 [[S295]](../../../sources/bibliography.md#s295) | 数十米 | 不适用 | 激光器 | 🟨 折中 |
 | DSP 可插拔光模块 | 约 18.8 [[S295]](../../../sources/bibliography.md#s295)[[S282]](../../../sources/bibliography.md#s282) | 公里级 | 约 $1,000–1,200 [[S5016]](../../../sources/bibliography.md#s5016) | 激光器、DSP | 🟥 功耗与成本 |
 | 共封装光学 | 约 5.4 [[S265]](../../../sources/bibliography.md#s265) | 公里级 | 未公开 | 激光器 | 🟦 用于机架之外 |
 
@@ -41,7 +41,7 @@
 <details>
 <summary>🔧 技术细节：是什么限制了铜缆</summary>
 
-- **损耗随频率上升：** 通道越快，同一根线缆的衰减越大；而 [PAM4](../../../glossary.md#pam4) 的四个电平留给噪声的余量更小。
+- **损耗随频率上升：** 通道越快，同一根线缆的衰减越大；而 [PAM4](../../glossary.md#pam4) 的四个电平留给噪声的余量更小。
 - **补救措施要耗电：** 重定时器（retimer）和有源电缆（AEC）可将传输距离延长到数米，但代价是额外的功耗与延迟。
 - **双向信号传输**在不提高符号速率的情况下，使每对线的吞吐量翻倍 [[S203]](../../../sources/bibliography.md#s203)。
 
@@ -69,7 +69,7 @@ flowchart TD
   class C,F nvidia
 ```
 
-英伟达的 256 GPU DGX GH200 采用光学 NVLink，但部署有限 [[S205]](../../../sources/bibliography.md#s205)[[S200]](../../../sources/bibliography.md#s200)；其路线图在 Feynman 的多机架 Kyber NVL1152 上重新引入光学 🟢 [[S109]](../../../sources/bibliography.md#s109)[[S108]](../../../sources/bibliography.md#s108)。华为 CloudMatrix 384 以全光互连连接 384 颗 NPU，功耗约 559 kW，约为 NVL72（约 145 kW）的 3.9 倍，而稠密 [BF16](../../../glossary.md#bf16) 算力约为其 1.7 倍 [[S340]](../../../sources/bibliography.md#s340)[[S121]](../../../sources/bibliography.md#s121)。
+英伟达的 256 GPU DGX GH200 采用光学 NVLink，但部署有限 [[S205]](../../../sources/bibliography.md#s205)[[S200]](../../../sources/bibliography.md#s200)；其路线图在 Feynman 的多机架 Kyber NVL1152 上重新引入光学 🟢 [[S109]](../../../sources/bibliography.md#s109)[[S108]](../../../sources/bibliography.md#s108)。华为 CloudMatrix 384 以全光互连连接 384 颗 NPU，功耗约 559 kW，约为 NVL72（约 145 kW）的 3.9 倍，而稠密 [BF16](../../glossary.md#bf16) 算力约为其 1.7 倍 [[S340]](../../../sources/bibliography.md#s340)[[S121]](../../../sources/bibliography.md#s121)。
 
 > [!TIP]
 > **算例 —— 576 GPU NVLink 域的光学开销。** 一颗 Rubin Ultra 级 GPU 单向传输 14.4 Tb/s [[S210]](../../../sources/bibliography.md#s210)，即每端需 18 个 800G 端口。DSP 可插拔光模块：36 × 15 W = **每 GPU 540 W**（576 颗约 311 kW）；CPO 按每 800G 当量约 4.3 W 计：**约 155 W**（约 89 kW）[[S295]](../../../sources/bibliography.md#s295)[[S265]](../../../sources/bibliography.md#s265)（估计）。相对于每个封装约 4.2 kW（600 kW ÷ 144）[[S305]](../../../sources/bibliography.md#s305)，开销分别约为 13% 与约 4%。**结论：** 共封装光学让多机架 NVLink 在经济上可行；在其大规模出货之前，域规模仍由铜缆决定。
@@ -77,9 +77,9 @@ flowchart TD
 ## 🎯 企业发展视角
 
 1. **铜缆同样是一条供应链。** 线缆盒、连接器和机架机构件随每台 NVL72 的出货而增长（见[价值链与企业发展](value-chain-and-corp-dev.md)）。
-2. **CPO 转型是关键变量。** 英伟达的 CPO 合作伙伴包括台积电（TSMC）、Coherent、康宁（Corning）、富士康、Lumentum 和 SENKO [[S90049]](../../../sources/bibliography.md#s90049)；据报道，光 I/O 初创公司 Ayar Labs 与 Lightmatter 已加入 [NVLink Fusion](../../../glossary.md#nvlink-fusion) 🟡 [[S5022]](../../../sources/bibliography.md#s5022)。当纵向扩展转向光学时，英伟达未能留在其交换芯片中的价值，将由其中哪家获取？
-3. **传输距离决定域规模。** 宣称可支持 1,024 设备 pod 的竞争方案（[UALink](../../../glossary.md#ualink) 1.0 [[S573]](../../../sources/bibliography.md#s573)），在单机架之外必须承担光学溢价（见[竞争格局](competition.md)）。
-4. **高通问题（仅基于公开信息）：** 对于每卡配备 768 GB [LPDDR](../../../glossary.md#lpddr) 的推理机架 [[S90028]](../../../sources/bibliography.md#s90028)，纯铜缆的单机架域目前是否已经足够？
+2. **CPO 转型是关键变量。** 英伟达的 CPO 合作伙伴包括台积电（TSMC）、Coherent、康宁（Corning）、富士康、Lumentum 和 SENKO [[S90049]](../../../sources/bibliography.md#s90049)；据报道，光 I/O 初创公司 Ayar Labs 与 Lightmatter 已加入 [NVLink Fusion](../../glossary.md#nvlink-fusion) 🟡 [[S5022]](../../../sources/bibliography.md#s5022)。当纵向扩展转向光学时，英伟达未能留在其交换芯片中的价值，将由其中哪家获取？
+3. **传输距离决定域规模。** 宣称可支持 1,024 设备 pod 的竞争方案（[UALink](../../glossary.md#ualink) 1.0 [[S573]](../../../sources/bibliography.md#s573)），在单机架之外必须承担光学溢价（见[竞争格局](competition.md)）。
+4. **高通问题（仅基于公开信息）：** 对于每卡配备 768 GB [LPDDR](../../glossary.md#lpddr) 的推理机架 [[S90028]](../../../sources/bibliography.md#s90028)，纯铜缆的单机架域目前是否已经足够？
 
 ## 📚 来源（Sources）
 

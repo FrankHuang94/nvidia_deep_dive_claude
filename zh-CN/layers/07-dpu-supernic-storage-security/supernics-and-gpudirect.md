@@ -6,19 +6,19 @@
 
 ## ⚡ 要点速览
 
-- **每颗 GPU 都有自己的网卡。**每颗 GPU 的[横向扩展（scale-out）](../../../glossary.md#scale-out)带宽从 200 Gb/s（DGX A100）→ 400（DGX H100、GB200）→ 800（GB300，ConnectX-8）→ 1,600 Gb/s（Vera Rubin，ConnectX-9）[[S315]](../../../sources/bibliography.md#s315)[[S318]](../../../sources/bibliography.md#s318)[[S264]](../../../sources/bibliography.md#s264)[[S33004]](../../../sources/bibliography.md#s33004)。
-- **[ConnectX](../../../glossary.md#connectx) 带宽 15 年间提升 29×**，从 56 Gb/s（2011）升至 1.6 Tb/s（2026），大约每三年翻一番 [[S273]](../../../sources/bibliography.md#s273)[[S33004]](../../../sources/bibliography.md#s33004)。
-- **[SuperNIC](../../../glossary.md#supernic) 是一种针对 GPU 间（[东西向](../../../glossary.md#east-west-traffic)）流量优化的[网卡（NIC）](../../../glossary.md#nic)**，与 [Spectrum-X](../../../glossary.md#spectrum-x) 交换机协同设计 [[S271]](../../../sources/bibliography.md#s271)；[数据处理器（DPU）](../../../glossary.md#dpu)则额外配备通用核心来承担基础设施工作。
-- **ConnectX-8 内置一个 48 通道的 [PCIe](../../../glossary.md#pcie) Gen6 交换芯片**，在部分服务器中取代了分立的 [PCIe 交换芯片](../../../glossary.md#pcie-switch) [[S7017]](../../../sources/bibliography.md#s7017)，不过并非所有厂商都采用 [[S7018]](../../../sources/bibliography.md#s7018)。
-- **[GPUDirect RDMA](../../../glossary.md#gpudirect-rdma) 让网卡直接写入 GPU 显存。**没有它，将入站数据暂存于 CPU 内存将消耗 39–150% 的主机内存带宽（估计）[[S7000]](../../../sources/bibliography.md#s7000)。
-- **[GPUDirect Storage](../../../glossary.md#gpudirect-storage)** 将 DGX-2 从存储到 GPU 的带宽上限从约 50 GB/s 提升至 100–215 GB/s，并将 CPU 负载降低约 3×（英伟达数据）[[S7009]](../../../sources/bibliography.md#s7009)[[S7010]](../../../sources/bibliography.md#s7010)。
+- **每颗 GPU 都有自己的网卡。**每颗 GPU 的[横向扩展（scale-out）](../../glossary.md#scale-out)带宽从 200 Gb/s（DGX A100）→ 400（DGX H100、GB200）→ 800（GB300，ConnectX-8）→ 1,600 Gb/s（Vera Rubin，ConnectX-9）[[S315]](../../../sources/bibliography.md#s315)[[S318]](../../../sources/bibliography.md#s318)[[S264]](../../../sources/bibliography.md#s264)[[S33004]](../../../sources/bibliography.md#s33004)。
+- **[ConnectX](../../glossary.md#connectx) 带宽 15 年间提升 29×**，从 56 Gb/s（2011）升至 1.6 Tb/s（2026），大约每三年翻一番 [[S273]](../../../sources/bibliography.md#s273)[[S33004]](../../../sources/bibliography.md#s33004)。
+- **[SuperNIC](../../glossary.md#supernic) 是一种针对 GPU 间（[东西向](../../glossary.md#east-west-traffic)）流量优化的[网卡（NIC）](../../glossary.md#nic)**，与 [Spectrum-X](../../glossary.md#spectrum-x) 交换机协同设计 [[S271]](../../../sources/bibliography.md#s271)；[数据处理器（DPU）](../../glossary.md#dpu)则额外配备通用核心来承担基础设施工作。
+- **ConnectX-8 内置一个 48 通道的 [PCIe](../../glossary.md#pcie) Gen6 交换芯片**，在部分服务器中取代了分立的 [PCIe 交换芯片](../../glossary.md#pcie-switch) [[S7017]](../../../sources/bibliography.md#s7017)，不过并非所有厂商都采用 [[S7018]](../../../sources/bibliography.md#s7018)。
+- **[GPUDirect RDMA](../../glossary.md#gpudirect-rdma) 让网卡直接写入 GPU 显存。**没有它，将入站数据暂存于 CPU 内存将消耗 39–150% 的主机内存带宽（估计）[[S7000]](../../../sources/bibliography.md#s7000)。
+- **[GPUDirect Storage](../../glossary.md#gpudirect-storage)** 将 DGX-2 从存储到 GPU 的带宽上限从约 50 GB/s 提升至 100–215 GB/s，并将 CPU 负载降低约 3×（英伟达数据）[[S7009]](../../../sources/bibliography.md#s7009)[[S7010]](../../../sources/bibliography.md#s7010)。
 - **最强挑战：**来自博通（Broadcom）和 AMD 的商用 800G 超以太网（Ultra Ethernet）网卡 [[S280]](../../../sources/bibliography.md#s280)[[S289]](../../../sources/bibliography.md#s289)[[S290]](../../../sources/bibliography.md#s290)；AMD 的 Helios 为每颗 GPU 配三块 800G 网卡，即 2.4 Tb/s，而 Vera Rubin 为 1.6 Tb/s [[S228]](../../../sources/bibliography.md#s228)[[S7500]](../../../sources/bibliography.md#s7500)。
 
 ![按年份的网卡带宽对数坐标图：英伟达 ConnectX 从 56 Gb/s（ConnectX-3，2011）历经 100（ConnectX-4/5）、200（ConnectX-6）、400（ConnectX-7）、800（ConnectX-8）升至 1,600 Gb/s（ConnectX-9，2026）；BlueField DPU 从 100 升至 800 Gb/s（BlueField-4）；博通 Thor Ultra 和 AMD Vulcano 于 2025-26 年达到 800 Gb/s，英特尔 IPU E2100 为 200 Gb/s。](../../../assets/charts/07-nic-bandwidth-by-generation.svg)
 
 ## 1. SuperNIC 与 DPU：同一芯片家族的两种职能
 
-**东西向**流量在 GPU 之间流动：突发性强、同步进行的[集合通信操作](../../../glossary.md#collective-operation)中，最慢的数据包决定整体节奏（见[第 06 层](../../../layers/06-scale-out-scale-across-networking/index.md)）。**[南北向](../../../glossary.md#north-south-traffic)**流量则将集群与用户、存储和管理系统相连。英伟达为两者分别打造不同的端点。
+**东西向**流量在 GPU 之间流动：突发性强、同步进行的[集合通信操作](../../glossary.md#collective-operation)中，最慢的数据包决定整体节奏（见[第 06 层](../06-scale-out-scale-across-networking/index.md)）。**[南北向](../../glossary.md#north-south-traffic)**流量则将集群与用户、存储和管理系统相连。英伟达为两者分别打造不同的端点。
 
 | | SuperNIC（东西向） | DPU（南北向、基础设施） |
 |---|---|---|
@@ -26,7 +26,7 @@
 | 板载算力 | 极少；以数据包引擎为主 | Arm 核心（BlueField-3 为 16 个，BlueField-4 为 64 个）[[S269]](../../../sources/bibliography.md#s269)[[S7001]](../../../sources/bibliography.md#s7001) |
 | 产品 | ConnectX-8、ConnectX-9、BlueField-3 SuperNIC [[S264]](../../../sources/bibliography.md#s264)[[S33004]](../../../sources/bibliography.md#s33004)[[S271]](../../../sources/bibliography.md#s271) | BlueField-3、BlueField-4 [[S269]](../../../sources/bibliography.md#s269)[[S7001]](../../../sources/bibliography.md#s7001) |
 | 数量 | 每颗 GPU 一块（或更多） | 每台服务器、每个托盘或每个存储机柜一块 |
-| 关键特性 | [RoCE](../../../glossary.md#roce) 自适应路由，由网卡侧完成重排序，以及拥塞控制 [[S271]](../../../sources/bibliography.md#s271) | 虚拟交换、NVMe-oF、在线加密、租户隔离 [[S7024]](../../../sources/bibliography.md#s7024) |
+| 关键特性 | [RoCE](../../glossary.md#roce) 自适应路由，由网卡侧完成重排序，以及拥塞控制 [[S271]](../../../sources/bibliography.md#s271) | 虚拟交换、NVMe-oF、在线加密、租户隔离 [[S7024]](../../../sources/bibliography.md#s7024) |
 
 SuperNIC 的价值来自协同设计：Spectrum-X 交换机把一条流的数据包分散喷洒到所有路径上，SuperNIC 再对其重新排序，并利用交换机的拥塞信号调节发送端速率 [[S271]](../../../sources/bibliography.md#s271)。ConnectX-8 还集成了一个 48 通道的 PCIe Gen6 交换芯片，因此 GPU 与网卡之间无需单独的交换芯片 [[S7017]](../../../sources/bibliography.md#s7017)；ConnectX-9 的规格为最多 48 条 Gen6 通道和 800 Gb/s 端口 [[S7535]](../../../sources/bibliography.md#s7535)。
 
@@ -43,7 +43,7 @@ SuperNIC 的价值来自协同设计：Spectrum-X 交换机把一条流的数据
 
 ## 2. GPUDirect RDMA：网卡直接写入 GPU 显存
 
-[RDMA](../../../glossary.md#rdma) 让一台机器的网卡在不经过任一端 CPU 的情况下读写另一台机器的内存。GPUDirect RDMA 则把目标换成 GPU 显存：网卡经 PCIe 以点对点方式直接写入 HBM，理想情况下通过与 GPU 共享的交换芯片完成。没有它，数据就要绕道 CPU 内存中的[中转缓冲区（bounce buffer）](../../../glossary.md#bounce-buffer)。
+[RDMA](../../glossary.md#rdma) 让一台机器的网卡在不经过任一端 CPU 的情况下读写另一台机器的内存。GPUDirect RDMA 则把目标换成 GPU 显存：网卡经 PCIe 以点对点方式直接写入 HBM，理想情况下通过与 GPU 共享的交换芯片完成。没有它，数据就要绕道 CPU 内存中的[中转缓冲区（bounce buffer）](../../glossary.md#bounce-buffer)。
 
 ```mermaid
 flowchart LR
@@ -84,10 +84,10 @@ GPUDirect Storage（GDS）把同样的思路用于文件：不再先读入 CPU �
 ![英伟达 DGX-2 中存储到 GPU 带宽的横向柱状图：经系统内存中 CPU 中转缓冲区的传统路径上限约为 50 GB/s；使用 GPUDirect Storage 时，本地 NVMe 盘可达 53+ GB/s，经网卡访问的远端存储达 100 GB/s 以上，八个 PCIe 插槽中的 RAID 卡达 112 GB/s，所有来源合计理论值约 215 GB/s，约为中转缓冲路径的 4x。英伟达还报告 CPU 利用率改善约 3x。厂商数据。](../../../assets/charts/07-gds-bandwidth-dgx2.svg)
 
 > [!TIP]
-> **算例 —— 冷启动一个 405B 推理副本。**[FP8](../../../glossary.md#fp8) 格式的 Llama 3.1 405B 权重约 405 GB [[S32008]](../../../sources/bibliography.md#s32008)。按 DGX-2 中转缓冲约 50 GB/s 的上限，加载需 **约 8.1 s**；按 GDS 约 215 GB/s 的上限，则为 **约 1.9 s** [[S7009]](../../../sources/bibliography.md#s7009)。**结论：**根据需求伸缩推理副本的集群在每次[扩容（scale-up）](../../../glossary.md#scale-up)时都要付出这一代价，因此 GDS 缩短了新增容量闲置等待的时间。
+> **算例 —— 冷启动一个 405B 推理副本。**[FP8](../../glossary.md#fp8) 格式的 Llama 3.1 405B 权重约 405 GB [[S32008]](../../../sources/bibliography.md#s32008)。按 DGX-2 中转缓冲约 50 GB/s 的上限，加载需 **约 8.1 s**；按 GDS 约 215 GB/s 的上限，则为 **约 1.9 s** [[S7009]](../../../sources/bibliography.md#s7009)。**结论：**根据需求伸缩推理副本的集群在每次[扩容（scale-up）](../../glossary.md#scale-up)时都要付出这一代价，因此 GDS 缩短了新增容量闲置等待的时间。
 
 > [!WARNING]
-> **误区与事实。***误区：*“GPUDirect 是英伟达的锁定手段。”*事实：*它建立在标准的 PCIe 点对点和 RDMA 之上，存储厂商也在各自的客户端中实现了 GDS [[S7023]](../../../sources/bibliography.md#s7023)。锁定效应更为隐性：[NCCL](../../../glossary.md#nccl)、cuFile、驱动程序和 ConnectX 固件经过联合验证，因此英伟达的路径总是最先跑通。
+> **误区与事实。***误区：*“GPUDirect 是英伟达的锁定手段。”*事实：*它建立在标准的 PCIe 点对点和 RDMA 之上，存储厂商也在各自的客户端中实现了 GDS [[S7023]](../../../sources/bibliography.md#s7023)。锁定效应更为隐性：[NCCL](../../glossary.md#nccl)、cuFile、驱动程序和 ConnectX 固件经过联合验证，因此英伟达的路径总是最先跑通。
 
 ## 🎯 企业发展视角
 

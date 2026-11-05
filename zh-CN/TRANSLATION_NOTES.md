@@ -117,4 +117,33 @@ BlueField、ConnectX、CUDA、TPU、Trainium、Maia、MTIA、Ascend/昇腾、Ins
 | Cambricon / Hygon / Moore Threads / MetaX / Biren / T-Head / Kunlunxin | 寒武纪 / 海光 / 摩尔线程 / 沐曦 / 壁仞 / 平头哥 / 昆仑芯 |
 | SMIC / CXMT / SoftBank | 中芯国际（SMIC）/ 长鑫存储（CXMT）/ 软银 |
 | SuperPoD / SuperNode / UnifiedBus | 超节点 / 超节点 / 灵衢（UnifiedBus） |
-| Cross-cutting chapter | 跨层专题 |
+| Cross-cutting chapter | 跨层专题（统一用语，不用“跨领域”或“横向专题”） |
+| design win / tape-out / chiplet / known-good die | 设计导入 / 流片 / 芯粒 / 已知合格裸片（KGD） |
+| dense / sparse | 稠密 / 稀疏 |
+| earn-out | 或有对价（earn-out） |
+| host CPU / superchip / cache coherence / attach | 主机 CPU / 超级芯片 / 缓存一致性 / 挂接 |
+| royalty / architecture licence | 特许权使用费 / 架构授权 |
+| agentic AI / reasoning model | 智能体 AI / 推理型模型（区别于 inference“推理”） |
+| radix / rail-optimized / packet spraying / attach rate | 端口数 / 轨道优化 / 包喷洒 / 搭售率 |
+| serving engine / disaggregated serving / goodput | 推理服务引擎 / 分离式服务 / 有效产出（goodput） |
+| captive silicon / captive ASIC | 自用芯片 / 自用 ASIC |
+| pull-through | 带动硬件销售（pull-through） |
+| gang scheduling / GPU partitioning / take-or-pay / backlog | 成组调度 / GPU 切分 / 照付不议 / 收入积压 |
+| equity-for-capacity / behind-the-meter / day-0 support | 以股权换产能 / 表后（behind-the-meter）/ 首日支持（day-0） |
+| switching cost / compliant SKU | 转换成本 / 合规型号 |
+| copper spine / NVLink spine | 铜缆背板 / NVLink 线缆背板 |
+| optical circuit switch | 光路交换机 |
+| steelman / verdict / signpost | 最强论证（steelman）/ 研判 / 路标 |
+| roofline / ridge point / die harvesting | roofline / 脊点（ridge point）/ 裸片降级利用 |
+| Innolight / Eoptolink / SPIL / Synopsys | 中际旭创 / 新易盛 / 矽品 / 新思科技 |
+
+## 6. 标点约定
+
+- 标题中的破折号统一用中文破折号“——”（如“第 02 层 —— GPU 芯片”“18 —— 弱点与看空情景”）；数字区间沿用英文短横“–”（如 2025–2028）。
+
+## 7. 已知局限
+
+- **桑基图（sankey）保留英文**：Mermaid 的 sankey 解析器只接受 ASCII 字符，因此执行摘要（00）、第 02 层、第 12 层与 CS7 中的四幅桑基图标签保留英文，图下中文说明给出对应译名。
+- **数字写法**：多数译者保留原文的 `k` / `M` / `B` 记数（如 `100k GPU`、`$96.2B`）；少数页面在正文中改用“万 / 亿”。两种写法数值相同，以英文原文为准。
+- **页内锚点**：中文标题的锚点与英文不同；指向其他页面某一小节的链接会退化为指向该页面开头。
+- **图表**：SVG 图表为英文原图，打印版以中文图注（替代文字）说明。

@@ -7,7 +7,7 @@
 
 ## ⚡ 要点速览
 
-- **四个产品名词，四种商业模式。** [HGX](../../../glossary.md#hgx) 是供服务器厂商围绕其打造整机的 GPU 基板；[DGX](../../../glossary.md#dgx) 是英伟达（NVIDIA）自有品牌的系统；[MGX](../../../glossary.md#mgx) 是面向合作伙伴的模块化参考架构；NVL 机架（[NVL72](../../../glossary.md#nvl72)）则是由 ODM 按英伟达规格制造的整机架级计算机 [[S101]](../../../sources/bibliography.md#s101)[[S8524]](../../../sources/bibliography.md#s8524)[[S396]](../../../sources/bibliography.md#s396)。
+- **四个产品名词，四种商业模式。** [HGX](../../glossary.md#hgx) 是供服务器厂商围绕其打造整机的 GPU 基板；[DGX](../../glossary.md#dgx) 是英伟达（NVIDIA）自有品牌的系统；[MGX](../../glossary.md#mgx) 是面向合作伙伴的模块化参考架构；NVL 机架（[NVL72](../../glossary.md#nvl72)）则是由 ODM 按英伟达规格制造的整机架级计算机 [[S101]](../../../sources/bibliography.md#s101)[[S8524]](../../../sources/bibliography.md#s8524)[[S396]](../../../sources/bibliography.md#s396)。
 - **销售单元十年间扩大约 60 倍：** 2016 年 DGX-1 标价 $129K [[S310]](../../../sources/bibliography.md#s310)；GB300 NVL72 机架约 $4.0M（估计，摩根士丹利），Vera Rubin NVL72 约 $7.8M（估计）[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
 - **英伟达如今几乎规定了机架中的一切：** 计算托盘、NVLink 交换托盘、铜缆背板、电源架、母排和液冷接口；2024 年，英伟达将 GB200 NVL72 机架设计贡献给开放计算项目（OCP）[[S5001]](../../../sources/bibliography.md#s5001)[[S8000]](../../../sources/bibliography.md#s8000)。
 - **MGX 作为合作伙伴渠道迅速扩张：** 从 2023 年 6 家合作伙伴的 14 款系统，增至 2024 年年中 25 家以上合作伙伴的 90 余款系统 [[S8024]](../../../sources/bibliography.md#s8024)；AWS 将把 Trainium4 放入采用 NVLink 的 MGX 机架 [[S518]](../../../sources/bibliography.md#s518)。
@@ -18,7 +18,7 @@
 
 ## 1. 四条产品线及其嵌套关系
 
-可以把这几条产品线想象成尺寸逐级增大的乐高标准件。**HGX**（始于 2017 年与微软（Microsoft）合作的 HGX-1 [[S8525]](../../../sources/bibliography.md#s8525)）是一块承载 8 颗 GPU 及其 NVLink 交换芯片的基板，戴尔、HPE、联想、Supermicro 及各 ODM 将其装入自己的机箱，并搭配自选的 CPU 和网卡 [[S101]](../../../sources/bibliography.md#s101)。**DGX** 是英伟达的品牌版本，连同软件与支持服务一并销售，同时也是整个行业的参考设计 [[S310]](../../../sources/bibliography.md#s310)[[S319]](../../../sources/bibliography.md#s319)。**MGX** 将基板周围的机箱、托盘、机架和供电标准化，可组合出 100 多种配置，最大可至整机架 [[S8524]](../../../sources/bibliography.md#s8524)[[S8025]](../../../sources/bibliography.md#s8025)。**NVL 机架**把 72 个 GPU 封装和 36 颗 CPU 连成一个[纵向扩展](../../../glossary.md#scale-up)域，作为一台整机来构建 [[S396]](../../../sources/bibliography.md#s396)[[S102]](../../../sources/bibliography.md#s102)。
+可以把这几条产品线想象成尺寸逐级增大的乐高标准件。**HGX**（始于 2017 年与微软（Microsoft）合作的 HGX-1 [[S8525]](../../../sources/bibliography.md#s8525)）是一块承载 8 颗 GPU 及其 NVLink 交换芯片的基板，戴尔、HPE、联想、Supermicro 及各 ODM 将其装入自己的机箱，并搭配自选的 CPU 和网卡 [[S101]](../../../sources/bibliography.md#s101)。**DGX** 是英伟达的品牌版本，连同软件与支持服务一并销售，同时也是整个行业的参考设计 [[S310]](../../../sources/bibliography.md#s310)[[S319]](../../../sources/bibliography.md#s319)。**MGX** 将基板周围的机箱、托盘、机架和供电标准化，可组合出 100 多种配置，最大可至整机架 [[S8524]](../../../sources/bibliography.md#s8524)[[S8025]](../../../sources/bibliography.md#s8025)。**NVL 机架**把 72 个 GPU 封装和 36 颗 CPU 连成一个[纵向扩展](../../glossary.md#scale-up)域，作为一台整机来构建 [[S396]](../../../sources/bibliography.md#s396)[[S102]](../../../sources/bibliography.md#s102)。
 
 ```mermaid
 flowchart LR
@@ -39,7 +39,7 @@ flowchart LR
 |---|---|---|---|---|
 | 是什么 | 面向合作伙伴的 GPU 基板 | 英伟达品牌系统 | 模块化参考架构 | 整机架即一台计算机 |
 | 由谁制造 | OEM 与 ODM | 为英伟达代工的合同制造商 | 25 家以上合作伙伴 [[S8024]](../../../sources/bibliography.md#s8024) | ODM/OEM 按英伟达设计制造；也有 DGX 版本 |
-| 每个 [NVLink](../../../glossary.md#nvlink) 域的 GPU 数 | 8 | 8（DGX GB300 为 72） | 不定 | 72；Kyber（2027）为 144 [[S305]](../../../sources/bibliography.md#s305) |
+| 每个 [NVLink](../../glossary.md#nvlink) 域的 GPU 数 | 8 | 8（DGX GB300 为 72） | 不定 | 72；Kyber（2027）为 144 [[S305]](../../../sources/bibliography.md#s305) |
 | 功耗与散热 | 约 10–14 kW，风冷或液冷 [[S318]](../../../sources/bibliography.md#s318)[[S321]](../../../sources/bibliography.md#s321) | 同左 | 1U 至整机架 | 约 120–230 kW，仅液冷 [[S336]](../../../sources/bibliography.md#s336)[[S303]](../../../sources/bibliography.md#s303) |
 | 价格区间 | 8× H200 约 $0.32–0.40M [[S322]](../../../sources/bibliography.md#s322) | 约 $0.37–0.47M [[S320]](../../../sources/bibliography.md#s320)[[S322]](../../../sources/bibliography.md#s322) | 不适用 | 约 $3.0–7.8M（估计）[[S326]](../../../sources/bibliography.md#s326)[[S330]](../../../sources/bibliography.md#s330) |
 | 买家保留的选择权 | 最多（CPU、网卡、机箱） | 很少 | 在英伟达框架内选择 | 最少：英伟达的 BOM |
@@ -47,7 +47,7 @@ flowchart LR
 > [!TIP]
 > **算例 —— 销售单元为何跃升。** 一台 DGX H200 搭载 8 颗 GPU，售价约 $467K，每颗 GPU 约 $58K [[S322]](../../../sources/bibliography.md#s322)。一台 GB300 NVL72 搭载 72 颗 GPU，售价约 $3.99M，每颗 GPU 约 $55K（估计）[[S332]](../../../sources/bibliography.md#s332)。按单颗 GPU 计，价格几乎没变；变化在于值得购买的最小单元变成了一个 72 GPU、约 132 kW 的机架 [[S337]](../../../sources/bibliography.md#s337)。**结论：**英伟达放大的是*采购决策的规模*，并随之扩大了由它设计的账单份额。
 
-**[Q3 · 代际进步]** 每机架 [HBM](../../../glossary.md#hbm) 从 13.8 TB（GB200）增至 20.7 TB（GB300、Vera Rubin），稠密 [FP8](../../../glossary.md#fp8) 算力从 360 PF 增至约 1,260 PF（Vera Rubin）[[S121]](../../../sources/bibliography.md#s121)[[S337]](../../../sources/bibliography.md#s337)[[S102]](../../../sources/bibliography.md#s102)。
+**[Q3 · 代际进步]** 每机架 [HBM](../../glossary.md#hbm) 从 13.8 TB（GB200）增至 20.7 TB（GB300、Vera Rubin），稠密 [FP8](../../glossary.md#fp8) 算力从 360 PF 增至约 1,260 PF（Vera Rubin）[[S121]](../../../sources/bibliography.md#s121)[[S337]](../../../sources/bibliography.md#s337)[[S102]](../../../sources/bibliography.md#s102)。
 
 ![对比各机架级系统的两张横向柱状图。HBM：GB200 NVL72 为 13.8 TB，GB300 NVL72 为 20.7 TB，Vera Rubin NVL72 为 20.7 TB，AMD Helios 为 31.1 TB，Rubin Ultra Kyber 约 144 TB，Trn3 UltraServer 为 20.7 TB，华为 CloudMatrix 384 为 49.2 TB。稠密 FP8：GB200/GB300 为 360 PF，Vera Rubin 为 1,260 PF，Helios 为 1,400 PF，Kyber 为 5,000 PF，Trn3 为 362 PF，Ironwood 64 芯片立方体为 295 PF，CloudMatrix 为 300 PF BF16。](../../../assets/charts/08-system-memory-and-compute-by-rack.svg)
 
@@ -61,19 +61,19 @@ flowchart LR
 
 ## 2. 英伟达为何从卖芯片转向规定机架
 
-原因在于纵向扩展带宽。混合专家模型（MoE）把专家分布在许多 GPU 上，每个 token 都会在它们之间产生流量，而这种流量只有在同一个 NVLink 域内才廉价（[为何域规模至关重要](../05-scale-up-nvlink-nvswitch/why-domain-size-matters.md)）。要让 72 颗 GPU 像一台机器那样工作，就必须把背板、交换托盘、信号完整性、供电和散热作为一个整体设计来掌控 [[S5000]](../../../sources/bibliography.md#s5000)[[S5001]](../../../sources/bibliography.md#s5001)。如今英伟达交给合作伙伴的是一份近乎完整的物料清单：带有两块[超级芯片](../../../glossary.md#superchip)板以及[网卡](../../../glossary.md#nic)和 [DPU](../../../glossary.md#dpu) 插槽的计算托盘 [[S8000]](../../../sources/bibliography.md#s8000)[[S8001]](../../../sources/bibliography.md#s8001)；交换托盘（GB300 机架有 18 颗 NVLink 交换芯片，Vera Rubin 为 36 颗）[[S332]](../../../sources/bibliography.md#s332)；约 5,000 根线缆的背板 [[S5000]](../../../sources/bibliography.md#s5000)；电源架、母排以及即将到来的 800 V 直流接口 [[S90063]](../../../sources/bibliography.md#s90063)；还有冷板、分液歧管和冷却液温度 [[S8002]](../../../sources/bibliography.md#s8002)。
+原因在于纵向扩展带宽。混合专家模型（MoE）把专家分布在许多 GPU 上，每个 token 都会在它们之间产生流量，而这种流量只有在同一个 NVLink 域内才廉价（[为何域规模至关重要](../05-scale-up-nvlink-nvswitch/why-domain-size-matters.md)）。要让 72 颗 GPU 像一台机器那样工作，就必须把背板、交换托盘、信号完整性、供电和散热作为一个整体设计来掌控 [[S5000]](../../../sources/bibliography.md#s5000)[[S5001]](../../../sources/bibliography.md#s5001)。如今英伟达交给合作伙伴的是一份近乎完整的物料清单：带有两块[超级芯片](../../glossary.md#superchip)板以及[网卡](../../glossary.md#nic)和 [DPU](../../glossary.md#dpu) 插槽的计算托盘 [[S8000]](../../../sources/bibliography.md#s8000)[[S8001]](../../../sources/bibliography.md#s8001)；交换托盘（GB300 机架有 18 颗 NVLink 交换芯片，Vera Rubin 为 36 颗）[[S332]](../../../sources/bibliography.md#s332)；约 5,000 根线缆的背板 [[S5000]](../../../sources/bibliography.md#s5000)；电源架、母排以及即将到来的 800 V 直流接口 [[S90063]](../../../sources/bibliography.md#s90063)；还有冷板、分液歧管和冷却液温度 [[S8002]](../../../sources/bibliography.md#s8002)。
 
-就 Vera Rubin 而言，摩根大通报告称，英伟达将交付完全组装好的 [L10](../../../glossary.md#l6-l10-l11) 计算托盘，约占服务器成本的 90%，ODM 主要只剩机架集成工作（🟡 有报道）[[S8022]](../../../sources/bibliography.md#s8022)[[S329]](../../../sources/bibliography.md#s329)。
+就 Vera Rubin 而言，摩根大通报告称，英伟达将交付完全组装好的 [L10](../../glossary.md#l6-l10-l11) 计算托盘，约占服务器成本的 90%，ODM 主要只剩机架集成工作（🟡 有报道）[[S8022]](../../../sources/bibliography.md#s8022)[[S329]](../../../sources/bibliography.md#s329)。
 
 > [!WARNING]
 > **误区与事实：**“机架级意味着英伟达自己造机架。”并非如此。富士康称其占全球 AI 服务器市场约 40% [[S3014]](../../../sources/bibliography.md#s3014)，其余由广达、纬创等厂商制造。英伟达设计机架并出售芯片；ODM 负责运营托盘和机架产线、泄漏测试与老化测试（burn-in），利润率约 2–3%，不过随着机架价格翻倍，其以美元计的增值额也在上升 [[S332]](../../../sources/bibliography.md#s332)。
 
 > [!TIP]
-> **算例 —— 设计方与制造方的经济账（以单个 GB300 机架计）。** 摩根士丹利测算的约 $3.99M 机架中，GPU 约 $2.52M，[HBM3E](../../../glossary.md#hbm3e) 与 LPDDR5X 约 $0.37M，液冷约 $50K；ODM 2.7% 的毛利率对应**约 $108K** [[S332]](../../../sources/bibliography.md#s332)[[S334]](../../../sources/bibliography.md#s334)。仅 GPU 一项为英伟达带来的收入就约为 ODM 毛利的 23 倍（本资料库测算）。**结论：**机架级的利润在于编写规格，而不在于钣金加工。
+> **算例 —— 设计方与制造方的经济账（以单个 GB300 机架计）。** 摩根士丹利测算的约 $3.99M 机架中，GPU 约 $2.52M，[HBM3E](../../glossary.md#hbm3e) 与 LPDDR5X 约 $0.37M，液冷约 $50K；ODM 2.7% 的毛利率对应**约 $108K** [[S332]](../../../sources/bibliography.md#s332)[[S334]](../../../sources/bibliography.md#s334)。仅 GPU 一项为英伟达带来的收入就约为 ODM 毛利的 23 倍（本资料库测算）。**结论：**机架级的利润在于编写规格，而不在于钣金加工。
 
 ## 3. 算例：超大规模云厂商购买 1,000 颗 GB300 GPU 时买到了什么
 
-资金沿一条链条流动：[超大规模云厂商](../../../glossary.md#hyperscaler)向 ODM 订购经过测试的 [L11](../../../glossary.md#l6-l10-l11) 机架；英伟达向 ODM 出售超级芯片、NVLink 交换芯片和网卡（这也是英伟达在财报文件中将 ODM 列为直接客户、将云服务商列为间接客户的原因 [[S90069]](../../../sources/bibliography.md#s90069)）；内存厂商把 HBM 卖给英伟达用于其 GPU 封装；英伟达也可能直接出售[横向扩展](../../../glossary.md#scale-out)交换机。
+资金沿一条链条流动：[超大规模云厂商](../../glossary.md#hyperscaler)向 ODM 订购经过测试的 [L11](../../glossary.md#l6-l10-l11) 机架；英伟达向 ODM 出售超级芯片、NVLink 交换芯片和网卡（这也是英伟达在财报文件中将 ODM 列为直接客户、将云服务商列为间接客户的原因 [[S90069]](../../../sources/bibliography.md#s90069)）；内存厂商把 HBM 卖给英伟达用于其 GPU 封装；英伟达也可能直接出售[横向扩展](../../glossary.md#scale-out)交换机。
 
 > [!TIP]
 > **算例 —— 1,000 颗 GB300 GPU，钱都付给了谁。** 1,000 ÷ 72 = 13.9，因此订单为 **14 个机架（1,008 颗 GPU）**。按每机架约 $3.99M（摩根士丹利口径的 ODM 对云服务商价格；Wolfe Research 为约 $4.3M）计，机架总价**约 $56M**（估计）[[S332]](../../../sources/bibliography.md#s332)[[S325]](../../../sources/bibliography.md#s325)。仅 GPU（每机架约 $2.52M）就为**英伟达带来约 $35M**，还不含 Grace CPU、NVLink 交换芯片和网卡；ODM 约 2.7% 的利润为**约 $1.5M**；散热部件（每机架约 $50K）为**约 $0.7M** [[S332]](../../../sources/bibliography.md#s332)[[S334]](../../../sources/bibliography.md#s334)。网络与存储大约再增加四分之一（SemiAnalysis：GB200 机架 $3.1M，全部计入约 $3.9M）[[S324]](../../../sources/bibliography.md#s324)：合计**约 $70M（估计）**。电力：14 × 约 132 kW ≈ **1.85 MW** 的机架 IT 负载 [[S337]](../../../sources/bibliography.md#s337)。**结论：**超大规模云厂商与 ODM 签约，但远超一半的资金最终流向英伟达。

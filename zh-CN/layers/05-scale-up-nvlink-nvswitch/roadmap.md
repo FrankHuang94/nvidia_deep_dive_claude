@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **当前：** 自 2026 年 8 月起，[NVLink](../../../glossary.md#nvlink) 6 已随 Vera Rubin [NVL72](../../../glossary.md#nvl72) 出货：72 颗 GPU、36 颗交换芯片、每 GPU 3.0 TB/s——此前已从发布时的 3.6 TB/s 悄然下调 🟢 [[S500]](../../../sources/bibliography.md#s500)[[S332]](../../../sources/bibliography.md#s332)[[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)。
+- **当前：** 自 2026 年 8 月起，[NVLink](../../glossary.md#nvlink) 6 已随 Vera Rubin [NVL72](../../glossary.md#nvl72) 出货：72 颗 GPU、36 颗交换芯片、每 GPU 3.0 TB/s——此前已从发布时的 3.6 TB/s 悄然下调 🟢 [[S500]](../../../sources/bibliography.md#s500)[[S332]](../../../sources/bibliography.md#s332)[[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)。
 - **2027 年：** Rubin Ultra 转向 NVLink 7 和 144 GPU 的 Kyber 机架，据报道每 GPU 约 3.6 TB/s。SemiAnalysis 报道称将推迟 12 个月以上至 2028 年，英伟达予以否认 🟡 [[S108]](../../../sources/bibliography.md#s108)[[S210]](../../../sources/bibliography.md#s210)[[S507]](../../../sources/bibliography.md#s507)[[S508]](../../../sources/bibliography.md#s508)。
-- **2028 年：** Feynman 的 Kyber NVL1152 采用铜缆加[共封装光学（CPO）](../../../glossary.md#co-packaged-optics)，把八个机架连接成一个 NVLink 域；带宽尚未公布 🟡 [[S108]](../../../sources/bibliography.md#s108)[[S109]](../../../sources/bibliography.md#s109)。
-- **开放标准：** [UALink](../../../glossary.md#ualink) 2.0 于 2026-04-07 获批。芯片将于 2026 年下半年进入实验室，产品于 2027 年跟进 🟡 [[S574]](../../../sources/bibliography.md#s574)[[S90051]](../../../sources/bibliography.md#s90051)。[ESUN](../../../glossary.md#esun) 1.0（2026 年 3 月）与 UE 1.1（2026 年 10 月）让以太网走上了[纵向扩展（scale-up）](../../../glossary.md#scale-up)的轨道 🟢 [[S576]](../../../sources/bibliography.md#s576)[[S575]](../../../sources/bibliography.md#s575)。
+- **2028 年：** Feynman 的 Kyber NVL1152 采用铜缆加[共封装光学（CPO）](../../glossary.md#co-packaged-optics)，把八个机架连接成一个 NVLink 域；带宽尚未公布 🟡 [[S108]](../../../sources/bibliography.md#s108)[[S109]](../../../sources/bibliography.md#s109)。
+- **开放标准：** [UALink](../../glossary.md#ualink) 2.0 于 2026-04-07 获批。芯片将于 2026 年下半年进入实验室，产品于 2027 年跟进 🟡 [[S574]](../../../sources/bibliography.md#s574)[[S90051]](../../../sources/bibliography.md#s90051)。[ESUN](../../glossary.md#esun) 1.0（2026 年 3 月）与 UE 1.1（2026 年 10 月）让以太网走上了[纵向扩展（scale-up）](../../glossary.md#scale-up)的轨道 🟢 [[S576]](../../../sources/bibliography.md#s576)[[S575]](../../../sources/bibliography.md#s575)。
 - **竞争对手的时间表：** AMD 计划推出 Helios（2026 年）、Helios 500（2027 年）和 Helios 600（2028 年）🟢 [[S538]](../../../sources/bibliography.md#s538)。谷歌的 TPU 8t 将于 2026 年底带来 9,600 芯片的 pod 🟢 [[S238]](../../../sources/bibliography.md#s238)。华为 Atlas 960 的目标是在 2027 年第四季度实现 15,488 颗 NPU 🟡 [[S249]](../../../sources/bibliography.md#s249)。高通的 AI300（2028 年）采用 UALink 与 ESUN 🟢 [[S90060]](../../../sources/bibliography.md#s90060)。
 - **[Q7 · 路线图与变数]** 关注 UALink 芯片的推出时间、共封装光学进入机架，以及 Kyber 的上市日期（见最后一节）。
 
@@ -78,7 +78,7 @@ gantt
 <sub>各行与 `data/roadmap.csv`（第 05 层与第 08 层）保持一致；本页不修改该文件。</sub>
 
 > [!TIP]
-> **算例 —— 英伟达的增长点正在转移。** 每 GPU 的 NVLink 带宽从 NVLink 5 到 NVLink 6 提升了 1.67 倍（1.8 → 3.0 TB/s），据报道到 NVLink 7（3.6 TB/s）仅提升 1.2 倍 [[S200]](../../../sources/bibliography.md#s200)[[S210]](../../../sources/bibliography.md#s210)。域规模则计划先翻倍（72 → 144），再扩大 8 倍（144 → 1,152）[[S108]](../../../sources/bibliography.md#s108)。单个域内的总带宽从 216 TB/s（Vera Rubin NVL72）增至约 518 TB/s（Kyber NVL144，按 3.6 TB/s 计）。大部分增益来自每个域容纳更多 GPU，而非更快的链路。这把风险从 [SerDes](../../../glossary.md#serdes) 设计转移到了机架机构与光学。
+> **算例 —— 英伟达的增长点正在转移。** 每 GPU 的 NVLink 带宽从 NVLink 5 到 NVLink 6 提升了 1.67 倍（1.8 → 3.0 TB/s），据报道到 NVLink 7（3.6 TB/s）仅提升 1.2 倍 [[S200]](../../../sources/bibliography.md#s200)[[S210]](../../../sources/bibliography.md#s210)。域规模则计划先翻倍（72 → 144），再扩大 8 倍（144 → 1,152）[[S108]](../../../sources/bibliography.md#s108)。单个域内的总带宽从 216 TB/s（Vera Rubin NVL72）增至约 518 TB/s（Kyber NVL144，按 3.6 TB/s 计）。大部分增益来自每个域容纳更多 GPU，而非更快的链路。这把风险从 [SerDes](../../glossary.md#serdes) 设计转移到了机架机构与光学。
 
 <details>
 <summary>🔧 技术细节：为何通道速率停滞在约 200 Gb/s</summary>
@@ -91,11 +91,11 @@ NVLink 5、NVLink 6、UALink 1.0/2.0 和 Tomahawk 6 都采用 200G 级通道 [[S
 
 **[Q7 · 路线图与变数]**
 
-- **UALink 芯片按时推出。** 如果 Upscale AI 的交换芯片于 2026 年第四季度出货、UALink 产品于 2027 年落地，定制加速器将获得 [NVLink Fusion](../../../glossary.md#nvlink-fusion) 之外的商用替代方案 🟡 [[S5506]](../../../sources/bibliography.md#s5506)[[S90051]](../../../sources/bibliography.md#s90051)。若推迟到 2028 年，基于以太网的 UALink（Helios 式）将成为唯一的开放路径 [[S5523]](../../../sources/bibliography.md#s5523)。
+- **UALink 芯片按时推出。** 如果 Upscale AI 的交换芯片于 2026 年第四季度出货、UALink 产品于 2027 年落地，定制加速器将获得 [NVLink Fusion](../../glossary.md#nvlink-fusion) 之外的商用替代方案 🟡 [[S5506]](../../../sources/bibliography.md#s5506)[[S90051]](../../../sources/bibliography.md#s90051)。若推迟到 2028 年，基于以太网的 UALink（Helios 式）将成为唯一的开放路径 [[S5523]](../../../sources/bibliography.md#s5523)。
 - **共封装光学进入机架。** Feynman 的光学 NVLink 是英伟达跨出单机架的第一步 [[S108]](../../../sources/bibliography.md#s108)。光 I/O 初创公司（Ayar Labs、Lightmatter）以及博通的 CPO 交换机，也为竞争对手提供了同样的工具 [[S5511]](../../../sources/bibliography.md#s5511)[[S2510]](../../../sources/bibliography.md#s2510)[[S571]](../../../sources/bibliography.md#s571)。
 - **Kyber 的时间表。** 如果推迟至 2028 年属实，英伟达的域规模在 2027 年全年都将停留在 72 颗 GPU，而 AWS 已出货 144 颗、谷歌 9,600 颗 🟡 [[S507]](../../../sources/bibliography.md#s507)[[S508]](../../../sources/bibliography.md#s508)[[S242]](../../../sources/bibliography.md#s242)[[S238]](../../../sources/bibliography.md#s238)。
 - **规格修订。** Rubin 的带宽下调（3.6 → 3.0 TB/s）说明发布时的数字可能变动。应将 2027–28 年的带宽数字视为目标值 🔴 [[S201]](../../../sources/bibliography.md#s201)[[S202]](../../../sources/bibliography.md#s202)。
-- **[超大规模云厂商](../../../glossary.md#hyperscaler)的采用。** 关注 Trainium4 基于 NVLink Fusion 出货，以及 Meta 或微软是否让其加速器转向 ESUN/UE 1.1 [[S518]](../../../sources/bibliography.md#s518)[[S576]](../../../sources/bibliography.md#s576)[[S575]](../../../sources/bibliography.md#s575)。
+- **[超大规模云厂商](../../glossary.md#hyperscaler)的采用。** 关注 Trainium4 基于 NVLink Fusion 出货，以及 Meta 或微软是否让其加速器转向 ESUN/UE 1.1 [[S518]](../../../sources/bibliography.md#s518)[[S576]](../../../sources/bibliography.md#s576)[[S575]](../../../sources/bibliography.md#s575)。
 
 > [!TIP]
 > **算例 —— 八机架 NVLink 域的光学成本。** 假设每颗 GPU 的全部 NVLink 7 带宽（单向约 14.4 Tb/s）都经 1.6 Tb/s 可插拔光模块离开机架：每颗 GPU 需要 9 个端口、18 个模块端，每个约 30 W，即每 GPU 约 540 W [[S210]](../../../sources/bibliography.md#s210)[[S33020]](../../../sources/bibliography.md#s33020)。576 颗 GPU 合计约 311 kW 的光学功耗，约为一个 Kyber 机架（约 600 kW）的一半。若如博通对其 CPO 交换机的宣称，共封装光学可降低 70% 以上，则可降至约 93 kW [[S305]](../../../sources/bibliography.md#s305)[[S571]](../../../sources/bibliography.md#s571)。实际设计中只有跨机架流量走光学（🔴 本资料库估算），但这一数量级说明了为何 CPO 是跨机架域的关键门槛。

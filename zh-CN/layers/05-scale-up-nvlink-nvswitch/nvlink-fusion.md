@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **是什么：** [NVLink Fusion](../../../glossary.md#nvlink-fusion) 于 2025-05-19 发布，以 IP 或[芯粒（chiplet）](../../../glossary.md#chiplet)形式向第三方 CPU 与定制加速器授权 [NVLink](../../../glossary.md#nvlink)，使其接入英伟达的机架级互连网络 [[S131]](../../../sources/bibliography.md#s131)[[S215]](../../../sources/bibliography.md#s215)。
-- **谁签了约：** 首发时包括联发科（MediaTek）、美满电子（Marvell）、世芯（Alchip）、Astera Labs、新思科技（Synopsys）、楷登电子（Cadence）、高通（Qualcomm）和富士通（Fujitsu）[[S131]](../../../sources/bibliography.md#s131)[[S90031]](../../../sources/bibliography.md#s90031)；随后加入的有英特尔 [x86](../../../glossary.md#x86) [[S130]](../../../sources/bibliography.md#s130)、Arm Neoverse [[S90036]](../../../sources/bibliography.md#s90036) 以及 AWS Trainium4 [[S518]](../../../sources/bibliography.md#s518)[[S519]](../../../sources/bibliography.md#s519)。
+- **是什么：** [NVLink Fusion](../../glossary.md#nvlink-fusion) 于 2025-05-19 发布，以 IP 或[芯粒（chiplet）](../../glossary.md#chiplet)形式向第三方 CPU 与定制加速器授权 [NVLink](../../glossary.md#nvlink)，使其接入英伟达的机架级互连网络 [[S131]](../../../sources/bibliography.md#s131)[[S215]](../../../sources/bibliography.md#s215)。
+- **谁签了约：** 首发时包括联发科（MediaTek）、美满电子（Marvell）、世芯（Alchip）、Astera Labs、新思科技（Synopsys）、楷登电子（Cadence）、高通（Qualcomm）和富士通（Fujitsu）[[S131]](../../../sources/bibliography.md#s131)[[S90031]](../../../sources/bibliography.md#s90031)；随后加入的有英特尔 [x86](../../glossary.md#x86) [[S130]](../../../sources/bibliography.md#s130)、Arm Neoverse [[S90036]](../../../sources/bibliography.md#s90036) 以及 AWS Trainium4 [[S518]](../../../sources/bibliography.md#s518)[[S519]](../../../sources/bibliography.md#s519)。
 - **背后的资本：** 据报道，英伟达向美满电子投资 $2B（2026 年 3 月）以加深合作关系 🟡 [[S90037]](../../../sources/bibliography.md#s90037)；另据报道，光 I/O 初创公司 Ayar Labs 与 Lightmatter 于 2026 年 6 月加入 🟡 [[S5022]](../../../sources/bibliography.md#s5022)。
 - **开放，但按英伟达的条件：** 英伟达保留 NVLink 交换芯片，且每个 Fusion 平台都必须包含至少一颗英伟达芯片，因此无法用它把 AMD CPU 连接到 AMD GPU 🟡 [[S5018]](../../../sources/bibliography.md#s5018)[[S5020]](../../../sources/bibliography.md#s5020)。
-- **目标收益：** 让定制芯片留在英伟达的机架里。Trainium4 将采用 NVLink 6 和 [MGX](../../../glossary.md#mgx) 机架 [[S518]](../../../sources/bibliography.md#s518)，因此即使英伟达丢掉了加速器订单，仍能卖出交换芯片。
-- **竞争路径：** [UALink](../../../glossary.md#ualink)（2.0 版于 2026 年 4 月获批，产品 2027 年推出）[[S574]](../../../sources/bibliography.md#s574)[[S90051]](../../../sources/bibliography.md#s90051) 与 [ESUN](../../../glossary.md#esun)（1.0 版于 2026 年 3 月发布）[[S576]](../../../sources/bibliography.md#s576)；英特尔与高通两边都有参与 [[S130]](../../../sources/bibliography.md#s130)[[S90060]](../../../sources/bibliography.md#s90060)。
+- **目标收益：** 让定制芯片留在英伟达的机架里。Trainium4 将采用 NVLink 6 和 [MGX](../../glossary.md#mgx) 机架 [[S518]](../../../sources/bibliography.md#s518)，因此即使英伟达丢掉了加速器订单，仍能卖出交换芯片。
+- **竞争路径：** [UALink](../../glossary.md#ualink)（2.0 版于 2026 年 4 月获批，产品 2027 年推出）[[S574]](../../../sources/bibliography.md#s574)[[S90051]](../../../sources/bibliography.md#s90051) 与 [ESUN](../../glossary.md#esun)（1.0 版于 2026 年 3 月发布）[[S576]](../../../sources/bibliography.md#s576)；英特尔与高通两边都有参与 [[S130]](../../../sources/bibliography.md#s130)[[S90060]](../../../sources/bibliography.md#s90060)。
 
 ![NVLink Fusion 合作伙伴时间线点图。2025 年 5 月 19 日首发时：联发科、美满电子和世芯（设计服务），新思科技和楷登电子（EDA），Astera Labs（互连），高通和富士通（CPU）。此后：英特尔 x86 CPU（2025 年 9 月），Arm Neoverse（2025 年 11 月），AWS Trainium4（2025 年 12 月，唯一的超大规模云厂商加速器），以及有报道但未经确认的 Ayar Labs 与 Lightmatter（光学，2026 年 6 月）。AMD、博通和谷歌缺席。](../../../assets/charts/05-nvlink-fusion-partner-timeline.svg)
 
 ## 1. 两种接入方式：合作伙伴 CPU 或合作伙伴加速器
 
-**合作伙伴 CPU**（高通、富士通、英特尔 x86）以缓存一致的方式连接英伟达 GPU，正如 Grace 与 Vera 通过 [NVLink-C2C](../../../glossary.md#nvlink-c2c) 所做的那样 [[S131]](../../../sources/bibliography.md#s131)[[S130]](../../../sources/bibliography.md#s130)。**合作伙伴加速器**（如 Trainium4 这样的 [XPU](../../../glossary.md#xpu)）集成 NVLink，并接入英伟达的交换芯片与机架 [[S131]](../../../sources/bibliography.md#s131)[[S518]](../../../sources/bibliography.md#s518)。设计服务公司（联发科、美满电子、世芯）与 IP 供应商（新思科技、楷登电子）负责打造芯片 [[S216]](../../../sources/bibliography.md#s216)。
+**合作伙伴 CPU**（高通、富士通、英特尔 x86）以缓存一致的方式连接英伟达 GPU，正如 Grace 与 Vera 通过 [NVLink-C2C](../../glossary.md#nvlink-c2c) 所做的那样 [[S131]](../../../sources/bibliography.md#s131)[[S130]](../../../sources/bibliography.md#s130)。**合作伙伴加速器**（如 Trainium4 这样的 [XPU](../../glossary.md#xpu)）集成 NVLink，并接入英伟达的交换芯片与机架 [[S131]](../../../sources/bibliography.md#s131)[[S518]](../../../sources/bibliography.md#s518)。设计服务公司（联发科、美满电子、世芯）与 IP 供应商（新思科技、楷登电子）负责打造芯片 [[S216]](../../../sources/bibliography.md#s216)。
 
 ```mermaid
 flowchart LR
@@ -37,13 +37,13 @@ flowchart LR
 ```
 
 > [!TIP]
-> **算例 —— Fusion CPU 合作伙伴买到了什么。** 通过 [PCIe](../../../glossary.md#pcie) Gen6 x16 连接的 CPU，到 GPU 的带宽为 256 GB/s [[S222]](../../../sources/bibliography.md#s222)；Vera 经 NVLink-C2C 连接 Rubin 的带宽为 1.8 TB/s，**约高 7 倍**且缓存一致 [[S209]](../../../sources/bibliography.md#s209)。具备 Vera 级 C2C 的合作伙伴 CPU（此为假设；合作伙伴配置未公开）可把 CPU 内存变成第二层 GPU 内存（见[第 04 层](../../../layers/04-cpu-grace-vera/index.md)）。**结论：** Fusion 是高通和富士通进入英伟达最高价值机架的门票，而这一插槽原本只留给 Grace 和 Vera。
+> **算例 —— Fusion CPU 合作伙伴买到了什么。** 通过 [PCIe](../../glossary.md#pcie) Gen6 x16 连接的 CPU，到 GPU 的带宽为 256 GB/s [[S222]](../../../sources/bibliography.md#s222)；Vera 经 NVLink-C2C 连接 Rubin 的带宽为 1.8 TB/s，**约高 7 倍**且缓存一致 [[S209]](../../../sources/bibliography.md#s209)。具备 Vera 级 C2C 的合作伙伴 CPU（此为假设；合作伙伴配置未公开）可把 CPU 内存变成第二层 GPU 内存（见[第 04 层](../04-cpu-grace-vera/index.md)）。**结论：** Fusion 是高通和富士通进入英伟达最高价值机架的门票，而这一插槽原本只留给 Grace 和 Vera。
 
 <details>
 <summary>🔧 技术细节：IP、芯粒还是 UCIe？</summary>
 
-- **IP 路线：** 使用新思科技或楷登电子的工具，把 NVLink 控制器与 [SerDes](../../../glossary.md#serdes) IP 集成到合作伙伴的裸片中 [[S216]](../../../sources/bibliography.md#s216)。
-- **芯粒路线：** 在合作伙伴的裸片旁放置一颗 NVLink 芯粒；有报道称 XPU 可通过 [UCIe](../../../glossary.md#ucie) 连接该芯粒，甚至两端都可以是定制芯片 🔴 [[S5021]](../../../sources/bibliography.md#s5021)，但英伟达未予证实。
+- **IP 路线：** 使用新思科技或楷登电子的工具，把 NVLink 控制器与 [SerDes](../../glossary.md#serdes) IP 集成到合作伙伴的裸片中 [[S216]](../../../sources/bibliography.md#s216)。
+- **芯粒路线：** 在合作伙伴的裸片旁放置一颗 NVLink 芯粒；有报道称 XPU 可通过 [UCIe](../../glossary.md#ucie) 连接该芯粒，甚至两端都可以是定制芯片 🔴 [[S5021]](../../../sources/bibliography.md#s5021)，但英伟达未予证实。
 - **机架路线：** Trainium4 在 MGX 机架中沿用英伟达的交换托盘、铜缆背板和管理系统 [[S518]](../../../sources/bibliography.md#s518)。
 
 </details>
@@ -59,14 +59,14 @@ flowchart LR
 | 参考机架（MGX）、铜缆背板、管理系统 | 🟡 英伟达设计，合作伙伴制造 | [[S518]](../../../sources/bibliography.md#s518)[[S5001]](../../../sources/bibliography.md#s5001) |
 
 > [!TIP]
-> **算例 —— Fusion 机架中还剩多少英伟达芯片。** 一台 Vera Rubin [NVL72](../../../glossary.md#nvl72) 包含 72 个 Rubin 封装、36 颗 Vera CPU、36 颗 NVLink 6 交换芯片，以及每 GPU 一块 ConnectX-9 [网卡（NIC）](../../../glossary.md#nic)：约 216 颗英伟达芯片 [[S102]](../../../sources/bibliography.md#s102)[[S203]](../../../sources/bibliography.md#s203)[[S33004]](../../../sources/bibliography.md#s33004)。一台假设的 72 XPU Fusion 机架保留 **36 颗交换芯片**和每颗 XPU 中的 NVLink IP，Vera CPU 和网卡则可选（本资料库计算）。**结论：** 英伟达的芯片数量降至约六分之一，但它保住了最难替代的部分及其软件：这正是“开放，但按英伟达的条件”的交易本质。
+> **算例 —— Fusion 机架中还剩多少英伟达芯片。** 一台 Vera Rubin [NVL72](../../glossary.md#nvl72) 包含 72 个 Rubin 封装、36 颗 Vera CPU、36 颗 NVLink 6 交换芯片，以及每 GPU 一块 ConnectX-9 [网卡（NIC）](../../glossary.md#nic)：约 216 颗英伟达芯片 [[S102]](../../../sources/bibliography.md#s102)[[S203]](../../../sources/bibliography.md#s203)[[S33004]](../../../sources/bibliography.md#s33004)。一台假设的 72 XPU Fusion 机架保留 **36 颗交换芯片**和每颗 XPU 中的 NVLink IP，Vera CPU 和网卡则可选（本资料库计算）。**结论：** 英伟达的芯片数量降至约六分之一，但它保住了最难替代的部分及其软件：这正是“开放，但按英伟达的条件”的交易本质。
 
 > [!WARNING]
 > **误区与事实：**“NVLink Fusion 让 NVLink 成为开放标准。”它只是一份授权：条款由英伟达制定，交换芯片由英伟达制造，并且要求使用英伟达自己的芯片 [[S5018]](../../../sources/bibliography.md#s5018)[[S5020]](../../../sources/bibliography.md#s5020)。
 
 ## 3. 战略逻辑：Fusion、UALink 与 ESUN 之争
 
-[超大规模云厂商](../../../glossary.md#hyperscaler)希望使用定制加速器，同时不放弃机架级[纵向扩展（scale-up）](../../../glossary.md#scale-up)。英伟达让它们保留加速器，但租用其互连网络；业内其他厂商则希望拥有开放的互连网络。Counterpoint 将 Fusion 定性为英伟达对 UALink 的回应 [[S5019]](../../../sources/bibliography.md#s5019)。
+[超大规模云厂商](../../glossary.md#hyperscaler)希望使用定制加速器，同时不放弃机架级[纵向扩展（scale-up）](../../glossary.md#scale-up)。英伟达让它们保留加速器，但租用其互连网络；业内其他厂商则希望拥有开放的互连网络。Counterpoint 将 Fusion 定性为英伟达对 UALink 的回应 [[S5019]](../../../sources/bibliography.md#s5019)。
 
 | | NVLink Fusion | UALink | ESUN（以太网纵向扩展） |
 |---|---|---|---|
@@ -80,7 +80,7 @@ flowchart LR
 > **算例 —— 上市时间差距。** Fusion IP 自 2025 年 5 月开始供应；AWS 于当年 12 月承诺 Trainium4 采用 [[S131]](../../../sources/bibliography.md#s131)[[S518]](../../../sources/bibliography.md#s518)。UALink 1.0 于 2025 年 4 月获批，但芯片要到 2026 年下半年才进入实验室，产品则要到 2027 年 🟡 [[S573]](../../../sources/bibliography.md#s573)[[S90051]](../../../sources/bibliography.md#s90051)。一个在 2026 年流片的团队，要在一个当下已出货的互连网络与一个距量产还有约 18–24 个月的方案之间做选择。**结论：** Fusion 的武器是时间；其风险在于 UALink 和 ESUN 在 2027–28 年缩小差距。
 
 > [!NOTE]
-> **🐂 看多观点：** Fusion 把定制 ASIC 的威胁转化为交换芯片、机架与软件收入：AWS 为 Trainium4 选择了 NVLink [[S518]](../../../sources/bibliography.md#s518)，而对美满电子 $2B 的入股则把一家 [ASIC](../../../glossary.md#asic) 设计公司绑定到英伟达的互连网络上 🟡 [[S90037]](../../../sources/bibliography.md#s90037)。
+> **🐂 看多观点：** Fusion 把定制 ASIC 的威胁转化为交换芯片、机架与软件收入：AWS 为 Trainium4 选择了 NVLink [[S518]](../../../sources/bibliography.md#s518)，而对美满电子 $2B 的入股则把一家 [ASIC](../../glossary.md#asic) 设计公司绑定到英伟达的互连网络上 🟡 [[S90037]](../../../sources/bibliography.md#s90037)。
 
 > [!WARNING]
 > **🐻 看空观点：** 那些保护英伟达的条款（必须使用其芯片、交换芯片封闭）[[S5018]](../../../sources/bibliography.md#s5018) 会把 AMD 和博通推向开放互连网络，而高通等双线并行的合作伙伴 [[S131]](../../../sources/bibliography.md#s131)[[S90060]](../../../sources/bibliography.md#s90060) 一旦开放交换芯片出货，就可以转身离开。

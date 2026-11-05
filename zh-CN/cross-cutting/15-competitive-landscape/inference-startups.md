@@ -12,10 +12,10 @@
   $5B [[S15516]](../../../sources/bibliography.md#s15516)[[S2507]](../../../sources/bibliography.md#s2507)[[S11521]](../../../sources/bibliography.md#s11521)。
 - **规模最大的退出是一笔授权交易，而非收购。** 据报道，英伟达（NVIDIA）支付 ~$20B，获得 Groq 技术的非独家授权，
   并吸纳其创始人和团队；Groq 继续运营 GroqCloud [[S90018]](../../../sources/bibliography.md#s90018)[[S90019]](../../../sources/bibliography.md#s90019)。该设计如今已纳入
-  英伟达路线图，以 Groq 3 LPX 机架（256 颗 [LPU](../../../glossary.md#lpu)）的形式出货 🟢 [[S90003]](../../../sources/bibliography.md#s90003)[[S114]](../../../sources/bibliography.md#s114)。
+  英伟达路线图，以 Groq 3 LPX 机架（256 颗 [LPU](../../glossary.md#lpu)）的形式出货 🟢 [[S90003]](../../../sources/bibliography.md#s90003)[[S114]](../../../sources/bibliography.md#s114)。
 - **估值远远领先于收入。** Cerebras 2026 年第二季度 GAAP 收入为 $180.1M（+74%），全年指引
   ~$880–890M；上市时 ~$40B 的估值约为该指引的 ~45 倍 [[S15514]](../../../sources/bibliography.md#s15514)[[S2505]](../../../sources/bibliography.md#s2505)。
-- **速度是突破口。** 解码受限于内存带宽，因此将权重存放在 [SRAM](../../../glossary.md#sram) 或整片
+- **速度是突破口。** 解码受限于内存带宽，因此将权重存放在 [SRAM](../../glossary.md#sram) 或整片
   晶圆上的芯片，可以为每个用户提供更高的每秒 token 数；OpenAI 同意在 2028 年前采购最多 750 MW 的 Cerebras 算力
   （据报道 >$10B）[[S11523]](../../../sources/bibliography.md#s11523)[[S634]](../../../sources/bibliography.md#s634)。
 - **结局已两极分化。** Graphcore 以 ~$0.6B 出售给软银，而其 2020 年估值为 $2.77B [[S15519]](../../../sources/bibliography.md#s15519)；
@@ -28,18 +28,18 @@
 
 ## 技术押注详解
 
-生成一个 token（[解码（decode）](../../../glossary.md#decode)）需要把每个模型权重重新读取一遍。单个用户的速度大致等于
-内存带宽除以权重字节数。GPU 将权重存放在[高带宽内存（HBM）](../../../glossary.md#hbm)中：容量大（Rubin 为 288 GB），但带宽
+生成一个 token（[解码（decode）](../../glossary.md#decode)）需要把每个模型权重重新读取一遍。单个用户的速度大致等于
+内存带宽除以权重字节数。GPU 将权重存放在[高带宽内存（HBM）](../../glossary.md#hbm)中：容量大（Rubin 为 288 GB），但带宽
 “只有” 19.2 TB/s [[S90006]](../../../sources/bibliography.md#s90006)。初创公司从不同方向挑战这一比率。
 
 | 公司 | 押注方向 | 每芯片 / 每系统内存 | 带宽 | 状态（2026 年） | 最新估值 | 来源 |
 |---|---|---|---|---|---|---|
-| Cerebras | [晶圆级](../../../glossary.md#wafer-scale)引擎 | 44 GB 片上 SRAM | ~21 PB/s | 已上市（CBRS）；云服务 + 系统 | ~$40B IPO | [[S166]](../../../sources/bibliography.md#s166)[[S2505]](../../../sources/bibliography.md#s2505) |
-| Groq | SRAM [LPU](../../../glossary.md#lpu)，编译器静态调度 | 230 MB（v1）；500 MB（Groq 3，英伟达） | 80 / 150 TB/s | 已授权给英伟达；GroqCloud 继续运营 | ~$20B 交易 | [[S167]](../../../sources/bibliography.md#s167)[[S114]](../../../sources/bibliography.md#s114)[[S90019]](../../../sources/bibliography.md#s90019) |
-| SambaNova | [数据流](../../../glossary.md#dataflow-architecture) RDU，三级内存 | 520 MB SRAM + 64 GB HBM + 最多 1.5 TB DDR | 未披露 | 获 Vista 和英特尔投资（2026 年 2 月） | 据报道 ~$11B 🟡 | [[S168]](../../../sources/bibliography.md#s168)[[S15517]](../../../sources/bibliography.md#s15517)[[S15518]](../../../sources/bibliography.md#s15518) |
+| Cerebras | [晶圆级](../../glossary.md#wafer-scale)引擎 | 44 GB 片上 SRAM | ~21 PB/s | 已上市（CBRS）；云服务 + 系统 | ~$40B IPO | [[S166]](../../../sources/bibliography.md#s166)[[S2505]](../../../sources/bibliography.md#s2505) |
+| Groq | SRAM [LPU](../../glossary.md#lpu)，编译器静态调度 | 230 MB（v1）；500 MB（Groq 3，英伟达） | 80 / 150 TB/s | 已授权给英伟达；GroqCloud 继续运营 | ~$20B 交易 | [[S167]](../../../sources/bibliography.md#s167)[[S114]](../../../sources/bibliography.md#s114)[[S90019]](../../../sources/bibliography.md#s90019) |
+| SambaNova | [数据流](../../glossary.md#dataflow-architecture) RDU，三级内存 | 520 MB SRAM + 64 GB HBM + 最多 1.5 TB DDR | 未披露 | 获 Vista 和英特尔投资（2026 年 2 月） | 据报道 ~$11B 🟡 | [[S168]](../../../sources/bibliography.md#s168)[[S15517]](../../../sources/bibliography.md#s15517)[[S15518]](../../../sources/bibliography.md#s15518) |
 | Tenstorrent | RISC-V + Tensix 核心，以太网横向扩展，开放软件 | 32 GB GDDR6 | 0.512 TB/s | E 轮 | $6.2B | [[S169]](../../../sources/bibliography.md#s169)[[S15516]](../../../sources/bibliography.md#s15516) |
-| d-Matrix | 数字[存内计算](../../../glossary.md#compute-in-memory) | 2 GB SRAM + 256 GB LPDDR5 | 150 TB/s（SRAM） | Corsair 已出货 | $2.0B | [[S170]](../../../sources/bibliography.md#s170)[[S2511]](../../../sources/bibliography.md#s2511) |
-| Etched | [模型专用 ASIC](../../../glossary.md#model-specific-asic)（仅支持 Transformer） | 144 GB HBM3E | 未披露 | 据报道预订单 ~$1B | $10.3B | [[S171]](../../../sources/bibliography.md#s171)[[S2507]](../../../sources/bibliography.md#s2507) |
+| d-Matrix | 数字[存内计算](../../glossary.md#compute-in-memory) | 2 GB SRAM + 256 GB LPDDR5 | 150 TB/s（SRAM） | Corsair 已出货 | $2.0B | [[S170]](../../../sources/bibliography.md#s170)[[S2511]](../../../sources/bibliography.md#s2511) |
+| Etched | [模型专用 ASIC](../../glossary.md#model-specific-asic)（仅支持 Transformer） | 144 GB HBM3E | 未披露 | 据报道预订单 ~$1B | $10.3B | [[S171]](../../../sources/bibliography.md#s171)[[S2507]](../../../sources/bibliography.md#s2507) |
 | MatX | LLM 专用加速器 | 未披露 | 未披露 | 计划 2027 年出货 | 未披露（融资 $500M） | [[S2508]](../../../sources/bibliography.md#s2508) |
 | Positron | 内存优先的推理芯片 | 未披露 | 未披露 | C 轮 | $5B | [[S11521]](../../../sources/bibliography.md#s11521) |
 | Lightmatter | 光子互连 | — | — | 据报道接入 NVLink Fusion 🟡 | $4.4B（2024 年） | [[S2510]](../../../sources/bibliography.md#s2510)[[S5022]](../../../sources/bibliography.md#s5022) |
@@ -47,12 +47,12 @@
 ![八家推理挑战者在五个维度上的热力图。开源推理服务框架（vLLM、SGLang、llm-d）在速度、成本和成熟度上与英伟达持平，在模型覆盖和硬件广度（七个硬件家族）上领先。谷歌 TPU 在每美元吞吐量上领先（单 token 成本比 B200 低约 18%）；Cerebras 和 Groq 凭借片上 SRAM 在每用户每秒 token 数上领先，但在成本上落后；AMD 在成本和模型覆盖上持平，但在交互速度和软件上落后；7 家硬件挑战者中有 6 家在软件成熟度上落后；AWS、微软和高通缺乏公开基准测试，大多被评为“路线不同”或“落后”。](../../../assets/charts/11-inference-challenger-heatmap.svg)
 
 > [!TIP]
-> **算例 —— 为何 SRAM 既快又贵。** 一个 [FP8](../../../glossary.md#fp8) 精度的 70B 参数模型 ~70 GB。一颗 Rubin GPU 就能容纳它，
+> **算例 —— 为何 SRAM 既快又贵。** 一个 [FP8](../../glossary.md#fp8) 精度的 70B 参数模型 ~70 GB。一颗 Rubin GPU 就能容纳它，
 > 且每秒可完整读取 ~274 次（19.2 TB/s ÷ 70 GB）[[S90006]](../../../sources/bibliography.md#s90006)。一颗 Groq 3 LPU 仅容纳 0.5 GB，因此光是权重
 > 就需要 ~140 颗芯片，超过一个 256-LPU LPX 机架的一半；每颗芯片每秒可重新读取其分片 ~300,000 次（150 TB/s ÷
 > 0.5 GB）[[S114]](../../../sources/bibliography.md#s114)。Cerebras 的 44 GB 晶圆需要两片才能装下 FP8 权重 [[S166]](../../../sources/bibliography.md#s166)。每用户速度优势是真实的；而
 > 每个模型所需的芯片数量就是代价。这正是本资料库将 SRAM 芯片评为交互速度领先、成本落后的原因
-> （[推理竞争](../../../layers/11-inference-and-ai-software/competition.md)）。
+> （[推理竞争](../../layers/11-inference-and-ai-software/competition.md)）。
 
 <details>
 <summary>🔧 技术细节：每种押注各自牺牲了什么</summary>
@@ -95,7 +95,7 @@ GTC 2026 路线图将 256-LPU 的 Groq 3 LPX 机架与 Vera Rubin 并列，另�
 LPDDR5）[[S170]](../../../sources/bibliography.md#s170)。Etched 报告 Sohu 预订单 ~$1B，但尚无经核实的出货 [[S2507]](../../../sources/bibliography.md#s2507)[[S171]](../../../sources/bibliography.md#s171)。MatX 募资 $500M，
 计划 2027 年出货 [[S2508]](../../../sources/bibliography.md#s2508)。Positron 的估值在 2026 年内从 ~$1B 升至 $5B [[S11520]](../../../sources/bibliography.md#s11520)[[S11521]](../../../sources/bibliography.md#s11521)。
 
-**光子**领域已一分为二：Lightmatter（$4.4B，2024 年）销售光互连，据报道正加入 [NVLink](../../../glossary.md#nvlink)
+**光子**领域已一分为二：Lightmatter（$4.4B，2024 年）销售光互连，据报道正加入 [NVLink](../../glossary.md#nvlink)
 Fusion 🟡 [[S2510]](../../../sources/bibliography.md#s2510)[[S5022]](../../../sources/bibliography.md#s5022)；Celestial AI 的光子内存互连架构则以 $3.25B 预付对价归入美满电子（Marvell）[[S2513]](../../../sources/bibliography.md#s2513)。
 
 > [!TIP]
@@ -181,7 +181,7 @@ quadrantChart
 ```
 
 上图定位属于 🔴 本资料库判断，依据是上文所列的公开融资和客户披露信息。最有可能长期存续的独立公司，
-要么有实验室或[超大规模云厂商](../../../glossary.md#hyperscaler)以吉瓦级规模采购（Cerebras–OpenAI），要么其业务不依赖于在每美元 token 数上击败
+要么有实验室或[超大规模云厂商](../../glossary.md#hyperscaler)以吉瓦级规模采购（Cerebras–OpenAI），要么其业务不依赖于在每美元 token 数上击败
 英伟达（Tenstorrent 的 IP 授权）。创始人离开后，GroqCloud 的资金跑道最不明朗。
 
 ## 分层评判：初创公司（作为整体）vs 英伟达
@@ -205,15 +205,15 @@ quadrantChart
 
 **差距缩小了多少：** 在交互速度上，已完全追平；在单 token 成本和软件广度上，收窄有限；在规模上，
 Cerebras 已签约的 ~600 MW 颇具意义，但只是英伟达出货量的一小部分 [[S15515]](../../../sources/bibliography.md#s15515)。本资料库的评估矩阵给
-Cerebras 打 2.8 分、Groq 打 2.2 分（满分 5），英伟达为 4.7（[索引](../../../cross-cutting/15-competitive-landscape/index.md)）。
+Cerebras 打 2.8 分、Groq 打 2.2 分（满分 5），英伟达为 4.7（[索引](index.md)）。
 
 > [!NOTE]
-> **🐂 看多观点（对英伟达而言）。** 英伟达买下了最好的 SRAM 设计，并在一年内以 LPX 形式出货；Rubin [NVL72](../../../glossary.md#nvl72) 加
+> **🐂 看多观点（对英伟达而言）。** 英伟达买下了最好的 SRAM 设计，并在一年内以 LPX 形式出货；Rubin [NVL72](../../glossary.md#nvl72) 加
 > LPX 覆盖了批处理和超低延迟两个层级，留给初创公司的细分市场正在收缩 [[S90003]](../../../sources/bibliography.md#s90003)[[S114]](../../../sources/bibliography.md#s114)。
 
 > [!WARNING]
 > **🐻 看空观点（对英伟达而言）。** 初创公司的资金比 2021 年以来任何时候都更充裕，已上市的 Cerebras 可随时
-> 进行股权融资，而开源推理服务引擎（[vLLM](../../../glossary.md#vllm)、[SGLang](../../../glossary.md#sglang)）可运行于七个硬件家族，因此
+> 进行股权融资，而开源推理服务引擎（[vLLM](../../glossary.md#vllm)、[SGLang](../../glossary.md#sglang)）可运行于七个硬件家族，因此
 > 推理的切换成本持续下降 [[S2504]](../../../sources/bibliography.md#s2504)[[S15516]](../../../sources/bibliography.md#s15516)[[S580]](../../../sources/bibliography.md#s580)。
 
 ## 🎯 企业发展视角

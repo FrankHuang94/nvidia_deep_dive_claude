@@ -10,8 +10,8 @@
 - **四个时代。** 开发者平台（2009 年起的 GTC、2016 年起的 Inception、2017 年提出培训 100,000 名开发者的目标）、平台型并购（Mellanox、失败的 Arm 收购要约）、软件补强收购，以及 2023 年起的股权投资、授权和融资交易浪潮 [[S13024]](../../../sources/bibliography.md#s13024)[[S13027]](../../../sources/bibliography.md#s13027)[[S13031]](../../../sources/bibliography.md#s13031)[[S464]](../../../sources/bibliography.md#s464)[[S465]](../../../sources/bibliography.md#s465)。
 - **交易结构发生逆转。** 自 2023 年以来，英伟达已记录的 66 笔交易中只有 18% 是收购；47 笔是对客户、供应商和合作伙伴的股权投资（见下图）。
 - **2026 年 8 月，英伟达转向动用他人的资金：**与六家资产管理公司签署谅解备忘录，为其客户撬动 >$500B 的第三方资本 [[S12528]](../../../sources/bibliography.md#s12528)。
-- **[Q4 · 优势来源]** 现金流加上生态中心地位：Q1 FY2027 $48.6B 的自由现金流 [[S403]](../../../sources/bibliography.md#s403)、~6M [CUDA](../../../glossary.md#cuda) 开发者，以及 FY2026 > $30B 的主权 AI 收入（见[竞争格局](competition.md)），使英伟达能够同时扮演开发者平台、融资方和主权合作伙伴三重角色，这一组合目前没有任何竞争对手能够匹敌（🔴 本资料库判断）。
-- **[Q6 · 复制成本]** 资本层面，[超大规模云厂商](../../../glossary.md#hyperscaler)可在数年内复制；开发者与合作伙伴生态则是一个需要 7–10 年、耗资数百亿美元的工程（🔴 本资料库估计）。
+- **[Q4 · 优势来源]** 现金流加上生态中心地位：Q1 FY2027 $48.6B 的自由现金流 [[S403]](../../../sources/bibliography.md#s403)、~6M [CUDA](../../glossary.md#cuda) 开发者，以及 FY2026 > $30B 的主权 AI 收入（见[竞争格局](competition.md)），使英伟达能够同时扮演开发者平台、融资方和主权合作伙伴三重角色，这一组合目前没有任何竞争对手能够匹敌（🔴 本资料库判断）。
+- **[Q6 · 复制成本]** 资本层面，[超大规模云厂商](../../glossary.md#hyperscaler)可在数年内复制；开发者与合作伙伴生态则是一个需要 7–10 年、耗资数百亿美元的工程（🔴 本资料库估计）。
 
 ![2019 年至 2026 年英伟达按年份和交易结构划分的交易堆叠柱状图。2019-2022 年，7 笔交易全部为收购（Mellanox、Cumulus、Bright、失败的 Arm 收购要约）。2023-2026 年共 70 笔交易，收购占比降至 19%：33 笔是对 OpenAI、Anthropic、xAI、CoreWeave 和 Mistral 等客户的股权投资，15 笔是对英特尔、诺基亚、Synopsys、美满电子、Lumentum 和 Coherent 等供应商和合作伙伴的股权投资，2 笔为“授权加收购式招聘”交易（Enfabrica、Groq），7 笔为算力或融资承诺，包括 CoreWeave 兜底承诺和 2026 年的融资平台。](../../../assets/charts/13-deal-structure-mix.svg)
 
@@ -40,9 +40,9 @@ timeline
 | 2020-09 → 2022-02 | Arm，$40B 收购要约，最终放弃 | 被监管机构阻止；英伟达将 $1.36B 预付款计入费用，并保留一份 20 年授权 | [[S465]](../../../sources/bibliography.md#s465)[[S466]](../../../sources/bibliography.md#s466)[[S418]](../../../sources/bibliography.md#s418) |
 | 2023 | 首批新兴云服务商与实验室股权投资 | 在超大规模云厂商之外培育 GPU 买方 | [[S481]](../../../sources/bibliography.md#s481) |
 | 2024-04 → 2024-12 | Run:ai，~$700M | 经欧盟审查后才完成交割：补强收购如今也会受到审查 | [[S476]](../../../sources/bibliography.md#s476) |
-| 2025-09 | 对 CoreWeave 截至 2032 年的算力[兜底承诺](../../../glossary.md#capacity-backstop) | 最多 $6.3B 的未售出算力风险转由英伟达承担 | [[S90067]](../../../sources/bibliography.md#s90067) |
+| 2025-09 | 对 CoreWeave 截至 2032 年的算力[兜底承诺](../../glossary.md#capacity-backstop) | 最多 $6.3B 的未售出算力风险转由英伟达承担 | [[S90067]](../../../sources/bibliography.md#s90067) |
 | 2025-09 → 12 | 英特尔 $5B（~4%） | 一笔合作伙伴股权投资，同时锁定一家美国供应商 | [[S468]](../../../sources/bibliography.md#s468)[[S4009]](../../../sources/bibliography.md#s4009) |
-| 2025-09 → 12 | Enfabrica、Groq [授权加收购式招聘](../../../glossary.md#licence-plus-acquihire) | 无需并购申报即可获得团队和知识产权 | [[S475]](../../../sources/bibliography.md#s475)[[S474]](../../../sources/bibliography.md#s474) |
+| 2025-09 → 12 | Enfabrica、Groq [授权加收购式招聘](../../glossary.md#licence-plus-acquihire) | 无需并购申报即可获得团队和知识产权 | [[S475]](../../../sources/bibliography.md#s475)[[S474]](../../../sources/bibliography.md#s474) |
 | 2025-09 → 2026-02 | OpenAI：最多 $100B 意向书 → ~$30B 股权 | 从与里程碑挂钩转为普通股权投资 | [[S467]](../../../sources/bibliography.md#s467)[[S90015]](../../../sources/bibliography.md#s90015)[[S13526]](../../../sources/bibliography.md#s13526) |
 | 2026-03 | Lumentum 和 Coherent 各 $2B | 股权投资加上激光器产能的采购承诺 | [[S13529]](../../../sources/bibliography.md#s13529) |
 | 2026-08 | 融资平台（目标 >$500B） | 将资产负债表风险转移给第三方 | [[S12528]](../../../sources/bibliography.md#s12528) |
@@ -59,7 +59,7 @@ timeline
 
 ## [Q4 · 优势来源] 现金流加上生态中心地位
 
-**其机制**是一个闭环：开发者基于 CUDA 构建，因此买方指定英伟达；买方支付约 ~75% 的[毛利率](../../../glossary.md#gross-margin) [[S405]](../../../sources/bibliography.md#s405)；这些现金再用于股权投资、兜底承诺和主权合作，进而创造更多 CUDA 买方。竞争对手可以复制其中某一步，却无法以同等规模复制整个闭环。
+**其机制**是一个闭环：开发者基于 CUDA 构建，因此买方指定英伟达；买方支付约 ~75% 的[毛利率](../../glossary.md#gross-margin) [[S405]](../../../sources/bibliography.md#s405)；这些现金再用于股权投资、兜底承诺和主权合作，进而创造更多 CUDA 买方。竞争对手可以复制其中某一步，却无法以同等规模复制整个闭环。
 
 ![英伟达 Q1FY23–Q2FY27 季度自由现金流与股东回报分组柱状图：在两项数据齐全的 16 个季度中，自由现金流合计 $202B，股东回报 $112B（55%）；自由现金流在 Q1FY27 达到 $48.6B，股东回报在 Q2FY27 达到 $26B。](../../../assets/charts/13-free-cash-flow-and-buybacks.svg)
 
@@ -83,9 +83,9 @@ timeline
 
 ## 反事实推演：如果英伟达当初没有……
 
-- 🔴 **……失去 Arm？** 英伟达将拥有一套授权给竞争对手 CPU 设计者的指令集，这正是监管机构反对的原因 [[S466]](../../../sources/bibliography.md#s466)。此后它在不拥有 Arm 的情况下已获得了大部分好处：其 Grace 和 Vera CPU 基于 Arm 架构 [[S100]](../../../sources/bibliography.md#s100)，[NVLink Fusion](../../../glossary.md#nvlink-fusion) 如今也可将 Arm Neoverse 设计接入英伟达机架 [[S90036]](../../../sources/bibliography.md#s90036)。若拥有 Arm，则会在当下的资本中立性问题之上，再叠加中立性方面的问题。
-- 🔴 **……投资新兴云服务商？** 若没有对 CoreWeave 等公司的股权投资，超大规模云厂商将几乎掌控全部可租用的 GPU 算力，并能将客户引向 TPU、Trainium 和 Maia。区域性[新兴云服务商（neocloud）](../../../glossary.md#neocloud)在 Q2 FY2027 同比增长 >3× [[S90071]](../../../sources/bibliography.md#s90071)；这一买方群体是英伟达对冲自研芯片的屏障（见[第 12 层](../../../layers/12-orchestration-and-cloud-services/value-chain-and-corp-dev.md)）。
-- 🔴 **……直接收购 Groq？** 以 $20B 收购一家推理芯片竞争对手，将面临全面的[并购审查](../../../glossary.md#merger-review)；仅 ~$700M 的 Run:ai 交易就耗时八个月，其中包括欧盟审查 [[S476]](../../../sources/bibliography.md#s476)。授权结构在数日内即完成交割，但转而招致了参议员的质询 [[S13511]](../../../sources/bibliography.md#s13511)。
+- 🔴 **……失去 Arm？** 英伟达将拥有一套授权给竞争对手 CPU 设计者的指令集，这正是监管机构反对的原因 [[S466]](../../../sources/bibliography.md#s466)。此后它在不拥有 Arm 的情况下已获得了大部分好处：其 Grace 和 Vera CPU 基于 Arm 架构 [[S100]](../../../sources/bibliography.md#s100)，[NVLink Fusion](../../glossary.md#nvlink-fusion) 如今也可将 Arm Neoverse 设计接入英伟达机架 [[S90036]](../../../sources/bibliography.md#s90036)。若拥有 Arm，则会在当下的资本中立性问题之上，再叠加中立性方面的问题。
+- 🔴 **……投资新兴云服务商？** 若没有对 CoreWeave 等公司的股权投资，超大规模云厂商将几乎掌控全部可租用的 GPU 算力，并能将客户引向 TPU、Trainium 和 Maia。区域性[新兴云服务商（neocloud）](../../glossary.md#neocloud)在 Q2 FY2027 同比增长 >3× [[S90071]](../../../sources/bibliography.md#s90071)；这一买方群体是英伟达对冲自研芯片的屏障（见[第 12 层](../12-orchestration-and-cloud-services/value-chain-and-corp-dev.md)）。
+- 🔴 **……直接收购 Groq？** 以 $20B 收购一家推理芯片竞争对手，将面临全面的[并购审查](../../glossary.md#merger-review)；仅 ~$700M 的 Run:ai 交易就耗时八个月，其中包括欧盟审查 [[S476]](../../../sources/bibliography.md#s476)。授权结构在数日内即完成交割，但转而招致了参议员的质询 [[S13511]](../../../sources/bibliography.md#s13511)。
 
 > [!TIP]
 > **算例 —— 失败的 Arm 收购要约代价几何。** $40B 的价格中大部分是股票（$21.5B），外加 $12B 现金 [[S465]](../../../sources/bibliography.md#s465)；交易告吹时，英伟达减记了 $1.36B 的预付款 [[S418]](../../../sources/bibliography.md#s418)，不到 FY2026 $215.9B 收入的 1% [[S1]](../../../sources/bibliography.md#s1)。真正的代价是时间：审查耗时 17 个月。

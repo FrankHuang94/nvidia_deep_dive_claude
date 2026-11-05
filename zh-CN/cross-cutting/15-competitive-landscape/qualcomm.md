@@ -15,17 +15,17 @@
 - **这是高通第二次进军数据中心。** 48 核的 Centriq 2400 于 2017 年 11 月发布；约一年之内，
   该部门人员即从 ~1,000 人削减至 ~50 人 [[S4542]](../../../sources/bibliography.md#s4542)[[S4543]](../../../sources/bibliography.md#s4543)[[S4544]](../../../sources/bibliography.md#s4544)。
 - **此次重建主要依靠收购。** 收购 NUVIA（$1.4B，2021 年）获取 CPU 核心；收购 Alphawave（~$2.4B，2025-12-18 完成交割）获取
-  [SerDes](../../../glossary.md#serdes) 与互连能力；收购 Ventana（RISC-V，2025 年 12 月，金额未披露）；收购 Modular（$3.9B，
+  [SerDes](../../glossary.md#serdes) 与互连能力；收购 Ventana（RISC-V，2025 年 12 月，金额未披露）；收购 Modular（$3.9B，
   2026-07-29 完成交割）获取可跨硬件移植的 AI 软件 [[S4538]](../../../sources/bibliography.md#s4538)[[S4513]](../../../sources/bibliography.md#s4513)[[S4514]](../../../sources/bibliography.md#s4514)[[S4512]](../../../sources/bibliography.md#s4512)[[S9511]](../../../sources/bibliography.md#s9511)。
-- **加速器押注内存容量，而非 HBM。** AI200（2026 年）每张卡配备 768 GB [LPDDR](../../../glossary.md#lpddr)，部署于
-  160 kW 液冷机架；AI250（2027 年）加入[近存计算](../../../glossary.md#near-memory-compute)；Dragonfly AI300
-  （2028 年）宣称内存带宽为 AI200 的 54 倍，并采用 [UALink](../../../glossary.md#ualink) 和 [ESUN](../../../glossary.md#esun) [纵向扩展（scale-up）](../../../glossary.md#scale-up) [[S173]](../../../sources/bibliography.md#s173)[[S90060]](../../../sources/bibliography.md#s90060)。截至 2026-11-05，尚无 AI200 批量出货的
+- **加速器押注内存容量，而非 HBM。** AI200（2026 年）每张卡配备 768 GB [LPDDR](../../glossary.md#lpddr)，部署于
+  160 kW 液冷机架；AI250（2027 年）加入[近存计算](../../glossary.md#near-memory-compute)；Dragonfly AI300
+  （2028 年）宣称内存带宽为 AI200 的 54 倍，并采用 [UALink](../../glossary.md#ualink) 和 [ESUN](../../glossary.md#esun) [纵向扩展（scale-up）](../../glossary.md#scale-up) [[S173]](../../../sources/bibliography.md#s173)[[S90060]](../../../sources/bibliography.md#s90060)。截至 2026-11-05，尚无 AI200 批量出货的
   公开信息 🔴 [[S90028]](../../../sources/bibliography.md#s90028)。
-- **CPU 既是与英伟达（NVIDIA）的合作棋，也是独立棋。** 高通于 2025 年 5 月以服务器 CPU 身份加入 [NVLink](../../../glossary.md#nvlink) Fusion
+- **CPU 既是与英伟达（NVIDIA）的合作棋，也是独立棋。** 高通于 2025 年 5 月以服务器 CPU 身份加入 [NVLink](../../glossary.md#nvlink) Fusion
   [[S90031]](../../../sources/bibliography.md#s90031)；Dragonfly C1000（>250 个 Oryon 核心）的首个客户是 Meta，自 2028 年下半年起部署 [[S90056]](../../../sources/bibliography.md#s90056)[[S90058]](../../../sources/bibliography.md#s90058)。
 - **客户如今已落在纸面上。** HUMAIN 规划了 200 MW [[S90030]](../../../sources/bibliography.md#s90030)。AWS 签署了一项多代合作协议，涵盖定制推理
   芯片和 1.6T 光学器件，并附带一份最多可认购 25M 股高通股票的认股权证，随着 AWS 在 ~10 年内最多采购 $60B 而逐步归属
-  🟢 [[S15510]](../../../sources/bibliography.md#s15510)[[S15509]](../../../sources/bibliography.md#s15509)。两份[超大规模云厂商](../../../glossary.md#hyperscaler)定制芯片合同的金额各超过 $1B [[S15511]](../../../sources/bibliography.md#s15511)。
+  🟢 [[S15510]](../../../sources/bibliography.md#s15510)[[S15509]](../../../sources/bibliography.md#s15509)。两份[超大规模云厂商](../../glossary.md#hyperscaler)定制芯片合同的金额各超过 $1B [[S15511]](../../../sources/bibliography.md#s15511)。
 - **目标是 FY2027 实现 $5B 数据中心收入，FY2029 达到 $15B** [[S15512]](../../../sources/bibliography.md#s15512)[[S90059]](../../../sources/bibliography.md#s90059)。FY2029 目标约为
   英伟达 FY2026 数据中心收入的 ~8% [[S1]](../../../sources/bibliography.md#s1)。
 - **相对英伟达的定位图谱：** 在 CPU 上是合作伙伴（NVLink Fusion），在推理加速器和纵向扩展标准上是竞争对手
@@ -49,7 +49,7 @@ Centriq 2400 是一款可信的芯片：采用三星 10 nm 工艺、48 个定制
 ## 加速器产品线：从 AI 100 到 AI300
 
 高通的推理加速器以牺牲内存带宽为代价换取内存容量和能效，与英伟达的
-[HBM](../../../glossary.md#hbm) GPU 处于相反的象限（[内存墙](../../layers/03-memory-packaging-supply-chain/the-memory-wall.md)）。
+[HBM](../../glossary.md#hbm) GPU 处于相反的象限（[内存墙](../../layers/03-memory-packaging-supply-chain/the-memory-wall.md)）。
 
 | 产品 | 年份 | 内存 | 带宽 | 功耗 / 散热 | 纵向扩展 | 状态 | 来源 |
 |---|---|---|---|---|---|---|---|
@@ -60,11 +60,11 @@ Centriq 2400 是一款可信的芯片：采用三星 10 nm 工艺、48 个定制
 | NVIDIA Rubin（参照） | 2026 | 288 GB HBM4 | 19.2 TB/s | 液冷 NVL72 机架 | NVLink 6，72 个封装 | 爬坡中 | [[S90006]](../../../sources/bibliography.md#s90006)[[S90009]](../../../sources/bibliography.md#s90009) |
 
 > [!TIP]
-> **算例 —— 以一个模型看容量与带宽。** 一个 [FP8](../../../glossary.md#fp8) 精度的 70B 参数模型需要 ~70 GB 权重。
-> [解码（decode）](../../../glossary.md#decode)时每生成一个 token 都要重新读取全部权重，因此单用户速度上限为带宽 ÷ 权重：Cloud AI 100 Ultra 上为 0.548 TB/s ÷ 70 GB ≈ 8
+> **算例 —— 以一个模型看容量与带宽。** 一个 [FP8](../../glossary.md#fp8) 精度的 70B 参数模型需要 ~70 GB 权重。
+> [解码（decode）](../../glossary.md#decode)时每生成一个 token 都要重新读取全部权重，因此单用户速度上限为带宽 ÷ 权重：Cloud AI 100 Ultra 上为 0.548 TB/s ÷ 70 GB ≈ 8
 > tokens/s，而 Rubin GPU 上为 19.2 TB/s ÷ 70 GB ≈ 274 [[S172]](../../../sources/bibliography.md#s172)[[S90006]](../../../sources/bibliography.md#s90006)。批处理多个用户可以分摊
 > 每次权重读取，因此单卡总吞吐量在低功耗下仍可相当可观；LPDDR 买不到的是每用户的高速度。
-> 每张 AI200 卡的 768 GB 可容纳一个 ~600B 参数的 FP8 模型，并为 [KV 缓存](../../../glossary.md#kv-cache)留出 ~170 GB，
+> 每张 AI200 卡的 768 GB 可容纳一个 ~600B 参数的 FP8 模型，并为 [KV 缓存](../../glossary.md#kv-cache)留出 ~170 GB，
 > 这是任何单颗 HBM GPU 都做不到的（Rubin 为 288 GB）。悬而未决的问题是 AI200 的带宽——高通尚未披露，因此 AI300 宣称的 54 倍
 > 目前还无法换算成 TB/s。
 
@@ -74,11 +74,11 @@ Centriq 2400 是一款可信的芯片：采用三星 10 nm 工艺、48 个定制
 <summary>🔧 技术细节：为何选择 LPDDR，以及“近存计算”和 HBC 改变了什么</summary>
 
 LPDDR 是手机和笔记本电脑使用的内存：每 GB 成本低、功耗低，由多家厂商大规模生产，而且不需要
-[CoWoS](../../../glossary.md#cowos) 中介层。它通过较窄的通道连接处理器，因此每 GB 带宽较低。HBM 则将 DRAM 裸片堆叠起来，
+[CoWoS](../../glossary.md#cowos) 中介层。它通过较窄的通道连接处理器，因此每 GB 带宽较低。HBM 则将 DRAM 裸片堆叠起来，
 以数千个硅通孔连接并紧邻 GPU 放置：Rubin 的 19.2 TB/s 约为 AI 100 Ultra 0.548 TB/s 的 ~35 倍
 [[S90006]](../../../sources/bibliography.md#s90006)[[S172]](../../../sources/bibliography.md#s172)，但 HBM 供应紧张且价格昂贵（[HBM 详解](../../layers/03-memory-packaging-supply-chain/hbm-explained.md)）。高通的 AI250 将部分
 计算移到内存旁边，从而减少经由窄通道传输的数据量，这也是它报出的是*有效*带宽提升的原因
-[[S173]](../../../sources/bibliography.md#s173)。AI300 中的[高带宽计算（High Bandwidth Compute）](../../../glossary.md#high-bandwidth-compute)是高通沿这条路径迈出的下一步
+[[S173]](../../../sources/bibliography.md#s173)。AI300 中的[高带宽计算（High Bandwidth Compute）](../../glossary.md#high-bandwidth-compute)是高通沿这条路径迈出的下一步
 [[S90060]](../../../sources/bibliography.md#s90060)。正因如此，本资料库在内存与供应维度上将高通评为“路线不同”：它绕开了 HBM 和
 CoWoS 的配额之争，而英伟达在 2026 年 CoWoS 晶圆中占 ~60%（估计）[[S379]](../../../sources/bibliography.md#s379)。
 
@@ -87,26 +87,26 @@ CoWoS 的配额之争，而英伟达在 2026 年 CoWoS 晶圆中占 ~60%（估�
 ## CPU 产品线：从 Centriq 到 Dragonfly C1000
 
 两条 CPU 路线并行推进。第一条是合作路线：基于 Oryon 的服务器 CPU 通过
-[NVLink Fusion](../../../glossary.md#nvlink-fusion) 连接英伟达 GPU，于 Computex 2025 宣布 [[S90031]](../../../sources/bibliography.md#s90031)[[S4516]](../../../sources/bibliography.md#s4516)。第二条是独立路线：
-Dragonfly C1000，一款拥有 250 个以上核心的小芯片（chiplet）CPU，目标主频 >5 GHz，支持 [PCIe](../../../glossary.md#pcie) Gen 7 和 CXL，定位为面向智能体（agentic）工作负载的
-[AI 头节点](../../../glossary.md#ai-head-node)；Meta 是首个公开点名的客户，自
+[NVLink Fusion](../../glossary.md#nvlink-fusion) 连接英伟达 GPU，于 Computex 2025 宣布 [[S90031]](../../../sources/bibliography.md#s90031)[[S4516]](../../../sources/bibliography.md#s4516)。第二条是独立路线：
+Dragonfly C1000，一款拥有 250 个以上核心的小芯片（chiplet）CPU，目标主频 >5 GHz，支持 [PCIe](../../glossary.md#pcie) Gen 7 和 CXL，定位为面向智能体（agentic）工作负载的
+[AI 头节点](../../glossary.md#ai-head-node)；Meta 是首个公开点名的客户，自
 2028 年下半年起部署 [[S90056]](../../../sources/bibliography.md#s90056)[[S90058]](../../../sources/bibliography.md#s90058)。此前一则未经证实的报道描述了一款支持 NVLink Fusion 的 80 核产品 [[S4515]](../../../sources/bibliography.md#s4515)。作为参照，
 英伟达的 Vera 有 88 个核心，AMD 的 EPYC Venice 最多 256 个 [[S100]](../../../sources/bibliography.md#s100)[[S144]](../../../sources/bibliography.md#s144)；来自 Ventana 的 RISC-V 工作与 Oryon 并行推进
-[[S4512]](../../../sources/bibliography.md#s4512)（[CPU 竞争](../../../layers/04-cpu-grace-vera/competition.md)）。
+[[S4512]](../../../sources/bibliography.md#s4512)（[CPU 竞争](../../layers/04-cpu-grace-vera/competition.md)）。
 
 > [!TIP]
 > **算例 —— 核心数与时间表。** 250 个以上核心约为 Vera 88 核的 ~2.8 倍，与 EPYC Venice 的 256 核持平
-> [[S100]](../../../sources/bibliography.md#s100)[[S144]](../../../sources/bibliography.md#s144)。Venice 约从 2026 年第三季度起随 AMD 的 Helios 机架出货，Vera 则从 2026 年第三季度起随 Vera Rubin [NVL72](../../../glossary.md#nvl72) 出货
+> [[S100]](../../../sources/bibliography.md#s100)[[S144]](../../../sources/bibliography.md#s144)。Venice 约从 2026 年第三季度起随 AMD 的 Helios 机架出货，Vera 则从 2026 年第三季度起随 Vera Rubin [NVL72](../../glossary.md#nvl72) 出货
 > [[S90020]](../../../sources/bibliography.md#s90020)[[S90009]](../../../sources/bibliography.md#s90009)；C1000 自 2028 年下半年起部署 [[S90058]](../../../sources/bibliography.md#s90058)，因此它将面对这些厂商的下一代产品。核心数能让一颗
 > CPU 进入评估；而决定头节点胜负的是每核内存带宽、GPU 链路和软件生态
-> （[AI 为何需要 CPU](../../../layers/04-cpu-grace-vera/why-ai-needs-a-cpu.md)）。
+> （[AI 为何需要 CPU](../../layers/04-cpu-grace-vera/why-ai-needs-a-cpu.md)）。
 
 ## 互连、软件与定制芯片：Alphawave、Modular、AWS
 
 **Alphawave** 带来了 SerDes、小芯片和光互连 IP，这正是定制 ASIC 设计服务商视为
 护城河的能力（[定制 ASIC 设计服务商](custom-asic-houses.md)）[[S4514]](../../../sources/bibliography.md#s4514)。**Modular**
 带来了 Mojo 和 MAX 推理引擎，这是一套可跨硬件移植的软件栈；Mojo 已于 2026 年 8 月以 Apache 2.0
-协议开源 [[S9511]](../../../sources/bibliography.md#s9511)[[S9512]](../../../sources/bibliography.md#s9512)。本资料库第 09 层的分析将可移植软件视为侵蚀 [CUDA](../../../glossary.md#cuda) 的主要途径之一
+协议开源 [[S9511]](../../../sources/bibliography.md#s9511)[[S9512]](../../../sources/bibliography.md#s9512)。本资料库第 09 层的分析将可移植软件视为侵蚀 [CUDA](../../glossary.md#cuda) 的主要途径之一
 （[CUDA 竞争](../../layers/09-cuda-and-system-software/competition.md)）。
 
 ![AI 软件交易金额水平柱状图：高通-Modular 约 $3,900M（2026 年）、英伟达-Run:ai 约 $700M（2024 年）、AMD-Silo AI $665M（2024 年）、英伟达-CentML 最多约 $400M（2025 年）、英伟达-Deci 约 $300M（2024 年）以及英伟达-OctoAI 约 $250M（2024 年）。作为参照，Modular 在 2025 年 9 月的 C 轮融资中估值为 $1,600M，累计融资 $380M，因此高通支付的价格约为其最近一轮私募估值的 2.4 倍、投入资本的约 10 倍。](../../../assets/charts/09-software-deal-values.svg)
@@ -121,7 +121,7 @@ Dragonfly C1000，一款拥有 250 个以上核心的小芯片（chiplet）CPU�
 > 则每股对亚马逊价值 $40，约为对应采购额的 ~1.7%（🔴 示意性股价）。若归属是线性的
 > （未披露），3.75M 股对应的初始承诺为 ~$9B（🔴 本资料库测算）。从结构上看，这是一种以股权支付的
 > 批量返利，类似 AMD 给 OpenAI 的认股权证，但行权价为正值 [[S13506]](../../../sources/bibliography.md#s13506)
-> （[按采购额归属的认股权证](../../../glossary.md#purchase-vested-warrant)）。
+> （[按采购额归属的认股权证](../../glossary.md#purchase-vested-warrant)）。
 
 ## 逐层图谱：合作、竞争、互补
 
@@ -214,7 +214,7 @@ flowchart TB
    （Alphawave IP、Mojo）。哪些公开证据能表明到 FY2029 哪种角色贡献的收入最多？
 2. 定制芯片合同（两家超大规模云厂商，各超过 $1B）和 AWS 协议与博通的模式相似。按公开数据，NRE、
    单颗利润率和认股权证摊薄与商用 AI200 产品线相比如何？
-3. LPDDR 容量路线如今与英特尔的 Crescent Island 以及初创公司的 [SRAM](../../../glossary.md#sram)/HBM 混合方案形成交集。在这一细分市场中，
+3. LPDDR 容量路线如今与英特尔的 Crescent Island 以及初创公司的 [SRAM](../../glossary.md#sram)/HBM 混合方案形成交集。在这一细分市场中，
    靠什么建立持久地位：内存、软件、功耗还是客户渠道？
 4. Modular 的收购价为 $3.9B，约为其 $1.6B C 轮估值的 ~2.4 倍 [[S9511]](../../../sources/bibliography.md#s9511)[[S9510]](../../../sources/bibliography.md#s9510)。哪些里程碑（框架采用率、第三方
    硬件支持、开发者数量）能够表明该软件正在推动工作负载迁移？

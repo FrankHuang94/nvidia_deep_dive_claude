@@ -12,10 +12,10 @@
 - **前瞻表述更为激进。** 博通称已锁定足以支撑 FY2027 ~$115B AI 收入的供应，并对 FY2028 ~$230B 具备“清晰可见度”（line of sight）（🟡 管理层目标，并非已签约收入）[[S15501]](../../../sources/bibliography.md#s15501)。
 - **客户名单即前沿阵营。** 谷歌（Google）的 TPU、Meta 的 MTIA、OpenAI 的 10 GW 项目（2026 年下半年至 2029 年）以及 Anthropic
   （$10B 订单，其后又追加 $11B 基于 TPU 的机架）均经由博通实现 [[S15552]](../../../sources/bibliography.md#s15552)[[S174]](../../../sources/bibliography.md#s174)[[S15500]](../../../sources/bibliography.md#s15500)。预计 Anthropic 将在 2027 年
-  成为其最大的 [XPU](../../../glossary.md#xpu) 客户 🟡 [[S15501]](../../../sources/bibliography.md#s15501)。
+  成为其最大的 [XPU](../../glossary.md#xpu) 客户 🟡 [[S15501]](../../../sources/bibliography.md#s15501)。
 - **美满电子（Marvell）是远远落后的第二名。** 其 Q2 FY2027 季度数据中心收入为 $2.17B（+46%），约为
   博通 AI 收入年化水平的七分之一 [[S15504]](../../../sources/bibliography.md#s15504)。据报道，英伟达于 2026 年 3 月向美满电子投资 $2B，以将其绑定于
-  [NVLink Fusion](../../../glossary.md#nvlink-fusion) 🟡 [[S90037]](../../../sources/bibliography.md#s90037)。
+  [NVLink Fusion](../../glossary.md#nvlink-fusion) 🟡 [[S90037]](../../../sources/bibliography.md#s90037)。
 - **围绕台积电（TSMC）的台湾第二梯队正在成长。** 世芯电子（Alchip，承接 3 nm 的 AWS Trainium3）、创意电子（GUC）和联发科（MediaTek，2026 年
   AI ASIC 目标 $2B；有报道称承接谷歌 TPU 相关工作）的年收入各在 $1–2B 左右 [[S2517]](../../../sources/bibliography.md#s2517)[[S15506]](../../../sources/bibliography.md#s15506)[[S15508]](../../../sources/bibliography.md#s15508)[[S2518]](../../../sources/bibliography.md#s2518)[[S23008]](../../../sources/bibliography.md#s23008)。
 - **其经济性只在超大规模下成立。** 本资料库模型测算，每个项目的盈亏平衡点为 ~87k 个 GPU 等效算力单位；
@@ -28,14 +28,14 @@
 
 ## 定制 ASIC 业务如何运作
 
-想要自有加速器的[超大规模云厂商](../../../glossary.md#hyperscaler)很少会独立完成整颗芯片。其架构师决定计算引擎的形态
-（矩阵单元、数值格式、片上存储），因为这正是其工作负载知识所在。[ASIC 设计合作方](../../../glossary.md#asic-design-partner)则提供其余一切：用于芯片间互连的高速 [SerDes](../../../glossary.md#serdes)、
-[HBM](../../../glossary.md#hbm) 接口、封装、物理设计，以及在台积电产能队列中的位置。不妨以盖楼作比：
+想要自有加速器的[超大规模云厂商](../../glossary.md#hyperscaler)很少会独立完成整颗芯片。其架构师决定计算引擎的形态
+（矩阵单元、数值格式、片上存储），因为这正是其工作负载知识所在。[ASIC 设计合作方](../../glossary.md#asic-design-partner)则提供其余一切：用于芯片间互连的高速 [SerDes](../../glossary.md#serdes)、
+[HBM](../../glossary.md#hbm) 接口、封装、物理设计，以及在台积电产能队列中的位置。不妨以盖楼作比：
 业主的建筑师画平面图，总承包商负责打地基、布线并办理各项许可。
 
-合作方有两笔收入。第一笔是设计阶段的 [NRE](../../../glossary.md#nre)（一次性工程费用）。第二笔规模大得多：
-每颗出货芯片的单价，其中包含合作方对其代为采购的晶圆、HBM 和封装所赚取的利润。合同形式有两种。在[交钥匙 ASIC](../../../glossary.md#turnkey-asic)（turnkey ASIC）模式下，合作方出售成品芯片；在
-[客户自有工具](../../../glossary.md#customer-owned-tooling)（COT）模式下，客户购买服务或 IP，并自行与晶圆代工厂签约，
+合作方有两笔收入。第一笔是设计阶段的 [NRE](../../glossary.md#nre)（一次性工程费用）。第二笔规模大得多：
+每颗出货芯片的单价，其中包含合作方对其代为采购的晶圆、HBM 和封装所赚取的利润。合同形式有两种。在[交钥匙 ASIC](../../glossary.md#turnkey-asic)（turnkey ASIC）模式下，合作方出售成品芯片；在
+[客户自有工具](../../glossary.md#customer-owned-tooling)（COT）模式下，客户购买服务或 IP，并自行与晶圆代工厂签约，
 从而压缩合作方的单颗收入。博通与 Anthropic 的交易属于交钥匙模式的极端情形：其 CEO
 称之为整系统销售，由博通对机架负责 [[S15500]](../../../sources/bibliography.md#s15500)。
 
@@ -68,12 +68,12 @@ flowchart LR
 <details>
 <summary>🔧 技术细节：为何 SerDes 与封装是设计合作方的护城河</summary>
 
-2026 年的加速器每秒需在芯片外传输数 TB 数据：据报道，Jalapeño 的 [HBM4](../../../glossary.md#hbm4) 带宽达 15.4 TB/s [[S628]](../../../sources/bibliography.md#s628)，而
-[纵向扩展（scale-up）](../../../glossary.md#scale-up)链路采用 200G 级通道。要设计出在功耗预算内实现每通道 200 Gb/s 的
-[SerDes](../../../glossary.md#serdes)，以及能通过内存厂商认证的 HBM PHY，需要多年的芯片迭代。博通还销售
+2026 年的加速器每秒需在芯片外传输数 TB 数据：据报道，Jalapeño 的 [HBM4](../../glossary.md#hbm4) 带宽达 15.4 TB/s [[S628]](../../../sources/bibliography.md#s628)，而
+[纵向扩展（scale-up）](../../glossary.md#scale-up)链路采用 200G 级通道。要设计出在功耗预算内实现每通道 200 Gb/s 的
+[SerDes](../../glossary.md#serdes)，以及能通过内存厂商认证的 HBM PHY，需要多年的芯片迭代。博通还销售
 这些链路所接入的交换机（Tomahawk），因此能够对两端进行协同设计；本资料库评估博通在
-[横向扩展（scale-out）](../../../glossary.md#scale-out)以太网交换领域领先英伟达 [[S274]](../../../sources/bibliography.md#s274)。封装则构成另一道供应护城河：TrendForce 一类的估计显示，在
-2026 年 ~1,000k 片 [CoWoS](../../../glossary.md#cowos) 晶圆中，博通占 ~150k，仅次于英伟达的 ~595k（估计）[[S379]](../../../sources/bibliography.md#s379)。超大规模云厂商可以招聘计算架构师，
+[横向扩展（scale-out）](../../glossary.md#scale-out)以太网交换领域领先英伟达 [[S274]](../../../sources/bibliography.md#s274)。封装则构成另一道供应护城河：TrendForce 一类的估计显示，在
+2026 年 ~1,000k 片 [CoWoS](../../glossary.md#cowos) 晶圆中，博通占 ~150k，仅次于英伟达的 ~595k（估计）[[S379]](../../../sources/bibliography.md#s379)。超大规模云厂商可以招聘计算架构师，
 却很难“招聘”到十年积累的 SerDes 测试芯片和 CoWoS 产能配额。
 
 </details>
@@ -93,10 +93,10 @@ flowchart LR
 | 微软（Microsoft）Maia | 自研 | 美满电子 🟡；可使用 OpenAI 由博通打造芯片的 IP | Maia 200 已部署；Maia 300 于 2027 年推出 | [[S15008]](../../../sources/bibliography.md#s15008)[[S662]](../../../sources/bibliography.md#s662)[[S90044]](../../../sources/bibliography.md#s90044)[[S90046]](../../../sources/bibliography.md#s90046) |
 | AWS 定制推理芯片 + 1.6T 光学器件 | 高通（Qualcomm） | — | 多代合作；自 2027 财年第一季度起贡献收入 🟢 | [[S15510]](../../../sources/bibliography.md#s15510)[[S15509]](../../../sources/bibliography.md#s15509) |
 
-[AWS Trainium](../../../cross-cutting/15-competitive-landscape/aws-trainium.md)、
-[谷歌 TPU](../../../cross-cutting/15-competitive-landscape/google-tpu.md)、
-[微软 Maia](../../../cross-cutting/15-competitive-landscape/microsoft-maia.md) 与
-[Meta MTIA](../../../cross-cutting/15-competitive-landscape/meta-mtia.md) 各页从客户角度介绍了上述各项目。
+[AWS Trainium](aws-trainium.md)、
+[谷歌 TPU](google-tpu.md)、
+[微软 Maia](microsoft-maia.md) 与
+[Meta MTIA](meta-mtia.md) 各页从客户角度介绍了上述各项目。
 
 ## 博通：规模型玩家
 
@@ -111,7 +111,7 @@ Jalapeño 及其后继产品 🟡 [[S15501]](../../../sources/bibliography.md#s1
 该图中的比率是衡量定制芯片相对英伟达态势最简洁的单一指标。它在两年间稳定于 11–14%，
 并在 2026 年第三日历季度跃升至 19% [[S2516]](../../../sources/bibliography.md#s2516)[[S405]](../../../sources/bibliography.md#s405)。本资料库此前对博通 FY2026 ~$45B 的情景假设被证明过于保守：指引加上已公布的
 各季度数据，目前合计 ~$57B（下图即采用此数），而博通 CEO 引用的数字为 ~$58B [[S2516]](../../../sources/bibliography.md#s2516)[[S15501]](../../../sources/bibliography.md#s15501)
-（[GPU 芯片竞争](../../../layers/02-gpu-silicon/competition.md)）。
+（[GPU 芯片竞争](../../layers/02-gpu-silicon/competition.md)）。
 
 ![两幅子图。左：博通季度 AI 半导体收入从 2024 财年第一季度的 $2.3B 攀升至 2025 财年第四季度的 $6.5B，2026 财年第一季度指引 $8.2B 以斜线标示。右：年度 AI 收入，博通约 $3.8B（2023）、$12.2B（2024）、$20.2B（2025），FY2026 ~$57B（Q1 与 Q4 为指引值，Q2 为推算值，Q3 为已公布值）；美满电子为 $0.55B、$1.5B、$2.5B、 ~$3.5B（2026E）。博通的数字既包括 AI 以太网网络业务，也包括谷歌 TPU 等定制 XPU。](../../../assets/charts/15-custom-asic-revenue-trend.svg)
 
@@ -138,8 +138,8 @@ Jalapeño 及其后继产品 🟡 [[S15501]](../../../sources/bibliography.md#s1
 客户锁定程度也更弱。
 
 **联发科**带来了手机 SoC 公司的能力（能效、SerDes、大规模量产执行力）。公司将 2026 年
-AI ASIC 目标从 $1B 上调至 $2B，据报道还拿下了谷歌 TPU v7e/v8e 的相关工作，可能负责的是 [I/O 裸片](../../../glossary.md#io-die)
-而非计算裸片 🟡 [[S15503]](../../../sources/bibliography.md#s15503)[[S2518]](../../../sources/bibliography.md#s2518)[[S23008]](../../../sources/bibliography.md#s23008)。它也是 [NVLink](../../../glossary.md#nvlink) Fusion 的首发合作伙伴 [[S90031]](../../../sources/bibliography.md#s90031)。
+AI ASIC 目标从 $1B 上调至 $2B，据报道还拿下了谷歌 TPU v7e/v8e 的相关工作，可能负责的是 [I/O 裸片](../../glossary.md#io-die)
+而非计算裸片 🟡 [[S15503]](../../../sources/bibliography.md#s15503)[[S2518]](../../../sources/bibliography.md#s2518)[[S23008]](../../../sources/bibliography.md#s23008)。它也是 [NVLink](../../glossary.md#nvlink) Fusion 的首发合作伙伴 [[S90031]](../../../sources/bibliography.md#s90031)。
 
 > [!TIP]
 > **算例 —— 定制芯片市场内部的差距。** 博通 FY2026 ~$58B 的 AI 收入约为美满电子年化
@@ -162,7 +162,7 @@ AI ASIC 目标从 $1B 上调至 $2B，据报道还拿下了谷歌 TPU v7e/v8e �
 > $21.4K，每个节省 ~$13.6K。$1.19B ÷ $13.6K ≈ 87k 个 GPU 等效单位。一个 1 GW 的项目需要
 > 数十万颗加速器，因此前沿实验室能够越过门槛；一家部署 20k 颗 GPU 的企业则不能。
 
-该模型遗漏了实际决策中最困难的部分：软件。谷歌 TPU 之所以具备经济性，是因为 [XLA](../../../glossary.md#xla) 和 JAX
+该模型遗漏了实际决策中最困难的部分：软件。谷歌 TPU 之所以具备经济性，是因为 [XLA](../../glossary.md#xla) 和 JAX
 已经存在；SemiAnalysis 在某一工作负载上测得 Ironwood 的单 token 成本比 B200 低 ~18%，主要源于更便宜的
 芯片时租价格，而非更快的芯片 [[S625]](../../../sources/bibliography.md#s625)。缺乏这套软件栈的新 XPU 可能需要数年才能达到其纸面吞吐量
 （参见 [CUDA 竞争](../../layers/09-cuda-and-system-software/competition.md)）。
@@ -180,7 +180,7 @@ AI ASIC 目标从 $1B 上调至 $2B，据报道还拿下了谷歌 TPU v7e/v8e �
 | 09–11 软件 | 🟦 路线不同 | 客户自有软件栈（JAX/XLA、PyTorch 后端） |
 | 13 生态与资本 | 🟥 落后 | 六家 XPU 客户，对比英伟达的广泛渠道；未披露供应商融资 [[S15551]](../../../sources/bibliography.md#s15551) |
 
-本资料库的全局评分见[竞争格局索引](../../../cross-cutting/15-competitive-landscape/index.md)。
+本资料库的全局评分见[竞争格局索引](index.md)。
 
 ## 它们最有力的论据，以及差距缩小了多少
 
@@ -227,7 +227,7 @@ AI ASIC 目标从 $1B 上调至 $2B，据报道还拿下了谷歌 TPU v7e/v8e �
    能力的买家而言，一项设计服务资产价值几何？在博通的六家客户之外，还有哪些锚定客户
    尚未落定？
 3. 英伟达对美满电子的 $2B 投资以及 Fusion 授权，把竞争对手变成了供应商。“英伟达机架内的定制加速器”
-   是一个可持续的中间形态，还是 [UALink](../../../glossary.md#ualink)/ESUN 机架于 2027 年成熟之前的过渡状态？
+   是一个可持续的中间形态，还是 [UALink](../../glossary.md#ualink)/ESUN 机架于 2027 年成熟之前的过渡状态？
 4. 收入份额（~11%）与出货份额（~28%）讲述的是不同的故事。企业发展模型应采用哪一指标来测算
    定制芯片市场规模？该测算对 XPU 定价的敏感度如何？
 5. 盈亏平衡点有利于数十万颗量级的买家。是否存在“轻定制”（custom-lite，共享基础裸片、

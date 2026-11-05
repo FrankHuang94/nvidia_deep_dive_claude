@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **英伟达（NVIDIA）销售系统已有十年。** 第一台 [DGX](../../../glossary.md#dgx)-1（8 颗 GPU、3.2 kW、$129,000）于 2016 年出货，黄仁勋于当年 8 月亲手将其中一台交付给 OpenAI [[S310]](../../../sources/bibliography.md#s310)[[S8522]](../../../sources/bibliography.md#s8522)[[S8523]](../../../sources/bibliography.md#s8523)。
-- **OEM 标准诞生于 2017 年。** [HGX](../../../glossary.md#hgx)-1 与微软（Microsoft）及富士康旗下的 Ingrasys 共同打造，并通过 OCP 发布，让所有服务器厂商都使用同一块 GPU 基板 [[S8525]](../../../sources/bibliography.md#s8525)[[S8526]](../../../sources/bibliography.md#s8526)。
-- **每一步都扩大了英伟达的设计范围。** DGX-2（2018）加入了 [NVSwitch](../../../glossary.md#nvswitch) [[S313]](../../../sources/bibliography.md#s313)。[MGX](../../../glossary.md#mgx)（2023）将服务器模块化 [[S8524]](../../../sources/bibliography.md#s8524)。GB200 [NVL72](../../../glossary.md#nvl72)（2024）让 120 kW 液冷机架本身成为产品 [[S396]](../../../sources/bibliography.md#s396)[[S336]](../../../sources/bibliography.md#s336)。
-- **机架级即便对英伟达也非易事。** 据报道，早期 GB200 机架出现过热和链路故障，部分[超大规模云厂商](../../../glossary.md#hyperscaler)削减了订单 [[S5500]](../../../sources/bibliography.md#s5500)[[S5501]](../../../sources/bibliography.md#s5501)。
+- **英伟达（NVIDIA）销售系统已有十年。** 第一台 [DGX](../../glossary.md#dgx)-1（8 颗 GPU、3.2 kW、$129,000）于 2016 年出货，黄仁勋于当年 8 月亲手将其中一台交付给 OpenAI [[S310]](../../../sources/bibliography.md#s310)[[S8522]](../../../sources/bibliography.md#s8522)[[S8523]](../../../sources/bibliography.md#s8523)。
+- **OEM 标准诞生于 2017 年。** [HGX](../../glossary.md#hgx)-1 与微软（Microsoft）及富士康旗下的 Ingrasys 共同打造，并通过 OCP 发布，让所有服务器厂商都使用同一块 GPU 基板 [[S8525]](../../../sources/bibliography.md#s8525)[[S8526]](../../../sources/bibliography.md#s8526)。
+- **每一步都扩大了英伟达的设计范围。** DGX-2（2018）加入了 [NVSwitch](../../glossary.md#nvswitch) [[S313]](../../../sources/bibliography.md#s313)。[MGX](../../glossary.md#mgx)（2023）将服务器模块化 [[S8524]](../../../sources/bibliography.md#s8524)。GB200 [NVL72](../../glossary.md#nvl72)（2024）让 120 kW 液冷机架本身成为产品 [[S396]](../../../sources/bibliography.md#s396)[[S336]](../../../sources/bibliography.md#s336)。
+- **机架级即便对英伟达也非易事。** 据报道，早期 GB200 机架出现过热和链路故障，部分[超大规模云厂商](../../glossary.md#hyperscaler)削减了订单 [[S5500]](../../../sources/bibliography.md#s5500)[[S5501]](../../../sources/bibliography.md#s5501)。
 - **[Q4 · 优势来源]** 优势在于集成与统筹，而非任何单颗芯片：英伟达设计机架及其网络，并组织协调合作伙伴。2025 年，约 20 家电力合作伙伴展示了 800 V 直流部件 [[S90061]](../../../sources/bibliography.md#s90061)。
 - **[Q6 · 复制成本]** AMD 的应对是以 $4.9B 收购 ZT Systems，再将其工厂转售给 Sanmina，为一支机架设计团队净付出约 $1.9–2.35B [[S5527]](../../../sources/bibliography.md#s5527)[[S8527]](../../../sources/bibliography.md#s8527)。首批 Helios 机架在交易宣布约 2 年后才出货 🟡 [[S90020]](../../../sources/bibliography.md#s90020)。
 
@@ -61,8 +61,8 @@ timeline
 
 **[Q4 · 优势来源]** 英伟达在这一层的领先建立在三项相互强化的能力之上：
 
-1. **系统集成。** 英伟达规定托盘、铜缆背板、电源架和冷却回路；ODM 按此设计制造。一台 Vera Rubin NVL72 包含 72 颗 Rubin GPU、36 颗 Vera CPU 和 36 颗 [NVLink](../../../glossary.md#nvlink) 交换芯片，全部是英伟达芯片 [[S102]](../../../sources/bibliography.md#s102)[[S332]](../../../sources/bibliography.md#s332)。
-2. **供应链统筹。** 2026 年年中，英伟达持有 $279B 的供应与产能承诺 [[S407]](../../../sources/bibliography.md#s407)。它在富士康（约占 AI 服务器的 40%）等 ODM 之间分配稀缺的、基于 [CoWoS](../../../glossary.md#cowos) 封装的 GPU [[S3014]](../../../sources/bibliography.md#s3014)。约 20 家合作伙伴按其路线图打造了 800 V 直流部件 [[S90061]](../../../sources/bibliography.md#s90061)。
+1. **系统集成。** 英伟达规定托盘、铜缆背板、电源架和冷却回路；ODM 按此设计制造。一台 Vera Rubin NVL72 包含 72 颗 Rubin GPU、36 颗 Vera CPU 和 36 颗 [NVLink](../../glossary.md#nvlink) 交换芯片，全部是英伟达芯片 [[S102]](../../../sources/bibliography.md#s102)[[S332]](../../../sources/bibliography.md#s332)。
+2. **供应链统筹。** 2026 年年中，英伟达持有 $279B 的供应与产能承诺 [[S407]](../../../sources/bibliography.md#s407)。它在富士康（约占 AI 服务器的 40%）等 ODM 之间分配稀缺的、基于 [CoWoS](../../glossary.md#cowos) 封装的 GPU [[S3014]](../../../sources/bibliography.md#s3014)。约 20 家合作伙伴按其路线图打造了 800 V 直流部件 [[S90061]](../../../sources/bibliography.md#s90061)。
 3. **协同设计的网络。** 拥有 NVLink、网卡和交换机，使英伟达能够对机架和集群进行协同调优。Q1 FY2027 网络业务收入创下 $14.8B 的纪录 [[S90014]](../../../sources/bibliography.md#s90014)[[S464]](../../../sources/bibliography.md#s464)。
 
 单纯的技术*不是*护城河：Helios 在纸面上已追平或超越 Vera Rubin NVL72 [[S344]](../../../sources/bibliography.md#s344)。执行速度才是：英伟达大约每年推出新一代机架 [[S500]](../../../sources/bibliography.md#s500)。
@@ -89,7 +89,7 @@ timeline
 
 ## 反事实推演 —— 如果英伟达当初没有……
 
-1. 🔴 **……超越芯片本身（没有 DGX、HGX 或 NVL72）。** OEM 会继续制造 8 GPU 机箱，也就不会有 72 GPU 的域。英伟达称 [MoE](../../../glossary.md#mixture-of-experts) 模型在 GB200 NVL72 上的运行速度比 HGX H200 快约 10 倍（厂商说法）[[S5002]](../../../sources/bibliography.md#s5002)。那样的话，TPU pod 在前沿 MoE 工作负载上将没有对手，OEM 也会在每一美元系统支出中保留更多份额。
+1. 🔴 **……超越芯片本身（没有 DGX、HGX 或 NVL72）。** OEM 会继续制造 8 GPU 机箱，也就不会有 72 GPU 的域。英伟达称 [MoE](../../glossary.md#mixture-of-experts) 模型在 GB200 NVL72 上的运行速度比 HGX H200 快约 10 倍（厂商说法）[[S5002]](../../../sources/bibliography.md#s5002)。那样的话，TPU pod 在前沿 MoE 工作负载上将没有对手，OEM 也会在每一美元系统支出中保留更多份额。
 2. 🔴 **……成为拥有自有工厂的完整 OEM。** 它将获得 ODM 约 2–3% 的机架利润 [[S332]](../../../sources/bibliography.md#s332)。但它将不得不承担库存和现场服务，并把戴尔、HPE 和 Supermicro 变成竞争对手。设计主导、ODM 制造（即“苹果模式”）保护了约 75% 的毛利率 [[S405]](../../../sources/bibliography.md#s405)。
 3. 🔴 **……如此迅速地解决 GB200 机架问题（即修复得更慢）。** 如果客户像 OpenAI 据称所要求的那样大规模转回 Hopper [[S5501]](../../../sources/bibliography.md#s5501)，AMD 和谷歌将在 2025 年赢得一个 12 个月的窗口期。
 

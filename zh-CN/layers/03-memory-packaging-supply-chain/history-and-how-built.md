@@ -7,11 +7,11 @@
 
 ## ⚡ 要点速览
 
-- **堆叠内存并非英伟达（NVIDIA）发明；首款[高带宽内存（HBM）](../../../glossary.md#hbm)产品由 AMD 于 2015 年推出** [[S370]](../../../sources/bibliography.md#s370)。英伟达的第一款是 2016 年的 P100：基于台积电（TSMC）[CoWoS](../../../glossary.md#cowos) 的四个 HBM2 堆栈，16 GB、732 GB/s [[S125]](../../../sources/bibliography.md#s125)。
-- **这一优势是靠资产负债表建立的。** 英伟达的[采购义务](../../../glossary.md#purchase-obligations)从 2023 年 1 月的 $4.9B 增至 2026 年 7 月的 $279B，主要为内存与制造产能 [[S419]](../../../sources/bibliography.md#s419)[[S407]](../../../sources/bibliography.md#s407)；该披露科目在 2026 年扩大了口径，因此倍数仅供参考 [[S90092]](../../../sources/bibliography.md#s90092)。
-- **这并非没有代价。** FY2023 的下行周期带来约 $2.17B 的存货减值准备 [[S418]](../../../sources/bibliography.md#s418)，以及约 $348M 因承诺超出需求而计提的费用 [[S421]](../../../sources/bibliography.md#s421)，此前英伟达已向供应商支付了 $3.45B 的[预付款](../../../glossary.md#prepayment) [[S419]](../../../sources/bibliography.md#s419)。
+- **堆叠内存并非英伟达（NVIDIA）发明；首款[高带宽内存（HBM）](../../glossary.md#hbm)产品由 AMD 于 2015 年推出** [[S370]](../../../sources/bibliography.md#s370)。英伟达的第一款是 2016 年的 P100：基于台积电（TSMC）[CoWoS](../../glossary.md#cowos) 的四个 HBM2 堆栈，16 GB、732 GB/s [[S125]](../../../sources/bibliography.md#s125)。
+- **这一优势是靠资产负债表建立的。** 英伟达的[采购义务](../../glossary.md#purchase-obligations)从 2023 年 1 月的 $4.9B 增至 2026 年 7 月的 $279B，主要为内存与制造产能 [[S419]](../../../sources/bibliography.md#s419)[[S407]](../../../sources/bibliography.md#s407)；该披露科目在 2026 年扩大了口径，因此倍数仅供参考 [[S90092]](../../../sources/bibliography.md#s90092)。
+- **这并非没有代价。** FY2023 的下行周期带来约 $2.17B 的存货减值准备 [[S418]](../../../sources/bibliography.md#s418)，以及约 $348M 因承诺超出需求而计提的费用 [[S421]](../../../sources/bibliography.md#s421)，此前英伟达已向供应商支付了 $3.45B 的[预付款](../../glossary.md#prepayment) [[S419]](../../../sources/bibliography.md#s419)。
 - **承诺额如今已超过实际产能的增长。** 自 2023 年底以来，承诺额增长了 17 倍，而季度营收增长 4.4 倍，估计的 CoWoS 产能增长约 8 倍 [[S407]](../../../sources/bibliography.md#s407)[[S379]](../../../sources/bibliography.md#s379)，原因在于承诺额现已包含按超级周期价格签订的多年期内存合同。
-- **供应商认证既是武器也是风险。** 三星花了约 19 个月才通过英伟达的 [HBM3E](../../../glossary.md#hbm3e) 测试（2025 年 9 月）[[S3514]](../../../sources/bibliography.md#s3514)；一旦通过，其 HBM 份额在一年内从 17% 升至 33% [[S3500]](../../../sources/bibliography.md#s3500)。
+- **供应商认证既是武器也是风险。** 三星花了约 19 个月才通过英伟达的 [HBM3E](../../glossary.md#hbm3e) 测试（2025 年 9 月）[[S3514]](../../../sources/bibliography.md#s3514)；一旦通过，其 HBM 份额在一年内从 17% 升至 33% [[S3500]](../../../sources/bibliography.md#s3500)。
 - **[Q4 · 优势来源]** 主要是规模、采购能力与时机，而非内存工程能力：AMD 在容量和带宽规格上都超过 Rubin [[S144]](../../../sources/bibliography.md#s144)[[S90093]](../../../sources/bibliography.md#s90093)，而英伟达估计拿下了约 60% 的 CoWoS 产能 [[S379]](../../../sources/bibliography.md#s379)。
 - **[Q6 · 复制成本]** 估计需要 3–5 年和 $100–300B 的多年期承诺才能追平英伟达的供应地位，但只需几百名专业工程师（🔴 本资料库估计）。
 
@@ -32,14 +32,14 @@ timeline
   2026 : Rubin HBM4 : 承诺额达 $279B : 带宽规格下调
 ```
 
-在 P100 之前，英伟达的数据中心板卡使用的是 [GDDR](../../../glossary.md#gddr)，即焊接在芯片周围的显存 [[S125]](../../../sources/bibliography.md#s125)。HBM 改变了物理形态：DRAM 裸片堆栈通过硅[中介层](../../../glossary.md#interposer)放置在距 GPU 仅数毫米之处，带宽因此大幅跃升，但 GPU、内存与封装必须一并组装。这使内存从板级采购变成了对台积电和 HBM 厂商的三方制造依赖。
+在 P100 之前，英伟达的数据中心板卡使用的是 [GDDR](../../glossary.md#gddr)，即焊接在芯片周围的显存 [[S125]](../../../sources/bibliography.md#s125)。HBM 改变了物理形态：DRAM 裸片堆栈通过硅[中介层](../../glossary.md#interposer)放置在距 GPU 仅数毫米之处，带宽因此大幅跃升，但 GPU、内存与封装必须一并组装。这使内存从板级采购变成了对台积电和 HBM 厂商的三方制造依赖。
 
 | 时间 | 决策 | 意义 | 来源 |
 |---|---|---|---|
 | 2016 | P100 采用基于 CoWoS 的 HBM2 | 旗舰产品转向堆叠内存；开始与台积电进行 CoWoS 量产合作 | [[S125]](../../../sources/bibliography.md#s125) |
 | FY2023 | 向供应商预付款（$3.06–3.45B） | 锁定了产能，但在需求下滑时使英伟达面临减值 | [[S420]](../../../sources/bibliography.md#s420)[[S419]](../../../sources/bibliography.md#s419) |
 | 2023 | 承诺额三个季度内增长 3.5 倍 | 在短缺期间先于竞争对手锁定 CoWoS 与 HBM | [[S419]](../../../sources/bibliography.md#s419)[[S424]](../../../sources/bibliography.md#s424) |
-| 2024 | B200 采用 CoWoS-L（双裸片） | 英伟达首款采用台积电桥接式 [CoWoS-L](../../../glossary.md#cowos-l) 的封装；两颗光罩尺寸的裸片 | [[S358]](../../../sources/bibliography.md#s358) |
+| 2024 | B200 采用 CoWoS-L（双裸片） | 英伟达首款采用台积电桥接式 [CoWoS-L](../../glossary.md#cowos-l) 的封装；两颗光罩尺寸的裸片 | [[S358]](../../../sources/bibliography.md#s358) |
 | 2024–25 | HBM 多元化采购（H200 引入美光；随后引入三星） | 扩大供应并增强议价能力 | [[S371]](../../../sources/bibliography.md#s371)[[S3514]](../../../sources/bibliography.md#s3514) |
 | 2025 | 推动 HBM4 超越 JEDEC 速率 | 意在带宽上击败 AMD；2026 年被下调，Rubin 如今落后于 MI455X（19.2 对 23.3 TB/s） | [[S90041]](../../../sources/bibliography.md#s90041)[[S103]](../../../sources/bibliography.md#s103)[[S90093]](../../../sources/bibliography.md#s90093) |
 | 2026 | 承诺额增至 $279B | 以高内存价格锁定 2027 年及以后的供应 | [[S407]](../../../sources/bibliography.md#s407) |
@@ -49,7 +49,7 @@ timeline
 
 ## 认证之战：为什么供应商数量很重要
 
-HBM 厂商无法直接向英伟达供货。每一代堆栈都要经过 [HBM 认证（HBM qualification）](../../../glossary.md#hbm-qualification)：在英伟达的封装内对速度、发热、功耗与良率进行长达数月的测试。据报道，三星的 HBM3E 经历了约 18 个月的挫折，并否认了 2024 年 7 月已获批准的传闻 [[S3515]](../../../sources/bibliography.md#s3515)；其 12 层产品于 2025 年 9 月通过英伟达认证，距首批送样约 19 个月 [[S3514]](../../../sources/bibliography.md#s3514)[[S3513]](../../../sources/bibliography.md#s3513)。这一延误使 SK 海力士在整个 2025 年保持了 57–70% 的 HBM 营收份额 [[S377]](../../../sources/bibliography.md#s377)。
+HBM 厂商无法直接向英伟达供货。每一代堆栈都要经过 [HBM 认证（HBM qualification）](../../glossary.md#hbm-qualification)：在英伟达的封装内对速度、发热、功耗与良率进行长达数月的测试。据报道，三星的 HBM3E 经历了约 18 个月的挫折，并否认了 2024 年 7 月已获批准的传闻 [[S3515]](../../../sources/bibliography.md#s3515)；其 12 层产品于 2025 年 9 月通过英伟达认证，距首批送样约 19 个月 [[S3514]](../../../sources/bibliography.md#s3514)[[S3513]](../../../sources/bibliography.md#s3513)。这一延误使 SK 海力士在整个 2025 年保持了 57–70% 的 HBM 营收份额 [[S377]](../../../sources/bibliography.md#s377)。
 
 ![HBM 营收份额 100% 堆叠柱状图。2025 年 Q2：SK 海力士 62%，美光 21%，三星 17%。2025 年 Q3：57/21/22。2026 年 Q1：SK 海力士 58%，三星 21%，美光 21%。2026 年 Q2：SK 海力士 50%，三星 33%，美光 18%。斜线柱表示 2026 年 Q4 三星份额约 40% 的预测（KB 证券预测，三星亦有类似表态）。](../../../assets/charts/03-hbm-share-shift-2025-2026.svg)
 
@@ -58,7 +58,7 @@ HBM 厂商无法直接向英伟达供货。每一代堆栈都要经过 [HBM 认�
 
 ![HBM 营收份额 100% 堆叠柱状图：2022 年 SK 海力士 50%，三星 40%，美光 10%；2023 年估计为 53/38/9；2025 年 Q1 SK 海力士约 70%；2025 年 Q2 SK 海力士 62%，美光 21%，三星 17%；2025 年 Q3 SK 海力士 57%，三星 22%，美光 21%。](../../../assets/charts/03-hbm-market-share-by-supplier.svg)
 
-**[Q4 · 优势来源]** 证据表明，优势来自**凭借风险承受力强的资产负债表提前买下的供应**，而非更胜一筹的内存工程能力。AMD 每颗 GPU 容纳的 HBM 更多、带宽更高 [[S144]](../../../sources/bibliography.md#s144)[[S90093]](../../../sources/bibliography.md#s90093)；英伟达自身的 [HBM4](../../../glossary.md#hbm4) 速率目标也不得不修订 [[S104]](../../../sources/bibliography.md#s104)。竞争对手所缺乏的，是英伟达估计约 60% 的 CoWoS 份额 [[S379]](../../../sources/bibliography.md#s379)，以及对三家 HBM 厂商的优先认领权 [[S90039]](../../../sources/bibliography.md#s90039)。工程协同设计固然重要（B200 是英伟达首款 CoWoS-L 封装 [[S358]](../../../sources/bibliography.md#s358)），但台积电向所有客户出售的是同样的工艺。🔴 本资料库分析；机制详见[供应链即武器](supply-chain-as-a-weapon.md)。
+**[Q4 · 优势来源]** 证据表明，优势来自**凭借风险承受力强的资产负债表提前买下的供应**，而非更胜一筹的内存工程能力。AMD 每颗 GPU 容纳的 HBM 更多、带宽更高 [[S144]](../../../sources/bibliography.md#s144)[[S90093]](../../../sources/bibliography.md#s90093)；英伟达自身的 [HBM4](../../glossary.md#hbm4) 速率目标也不得不修订 [[S104]](../../../sources/bibliography.md#s104)。竞争对手所缺乏的，是英伟达估计约 60% 的 CoWoS 份额 [[S379]](../../../sources/bibliography.md#s379)，以及对三家 HBM 厂商的优先认领权 [[S90039]](../../../sources/bibliography.md#s90039)。工程协同设计固然重要（B200 是英伟达首款 CoWoS-L 封装 [[S358]](../../../sources/bibliography.md#s358)），但台积电向所有客户出售的是同样的工艺。🔴 本资料库分析；机制详见[供应链即武器](supply-chain-as-a-weapon.md)。
 
 ## 复制需要付出什么？
 
@@ -66,7 +66,7 @@ HBM 厂商无法直接向英伟达供货。每一代堆栈都要经过 [HBM 认�
 
 | 要素 | 估计 | 推理依据 |
 |---|---|---|
-| 时间 | 3–5 年 | 据报道 CoWoS 产能已售罄至 2027 年 [[S3507]](../../../sources/bibliography.md#s3507)；SK 海力士称已签订 14 份[长期协议（LTA）](../../../glossary.md#long-term-agreement)，供应已预订至 2029 年 [[S3503]](../../../sources/bibliography.md#s3503)；美光 2027 年的大部分 HBM 已签约 [[S3534]](../../../sources/bibliography.md#s3534)；新供应商的认证可能需要约 19 个月 [[S3514]](../../../sources/bibliography.md#s3514) |
+| 时间 | 3–5 年 | 据报道 CoWoS 产能已售罄至 2027 年 [[S3507]](../../../sources/bibliography.md#s3507)；SK 海力士称已签订 14 份[长期协议（LTA）](../../glossary.md#long-term-agreement)，供应已预订至 2029 年 [[S3503]](../../../sources/bibliography.md#s3503)；美光 2027 年的大部分 HBM 已签约 [[S3534]](../../../sources/bibliography.md#s3534)；新供应商的认证可能需要约 19 个月 [[S3514]](../../../sources/bibliography.md#s3514) |
 | 资金 | $100–300B 的多年期承诺 | 英伟达背负 $279B [[S407]](../../../sources/bibliography.md#s407)，约为 AMD 季度数据中心营收 $6.7B 的 42 倍 [[S543]](../../../sources/bibliography.md#s543)；挑战者还需要足够的股权资本来承受约 20% 的减值 |
 | 人才 | 几百名专业人才 | 封装、信号与电源完整性、散热以及供应商质量工程师；稀缺但可以招到，并非关键约束 |
 | 需求证明 | 锚定客户 | AMD 借助了 OpenAI、甲骨文（Oracle）与 Anthropic 的承诺 [[S546]](../../../sources/bibliography.md#s546)[[S90022]](../../../sources/bibliography.md#s90022)[[S538]](../../../sources/bibliography.md#s538)；OpenAI 签署了最高约每月 900k 片 DRAM 晶圆的意向书（报道中的单位口径不一）[[S3535]](../../../sources/bibliography.md#s3535)[[S3536]](../../../sources/bibliography.md#s3536)，接近三星与 SK 海力士合计约 1.1M 片的产能 [[S3537]](../../../sources/bibliography.md#s3537) |
@@ -94,7 +94,7 @@ CoWoS 晶圆数衡量的是封装产能，承诺额衡量的则是金额。2023 
 1. 新进入者需要在产品发布前签下哪些供应合同？对内存厂商的股权投资或预付款能否替代英伟达级别的采购量？
 2. 如果 2027 年需求放缓，$279B 的承诺中蕴含多少减值风险？披露信息对可撤销性是如何说明的？
 3. 三星较晚通过认证，是否使其成为寻求优先供应的挑战者的天然合作伙伴？
-4. 买家联合体（AI 实验室、[超大规模云厂商](../../../glossary.md#hyperscaler)）能否像 OpenAI 的意向书所暗示的那样直接签约采购内存，从而绕开芯片厂商的配额权力？
+4. 买家联合体（AI 实验室、[超大规模云厂商](../../glossary.md#hyperscaler)）能否像 OpenAI 的意向书所暗示的那样直接签约采购内存，从而绕开芯片厂商的配额权力？
 
 ## 📚 来源（Sources）
 

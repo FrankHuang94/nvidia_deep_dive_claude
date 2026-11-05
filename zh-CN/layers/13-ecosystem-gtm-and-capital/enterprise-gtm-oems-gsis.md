@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **英伟达通过少数几家大型渠道商销售。** 其直接客户主要是为他人构建系统的 [OEM](../../../glossary.md#oem) 和 [ODM](../../../glossary.md#odm)。其中三家合计占 H1 FY2027 收入的 44%，一家占 Q2 FY2027 收入的 16% [[S90069]](../../../sources/bibliography.md#s90069)。
+- **英伟达通过少数几家大型渠道商销售。** 其直接客户主要是为他人构建系统的 [OEM](../../glossary.md#oem) 和 [ODM](../../glossary.md#odm)。其中三家合计占 H1 FY2027 收入的 44%，一家占 Q2 FY2027 收入的 16% [[S90069]](../../../sources/bibliography.md#s90069)。
 - **非超大规模需求已接近数据中心收入的一半。** AI 云、工业与企业买方在 Q1 FY2027 约为 ~$37B（49%），在 Q2 FY2027 约为 ~$40.3B（45%）[[S403]](../../../sources/bibliography.md#s403)[[S406]](../../../sources/bibliography.md#s406)。
-- **面向企业的方案是一套打包的“AI 工厂”。** [RTX PRO 服务器](../../../glossary.md#rtx-pro-server)由思科（Cisco）、戴尔（Dell）、HPE、联想（Lenovo）和 Supermicro 供货 [[S13034]](../../../sources/bibliography.md#s13034)。一套经验证的设计将其与 [Spectrum-X](../../../glossary.md#spectrum-x) 网络、[BlueField](../../../glossary.md#bluefield) DPU、认证存储以及 [NVIDIA AI Enterprise](../../../glossary.md#nvidia-ai-enterprise) 软件捆绑在一起 [[S13033]](../../../sources/bibliography.md#s13033)[[S13034]](../../../sources/bibliography.md#s13034)。
+- **面向企业的方案是一套打包的“AI 工厂”。** [RTX PRO 服务器](../../glossary.md#rtx-pro-server)由思科（Cisco）、戴尔（Dell）、HPE、联想（Lenovo）和 Supermicro 供货 [[S13034]](../../../sources/bibliography.md#s13034)。一套经验证的设计将其与 [Spectrum-X](../../glossary.md#spectrum-x) 网络、[BlueField](../../glossary.md#bluefield) DPU、认证存储以及 [NVIDIA AI Enterprise](../../glossary.md#nvidia-ai-enterprise) 软件捆绑在一起 [[S13033]](../../../sources/bibliography.md#s13033)[[S13034]](../../../sources/bibliography.md#s13034)。
 - **集成商提供人力。** 埃森哲（Accenture）成立了英伟达业务事业部，计划让 ~30,000 名专业人员接受英伟达技术栈培训 [[S13042]](../../../sources/bibliography.md#s13042)。
-- **软件规模小，但按 GPU 定价。** AI Enterprise 标价为每 GPU 每年 $4,500，或在云上每 [GPU 小时（GPU-hour）](../../../glossary.md#gpu-hour) $1 [[S13036]](../../../sources/bibliography.md#s13036)。软件与服务在 Q4 FY2024 的年化收入已超过 ~$1B [[S13037]](../../../sources/bibliography.md#s13037)。
-- **杠杆效应：**英伟达以 ~$4.6B 的销售、一般及管理费用（SG&A）支撑了 FY2026 约 ~$216B 的收入，约占销售额的 2%（估计）[[S401]](../../../sources/bibliography.md#s401)[[S1]](../../../sources/bibliography.md#s1)。大部分销售成本由[渠道合作伙伴](../../../glossary.md#channel-partner)承担。
+- **软件规模小，但按 GPU 定价。** AI Enterprise 标价为每 GPU 每年 $4,500，或在云上每 [GPU 小时（GPU-hour）](../../glossary.md#gpu-hour) $1 [[S13036]](../../../sources/bibliography.md#s13036)。软件与服务在 Q4 FY2024 的年化收入已超过 ~$1B [[S13037]](../../../sources/bibliography.md#s13037)。
+- **杠杆效应：**英伟达以 ~$4.6B 的销售、一般及管理费用（SG&A）支撑了 FY2026 约 ~$216B 的收入，约占销售额的 2%（估计）[[S401]](../../../sources/bibliography.md#s401)[[S1]](../../../sources/bibliography.md#s1)。大部分销售成本由[渠道合作伙伴](../../glossary.md#channel-partner)承担。
 
 ![英伟达数据中心收入按客户类型划分的堆叠柱状图：Q1 FY2027 超大规模云厂商约 $38B，AI 云、工业与企业客户（ACIE）约 $37B（49%）；Q2 FY2027 超大规模云厂商约 $48.7B，ACIE 约 $40.3B（45%）。通过合作伙伴和新兴云服务商触达的非超大规模买方已接近数据中心需求的一半。](../../../assets/charts/13-dc-revenue-by-customer-type.svg)
 
 ## 渠道：究竟是谁在向英伟达采购
 
-英伟达很少把成品服务器直接交付给终端用户。富士康、广达和纬创等 ODM 为[超大规模云厂商](../../../glossary.md#hyperscaler)组装机架；品牌 OEM（戴尔、HPE、联想、Supermicro、思科）凭借自身的服务和融资能力向企业、政府和[新兴云服务商（neocloud）](../../../glossary.md#neocloud)销售；[全球系统集成商（GSI）](../../../glossary.md#gsi)负责项目实施；软件厂商则将英伟达模型嵌入其产品中。在 10-Q 中，这些体现为少数几家大型[直接客户](../../../glossary.md#indirect-customer)，而英伟达会另行估算其背后的云厂商和实验室 [[S90069]](../../../sources/bibliography.md#s90069)。
+英伟达很少把成品服务器直接交付给终端用户。富士康、广达和纬创等 ODM 为[超大规模云厂商](../../glossary.md#hyperscaler)组装机架；品牌 OEM（戴尔、HPE、联想、Supermicro、思科）凭借自身的服务和融资能力向企业、政府和[新兴云服务商（neocloud）](../../glossary.md#neocloud)销售；[全球系统集成商（GSI）](../../glossary.md#gsi)负责项目实施；软件厂商则将英伟达模型嵌入其产品中。在 10-Q 中，这些体现为少数几家大型[直接客户](../../glossary.md#indirect-customer)，而英伟达会另行估算其背后的云厂商和实验室 [[S90069]](../../../sources/bibliography.md#s90069)。
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ flowchart LR
 
 ## “为每家企业打造 AI 工厂”的推介
 
-大多数企业无法容纳 132 kW 液冷的 GB300 [NVL72](../../../glossary.md#nvl72) 机架 [[S337]](../../../sources/bibliography.md#s337)。英伟达的答案（2025 年 5 月 Computex）是 RTX PRO 服务器：搭载 RTX PRO 6000 Blackwell Server Edition GPU、可放入普通机房的 [x86](../../../glossary.md#x86) 服务器 [[S13033]](../../../sources/bibliography.md#s13033)。2025 年 8 月，思科、戴尔、HPE、联想和 Supermicro 推出了 2U、双 GPU 版本 [[S13035]](../../../sources/bibliography.md#s13035)。*Enterprise AI Factory* 验证设计规定了完整的物料清单：服务器、Spectrum-X 以太网、BlueField DPU、认证存储和 AI Enterprise 软件。Cadence、富士康和礼来（Lilly）被列为早期采用者 [[S13034]](../../../sources/bibliography.md#s13034)。德国电信在慕尼黑的工业 AI 云混合采用 DGX B200 和 RTX PRO 服务器，由 SAP 提供软件栈 [[S13013]](../../../sources/bibliography.md#s13013)[[S13014]](../../../sources/bibliography.md#s13014)。
+大多数企业无法容纳 132 kW 液冷的 GB300 [NVL72](../../glossary.md#nvl72) 机架 [[S337]](../../../sources/bibliography.md#s337)。英伟达的答案（2025 年 5 月 Computex）是 RTX PRO 服务器：搭载 RTX PRO 6000 Blackwell Server Edition GPU、可放入普通机房的 [x86](../../glossary.md#x86) 服务器 [[S13033]](../../../sources/bibliography.md#s13033)。2025 年 8 月，思科、戴尔、HPE、联想和 Supermicro 推出了 2U、双 GPU 版本 [[S13035]](../../../sources/bibliography.md#s13035)。*Enterprise AI Factory* 验证设计规定了完整的物料清单：服务器、Spectrum-X 以太网、BlueField DPU、认证存储和 AI Enterprise 软件。Cadence、富士康和礼来（Lilly）被列为早期采用者 [[S13034]](../../../sources/bibliography.md#s13034)。德国电信在慕尼黑的工业 AI 云混合采用 DGX B200 和 RTX PRO 服务器，由 SAP 提供软件栈 [[S13013]](../../../sources/bibliography.md#s13013)[[S13014]](../../../sources/bibliography.md#s13014)。
 
 > [!TIP]
 > **算例 —— 软件附着率仍然很低。** 按每 GPU 每年 $4,500 的标价 [[S13036]](../../../sources/bibliography.md#s13036) 计算，若 2024 年初 ~$1B 的软件与服务年化收入 [[S13037]](../../../sources/bibliography.md#s13037) 全部来自按标价计的 AI Enterprise，相当于 **~220,000 个 GPU 授权**。这仅是 2023 年以来出货的数百万颗数据中心 GPU 中的一小部分。黄仁勋后来提到的运行英伟达智能体软件每 GPU 每年 ~$2,000 并非正式价目 🟡 [[S13038]](../../../sources/bibliography.md#s13038)。按此价格，每一百万颗授权 GPU 将带来**每年 ~$2B** 的经常性收入 🔴。
@@ -50,10 +50,10 @@ flowchart LR
 <summary>🔧 技术细节：Enterprise AI Factory 验证设计包含什么</summary>
 
 - **计算：**来自上述五家 OEM 以及研华（Advantech）、华硕（ASUS）等厂商的多种配置 RTX PRO 服务器 [[S13034]](../../../sources/bibliography.md#s13034)。
-- **网络与 [DPU](../../../glossary.md#dpu)：**Spectrum-X 以太网与 BlueField DPU（见[第 06 层](../../../layers/06-scale-out-scale-across-networking/index.md)和[第 07 层](../07-dpu-supernic-storage-security/index.md)）。
+- **网络与 [DPU](../../glossary.md#dpu)：**Spectrum-X 以太网与 BlueField DPU（见[第 06 层](../06-scale-out-scale-across-networking/index.md)和[第 07 层](../07-dpu-supernic-storage-security/index.md)）。
 - **存储：**经英伟达认证的存储合作伙伴。
-- **软件：**AI Enterprise，包含英伟达的 [NIM](../../../glossary.md#nim) 推理微服务和框架，按 GPU 授权 [[S13036]](../../../sources/bibliography.md#s13036)。
-- **为何重要：**[参考架构（reference architecture）](../../../glossary.md#reference-architecture)让 OEM 无需英伟达工程师到场，即可报价一套完整且有支持保障的系统。
+- **软件：**AI Enterprise，包含英伟达的 [NIM](../../glossary.md#nim) 推理微服务和框架，按 GPU 授权 [[S13036]](../../../sources/bibliography.md#s13036)。
+- **为何重要：**[参考架构（reference architecture）](../../glossary.md#reference-architecture)让 OEM 无需英伟达工程师到场，即可报价一套完整且有支持保障的系统。
 
 </details>
 

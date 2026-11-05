@@ -12,27 +12,27 @@
   不到 Q2 FY2027 数据中心收入的 1% 🟡 [[S2]](../../../sources/bibliography.md#s2)[[S401]](../../../sources/bibliography.md#s401)[[S90070]](../../../sources/bibliography.md#s90070)[[S90069]](../../../sources/bibliography.md#s90069)[[S90032]](../../../sources/bibliography.md#s90032)[[S26009]](../../../sources/bibliography.md#s26009)。
 - **华为是主要受益者。** 华为预计 2026 年 AI 芯片收入 ~$12B，较 2025 年的 ~$7.5B 增长 ~60%，
   并计划今年出货 ~750k 颗昇腾（Ascend）950PR 芯片 🟡 [[S15527]](../../../sources/bibliography.md#s15527)。
-- **按单芯片计，华为仍然落后。** 昇腾 950 标称 1 [PFLOPS](../../../glossary.md#flops) [FP8](../../../glossary.md#fp8)，是中国此前可采购的 H20 的 ~3.4 倍，但只有
+- **按单芯片计，华为仍然落后。** 昇腾 950 标称 1 [PFLOPS](../../glossary.md#flops) [FP8](../../glossary.md#fp8)，是中国此前可采购的 H20 的 ~3.4 倍，但只有
   获许可的 H200 的一半左右；即便是 2028 年的昇腾 970（4 PFLOPS），也仍落后于 2026 年的 Rubin（17.5）~4.4 倍 [[S163]](../../../sources/bibliography.md#s163)[[S26003]](../../../sources/bibliography.md#s26003)[[S90006]](../../../sources/bibliography.md#s90006)。
-- **华为以规模和电力作为应对。** CloudMatrix 384 提供 ~300 PF 稠密 [BF16](../../../glossary.md#bf16) 算力，而 GB200 [NVL72](../../../glossary.md#nvl72) 为 ~180 PF，但功耗为
+- **华为以规模和电力作为应对。** CloudMatrix 384 提供 ~300 PF 稠密 [BF16](../../glossary.md#bf16) 算力，而 GB200 [NVL72](../../glossary.md#nvl72) 为 ~180 PF，但功耗为
   559 kW 对 145 kW（估计，SemiAnalysis）[[S340]](../../../sources/bibliography.md#s340)；8,192 芯片的 Atlas 950 SuperPoD（8 EF FP8）计划于 2026 年第四季度推出，华为
   称其已大规模商用；但缺乏独立证实 🔴 [[S341]](../../../sources/bibliography.md#s341)[[S567]](../../../sources/bibliography.md#s567)[[S90042]](../../../sources/bibliography.md#s90042)。
 - **供应是硬约束。** 据估计，中芯国际（SMIC）7 nm 级产能为每月 ~45–60k 片晶圆（SemiAnalysis），
-  实际产出不足 20k 片（日经），而国产[高带宽内存（HBM）](../../../glossary.md#hbm)（长鑫存储 CXMT 的 [HBM3E](../../../glossary.md#hbm3e)）仅处于小规模阶段，目标在 2027 年上量
+  实际产出不足 20k 片（日经），而国产[高带宽内存（HBM）](../../glossary.md#hbm)（长鑫存储 CXMT 的 [HBM3E](../../glossary.md#hbm3e)）仅处于小规模阶段，目标在 2027 年上量
   [[S15528]](../../../sources/bibliography.md#s15528)[[S15529]](../../../sources/bibliography.md#s15529)[[S3516]](../../../sources/bibliography.md#s3516)。
 - **国内上市阵营正快速成长。** 2026 年上半年，寒武纪（Cambricon）收入增长 108% 至 6.0B 元，摩尔线程（Moore Threads）增长 147%
   至 1.7B 元，海光（Hygon）增长 67% 至 9.1B 元（含 CPU）；壁仞（Biren）、沐曦（MetaX）和摩尔线程已于 2025–26 年上市，
   百度旗下的昆仑芯（Kunlunxin）正在筹备 IPO [[S15522]](../../../sources/bibliography.md#s15522)[[S15523]](../../../sources/bibliography.md#s15523)[[S15525]](../../../sources/bibliography.md#s15525)[[S15541]](../../../sources/bibliography.md#s15541)[[S15540]](../../../sources/bibliography.md#s15540)[[S15537]](../../../sources/bibliography.md#s15537)。
 - **围绕昇腾的软件生态正在成形：** DeepSeek V4（2026 年 4 月）在 V4-Flash 的部分训练中使用了昇腾，并针对推理适配了
-  昇腾超节点（SuperNode）[[S90079]](../../../sources/bibliography.md#s90079)[[S90080]](../../../sources/bibliography.md#s90080)；华为于 2025 年 8 月开源了 [CANN](../../../glossary.md#cann) [[S10537]](../../../sources/bibliography.md#s10537)。
+  昇腾超节点（SuperNode）[[S90079]](../../../sources/bibliography.md#s90079)[[S90080]](../../../sources/bibliography.md#s90080)；华为于 2025 年 8 月开源了 [CANN](../../glossary.md#cann) [[S10537]](../../../sources/bibliography.md#s10537)。
 
 ![三幅子图的柱状图，将华为昇腾芯片与中国可以或曾经可以采购的英伟达产品进行比较。稠密算力：H20 296 TFLOPS FP8，H200 1979，昇腾 910B 320 FP16，910C 800 FP16，950PR 与 950DT 1000 FP8，960 2000，970 4000（2028 年），Rubin 17500。内存带宽：H20 4.0 TB/s，H200 4.8，910C 3.2，950PR 1.6，950DT 4.0，960 9.6，970 14.4，Rubin 19.2。容量：H20 96 GB，H200 141，950PR 128，950DT 144，960 与 970 288，Rubin 288。华为的路线图到 2027 年弥合了容量差距，但未能弥合算力或带宽差距。](../../../assets/charts/15-ascend-vs-nvidia-china-parts.svg)
 
 ## 为何中国是一个独立的市场
 
-这堵墙是两国政府共同筑起的。华盛顿设定了 [TPP](../../../glossary.md#tpp) 门槛，限制了英伟达可销售的产品；而当这些受限产品
+这堵墙是两国政府共同筑起的。华盛顿设定了 [TPP](../../glossary.md#tpp) 门槛，限制了英伟达可销售的产品；而当这些受限产品
 进入市场后，北京又引导买家转向国产芯片。完整的历史以及对英伟达收入的
-影响，见 [CS6 · 中国出口管制：H20 及之后](../../../case-studies/CS6-china-export-controls-h20-and-beyond.md)。
+影响，见 [CS6 · 中国出口管制：H20 及之后](../../case-studies/CS6-china-export-controls-h20-and-beyond.md)。
 
 ```mermaid
 timeline
@@ -61,9 +61,9 @@ timeline
 
 ## 华为昇腾：芯片、超节点与“蛮力”规模
 
-华为的策略是接受较弱的单芯片，并在系统层面加以弥补：更多芯片、基于光互连（[灵衢（UnifiedBus）](../../../glossary.md#unifiedbus)）的更大
-[纵向扩展（scale-up）](../../../glossary.md#scale-up)域，以及更多电力。它掌控
-整个技术栈：[NPU](../../../glossary.md#npu)、鲲鹏（Kunpeng）CPU、自研 HBM、交换机、CANN 软件和华为云 [[S163]](../../../sources/bibliography.md#s163)[[S4031]](../../../sources/bibliography.md#s4031)。
+华为的策略是接受较弱的单芯片，并在系统层面加以弥补：更多芯片、基于光互连（[灵衢（UnifiedBus）](../../glossary.md#unifiedbus)）的更大
+[纵向扩展（scale-up）](../../glossary.md#scale-up)域，以及更多电力。它掌控
+整个技术栈：[NPU](../../glossary.md#npu)、鲲鹏（Kunpeng）CPU、自研 HBM、交换机、CANN 软件和华为云 [[S163]](../../../sources/bibliography.md#s163)[[S4031]](../../../sources/bibliography.md#s4031)。
 
 | 系统或芯片 | 时间 | 规模 | 算力 | 内存 | 互连 | 状态 | 来源 |
 |---|---|---|---|---|---|---|---|
@@ -91,11 +91,11 @@ timeline
 <summary>🔧 技术细节：没有 EUV 如何制造 7 nm 级芯片</summary>
 
 中芯国际无法购买 EUV 光刻机，因此它使用深紫外光刻设备，对每一层进行多次曝光来制造 7 nm 级图层
-（[DUV 多重图形化](../../../glossary.md#duv-multipatterning)）。每增加一次曝光都会增加工序、生产周期和缺陷风险，因此大尺寸 AI 裸片的
+（[DUV 多重图形化](../../glossary.md#duv-multipatterning)）。每增加一次曝光都会增加工序、生产周期和缺陷风险，因此大尺寸 AI 裸片的
 良率落后于台积电（TSMC）[[S15531]](../../../sources/bibliography.md#s15531)。据报道，昇腾 950PR 采用中芯国际的 N+3 工艺 [[S15531]](../../../sources/bibliography.md#s15531)，而摩根士丹利
 因良率问题大幅下调了其对中芯国际来自华为 AI 业务收入的估计 [[S15530]](../../../sources/bibliography.md#s15530)。华为的自研 HBM（HiBL 1.0、HiZQ 2.0）
 替代了其已无法进口的 HBM 堆栈 [[S163]](../../../sources/bibliography.md#s163)；中国的长鑫存储于 2026 年开始小规模生产 HBM3E [[S3516]](../../../sources/bibliography.md#s3516)。华为、
-中芯国际和若干 GPU 设计公司已被列入美国[实体清单](../../../glossary.md#entity-list)，无法获得美国的设备和 IP；
+中芯国际和若干 GPU 设计公司已被列入美国[实体清单](../../glossary.md#entity-list)，无法获得美国的设备和 IP；
 2023 年 10 月的规则还将多家中国 GPU 开发商列入其中 [[S26001]](../../../sources/bibliography.md#s26001)。
 
 </details>
@@ -138,15 +138,15 @@ DeepSeek 的 V4 预览版（2026-04-24）以开放权重形式发布了 V4-Pro�
 使用了华为昇腾，并针对推理适配了昇腾超节点 [[S90079]](../../../sources/bibliography.md#s90079)。V4-Pro 的
 定价为每百万输出 token ~$3.48，DeepSeek 表示，在 950PR 超节点于 2026 年下半年大规模出货之前，吞吐量
 仍将受限 [[S90080]](../../../sources/bibliography.md#s90080)。SemiAnalysis 从第 0 天起就跟踪了 V4 在华为硬件上与 GB300 NVL72 上的服务表现 [[S633]](../../../sources/bibliography.md#s633)
-（[CS5 · DeepSeek 时刻与效率冲击](../../../case-studies/CS5-deepseek-moment-and-efficiency-shock.md)）。
+（[CS5 · DeepSeek 时刻与效率冲击](../../case-studies/CS5-deepseek-moment-and-efficiency-shock.md)）。
 
 软件栈虽较单薄，但是开放的：CANN 已于 2025 年 8 月开源 [[S10537]](../../../sources/bibliography.md#s10537)；华为称外部开发者
-占 CANN 社区的 61%（公司口径）[[S13523]](../../../sources/bibliography.md#s13523)；[PyTorch](../../../glossary.md#pytorch)（torch_npu）、[vLLM](../../../glossary.md#vllm)（vllm-ascend）和 llama.cpp 均支持
+占 CANN 社区的 61%（公司口径）[[S13523]](../../../sources/bibliography.md#s13523)；[PyTorch](../../glossary.md#pytorch)（torch_npu）、[vLLM](../../glossary.md#vllm)（vllm-ascend）和 llama.cpp 均支持
 昇腾 [[S592]](../../../sources/bibliography.md#s592)[[S581]](../../../sources/bibliography.md#s581)[[S579]](../../../sources/bibliography.md#s579)。
 
 > [!TIP]
 > **算例 —— V4 的定价与服务成本。** DeepSeek 对 V4-Pro 的定价为每百万输出 token ~$3.48 [[S90080]](../../../sources/bibliography.md#s90080)。
-> 在对 V4 从第 0 天到第 43 天的跟踪中，SemiAnalysis 测得运行 [SGLang](../../../glossary.md#sglang) 的 GB300 NVL72 在每用户 50 tokens/s 下，
+> 在对 V4 从第 0 天到第 43 天的跟踪中，SemiAnalysis 测得运行 [SGLang](../../glossary.md#sglang) 的 GB300 NVL72 在每用户 50 tokens/s 下，
 > 每百万输出 token 成本为 ~$0.156 [[S633]](../../../sources/bibliography.md#s633)。标价为该服务成本的 ~22 倍，因此中国服务商即便在昇腾上承受较大的硬件
 > 效率差距，仍可盈利地提供 V4 服务。DeepSeek 所提及的约束是产能，而非单位成本
 > [[S90080]](../../../sources/bibliography.md#s90080)。
@@ -173,7 +173,7 @@ DeepSeek 的 V4 预览版（2026-04-24）以开放权重形式发布了 V4-Pro�
 **差距缩小了多少：** 在中国市场，已缩小了大半（华为 2026 年的预期约为英伟达
 FY2025 中国收入峰值的一半）[[S15527]](../../../sources/bibliography.md#s15527)[[S401]](../../../sources/bibliography.md#s401)。在中国以外，几乎没有缩小：华为芯片并未在海外大规模销售，且
 单芯片 FP8 算力与 Rubin 相差 ~17 倍 [[S163]](../../../sources/bibliography.md#s163)[[S90006]](../../../sources/bibliography.md#s90006)。本资料库的评估矩阵给华为的评分为 2.7（满分 5），英伟达为 4.7
-（[索引](../../../cross-cutting/15-competitive-landscape/index.md)）。
+（[索引](index.md)）。
 
 > [!NOTE]
 > **🐂 看多观点（对英伟达而言）。** 中国占比已降至收入的十分之一以下，而 FY2026 总收入增长了 65% [[S401]](../../../sources/bibliography.md#s401)[[S1]](../../../sources/bibliography.md#s1)；

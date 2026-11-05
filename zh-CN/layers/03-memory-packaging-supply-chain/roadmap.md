@@ -7,11 +7,11 @@
 
 ## ⚡ 要点速览
 
-- **2026 年是 [HBM4](../../../glossary.md#hbm) 之年，但开局并不顺利。** Rubin 出货时搭载 288 GB [HBM4](../../../glossary.md#hbm4)，但其标称带宽由 22 TB/s 降至 19.2 TB/s [[S103]](../../../sources/bibliography.md#s103)[[S104]](../../../sources/bibliography.md#s104)；有分析师将此归因于约 9.4 Gb/s（而非约 10.7 Gb/s）的[引脚速率](../../../glossary.md#pin-speed)（🔴 原因）[[S90006]](../../../sources/bibliography.md#s90006)。
-- **2027 年将迎来 [HBM4E](../../../glossary.md#hbm4e) 与定制基础裸片。** 三星与 SK 海力士已于 2026 年 5–6 月送样 HBM4E [[S3528]](../../../sources/bibliography.md#s3528)；TrendForce 预计 HBM4E 将占 2027 年市场的约 40% [[S3531]](../../../sources/bibliography.md#s3531)，[HBM 基础裸片](../../../glossary.md#hbm-base-die)将转向台积电 N3P 等逻辑工艺 [[S3008]](../../../sources/bibliography.md#s3008)[[S3011]](../../../sources/bibliography.md#s3011)。
+- **2026 年是 [HBM4](../../glossary.md#hbm) 之年，但开局并不顺利。** Rubin 出货时搭载 288 GB [HBM4](../../glossary.md#hbm4)，但其标称带宽由 22 TB/s 降至 19.2 TB/s [[S103]](../../../sources/bibliography.md#s103)[[S104]](../../../sources/bibliography.md#s104)；有分析师将此归因于约 9.4 Gb/s（而非约 10.7 Gb/s）的[引脚速率](../../glossary.md#pin-speed)（🔴 原因）[[S90006]](../../../sources/bibliography.md#s90006)。
+- **2027 年将迎来 [HBM4E](../../glossary.md#hbm4e) 与定制基础裸片。** 三星与 SK 海力士已于 2026 年 5–6 月送样 HBM4E [[S3528]](../../../sources/bibliography.md#s3528)；TrendForce 预计 HBM4E 将占 2027 年市场的约 40% [[S3531]](../../../sources/bibliography.md#s3531)，[HBM 基础裸片](../../glossary.md#hbm-base-die)将转向台积电 N3P 等逻辑工艺 [[S3008]](../../../sources/bibliography.md#s3008)[[S3011]](../../../sources/bibliography.md#s3011)。
 - **英伟达（NVIDIA）已公布的 2027 年跃升是 Rubin Ultra：16 个堆栈、1 TB HBM4E** [[S35018]](../../../sources/bibliography.md#s35018)[[S110]](../../../sources/bibliography.md#s110)。🟡 有报道称其可能以 768 GB 或双裸片封装形式出货 [[S111]](../../../sources/bibliography.md#s111)[[S509]](../../../sources/bibliography.md#s509)；英伟达则表示其路线图保持不变 [[S508]](../../../sources/bibliography.md#s508)。
 - **AMD 继续坚持容量优先。** MI455X（432 GB、23.3 TB/s）于 2026 年出货，MI500 将于 2027 年跟进 [[S144]](../../../sources/bibliography.md#s144)[[S90093]](../../../sources/bibliography.md#s90093)[[S538]](../../../sources/bibliography.md#s538)；AWS 宣称 Trainium4 的内存带宽将是 Trainium3 的四倍 [[S156]](../../../sources/bibliography.md#s156)。
-- **封装产能持续复合增长。** 据估计，[CoWoS](../../../glossary.md#cowos) 产能在 2026 年底约为每月 105–130k 片晶圆，2027 年为 170–200k 片，到 2028 年约为 260k 片 [[S90039]](../../../sources/bibliography.md#s90039)[[S3510]](../../../sources/bibliography.md#s3510)[[S3002]](../../../sources/bibliography.md#s3002)。🟡 面板级 [CoPoS](../../../glossary.md#copos) 预计在 2028 年下半年之前不会量产 [[S3004]](../../../sources/bibliography.md#s3004)。
+- **封装产能持续复合增长。** 据估计，[CoWoS](../../glossary.md#cowos) 产能在 2026 年底约为每月 105–130k 片晶圆，2027 年为 170–200k 片，到 2028 年约为 260k 片 [[S90039]](../../../sources/bibliography.md#s90039)[[S3510]](../../../sources/bibliography.md#s3510)[[S3002]](../../../sources/bibliography.md#s3002)。🟡 面板级 [CoPoS](../../glossary.md#copos) 预计在 2028 年下半年之前不会量产 [[S3004]](../../../sources/bibliography.md#s3004)。
 - > [!TIP]
 > **算例 —— 内存价格敏感性。** 在约 $7.8M 的 Vera Rubin 机架中，内存约占 $2.0M（估计）[[S330]](../../../sources/bibliography.md#s330)。内存价格每上涨 10%，每台机架成本增加约 $200K（+2.6%）；若价格翻倍，则增加约 $2.0M（+26%），英伟达必须将其转嫁或自行消化（🔴 本资料库测算）。
 
@@ -106,7 +106,7 @@ gantt
 - **三星的份额。** 预测称到 2026 年 Q4 其份额将接近 40% [[S3501]](../../../sources/bibliography.md#s3501)；如果这部分产能向 AMD 倾斜 [[S3512]](../../../sources/bibliography.md#s3512)，英伟达的多源采购优势将缩小。
 - **CoWoS 供应超过需求。** 预计到 2026 年底缺口将从约 20% 收窄至约 10% [[S3505]](../../../sources/bibliography.md#s3505)；凯基证券（KGI）预计 2027 年英伟达与博通各增加约 100k 片晶圆 [[S3001]](../../../sources/bibliography.md#s3001)。封装产能充裕将削弱配额作为护城河的作用。
 - **内存价格。** 内存已约占 Vera Rubin 机架成本的 26%（估计）[[S330]](../../../sources/bibliography.md#s330)；HBM 价格进一步上涨，挤压的要么是英伟达的利润率，要么是客户的预算。
-- **中国。** 长鑫存储（CXMT）计划于 2027 年扩产 [HBM3E](../../../glossary.md#hbm3e) [[S3516]](../../../sources/bibliography.md#s3516)；华为的目标是到 2028 年达到 14.4 TB/s [[S163]](../../../sources/bibliography.md#s163)。
+- **中国。** 长鑫存储（CXMT）计划于 2027 年扩产 [HBM3E](../../glossary.md#hbm3e) [[S3516]](../../../sources/bibliography.md#s3516)；华为的目标是到 2028 年达到 14.4 TB/s [[S163]](../../../sources/bibliography.md#s163)。
 
 **[Q7 · 路线图与变数]** 只有当 1 TB 的 Rubin Ultra 如期按公布规格出货时，英伟达的路线图才能在 2027 年夺回容量领先；更大的变数在于封装与 HBM 供应是否不再稀缺。
 
@@ -115,7 +115,7 @@ gantt
 1. 定制 HBM 基础裸片开辟了新的设计空间：挑战者能否凭借内存侧逻辑而非堆栈数量实现差异化？
 2. 如果 CoWoS 产能到 2028 年大致翻倍 [[S3002]](../../../sources/bibliography.md#s3002)，今天的供应优势有多少只是暂时的？
 3. HBM4E 的延迟是否有利于依靠更多堆栈、更低引脚速率的设计（AMD 的 12 个堆栈、Rubin Ultra 的 16 个堆栈）？
-4. 二线买家现在需要为 2028 年预留哪些封装替代方案（英特尔 [EMIB-T](../../../glossary.md#emib)、CoPoS、[封测代工厂（OSAT）](../../../glossary.md#osat)产能）？
+4. 二线买家现在需要为 2028 年预留哪些封装替代方案（英特尔 [EMIB-T](../../glossary.md#emib)、CoPoS、[封测代工厂（OSAT）](../../glossary.md#osat)产能）？
 
 ## 📚 来源（Sources）
 

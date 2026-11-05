@@ -7,8 +7,8 @@
 
 ## ⚡ 要点速览
 
-- **AI GPU 是一个封装，而不是一颗芯片。** 任何裸片（die）都无法超过约 858 mm² 的[光罩尺寸极限（reticle limit）](../../../glossary.md#reticle-limit)，而[高带宽内存（HBM）](../../../glossary.md#hbm)必须放置在距 GPU 仅数毫米之处 [[S380]](../../../sources/bibliography.md#s380)。台积电（TSMC）的 [CoWoS](../../../glossary.md#cowos) 将裸片与 HBM 并排放置在硅[中介层（interposer）](../../../glossary.md#interposer)或桥接之上，即 [2.5D 封装](../../../glossary.md#advanced-packaging)。
-- **三种类型。** [CoWoS-S](../../../glossary.md#cowos-s) 采用单片硅中介层，最大约为光罩尺寸的 3.3 倍（H100）。[CoWoS-L](../../../glossary.md#cowos-l) 在有机层中嵌入小型硅桥，目标为 2026 年约 5.5 倍、2027 年约 9.5 倍（B200 起采用）。[CoWoS-R](../../../glossary.md#cowos-r) 不用硅，以更便宜的布线替代 [[S380]](../../../sources/bibliography.md#s380)[[S358]](../../../sources/bibliography.md#s358)。
+- **AI GPU 是一个封装，而不是一颗芯片。** 任何裸片（die）都无法超过约 858 mm² 的[光罩尺寸极限（reticle limit）](../../glossary.md#reticle-limit)，而[高带宽内存（HBM）](../../glossary.md#hbm)必须放置在距 GPU 仅数毫米之处 [[S380]](../../../sources/bibliography.md#s380)。台积电（TSMC）的 [CoWoS](../../glossary.md#cowos) 将裸片与 HBM 并排放置在硅[中介层（interposer）](../../glossary.md#interposer)或桥接之上，即 [2.5D 封装](../../glossary.md#advanced-packaging)。
+- **三种类型。** [CoWoS-S](../../glossary.md#cowos-s) 采用单片硅中介层，最大约为光罩尺寸的 3.3 倍（H100）。[CoWoS-L](../../glossary.md#cowos-l) 在有机层中嵌入小型硅桥，目标为 2026 年约 5.5 倍、2027 年约 9.5 倍（B200 起采用）。[CoWoS-R](../../glossary.md#cowos-r) 不用硅，以更便宜的布线替代 [[S380]](../../../sources/bibliography.md#s380)[[S358]](../../../sources/bibliography.md#s358)。
 - **封装尺寸的增长快于产能。** 一片 300 mm 晶圆在 2 倍光罩尺寸时可容纳约 28 个中介层，而在 9.5 倍时仅约 4 个（估计）[[S3000]](../../../sources/bibliography.md#s3000)。从 H100 级到 Rubin 级，每片晶圆的 GPU 数大致减半。
 - 🟡 **产能在增长，但仍然短缺。** 各方估计从每月约 15k 片（2023 年底）增至约 115–130k 片（2026 年底）、约 260k 片（2028 年底）[[S379]](../../../sources/bibliography.md#s379)[[S3002]](../../../sources/bibliography.md#s3002)，另有报道称 2026 年缺口约 20% [[S3003]](../../../sources/bibliography.md#s3003)。
 - 🟡 **英伟达（NVIDIA）拥有最大份额的产能配额：** 约占 2026 年预订量的 60%（约 1.0M 片晶圆中的约 595k 片，摩根士丹利数据，经媒体转述）[[S379]](../../../sources/bibliography.md#s379)，后续报道则称约 800–850k 片 [[S3003]](../../../sources/bibliography.md#s3003)。
@@ -17,10 +17,10 @@
 
 ## 为什么 AI 加速器需要 2.5D 封装
 
-**类比。** 主板就像城市街道网格；中介层则是一块布线精细约 100 倍的硅电路板，因此数万根短导线可以容纳在几平方厘米之内。有两股力量把每一款旗舰加速器推向这种封装：一是光罩尺寸极限 —— 英伟达如今以 10 TB/s 链路连接两颗光罩尺寸的裸片来突破它 [[S35014]](../../../sources/bibliography.md#s35014)（见[第 02 层](../../../layers/02-gpu-silicon/index.md)）；二是 HBM 的宽总线（见 [HBM 详解](hbm-explained.md)）。
+**类比。** 主板就像城市街道网格；中介层则是一块布线精细约 100 倍的硅电路板，因此数万根短导线可以容纳在几平方厘米之内。有两股力量把每一款旗舰加速器推向这种封装：一是光罩尺寸极限 —— 英伟达如今以 10 TB/s 链路连接两颗光罩尺寸的裸片来突破它 [[S35014]](../../../sources/bibliography.md#s35014)（见[第 02 层](../02-gpu-silicon/index.md)）；二是 HBM 的宽总线（见 [HBM 详解](hbm-explained.md)）。
 
 > [!TIP]
-> **算例 —— 数一数 Rubin 封装上的导线。** 8 个 [HBM4](../../../glossary.md#hbm4) 堆栈 × 2,048 根数据线 = 16,384 根内存数据线，这还不包括时钟、供电与裸片间互连 [[S369]](../../../sources/bibliography.md#s369)[[S360]](../../../sources/bibliography.md#s360)。一个 12 通道 DDR5 服务器插槽只有 768 根 [[S179]](../../../sources/bibliography.md#s179)。**商业解读：** 限制 GPU 产量的不只是晶圆产能，还有封装产能；英伟达、AMD、谷歌（Google）与 AWS 的旗舰产品都在同样的 CoWoS 产线前排队。
+> **算例 —— 数一数 Rubin 封装上的导线。** 8 个 [HBM4](../../glossary.md#hbm4) 堆栈 × 2,048 根数据线 = 16,384 根内存数据线，这还不包括时钟、供电与裸片间互连 [[S369]](../../../sources/bibliography.md#s369)[[S360]](../../../sources/bibliography.md#s360)。一个 12 通道 DDR5 服务器插槽只有 768 根 [[S179]](../../../sources/bibliography.md#s179)。**商业解读：** 限制 GPU 产量的不只是晶圆产能，还有封装产能；英伟达、AMD、谷歌（Google）与 AWS 的旗舰产品都在同样的 CoWoS 产线前排队。
 
 ```mermaid
 flowchart LR
@@ -39,8 +39,8 @@ flowchart LR
 | 类型 | 承载布线的介质 | 最大尺寸（台积电） | 取舍 | 英伟达采用情况 |
 |---|---|---|---|---|
 | **CoWoS-S** | 单片式硅中介层 | 约 3.3 倍光罩尺寸 [[S380]](../../../sources/bibliography.md#s380) | 布线最精细，但尺寸受限且成本高 | A100、H100、H200 [[S380]](../../../sources/bibliography.md#s380) |
-| **CoWoS-L** | 嵌入[局部硅互连桥（local silicon bridge）](../../../glossary.md#local-silicon-interconnect)的有机层 | 约 5.5 倍（2026 年）、约 9.5 倍（2027 年）[[S380]](../../../sources/bibliography.md#s380) | 可做得更大；组装难度与翘曲问题更突出 | B200、B300、Rubin [[S358]](../../../sources/bibliography.md#s358)[[S35014]](../../../sources/bibliography.md#s35014) |
-| **CoWoS-R** | 仅有机[重布线层（RDL）](../../../glossary.md#redistribution-layer) | — | 更便宜；布线更粗 | 未用于英伟达旗舰产品 |
+| **CoWoS-L** | 嵌入[局部硅互连桥（local silicon bridge）](../../glossary.md#local-silicon-interconnect)的有机层 | 约 5.5 倍（2026 年）、约 9.5 倍（2027 年）[[S380]](../../../sources/bibliography.md#s380) | 可做得更大；组装难度与翘曲问题更突出 | B200、B300、Rubin [[S358]](../../../sources/bibliography.md#s358)[[S35014]](../../../sources/bibliography.md#s35014) |
+| **CoWoS-R** | 仅有机[重布线层（RDL）](../../glossary.md#redistribution-layer) | — | 更便宜；布线更粗 | 未用于英伟达旗舰产品 |
 
 🟡 分析师估计 CoWoS-S 封装成本约为每颗 H100 $750，CoWoS-L 约为每颗 B200 $1,100–1,500（估计）[[S35040]](../../../sources/bibliography.md#s35040)[[S35020]](../../../sources/bibliography.md#s35020)，与约 $2,900 的 HBM 成本相比很小 [[S35020]](../../../sources/bibliography.md#s35020)。约束在于能否拿到产能，而非价格。
 
@@ -88,9 +88,9 @@ flowchart LR
 
 | 方案 | 是什么 | 规模与时间 | 带来的改变 |
 |---|---|---|---|
-| **英特尔（Intel）[EMIB](../../../glossary.md#emib)-T、[Foveros](../../../glossary.md#foveros)** | 在基板中嵌入桥接；Foveros 进行 3D 裸片堆叠 | 🟡 2027 年约每月 15–20k 片 CoWoS 等效晶圆，2028 年约 40–45k（估计）[[S3002]](../../../sources/bibliography.md#s3002) | 一条非台积电的路线，包括在美国本土 |
-| **[封测代工厂（OSAT）](../../../glossary.md#osat)**（日月光/矽品（ASE/SPIL）、安靠（Amkor）） | 承接更多 CoWoS 工序；建设类 CoWoS 产线 | 🟡 台积电正外包更多芯片上晶圆（CoW）工序 [[S3003]](../../../sources/bibliography.md#s3003)；到 2028 年底约每月 110k 片等效晶圆 [[S3002]](../../../sources/bibliography.md#s3002) | 增加产能；最先进的工艺流程仍需经台积电认证 |
-| **[面板级封装](../../../glossary.md#panel-level-packaging) / [CoPoS](../../../glossary.md#copos)** | 以方形面板取代圆形晶圆 | 🟡 2026 年中试产；约 2028 年下半年至 2029 年量产 [[S3004]](../../../sources/bibliography.md#s3004)[[S3005]](../../../sources/bibliography.md#s3005) | 对超大封装而言边缘浪费更少；存在翘曲风险 |
+| **英特尔（Intel）[EMIB](../../glossary.md#emib)-T、[Foveros](../../glossary.md#foveros)** | 在基板中嵌入桥接；Foveros 进行 3D 裸片堆叠 | 🟡 2027 年约每月 15–20k 片 CoWoS 等效晶圆，2028 年约 40–45k（估计）[[S3002]](../../../sources/bibliography.md#s3002) | 一条非台积电的路线，包括在美国本土 |
+| **[封测代工厂（OSAT）](../../glossary.md#osat)**（日月光/矽品（ASE/SPIL）、安靠（Amkor）） | 承接更多 CoWoS 工序；建设类 CoWoS 产线 | 🟡 台积电正外包更多芯片上晶圆（CoW）工序 [[S3003]](../../../sources/bibliography.md#s3003)；到 2028 年底约每月 110k 片等效晶圆 [[S3002]](../../../sources/bibliography.md#s3002) | 增加产能；最先进的工艺流程仍需经台积电认证 |
+| **[面板级封装](../../glossary.md#panel-level-packaging) / [CoPoS](../../glossary.md#copos)** | 以方形面板取代圆形晶圆 | 🟡 2026 年中试产；约 2028 年下半年至 2029 年量产 [[S3004]](../../../sources/bibliography.md#s3004)[[S3005]](../../../sources/bibliography.md#s3005) | 对超大封装而言边缘浪费更少；存在翘曲风险 |
 
 > [!TIP]
 > **算例 —— 为什么要用面板。** 🔴 在 9.5 倍光罩尺寸下，4 个约 8,150 mm² 的中介层占用约 32,600 mm²，而晶圆可用面积约 67,900 mm²，利用率不到一半 [[S3000]](../../../sources/bibliography.md#s3000)[[S380]](../../../sources/bibliography.md#s380)。矩形在方形面板上拼排时浪费要少得多。**商业解读：** CoPoS 对 2027–28 年的超大封装最为关键，而这恰好是它预计投产的时间。
@@ -98,7 +98,7 @@ flowchart LR
 ## 🎯 企业发展视角
 
 1. **这个瓶颈拥有成本低，掌控价值高。** CoWoS 仅约占其所决定营收的 3–4%（估计）[[S3000]](../../../sources/bibliography.md#s3000)，这正是英伟达提前数年锁定配额的原因。
-2. **第二供应来源对在台积电排队中位于英伟达之后的 [ASIC](../../../glossary.md#asic) 项目最为重要。** 哪些[超大规模云厂商](../../../glossary.md#hyperscaler)或商用芯片项目会率先承诺采用 EMIB-T、OSAT 产线或 CoPoS [[S3002]](../../../sources/bibliography.md#s3002)[[S3003]](../../../sources/bibliography.md#s3003)[[S3004]](../../../sources/bibliography.md#s3004)？
+2. **第二供应来源对在台积电排队中位于英伟达之后的 [ASIC](../../glossary.md#asic) 项目最为重要。** 哪些[超大规模云厂商](../../glossary.md#hyperscaler)或商用芯片项目会率先承诺采用 EMIB-T、OSAT 产线或 CoPoS [[S3002]](../../../sources/bibliography.md#s3002)[[S3003]](../../../sources/bibliography.md#s3003)[[S3004]](../../../sources/bibliography.md#s3004)？
 3. **封装尺寸是路线图风险。** 有报道称 Rubin Ultra 需要返工重新设计 [[S509]](../../../sources/bibliography.md#s509)，表明封装可能迫使产品重新规划。那些假定 2027 年采用 5–9 倍光罩尺寸封装的竞争对手路线图，风险敞口有多大？乘上这轮建设浪潮的供应商见[价值链](value-chain-and-corp-dev.md)。
 
 ## 📚 来源（Sources）

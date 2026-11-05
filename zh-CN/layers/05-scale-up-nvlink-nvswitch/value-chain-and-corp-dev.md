@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **英伟达保留了[纵向扩展（scale-up）](../../../glossary.md#scale-up)的大部分价值：** 网络业务在 Q4 FY2026 达到约 $11B，增长主要由 [NVLink](../../../glossary.md#nvlink) 交换芯片驱动；在 Q2 FY2027 约为 $17.5B（估计），占数据中心收入的五分之一 [[S402]](../../../sources/bibliography.md#s402)[[S5514]](../../../sources/bibliography.md#s5514)[[S408]](../../../sources/bibliography.md#s408)[[S90013]](../../../sources/bibliography.md#s90013)。
-- **Rubin 让每机架的交换芯片含量翻倍：** 每台 [NVL72](../../../glossary.md#nvl72) 有 36 颗 NVLink 交换芯片，GB300 为 18 颗。在一台 $7.8M 的 Vera Rubin 机架中，除 GPU、内存、CPU、散热和 ODM 利润之外约 19% 的部分包含了这些芯片（估计，摩根士丹利（Morgan Stanley）；本资料库推算余项）[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
-- **铜缆供应商同样增长迅猛。** 安费诺（Amphenol）2026 年第三季度销售额增长 65% 至 $10.2B，AI 约占 IT 数据通信业务的四分之三 [[S5503]](../../../sources/bibliography.md#s5503)。Credo 凭借[有源电缆（AEC）](../../../glossary.md#active-electrical-cable)，FY2026 收入增长两倍至 $1.335B [[S5504]](../../../sources/bibliography.md#s5504)。Astera Labs 季度收入翻倍至 $392M [[S3524]](../../../sources/bibliography.md#s3524)。
-- **[SerDes](../../../glossary.md#serdes) IP 正在整合：** 高通（Qualcomm）于 2025-12-18 完成对 Alphawave Semi 约 $2.4B 的收购。新思科技（Synopsys）与楷登电子（Cadence）向 [NVLink Fusion](../../../glossary.md#nvlink-fusion) 授权 IP [[S4514]](../../../sources/bibliography.md#s4514)[[S4513]](../../../sources/bibliography.md#s4513)[[S217]](../../../sources/bibliography.md#s217)。
+- **英伟达保留了[纵向扩展（scale-up）](../../glossary.md#scale-up)的大部分价值：** 网络业务在 Q4 FY2026 达到约 $11B，增长主要由 [NVLink](../../glossary.md#nvlink) 交换芯片驱动；在 Q2 FY2027 约为 $17.5B（估计），占数据中心收入的五分之一 [[S402]](../../../sources/bibliography.md#s402)[[S5514]](../../../sources/bibliography.md#s5514)[[S408]](../../../sources/bibliography.md#s408)[[S90013]](../../../sources/bibliography.md#s90013)。
+- **Rubin 让每机架的交换芯片含量翻倍：** 每台 [NVL72](../../glossary.md#nvl72) 有 36 颗 NVLink 交换芯片，GB300 为 18 颗。在一台 $7.8M 的 Vera Rubin 机架中，除 GPU、内存、CPU、散热和 ODM 利润之外约 19% 的部分包含了这些芯片（估计，摩根士丹利（Morgan Stanley）；本资料库推算余项）[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
+- **铜缆供应商同样增长迅猛。** 安费诺（Amphenol）2026 年第三季度销售额增长 65% 至 $10.2B，AI 约占 IT 数据通信业务的四分之三 [[S5503]](../../../sources/bibliography.md#s5503)。Credo 凭借[有源电缆（AEC）](../../glossary.md#active-electrical-cable)，FY2026 收入增长两倍至 $1.335B [[S5504]](../../../sources/bibliography.md#s5504)。Astera Labs 季度收入翻倍至 $392M [[S3524]](../../../sources/bibliography.md#s3524)。
+- **[SerDes](../../glossary.md#serdes) IP 正在整合：** 高通（Qualcomm）于 2025-12-18 完成对 Alphawave Semi 约 $2.4B 的收购。新思科技（Synopsys）与楷登电子（Cadence）向 [NVLink Fusion](../../glossary.md#nvlink-fusion) 授权 IP [[S4514]](../../../sources/bibliography.md#s4514)[[S4513]](../../../sources/bibliography.md#s4513)[[S217]](../../../sources/bibliography.md#s217)。
 - **光学与交换芯片初创公司正被收购：** 美满电子（Marvell）于 2026 年 2 月完成对 Celestial AI（首付 $3.25B）和 XConn 的收购，英伟达则以超过 $900M 招揽了 Enfabrica 的团队 [[S2513]](../../../sources/bibliography.md#s2513)[[S5508]](../../../sources/bibliography.md#s5508)[[S475]](../../../sources/bibliography.md#s475)。
-- **[Q8 · 价值池与并购机会]** 共有四个价值池：交换芯片、SerDes IP、铜缆互连与[光 I/O](../../../glossary.md#optical-io)。英伟达在其机架中独占第一个；[UALink](../../../glossary.md#ualink) 与以太网纵向扩展将于 2027 年向商用芯片厂商开放这一价值池 🟡 [[S90051]](../../../sources/bibliography.md#s90051)[[S275]](../../../sources/bibliography.md#s275)。
+- **[Q8 · 价值池与并购机会]** 共有四个价值池：交换芯片、SerDes IP、铜缆互连与[光 I/O](../../glossary.md#optical-io)。英伟达在其机架中独占第一个；[UALink](../../glossary.md#ualink) 与以太网纵向扩展将于 2027 年向商用芯片厂商开放这一价值池 🟡 [[S90051]](../../../sources/bibliography.md#s90051)[[S275]](../../../sources/bibliography.md#s275)。
 
 ![季度收入横向柱状图：英伟达网络业务在 Q2 FY2027 约 $17.5B（根据 CFO 所称在 $14.8B 基础上环比增长 18% 估算；Q4 FY2026 的增长主要由 NVLink 纵向扩展交换芯片驱动），安费诺 2026 年第三季度 AI 相关 IT 数据通信约 $3.7B（推算：$10.2B 销售额的 48%，其中四分之三为 AI），Credo $0.48B（截至 2026 年 8 月的季度），Astera Labs $0.39B（2026 年第二季度，第三季度指引约 $0.55B）。三家供应商合计约 $4.6B，约为英伟达网络业务的四分之一。](../../../assets/charts/05-scale-up-supplier-revenue.svg)
 
 ## 纵向扩展域中的收益由谁获取
 
-纵向扩展域包含四类内容：**交换芯片**（英伟达，或 Helios 中的博通（Broadcom））、每颗芯片上的 **SerDes**（自研或授权）、**铜缆**背板线缆盒、线缆与连接器，以及在链路过长、无源铜缆无法覆盖时使用的**[重定时器（retimer）](../../../glossary.md#retimer)与 AEC**。英伟达设计机架并销售交换托盘；其余部分由 ODM 组装。在一台 GB300 机架中，交换托盘归入约 $3.99M 总价中约 $0.94M 的“其他内容”类别（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)。
+纵向扩展域包含四类内容：**交换芯片**（英伟达，或 Helios 中的博通（Broadcom））、每颗芯片上的 **SerDes**（自研或授权）、**铜缆**背板线缆盒、线缆与连接器，以及在链路过长、无源铜缆无法覆盖时使用的**[重定时器（retimer）](../../glossary.md#retimer)与 AEC**。英伟达设计机架并销售交换托盘；其余部分由 ODM 组装。在一台 GB300 机架中，交换托盘归入约 $3.99M 总价中约 $0.94M 的“其他内容”类别（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)。
 
 ![瀑布图：一台估计 $3.99M 的 GB300 NVL72 机架构成：GPU 裸片、CoWoS-L 封装与测试约 $0.25M，英伟达在 GPU 上的毛利约 $2.27M（57%），HBM3E 与 LPDDR5X 内存 $0.37M，其他机架内容（Grace CPU、NVLink 交换托盘、网卡、PCB、电源、机箱）约 $0.94M，液冷 $50K，ODM 毛利约 $108K。](../../../assets/charts/08-rack-bom-waterfall.svg)
 
@@ -38,13 +38,13 @@
 <details>
 <summary>🔧 技术细节：重定时器与 AEC 的适用与不适用场景</summary>
 
-在每通道 200G 下，无源铜缆传输距离仅约 1–2 m [[S262]](../../../sources/bibliography.md#s262)。在单台 NVL72 内部，背板保持无源，这正是英伟达能够省去约 20 kW 光学器件的原因 [[S5515]](../../../sources/bibliography.md#s5515)。重定时器和 AEC 会重建信号，让铜缆再延长几米，目前主要用于网卡到交换机的[横向扩展（scale-out）](../../../glossary.md#scale-out)链路。多机架纵向扩展（NVL576、NVL1152）才是 AEC、光学与 [CPO](../../../glossary.md#co-packaged-optics) 的竞争战场 [[S108]](../../../sources/bibliography.md#s108)。Credo 在 FY2026 的增长来自[超大规模云厂商](../../../glossary.md#hyperscaler)的 AEC 出货量 [[S5505]](../../../sources/bibliography.md#s5505)。
+在每通道 200G 下，无源铜缆传输距离仅约 1–2 m [[S262]](../../../sources/bibliography.md#s262)。在单台 NVL72 内部，背板保持无源，这正是英伟达能够省去约 20 kW 光学器件的原因 [[S5515]](../../../sources/bibliography.md#s5515)。重定时器和 AEC 会重建信号，让铜缆再延长几米，目前主要用于网卡到交换机的[横向扩展（scale-out）](../../glossary.md#scale-out)链路。多机架纵向扩展（NVL576、NVL1152）才是 AEC、光学与 [CPO](../../glossary.md#co-packaged-optics) 的竞争战场 [[S108]](../../../sources/bibliography.md#s108)。Credo 在 FY2026 的增长来自[超大规模云厂商](../../glossary.md#hyperscaler)的 AEC 出货量 [[S5505]](../../../sources/bibliography.md#s5505)。
 
 </details>
 
 ## 供应商、合作伙伴与私营公司
 
-**NVLink Fusion 首发合作伙伴**包括联发科（MediaTek）、美满电子、世芯（Alchip）和 Astera Labs（定制芯片与互连），新思科技和楷登电子（IP），以及高通和富士通（Fujitsu）（CPU）[[S217]](../../../sources/bibliography.md#s217)[[S90031]](../../../sources/bibliography.md#s90031)。随后又有 Arm Neoverse 支持（2025 年 11 月）、AWS Trainium4（2025 年 12 月）以及英伟达对美满电子 $2B 的入股（2026 年 3 月）[[S219]](../../../sources/bibliography.md#s219)[[S518]](../../../sources/bibliography.md#s518)[[S218]](../../../sources/bibliography.md#s218)。其中多家同时支持开放阵营：Astera Labs 是 UALink 董事会成员 [[S5520]](../../../sources/bibliography.md#s5520)，美满电子则收购了 XConn 的 [PCIe](../../../glossary.md#pcie)/CXL 交换芯片团队，为 UALink 时代的交换业务布局 [[S5508]](../../../sources/bibliography.md#s5508)[[S5510]](../../../sources/bibliography.md#s5510)。
+**NVLink Fusion 首发合作伙伴**包括联发科（MediaTek）、美满电子、世芯（Alchip）和 Astera Labs（定制芯片与互连），新思科技和楷登电子（IP），以及高通和富士通（Fujitsu）（CPU）[[S217]](../../../sources/bibliography.md#s217)[[S90031]](../../../sources/bibliography.md#s90031)。随后又有 Arm Neoverse 支持（2025 年 11 月）、AWS Trainium4（2025 年 12 月）以及英伟达对美满电子 $2B 的入股（2026 年 3 月）[[S219]](../../../sources/bibliography.md#s219)[[S518]](../../../sources/bibliography.md#s518)[[S218]](../../../sources/bibliography.md#s218)。其中多家同时支持开放阵营：Astera Labs 是 UALink 董事会成员 [[S5520]](../../../sources/bibliography.md#s5520)，美满电子则收购了 XConn 的 [PCIe](../../glossary.md#pcie)/CXL 交换芯片团队，为 UALink 时代的交换业务布局 [[S5508]](../../../sources/bibliography.md#s5508)[[S5510]](../../../sources/bibliography.md#s5510)。
 
 | 私营公司 | 业务 | 最近一次公开融资 | 为何重要 |
 |---|---|---|---|
@@ -59,7 +59,7 @@
 
 ## 并购历史与价值池地图
 
-英伟达买下了交换技术能力（Mellanox，$6.9B，2020-04-27 完成交割）[[S464]](../../../sources/bibliography.md#s464)，招揽了一支互连网络团队（Enfabrica）[[S475]](../../../sources/bibliography.md#s475)，并以股权投资绑定合作伙伴：英特尔（$5B，[x86](../../../glossary.md#x86) CPU 接入 NVLink）与美满电子（$2B，Fusion XPU）[[S468]](../../../sources/bibliography.md#s468)[[S218]](../../../sources/bibliography.md#s218)。竞争对手则收购了自己缺失的拼图：机架团队（AMD 收购 ZT Systems，$4.9B，制造业务转售给 Sanmina）[[S5527]](../../../sources/bibliography.md#s5527)[[S5528]](../../../sources/bibliography.md#s5528)、SerDes（高通收购 Alphawave）、光学（美满电子收购 Celestial AI）和交换芯片（美满电子收购 XConn）[[S4514]](../../../sources/bibliography.md#s4514)[[S2513]](../../../sources/bibliography.md#s2513)[[S5508]](../../../sources/bibliography.md#s5508)。
+英伟达买下了交换技术能力（Mellanox，$6.9B，2020-04-27 完成交割）[[S464]](../../../sources/bibliography.md#s464)，招揽了一支互连网络团队（Enfabrica）[[S475]](../../../sources/bibliography.md#s475)，并以股权投资绑定合作伙伴：英特尔（$5B，[x86](../../glossary.md#x86) CPU 接入 NVLink）与美满电子（$2B，Fusion XPU）[[S468]](../../../sources/bibliography.md#s468)[[S218]](../../../sources/bibliography.md#s218)。竞争对手则收购了自己缺失的拼图：机架团队（AMD 收购 ZT Systems，$4.9B，制造业务转售给 Sanmina）[[S5527]](../../../sources/bibliography.md#s5527)[[S5528]](../../../sources/bibliography.md#s5528)、SerDes（高通收购 Alphawave）、光学（美满电子收购 Celestial AI）和交换芯片（美满电子收购 XConn）[[S4514]](../../../sources/bibliography.md#s4514)[[S2513]](../../../sources/bibliography.md#s2513)[[S5508]](../../../sources/bibliography.md#s5508)。
 
 ```mermaid
 flowchart LR
@@ -87,7 +87,7 @@ flowchart LR
 
 ## 🎯 企业发展视角
 
-1. 对 CPU 或加速器厂商而言，参与 NVLink Fusion 能换来什么（进入英伟达机架、接触其客户），又要付出什么（依赖英伟达的交换托盘、定价与路线图），与 UALink 或 [ESUN](../../../glossary.md#esun) 相比孰优孰劣 [[S217]](../../../sources/bibliography.md#s217)[[S518]](../../../sources/bibliography.md#s518)？
+1. 对 CPU 或加速器厂商而言，参与 NVLink Fusion 能换来什么（进入英伟达机架、接触其客户），又要付出什么（依赖英伟达的交换托盘、定价与路线图），与 UALink 或 [ESUN](../../glossary.md#esun) 相比孰优孰劣 [[S217]](../../../sources/bibliography.md#s217)[[S518]](../../../sources/bibliography.md#s518)？
 2. 高通（仅基于公开信息）是 Fusion CPU 合作伙伴，拥有 Alphawave 的 SerDes，并计划在 2028 年的 AI300 上采用 UALink/ESUN [[S90031]](../../../sources/bibliography.md#s90031)[[S4513]](../../../sources/bibliography.md#s4513)[[S90060]](../../../sources/bibliography.md#s90060)。哪些资产可同时服务两种互连网络？哪些需要自建或收购？
 3. 在 Celestial AI、Enfabrica 与 Alphawave 已被收编之后，还剩下哪些独立的光 I/O 或交换芯片团队（Ayar Labs、Lightmatter、Upscale AI），估值几何 [[S5511]](../../../sources/bibliography.md#s5511)[[S2510]](../../../sources/bibliography.md#s2510)[[S5506]](../../../sources/bibliography.md#s5506)？
 4. 从铜缆向光学的转型（Feynman NVL1152）会把价值从连接器厂商转移到光子器件供应商，还是两者都会随出货量增长 [[S108]](../../../sources/bibliography.md#s108)[[S5503]](../../../sources/bibliography.md#s5503)？

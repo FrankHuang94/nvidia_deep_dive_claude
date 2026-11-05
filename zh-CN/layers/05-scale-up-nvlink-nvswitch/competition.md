@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **决定[纵向扩展（scale-up）](../../../glossary.md#scale-up)竞争胜负的三要素：** 每个加速器的带宽、域规模，以及内存式的加载与存储。英伟达的 Vera Rubin [NVL72](../../../glossary.md#nvl72) 提供 72 颗 GPU、每颗 3.0 TB/s，低于发布时宣布的 3.6 TB/s [[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)。
+- **决定[纵向扩展（scale-up）](../../glossary.md#scale-up)竞争胜负的三要素：** 每个加速器的带宽、域规模，以及内存式的加载与存储。英伟达的 Vera Rubin [NVL72](../../glossary.md#nvl72) 提供 72 颗 GPU、每颗 3.0 TB/s，低于发布时宣布的 3.6 TB/s [[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)。
 - **[Q5 · 最强挑战者]** AMD 的 Helios 借助博通（Broadcom）Tomahawk 6 以太网交换机承载 UALink，以 260 TB/s（每 GPU 3.6 TB/s）连接 72 颗 MI455X [[S226]](../../../sources/bibliography.md#s226)[[S5523]](../../../sources/bibliography.md#s5523)；首批机架约在 2026 年第三季度末出货，而 NVL72 早在 2024 年底即已出货 [[S90020]](../../../sources/bibliography.md#s90020)[[S121]](../../../sources/bibliography.md#s121)。
 - **在域规模上英伟达落后：** 一个谷歌 Ironwood pod 容纳 9,216 颗 TPU（为 NVL72 的 128 倍），华为目标为 8,192 颗 NPU，二者均采用多跳环面或光互连网络，每芯片带宽为 1.2–2.4 TB/s 🟡 [[S232]](../../../sources/bibliography.md#s232)[[S249]](../../../sources/bibliography.md#s249)。
-- **开放标准姗姗来迟：** [UALink](../../../glossary.md#ualink) 1.0（2025 年 4 月）和 2.0（2026 年 4 月）仅停留在纸面上；产品将于 2027 年跟进 🟡 [[S573]](../../../sources/bibliography.md#s573)[[S574]](../../../sources/bibliography.md#s574)[[S90051]](../../../sources/bibliography.md#s90051)。以太网纵向扩展芯片则已出货：Tomahawk Ultra 自 2025 年 7 月起供货 [[S275]](../../../sources/bibliography.md#s275)。
-- **客户在分散押注。** AWS Trainium4 将采用 [NVLink Fusion](../../../glossary.md#nvlink-fusion)，而高通的 Dragonfly AI300（2028 年）选择了 UALink 与 [ESUN](../../../glossary.md#esun)，尽管其服务器 CPU 采用 [NVLink](../../../glossary.md#nvlink) Fusion 🟢 [[S518]](../../../sources/bibliography.md#s518)[[S90060]](../../../sources/bibliography.md#s90060)[[S90031]](../../../sources/bibliography.md#s90031)。
+- **开放标准姗姗来迟：** [UALink](../../glossary.md#ualink) 1.0（2025 年 4 月）和 2.0（2026 年 4 月）仅停留在纸面上；产品将于 2027 年跟进 🟡 [[S573]](../../../sources/bibliography.md#s573)[[S574]](../../../sources/bibliography.md#s574)[[S90051]](../../../sources/bibliography.md#s90051)。以太网纵向扩展芯片则已出货：Tomahawk Ultra 自 2025 年 7 月起供货 [[S275]](../../../sources/bibliography.md#s275)。
+- **客户在分散押注。** AWS Trainium4 将采用 [NVLink Fusion](../../glossary.md#nvlink-fusion)，而高通的 Dragonfly AI300（2028 年）选择了 UALink 与 [ESUN](../../glossary.md#esun)，尽管其服务器 CPU 采用 [NVLink](../../glossary.md#nvlink) Fusion 🟢 [[S518]](../../../sources/bibliography.md#s518)[[S90060]](../../../sources/bibliography.md#s90060)[[S90031]](../../../sources/bibliography.md#s90031)。
 - **英伟达的弱点：** 铜缆域局限于单个机架。144 GPU 的 Kyber 机架计划于 2027 年下半年推出，但有报道称可能推迟至 2028 年，英伟达对此予以否认 🟡 [[S5517]](../../../sources/bibliography.md#s5517)[[S507]](../../../sources/bibliography.md#s507)[[S508]](../../../sources/bibliography.md#s508)。
 
 ![对数刻度横向柱状图，展示各厂商纵向扩展域规模：英伟达 NVL72 目前为 72 颗 GPU，Kyber NVL144 与 NVL576 于 2027 年、NVL1152 于 2028 年（路线图）；AMD Helios 为 72；AWS Trn3 UltraServer 为 144；华为 CloudMatrix 384 与 Atlas 950 为 8,192（2026 年第四季度）；谷歌 Ironwood 为 9,216、TPU 8t 为 9,600 颗芯片，但 TPU pod 是多跳环面，而非交换式全互连；UALink 1.0 允许 1,024。](../../../assets/charts/05-scale-up-domain-size-by-vendor.svg)
 
 ## 纵向扩展竞争如何计分
 
-纵向扩展域就像一间开放式办公室，任何人都可以翻看任何一张桌子上的文件；[横向扩展（scale-out）](../../../glossary.md#scale-out)则像各个办公室之间靠快递互寄信件。在 NVLink 中，一颗 GPU 经一跳 [NVSwitch](../../../glossary.md#nvswitch) 即可对另一颗 GPU 的内存执行加载或存储。这种**[加载/存储语义](../../../glossary.md#load-store-semantics)**对[混合专家模型（MoE）](../../../glossary.md#mixture-of-experts)最为关键，因为其[全交换（all-to-all）](../../../glossary.md#all-to-all)流量会同时冲击每一颗 GPU（见 [P4](../../../primers/P4-parallelism-explained.md)）。
+纵向扩展域就像一间开放式办公室，任何人都可以翻看任何一张桌子上的文件；[横向扩展（scale-out）](../../glossary.md#scale-out)则像各个办公室之间靠快递互寄信件。在 NVLink 中，一颗 GPU 经一跳 [NVSwitch](../../glossary.md#nvswitch) 即可对另一颗 GPU 的内存执行加载或存储。这种**[加载/存储语义](../../glossary.md#load-store-semantics)**对[混合专家模型（MoE）](../../glossary.md#mixture-of-experts)最为关键，因为其[全交换（all-to-all）](../../glossary.md#all-to-all)流量会同时冲击每一颗 GPU（见 [P4](../../primers/P4-parallelism-explained.md)）。
 
 | 竞争者（技术基础） | 每加速器带宽 | 域规模 | 延迟与语义 | 开放性 | 出货状态 |
 |---|---|---|---|---|---|
@@ -34,14 +34,14 @@
 ![热力图：六个纵向扩展竞争者在五个维度上对比英伟达 Vera Rubin NVL72。在域规模上，6 家中有 5 家领先（谷歌 TPU pod 9,216-9,600 颗芯片，华为 384 至 8,192，AWS 144，UALink 规范 1,024，以太网 512），AMD Helios 以 72 持平。在每加速器带宽上，仅 AMD Helios 领先（3.6 vs 3.0 TB/s）；谷歌、AWS 和华为落后。UALink、以太网纵向扩展和 AMD 在开放性上领先。在成熟度上，UALink、华为 Atlas 950 和 Helios 落后，而谷歌基于光交换的 pod 自 2021 年起即已运行。](../../../assets/charts/05-scale-up-competitor-heatmap.svg)
 
 > [!TIP]
-> **算例 —— 为何交换式域对混合专家层至关重要。** 假设每颗 GPU 持有 4,096 个 token，并把每个 token 的 7,168 维 [FP8](../../../glossary.md#fp8) 向量（约 7.2 KB）发送给其他 GPU 上的 8 个专家。每层需发出约 235 MB、再取回约 235 MB。NVLink 6 单向 1.5 TB/s，因此往返约需 0.31 ms [[S200]](../../../sources/bibliography.md#s200)。Vera Rubin 的 1.6 Tb/s 横向扩展[网卡（NIC）](../../../glossary.md#nic)单向 200 GB/s，同样的交换约需 2.35 ms，慢 7.5 倍 [[S33004]](../../../sources/bibliography.md#s33004)。在 60 层中，NVLink 每次前向传播可节省 100 ms 以上，这正是域规模与每 GPU 带宽需一并定价的原因。
+> **算例 —— 为何交换式域对混合专家层至关重要。** 假设每颗 GPU 持有 4,096 个 token，并把每个 token 的 7,168 维 [FP8](../../glossary.md#fp8) 向量（约 7.2 KB）发送给其他 GPU 上的 8 个专家。每层需发出约 235 MB、再取回约 235 MB。NVLink 6 单向 1.5 TB/s，因此往返约需 0.31 ms [[S200]](../../../sources/bibliography.md#s200)。Vera Rubin 的 1.6 Tb/s 横向扩展[网卡（NIC）](../../glossary.md#nic)单向 200 GB/s，同样的交换约需 2.35 ms，慢 7.5 倍 [[S33004]](../../../sources/bibliography.md#s33004)。在 60 层中，NVLink 每次前向传播可节省 100 ms 以上，这正是域规模与每 GPU 带宽需一并定价的原因。
 
 ![横向柱状图，展示每加速器纵向扩展带宽：英伟达 Blackwell 1.8 TB/s，Rubin 3.0 TB/s（由 3.6 TB/s 下调），Rubin Ultra 3.6 TB/s（路线图）；AMD MI355X 1.1 TB/s，MI455X 3.6 TB/s；谷歌 Ironwood 1.2、TPU 8t 2.4 TB/s；AWS Trainium2 1.0、Trainium3 2.0 TB/s；华为昇腾 910C 0.8、昇腾 950 2.0 TB/s；英特尔 Gaudi 3 1.2 TB/s。](../../../assets/charts/05-scale-up-bandwidth-per-accelerator-by-vendor.svg)
 
 <details>
 <summary>🔧 技术细节：为何环面成本低，但全交换流量更慢</summary>
 
-在交换式域中，每颗 GPU 都把全部带宽注入一台交换机，经一跳即可到达其他任意 GPU。在[环面（torus）](../../../glossary.md#torus-topology)中，每颗芯片只与相邻芯片相连，因此发往远端芯片的数据包会占用其经过的每一条链路的带宽。在 4×4×4 立方体中，平均路径约为 3 跳。一颗 Ironwood 芯片有 6 条链路 × 单向 100 GB/s [[S232]](../../../sources/bibliography.md#s232)，因此在均匀的全交换流量下，其可用注入带宽约为 600 ÷ 3 ≈ 单向 200 GB/s：这是横向扩展的速度，而非 NVLink 的速度（本资料库估算，假设理想路由）。当流量停留在相邻芯片之间时（张量并行与流水线并行），环面 pod 胜出；当流量均匀分布时（专家路由），环面 pod 落败。
+在交换式域中，每颗 GPU 都把全部带宽注入一台交换机，经一跳即可到达其他任意 GPU。在[环面（torus）](../../glossary.md#torus-topology)中，每颗芯片只与相邻芯片相连，因此发往远端芯片的数据包会占用其经过的每一条链路的带宽。在 4×4×4 立方体中，平均路径约为 3 跳。一颗 Ironwood 芯片有 6 条链路 × 单向 100 GB/s [[S232]](../../../sources/bibliography.md#s232)，因此在均匀的全交换流量下，其可用注入带宽约为 600 ÷ 3 ≈ 单向 200 GB/s：这是横向扩展的速度，而非 NVLink 的速度（本资料库估算，假设理想路由）。当流量停留在相邻芯片之间时（张量并行与流水线并行），环面 pod 胜出；当流量均匀分布时（专家路由），环面 pod 落败。
 
 </details>
 
@@ -49,11 +49,11 @@
 
 ### AMD：Helios 与基于以太网的 UALink（最强）
 
-AMD 以 72 GPU 的交换式机架，取代了 MI355X 无交换芯片的 8 GPU [Infinity Fabric](../../../glossary.md#infinity-fabric) 网格（每 GPU 约 1.1 TB/s）[[S229]](../../../sources/bibliography.md#s229)[[S226]](../../../sources/bibliography.md#s226)[[S5524]](../../../sources/bibliography.md#s5524)。Helios 通过 Tomahawk 6 交换托盘承载[基于以太网的 UALink（UALoE）](../../../glossary.md#ualoe)：有报道称共六个托盘、每个两颗芯片，而 AMD 官方页面描述的是四个“纵向扩展线缆盒（scale-up cartridge）” 🟡 [[S5522]](../../../sources/bibliography.md#s5522)[[S226]](../../../sources/bibliography.md#s226)。**最有力的论据：** 与 NVL72 同样的形态、纸面上更高的每 GPU 带宽、无需缴纳英伟达交换芯片“税”，且已有 OpenAI、甲骨文（Oracle）和 Azure 排队采用 [[S546]](../../../sources/bibliography.md#s546)[[S90022]](../../../sources/bibliography.md#s90022)[[S90024]](../../../sources/bibliography.md#s90024)。**差距是否已缩小：** 纸面上是；在已部署机架和软件上，尚未。
+AMD 以 72 GPU 的交换式机架，取代了 MI355X 无交换芯片的 8 GPU [Infinity Fabric](../../glossary.md#infinity-fabric) 网格（每 GPU 约 1.1 TB/s）[[S229]](../../../sources/bibliography.md#s229)[[S226]](../../../sources/bibliography.md#s226)[[S5524]](../../../sources/bibliography.md#s5524)。Helios 通过 Tomahawk 6 交换托盘承载[基于以太网的 UALink（UALoE）](../../glossary.md#ualoe)：有报道称共六个托盘、每个两颗芯片，而 AMD 官方页面描述的是四个“纵向扩展线缆盒（scale-up cartridge）” 🟡 [[S5522]](../../../sources/bibliography.md#s5522)[[S226]](../../../sources/bibliography.md#s226)。**最有力的论据：** 与 NVL72 同样的形态、纸面上更高的每 GPU 带宽、无需缴纳英伟达交换芯片“税”，且已有 OpenAI、甲骨文（Oracle）和 Azure 排队采用 [[S546]](../../../sources/bibliography.md#s546)[[S90022]](../../../sources/bibliography.md#s90022)[[S90024]](../../../sources/bibliography.md#s90024)。**差距是否已缩小：** 纸面上是；在已部署机架和软件上，尚未。
 
 ### 谷歌：ICI 加光路交换机
 
-谷歌 TPU 采用 [ICI](../../../glossary.md#ici) 链路构成 3D 环面，立方体各面之间通过[光路交换机（OCS）](../../../glossary.md#optical-circuit-switch)连接 [[S237]](../../../sources/bibliography.md#s237)。4,096 芯片的 TPU v4 pod 使用了 48 台 OCS [[S237]](../../../sources/bibliography.md#s237)。Ironwood 以 1.2 TB/s 达到 9,216 颗芯片，TPU 8t 以 2.4 TB/s 达到 9,600 颗 [[S232]](../../../sources/bibliography.md#s232)[[S238]](../../../sources/bibliography.md#s238)[[S240]](../../../sources/bibliography.md#s240)。**最有力的论据：** 经过验证的最大域规模、较低的单芯片成本，且如今已在谷歌云之外销售 [[S90027]](../../../sources/bibliography.md#s90027)。**差距：** 每芯片带宽与全交换效率（见上文）。深度分析：[CS3](../../../case-studies/CS3-google-tpu-the-credible-alternative.md)。
+谷歌 TPU 采用 [ICI](../../glossary.md#ici) 链路构成 3D 环面，立方体各面之间通过[光路交换机（OCS）](../../glossary.md#optical-circuit-switch)连接 [[S237]](../../../sources/bibliography.md#s237)。4,096 芯片的 TPU v4 pod 使用了 48 台 OCS [[S237]](../../../sources/bibliography.md#s237)。Ironwood 以 1.2 TB/s 达到 9,216 颗芯片，TPU 8t 以 2.4 TB/s 达到 9,600 颗 [[S232]](../../../sources/bibliography.md#s232)[[S238]](../../../sources/bibliography.md#s238)[[S240]](../../../sources/bibliography.md#s240)。**最有力的论据：** 经过验证的最大域规模、较低的单芯片成本，且如今已在谷歌云之外销售 [[S90027]](../../../sources/bibliography.md#s90027)。**差距：** 每芯片带宽与全交换效率（见上文）。深度分析：[CS3](../../case-studies/CS3-google-tpu-the-credible-alternative.md)。
 
 ![两种纵向扩展拓扑并列对比：英伟达 NVL72 通过约 5,184 根线缆构成的铜缆背板，把 18 个各含 4 颗 GPU 的计算托盘连接到 9 个 NVLink 交换托盘，使每颗 GPU 经一跳交换即可以 1.8-3.0 TB/s 到达其他任意 GPU；谷歌 TPU pod 把 64 芯片的 4x4x4 立方体（Ironwood 为 144 个立方体 = 9,216 颗芯片）的各面通过光纤接入 MEMS 光路交换机，因此每颗芯片只与 6 个相邻芯片直接通信，远端芯片需经多跳才能到达。](../../../assets/diagrams/05-nvl72-vs-tpu-pod-topology.svg)
 
@@ -63,11 +63,11 @@ Trn3 UltraServer 通过 NeuronSwitch-v1 以每芯片 2 TB/s 连接 144 颗 Train
 
 ### 华为：UnifiedBus（灵衢）
 
-CloudMatrix 384 通过光学 [UnifiedBus](../../../glossary.md#unifiedbus) 交换机连接 384 颗昇腾 910C NPU。其稠密 [BF16](../../../glossary.md#bf16) 算力约为 300 [PFLOPS](../../../glossary.md#flops)，而 GB200 NVL72 为 180，但功耗约 559 kW，而后者约 145 kW（估计，SemiAnalysis）[[S248]](../../../sources/bibliography.md#s248)[[S340]](../../../sources/bibliography.md#s340)。Atlas 950 SuperPoD 的目标是在 2026 年第四季度实现 8,192 颗 NPU、每颗 2 TB/s。WAIC 2026 上展示了一套 1,024 NPU 系统 🟡 [[S249]](../../../sources/bibliography.md#s249)[[S250]](../../../sources/bibliography.md#s250)。**最有力的论据：** 在出口管制下，靠堆规模的蛮力路线行得通。**差距：** 功耗、单芯片速度与供应。
+CloudMatrix 384 通过光学 [UnifiedBus](../../glossary.md#unifiedbus) 交换机连接 384 颗昇腾 910C NPU。其稠密 [BF16](../../glossary.md#bf16) 算力约为 300 [PFLOPS](../../glossary.md#flops)，而 GB200 NVL72 为 180，但功耗约 559 kW，而后者约 145 kW（估计，SemiAnalysis）[[S248]](../../../sources/bibliography.md#s248)[[S340]](../../../sources/bibliography.md#s340)。Atlas 950 SuperPoD 的目标是在 2026 年第四季度实现 8,192 颗 NPU、每颗 2 TB/s。WAIC 2026 上展示了一套 1,024 NPU 系统 🟡 [[S249]](../../../sources/bibliography.md#s249)[[S250]](../../../sources/bibliography.md#s250)。**最有力的论据：** 在出口管制下，靠堆规模的蛮力路线行得通。**差距：** 功耗、单芯片速度与供应。
 
 ### 开放标准：UALink 与以太网纵向扩展
 
-UALink 1.0 定义了 200G 通道、内存语义传输以及最多 1,024 个加速器的 pod，不支持监听式缓存一致性 [[S573]](../../../sources/bibliography.md#s573)[[S224]](../../../sources/bibliography.md#s224)。首批 UALink 交换芯片之一——Upscale AI 的产品——目标于 2026 年第四季度推出 🟡 [[S5506]](../../../sources/bibliography.md#s5506)[[S5507]](../../../sources/bibliography.md#s5507)。以太网阵营包括博通的[纵向扩展以太网（SUE）](../../../glossary.md#scale-up-ethernet)、OCP ESUN 1.0 规范和 UE 1.1，它们为以太网增加了[链路层重传](../../../glossary.md#link-layer-retry)与基于信用的流量控制。Tomahawk Ultra 的交换延迟约 250 ns，Tomahawk 6 一跳可连接 512 个加速器 [[S275]](../../../sources/bibliography.md#s275)[[S274]](../../../sources/bibliography.md#s274)[[S576]](../../../sources/bibliography.md#s576)[[S575]](../../../sources/bibliography.md#s575)。**最有力的论据：** 多供应商供货与成熟的以太网工具链。**差距：** 尚无出货的 UALink 系统，且以太网成帧仍要额外耗费字节与纳秒。
+UALink 1.0 定义了 200G 通道、内存语义传输以及最多 1,024 个加速器的 pod，不支持监听式缓存一致性 [[S573]](../../../sources/bibliography.md#s573)[[S224]](../../../sources/bibliography.md#s224)。首批 UALink 交换芯片之一——Upscale AI 的产品——目标于 2026 年第四季度推出 🟡 [[S5506]](../../../sources/bibliography.md#s5506)[[S5507]](../../../sources/bibliography.md#s5507)。以太网阵营包括博通的[纵向扩展以太网（SUE）](../../glossary.md#scale-up-ethernet)、OCP ESUN 1.0 规范和 UE 1.1，它们为以太网增加了[链路层重传](../../glossary.md#link-layer-retry)与基于信用的流量控制。Tomahawk Ultra 的交换延迟约 250 ns，Tomahawk 6 一跳可连接 512 个加速器 [[S275]](../../../sources/bibliography.md#s275)[[S274]](../../../sources/bibliography.md#s274)[[S576]](../../../sources/bibliography.md#s576)[[S575]](../../../sources/bibliography.md#s575)。**最有力的论据：** 多供应商供货与成熟的以太网工具链。**差距：** 尚无出货的 UALink 系统，且以太网成帧仍要额外耗费字节与纳秒。
 
 ![纵向扩展域散点图。交换式全互连设计位于 72-384 个加速器区间：英伟达 GB200 NVL72（1.8 TB/s）、Vera Rubin NVL72（3.0 TB/s）、AMD Helios（3.6 TB/s）、AWS Trn3（144 颗芯片，2.0 TB/s）、华为 CloudMatrix 384（0.78 TB/s）以及路线图上的 Kyber NVL144（3.6 TB/s）。环面设计达到 9,216 颗芯片（谷歌 Ironwood，1.2 TB/s）和 9,600 颗（TPU 8t，2.4 TB/s），华为 Atlas 950 目标为 8,192 颗、2.0 TB/s。8 设备网格（MI355X、Gaudi 3）位于 1.1-1.2 TB/s。](../../../assets/charts/05-scale-up-domain-vs-bandwidth.svg)
 
@@ -101,7 +101,7 @@ quadrantChart
 
 ## 🎯 企业发展视角
 
-1. 如果 UALink 产品如报道所言于 2027 年推出，商用交换芯片厂商（博通、美满电子、Upscale AI）能以多快的速度在价格上压低英伟达的交换托盘？[SerDes](../../../glossary.md#serdes) 又由谁供应？
+1. 如果 UALink 产品如报道所言于 2027 年推出，商用交换芯片厂商（博通、美满电子、Upscale AI）能以多快的速度在价格上压低英伟达的交换托盘？[SerDes](../../glossary.md#serdes) 又由谁供应？
 2. Helios 表明 UALink 如今就能在以太网交换机上运行。这会让原生 UALink 交换芯片沦为搁浅投资，还是成为日后的降本步骤？
 3. 高通（仅基于公开信息）在 CPU 上采用 NVLink Fusion，在 2028 年的加速器上采用 UALink/ESUN [[S90031]](../../../sources/bibliography.md#s90031)[[S90060]](../../../sources/bibliography.md#s90060)。同时押注两种互连网络，在工程上要付出多少代价，又能换来哪些选择权？
 4. 环面与光互连 pod 在域规模上胜出：与同时服务两大阵营的光学供应商之间，是否存在合作机会？

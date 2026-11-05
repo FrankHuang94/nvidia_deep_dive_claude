@@ -7,17 +7,17 @@
 
 ## ⚡ 要点速览
 
-- **[纵向扩展（scale-up）](../../../glossary.md#scale-up)让众多 GPU 如同一颗 GPU 般协同工作。** [NVLink](../../../glossary.md#nvlink) 5 为每颗 Blackwell GPU 提供单向 900 GB/s 带宽，约为其 800G 网卡的 9 倍，并支持 GPU 之间的直接内存访问 [[S200]](../../../sources/bibliography.md#s200)[[S264]](../../../sources/bibliography.md#s264)。
-- **NVL72 是标志性产品：** 72 颗 GPU、18 颗 NVLink 交换芯片和约 5,000 根铜缆，在单个机架内提供 130 TB/s 带宽 [[S262]](../../../sources/bibliography.md#s262)[[S5000]](../../../sources/bibliography.md#s5000)；[Vera Rubin NVL72](../../../glossary.md#nvl72) 在 2026 年由 260 TB/s 下调后，达到 216 TB/s [[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)。
-- **为何当下尤为重要：** [混合专家模型（MoE）](../../../glossary.md#mixture-of-experts)与推理型模型让每一层都变成[全交换（all-to-all）](../../../glossary.md#all-to-all)。英伟达称其 MoE 推理性能相较 [HGX](../../../glossary.md#hgx) H200 提升约 10 倍 [[S5002]](../../../sources/bibliography.md#s5002)；基于相同芯片的数据显示，在偏重吞吐量的工作点上提升约 3 倍 [[S630]](../../../sources/bibliography.md#s630)。
+- **[纵向扩展（scale-up）](../../glossary.md#scale-up)让众多 GPU 如同一颗 GPU 般协同工作。** [NVLink](../../glossary.md#nvlink) 5 为每颗 Blackwell GPU 提供单向 900 GB/s 带宽，约为其 800G 网卡的 9 倍，并支持 GPU 之间的直接内存访问 [[S200]](../../../sources/bibliography.md#s200)[[S264]](../../../sources/bibliography.md#s264)。
+- **NVL72 是标志性产品：** 72 颗 GPU、18 颗 NVLink 交换芯片和约 5,000 根铜缆，在单个机架内提供 130 TB/s 带宽 [[S262]](../../../sources/bibliography.md#s262)[[S5000]](../../../sources/bibliography.md#s5000)；[Vera Rubin NVL72](../../glossary.md#nvl72) 在 2026 年由 260 TB/s 下调后，达到 216 TB/s [[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)。
+- **为何当下尤为重要：** [混合专家模型（MoE）](../../glossary.md#mixture-of-experts)与推理型模型让每一层都变成[全交换（all-to-all）](../../glossary.md#all-to-all)。英伟达称其 MoE 推理性能相较 [HGX](../../glossary.md#hgx) H200 提升约 10 倍 [[S5002]](../../../sources/bibliography.md#s5002)；基于相同芯片的数据显示，在偏重吞吐量的工作点上提升约 3 倍 [[S630]](../../../sources/bibliography.md#s630)。
 - **铜缆是不显山露水的护城河：** 每个机架可省去约 19 kW 功耗和约 $0.7M 的光学器件（估计）[[S5000]](../../../sources/bibliography.md#s5000)[[S5016]](../../../sources/bibliography.md#s5016)；但 200G 铜缆传输距离仅约 1 m [[S5010]](../../../sources/bibliography.md#s5010)，因此在共封装光学随 Feynman 到来之前，域的边界止于机架 🟢 [[S109]](../../../sources/bibliography.md#s109)。
-- **弱点与最强挑战者：** 72 颗 GPU 的规模落后于谷歌 9,216 芯片的 TPU pod [[S232]](../../../sources/bibliography.md#s232)；AMD 的 Helios 宣称 260 TB/s，高于 Rubin 下调后的 216 [[S226]](../../../sources/bibliography.md#s226)；[UALink](../../../glossary.md#ualink) 与 [ESUN](../../../glossary.md#esun) 旨在让这一层走向开放 [[S574]](../../../sources/bibliography.md#s574)[[S576]](../../../sources/bibliography.md#s576)。
-- **[NVLink Fusion](../../../glossary.md#nvlink-fusion) 开放了链路，但没有开放交换芯片：** 13 家合作伙伴，包括高通（Qualcomm）、富士通（Fujitsu）、英特尔（Intel）和 AWS Trainium4，且每套系统都必须包含英伟达芯片 🟡 [[S131]](../../../sources/bibliography.md#s131)[[S518]](../../../sources/bibliography.md#s518)[[S5018]](../../../sources/bibliography.md#s5018)。
+- **弱点与最强挑战者：** 72 颗 GPU 的规模落后于谷歌 9,216 芯片的 TPU pod [[S232]](../../../sources/bibliography.md#s232)；AMD 的 Helios 宣称 260 TB/s，高于 Rubin 下调后的 216 [[S226]](../../../sources/bibliography.md#s226)；[UALink](../../glossary.md#ualink) 与 [ESUN](../../glossary.md#esun) 旨在让这一层走向开放 [[S574]](../../../sources/bibliography.md#s574)[[S576]](../../../sources/bibliography.md#s576)。
+- **[NVLink Fusion](../../glossary.md#nvlink-fusion) 开放了链路，但没有开放交换芯片：** 13 家合作伙伴，包括高通（Qualcomm）、富士通（Fujitsu）、英特尔（Intel）和 AWS Trainium4，且每套系统都必须包含英伟达芯片 🟡 [[S131]](../../../sources/bibliography.md#s131)[[S518]](../../../sources/bibliography.md#s518)[[S5018]](../../../sources/bibliography.md#s5018)。
 
 ![对数刻度柱状图，展示每个纵向扩展域的 NVLink 总带宽：DGX-1 P100 为 1.28 TB/s（8 颗 GPU），DGX-1 V100 为 2.4，DGX-2 为 4.8（16 颗），HGX A100 为 4.8，HGX H100 为 7.2，HGX B200 为 14.4，GB200 与 GB300 NVL72 约 130 TB/s（72 颗 GPU），Vera Rubin NVL72 按下调后的量产规格为 216 TB/s（发布规格为 259），2027 年路线图上的 Kyber NVL144 约 518 TB/s（144 颗 GPU）。DGX GH200 在 256 颗 GPU 间达到 230 TB/s，但部署有限。](../../../assets/charts/05-nvlink-domain-bandwidth-by-system.svg)
 
 > [!TIP]
-> **算例 —— 每机架 216 TB/s 意味着什么。** 72 颗 GPU × 3.0 TB/s = **216 TB/s** [[S200]](../../../sources/bibliography.md#s200)。一个 Vera Rubin 机架的 72 块 ConnectX-9 网卡合计提供 72 × 200 GB/s = 14.4 TB/s 单向带宽，即双向 28.8 TB/s [[S33004]](../../../sources/bibliography.md#s33004)：NVLink 网络承载的带宽是整个机架[横向扩展（scale-out）](../../../glossary.md#scale-out)容量的 **7.5 倍**。**结论：** AI 机架搬运的大部分字节从不离开机架，这正是英伟达把机架而非 GPU 作为销售单位的原因。
+> **算例 —— 每机架 216 TB/s 意味着什么。** 72 颗 GPU × 3.0 TB/s = **216 TB/s** [[S200]](../../../sources/bibliography.md#s200)。一个 Vera Rubin 机架的 72 块 ConnectX-9 网卡合计提供 72 × 200 GB/s = 14.4 TB/s 单向带宽，即双向 28.8 TB/s [[S33004]](../../../sources/bibliography.md#s33004)：NVLink 网络承载的带宽是整个机架[横向扩展（scale-out）](../../glossary.md#scale-out)容量的 **7.5 倍**。**结论：** AI 机架搬运的大部分字节从不离开机架，这正是英伟达把机架而非 GPU 作为销售单位的原因。
 
 ## 本层在技术栈中的位置
 
@@ -101,7 +101,7 @@ mindmap
 <details>
 <summary>🔧 技术细节：如何解读 NVLink 数字</summary>
 
-英伟达给出的 NVLink 带宽为双向合计（1.8 TB/s = 单向 900 GB/s），而[网卡（NIC）](../../../glossary.md#nic)速率按单向计（800 Gb/s = 100 GB/s）[[S200]](../../../sources/bibliography.md#s200)[[S264]](../../../sources/bibliography.md#s264)；机架级数字为 GPU 数量 × 每 GPU 带宽 [[S262]](../../../sources/bibliography.md#s262)。
+英伟达给出的 NVLink 带宽为双向合计（1.8 TB/s = 单向 900 GB/s），而[网卡（NIC）](../../glossary.md#nic)速率按单向计（800 Gb/s = 100 GB/s）[[S200]](../../../sources/bibliography.md#s200)[[S264]](../../../sources/bibliography.md#s264)；机架级数字为 GPU 数量 × 每 GPU 带宽 [[S262]](../../../sources/bibliography.md#s262)。
 
 </details>
 

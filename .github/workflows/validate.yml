@@ -21,3 +21,6 @@ jobs:
           npm ci
       - name: make validate
         run: make validate
+      - name: Chinese translation parity (informational)
+        continue-on-error: true
+        run: make zh-check

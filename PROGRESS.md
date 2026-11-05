@@ -32,6 +32,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ✅ complete — 5 chapters (~44k words, ~260 visuals) incl. scripts/tco model; 7 case studies (~16k words, 73 visuals) | `phase-7-complete` (local tag) |
 | 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ✅ complete — 19 (5.8k words, 29 visuals); README + 00 + cheat sheet (8.2k words, 46 visuals) | `phase-8-complete` (local tag) |
 | 9 | Independent QA, fixes, MkDocs site, v1.0 | ✅ complete — 3 independent QA agents + 1 fix agent; 89 claims spot-checked; ~80 fixes logged in QA_LOG.md; strict MkDocs build | `v1.0` (local tag) |
+| zh | Simplified-Chinese reference translation (owner request after v1.0) | ✅ complete — 143 pages + glossary in `zh-CN/` (20 parallel translators, structural parity checked by `make zh-check`); 5 print-ready A4 PDF volumes in `zh-CN/pdf/` (981 pages, ~114 MB; `make zh-pdf`) | commit "zh-CN: …" |
 
 > [!NOTE]
 > **Tags:** the cloud session's git proxy rejects tag pushes (HTTP 403) while branch pushes work.
@@ -46,7 +47,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 <!-- STATS:START -->
 | Unit | Title | Phase | Status | Words | Visuals | Charts (data) | Diagrams | Mermaid | Tables | Data-chart share | Sources | QA |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| SYN | README + Executive Summary + Cheat Sheet | 8 | complete | 8,210 | 46 | 28 (28) | 2 | 5 | 11 | 61% | 195 | passed |
+| SYN | README + Executive Summary + Cheat Sheet | 8 | complete | 8,227 | 46 | 28 (28) | 2 | 5 | 11 | 61% | 195 | passed |
 | 01 | The NVIDIA flywheel | 2 | complete | 4,608 | 23 | 10 (10) | 1 | 7 | 5 | 43% | 116 | passed |
 | P1 | How AI training works | 2 | complete | 3,449 | 18 | 7 (7) | 0 | 6 | 5 | 39% | 26 | passed |
 | P2 | How AI inference works | 2 | complete | 3,602 | 15 | 7 (7) | 0 | 3 | 5 | 47% | 32 | passed |
@@ -78,7 +79,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | complete | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | passed |
 | CS6 | China export controls: H20 and beyond | 7 | complete | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | passed |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | complete | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | passed |
-| **Total** | | | | **221,419** | **1082** | | | | | | **1572** unique | |
+| **Total** | | | | **221,436** | **1082** | | | | | | **1572** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
@@ -103,6 +104,7 @@ Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagra
 | 2026-11-05 | Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows, counted unique per unit | Makes quotas measurable (`check_visuals.py`) |
 | 2026-11-05 | Charts on explicit white background, text as paths, fixed entity palette validated for CVD | Readable in GitHub light/dark themes; colorblind-safe |
 | 2026-11-05 | Quotas enforced once a unit's status ≥ `drafted` | Keeps `make validate` green while chapters are still stubs |
+| 2026-11-05 | Chinese translation in `zh-CN/` mirrors the English tree; translators copy English link targets verbatim and `zh_links.py` rewrites them; `zh-CN/` is excluded from citation normalisation, lint and visual quotas but link- and Mermaid-checked | Keeps the English the single source of truth; translation stays mechanically re-linkable |
 
 ## Open questions / blockers
 
@@ -126,6 +128,8 @@ Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagra
   update roadmap pages and the fact sheet, add CHANGELOG.md, tag `refresh-2026-12`.
 - Work down docs/VERIFY_QUEUE.md with full network access (start with data/financials.csv and
   data/acquisitions_investments.csv).
+- After any English content change, re-translate the affected `zh-CN/` page(s), then `make build zh-check zh-pdf`
+  (the Chinese edition is a snapshot of v1.0; `make zh-check` reports skeleton drift).
 - Optional: deepen individual layers to ≥ 10,000 words / ≥ 15 visuals with the "Deepen a single layer" prompt.
 
 ## Agent assignment log

@@ -7,11 +7,11 @@
 
 ## ⚡ 要点速览
 
-- **[CUDA](../../../glossary.md#cuda) 把 AI 代码翻译成英伟达芯片可以执行的工作。** 它集编程模型、nvcc 编译器、[PTX](../../../glossary.md#ptx) 虚拟指令集（ISA）、运行时、驱动程序与工具于一体。首个工具包于 2007 年 6 月发布 [[S525]](../../../sources/bibliography.md#s525)；英伟达称开发者约有 600 万 [[S528]](../../../sources/bibliography.md#s528)。
-- **护城河在于长尾。** 在本资料库跟踪的全部 12 个主流框架与推理引擎中，CUDA 均获原生支持（36/36）；[ROCm](../../../glossary.md#rocm) 得分为 26，高通 Cloud AI 为 4 [[S587]](../../../sources/bibliography.md#s587)[[S580]](../../../sources/bibliography.md#s580)[[S586]](../../../sources/bibliography.md#s586)[[S596]](../../../sources/bibliography.md#s596)。
-- **首日（Day 0）表现即是明证。** DeepSeek-V4-Pro 发布当天即可在 CUDA 上原生运行。AMD MI355X 用了 8 天才支持 [FP4](../../../glossary.md#fp4)，用了 27 天才达到每用户 50 tokens/s 的服务水平，且仍落后 B200 约 5 倍 [[S633]](../../../sources/bibliography.md#s633)[[S631]](../../../sources/bibliography.md#s631)。
+- **[CUDA](../../glossary.md#cuda) 把 AI 代码翻译成英伟达芯片可以执行的工作。** 它集编程模型、nvcc 编译器、[PTX](../../glossary.md#ptx) 虚拟指令集（ISA）、运行时、驱动程序与工具于一体。首个工具包于 2007 年 6 月发布 [[S525]](../../../sources/bibliography.md#s525)；英伟达称开发者约有 600 万 [[S528]](../../../sources/bibliography.md#s528)。
+- **护城河在于长尾。** 在本资料库跟踪的全部 12 个主流框架与推理引擎中，CUDA 均获原生支持（36/36）；[ROCm](../../glossary.md#rocm) 得分为 26，高通 Cloud AI 为 4 [[S587]](../../../sources/bibliography.md#s587)[[S580]](../../../sources/bibliography.md#s580)[[S586]](../../../sources/bibliography.md#s586)[[S596]](../../../sources/bibliography.md#s596)。
+- **首日（Day 0）表现即是明证。** DeepSeek-V4-Pro 发布当天即可在 CUDA 上原生运行。AMD MI355X 用了 8 天才支持 [FP4](../../glossary.md#fp4)，用了 27 天才达到每用户 50 tokens/s 的服务水平，且仍落后 B200 约 5 倍 [[S633]](../../../sources/bibliography.md#s633)[[S631]](../../../sources/bibliography.md#s631)。
 - **每一代 GPU 都需要重写内核，英伟达自家的也不例外。** FlashAttention-2 在 A100 上最高可达峰值的 73%，到 H100 上降至 35%，直到 FA3 将其提升至 75% [[S9002]](../../../sources/bibliography.md#s9002)[[S9003]](../../../sources/bibliography.md#s9003)。FA4 在 B200 上达到 71% [[S9004]](../../../sources/bibliography.md#s9004)。
-- **侵蚀确实存在。** torch.compile 与 [Triton](../../../glossary.md#triton) 可同时运行于英伟达和 AMD 平台 [[S9021]](../../../sources/bibliography.md#s9021)[[S578]](../../../sources/bibliography.md#s578)，ROCm 已发展到 10.0 版 [[S586]](../../../sources/bibliography.md#s586)，高通（Qualcomm）已于 2026-07-29 完成对 Modular（Mojo/MAX）约 $3.9B 的收购 [[S90057]](../../../sources/bibliography.md#s90057)[[S9511]](../../../sources/bibliography.md#s9511)。
+- **侵蚀确实存在。** torch.compile 与 [Triton](../../glossary.md#triton) 可同时运行于英伟达和 AMD 平台 [[S9021]](../../../sources/bibliography.md#s9021)[[S578]](../../../sources/bibliography.md#s578)，ROCm 已发展到 10.0 版 [[S586]](../../../sources/bibliography.md#s586)，高通（Qualcomm）已于 2026-07-29 完成对 Modular（Mojo/MAX）约 $3.9B 的收购 [[S90057]](../../../sources/bibliography.md#s90057)[[S9511]](../../../sources/bibliography.md#s9511)。
 - **弱点与最强挑战者：** 最大的买家有能力出走。Anthropic 承诺采购最多 100 万颗 TPU [[S653]](../../../sources/bibliography.md#s653)，OpenAI 承诺采购 6 GW 的 AMD GPU [[S546]](../../../sources/bibliography.md#s546)。🔴 我们对前沿实验室的锁定程度评分为 2.75/5，对企业客户则为 4.5。
 - **英伟达的反制手段是 Python：** cuTile 与 CuTe DSL 正面迎战 Triton 和 Mojo 所争夺的开发者群体 [[S9007]](../../../sources/bibliography.md#s9007)[[S9030]](../../../sources/bibliography.md#s9030)。
 
@@ -105,7 +105,7 @@ mindmap
 
 - **内核（kernel）：** 在由线程块组成的网格上启动的 GPU 函数，以 32 个线程为一组的 warp 执行。
 - **PTX 与 SASS：** PTX 是可移植的中间代码；SASS 是某一 GPU 系列专属的机器码。
-- **软件库与 DSL：** cuBLAS 和 cuDNN 是预先调优的内核（[第 10 层](../../../layers/10-libraries-cuda-x/index.md)）；Triton、CuTe DSL 和 cuTile 则是用于编写新内核的语言。
+- **软件库与 DSL：** cuBLAS 和 cuDNN 是预先调优的内核（[第 10 层](../10-libraries-cuda-x/index.md)）；Triton、CuTe DSL 和 cuTile 则是用于编写新内核的语言。
 
 </details>
 

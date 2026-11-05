@@ -5,6 +5,8 @@ development reader.**
 
 <sub>A visual research repository · 12 stack layers, 5 primers, 6 cross-cutting chapters, 7 case studies · Public information only · **Last verified: 2026-11-05**</sub>
 
+🌐 **简体中文参考译文 / Simplified-Chinese reference translation:** [zh-CN/](zh-CN/README.md) — every page, for reference only (the English prevails), with print-ready PDFs in [zh-CN/pdf/](zh-CN/pdf/README.md).
+
 ## ⚡ The Executive Take
 
 The thesis in five bullets ([full argument](00-executive-summary.md)):

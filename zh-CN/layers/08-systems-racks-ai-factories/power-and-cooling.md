@@ -7,10 +7,10 @@
 
 ## ⚡ 要点速览
 
-- **机架功耗十年间上升约 190 倍：** 从 DGX-1（2016）的 3.2 kW，到 GB200/GB300 [NVL72](../../../glossary.md#nvl72) 的约 120–132 kW、Vera Rubin NVL72 的约 190–230 kW（有报道），以及 Kyber（2027）计划的约 600 kW [[S310]](../../../sources/bibliography.md#s310)[[S336]](../../../sources/bibliography.md#s336)[[S337]](../../../sources/bibliography.md#s337)[[S303]](../../../sources/bibliography.md#s303)[[S305]](../../../sources/bibliography.md#s305)。
-- **风冷已无余地。** 超过 80% 的运营商最高密度机架低于 30 kW [[S8008]](../../../sources/bibliography.md#s8008)；而单个 GPU 封装如今功耗最高可达约 2.3 kW（Rubin Max-P，有报道）[[S106]](../../../sources/bibliography.md#s106)，因此每一台 NVL72 都采用[直接芯片液冷](../../../glossary.md#direct-to-chip-cooling)。
+- **机架功耗十年间上升约 190 倍：** 从 DGX-1（2016）的 3.2 kW，到 GB200/GB300 [NVL72](../../glossary.md#nvl72) 的约 120–132 kW、Vera Rubin NVL72 的约 190–230 kW（有报道），以及 Kyber（2027）计划的约 600 kW [[S310]](../../../sources/bibliography.md#s310)[[S336]](../../../sources/bibliography.md#s336)[[S337]](../../../sources/bibliography.md#s337)[[S303]](../../../sources/bibliography.md#s303)[[S305]](../../../sources/bibliography.md#s305)。
+- **风冷已无余地。** 超过 80% 的运营商最高密度机架低于 30 kW [[S8008]](../../../sources/bibliography.md#s8008)；而单个 GPU 封装如今功耗最高可达约 2.3 kW（Rubin Max-P，有报道）[[S106]](../../../sources/bibliography.md#s106)，因此每一台 NVL72 都采用[直接芯片液冷](../../glossary.md#direct-to-chip-cooling)。
 - **液冷正在成为主流：** TrendForce 将高端 AI 芯片的液冷渗透率预估上调至 2026 年约 53%、2027 年约 60%，而 2024 年仅为 14% [[S8528]](../../../sources/bibliography.md#s8528)[[S8004]](../../../sources/bibliography.md#s8004)。
-- **[800 V 直流](../../../glossary.md#hvdc-800v)是英伟达（NVIDIA）的下一个标准：** 约 20 家电力合作伙伴，2026 年下半年推出 MGX 800 VDC 电源机架，2027 年推出每排 2 MW 的电力中心；若采用 54 V，一个兆瓦级机架需要多达 64U 的电源架 [[S90061]](../../../sources/bibliography.md#s90061)[[S90063]](../../../sources/bibliography.md#s90063)[[S8016]](../../../sources/bibliography.md#s8016)。
+- **[800 V 直流](../../glossary.md#hvdc-800v)是英伟达（NVIDIA）的下一个标准：** 约 20 家电力合作伙伴，2026 年下半年推出 MGX 800 VDC 电源机架，2027 年推出每排 2 MW 的电力中心；若采用 54 V，一个兆瓦级机架需要多达 64U 的电源架 [[S90061]](../../../sources/bibliography.md#s90061)[[S90063]](../../../sources/bibliography.md#s90063)[[S8016]](../../../sources/bibliography.md#s8016)。
 - **对许多项目而言，真正的约束是电力而非芯片：** 美国新增发电项目在并网排队中要等待四年以上，Dominion 对大型数据中心接电给出的等待期最长达七年 [[S8009]](../../../sources/bibliography.md#s8009)[[S8010]](../../../sources/bibliography.md#s8010)。
 - **看空要点：** Dell'Oro 认为 800 V 直流目前是一种参考架构，尚非通用标准 [[S90062]](../../../sources/bibliography.md#s90062)；为 130 kW 机架建造的设施可能需要改造才能承载 600 kW。
 
@@ -18,12 +18,12 @@
 
 ## 1. 每机架 kW 的演进轨迹
 
-**[Q3 · 代际进步]** 在英伟达销售 8 GPU 服务器的阶段（2016–2024），单系统功耗从 3.2 kW 缓慢爬升到 14.3 kW；当产品变成整个机架后，功耗跃升了十倍 [[S310]](../../../sources/bibliography.md#s310)[[S319]](../../../sources/bibliography.md#s319)[[S336]](../../../sources/bibliography.md#s336)。GPU 封装功耗上升约 8 倍，逻辑芯片每平方厘米的[热流密度](../../../glossary.md#heat-flux)上升约 3 倍（估计）[[S125]](../../../sources/bibliography.md#s125)[[S106]](../../../sources/bibliography.md#s106)。
+**[Q3 · 代际进步]** 在英伟达销售 8 GPU 服务器的阶段（2016–2024），单系统功耗从 3.2 kW 缓慢爬升到 14.3 kW；当产品变成整个机架后，功耗跃升了十倍 [[S310]](../../../sources/bibliography.md#s310)[[S319]](../../../sources/bibliography.md#s319)[[S336]](../../../sources/bibliography.md#s336)。GPU 封装功耗上升约 8 倍，逻辑芯片每平方厘米的[热流密度](../../glossary.md#heat-flux)上升约 3 倍（估计）[[S125]](../../../sources/bibliography.md#s125)[[S106]](../../../sources/bibliography.md#s106)。
 
 ![英伟达各代系统最大功耗柱状图：DGX-1 为 3.2 kW（2016），DGX-2 为 10 kW，DGX A100 为 6.5 kW，DGX H100 为 10.2 kW，DGX B200 为 14.3 kW；随后进入机架级：GB200 NVL72 约 120 kW，GB300 NVL72 约 132 kW，Vera Rubin NVL72 约 190-230 kW，Rubin Ultra Kyber 机架约 600 kW，约为 DGX-1 的 190 倍。](../../../assets/charts/08-kw-per-rack-by-generation.svg)
 
 > [!TIP]
-> **算例 —— 1 MW IT 电力能容纳什么。** 2016 年，1 MW 可供 1,000 ÷ 3.2 ≈ **312 台 DGX-1，约 2,500 颗 GPU** [[S310]](../../../sources/bibliography.md#s310)。2025 年，它可供 1,000 ÷ 132 ≈ **7.6 个 GB300 机架，约 545 颗 GPU** [[S337]](../../../sources/bibliography.md#s337)。但这 545 颗 GPU 的产出要多得多：从 DGX H100 到 Vera Rubin NVL72，每兆瓦稠密 [FP8](../../../glossary.md#fp8) 算力提升约 3.5 倍（估计）[[S318]](../../../sources/bibliography.md#s318)[[S102]](../../../sources/bibliography.md#s102)。**结论：**数据中心的容量单位如今是兆瓦，而英伟达每年在每兆瓦上出售的算力都在增加。
+> **算例 —— 1 MW IT 电力能容纳什么。** 2016 年，1 MW 可供 1,000 ÷ 3.2 ≈ **312 台 DGX-1，约 2,500 颗 GPU** [[S310]](../../../sources/bibliography.md#s310)。2025 年，它可供 1,000 ÷ 132 ≈ **7.6 个 GB300 机架，约 545 颗 GPU** [[S337]](../../../sources/bibliography.md#s337)。但这 545 颗 GPU 的产出要多得多：从 DGX H100 到 Vera Rubin NVL72，每兆瓦稠密 [FP8](../../glossary.md#fp8) 算力提升约 3.5 倍（估计）[[S318]](../../../sources/bibliography.md#s318)[[S102]](../../../sources/bibliography.md#s102)。**结论：**数据中心的容量单位如今是兆瓦，而英伟达每年在每兆瓦上出售的算力都在增加。
 
 ![按英伟达系统代际划分的两张柱状图。左图：每兆瓦 IT 电力可容纳的 GPU 数量，从 DGX-1 的约 2,500 颗降至 GB200 NVL72 的约 600 颗，Rubin Ultra Kyber 机架为 240 颗。右图：每兆瓦稠密 FP8 PFLOPS 从 DGX H100 的约 1,549 升至 Vera Rubin NVL72 的约 5,478，Kyber 为 8,333，约为 Hopper 的 5 倍。](../../../assets/charts/08-accelerators-per-mw.svg)
 
@@ -39,8 +39,8 @@
 | 方案 | 热量去向 | 适用范围 | 使用者 | 问题 |
 |---|---|---|---|---|
 | 风冷（配合通道封闭） | 风扇 → 室内空气 → 冷水机组 | 大多数现有机架（超过 80% 运营商的最高密度机架低于 30 kW）[[S8008]](../../../sources/bibliography.md#s8008) | 最高约 14 kW 的 HGX 服务器 [[S321]](../../../sources/bibliography.md#s321) | 风扇功耗、风量上限 |
-| [直接芯片](../../../glossary.md#direct-to-chip-cooling)冷板 | 冷却液回路 → [CDU](../../../glossary.md#cdu) → 设施冷却水 | 目前约 120–230 kW，计划约 600 kW [[S336]](../../../sources/bibliography.md#s336)[[S303]](../../../sources/bibliography.md#s303)[[S305]](../../../sources/bibliography.md#s305) | NVL72 机架、MI355X DLC、谷歌（Google）TPU [[S347]](../../../sources/bibliography.md#s347)[[S8528]](../../../sources/bibliography.md#s8528) | 需要设施冷却水或[液-气（L2A）](../../../glossary.md#liquid-to-air-cooling)侧柜 |
-| [浸没式](../../../glossary.md#immersion-cooling) | 槽内液体 → 换热器 | 极高密度 | 小众（HPC、加密货币挖矿） | 维护难度、冷却液成本、供应商认证 |
+| [直接芯片](../../glossary.md#direct-to-chip-cooling)冷板 | 冷却液回路 → [CDU](../../glossary.md#cdu) → 设施冷却水 | 目前约 120–230 kW，计划约 600 kW [[S336]](../../../sources/bibliography.md#s336)[[S303]](../../../sources/bibliography.md#s303)[[S305]](../../../sources/bibliography.md#s305) | NVL72 机架、MI355X DLC、谷歌（Google）TPU [[S347]](../../../sources/bibliography.md#s347)[[S8528]](../../../sources/bibliography.md#s8528) | 需要设施冷却水或[液-气（L2A）](../../glossary.md#liquid-to-air-cooling)侧柜 |
+| [浸没式](../../glossary.md#immersion-cooling) | 槽内液体 → 换热器 | 极高密度 | 小众（HPC、加密货币挖矿） | 维护难度、冷却液成本、供应商认证 |
 
 CDU 驱动洁净的冷却液回路流经机架冷板，再把热量交给设施冷却水；没有设施冷却水的机房使用液-气侧柜过渡，直到 2027 年起液-液方案普及 [[S8528]](../../../sources/bibliography.md#s8528)。无风扇的 Vera Rubin 托盘使用 45 °C 的水运行，在许多气候条件下温度足够高，可以用干冷器替代冷水机组（英伟达的说法）[[S8002]](../../../sources/bibliography.md#s8002)。
 
@@ -49,13 +49,13 @@ CDU 驱动洁净的冷却液回路流经机架冷板，再把热量交给设施�
 <details>
 <summary>🔧 技术细节：PUE 能反映什么、不能反映什么</summary>
 
-[PUE](../../../glossary.md#pue) 等于设施总功耗 ÷ IT 功耗。2025 年行业平均值为 1.54，六年来基本持平 [[S8007]](../../../sources/bibliography.md#s8007)；谷歌机群约为 1.09 [[S388]](../../../sources/bibliography.md#s388)。液冷能降低 PUE，因为水泵搬运热量比风扇和冷水机组更便宜；但它也把风扇功耗*计入*了 IT 功耗，因此 PUE 可能会略微美化液冷机房。本资料库对新建液冷 AI 机房取 1.15，对风冷取 1.4（均为假设而非实测）[[S387]](../../../sources/bibliography.md#s387)[[S388]](../../../sources/bibliography.md#s388)。
+[PUE](../../glossary.md#pue) 等于设施总功耗 ÷ IT 功耗。2025 年行业平均值为 1.54，六年来基本持平 [[S8007]](../../../sources/bibliography.md#s8007)；谷歌机群约为 1.09 [[S388]](../../../sources/bibliography.md#s388)。液冷能降低 PUE，因为水泵搬运热量比风扇和冷水机组更便宜；但它也把风扇功耗*计入*了 IT 功耗，因此 PUE 可能会略微美化液冷机房。本资料库对新建液冷 AI 机房取 1.15，对风冷取 1.4（均为假设而非实测）[[S387]](../../../sources/bibliography.md#s387)[[S388]](../../../sources/bibliography.md#s388)。
 
 </details>
 
 ## 3. 800 V 直流供电架构
 
-目前电力要经过多次转换，最后一步在机架的[电源架](../../../glossary.md#power-shelf)中完成，由电源架向[母排](../../../glossary.md#busbar)输出约 50 V 直流电 [[S8000]](../../../sources/bibliography.md#s8000)。低电压意味着大电流，而大电流意味着大量铜材。英伟达的方案是在设施边界将 13.8 kV 交流电转换为 800 V 直流电，再通过直流母线槽送到各机柜排 [[S8016]](../../../sources/bibliography.md#s8016)[[S90063]](../../../sources/bibliography.md#s90063)。
+目前电力要经过多次转换，最后一步在机架的[电源架](../../glossary.md#power-shelf)中完成，由电源架向[母排](../../glossary.md#busbar)输出约 50 V 直流电 [[S8000]](../../../sources/bibliography.md#s8000)。低电压意味着大电流，而大电流意味着大量铜材。英伟达的方案是在设施边界将 13.8 kV 交流电转换为 800 V 直流电，再通过直流母线槽送到各机柜排 [[S8016]](../../../sources/bibliography.md#s8016)[[S90063]](../../../sources/bibliography.md#s90063)。
 
 ```mermaid
 flowchart LR
@@ -87,7 +87,7 @@ flowchart LR
 
 数据中心可以在几个月内建成，电力却可能需要数年（[AI 工厂](ai-factories.md)）。在美国，2018–2024 年建成的发电项目，从提交并网申请到投运的中位时间**超过四年**，而 2000–2007 年还不到两年 [[S8009]](../../../sources/bibliography.md#s8009)。Dominion 告知北弗吉尼亚的大型（>100 MW）数据中心客户，接电等待期**最长可达七年** [[S8010]](../../../sources/bibliography.md#s8010)；截至 2026 年 4 月，ERCOT 跟踪的大型负荷接入申请达**约 410 GW**，其中约 87% 来自数据中心 [[S8011]](../../../sources/bibliography.md#s8011)；PJM 预测 2024–2030 年夏季峰值负荷将增长约 32 GW，主要来自数据中心 [[S33018]](../../../sources/bibliography.md#s33018)。
 
-建设方的应对是采用[表后（behind-the-meter）](../../../glossary.md#behind-the-meter)发电，以燃料成本、审批许可和当地反对为代价换取更短的[通电时间](../../../glossary.md#time-to-power)：xAI 的 Colossus 2 依靠现场燃气轮机运行，而关于其电网供电情况各方说法不一（🟡）[[S8015]](../../../sources/bibliography.md#s8015)。
+建设方的应对是采用[表后（behind-the-meter）](../../glossary.md#behind-the-meter)发电，以燃料成本、审批许可和当地反对为代价换取更短的[通电时间](../../glossary.md#time-to-power)：xAI 的 Colossus 2 依靠现场燃气轮机运行，而关于其电网供电情况各方说法不一（🟡）[[S8015]](../../../sources/bibliography.md#s8015)。
 
 > [!TIP]
 > **算例 —— 100,000 颗 GB300 GPU 的设施电力。** GPU 按约 1.4 kW 计：**140 MW** [[S32004]](../../../sources/bibliography.md#s32004)；1,389 个机架按约 132 kW 计：**183 MW** [[S337]](../../../sources/bibliography.md#s337)；网络与存储（+21%，SemiAnalysis 的 GB200 全部计入比例）：**约 38 MW** [[S340]](../../../sources/bibliography.md#s340)；PUE 1.15 下的散热与转换损耗：**约 33 MW**，因此电表处合计**约 255 MW**，若按行业平均 PUE 则为**约 340–346 MW** [[S8007]](../../../sources/bibliography.md#s8007)[[S387]](../../../sources/bibliography.md#s387)。满负荷用电量：255 MW × 8,760 h = **每年 2.2 TWh**，按美国工业平均电价 8.1¢/kWh 计**约 $181M**，按 5¢ 的购电协议计 $112M，按 10¢ 计 $223M [[S389]](../../../sources/bibliography.md#s389)[[S390]](../../../sources/bibliography.md#s390)。**结论：**一个 100k GPU 的 GB300 站点是四分之一吉瓦级的负荷；其年电费约为约 $5.5B 机架采购额的 3%（估计）[[S332]](../../../sources/bibliography.md#s332)。

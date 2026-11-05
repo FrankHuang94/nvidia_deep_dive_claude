@@ -7,9 +7,9 @@
 
 ## ⚡ 要点速览
 
-- **英伟达（NVIDIA）拿走了一个机架的大部分价值。** 在一个估计价值 $3.99M 的 GB300 [NVL72](../../../glossary.md#nvl72) 中，约 $2.27M（约 57%）是英伟达在 GPU 上的毛利。[ODM](../../../glossary.md#odm) 保留约 $108K（2.7%），液冷成本约 $50K（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)[[S334]](../../../sources/bibliography.md#s334)。
+- **英伟达（NVIDIA）拿走了一个机架的大部分价值。** 在一个估计价值 $3.99M 的 GB300 [NVL72](../../glossary.md#nvl72) 中，约 $2.27M（约 57%）是英伟达在 GPU 上的毛利。[ODM](../../glossary.md#odm) 保留约 $108K（2.7%），液冷成本约 $50K（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)[[S334]](../../../sources/bibliography.md#s334)。
 - **集成商靠微薄的利润运营。** 在 Vera Rubin 机架上，ODM 毛利率降至约 1.9%（估计）[[S332]](../../../sources/bibliography.md#s332)。广达的 GB 机架服务器毛利率约 5%（凯基证券）[[S8529]](../../../sources/bibliography.md#s8529)[[S8530]](../../../sources/bibliography.md#s8530)；戴尔对 AI 服务器的营业利润率目标为个位数中段 [[S8502]](../../../sources/bibliography.md#s8502)[[S8503]](../../../sources/bibliography.md#s8503)。
-- **价值从 OEM 转移到了英伟达。** 英伟达产品在系统中的占比，从 HGX 服务器的约 50–75% 升至 NVL72 机架的约 71–84%（🔴 本资料库根据分析师的[物料清单](../../../glossary.md#bill-of-materials)估计）。
+- **价值从 OEM 转移到了英伟达。** 英伟达产品在系统中的占比，从 HGX 服务器的约 50–75% 升至 NVL72 机架的约 71–84%（🔴 本资料库根据分析师的[物料清单](../../glossary.md#bill-of-materials)估计）。
 - **内存是新的分利者。** 内存在机架物料清单中的占比从约 9%（GB300）升至约 26%（Vera Rubin）（估计，摩根士丹利）[[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)。
 - **电力与散热是高利润的基础设施价值池。** 2026 年第三季度，维谛（Vertiv）销售额增长 61%，调整后营业利润率为 25.2% [[S8507]](../../../sources/bibliography.md#s8507)。伊顿（Boyd Thermal，$9.5B）、施耐德（Motivair）和维谛（PurgeRite）正在进行整合 [[S8508]](../../../sources/bibliography.md#s8508)[[S8513]](../../../sources/bibliography.md#s8513)[[S8510]](../../../sources/bibliography.md#s8510)。
 - **[Q8 · 价值池与并购机会]** 有三类资产以溢价成交：机架设计团队（ZT，AMD 净付出约 $2B）、散热与电力业务，以及数据中心主体建筑（Aligned，$40B）[[S5527]](../../../sources/bibliography.md#s5527)[[S8521]](../../../sources/bibliography.md#s8521)。
@@ -18,7 +18,7 @@
 
 ## 机架中的钱被谁拿走了
 
-英伟达采购晶圆、封装和 [HBM](../../../glossary.md#hbm)，出售 GPU 模组、CPU、交换托盘和网卡。ODM 在 L10–L11 层级（[集成层级](../../../glossary.md#l6-l10-l11)）组装并测试机架；OEM 则提供服务和融资。
+英伟达采购晶圆、封装和 [HBM](../../glossary.md#hbm)，出售 GPU 模组、CPU、交换托盘和网卡。ODM 在 L10–L11 层级（[集成层级](../../glossary.md#l6-l10-l11)）组装并测试机架；OEM 则提供服务和融资。
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ flowchart LR
 | GPU 裸片、CoWoS-L、测试 | 台积电（TSMC）、封测厂（OSAT） | 约 $0.25M | 约 6% | 台积电毛利率 66.4% [[S3538]](../../../sources/bibliography.md#s3538) |
 | HBM3E + LPDDR5X | SK 海力士、三星、美光（Micron） | 约 $0.37M | 约 9%（Vera Rubin 上 → 约 26%） | 美光毛利率 86.8% [[S3533]](../../../sources/bibliography.md#s3533) |
 | 其他部件（Grace、交换托盘、网卡、PCB、电源架、线缆） | 英伟达、安费诺（Amphenol）、台达等 | 约 $0.94M | 约 24% | 安费诺销售额同比 +65% [[S5503]](../../../sources/bibliography.md#s5503) |
-| 液冷 | 冷板与 [CDU](../../../glossary.md#cdu) 厂商 | 约 $50K | 约 1% | 维谛调整后营业利润率 25.2% [[S8507]](../../../sources/bibliography.md#s8507) |
+| 液冷 | 冷板与 [CDU](../../glossary.md#cdu) 厂商 | 约 $50K | 约 1% | 维谛调整后营业利润率 25.2% [[S8507]](../../../sources/bibliography.md#s8507) |
 | 组装与测试 | 富士康、广达、纬创/纬颖 | 约 $108K | 约 2.7% | 富士康毛利率 6.3% [[S3522]](../../../sources/bibliography.md#s3522) |
 
 <sub>机架拆分数据来自摩根士丹利 2026 年 5 月的 BOM，图表见 [[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)[[S334]](../../../sources/bibliography.md#s334)；横向扩展网络与存储在本表之外每机架另增约 $0.8M（估计）[[S324]](../../../sources/bibliography.md#s324)。</sub>
@@ -55,7 +55,7 @@ flowchart LR
 
 ## 有多少价值从 OEM 转移到了英伟达
 
-在 [HGX](../../../glossary.md#hgx) 时代，OEM 购买一块 GPU 基板，再围绕它设计服务器。到了 NVL72 时代，英伟达规定整个机架，并出售其中的大部分芯片；OEM 的角色缩减为品牌、服务和融资。
+在 [HGX](../../glossary.md#hgx) 时代，OEM 购买一块 GPU 基板，再围绕它设计服务器。到了 NVL72 时代，英伟达规定整个机架，并出售其中的大部分芯片；OEM 的角色缩减为品牌、服务和融资。
 
 ![双面板图表。左图：系统价格中支付给英伟达产品的估计占比 —— HGX H100/H200 8 GPU 服务器约 50-75%，GB200 NVL72 为 72-84%，GB300 NVL72 为 71-83%，Vera Rubin NVL72 为 62-72%，其中内存涨价把价值转移给了 HBM 和 LPDDR 厂商。右图：集成商毛利率从 11.1%（Supermicro，服务器时代）降至约 5%（广达 GB 机架，凯基证券）、2.7%（GB300 机架 ODM）和 1.9%（Vera Rubin 机架 ODM，摩根士丹利）。](../../../assets/charts/08-value-capture-by-generation.svg)
 
@@ -71,7 +71,7 @@ flowchart LR
 <details>
 <summary>🔧 技术细节：产品占比估计是如何构建的</summary>
 
-HGX：8 颗 GPU，每颗 $25–30K（2023 年市场价）[[S356]](../../../sources/bibliography.md#s356)，除以 OEM 8× H200 服务器 $319–398K 的挂牌价 [[S322]](../../../sources/bibliography.md#s322)。GB200：36 块超级芯片，每块 $60–70K，除以约 $3.0M 的机架价格 [[S326]](../../../sources/bibliography.md#s326)。GB300：GPU（$2.52M）加 HBM（约 $0.31M），再加最多一半的其他部件，除以 $3.99M [[S332]](../../../sources/bibliography.md#s332)。Vera Rubin：GPU（$3.96M）、Vera（$0.18M）、[HBM4](../../../glossary.md#hbm4)（约 $0.7–1.1M，推算）和交换芯片，除以 $7.8M [[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)。
+HGX：8 颗 GPU，每颗 $25–30K（2023 年市场价）[[S356]](../../../sources/bibliography.md#s356)，除以 OEM 8× H200 服务器 $319–398K 的挂牌价 [[S322]](../../../sources/bibliography.md#s322)。GB200：36 块超级芯片，每块 $60–70K，除以约 $3.0M 的机架价格 [[S326]](../../../sources/bibliography.md#s326)。GB300：GPU（$2.52M）加 HBM（约 $0.31M），再加最多一半的其他部件，除以 $3.99M [[S332]](../../../sources/bibliography.md#s332)。Vera Rubin：GPU（$3.96M）、Vera（$0.18M）、[HBM4](../../glossary.md#hbm4)（约 $0.7–1.1M，推算）和交换芯片，除以 $7.8M [[S332]](../../../sources/bibliography.md#s332)[[S331]](../../../sources/bibliography.md#s331)。
 
 </details>
 
@@ -86,11 +86,11 @@ HGX：8 颗 GPU，每颗 $25–30K（2023 年市场价）[[S356]](../../../sourc
 
 | 公司（私营） | 业务 | 最近一轮公开融资 | 重要性 |
 |---|---|---|---|
-| ZutaCore | 无水两相直接芯片冷却 | $100M（2026 年 6 月）[[S8515]](../../../sources/bibliography.md#s8515) | 水冷[冷板](../../../glossary.md#cold-plate)的替代方案 |
+| ZutaCore | 无水两相直接芯片冷却 | $100M（2026 年 6 月）[[S8515]](../../../sources/bibliography.md#s8515) | 水冷[冷板](../../glossary.md#cold-plate)的替代方案 |
 | Accelsius | 两相直接芯片冷却 | $65M B 轮，江森自控领投（有报道）[[S8518]](../../../sources/bibliography.md#s8518) | 楼宇系统巨头作为投资方 |
 | Frore Systems | 芯片级与机架级液冷托盘 | $143M D 轮，估值 $1.64B（2026 年 3 月）[[S8517]](../../../sources/bibliography.md#s8517) | 散热硬件公司获独角兽估值 |
 | Iceotope | 精密浸没式冷却 | $26M B 轮（2026 年 5 月）[[S8516]](../../../sources/bibliography.md#s8516) | 高密度机架的浸没式选项 |
-| Heron Power | 输出 800 V 直流的[固态变压器](../../../glossary.md#solid-state-transformer) | $140M（2026 年 2 月）[[S8519]](../../../sources/bibliography.md#s8519) | 为英伟达式 800 V 机架而打造 |
+| Heron Power | 输出 800 V 直流的[固态变压器](../../glossary.md#solid-state-transformer) | $140M（2026 年 2 月）[[S8519]](../../../sources/bibliography.md#s8519) | 为英伟达式 800 V 机架而打造 |
 | DG Matrix、Amperesand | 固态电能转换 | 与 Heron 合计融资约 $280M 中的一部分（有报道）[[S8520]](../../../sources/bibliography.md#s8520) | 800 V 链条中的第二供应商 |
 | Upscale AI | 面向 UALink 的纵向扩展交换芯片 | $200M A 轮，估值 >$1B（2026 年 1 月）[[S5506]](../../../sources/bibliography.md#s5506) | 非英伟达的纵向扩展域 |
 
@@ -100,7 +100,7 @@ HGX：8 颗 GPU，每颗 $25–30K（2023 年市场价）[[S356]](../../../sourc
 
 1. 对于一个新的机架级推理市场进入者（公开案例：高通（Qualcomm）为 HUMAIN 提供的 AI200/AI250 机架 [[S173]](../../../sources/bibliography.md#s173)[[S90030]](../../../sources/bibliography.md#s90030)），哪条路更快：ZT 式设计团队（净约 $2B）[[S5527]](../../../sources/bibliography.md#s5527)、ODM 或 EMS 合作（Sanmina 式）[[S5528]](../../../sources/bibliography.md#s5528)，还是授权使用 MGX 这样的参考机架？
 2. 加速器之外还有哪里留有利润：800 V 电能转换、冷却液服务，还是连接器（安费诺由 AI 驱动的增长 [[S5503]](../../../sources/bibliography.md#s5503)）？
-3. 内存正走向约占 Vera Rubin 机架的 26%（估计）[[S332]](../../../sources/bibliography.md#s332)。[LPDDR](../../../glossary.md#lpddr) 大容量设计（每张 AI200 卡 768 GB）的每 GB 成本是否更低，还是同样暴露于 DRAM 周期之中？
+3. 内存正走向约占 Vera Rubin 机架的 26%（估计）[[S332]](../../../sources/bibliography.md#s332)。[LPDDR](../../glossary.md#lpddr) 大容量设计（每张 AI200 卡 768 GB）的每 GB 成本是否更低，还是同样暴露于 DRAM 周期之中？
 4. 鉴于 OEM 的 AI 服务器利润率仅为个位数 [[S8502]](../../../sources/bibliography.md#s8502)，戴尔、HPE 或 Supermicro 是否会支持一个能为它们留下更多系统价值的第二来源加速器？
 5. 像 Aligned 这样的数据中心所有者（由包括英伟达参与共同创立的 AIP 在内的财团收购）[[S8521]](../../../sources/bibliography.md#s8521)，是否会成为偏向某一种机架架构的守门人？
 

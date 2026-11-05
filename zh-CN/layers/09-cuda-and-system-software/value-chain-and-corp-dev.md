@@ -7,12 +7,12 @@
 
 ## ⚡ 要点速览
 
-- **[CUDA](../../../glossary.md#cuda) 是免费的，这正是关键所在。** 英伟达通过[硬件带动销售（pull-through）](../../../glossary.md#pull-through)间接从中获利：FY2026 数据中心营收达 $193.7B [[S1]](../../../sources/bibliography.md#s1)[[S402]](../../../sources/bibliography.md#s402)。
-- **直接软件收入很小。** 软件与服务在 Q4 FY2024 达到约 $1B 的年化收入水平 [[S9516]](../../../sources/bibliography.md#s9516)。NVIDIA AI Enterprise 的标价为每 GPU 每年 $4,500（云上为每 [GPU 小时](../../../glossary.md#gpu-hour) $1），黄仁勋在 2026 年 10 月将软件授权费定在每 GPU 每年约 $2,000 [[S9515]](../../../sources/bibliography.md#s9515)[[S9517]](../../../sources/bibliography.md#s9517)。
+- **[CUDA](../../glossary.md#cuda) 是免费的，这正是关键所在。** 英伟达通过[硬件带动销售（pull-through）](../../glossary.md#pull-through)间接从中获利：FY2026 数据中心营收达 $193.7B [[S1]](../../../sources/bibliography.md#s1)[[S402]](../../../sources/bibliography.md#s402)。
+- **直接软件收入很小。** 软件与服务在 Q4 FY2024 达到约 $1B 的年化收入水平 [[S9516]](../../../sources/bibliography.md#s9516)。NVIDIA AI Enterprise 的标价为每 GPU 每年 $4,500（云上为每 [GPU 小时](../../glossary.md#gpu-hour) $1），黄仁勋在 2026 年 10 月将软件授权费定在每 GPU 每年约 $2,000 [[S9515]](../../../sources/bibliography.md#s9515)[[S9517]](../../../sources/bibliography.md#s9517)。
 - **软件层已成为一个并购市场。** 2023 至 2026 年间，芯片厂商完成了 15 笔 AI 软件交易，而 2008–2022 年间本资料库跟踪到的仅有 3 笔。仅 AMD 一家就收购了 Nod.ai、Silo AI（$665M）、Brium、MK1 以及 Untether AI 团队 [[S9508]](../../../sources/bibliography.md#s9508)[[S9506]](../../../sources/bibliography.md#s9506)[[S9507]](../../../sources/bibliography.md#s9507)[[S9509]](../../../sources/bibliography.md#s9509)。
 - **价格正在快速上涨。** 高通（Qualcomm）为 Modular 支付的约 $3.9B，约为英伟达最大一笔软件补强收购（Run:ai，据报道约 $700M）的 5.6 倍，约为 Modular 2025 年 9 月估值的 2.4 倍 [[S90057]](../../../sources/bibliography.md#s90057)[[S479]](../../../sources/bibliography.md#s479)[[S9510]](../../../sources/bibliography.md#s9510)。
-- **独立标的所剩无几。** 英伟达收购了 OctoAI、Deci 和 CentML；红帽（Red Hat）收购了 Neural Magic。剩下的主要是开源维护者（[vLLM](../../../glossary.md#vllm) 的 Inferact、[SGLang](../../../glossary.md#sglang) 的 RadixArk）和早期编译器初创公司 [[S478]](../../../sources/bibliography.md#s478)[[S9533]](../../../sources/bibliography.md#s9533)[[S633]](../../../sources/bibliography.md#s633)。
-- **[Q8 · 价值池与并购机会]** 价值围绕英伟达硬件聚集，而不是软件本身。对挑战者而言，软件是*入场成本*：值得拥有的资产是那些能缩短[首日（Day 0）](../../../glossary.md#day-zero-support)差距的资产（编译器团队、内核库、对上游维护的影响力），而不是能产生授权收入的资产 🔴。
+- **独立标的所剩无几。** 英伟达收购了 OctoAI、Deci 和 CentML；红帽（Red Hat）收购了 Neural Magic。剩下的主要是开源维护者（[vLLM](../../glossary.md#vllm) 的 Inferact、[SGLang](../../glossary.md#sglang) 的 RadixArk）和早期编译器初创公司 [[S478]](../../../sources/bibliography.md#s478)[[S9533]](../../../sources/bibliography.md#s9533)[[S633]](../../../sources/bibliography.md#s633)。
+- **[Q8 · 价值池与并购机会]** 价值围绕英伟达硬件聚集，而不是软件本身。对挑战者而言，软件是*入场成本*：值得拥有的资产是那些能缩短[首日（Day 0）](../../glossary.md#day-zero-support)差距的资产（编译器团队、内核库、对上游维护的影响力），而不是能产生授权收入的资产 🔴。
 
 ![以每 GPU 每年美元计的横向柱状图。NVIDIA AI Enterprise：$2,000（黄仁勋 2026 年 10 月给出的数字）、$3,600（五年期订阅）、$4,500（一年期标价），云上按每 GPU 小时 $1 全时计费最高可达 $8,760。作为对比，B200 的所有者全包成本约为每年 $15,155（SemiAnalysis 的 TCO 估计），租用成本约为每年 $32,412，因此按标价计算软件约增加 30% 的成本，按黄仁勋的数字约增加 13%。](../../../assets/charts/09-software-price-per-gpu-year.svg)
 
@@ -49,7 +49,7 @@ flowchart LR
 <details>
 <summary>🔧 技术细节：AI Enterprise 实际卖的是什么</summary>
 
-该授权将英伟达 AI 软件中受支持、经过安全补丁的构建版本与企业级支持打包，按 GPU 定价 [[S9515]](../../../sources/bibliography.md#s9515)。CUDA、cuDNN 以及开源项目（[Dynamo](../../../glossary.md#dynamo)、[TensorRT-LLM](../../../glossary.md#tensorrt-llm)、Megatron）仍可免费下载。企业付费购买的是*支持与认证*，就像购买红帽 Linux 一样，而不是代码本身。因此买家很可能是企业和主权项目，而不是能够自我支持的[超大规模云厂商](../../../glossary.md#hyperscaler) 🔴。
+该授权将英伟达 AI 软件中受支持、经过安全补丁的构建版本与企业级支持打包，按 GPU 定价 [[S9515]](../../../sources/bibliography.md#s9515)。CUDA、cuDNN 以及开源项目（[Dynamo](../../glossary.md#dynamo)、[TensorRT-LLM](../../glossary.md#tensorrt-llm)、Megatron）仍可免费下载。企业付费购买的是*支持与认证*，就像购买红帽 Linux 一样，而不是代码本身。因此买家很可能是企业和主权项目，而不是能够自我支持的[超大规模云厂商](../../glossary.md#hyperscaler) 🔴。
 
 </details>
 
@@ -61,7 +61,7 @@ flowchart LR
 
 - **英伟达收购“消除摩擦者”：** 让其 GPU 更易于调度（Run:ai、SchedMD）、更易于优化（Deci、OctoAI、CentML）或更易于租用（Brev.dev、Lepton）的工具；Run:ai 在欧盟审查后被开源 [[S476]](../../../sources/bibliography.md#s476)[[S478]](../../../sources/bibliography.md#s478)。
 - **AMD 收购“追赶能力”：** 编译器与推理团队（Nod.ai、Brium、MK1），以及在 AMD 平台上构建开源模型的实验室 Silo AI（$665M）[[S9508]](../../../sources/bibliography.md#s9508)[[S9507]](../../../sources/bibliography.md#s9507)[[S9509]](../../../sources/bibliography.md#s9509)[[S9506]](../../../sources/bibliography.md#s9506)。
-- **高通下了一个大注：** 一门语言（[Mojo](../../../glossary.md#mojo)）、一个推理框架（MAX），以及创始人 Chris Lattner——他现任高通执行副总裁 [[S9511]](../../../sources/bibliography.md#s9511)。
+- **高通下了一个大注：** 一门语言（[Mojo](../../glossary.md#mojo)）、一个推理框架（MAX），以及创始人 Chris Lattner——他现任高通执行副总裁 [[S9511]](../../../sources/bibliography.md#s9511)。
 
 ![AI 软件交易金额横向柱状图：高通-Modular 约 $3,900M（2026），英伟达-Run:ai 约 $700M（2024），AMD-Silo AI $665M（2024），英伟达-CentML 最高约 $400M（2025），英伟达-Deci 约 $300M（2024），英伟达-OctoAI 约 $250M（2024）。作为参照，Modular 在 2025 年 9 月的 C 轮融资中估值为 $1,600M，累计融资 $380M，因此高通支付的价格约为最近一次私募估值的 2.4 倍、投入资本的约 10 倍。](../../../assets/charts/09-software-deal-values.svg)
 
@@ -79,7 +79,7 @@ flowchart LR
 | tiny corp（tinygrad） | 极简的端到端深度学习软件栈与编译器 | 融资情况未经核实 | 展示了极小团队也能写出完整软件栈 [[S9536]](../../../sources/bibliography.md#s9536) |
 | Groq（授权交易后） | 推理芯片与编译器；核心团队已加入英伟达 | 在英伟达约 $20B 授权交易前估值约 $6.9B（2025 年 9 月）🟡 [[S90019]](../../../sources/bibliography.md#s90019) | 一种英伟达选择授权获取的编译器优先设计 [[S90018]](../../../sources/bibliography.md#s90018) |
 
-**[Q8 · 价值池与并购机会]** 在这一层，资金流向拥有*默认地位*的一方：英伟达，通过硬件带动销售获利。对其他所有人而言，软件是一种需要获取的能力（通常以[收购式招聘（acquihire）](../../../glossary.md#acquihire)的方式），而非利润池。其价值以消除了多少天的首日滞后、支持了多少框架来衡量。独立团队的供给正在萎缩：自 2023 年以来，至少有九支推理优化和编译器团队归入了英伟达、AMD、红帽或高通 [[S478]](../../../sources/bibliography.md#s478)[[S9508]](../../../sources/bibliography.md#s9508)[[S9507]](../../../sources/bibliography.md#s9507)[[S9509]](../../../sources/bibliography.md#s9509)[[S9533]](../../../sources/bibliography.md#s9533)[[S9511]](../../../sources/bibliography.md#s9511)。剩下的独立资产是维护者公司和小型编译器初创公司。与它们合作（资助上游、联合 CI、共同维护）可能比控制它们更重要 🔴。
+**[Q8 · 价值池与并购机会]** 在这一层，资金流向拥有*默认地位*的一方：英伟达，通过硬件带动销售获利。对其他所有人而言，软件是一种需要获取的能力（通常以[收购式招聘（acquihire）](../../glossary.md#acquihire)的方式），而非利润池。其价值以消除了多少天的首日滞后、支持了多少框架来衡量。独立团队的供给正在萎缩：自 2023 年以来，至少有九支推理优化和编译器团队归入了英伟达、AMD、红帽或高通 [[S478]](../../../sources/bibliography.md#s478)[[S9508]](../../../sources/bibliography.md#s9508)[[S9507]](../../../sources/bibliography.md#s9507)[[S9509]](../../../sources/bibliography.md#s9509)[[S9533]](../../../sources/bibliography.md#s9533)[[S9511]](../../../sources/bibliography.md#s9511)。剩下的独立资产是维护者公司和小型编译器初创公司。与它们合作（资助上游、联合 CI、共同维护）可能比控制它们更重要 🔴。
 
 ## 🎯 企业发展视角
 

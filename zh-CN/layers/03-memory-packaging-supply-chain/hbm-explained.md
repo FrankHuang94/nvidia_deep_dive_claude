@@ -7,7 +7,7 @@
 
 ## ⚡ 要点速览
 
-- **[高带宽内存（HBM）](../../../glossary.md#hbm)是在 GPU 旁边盖起的一座 DRAM 摩天楼。** 8–16 片减薄的 DRAM 裸片叠放在一片基础裸片（base die）之上，通过[硅通孔（TSV）](../../../glossary.md#through-silicon-via)垂直互连，并经由 1,024 根（[HBM3E](../../../glossary.md#hbm3e)）或 2,048 根（[HBM4](../../../glossary.md#hbm4)）数据线与 GPU 通信 [[S368]](../../../sources/bibliography.md#s368)[[S369]](../../../sources/bibliography.md#s369)。
+- **[高带宽内存（HBM）](../../glossary.md#hbm)是在 GPU 旁边盖起的一座 DRAM 摩天楼。** 8–16 片减薄的 DRAM 裸片叠放在一片基础裸片（base die）之上，通过[硅通孔（TSV）](../../glossary.md#through-silicon-via)垂直互连，并经由 1,024 根（[HBM3E](../../glossary.md#hbm3e)）或 2,048 根（[HBM4](../../glossary.md#hbm4)）数据线与 GPU 通信 [[S368]](../../../sources/bibliography.md#s368)[[S369]](../../../sources/bibliography.md#s369)。
 - **[Q3 · 代际进步]** 单堆栈峰值带宽提升 16 倍，从 128 GB/s（2013 年）增至 2,048 GB/s（JEDEC HBM4）[[S370]](../../../sources/bibliography.md#s370)[[S369]](../../../sources/bibliography.md#s369)。就单颗 GPU 而言，从 P100 到 Rubin，带宽由 0.73 增至 19.2 TB/s（26 倍），容量由 16 增至 288 GB（18 倍），Rubin Ultra 规划搭载 16 个堆栈 [[S125]](../../../sources/bibliography.md#s125)[[S33007]](../../../sources/bibliography.md#s33007)[[S35041]](../../../sources/bibliography.md#s35041)。
 - **HBM 之所以昂贵，是因为其制造过程损耗大。** 每 GB 的 HBM3E 需要约 3 倍于 DDR5 的晶圆面积（美光数据）[[S3006]](../../../sources/bibliography.md#s3006)，且一片坏裸片就会让整个堆栈报废。HBM 约占 B200 制造成本的 45%（估计）[[S35020]](../../../sources/bibliography.md#s35020)。
 - 🟡 **HBM4 将基础裸片转向逻辑工艺，且常由台积电（TSMC）制造** [[S3011]](../../../sources/bibliography.md#s3011)[[S3007]](../../../sources/bibliography.md#s3007)，使部分价值池转移至晶圆代工厂和 GPU 设计方。
@@ -19,11 +19,11 @@
 
 **类比。** 服务器 DDR5 像郊区：芯片分散在各条 DIMM 上，每个通道通过一条 64 位的“道路”连到 CPU。HBM 则像隔壁的一座摩天楼：裸片叠起十几层，每层都贯穿着“电梯井”（TSV），并通过一座 1,024 或 2,048 车道的“桥”连到仅一两毫米之外的 GPU。
 
-- **核心裸片（core die）** 存储比特。一片 24 Gb 裸片可存 3 GB，因此 12 层堆栈容量为 36 GB；JEDEC HBM4 允许由 32 Gb 裸片组成的 16 层堆栈，即 64 GB [[S369]](../../../sources/bibliography.md#s369)。[堆叠层数（stack height）](../../../glossary.md#stack-height)决定容量。
-- **TSV 与[微凸块（micro-bump）](../../../glossary.md#microbump)** 在各层之间传输数据与电力。[混合键合（hybrid bonding）](../../../glossary.md#hybrid-bonding)是一种无凸块的铜对铜连接方式，正被探索用于 16 层堆栈。
-- **[基础裸片（base die）](../../../glossary.md#hbm-base-die)** 承载接口与测试逻辑。[中介层（interposer）](../../../glossary.md#interposer)把它的数千根导线连到 GPU，这也是 HBM 必须与 GPU 共同封装的原因（见 [CoWoS](cowos-and-advanced-packaging.md)）。
+- **核心裸片（core die）** 存储比特。一片 24 Gb 裸片可存 3 GB，因此 12 层堆栈容量为 36 GB；JEDEC HBM4 允许由 32 Gb 裸片组成的 16 层堆栈，即 64 GB [[S369]](../../../sources/bibliography.md#s369)。[堆叠层数（stack height）](../../glossary.md#stack-height)决定容量。
+- **TSV 与[微凸块（micro-bump）](../../glossary.md#microbump)** 在各层之间传输数据与电力。[混合键合（hybrid bonding）](../../glossary.md#hybrid-bonding)是一种无凸块的铜对铜连接方式，正被探索用于 16 层堆栈。
+- **[基础裸片（base die）](../../glossary.md#hbm-base-die)** 承载接口与测试逻辑。[中介层（interposer）](../../glossary.md#interposer)把它的数千根导线连到 GPU，这也是 HBM 必须与 GPU 共同封装的原因（见 [CoWoS](cowos-and-advanced-packaging.md)）。
 
-单堆栈带宽 = [引脚速率（pin speed）](../../../glossary.md#pin-speed) × 总线位宽 ÷ 8。
+单堆栈带宽 = [引脚速率（pin speed）](../../glossary.md#pin-speed) × 总线位宽 ÷ 8。
 
 > [!TIP]
 > **算例 —— 一个 HBM4 堆栈对比 DDR5 通道。** 一条 DDR5-6400 通道的传输速率为 6.4 Gb/s × 64 ÷ 8 = 51.2 GB/s [[S179]](../../../sources/bibliography.md#s179)。每个 Rubin 堆栈的速率为 19.2 TB/s ÷ 8 = 2,400 GB/s，约相当于 47 条 DDR5 通道，意味着 2,048 根数据线上每引脚约 9.4 Gb/s（发布时 22 TB/s 的规格对应约 10.7）[[S33006]](../../../sources/bibliography.md#s33006)[[S33007]](../../../sources/bibliography.md#s33007)[[S90006]](../../../sources/bibliography.md#s90006)。**商业解读：** HBM4 的提升来自更宽的总线，而非更快的引脚；🔴 据一位分析师称，英伟达对 10–11 Gb/s 速度档位的追求 [[S90040]](../../../sources/bibliography.md#s90040) 受制于供应商的量产能力 [[S90006]](../../../sources/bibliography.md#s90006)。
@@ -49,8 +49,8 @@ GPU 层面的提升是引脚速率、总线位宽与堆栈数量三者相乘的�
 ## 为什么 HBM 每 GB 成本是 DDR 的数倍，以及为什么良率难以提升
 
 1. **每比特耗用硅片：** 每 GB 约 3 倍于 DDR5 的晶圆面积，美光称这一差距并未缩小 [[S3006]](../../../sources/bibliography.md#s3006)。
-2. **良率连乘效应：** 一片坏裸片或一处坏键合就会让整个堆栈报废；[已知良好裸片（known-good-die）](../../../glossary.md#known-good-die)测试能以一定成本限制损失。
-3. **封装：** 每个堆栈随后还需要稀缺的 [CoWoS](../../../glossary.md#cowos) 产能。
+2. **良率连乘效应：** 一片坏裸片或一处坏键合就会让整个堆栈报废；[已知良好裸片（known-good-die）](../../glossary.md#known-good-die)测试能以一定成本限制损失。
+3. **封装：** 每个堆栈随后还需要稀缺的 [CoWoS](../../glossary.md#cowos) 产能。
 
 > [!TIP]
 > **算例 —— 堆栈良率与 HBM 成本。** 🔴 若每道“裸片 + 键合”工序良率为 99%，12 层堆栈良率约为 89%，16 层约为 85%。按 HBM3E 约 $15/GB 计算，B200 的 192 GB 约值 $2,900，约占其约 $6,400 制造成本的 45%（估计，Epoch AI）[[S35020]](../../../sources/bibliography.md#s35020)；🟡 若按伯恩斯坦（Bernstein）对 2027 年 HBM4 约 $53/GB 的预测 [[S333]](../../../sources/bibliography.md#s333)，Rubin 的 288 GB 将超过 $15,000。**商业解读：** 如今决定 GPU 最大一项成本的是内存厂商。
@@ -62,7 +62,7 @@ GPU 层面的提升是引脚速率、总线位宽与堆栈数量三者相乘的�
 
 ## HBM4 的定制基础裸片：逻辑电路进入内存堆栈
 
-为驱动 2,048 根数据线，HBM4 的基础裸片从 DRAM 工艺转向逻辑工艺 [[S3009]](../../../sources/bibliography.md#s3009)。🟡 据报道，SK 海力士采用台积电 12 nm；三星则采用自家 4 nm [[S3011]](../../../sources/bibliography.md#s3011)。美光表示，自 2027 年起将由台积电制造其 [HBM4E](../../../glossary.md#hbm4e) 基础裸片，并为愿意支付溢价的客户提供定制设计 [[S3007]](../../../sources/bibliography.md#s3007)。台积电在 N3P 上提供定制 HBM4E 基础裸片 [[S3008]](../../../sources/bibliography.md#s3008)。
+为驱动 2,048 根数据线，HBM4 的基础裸片从 DRAM 工艺转向逻辑工艺 [[S3009]](../../../sources/bibliography.md#s3009)。🟡 据报道，SK 海力士采用台积电 12 nm；三星则采用自家 4 nm [[S3011]](../../../sources/bibliography.md#s3011)。美光表示，自 2027 年起将由台积电制造其 [HBM4E](../../glossary.md#hbm4e) 基础裸片，并为愿意支付溢价的客户提供定制设计 [[S3007]](../../../sources/bibliography.md#s3007)。台积电在 N3P 上提供定制 HBM4E 基础裸片 [[S3008]](../../../sources/bibliography.md#s3008)。
 
 > [!TIP]
 > **算例 —— 宽而慢胜过窄而快。** 即使只有 8 Gb/s，JEDEC HBM4 也能提供 8 × 2,048 ÷ 8 = 2,048 GB/s；最快的 HBM3E 为 9.8 Gb/s、1,024 根数据线，约 1,280 GB/s [[S369]](../../../sources/bibliography.md#s369)[[S372]](../../../sources/bibliography.md#s372)。即以低 18% 的引脚速率换来 +60% 的带宽，同时缓解了功耗与信号完整性压力。**商业解读：** 如今决定速度的是基础裸片，谁来设计它，谁就获得议价筹码。

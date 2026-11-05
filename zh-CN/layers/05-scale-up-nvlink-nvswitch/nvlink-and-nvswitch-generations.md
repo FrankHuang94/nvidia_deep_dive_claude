@@ -7,9 +7,9 @@
 
 ## ⚡ 要点速览
 
-- **十年约 19 倍。** 每 GPU 的 [NVLink](../../../glossary.md#nvlink) 带宽从 160 GB/s（P100，2016 年）升至 3.0 TB/s（Rubin，2026 年）[[S259]](../../../sources/bibliography.md#s259)[[S200]](../../../sources/bibliography.md#s200)，而 GPU 所用的 [PCIe](../../../glossary.md#pcie) x16 链路仅提升 8 倍 [[S222]](../../../sources/bibliography.md#s222)。
+- **十年约 19 倍。** 每 GPU 的 [NVLink](../../glossary.md#nvlink) 带宽从 160 GB/s（P100，2016 年）升至 3.0 TB/s（Rubin，2026 年）[[S259]](../../../sources/bibliography.md#s259)[[S200]](../../../sources/bibliography.md#s200)，而 GPU 所用的 [PCIe](../../glossary.md#pcie) x16 链路仅提升 8 倍 [[S222]](../../../sources/bibliography.md#s222)。
 - **靠更快的线，而非更多的线。** 自 Hopper 起，每颗 GPU 都使用 72 对线；每对线的速率从 100 提升至 200 Gb/s，而在 Rubin 上则实现了约 200 Gb/s 的同时双向传输（本资料库据 [[S205]](../../../sources/bibliography.md#s205)[[S263]](../../../sources/bibliography.md#s263)[[S203]](../../../sources/bibliography.md#s203) 计算）。
-- **[NVSwitch](../../../glossary.md#nvswitch) 把板级网格变成了机架级互连网络：** DGX-2（2018 年）用 12 颗芯片连接 16 颗 V100 [[S206]](../../../sources/bibliography.md#s206)；GB200 [NVL72](../../../glossary.md#nvl72) 用 18 颗 NVLink 5 Switch 芯片连接 72 颗 GPU（130 TB/s）[[S262]](../../../sources/bibliography.md#s262)[[S207]](../../../sources/bibliography.md#s207)；Vera Rubin NVL72 使用 36 颗 [[S203]](../../../sources/bibliography.md#s203)。
+- **[NVSwitch](../../glossary.md#nvswitch) 把板级网格变成了机架级互连网络：** DGX-2（2018 年）用 12 颗芯片连接 16 颗 V100 [[S206]](../../../sources/bibliography.md#s206)；GB200 [NVL72](../../glossary.md#nvl72) 用 18 颗 NVLink 5 Switch 芯片连接 72 颗 GPU（130 TB/s）[[S262]](../../../sources/bibliography.md#s262)[[S207]](../../../sources/bibliography.md#s207)；Vera Rubin NVL72 使用 36 颗 [[S203]](../../../sources/bibliography.md#s203)。
 - **2026 年的规格下调：** NVLink 6 每 GPU 带宽由 3.6 下调至 3.0 TB/s（每机架由 260 → 216 TB/s）；英伟达称发布时的数字为初步目标 [[S200]](../../../sources/bibliography.md#s200)[[S201]](../../../sources/bibliography.md#s201)[[S202]](../../../sources/bibliography.md#s202)。纸面上，AMD 的 Helios（260 TB/s）如今领先 [[S226]](../../../sources/bibliography.md#s226)。
 - **命名两度变更：** Vera Rubin NVL72 最初以“NVL144”（按裸片计数）发布 [[S90009]](../../../sources/bibliography.md#s90009)；Kyber NVL144 指 144 个 Rubin Ultra *封装* 🟢 2027 年下半年，另有推迟至 2028 年的报道但存在争议 🟡 [[S510]](../../../sources/bibliography.md#s510)[[S507]](../../../sources/bibliography.md#s507)[[S508]](../../../sources/bibliography.md#s508)；“NVL576”如今常指八个 72 GPU 机架 🟡 [[S214]](../../../sources/bibliography.md#s214)[[S120]](../../../sources/bibliography.md#s120)。
 
@@ -17,7 +17,7 @@
 
 ## 1. NVLink 1 → 7：链路
 
-一条 NVLink“链路”是每个方向上的一组串行通道（[SerDes](../../../glossary.md#serdes)）。每一代要么增加链路，要么提高通道速率；Hopper 改用 [PAM4](../../../glossary.md#pam4) 信号调制，每个符号承载两个比特。
+一条 NVLink“链路”是每个方向上的一组串行通道（[SerDes](../../glossary.md#serdes)）。每一代要么增加链路，要么提高通道速率；Hopper 改用 [PAM4](../../glossary.md#pam4) 信号调制，每个符号承载两个比特。
 
 | 代际 | 首款产品（年份） | 通道速率 | 每 GPU 链路数 | 每 GPU 双向合计 | 已出货的域规模 | 交换芯片 |
 |---|---|---|---|---|---|---|
@@ -56,7 +56,7 @@
 
 ![NVSwitch 各代柱状图：第 1 代（2018 年）0.9 TB/s、18 个端口，第 2 代 1.8 TB/s、36 个端口，第 3 代 3.2 TB/s、64 个端口，NVLink 5 Switch 7.2 TB/s、72 个端口，NVLink 6 Switch 7.2 TB/s、36 个倍速端口，NVLink 7 Switch（2027 年，有报道）7.2 TB/s；域规模从 16 颗 GPU 扩大到 72 颗和 144 颗。](../../../assets/charts/05-nvswitch-generations.svg)
 
-在 GB200 NVL72 中，每个 1U [NVLink 交换托盘](../../../glossary.md#nvlink-switch-tray)放置两颗芯片，每机架九个托盘；每个托盘由各自的[基板管理控制器（BMC）](../../../glossary.md#bmc)管理，并通过后部的[盲插连接器](../../../glossary.md#blind-mate-connector)接入 [NVLink 铜缆背板（spine）](../../../glossary.md#nvlink-spine) [[S5007]](../../../sources/bibliography.md#s5007)[[S5008]](../../../sources/bibliography.md#s5008)。
+在 GB200 NVL72 中，每个 1U [NVLink 交换托盘](../../glossary.md#nvlink-switch-tray)放置两颗芯片，每机架九个托盘；每个托盘由各自的[基板管理控制器（BMC）](../../glossary.md#bmc)管理，并通过后部的[盲插连接器](../../glossary.md#blind-mate-connector)接入 [NVLink 铜缆背板（spine）](../../glossary.md#nvlink-spine) [[S5007]](../../../sources/bibliography.md#s5007)[[S5008]](../../../sources/bibliography.md#s5008)。
 
 ![GB200 代 NVLink 交换托盘的标注示意图，左侧为前部、右侧为后部：前面板 BMC 模块，用于带外管理，并配有管理端口；两颗 NVLink 5 Switch ASIC，每颗有 72 个 NVLink 端口、7.2 TB/s（单向 28.8 Tb/s）并支持 SHARP 网内规约，覆盖液冷冷板；后部盲插 NVLink 连接器承载 144 个端口（576 对铜线），接入铜缆背板的线缆盒，另有直流电源输入与冷却液快速接头。侧注说明：九个托盘共 18 颗 ASIC、1,296 个面向 GPU 的端口，每机架 5,184 对铜线；Vera Rubin NVL72 使用 36 颗 NVLink 6 Switch 芯片。](../../../assets/diagrams/05-nvlink-switch-tray-anatomy.svg)
 
@@ -80,7 +80,7 @@ timeline
   2028 : Feynman Kyber NVL1152 · 铜缆加光学（路线图）
 ```
 
-DGX GH200 于 2023 年尝试通过光学 NVLink 连接 256 颗 GPU，但部署有限；随后被铜缆 NVL72 取代 [[S205]](../../../sources/bibliography.md#s205)[[S200]](../../../sources/bibliography.md#s200)。[Kyber](../../../glossary.md#kyber) 把机架改造为插在[中板（midplane）](../../../glossary.md#midplane)上的竖直刀片：36 块计算刀片（每块含四个 Rubin Ultra 封装）和 12 块交换刀片 [[S510]](../../../sources/bibliography.md#s510)，功率约 600 kW [[S305]](../../../sources/bibliography.md#s305)。在单机架之外，GTC 2026 展示了 NVL576，以及面向 Feynman、基于铜缆与共封装光学的 NVL1152 🟢 [[S109]](../../../sources/bibliography.md#s109)[[S108]](../../../sources/bibliography.md#s108)。
+DGX GH200 于 2023 年尝试通过光学 NVLink 连接 256 颗 GPU，但部署有限；随后被铜缆 NVL72 取代 [[S205]](../../../sources/bibliography.md#s205)[[S200]](../../../sources/bibliography.md#s200)。[Kyber](../../glossary.md#kyber) 把机架改造为插在[中板（midplane）](../../glossary.md#midplane)上的竖直刀片：36 块计算刀片（每块含四个 Rubin Ultra 封装）和 12 块交换刀片 [[S510]](../../../sources/bibliography.md#s510)，功率约 600 kW [[S305]](../../../sources/bibliography.md#s305)。在单机架之外，GTC 2026 展示了 NVL576，以及面向 Feynman、基于铜缆与共封装光学的 NVL1152 🟢 [[S109]](../../../sources/bibliography.md#s109)[[S108]](../../../sources/bibliography.md#s108)。
 
 > [!TIP]
 > **算例 —— Kyber 的数字。** 144 个封装 × 3.6 TB/s（有报道）= 每机架 **约 518 TB/s**，为 GB200 NVL72 的 4 倍 [[S210]](../../../sources/bibliography.md#s210)。SemiAnalysis 统计为 72 颗 NVLink 7 Switch 芯片 × 7.2 TB/s = 518 TB/s，二者一致；Glenn Lockwood 估计为 36 颗，那将需要单芯片带宽翻倍 [[S210]](../../../sources/bibliography.md#s210)[[S211]](../../../sources/bibliography.md#s211)。按约 600 kW 计，每个封装约 4.2 kW [[S305]](../../../sources/bibliography.md#s305)。**结论：** 在英伟达公布规格之前，Kyber 的交换芯片数量与时间表都应视为 🟡。

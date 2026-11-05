@@ -7,18 +7,18 @@
 
 ## ⚡ 要点速览
 
-- **[CUDA](../../../glossary.md#cuda) 开发者数量增至三倍，随后标题数字不再变化。** 英伟达 2020 年统计的注册开发者为 2M，GTC 2025 时为 ~6M，GTC 2026 时引用的仍是 ~6M [[S529]](../../../sources/bibliography.md#s529)[[S536]](../../../sources/bibliography.md#s536)[[S528]](../../../sources/bibliography.md#s528)。
-- **[GTC](../../../glossary.md#gtc) 已成为行业展会。** 参会人数从首届 GTC（2009 年）的 ~1,500 人 [[S13024]](../../../sources/bibliography.md#s13024)，增至 2025 年的 ~25,000 人现场加 ~300,000 人线上 [[S13020]](../../../sources/bibliography.md#s13020)，2026 年预计 >30,000 人、来自 >190 个国家和地区 [[S13533]](../../../sources/bibliography.md#s13533)，议程超过 500 场 [[S13023]](../../../sources/bibliography.md#s13023)。
-- **培训是引流渠道，而非一门生意。** [深度学习学院（Deep Learning Institute）](../../../glossary.md#deep-learning-institute)在 2017 年提出培训 100,000 名开发者的目标 [[S13031]](../../../sources/bibliography.md#s13031)，到 ~2020 年已培训 >200,000 人，并拥有 >550 名认证讲师 [[S13032]](../../../sources/bibliography.md#s13032)。
+- **[CUDA](../../glossary.md#cuda) 开发者数量增至三倍，随后标题数字不再变化。** 英伟达 2020 年统计的注册开发者为 2M，GTC 2025 时为 ~6M，GTC 2026 时引用的仍是 ~6M [[S529]](../../../sources/bibliography.md#s529)[[S536]](../../../sources/bibliography.md#s536)[[S528]](../../../sources/bibliography.md#s528)。
+- **[GTC](../../glossary.md#gtc) 已成为行业展会。** 参会人数从首届 GTC（2009 年）的 ~1,500 人 [[S13024]](../../../sources/bibliography.md#s13024)，增至 2025 年的 ~25,000 人现场加 ~300,000 人线上 [[S13020]](../../../sources/bibliography.md#s13020)，2026 年预计 >30,000 人、来自 >190 个国家和地区 [[S13533]](../../../sources/bibliography.md#s13533)，议程超过 500 场 [[S13023]](../../../sources/bibliography.md#s13023)。
+- **培训是引流渠道，而非一门生意。** [深度学习学院（Deep Learning Institute）](../../glossary.md#deep-learning-institute)在 2017 年提出培训 100,000 名开发者的目标 [[S13031]](../../../sources/bibliography.md#s13031)，到 ~2020 年已培训 >200,000 人，并拥有 >550 名认证讲师 [[S13032]](../../../sources/bibliography.md#s13032)。
 - **Inception 免费且覆盖面广：**2017 年 2,000 家初创企业 [[S13027]](../../../sources/bibliography.md#s13027)，2021 年 8,500 家、累计融资 >$60B [[S13026]](../../../sources/bibliography.md#s13026)，到 2022 年 ~10,000 家 [[S531]](../../../sources/bibliography.md#s531)；二手资料称 2025 年已 >22,000 家 [[S13536]](../../../sources/bibliography.md#s13536)。
 - **NVentures 是股权投资臂膀，且明显提速：**2025 年 ~30 笔交易，而 2022 年仅 1 笔；英伟达整体在 2025 年参与了 ~67 轮风险投资，2024 年为 54 轮（PitchBook 数据，经媒体转引）🟡 [[S13029]](../../../sources/bibliography.md#s13029)。
-- **看空情景：**[PyTorch](../../../glossary.md#pytorch)、[Triton](../../../glossary.md#triton) 和 Mojo 等框架将 CUDA 抽象掉。高通于 2026 年 7 月完成对 Modular 约 ~$3.9B 的全股票收购，以掌控这样一套技术栈 [[S9511]](../../../sources/bibliography.md#s9511)[[S90057]](../../../sources/bibliography.md#s90057)。
+- **看空情景：**[PyTorch](../../glossary.md#pytorch)、[Triton](../../glossary.md#triton) 和 Mojo 等框架将 CUDA 抽象掉。高通于 2026 年 7 月完成对 Modular 约 ~$3.9B 的全股票收购，以掌控这样一套技术栈 [[S9511]](../../../sources/bibliography.md#s9511)[[S90057]](../../../sources/bibliography.md#s90057)。
 
 ![英伟达公布的 CUDA 开发者数量折线图：2018 年前后约 1M（估计），2020 年 2M，2022 年 3 月 3M，2023 年 5 月 4M，2024 年 6 月 5M，2025 年 2 月 5.9M，GTC 2025 与 GTC 2026 均约为 6M——取整后的标题数字已进入平台期。](../../../assets/charts/09-cuda-developers-over-time.svg)
 
 ## 开发者飞轮如何运转
 
-不妨把 CUDA 看作一个“顺带卖硬件”的操作系统。开发者不向英伟达付费；他们学习免费工具，编写默认运行在英伟达 GPU 上的代码，而他们的雇主购买或租用 GPU。[开发者关系（developer relations）](../../../glossary.md#developer-relations)正是让这一习惯持续养成的机制：免费的 SDK 和 [CUDA-X](../../../glossary.md#cuda-x) 软件库、NVIDIA 开发者计划（NVIDIA Developer Program）、DLI 课程以及 GTC。每一个为 CUDA 编写的模型、内核和教程，都会抬高下一位买方的转换成本（参见[第 09 层](../09-cuda-and-system-software/index.md)和[飞轮章节](../../../01-the-nvidia-flywheel.md)）。
+不妨把 CUDA 看作一个“顺带卖硬件”的操作系统。开发者不向英伟达付费；他们学习免费工具，编写默认运行在英伟达 GPU 上的代码，而他们的雇主购买或租用 GPU。[开发者关系（developer relations）](../../glossary.md#developer-relations)正是让这一习惯持续养成的机制：免费的 SDK 和 [CUDA-X](../../glossary.md#cuda-x) 软件库、NVIDIA 开发者计划（NVIDIA Developer Program）、DLI 课程以及 GTC。每一个为 CUDA 编写的模型、内核和教程，都会抬高下一位买方的转换成本（参见[第 09 层](../09-cuda-and-system-software/index.md)和[飞轮章节](../../01-the-nvidia-flywheel.md)）。
 
 > [!TIP]
 > **算例 —— 英伟达在每位开发者身上的投入与回报。** FY2026 研发支出为 $18.5B [[S401]](../../../sources/bibliography.md#s401)。摊到 ~6M 注册开发者 [[S528]](../../../sources/bibliography.md#s528) 身上，即**每位开发者每年 ~$3,100 研发投入**。数据中心收入为 $193.7B [[S1]](../../../sources/bibliography.md#s1)，即**每位开发者 ~$32,000**。开发者是由买方买单的成本中心：人均收入与研发投入 10:1 的比例，只有在这些开发者持续选择 CUDA 时才能成立。
@@ -36,7 +36,7 @@
 
 ## GTC 作为平台
 
-GTC 起初是一个 GPU 计算会议，如今已成为英伟达的年度路线图发布会、合作伙伴发布窗口和销售场所。春季主题演讲设定了供应链据以排产的节奏。GTC 2026 推出了 Vera Rubin [NVL72](../../../glossary.md#nvl72)、Groq 3 LPX 机架和 Kyber 路线图 [[S90003]](../../../sources/bibliography.md#s90003)，发布了 [Dynamo](../../../glossary.md#dynamo) 1.0，并点名 CoreWeave、Perplexity 和 PayPal 等采用者 [[S90066]](../../../sources/bibliography.md#s90066)，还把英伟达对截至 2027 年需求的表述从 $500B 上调到 $1 trillion [[S90001]](../../../sources/bibliography.md#s90001)。合作伙伴围绕主题演讲安排发布；区域性活动延展了这一形式，GTC DC 将于 2026 年 11 月 30 日至 12 月 3 日举行，晚于本资料库的截止日期 [[S90047]](../../../sources/bibliography.md#s90047)。
+GTC 起初是一个 GPU 计算会议，如今已成为英伟达的年度路线图发布会、合作伙伴发布窗口和销售场所。春季主题演讲设定了供应链据以排产的节奏。GTC 2026 推出了 Vera Rubin [NVL72](../../glossary.md#nvl72)、Groq 3 LPX 机架和 Kyber 路线图 [[S90003]](../../../sources/bibliography.md#s90003)，发布了 [Dynamo](../../glossary.md#dynamo) 1.0，并点名 CoreWeave、Perplexity 和 PayPal 等采用者 [[S90066]](../../../sources/bibliography.md#s90066)，还把英伟达对截至 2027 年需求的表述从 $500B 上调到 $1 trillion [[S90001]](../../../sources/bibliography.md#s90001)。合作伙伴围绕主题演讲安排发布；区域性活动延展了这一形式，GTC DC 将于 2026 年 11 月 30 日至 12 月 3 日举行，晚于本资料库的截止日期 [[S90047]](../../../sources/bibliography.md#s90047)。
 
 ![英伟达春季 GTC 现场参会人数柱状图：2009 年首届 GTC 约 1,500 人，2024 年预计超过 16,000 人，2025 年英伟达估计约 25,000 人、另有约 300,000 人线上参与，2026 年预计超过 30,000 人、来自 190 多个国家和地区，议程列出 500+ 场。参会人数增长约 20 倍，使 GTC 不仅是英伟达、也是合作伙伴的发布平台。](../../../assets/charts/13-gtc-attendance.svg)
 
@@ -45,7 +45,7 @@ GTC 起初是一个 GPU 计算会议，如今已成为英伟达的年度路线�
 
 ## Inception 与 NVentures：两种不同的工具
 
-[NVIDIA Inception](../../../glossary.md#nvidia-inception) 是面向初创企业的免费会员计划。[NVentures](../../../glossary.md#nventures) 则是英伟达的[企业风险投资（corporate venture capital）](../../../glossary.md#corporate-venture-capital)部门，负责股权投资。规模更大的战略性持股（如 OpenAI 或英特尔）则记在英伟达自身的资产负债表上（见[资本部署](capital-deployment.md)）。
+[NVIDIA Inception](../../glossary.md#nvidia-inception) 是面向初创企业的免费会员计划。[NVentures](../../glossary.md#nventures) 则是英伟达的[企业风险投资（corporate venture capital）](../../glossary.md#corporate-venture-capital)部门，负责股权投资。规模更大的战略性持股（如 OpenAI 或英特尔）则记在英伟达自身的资产负债表上（见[资本部署](capital-deployment.md)）。
 
 | | NVIDIA Inception | NVentures | 公司层面的战略性持股 |
 |---|---|---|---|
@@ -83,7 +83,7 @@ flowchart LR
 
 1. **当 CUDA 被隐藏时，谁拥有开发者？** 如果 PyTorch、Triton 或 Mojo 成为交互界面，掌控编译器层的一方将攫取开发者习惯。高通收购 Modular [[S9511]](../../../sources/bibliography.md#s9511) 是这一方向上一次公开下注。可移植技术栈能以多快速度在初创企业计划中成为“默认选项”？
 2. **初创企业计划是成本低廉的期权。** 云额度在各厂商之间十分常见（见[竞争格局](competition.md)）。英伟达的优势在于会员的硬件选择早已确定。竞争对手需要提供什么，初创企业才会为第二种架构进行设计？
-3. **GTC 是一种协调机制。** 供应商、OEM 和云厂商都围绕它对齐发布日程。是否存在一个中立论坛（OCP、MLCommons、[UALink](../../../glossary.md#ualink) 活动），让挑战者联盟能够同样高调地协同？
+3. **GTC 是一种协调机制。** 供应商、OEM 和云厂商都围绕它对齐发布日程。是否存在一个中立论坛（OCP、MLCommons、[UALink](../../glossary.md#ualink) 活动），让挑战者联盟能够同样高调地协同？
 
 ## 📚 来源（Sources）
 

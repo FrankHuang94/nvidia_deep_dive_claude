@@ -6,12 +6,12 @@
 
 ## ⚡ 要点速览
 
-- **四个价值池，四类主导者：**AI [后端网络](../../../glossary.md#back-end-network)[网卡（NIC）](../../../glossary.md#nic)（每颗 GPU 一块）、前端[数据处理器（DPU）](../../../glossary.md#dpu)、AI 存储与上下文内存，以及安全 / [机密计算](../../../glossary.md#confidential-computing)。英伟达只在第一个价值池中占据绝对领先 [[S264]](../../../sources/bibliography.md#s264)[[S7503]](../../../sources/bibliography.md#s7503)[[S7511]](../../../sources/bibliography.md#s7511)。
-- **网卡只占机架的一小块：**估计 🔴 每个 [NVL72](../../../glossary.md#nvl72) 机架中 [SuperNIC](../../../glossary.md#supernic) 与 DPU 的价值为 $0.1–0.6M，约占机架价格的 3–11%，但它决定了机架采用谁的网络、软件和存储通路 [[S326]](../../../sources/bibliography.md#s326)[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
-- **前端 DPU 的支出大多是自用的：**AWS（Nitro）、微软（Microsoft，Azure Boost DPU）和谷歌（Google，Titanium）都自研；[BlueField](../../../glossary.md#bluefield) 则销售给[新兴云服务商（neocloud）](../../../glossary.md#neocloud)、企业和存储厂商 [[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)[[S7530]](../../../sources/bibliography.md#s7530)。
+- **四个价值池，四类主导者：**AI [后端网络](../../glossary.md#back-end-network)[网卡（NIC）](../../glossary.md#nic)（每颗 GPU 一块）、前端[数据处理器（DPU）](../../glossary.md#dpu)、AI 存储与上下文内存，以及安全 / [机密计算](../../glossary.md#confidential-computing)。英伟达只在第一个价值池中占据绝对领先 [[S264]](../../../sources/bibliography.md#s264)[[S7503]](../../../sources/bibliography.md#s7503)[[S7511]](../../../sources/bibliography.md#s7511)。
+- **网卡只占机架的一小块：**估计 🔴 每个 [NVL72](../../glossary.md#nvl72) 机架中 [SuperNIC](../../glossary.md#supernic) 与 DPU 的价值为 $0.1–0.6M，约占机架价格的 3–11%，但它决定了机架采用谁的网络、软件和存储通路 [[S326]](../../../sources/bibliography.md#s326)[[S332]](../../../sources/bibliography.md#s332)[[S330]](../../../sources/bibliography.md#s330)。
+- **前端 DPU 的支出大多是自用的：**AWS（Nitro）、微软（Microsoft，Azure Boost DPU）和谷歌（Google，Titanium）都自研；[BlueField](../../glossary.md#bluefield) 则销售给[新兴云服务商（neocloud）](../../glossary.md#neocloud)、企业和存储厂商 [[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520)[[S7530]](../../../sources/bibliography.md#s7530)。
 - **私募市场的价值汇聚在存储软件：**VAST Data 在 2026 年 4 月估值 $30B（2023 年约 $9.1B），DDN 估值 $5B，WEKA 估值 $1.6B [[S7512]](../../../sources/bibliography.md#s7512)[[S7513]](../../../sources/bibliography.md#s7513)[[S7514]](../../../sources/bibliography.md#s7514)[[S7515]](../../../sources/bibliography.md#s7515)。
 - **几乎所有 DPU 团队都已被收购**（Annapurna、EZchip、Pensando、Fungible、Enfabrica）；Xsight Labs（估值 $2.8B）是少有的独立团队 [[S4540]](../../../sources/bibliography.md#s4540)[[S7507]](../../../sources/bibliography.md#s7507)[[S7527]](../../../sources/bibliography.md#s7527)[[S7504]](../../../sources/bibliography.md#s7504)[[S475]](../../../sources/bibliography.md#s475)[[S7517]](../../../sources/bibliography.md#s7517)。
-- **[Q8 · 价值池与并购机会]** 稀缺资产是 RDMA 传输协议与 [SerDes](../../../glossary.md#serdes) 团队，而非网卡芯片；按当前估值，存储是一个以合作为主的市场。
+- **[Q8 · 价值池与并购机会]** 稀缺资产是 RDMA 传输协议与 [SerDes](../../glossary.md#serdes) 团队，而非网卡芯片；按当前估值，存储是一个以合作为主的市场。
 
 ![每个 NVL72 机架中 SuperNIC 与 DPU 价值估算的堆叠柱状图：GB200 约 $108K-$324K（占约 $3.0M 机架的 3.6-10.8%），GB300 为 $144K-$396K（占约 $3.99M 的 3.6-9.9%），Vera Rubin 为 $252K-$612K（占约 $7.8M 的 3.2-7.8%）。单价为本资料库假设，以 BlueField-3 零售挂牌价 $1.9K-$6.0K 为锚；网卡数量为每颗 GPU 一块。](../../../assets/charts/07-nic-dpu-content-per-rack.svg)
 
@@ -21,13 +21,13 @@
 
 | 价值池 | 采购内容 | 目前由谁获取 | 英伟达的地位 | 可争夺程度 |
 |---|---|---|---|---|
-| AI 后端网卡（每 GPU 一块） | ConnectX-8/9、Vulcano、Thor Ultra、EFA | HGX/NVL72 中为英伟达；AWS 自研；Helios 中为 AMD [[S264]](../../../sources/bibliography.md#s264)[[S292]](../../../sources/bibliography.md#s292)[[S7500]](../../../sources/bibliography.md#s7500) | 🟩 在其机架中为默认配置 | 🟡 [超以太网（Ultra Ethernet）](../../../glossary.md#ultra-ethernet)降低了切换成本 [[S7528]](../../../sources/bibliography.md#s7528) |
-| 前端 DPU / 云卸载 | Nitro、Azure Boost DPU、Titanium、BlueField-3 | 超大规模云厂商的[自用芯片（captive silicon）](../../../glossary.md#captive-silicon) [[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520) | 🟥 被排除在前三大云之外 | 对英伟达而言低 |
-| 存储与[上下文内存](../../../glossary.md#context-memory-storage) | VAST、DDN、WEKA、NetApp 等；BlueField-4 STX 节点 | 存储厂商（软件利润）[[S7511]](../../../sources/bibliography.md#s7511) | 🟦 赋能者：STX、[GPUDirect Storage](../../../glossary.md#gpudirect-storage) | 高；厂商可使用商用网卡 |
+| AI 后端网卡（每 GPU 一块） | ConnectX-8/9、Vulcano、Thor Ultra、EFA | HGX/NVL72 中为英伟达；AWS 自研；Helios 中为 AMD [[S264]](../../../sources/bibliography.md#s264)[[S292]](../../../sources/bibliography.md#s292)[[S7500]](../../../sources/bibliography.md#s7500) | 🟩 在其机架中为默认配置 | 🟡 [超以太网（Ultra Ethernet）](../../glossary.md#ultra-ethernet)降低了切换成本 [[S7528]](../../../sources/bibliography.md#s7528) |
+| 前端 DPU / 云卸载 | Nitro、Azure Boost DPU、Titanium、BlueField-3 | 超大规模云厂商的[自用芯片（captive silicon）](../../glossary.md#captive-silicon) [[S7503]](../../../sources/bibliography.md#s7503)[[S7504]](../../../sources/bibliography.md#s7504)[[S7520]](../../../sources/bibliography.md#s7520) | 🟥 被排除在前三大云之外 | 对英伟达而言低 |
+| 存储与[上下文内存](../../glossary.md#context-memory-storage) | VAST、DDN、WEKA、NetApp 等；BlueField-4 STX 节点 | 存储厂商（软件利润）[[S7511]](../../../sources/bibliography.md#s7511) | 🟦 赋能者：STX、[GPUDirect Storage](../../glossary.md#gpudirect-storage) | 高；厂商可使用商用网卡 |
 | 安全与机密计算 | GPU 可信执行、DPU 隔离、HSM | 平台所有者（英伟达、Azure、AWS）[[S7505]](../../../sources/bibliography.md#s7505)[[S4527]](../../../sources/bibliography.md#s4527) | 🟨 GPU TEE 加 BlueField 隔离 | 不明朗；独立厂商很少 |
 
 > [!TIP]
-> **算例 —— 用机架物料清单（BOM）校验网卡估算。**摩根士丹利对一个 Vera Rubin NVL72 的定价约为 $7.8M；扣除其 GPU、CPU 和内存数字以及散热和 ODM 利润后，剩下约 $1.46M 用于 [NVSwitch](../../../glossary.md#nvswitch) 托盘、网卡、DPU、PCB、电源和机箱（见[第 04 层价值链](../../../layers/04-cpu-grace-vera/value-chain-and-corp-dev.md)）[[S330]](../../../sources/bibliography.md#s330)[[S331]](../../../sources/bibliography.md#s331)[[S332]](../../../sources/bibliography.md#s332)。本资料库估算的网卡 + DPU 区间 $252–612K 占这部分的 17–42%（估计，本资料库 🔴），与 36 颗 NVSwitch 芯片、电源架和电路板并列来看是合理的。按中值（约 $430K）计，1,000 个机架承载约 $0.43B 的网卡与 DPU 芯片。
+> **算例 —— 用机架物料清单（BOM）校验网卡估算。**摩根士丹利对一个 Vera Rubin NVL72 的定价约为 $7.8M；扣除其 GPU、CPU 和内存数字以及散热和 ODM 利润后，剩下约 $1.46M 用于 [NVSwitch](../../glossary.md#nvswitch) 托盘、网卡、DPU、PCB、电源和机箱（见[第 04 层价值链](../04-cpu-grace-vera/value-chain-and-corp-dev.md)）[[S330]](../../../sources/bibliography.md#s330)[[S331]](../../../sources/bibliography.md#s331)[[S332]](../../../sources/bibliography.md#s332)。本资料库估算的网卡 + DPU 区间 $252–612K 占这部分的 17–42%（估计，本资料库 🔴），与 36 颗 NVSwitch 芯片、电源架和电路板并列来看是合理的。按中值（约 $430K）计，1,000 个机架承载约 $0.43B 的网卡与 DPU 芯片。
 
 <details>
 <summary>🔧 技术细节：每机架估算是如何构建的</summary>
@@ -36,7 +36,7 @@
 
 </details>
 
-**供应商与合作伙伴。**思科（Cisco）、DDN、戴尔（Dell）、HPE、IBM、联想（Lenovo）、Supermicro、VAST Data 和 WEKA 正在打造 BlueField-4 平台，OCI 和 xAI 基于 DOCA 进行开发 [[S7530]](../../../sources/bibliography.md#s7530)；STX 又增加了十二家存储协同设计合作伙伴和八家上下文内存采用方 [[S7511]](../../../sources/bibliography.md#s7511)。与 [CUDA](../../../glossary.md#cuda) 一样，参考设计由英伟达来写。
+**供应商与合作伙伴。**思科（Cisco）、DDN、戴尔（Dell）、HPE、IBM、联想（Lenovo）、Supermicro、VAST Data 和 WEKA 正在打造 BlueField-4 平台，OCI 和 xAI 基于 DOCA 进行开发 [[S7530]](../../../sources/bibliography.md#s7530)；STX 又增加了十二家存储协同设计合作伙伴和八家上下文内存采用方 [[S7511]](../../../sources/bibliography.md#s7511)。与 [CUDA](../../glossary.md#cuda) 一样，参考设计由英伟达来写。
 
 ## 值得关注的私营公司
 
@@ -76,7 +76,7 @@
 
 **价值在哪里。**后端网卡在 BOM 中只是一个不大的条目，却是传输协议与配套的控制点；前端 DPU 价值池被三大云厂商自用芯片锁定；存储与上下文内存是私募价值的积聚之处，也是 STX 试图制定参考设计的领域 [[S7511]](../../../sources/bibliography.md#s7511)；安全则大多被捆绑在平台之中。
 
-**机会（仅基于公开信息，以备选方案形式呈现）。**由于独立的 RDMA 与网卡团队稀缺，可选路径包括高溢价收购、以 Enfabrica 模式进行 IP 授权加团队招揽，或与博通、AMD 或美满电子（Marvell）开展商用合作 [[S7517]](../../../sources/bibliography.md#s7517)[[S475]](../../../sources/bibliography.md#s475)[[S7529]](../../../sources/bibliography.md#s7529)。以高通（Qualcomm）为例，它通过 Alphawave 拥有 SerDes IP，并已发布 AI200/AI250 机架以及采用 [UALink](../../../glossary.md#ualink) 和 [ESUN](../../../glossary.md#esun) 进行[纵向扩展（scale-up）](../../../glossary.md#scale-up)的 Dragonfly AI300；高通尚未发布任何[横向扩展（scale-out）](../../../glossary.md#scale-out)网卡 [[S4513]](../../../sources/bibliography.md#s4513)[[S90028]](../../../sources/bibliography.md#s90028)[[S90060]](../../../sources/bibliography.md#s90060)。
+**机会（仅基于公开信息，以备选方案形式呈现）。**由于独立的 RDMA 与网卡团队稀缺，可选路径包括高溢价收购、以 Enfabrica 模式进行 IP 授权加团队招揽，或与博通、AMD 或美满电子（Marvell）开展商用合作 [[S7517]](../../../sources/bibliography.md#s7517)[[S475]](../../../sources/bibliography.md#s475)[[S7529]](../../../sources/bibliography.md#s7529)。以高通（Qualcomm）为例，它通过 Alphawave 拥有 SerDes IP，并已发布 AI200/AI250 机架以及采用 [UALink](../../glossary.md#ualink) 和 [ESUN](../../glossary.md#esun) 进行[纵向扩展（scale-up）](../../glossary.md#scale-up)的 Dragonfly AI300；高通尚未发布任何[横向扩展（scale-out）](../../glossary.md#scale-out)网卡 [[S4513]](../../../sources/bibliography.md#s4513)[[S90028]](../../../sources/bibliography.md#s90028)[[S90060]](../../../sources/bibliography.md#s90060)。
 
 > [!TIP]
 > **算例 —— 横向扩展网卡：自建、授权还是合作。**AMD 收购 Pensando 花了约 $1.9B，并用了约 4 年才做出 800G AI 网卡 [[S7527]](../../../sources/bibliography.md#s7527)[[S7500]](../../../sources/bibliography.md#s7500)；英伟达为 Enfabrica 的团队与授权花了 >$900M [[S475]](../../../sources/bibliography.md#s475)。若改为每颗加速器采购两块商用 800G 网卡，每个 72 加速器机架约需 $0.2–0.4M（估计，本资料库 🔴；见[路线图](roadmap.md)），按 1,000 个机架计每年 $0.2–0.4B：与组建一支团队的成本处于同一量级。答案取决于出货量，以及掌控网卡能否帮助赢得机架订单。

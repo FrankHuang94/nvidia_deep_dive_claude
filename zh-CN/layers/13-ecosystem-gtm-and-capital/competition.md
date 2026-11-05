@@ -7,28 +7,28 @@
 
 ## ⚡ 要点速览
 
-- **竞争的焦点在于谁为买方提供资金、培训和销售，而非芯片本身。** 英伟达拥有 ~6M [CUDA](../../../glossary.md#cuda) 开发者、FY2026 >$30B 的[主权 AI](../../../glossary.md#sovereign-ai) 收入，以及单季度 $48.6B 的[自由现金流](../../../glossary.md#free-cash-flow) [[S528]](../../../sources/bibliography.md#s528)[[S90071]](../../../sources/bibliography.md#s90071)[[S403]](../../../sources/bibliography.md#s403)。
+- **竞争的焦点在于谁为买方提供资金、培训和销售，而非芯片本身。** 英伟达拥有 ~6M [CUDA](../../glossary.md#cuda) 开发者、FY2026 >$30B 的[主权 AI](../../glossary.md#sovereign-ai) 收入，以及单季度 $48.6B 的[自由现金流](../../glossary.md#free-cash-flow) [[S528]](../../../sources/bibliography.md#s528)[[S90071]](../../../sources/bibliography.md#s90071)[[S403]](../../../sources/bibliography.md#s403)。
 - **资本火力严重失衡。** 2026 年 7 月，英伟达持有 ~$57B 的现金和债务证券，超过 AMD（$15.8B）、博通（Broadcom）（$24.0B）和高通（$7.7B）三者之和 [[S13500]](../../../sources/bibliography.md#s13500)[[S13501]](../../../sources/bibliography.md#s13501)[[S2516]](../../../sources/bibliography.md#s2516)[[S13503]](../../../sources/bibliography.md#s13503)。
-- **AMD 以股权而非现金支付。** OpenAI 持有最多 160M 股 AMD 股票的[认股权证](../../../glossary.md#warrant)，随其部署 1 GW 至 6 GW 的 AMD GPU 逐步归属 [[S13506]](../../../sources/bibliography.md#s13506)；🟡 AMD 还计划向 Anthropic 投资最多 $5B，配套 2 GW 的 Helios [[S9538]](../../../sources/bibliography.md#s9538)。
+- **AMD 以股权而非现金支付。** OpenAI 持有最多 160M 股 AMD 股票的[认股权证](../../glossary.md#warrant)，随其部署 1 GW 至 6 GW 的 AMD GPU 逐步归属 [[S13506]](../../../sources/bibliography.md#s13506)；🟡 AMD 还计划向 Anthropic 投资最多 $5B，配套 2 GW 的 Helios [[S9538]](../../../sources/bibliography.md#s9538)。
 - **博通不出资也能赢单。** OpenAI 的 10 GW 定制加速器项目未披露任何供应商资本投入 [[S174]](../../../sources/bibliography.md#s174)，而博通在截至 2026 年 8 月的季度 AI 收入达到 $16.7B，约为英伟达数据中心收入的 ~19% [[S2516]](../../../sources/bibliography.md#s2516)[[S405]](../../../sources/bibliography.md#s405)。
-- **[Q5 · 最强挑战者]** [超大规模云厂商](../../../glossary.md#hyperscaler)与博通主导的定制 [ASIC](../../../glossary.md#asic) 联盟：在 OpenAI 已公布的 26 GW 中，英伟达仅占 10 GW；在四家大买方中合计约占 ~39%。
+- **[Q5 · 最强挑战者]** [超大规模云厂商](../../glossary.md#hyperscaler)与博通主导的定制 [ASIC](../../glossary.md#asic) 联盟：在 OpenAI 已公布的 26 GW 中，英伟达仅占 10 GW；在四家大买方中合计约占 ~39%。
 - **英伟达的弱点：资金买到的是配额，而非排他性。** OpenAI 和 Anthropic 接受了英伟达的股权投资，却仍与 AMD、博通和谷歌签约 [[S13506]](../../../sources/bibliography.md#s13506)[[S174]](../../../sources/bibliography.md#s174)[[S655]](../../../sources/bibliography.md#s655)。
 
 ![已公布算力项目的横向堆叠柱状图（单位：吉瓦）。OpenAI 26 GW：英伟达 10（2025 年 9 月意向书，后经重组）、博通定制加速器 10、AMD 6。Anthropic 4 GW：AMD Helios 最多 2（附带 AMD 最多 $5B 投资）、英伟达最多 1、谷歌 TPU 2026 年超过 1 GW（2027 年起的进一步多吉瓦 TPU 扩容未量化）。HUMAIN：英伟达最多 0.5 GW、AMD 0.5 GW、高通 0.2 GW。xAI：英伟达约 1 GW（公司说法，存在争议）。英伟达在这些项目中的份额约为 39%。](../../../assets/charts/13-gw-pipeline-by-supplier.svg)
 
 ## 生态竞争如何计分
 
-不妨把一个平台想象成一座城市：开发者是居民，初创企业计划是学校，主权交易是条约，资本是道路。如果没人居住，再好的建筑（芯片）也无济于事。我们从开发者覆盖、初创企业计划、主权交易、资本火力和渠道广度（[OEM](../../../glossary.md#oem)、云厂商、[全球系统集成商（GSI）](../../../glossary.md#gsi)）五个维度打分。
+不妨把一个平台想象成一座城市：开发者是居民，初创企业计划是学校，主权交易是条约，资本是道路。如果没人居住，再好的建筑（芯片）也无济于事。我们从开发者覆盖、初创企业计划、主权交易、资本火力和渠道广度（[OEM](../../glossary.md#oem)、云厂商、[全球系统集成商（GSI）](../../glossary.md#gsi)）五个维度打分。
 
 | 竞争对手 | 开发者覆盖 | 初创企业计划 | 主权交易 | 资本火力 | 渠道广度 |
 |---|---|---|---|---|---|
-| 谷歌（TPU） | 🟦 其云上的 [JAX](../../../glossary.md#jax)/[XLA](../../../glossary.md#xla) | 🟩 最高 $350k 云额度 | 🟥 国家级交易很少 | 🟦 持有 Anthropic 股权 | 🟥 主要是 Google Cloud |
+| 谷歌（TPU） | 🟦 其云上的 [JAX](../../glossary.md#jax)/[XLA](../../glossary.md#xla) | 🟩 最高 $350k 云额度 | 🟥 国家级交易很少 | 🟦 持有 Anthropic 股权 | 🟥 主要是 Google Cloud |
 | AWS（Trainium） | 🟦 Neuron SDK | 🟩 Activate 云额度 | 🟦 出售云区域而非芯片 | 🟦 Anthropic、Rainier | 🟥 仅 AWS |
 | 微软（Maia） | 🟦 Maia 仅限内部 | 🟩 ~$150k Founders Hub | 🟦 主权云 | 🟦 Anthropic $5B，>$60B 新兴云服务商交易 | 🟥 仅 Azure |
 | 博通联盟 | 🟦 客户自有技术栈 | 🟥 无 | 🟥 无 | 🟥 无供应商资本 | 🟦 4–5 家巨头买方 |
-| AMD | 🟥 [ROCm](../../../glossary.md#rocm) 规模小得多 | 🟥 未发现 Inception 级计划 | 🟥 HUMAIN 500 MW | 🟦 认股权证与股权投资 | 🟨 相同的 OEM |
+| AMD | 🟥 [ROCm](../../glossary.md#rocm) 规模小得多 | 🟥 未发现 Inception 级计划 | 🟥 HUMAIN 500 MW | 🟦 认股权证与股权投资 | 🟨 相同的 OEM |
 | 英特尔 | 🟥 oneAPI 属小众 | 🟥 未发现 | 🟥 无 | 🟥 自身融资 ~$23B | 🟨 x86 OEM 覆盖广 |
-| 华为 | 🟦 [CANN](../../../glossary.md#cann) 已开源 | 🟦 每年 30k 块开发板 | 🟦 中国优先 | 🟦 与国家方向一致 | 🟦 仅限中国 |
+| 华为 | 🟦 [CANN](../../glossary.md#cann) 已开源 | 🟦 每年 30k 块开发板 | 🟦 中国优先 | 🟦 与国家方向一致 | 🟦 仅限中国 |
 | 高通 | 🟦 Modular 技术栈（2026 年 7 月完成收购） | 🟥 无此规模计划 | 🟥 HUMAIN 200 MW | 🟥 $7.7B 现金，净负债 | 🟦 Meta、HUMAIN |
 
 <sub>评级 = 竞争对手相对英伟达（🟩 竞争对手领先 · 🟨 持平 · 🟥 竞争对手落后 · 🟦 路线不同）。本资料库判断 🔴，依据 [[S13519]](../../../sources/bibliography.md#s13519)[[S13520]](../../../sources/bibliography.md#s13520)[[S90034]](../../../sources/bibliography.md#s90034)[[S90075]](../../../sources/bibliography.md#s90075)[[S12526]](../../../sources/bibliography.md#s12526)[[S174]](../../../sources/bibliography.md#s174)[[S9518]](../../../sources/bibliography.md#s9518)[[S13517]](../../../sources/bibliography.md#s13517)[[S13532]](../../../sources/bibliography.md#s13532)[[S13521]](../../../sources/bibliography.md#s13521)[[S13523]](../../../sources/bibliography.md#s13523)[[S9511]](../../../sources/bibliography.md#s9511)[[S90030]](../../../sources/bibliography.md#s90030)[[S13503]](../../../sources/bibliography.md#s13503)。</sub>
@@ -54,12 +54,12 @@ quadrantChart
 ```
 
 > [!TIP]
-> **算例 —— $350,000 的初创企业云额度能买到什么。** 按每 H100 小时 $2.99（Lambda 标价）至 $6.88（AWS p5 标价）计算 [[S395]](../../../sources/bibliography.md#s395)[[S392]](../../../sources/bibliography.md#s392)，谷歌最高档 $350,000 的 AI 额度 [[S13519]](../../../sources/bibliography.md#s13519) 可购买 ~51,000–117,000 GPU 小时：相当于 6–13 颗 H100 用一年。足以微调一个产品，却不足以预训练一个前沿模型。云额度赢得的是*第一个*工作负载；英伟达则通过 [DGX Cloud Lepton](../../../glossary.md#dgx-cloud-lepton) 把初创企业引导到合作伙伴的云上 [[S12529]](../../../sources/bibliography.md#s12529)。
+> **算例 —— $350,000 的初创企业云额度能买到什么。** 按每 H100 小时 $2.99（Lambda 标价）至 $6.88（AWS p5 标价）计算 [[S395]](../../../sources/bibliography.md#s395)[[S392]](../../../sources/bibliography.md#s392)，谷歌最高档 $350,000 的 AI 额度 [[S13519]](../../../sources/bibliography.md#s13519) 可购买 ~51,000–117,000 GPU 小时：相当于 6–13 颗 H100 用一年。足以微调一个产品，却不足以预训练一个前沿模型。云额度赢得的是*第一个*工作负载；英伟达则通过 [DGX Cloud Lepton](../../glossary.md#dgx-cloud-lepton) 把初创企业引导到合作伙伴的云上 [[S12529]](../../../sources/bibliography.md#s12529)。
 
 <details>
 <summary>🔧 技术细节：为什么现金与认股权证并不等价</summary>
 
-现金入股（英伟达对 OpenAI 约 ~$30B [[S90015]](../../../sources/bibliography.md#s90015)[[S13526]](../../../sources/bibliography.md#s13526)）由当期自由现金流支付，并成为流动性差的私有资产。认股权证（AMD 的 160M 股，行权价 $0.01）不耗费现金；只有发行方股价上涨时才有价值，由现有股东通过[股权稀释](../../../glossary.md#dilution)买单。面向客户的认股权证通常在各批次很可能归属时作为收入的减项入账（🔴 本资料库对通行做法的解读），而英伟达的股权投资则记在资产负债表上，损益计入其他收益 [[S90072]](../../../sources/bibliography.md#s90072)。
+现金入股（英伟达对 OpenAI 约 ~$30B [[S90015]](../../../sources/bibliography.md#s90015)[[S13526]](../../../sources/bibliography.md#s13526)）由当期自由现金流支付，并成为流动性差的私有资产。认股权证（AMD 的 160M 股，行权价 $0.01）不耗费现金；只有发行方股价上涨时才有价值，由现有股东通过[股权稀释](../../glossary.md#dilution)买单。面向客户的认股权证通常在各批次很可能归属时作为收入的减项入账（🔴 本资料库对通行做法的解读），而英伟达的股权投资则记在资产负债表上，损益计入其他收益 [[S90072]](../../../sources/bibliography.md#s90072)。
 
 </details>
 
@@ -69,7 +69,7 @@ quadrantChart
 
 **拥有什么。** 谷歌向 Anthropic 供应最多 1M 颗 TPU（2026 年 >1 GW），并自 2027 年起追加多吉瓦规模，同时向 Meta 出租 Ironwood，并把 TPU 部署进客户的数据中心 [[S90026]](../../../sources/bibliography.md#s90026)[[S655]](../../../sources/bibliography.md#s655)[[S90025]](../../../sources/bibliography.md#s90025)[[S90027]](../../../sources/bibliography.md#s90027)。AWS 以 ~500k 颗 Trainium2 芯片建成了 Project Rainier；微软计划自 2027 年起部署多吉瓦的 Maia [[S90034]](../../../sources/bibliography.md#s90034)[[S90045]](../../../sources/bibliography.md#s90045)。博通还与 OpenAI 共同开发其 10 GW 项目（2026 年下半年至 2029 年）[[S174]](../../../sources/bibliography.md#s174)。
 
-**最有力的论据。** 它掌握需求：超大规模云厂商同时是云服务商、芯片设计者和投资者，因此它可以资助一家实验室（微软向 Anthropic 投资最多 $5B [[S90075]](../../../sources/bibliography.md#s90075)）、向其出租算力，并引导其转向[自研芯片（captive silicon）](../../../glossary.md#captive-silicon)，而无需为配额付费。
+**最有力的论据。** 它掌握需求：超大规模云厂商同时是云服务商、芯片设计者和投资者，因此它可以资助一家实验室（微软向 Anthropic 投资最多 $5B [[S90075]](../../../sources/bibliography.md#s90075)）、向其出租算力，并引导其转向[自研芯片（captive silicon）](../../glossary.md#captive-silicon)，而无需为配额付费。
 
 **差距缩小了多少。** 博通的 AI 收入从相当于英伟达数据中心收入的 ~11–14%（2024 年至 2026 年初），上升到截至 2026 年 8 月季度的 ~19%，下一季度指引为 $21.7B [[S2516]](../../../sources/bibliography.md#s2516)。
 
@@ -82,7 +82,7 @@ quadrantChart
 
 **AMD 拥有什么。** 与 OpenAI 的交易将 6 GW 的 Instinct 部署（首个 1 GW 的 MI450 于 2026 年下半年交付）与一份最多 160M 股、行权价 $0.01 的认股权证绑定，按部署、股价和技术里程碑归属；有报道称最后一批与 $600 的股价挂钩 [[S13506]](../../../sources/bibliography.md#s13506)[[S13507]](../../../sources/bibliography.md#s13507)。AMD 收购了 ZT Systems（$4.9B）以获取其机架设计团队，并将工厂出售给 Sanmina [[S8527]](../../../sources/bibliography.md#s8527)[[S5527]](../../../sources/bibliography.md#s5527)。它还收购了 Silo AI（~$665M）、Brium、Untether AI 团队和 MK1，并吸引 2,000+ 名开发者参加 Advancing AI 2026 🟡 [[S9506]](../../../sources/bibliography.md#s9506)[[S9507]](../../../sources/bibliography.md#s9507)[[S9509]](../../../sources/bibliography.md#s9509)[[S9519]](../../../sources/bibliography.md#s9519)。
 
-**最有力的论据。** 以股票支付的[“以资本换产能”（capital-for-capacity）](../../../glossary.md#capital-for-capacity)交易，让 $15.8B 的资产负债表 [[S13501]](../../../sources/bibliography.md#s13501) 也能与英伟达的现金竞争，并把客户与 AMD 的成功绑定在一起。**差距：**AMD 目前在 OpenAI 拥有 6 GW（英伟达 10 GW），🟡 在 Anthropic 拥有 2 GW（英伟达 1 GW）[[S13506]](../../../sources/bibliography.md#s13506)[[S9538]](../../../sources/bibliography.md#s9538)，但在开发者方面仍大幅落后（[第 09 层](../09-cuda-and-system-software/competition.md)）。
+**最有力的论据。** 以股票支付的[“以资本换产能”（capital-for-capacity）](../../glossary.md#capital-for-capacity)交易，让 $15.8B 的资产负债表 [[S13501]](../../../sources/bibliography.md#s13501) 也能与英伟达的现金竞争，并把客户与 AMD 的成功绑定在一起。**差距：**AMD 目前在 OpenAI 拥有 6 GW（英伟达 10 GW），🟡 在 Anthropic 拥有 2 GW（英伟达 1 GW）[[S13506]](../../../sources/bibliography.md#s13506)[[S9538]](../../../sources/bibliography.md#s9538)，但在开发者方面仍大幅落后（[第 09 层](../09-cuda-and-system-software/competition.md)）。
 
 ![横向柱状图，显示客户每承诺 1 吉瓦算力所对应的供应商资本：若 AMD 达到报道中 $600 的股价门槛，其 1.6 亿股认股权证对 OpenAI 而言约合每 GW $16B，按示意性的 $200 股价则约为每 GW ~$5.3B；英伟达对 Anthropic（最多 $10B，1 GW）和对 OpenAI 已被取代的意向书（$100B，10 GW）的承诺均约为每 GW $10B；AMD 对 Anthropic 最多 $5B 的股权投资约为每 GW ~$2.5B（2 GW）；英伟达对 xAI 的股权投资约为每 GW ~$2B，Poolside 约 ~$0.5B，CoreWeave 约 ~$0.47B；博通的 10 GW OpenAI 项目未披露供应商资本。英伟达 2026 年对 OpenAI 的 $30B 股权投资未与吉瓦挂钩。](../../../assets/charts/13-capital-per-gigawatt.svg)
 
@@ -91,7 +91,7 @@ quadrantChart
 
 ### 英特尔、华为与高通
 
-**英特尔**拥有最广泛的 [x86](../../../glossary.md#x86) OEM 渠道，但需要 ~$23B 的外部资本，其中包括英伟达以 $5B 换取的 ~4% 股权；其晶圆代工业务取决于两家潜在 14A 客户自 2026 年下半年起的决定 🟡 [[S13532]](../../../sources/bibliography.md#s13532)[[S4009]](../../../sources/bibliography.md#s4009)[[S13531]](../../../sources/bibliography.md#s13531)。**华为**于 2025 年底开源了 CANN，每年资助 30,000 块开发板和 1,500 [PFLOPS](../../../glossary.md#flops) 的开发者算力，并称外部开发者占 CANN 社区的 61% 🟡；未公布绝对人数 [[S13521]](../../../sources/bibliography.md#s13521)[[S13523]](../../../sources/bibliography.md#s13523)[[S9524]](../../../sources/bibliography.md#s9524)。**高通（仅基于公开信息）**拥有 AI200（2026 年）和 AI250（2027 年）机架、200 MW 的 HUMAIN 计划、以 Meta 为首个客户的 C1000 CPU（2028 年下半年）以及 AI300（2028 年）；它于 2026-07-29 完成了对 Modular 的全股票收购（据报道 ~$3.9B），并于 2025 年 12 月完成对 Alphawave 的收购 [[S90028]](../../../sources/bibliography.md#s90028)[[S90030]](../../../sources/bibliography.md#s90030)[[S90058]](../../../sources/bibliography.md#s90058)[[S90060]](../../../sources/bibliography.md#s90060)[[S9511]](../../../sources/bibliography.md#s9511)[[S90057]](../../../sources/bibliography.md#s90057)[[S4513]](../../../sources/bibliography.md#s4513)。
+**英特尔**拥有最广泛的 [x86](../../glossary.md#x86) OEM 渠道，但需要 ~$23B 的外部资本，其中包括英伟达以 $5B 换取的 ~4% 股权；其晶圆代工业务取决于两家潜在 14A 客户自 2026 年下半年起的决定 🟡 [[S13532]](../../../sources/bibliography.md#s13532)[[S4009]](../../../sources/bibliography.md#s4009)[[S13531]](../../../sources/bibliography.md#s13531)。**华为**于 2025 年底开源了 CANN，每年资助 30,000 块开发板和 1,500 [PFLOPS](../../glossary.md#flops) 的开发者算力，并称外部开发者占 CANN 社区的 61% 🟡；未公布绝对人数 [[S13521]](../../../sources/bibliography.md#s13521)[[S13523]](../../../sources/bibliography.md#s13523)[[S9524]](../../../sources/bibliography.md#s9524)。**高通（仅基于公开信息）**拥有 AI200（2026 年）和 AI250（2027 年）机架、200 MW 的 HUMAIN 计划、以 Meta 为首个客户的 C1000 CPU（2028 年下半年）以及 AI300（2028 年）；它于 2026-07-29 完成了对 Modular 的全股票收购（据报道 ~$3.9B），并于 2025 年 12 月完成对 Alphawave 的收购 [[S90028]](../../../sources/bibliography.md#s90028)[[S90030]](../../../sources/bibliography.md#s90030)[[S90058]](../../../sources/bibliography.md#s90058)[[S90060]](../../../sources/bibliography.md#s90060)[[S9511]](../../../sources/bibliography.md#s9511)[[S90057]](../../../sources/bibliography.md#s90057)[[S4513]](../../../sources/bibliography.md#s4513)。
 
 ![双面板柱状图。左图：最近一个季度末的现金及流动性证券：英伟达持有 $56.6B 现金和债务证券（2026 年 7 月），另有 $42.8B 上市公司股权；博通 $24.0B（2026 年 8 月）；AMD $15.8B（2026 年 9 月，债务 $7.1B）；高通 $7.7B（2026 年 9 月，债务 $15.1B）；三家同业合计约 $47B。右图：最近一个季度的自由现金流：英伟达 $48.6B（Q1 FY2027），博通 $13.7B，AMD 约 $2.6B，高通约 $1.9B（数据聚合平台估计）。](../../../assets/charts/13-deployable-capital-vs-peers.svg)
 
@@ -101,7 +101,7 @@ quadrantChart
 > **🐂 看多观点。** 只有英伟达同时是开发者平台、主权合作伙伴和融资方；其一个季度的自由现金流就超过同业的现金总和，其融资平台还计划为客户撬动 >$500B 的第三方资本 [[S403]](../../../sources/bibliography.md#s403)[[S12528]](../../../sources/bibliography.md#s12528)。
 
 > [!WARNING]
-> **🐻 看空观点。** 最大的买方拿了英伟达的钱，照样多源采购：定制芯片在 OpenAI 占 10 GW，AMD 在 Anthropic 的份额不断扩大，博通的 AI 收入已相当于英伟达数据中心收入的 ~19% [[S174]](../../../sources/bibliography.md#s174)[[S9538]](../../../sources/bibliography.md#s9538)[[S2516]](../../../sources/bibliography.md#s2516)。每一笔股权投资还会招致[循环融资](../../../glossary.md#circular-financing)和反垄断方面的质疑（[路线图](roadmap.md)）。
+> **🐻 看空观点。** 最大的买方拿了英伟达的钱，照样多源采购：定制芯片在 OpenAI 占 10 GW，AMD 在 Anthropic 的份额不断扩大，博通的 AI 收入已相当于英伟达数据中心收入的 ~19% [[S174]](../../../sources/bibliography.md#s174)[[S9538]](../../../sources/bibliography.md#s9538)[[S2516]](../../../sources/bibliography.md#s2516)。每一笔股权投资还会招致[循环融资](../../glossary.md#circular-financing)和反垄断方面的质疑（[路线图](roadmap.md)）。
 
 **[Q5 · 最强挑战者]** 超大规模云厂商加博通的联盟。它掌控需求、初创企业的入口以及自研芯片，因此无需购买配额。在约两年内，差距从英伟达数据中心收入的 ~11% 缩小到 ~19% [[S2516]](../../../sources/bibliography.md#s2516)。AMD 的认股权证模式是对英伟达现金最具创意的反制，纸面上已拥有 8 GW 的前沿实验室项目 🟡 [[S13506]](../../../sources/bibliography.md#s13506)[[S9538]](../../../sources/bibliography.md#s9538)。
 
@@ -109,7 +109,7 @@ quadrantChart
 
 1. OpenAI 以每 GW $0 选择了博通，以每 GW ~$10B 选择了英伟达。买方的决策中有多少取决于资本，又有多少取决于设计控制权？
 2. AMD 以股权支付，英伟达以现金支付。哪种结构更适合资本受限的新进入者？哪些里程碑可以保护其股东？
-3. 超大规模云厂商的云额度赢得第一个工作负载。[新兴云服务商（neocloud）](../../../glossary.md#neocloud)或主权云合作伙伴能否替代芯片厂商无力独自资助的初创企业计划？可移植技术栈（CANN、Modular）能否让该计划做到硬件中立？
+3. 超大规模云厂商的云额度赢得第一个工作负载。[新兴云服务商（neocloud）](../../glossary.md#neocloud)或主权云合作伙伴能否替代芯片厂商无力独自资助的初创企业计划？可移植技术栈（CANN、Modular）能否让该计划做到硬件中立？
 
 ## 📚 来源（Sources）
 

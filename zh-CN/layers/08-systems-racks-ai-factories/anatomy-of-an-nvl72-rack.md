@@ -7,9 +7,9 @@
 
 ## ⚡ 要点速览
 
-- **一个机架，一台计算机。** 一个 [NVL72](../../../glossary.md#nvl72) 机架容纳 18 个 1U [计算托盘](../../../glossary.md#compute-tray)（每个托盘 2 颗 CPU + 4 颗 GPU，合计 72 颗 GPU、36 颗 CPU）和 9 个 [NVLink 交换托盘](../../../glossary.md#nvlink-switch-tray)，所有 GPU 通过铜缆背板与其他每一颗 GPU 互连 [[S8000]](../../../sources/bibliography.md#s8000)[[S396]](../../../sources/bibliography.md#s396)。
+- **一个机架，一台计算机。** 一个 [NVL72](../../glossary.md#nvl72) 机架容纳 18 个 1U [计算托盘](../../glossary.md#compute-tray)（每个托盘 2 颗 CPU + 4 颗 GPU，合计 72 颗 GPU、36 颗 CPU）和 9 个 [NVLink 交换托盘](../../glossary.md#nvlink-switch-tray)，所有 GPU 通过铜缆背板与其他每一颗 GPU 互连 [[S8000]](../../../sources/bibliography.md#s8000)[[S396]](../../../sources/bibliography.md#s396)。
 - **背板（spine）是关键所在：** 约 5,000 根铜缆（总长约 2 英里）让每颗 GPU 以 1.8 TB/s 的带宽连通全部 72 颗 GPU（合计约 130 TB/s）；不用光器件，每个机架可省下约 20 kW 的光模块功耗 [[S5000]](../../../sources/bibliography.md#s5000)[[S5001]](../../../sources/bibliography.md#s5001)。
-- **它本质上是一个供电与管路产品：** 8 个 33 kW 的[电源架](../../../glossary.md#power-shelf)为约 50 V 直流[母排](../../../glossary.md#busbar)供电；每颗 GPU 和 CPU 上的冷板连接到机架分液歧管和[冷却液分配单元（CDU）](../../../glossary.md#cdu) [[S8000]](../../../sources/bibliography.md#s8000)[[S5007]](../../../sources/bibliography.md#s5007)。
+- **它本质上是一个供电与管路产品：** 8 个 33 kW 的[电源架](../../glossary.md#power-shelf)为约 50 V 直流[母排](../../glossary.md#busbar)供电；每颗 GPU 和 CPU 上的冷板连接到机架分液歧管和[冷却液分配单元（CDU）](../../glossary.md#cdu) [[S8000]](../../../sources/bibliography.md#s8000)[[S5007]](../../../sources/bibliography.md#s5007)。
 - **规模：** 约 120 kW（GB200）、约 132 kW（GB300）、约 190–230 kW（Vera Rubin，有报道）；重约 1.36 吨（GB200）[[S336]](../../../sources/bibliography.md#s336)[[S337]](../../../sources/bibliography.md#s337)[[S303]](../../../sources/bibliography.md#s303)[[S335]](../../../sources/bibliography.md#s335)。
 - **Vera Rubin 重新设计了托盘：** 无线缆、无软管、无风扇，组装时间从约 2 小时缩短到约 5 分钟（英伟达（NVIDIA）的说法），每机架交换芯片数量从 18 颗翻倍至 36 颗 [[S8002]](../../../sources/bibliography.md#s8002)[[S301]](../../../sources/bibliography.md#s301)[[S332]](../../../sources/bibliography.md#s332)。
 - **弱点：** 高密度意味着风险集中。早期 GB200 机架在上量阶段遇到铜缆背板的可靠性问题，而如今单个机架是价值约 $4–8M、必须作为整体维护的单元（估计）[[S626]](../../../sources/bibliography.md#s626)[[S332]](../../../sources/bibliography.md#s332)。
@@ -18,9 +18,9 @@
 
 ## 1. 机架：27 个托盘背后隐藏的四大系统
 
-**[Q1 · 职能与失效后果]** 机架的职能是让 72 颗 GPU 像一台机器一样工作，并在约 130 kW 的功耗下保持供电与冷却。一旦某个隐藏系统失效（背板线缆、冷却液接头、电源架），[NVLink](../../../glossary.md#nvlink) 域就会降级，拖慢的是整个机架，而不只是一台服务器 [[S5007]](../../../sources/bibliography.md#s5007)[[S626]](../../../sources/bibliography.md#s626)。
+**[Q1 · 职能与失效后果]** 机架的职能是让 72 颗 GPU 像一台机器一样工作，并在约 130 kW 的功耗下保持供电与冷却。一旦某个隐藏系统失效（背板线缆、冷却液接头、电源架），[NVLink](../../glossary.md#nvlink) 域就会降级，拖慢的是整个机架，而不只是一台服务器 [[S5007]](../../../sources/bibliography.md#s5007)[[S626]](../../../sources/bibliography.md#s626)。
 
-机架正面是像抽屉一样堆叠的托盘；真正的工作在背面完成。[NVLink 背板](../../../glossary.md#nvlink-spine)把每个托盘盲插接入铜缆卡匣，每个交换托盘有 144 个 NVLink 端口；之所以用铜缆，是因为在约 1 米的距离上不需要耗电的光器件（[铜缆背板](../05-scale-up-nvlink-nvswitch/copper-spines-and-why-copper-wins.md)）[[S5007]](../../../sources/bibliography.md#s5007)[[S5008]](../../../sources/bibliography.md#s5008)。母排承载来自电源架的约 50 V 直流电 [[S8000]](../../../sources/bibliography.md#s8000)。带快插接头的分液歧管为 GPU、CPU 和交换芯片上的[冷板](../../../glossary.md#cold-plate)供液 [[S334]](../../../sources/bibliography.md#s334)。每个托盘都有一个接入带外管理网络的[基板管理控制器（BMC）](../../../glossary.md#bmc) [[S5007]](../../../sources/bibliography.md#s5007)。
+机架正面是像抽屉一样堆叠的托盘；真正的工作在背面完成。[NVLink 背板](../../glossary.md#nvlink-spine)把每个托盘盲插接入铜缆卡匣，每个交换托盘有 144 个 NVLink 端口；之所以用铜缆，是因为在约 1 米的距离上不需要耗电的光器件（[铜缆背板](../05-scale-up-nvlink-nvswitch/copper-spines-and-why-copper-wins.md)）[[S5007]](../../../sources/bibliography.md#s5007)[[S5008]](../../../sources/bibliography.md#s5008)。母排承载来自电源架的约 50 V 直流电 [[S8000]](../../../sources/bibliography.md#s8000)。带快插接头的分液歧管为 GPU、CPU 和交换芯片上的[冷板](../../glossary.md#cold-plate)供液 [[S334]](../../../sources/bibliography.md#s334)。每个托盘都有一个接入带外管理网络的[基板管理控制器（BMC）](../../glossary.md#bmc) [[S5007]](../../../sources/bibliography.md#s5007)。
 
 | 机架组成（GB200/GB300） | 数量 | 关键数字 |
 |---|---|---|
@@ -38,13 +38,13 @@
 <details>
 <summary>🔧 技术细节：母排电流问题</summary>
 
-一个 132 kW 的机架在约 50 V 电压下需要 132,000 ÷ 50 ≈ **2,640 A** 电流（本资料库测算）[[S337]](../../../sources/bibliography.md#s337)。电阻损耗与电流的平方成正比，因此兆瓦级机架需要 [800 V 直流](../../../glossary.md#hvdc-800v)（[电力与散热](power-and-cooling.md)）[[S8016]](../../../sources/bibliography.md#s8016)。
+一个 132 kW 的机架在约 50 V 电压下需要 132,000 ÷ 50 ≈ **2,640 A** 电流（本资料库测算）[[S337]](../../../sources/bibliography.md#s337)。电阻损耗与电流的平方成正比，因此兆瓦级机架需要 [800 V 直流](../../glossary.md#hvdc-800v)（[电力与散热](power-and-cooling.md)）[[S8016]](../../../sources/bibliography.md#s8016)。
 
 </details>
 
 ## 2. 计算托盘：5.6 kW GPU 功耗的所在
 
-每个 1U 计算托盘承载两块超级芯片板。在 GB300 上，每块板通过 900 GB/s 的一致性 [NVLink-C2C](../../../glossary.md#nvlink-c2c) 链路，将一颗 72 核 Grace CPU（约 480 GB LPDDR5X）与两颗 Blackwell Ultra GPU（每颗 288 GB [HBM3E](../../../glossary.md#hbm3e)）配对 [[S337]](../../../sources/bibliography.md#s337)[[S129]](../../../sources/bibliography.md#s129)。托盘前部有 4 颗 ConnectX-8 [SuperNIC](../../../glossary.md#supernic)（每颗 GPU 一个 800 Gb/s 端口，用于[横向扩展](../../../glossary.md#scale-out)）和 1 颗 BlueField-3 [DPU](../../../glossary.md#dpu)，用于存储和多租户流量 [[S8001]](../../../sources/bibliography.md#s8001)。
+每个 1U 计算托盘承载两块超级芯片板。在 GB300 上，每块板通过 900 GB/s 的一致性 [NVLink-C2C](../../glossary.md#nvlink-c2c) 链路，将一颗 72 核 Grace CPU（约 480 GB LPDDR5X）与两颗 Blackwell Ultra GPU（每颗 288 GB [HBM3E](../../glossary.md#hbm3e)）配对 [[S337]](../../../sources/bibliography.md#s337)[[S129]](../../../sources/bibliography.md#s129)。托盘前部有 4 颗 ConnectX-8 [SuperNIC](../../glossary.md#supernic)（每颗 GPU 一个 800 Gb/s 端口，用于[横向扩展](../../glossary.md#scale-out)）和 1 颗 BlueField-3 [DPU](../../glossary.md#dpu)，用于存储和多租户流量 [[S8001]](../../../sources/bibliography.md#s8001)。
 
 ![单个 NVL72 计算托盘俯视示意图。后沿：NVLink 连接器（4 颗 GPU × 18 条 NVLink 5 链路，每颗 GPU 以 1.8 TB/s 接入背板）、输送约 50 V 直流电的母排卡扣（4 颗 GPU × 1.4 kW = 5.6 kW 的 GPU 负载）以及液冷快插接头。中部：两块超级芯片板，每块含两颗 Blackwell Ultra GPU（288 GB HBM3E，约 1.4 kW，冷板）和一颗 Grace CPU（72 个 Arm 核心，约 480 GB LPDDR5X，900 GB/s NVLink-C2C）。前沿：4 颗 800 Gb/s 的 ConnectX-8 SuperNIC、1 颗 BlueField-3 DPU、本地 NVMe SSD 以及一个 BMC 管理端口。Vera Rubin 托盘的变化：2 颗 Vera CPU，每颗 88 核、最高 1.5 TB LPDDR5X；4 颗 Rubin GPU，每颗 288 GB HBM4、约 1.8 至 2.3 kW；NVLink 6 每颗 GPU 3.0 TB/s；ConnectX-9 每颗 GPU 1.6 Tb/s，并配 BlueField-4；托盘无线缆、无软管、无风扇，组装约需 5 分钟。](../../../assets/diagrams/08-compute-tray-anatomy.svg)
 
@@ -71,13 +71,13 @@ NVLink 6 将每颗 GPU 的带宽大约翻倍，因此机架需要 36 颗交换�
 > **算例 —— 一个机架闲置的代价。** SemiAnalysis 估算一颗 GB300 GPU 的持有成本约为每小时 $2.31，租赁价格约为每小时 $5.00 [[S622]](../../../sources/bibliography.md#s622)。一个机架停机一天，损失 72 × 24 × $2.31 ≈ **$4,000 的持有成本**，或 ≈ **$8,600 的租赁收入**（本资料库测算）。**结论：**在机群规模下，可靠性以及托盘、卡匣和快插接头的快速更换都价值不菲。
 
 > [!WARNING]
-> **🐻 看空观点：**72 颗 GPU 的 NVLink 域是单一故障域。一次冷却液泄漏或一个有缺陷的背板卡匣，就可能让价值约 $4M 的硬件闲置直至修复；SemiAnalysis 指出，GB200 铜缆背板在上量期间“面临诸多可靠性挑战”[[S626]](../../../sources/bibliography.md#s626)。由 8 GPU 节点构建的横向扩展设计（TPU 立方体、Trainium UltraServer、[HGX](../../../glossary.md#hgx)）在单个节点故障时损失更小。
+> **🐻 看空观点：**72 颗 GPU 的 NVLink 域是单一故障域。一次冷却液泄漏或一个有缺陷的背板卡匣，就可能让价值约 $4M 的硬件闲置直至修复；SemiAnalysis 指出，GB200 铜缆背板在上量期间“面临诸多可靠性挑战”[[S626]](../../../sources/bibliography.md#s626)。由 8 GPU 节点构建的横向扩展设计（TPU 立方体、Trainium UltraServer、[HGX](../../glossary.md#hgx)）在单个节点故障时损失更小。
 
 ## 🎯 企业发展视角
 
 1. **互连与供电硬件是机架的新卡脖子环节。** 背板卡匣、母排、快插接头和冷板都是不起眼但认证门槛很高的部件；哪些供应商已被设计进 Vera Rubin 和 Kyber？
 2. **可维护性正在成为护城河。** 托盘组装与老化测试时间决定了新一代产品的上量速度 [[S8002]](../../../sources/bibliography.md#s8002)[[S626]](../../../sources/bibliography.md#s626)。进入机架级市场的竞争者必须解决制造问题，而不仅是芯片问题。
-3. **高通（Qualcomm）的问题（仅基于公开信息）：** AI200/AI250 机架采用 [PCIe](../../../glossary.md#pcie) [纵向扩展](../../../glossary.md#scale-up)和以太网横向扩展，功耗约 160 kW [[S173]](../../../sources/bibliography.md#s173)；若在 CPU 方面加入 [NVLink Fusion](../../../glossary.md#nvlink-fusion) [[S90031]](../../../sources/bibliography.md#s90031)，或在 MGX 式机架上开展合作，能否缩短打造一款经过验证的机架的路径？
+3. **高通（Qualcomm）的问题（仅基于公开信息）：** AI200/AI250 机架采用 [PCIe](../../glossary.md#pcie) [纵向扩展](../../glossary.md#scale-up)和以太网横向扩展，功耗约 160 kW [[S173]](../../../sources/bibliography.md#s173)；若在 CPU 方面加入 [NVLink Fusion](../../glossary.md#nvlink-fusion) [[S90031]](../../../sources/bibliography.md#s90031)，或在 MGX 式机架上开展合作，能否缩短打造一款经过验证的机架的路径？
 
 ## 📚 来源（Sources）
 

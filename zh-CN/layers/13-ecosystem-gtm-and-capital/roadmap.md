@@ -9,10 +9,10 @@
 
 - **下一个节点：**2026-12-01 的 GTC DC 主题演讲，就在本页截止日期之后 [[S90047]](../../../sources/bibliography.md#s90047)。
 - **2026–2029 年是一份合同分期的日程表。** AMD 为 OpenAI 交付的首个 1 GW 于 2026 年下半年开始，博通的 10 GW 从 2026 年下半年持续到 2029 年，Anthropic 的下一批多吉瓦 TPU 于 2027 年开始，微软的 Maia 自 2027 年起达到多吉瓦规模 [[S13506]](../../../sources/bibliography.md#s13506)[[S174]](../../../sources/bibliography.md#s174)[[S655]](../../../sources/bibliography.md#s655)[[S90045]](../../../sources/bibliography.md#s90045)。
-- **英伟达自身的承诺期限更长。** 对 CoreWeave 的[算力兜底承诺](../../../glossary.md#capacity-backstop)持续到 2032-04-13，2026 年 8 月宣布的融资平台仍是有待签署最终协议的谅解备忘录 🟡 [[S90067]](../../../sources/bibliography.md#s90067)[[S12528]](../../../sources/bibliography.md#s12528)。
+- **英伟达自身的承诺期限更长。** 对 CoreWeave 的[算力兜底承诺](../../glossary.md#capacity-backstop)持续到 2032-04-13，2026 年 8 月宣布的融资平台仍是有待签署最终协议的谅解备忘录 🟡 [[S90067]](../../../sources/bibliography.md#s90067)[[S12528]](../../../sources/bibliography.md#s12528)。
 - **监管机构仍有未结案件。** 中国国家市场监督管理总局（SAMR）于 2025 年 9 月发布初步调查结果，认定英伟达违反了 Mellanox 收购的批准条件；美国司法部（DOJ）于 2024 年启动调查；两者均未在 2026 年公开结案 🔴 [[S9505]](../../../sources/bibliography.md#s9505)[[S9503]](../../../sources/bibliography.md#s9503)[[S9504]](../../../sources/bibliography.md#s9504)。
-- **投资组合如今会影响利润。** 英伟达在 H1 FY2027 确认了 $23.7B 的股权投资净收益，主要来自[按市值计价（mark-to-market）](../../../glossary.md#mark-to-market)；这些收益可能反转 [[S90072]](../../../sources/bibliography.md#s90072)。
-- **[Q7 · 路线图与变数]** 三件事会改变格局：针对“以投资换配额”的反垄断行动、[超大规模云厂商](../../../glossary.md#hyperscaler)资本开支周期的拐点，以及私有公司股权的减记。
+- **投资组合如今会影响利润。** 英伟达在 H1 FY2027 确认了 $23.7B 的股权投资净收益，主要来自[按市值计价（mark-to-market）](../../glossary.md#mark-to-market)；这些收益可能反转 [[S90072]](../../../sources/bibliography.md#s90072)。
+- **[Q7 · 路线图与变数]** 三件事会改变格局：针对“以投资换配额”的反垄断行动、[超大规模云厂商](../../glossary.md#hyperscaler)资本开支周期的拐点，以及私有公司股权的减记。
 
 ```mermaid
 gantt
@@ -82,13 +82,13 @@ gantt
 **2. 资本开支周期拐点。** 英伟达对 Q3 FY2027 收入的指引为 $108B ± 2%，不含中国数据中心计算业务 [[S3]](../../../sources/bibliography.md#s3)。
 
 > [!TIP]
-> **算例 —— 超大规模云厂商暂停采购会削减多少收入。** 在英伟达 Q2 FY2027 $89.0B 的数据中心收入中，超大规模客户贡献了约 ~$48.7B [[S90011]](../../../sources/bibliography.md#s90011)[[S405]](../../../sources/bibliography.md#s405)。若其在英伟达上的支出削减 20%，每季度将减少 ~$9.7B，接近英伟达指引中从 Q2（$96.2B）到 Q3（$108B）约 ~$11.8B 的全部增量 [[S405]](../../../sources/bibliography.md#s405)[[S3]](../../../sources/bibliography.md#s3)。[新兴云服务商（neocloud）](../../../glossary.md#neocloud)和主权买方可以起到缓冲作用，但其中许多正是由英伟达提供资金的。
+> **算例 —— 超大规模云厂商暂停采购会削减多少收入。** 在英伟达 Q2 FY2027 $89.0B 的数据中心收入中，超大规模客户贡献了约 ~$48.7B [[S90011]](../../../sources/bibliography.md#s90011)[[S405]](../../../sources/bibliography.md#s405)。若其在英伟达上的支出削减 20%，每季度将减少 ~$9.7B，接近英伟达指引中从 Q2（$96.2B）到 Q3（$108B）约 ~$11.8B 的全部增量 [[S405]](../../../sources/bibliography.md#s405)[[S3]](../../../sources/bibliography.md#s3)。[新兴云服务商（neocloud）](../../glossary.md#neocloud)和主权买方可以起到缓冲作用，但其中许多正是由英伟达提供资金的。
 
 ![2022–2026 年超大规模云厂商资本开支折线图：Alphabet、亚马逊和 Meta 合计从 2022 年的 $127B 增至其最初 2026 年指引的约 $505B（亚马逊约 $200B、Alphabet 中值约 $180B、Meta 中值约 $125B），到 2026 年 10 月已上调至约 $558B；微软在 FY2025 达到 $65B，甲骨文对 FY2026 的指引约为 $50B。](../../../assets/charts/18-hyperscaler-capex-trend.svg)
 
 **3. 按市值计价损失。** H1 FY2027 $23.7B 的股权投资净收益美化了其他收益；一旦反转，将在客户融资收紧之际冲击利润 [[S90072]](../../../sources/bibliography.md#s90072)。
 
-**4. 定制芯片兑现。** SemiAnalysis 认为，OpenAI 由博通打造的推理芯片在单位[总拥有成本（TCO）](../../../glossary.md#tco)性能上可与 Blackwell 竞争 🟡 [[S628]](../../../sources/bibliography.md#s628)。若按时交付，该联盟在每一家前沿实验室中的说服力都会增强。
+**4. 定制芯片兑现。** SemiAnalysis 认为，OpenAI 由博通打造的推理芯片在单位[总拥有成本（TCO）](../../glossary.md#tco)性能上可与 Blackwell 竞争 🟡 [[S628]](../../../sources/bibliography.md#s628)。若按时交付，该联盟在每一家前沿实验室中的说服力都会增强。
 
 **5. 哪些因素有利于英伟达。** >$500B 融资平台若签署最终协议，将把融资风险转移给第三方 [[S12528]](../../../sources/bibliography.md#s12528)；连续 16 个季度超越自身指引（见下图）也有助于赢得融资方的信任。
 

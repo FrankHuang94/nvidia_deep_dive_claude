@@ -6,18 +6,18 @@
 
 ## ⚡ 要点速览
 
-- **本层是围绕每颗 GPU 的“管线”：**为 GPU 供数的网卡、运行运营方基础设施的[数据处理器（DPU）](../../../glossary.md#dpu)、存储通路以及安全边界。如今每颗 GPU 都配有专属的 [SuperNIC](../../../glossary.md#supernic)：GB200 为 400 Gb/s，GB300 为 800 Gb/s，Vera Rubin 为 1.6 Tb/s [[S266]](../../../sources/bibliography.md#s266)[[S264]](../../../sources/bibliography.md#s264)[[S33004]](../../../sources/bibliography.md#s33004)。
+- **本层是围绕每颗 GPU 的“管线”：**为 GPU 供数的网卡、运行运营方基础设施的[数据处理器（DPU）](../../glossary.md#dpu)、存储通路以及安全边界。如今每颗 GPU 都配有专属的 [SuperNIC](../../glossary.md#supernic)：GB200 为 400 Gb/s，GB300 为 800 Gb/s，Vera Rubin 为 1.6 Tb/s [[S266]](../../../sources/bibliography.md#s266)[[S264]](../../../sources/bibliography.md#s264)[[S33004]](../../../sources/bibliography.md#s33004)。
 - **卸载（offload）是核心理念。**没有 DPU 时，基础设施软件估计会占用约 19–33% 的主机 CPU 核心，该估计主要来自英伟达自身 [[S7005]](../../../sources/bibliography.md#s7005)[[S7007]](../../../sources/bibliography.md#s7007)。BlueField-4 配备 64 个 Arm Neoverse V2 核心和 800 Gb/s 带宽；英伟达称其算力为 BlueField-3 的 6× [[S7001]](../../../sources/bibliography.md#s7001)[[S512]](../../../sources/bibliography.md#s512)。
-- **数据必须绕过 CPU。**若将网络数据先暂存于主机内存，将消耗 39–150% 的主机内存带宽（估计）[[S7000]](../../../sources/bibliography.md#s7000)；[GPUDirect RDMA](../../../glossary.md#gpudirect-rdma) 与 [GPUDirect Storage](../../../glossary.md#gpudirect-storage) 将数据直接送入 GPU 显存 [[S7009]](../../../sources/bibliography.md#s7009)。
+- **数据必须绕过 CPU。**若将网络数据先暂存于主机内存，将消耗 39–150% 的主机内存带宽（估计）[[S7000]](../../../sources/bibliography.md#s7000)；[GPUDirect RDMA](../../glossary.md#gpudirect-rdma) 与 [GPUDirect Storage](../../glossary.md#gpudirect-storage) 将数据直接送入 GPU 显存 [[S7009]](../../../sources/bibliography.md#s7009)。
 - **存储正在成为推理内存：**BlueField-4 运行全新的“G3.5”KV 缓存层级，12 家存储合作伙伴正在打造面向 H2 2026 的 STX 系统 🟢 [[S7511]](../../../sources/bibliography.md#s7511)[[S7027]](../../../sources/bibliography.md#s7027)；一个 128K token 的上下文重新加载约需 0.2 s，而重新计算约需 4.7 s（估计）[[S7000]](../../../sources/bibliography.md#s7000)。
 - **检查点让存储成为有效吞吐（goodput）的杠杆：**在一个 16,384 颗 GPU 的训练任务中，存储带宽从 100 GB/s 提升至 1 TB/s，每年可节省价值约 $30M 的 GPU 时间（估计）[[S34006]](../../../sources/bibliography.md#s34006)[[S7000]](../../../sources/bibliography.md#s7000)。
-- **机密计算已从单颗 GPU（H100）扩展到整个机架（Vera Rubin [NVL72](../../../glossary.md#nvl72)）** [[S7012]](../../../sources/bibliography.md#s7012)[[S7028]](../../../sources/bibliography.md#s7028)；实测 H100 开销为吞吐量的 0–7% [[S7011]](../../../sources/bibliography.md#s7011)。
+- **机密计算已从单颗 GPU（H100）扩展到整个机架（Vera Rubin [NVL72](../../glossary.md#nvl72)）** [[S7012]](../../../sources/bibliography.md#s7012)[[S7028]](../../../sources/bibliography.md#s7028)；实测 H100 开销为吞吐量的 0–7% [[S7011]](../../../sources/bibliography.md#s7011)。
 - **弱点与挑战者：**AWS（Nitro）和谷歌（Google，Titanium）自研卸载方案 [[S292]](../../../sources/bibliography.md#s292)[[S7520]](../../../sources/bibliography.md#s7520)；AMD 的 Helios 为每颗 GPU 配置 2.4 Tb/s 的 Pensando 网卡，是 Vera Rubin 的 1.5× [[S228]](../../../sources/bibliography.md#s228)[[S7500]](../../../sources/bibliography.md#s7500)；存储软件的利润归属合作伙伴（VAST Data、DDN、WEKA）；标准化的设备信任机制（TDISP）可能拉平机密计算领域的差距 [[S7015]](../../../sources/bibliography.md#s7015)。
 
 ![英伟达 BlueField DPU 三联柱状图。Arm 核心数：BlueField-1 为 16 个（Cortex-A72，2018），BlueField-2 为 8 个（A72，2020），BlueField-3 为 16 个（A78，2022），BlueField-4 为 64 个（Neoverse V2，Grace 级，2026）。网络带宽：100、200、400 和 800 Gb/s。每 100 Gb/s 对应核心数：16、4、4 和 8，即 BlueField-4 的单位比特算力翻倍，表明它要运行存储和 KV 缓存管理等服务，而不仅仅是数据包卸载。英伟达称 BlueField-2 可替代约 30 个 CPU 核心，BlueField-3 最多可替代 300 个，BlueField-4 的算力为 BlueField-3 的 6x。](../../../assets/charts/07-bluefield-generations.svg)
 
 > [!TIP]
-> **算例 —— 本层在一个机架中的体量。**SemiAnalysis 估计一个 GB200 NVL72 机架本身约 $3.1M，计入其分摊的[横向扩展（scale-out）](../../../glossary.md#scale-out)网络与存储后约 $3.9M [[S324]](../../../sources/bibliography.md#s324)：**约 $0.8M，即全口径成本的约 21%**，落在本层和第 06 层。在 Vera Rubin 上，72 颗 GPU × 1.6 Tb/s = 每机架 **115.2 Tb/s** 的 SuperNIC 带宽，相当于一台满配 144 端口 800G Quantum-X800 交换机 [[S33004]](../../../sources/bibliography.md#s33004)[[S264]](../../../sources/bibliography.md#s264)。英伟达包含网卡和 DPU 的网络业务线在 Q1 FY2027 创下 $14.8B 的纪录 [[S90014]](../../../sources/bibliography.md#s90014)。**结论：**集群支出的五分之一流经这套“管线”，但英伟达只拿下[网卡（NIC）](../../../glossary.md#nic)、DPU 和交换机这几块；存储系统归合作伙伴。
+> **算例 —— 本层在一个机架中的体量。**SemiAnalysis 估计一个 GB200 NVL72 机架本身约 $3.1M，计入其分摊的[横向扩展（scale-out）](../../glossary.md#scale-out)网络与存储后约 $3.9M [[S324]](../../../sources/bibliography.md#s324)：**约 $0.8M，即全口径成本的约 21%**，落在本层和第 06 层。在 Vera Rubin 上，72 颗 GPU × 1.6 Tb/s = 每机架 **115.2 Tb/s** 的 SuperNIC 带宽，相当于一台满配 144 端口 800G Quantum-X800 交换机 [[S33004]](../../../sources/bibliography.md#s33004)[[S264]](../../../sources/bibliography.md#s264)。英伟达包含网卡和 DPU 的网络业务线在 Q1 FY2027 创下 $14.8B 的纪录 [[S90014]](../../../sources/bibliography.md#s90014)。**结论：**集群支出的五分之一流经这套“管线”，但英伟达只拿下[网卡（NIC）](../../glossary.md#nic)、DPU 和交换机这几块；存储系统归合作伙伴。
 
 ## 本层在技术栈中的位置
 
@@ -108,16 +108,16 @@ mindmap
 <summary>🔧 技术细节：如何阅读网卡与 DPU 规格书</summary>
 
 - **按端口计 vs 按 GPU 计：**ConnectX-9 的端口速率最高为 800 Gb/s，而英伟达给出的是每颗 GPU 1.6 Tb/s [[S7535]](../../../sources/bibliography.md#s7535)[[S33004]](../../../sources/bibliography.md#s33004)。
-- **主机链路限制：**一条 [PCIe](../../../glossary.md#pcie) Gen6 x16 链路单向约可承载 ~128 GB/s（~1.0 Tb/s）[[S222]](../../../sources/bibliography.md#s222)。
+- **主机链路限制：**一条 [PCIe](../../glossary.md#pcie) Gen6 x16 链路单向约可承载 ~128 GB/s（~1.0 Tb/s）[[S222]](../../../sources/bibliography.md#s222)。
 - **“等效核心数”说法**（BlueField-2 约 30 个，BlueField-3 最多 300 个）是厂商的表述口径，并非基准测试结果 [[S7008]](../../../sources/bibliography.md#s7008)。
 
 </details>
 
 ## 🎯 企业发展视角
 
-1. **搭英伟达便车的走量生意。**网卡与 DPU 的配套量随 GPU 出货扩张；商用网卡（博通、AMD）能否在非英伟达机架，或在英伟达卖给[超大规模云厂商](../../../glossary.md#hyperscaler)的机架中赢得插槽？
+1. **搭英伟达便车的走量生意。**网卡与 DPU 的配套量随 GPU 出货扩张；商用网卡（博通、AMD）能否在非英伟达机架，或在英伟达卖给[超大规模云厂商](../../glossary.md#hyperscaler)的机架中赢得插槽？
 2. **DPU 最好的市场或许是存储。**BlueField-4 作为 KV 缓存闪存机柜的控制器 [[S7511]](../../../sources/bibliography.md#s7511) 是一个全新的插槽；关注哪些合作伙伴会让它成为标配。
-3. **护城河在软件，而非芯片。**DOCA、[NCCL](../../../glossary.md#nccl)、GPUDirect 和 [Dynamo](../../../glossary.md#dynamo) 的 KV 放置策略将网卡绑定在整个技术栈上；超以太网（Ultra Ethernet）和 TDISP 则在反向用力 [[S7015]](../../../sources/bibliography.md#s7015)。
+3. **护城河在软件，而非芯片。**DOCA、[NCCL](../../glossary.md#nccl)、GPUDirect 和 [Dynamo](../../glossary.md#dynamo) 的 KV 放置策略将网卡绑定在整个技术栈上；超以太网（Ultra Ethernet）和 TDISP 则在反向用力 [[S7015]](../../../sources/bibliography.md#s7015)。
 4. **高通（Qualcomm）的问题（仅基于公开信息）：**对于 AI200/AI250 机架 [[S173]](../../../sources/bibliography.md#s173)，本层中的哪些部分（网卡、卸载、上下文存储、远程证明）应当自建、收购或交由合作伙伴？
 
 ## 📚 来源（Sources）

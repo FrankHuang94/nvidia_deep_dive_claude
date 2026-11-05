@@ -7,9 +7,9 @@
 
 ## ⚡ 要点速览
 
-- **英伟达牢牢把握其可控环节中最丰厚的利润率。** 其 Q2 FY2027 毛利率为 75.0%，台积电为 66.4%，为其组装机架的 [ODM](../../../glossary.md#odm) 估计仅约 ~2–3%；目前只有存储厂商赚得更多（美光 86.8%）[[S405]](../../../sources/bibliography.md#s405)[[S3538]](../../../sources/bibliography.md#s3538)[[S332]](../../../sources/bibliography.md#s332)[[S3533]](../../../sources/bibliography.md#s3533)。
+- **英伟达牢牢把握其可控环节中最丰厚的利润率。** 其 Q2 FY2027 毛利率为 75.0%，台积电为 66.4%，为其组装机架的 [ODM](../../glossary.md#odm) 估计仅约 ~2–3%；目前只有存储厂商赚得更多（美光 86.8%）[[S405]](../../../sources/bibliography.md#s405)[[S3538]](../../../sources/bibliography.md#s3538)[[S332]](../../../sources/bibliography.md#s332)[[S3533]](../../../sources/bibliography.md#s3533)。
 - **其资本以需求的形式回流。** 英伟达每吉瓦的价值量约 ~$35B（CEO，2025 年 8 月），因此每 GW $10B 的股权投资预付的还不到其销售额的三分之一 [[S398]](../../../sources/bibliography.md#s398)[[S469]](../../../sources/bibliography.md#s469)。
-- **三种并购结构。** 平台型收购（Mellanox，$6.9B）、软件补强收购（Run:ai ~$700M）以及[授权加收购式招聘](../../../glossary.md#licence-plus-acquihire)（Enfabrica >$900M，Groq 据报道 ~$20B）[[S464]](../../../sources/bibliography.md#s464)[[S476]](../../../sources/bibliography.md#s476)[[S475]](../../../sources/bibliography.md#s475)[[S90019]](../../../sources/bibliography.md#s90019)。
+- **三种并购结构。** 平台型收购（Mellanox，$6.9B）、软件补强收购（Run:ai ~$700M）以及[授权加收购式招聘](../../glossary.md#licence-plus-acquihire)（Enfabrica >$900M，Groq 据报道 ~$20B）[[S464]](../../../sources/bibliography.md#s464)[[S476]](../../../sources/bibliography.md#s476)[[S475]](../../../sources/bibliography.md#s475)[[S90019]](../../../sources/bibliography.md#s90019)。
 - **股权投资如今既锁定需求，也锁定供给。** 对英特尔（$5B）、Lumentum 和 Coherent（各 $2B）以及据报道对美满电子（$2B）的股权投资，都附带产能或产品承诺 [[S4009]](../../../sources/bibliography.md#s4009)[[S13529]](../../../sources/bibliography.md#s13529)[[S90037]](../../../sources/bibliography.md#s90037)。
 - **[Q8 · 价值池与并购机会]** 稀缺资产是配额、开发者和团队，而非工厂。英伟达通过授权获取团队，通过股权投资锁定需求，通过预付式股权投资锁定供给；留给其他公司的机会在于可移植软件、主权融资和供应商产能。
 
@@ -27,7 +27,7 @@
 | 前沿实验室（OpenAI、Anthropic、xAI） | 依靠超大规模股权融资 | ~$30B、最多 $10B、E 轮股权 [[S13526]](../../../sources/bibliography.md#s13526)[[S469]](../../../sources/bibliography.md#s469)[[S13039]](../../../sources/bibliography.md#s13039) |
 
 > [!TIP]
-> **算例 —— 一个 Vera Rubin [NVL72](../../../glossary.md#nvl72) 机架上谁赚多少。** 摩根士丹利估计该机架约 ~$7.8M，其中 72 颗 Rubin GPU 约 ~$3.96M [[S332]](../../../sources/bibliography.md#s332)。仅 GPU 这一项，英伟达 75% 的毛利率就带来约 ~$3.0M 的毛利（示意性计算；它还销售机架中的 CPU、交换机和网卡）。ODM 约 ~1.9% 的机架利润率约为 ~$0.15M（估计）[[S332]](../../../sources/bibliography.md#s332)。在同一台设备上，英伟达的收益约为组装商的 20 倍。
+> **算例 —— 一个 Vera Rubin [NVL72](../../glossary.md#nvl72) 机架上谁赚多少。** 摩根士丹利估计该机架约 ~$7.8M，其中 72 颗 Rubin GPU 约 ~$3.96M [[S332]](../../../sources/bibliography.md#s332)。仅 GPU 这一项，英伟达 75% 的毛利率就带来约 ~$3.0M 的毛利（示意性计算；它还销售机架中的 CPU、交换机和网卡）。ODM 约 ~1.9% 的机架利润率约为 ~$0.15M（估计）[[S332]](../../../sources/bibliography.md#s332)。在同一台设备上，英伟达的收益约为组装商的 20 倍。
 
 ![英伟达 FY2016–FY2026 利润率折线图：营业利润率从 15% 升至 60%（FY2025 峰值 62%），FY2023 曾回落至 16%；净利率达到 56%；研发支出占收入比重从 27% 降至 9%。](../../../assets/charts/13-operating-leverage.svg)
 
@@ -48,7 +48,7 @@ flowchart LR
     classDef nvidia fill:#5F9E00,color:#ffffff,stroke:#3F6B00
 ```
 
-这一闭环正是[循环融资](../../../glossary.md#circular-financing)之争的核心：英伟达投出的一美元股权，可能以 GPU 收入的形式回流。受益者包括：无法以同样低成本融资的买方、需要资金扩产的供应商，以及 2026 年 8 月融资平台引入的资产管理公司 [[S12528]](../../../sources/bibliography.md#s12528)。风险在于[供应商融资（vendor financing）](../../../glossary.md#vendor-financing)：一旦终端需求走弱，英伟达将同时持有应收账款和股权。
+这一闭环正是[循环融资](../../glossary.md#circular-financing)之争的核心：英伟达投出的一美元股权，可能以 GPU 收入的形式回流。受益者包括：无法以同样低成本融资的买方、需要资金扩产的供应商，以及 2026 年 8 月融资平台引入的资产管理公司 [[S12528]](../../../sources/bibliography.md#s12528)。风险在于[供应商融资（vendor financing）](../../glossary.md#vendor-financing)：一旦终端需求走弱，英伟达将同时持有应收账款和股权。
 
 > [!TIP]
 > **算例 —— 一个吉瓦的投资回收。** 英伟达承诺向 Anthropic 投资最多 $10B，同时配套最多 1 GW 的英伟达系统 [[S469]](../../../sources/bibliography.md#s469)。按每 GW ~$35B 的英伟达价值量 [[S398]](../../../sources/bibliography.md#s398) 和 ~75% 的毛利率 [[S405]](../../../sources/bibliography.md#s405) 计算，该吉瓦若建成，可带来 ~$26B 的毛利，约为投资额的 2.6 倍。这笔股权投资本质上是获客成本，只有在吉瓦级算力真正落地时才算便宜。
@@ -101,7 +101,7 @@ sequenceDiagram
 | Groq | 授权交易后的 GroqCloud 推理服务 | 据报道英伟达授权费 ~$20B（2025 年 12 月）[[S474]](../../../sources/bibliography.md#s474)[[S90019]](../../../sources/bibliography.md#s90019) | 被授权方及团队聘用 | 授权结构的试金石 |
 | Ayar Labs | 光 I/O 芯粒（chiplet） | $155M D 轮（2024 年 12 月）[[S482]](../../../sources/bibliography.md#s482) | 投资方（AMD、英特尔亦参投） | 面向纵向扩展互连架构的光学方案 |
 
-<sub>标注 [[S481]](../../../sources/bibliography.md#s481)–[[S483]](../../../sources/bibliography.md#s483) 的融资数据部分凭记忆录入（见核实队列），仅供参考。新兴云服务商在[第 12 层](../../../layers/12-orchestration-and-cloud-services/value-chain-and-corp-dev.md)中有深入讨论。</sub>
+<sub>标注 [[S481]](../../../sources/bibliography.md#s481)–[[S483]](../../../sources/bibliography.md#s483) 的融资数据部分凭记忆录入（见核实队列），仅供参考。新兴云服务商在[第 12 层](../12-orchestration-and-cloud-services/value-chain-and-corp-dev.md)中有深入讨论。</sub>
 
 ![AI 芯片初创企业估值横向柱状图：Cerebras 在 2026 年 5 月 IPO 时约 $40B（有报道称完全稀释后最高约 ~$56B）；Groq 与英伟达约 ~$20B 的授权与团队交易（2025 年 12 月）；Etched $10.3B（C 轮，2026 年 7 月，有报道）；Lightmatter $4.4B（2024 年 10 月）；Celestial AI 获美满电子 $3.25B 预付对价（2026 年 2 月）；Tenstorrent 投后估值约 ~$2.7B（2024 年 12 月）；d-Matrix $2.0B（2025 年 11 月）；SambaNova 在停滞的英特尔谈判中约 ~$1.6B，而 2021 年为 $5B。](../../../assets/charts/02-chip-startup-valuations.svg)
 
@@ -112,7 +112,7 @@ sequenceDiagram
 1. **授权加收购式招聘：**哪些推理、互连或编译器团队可以通过这种方式获得？买方应如何为监管机构开始将这种结构视同并购的风险定价？
 2. **对客户的战略性股权投资：**英伟达的股权投资只有在算力真正建成时，才能按每吉瓦毛利收回约 ~2.6 倍。规模较小的厂商需要怎样的回报？应采用股权、认股权证还是预付算力的形式？
 3. **主权合作：**当主权基金提供资本时，芯片厂商是否仍需要强大的资产负债表，还是只需要可信的路线图和本地合作伙伴？
-4. **供应商产能：**英伟达如今用股权购买光器件产能。哪些元器件（激光器、[HBM](../../../glossary.md#hbm)、基板）稀缺到股权投资比长期协议更有效？
+4. **供应商产能：**英伟达如今用股权购买光器件产能。哪些元器件（激光器、[HBM](../../glossary.md#hbm)、基板）稀缺到股权投资比长期协议更有效？
 
 ## 📚 来源（Sources）
 
