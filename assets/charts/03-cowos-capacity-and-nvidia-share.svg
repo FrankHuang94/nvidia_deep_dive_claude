@@ -1662,8 +1662,39 @@ z
     </g>
    </g>
    <g id="text_27">
+    <!-- 150k -->
+    <g style="fill: #ffffff" transform="translate(689.049344 219.689598) scale(0.082 -0.082)">
+     <defs>
+      <path id="DejaVuSans-Bold-14" d="M 750 831 
+L 1813 831 
+L 1813 3847 
+L 722 3622 
+L 722 4441 
+L 1806 4666 
+L 2950 4666 
+L 2950 831 
+L 4013 831 
+L 4013 0 
+L 750 0 
+L 750 831 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#DejaVuSans-Bold-14"/>
+     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(139.15625 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-4e" transform="translate(208.734375 0)"/>
+    </g>
+    <!-- 15% -->
+    <g style="fill: #ffffff" transform="translate(690.520219 229.531199) scale(0.082 -0.082)">
+     <use xlink:href="#DejaVuSans-Bold-14"/>
+     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-8" transform="translate(139.15625 0)"/>
+    </g>
+   </g>
+   <g id="text_28">
     <!-- Broadcom -->
-    <g style="fill: #ffffff" transform="translate(674.887157 214.016133) scale(0.09 -0.09)">
+    <g style="fill: #0b0b0b" transform="translate(676.018125 146.289984) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Bold-25" d="M 2456 2859 
 Q 2741 2859 2887 2984 
@@ -1857,39 +1888,25 @@ z
      <use xlink:href="#DejaVuSans-Bold-52" transform="translate(392.578125 0)"/>
      <use xlink:href="#DejaVuSans-Bold-50" transform="translate(461.28125 0)"/>
     </g>
-    <!-- 150k -->
-    <g style="fill: #ffffff" transform="translate(687.948407 224.818594) scale(0.09 -0.09)">
-     <defs>
-      <path id="DejaVuSans-Bold-14" d="M 750 831 
-L 1813 831 
-L 1813 3847 
-L 722 3622 
-L 722 4441 
-L 1806 4666 
-L 2950 4666 
-L 2950 831 
-L 4013 831 
-L 4013 0 
-L 750 0 
-L 750 831 
-z
-" transform="scale(0.015625)"/>
-     </defs>
+   </g>
+   <g id="text_29">
+    <!-- 105k -->
+    <g style="fill: #ffffff" transform="translate(728.777589 219.689598) scale(0.082 -0.082)">
      <use xlink:href="#DejaVuSans-Bold-14"/>
-     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
-     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(139.15625 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(69.578125 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(139.15625 0)"/>
      <use xlink:href="#DejaVuSans-Bold-4e" transform="translate(208.734375 0)"/>
     </g>
-    <!-- 15% -->
-    <g style="fill: #ffffff" transform="translate(689.562782 235.620352) scale(0.09 -0.09)">
+    <!-- 10% -->
+    <g style="fill: #ffffff" transform="translate(730.248464 229.531199) scale(0.082 -0.082)">
      <use xlink:href="#DejaVuSans-Bold-14"/>
-     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(69.578125 0)"/>
      <use xlink:href="#DejaVuSans-Bold-8" transform="translate(139.15625 0)"/>
     </g>
    </g>
-   <g id="text_28">
+   <g id="text_30">
     <!-- AMD -->
-    <g style="fill: #ffffff" transform="translate(728.365714 214.015781) scale(0.09 -0.09)">
+    <g style="fill: #0b0b0b" transform="translate(728.885558 146.289984) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Bold-30" d="M 588 4666 
 L 2119 4666 
@@ -1912,23 +1929,25 @@ z
      <use xlink:href="#DejaVuSans-Bold-30" transform="translate(77.390625 0)"/>
      <use xlink:href="#DejaVuSans-Bold-27" transform="translate(176.90625 0)"/>
     </g>
-    <!-- 105k -->
-    <g style="fill: #ffffff" transform="translate(727.676652 224.818242) scale(0.09 -0.09)">
+   </g>
+   <g id="text_31">
+    <!-- 150k -->
+    <g style="fill: #0b0b0b" transform="translate(768.505835 219.689598) scale(0.082 -0.082)">
      <use xlink:href="#DejaVuSans-Bold-14"/>
-     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(69.578125 0)"/>
-     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(139.15625 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(139.15625 0)"/>
      <use xlink:href="#DejaVuSans-Bold-4e" transform="translate(208.734375 0)"/>
     </g>
-    <!-- 10% -->
-    <g style="fill: #ffffff" transform="translate(729.291027 235.62) scale(0.09 -0.09)">
+    <!-- 15% -->
+    <g style="fill: #0b0b0b" transform="translate(769.97671 229.531199) scale(0.082 -0.082)">
      <use xlink:href="#DejaVuSans-Bold-14"/>
-     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(69.578125 0)"/>
+     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
      <use xlink:href="#DejaVuSans-Bold-8" transform="translate(139.15625 0)"/>
     </g>
    </g>
-   <g id="text_29">
+   <g id="text_32">
     <!-- Others -->
-    <g style="fill: #0b0b0b" transform="translate(762.660913 214.016133) scale(0.09 -0.09)">
+    <g style="fill: #0b0b0b" transform="translate(763.422225 146.289984) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Bold-32" d="M 2719 3878 
 Q 2169 3878 1866 3472 
@@ -2058,21 +2077,8 @@ z
      <use xlink:href="#DejaVuSans-Bold-55" transform="translate(271.828125 0)"/>
      <use xlink:href="#DejaVuSans-Bold-56" transform="translate(321.140625 0)"/>
     </g>
-    <!-- 150k -->
-    <g style="fill: #0b0b0b" transform="translate(767.404897 224.818594) scale(0.09 -0.09)">
-     <use xlink:href="#DejaVuSans-Bold-14"/>
-     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
-     <use xlink:href="#DejaVuSans-Bold-13" transform="translate(139.15625 0)"/>
-     <use xlink:href="#DejaVuSans-Bold-4e" transform="translate(208.734375 0)"/>
-    </g>
-    <!-- 15% -->
-    <g style="fill: #0b0b0b" transform="translate(769.019272 235.620352) scale(0.09 -0.09)">
-     <use xlink:href="#DejaVuSans-Bold-14"/>
-     <use xlink:href="#DejaVuSans-Bold-18" transform="translate(69.578125 0)"/>
-     <use xlink:href="#DejaVuSans-Bold-8" transform="translate(139.15625 0)"/>
-    </g>
    </g>
-   <g id="text_30">
+   <g id="text_33">
     <!-- 2026 CoWoS bookings (~1.0M wafers) -->
     <g style="fill: #0b0b0b" transform="translate(491.56592 63.12) scale(0.105 -0.105)">
      <defs>
@@ -2148,7 +2154,7 @@ z
     </g>
    </g>
   </g>
-  <g id="text_31">
+  <g id="text_34">
    <!-- Est.: TSMC CoWoS capacity grew ~8× from 2023 to 2026, and NVIDIA booked ~60% of 2026 wafers -->
    <g style="fill: #0b0b0b" transform="translate(9.936 17.497734) scale(0.145 -0.145)">
     <defs>
@@ -2674,7 +2680,7 @@ z
     <use xlink:href="#DejaVuSans-Bold-56" transform="translate(5533.296875 0)"/>
    </g>
   </g>
-  <g id="text_32">
+  <g id="text_35">
    <!-- Left: year-end CoWoS run-rate, k wafers/month (midpoint of press-reported ranges) · Right: 2026 CoWoS bookings by customer, k wafers -->
    <g style="fill: #52514e" transform="translate(9.936 40.378359) scale(0.105 -0.105)">
     <defs>
@@ -2908,7 +2914,7 @@ z
     <use xlink:href="#DejaVuSans-56" transform="translate(6814.0625 0)"/>
    </g>
   </g>
-  <g id="text_33">
+  <g id="text_36">
    <!-- Source: data from TrendForce, Morgan Stanley via trade press, TSMC [S379] [S378]; chart by repo · As of 2026-11-05 -->
    <g style="fill: #898781" transform="translate(9.936 424.846078) scale(0.082 -0.082)">
     <defs>
@@ -3142,7 +3148,7 @@ z
     <use xlink:href="#DejaVuSans-18" transform="translate(5801.828125 0)"/>
    </g>
   </g>
-  <g id="text_34">
+  <g id="text_37">
    <!-- All values Est. (TSMC does not disclose CoWoS wafers) -->
    <g style="fill: #898781" transform="translate(593.466 424.846078) scale(0.082 -0.082)">
     <defs>

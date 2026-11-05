@@ -18,7 +18,7 @@
   chip, so 8× the area costs ~21× more per good die (repo model; inputs [[S35020]](../sources/bibliography.md#s35020)[[S35008]](../sources/bibliography.md#s35008)).
 - **The [reticle limit](../glossary.md#reticle-limit) (~858 mm²) forced NVIDIA into multi-die GPUs.**
   The H100 die (814 mm²) already used ~95% of it [[S35013]](../sources/bibliography.md#s35013)[[S35010]](../sources/bibliography.md#s35010); B200 joins two reticle-limited
-  dies (208B transistors) [[S35014]](../sources/bibliography.md#s35014); 🟢 Rubin Ultra (H2 2027) will join four [[S35018]](../sources/bibliography.md#s35018).
+  dies (208B transistors) [[S35014]](../sources/bibliography.md#s35014); 🟢 Rubin Ultra (H2 2027) was announced with four [[S35018]](../sources/bibliography.md#s35018), though 🟡 reports say a two-die version replaced it [[S509]](../sources/bibliography.md#s509).
 - **Memory and packaging, not the GPU die, dominate the build cost.** Epoch AI estimates a B200
   costs ~$6,400 to make (range $5.7–7.3K), with [HBM](../glossary.md#hbm) about 45% and the two logic
   dies only ~13% before packaging losses (Est., Epoch AI; Silicon Analysts) [[S35020]](../sources/bibliography.md#s35020)[[S35022]](../sources/bibliography.md#s35022).
@@ -222,7 +222,7 @@ flowchart LR
 | H100 (Hopper) | 1 × 814 mm², TSMC 4N | 80B [[S35011]](../sources/bibliography.md#s35011) | 80 GB HBM3 [[S33002]](../sources/bibliography.md#s33002) | 🟢 Shipping since 2022 |
 | B200 (Blackwell) | 2 reticle-limited dies, TSMC 4NP, 10 TB/s die-to-die link | 208B [[S35014]](../sources/bibliography.md#s35014) | 192 GB physical (180 GB enabled in HGX) [[S35020]](../sources/bibliography.md#s35020)[[S33003]](../sources/bibliography.md#s33003) | 🟢 Shipping |
 | Rubin | 2 reticle-sized compute dies + 2 I/O chiplets, N3-class | 336B [[S35015]](../sources/bibliography.md#s35015) | 288 GB HBM4, 8 stacks [[S33006]](../sources/bibliography.md#s33006) | 🟢 In production; partner systems H2 2026 [[S35016]](../sources/bibliography.md#s35016) |
-| Rubin Ultra | 4 reticle-sized compute dies [[S107]](../sources/bibliography.md#s107) | n/a | 1 TB HBM4E, 16 stacks [[S35018]](../sources/bibliography.md#s35018); 🟡 one report says cut to 768 GB [[S111]](../sources/bibliography.md#s111) | 🟢 Roadmap H2 2027 [[S35018]](../sources/bibliography.md#s35018)[[S33020]](../sources/bibliography.md#s33020) |
+| Rubin Ultra | 4 reticle-sized compute dies [[S107]](../sources/bibliography.md#s107) | n/a | 1 TB HBM4E, 16 stacks [[S35018]](../sources/bibliography.md#s35018); 🟡 one report says cut to 768 GB [[S111]](../sources/bibliography.md#s111) | 🟢 Roadmap H2 2027 [[S35018]](../sources/bibliography.md#s35018)[[S33020]](../sources/bibliography.md#s33020); 🟡 two-die version reported [[S509]](../sources/bibliography.md#s509) |
 
 The engineering trick is the [die-to-die interconnect](../glossary.md#die-to-die-interconnect): if two dies
 can exchange data fast enough (NVIDIA quotes 10 TB/s for Blackwell [[S35014]](../sources/bibliography.md#s35014)), software sees one GPU.
@@ -278,6 +278,8 @@ grow several-fold once every AI accelerator needed it: TSMC said capacity more t
 and would roughly double again in 2025 [[S378]](../sources/bibliography.md#s378). NVIDIA reportedly holds ~60% of 2026 CoWoS
 allocation (~595K wafers), ahead of Broadcom (~150K) and AMD (~105K) (🟡 press estimates) [[S379]](../sources/bibliography.md#s379).
 HBM supply had the same problem (details in [Layer 03](../layers/03-memory-packaging-supply-chain/index.md)).
+
+![Two-panel chart of estimates. Left: TSMC CoWoS capacity about 15k wafers per month at end-2023, 35k in 2024, 75k in 2025 and about 115k in 2026, roughly 8 times higher. Right: of about 1,000k wafers of 2026 CoWoS demand, NVIDIA about 595k (60%), Broadcom 150k, AMD 105k and others about 150k.](../assets/charts/03-cowos-capacity-and-nvidia-share.svg)
 TSMC now earmarks 10–20% of a $52–56B 2026 capex budget for advanced packaging, testing and masks
 [[S35029]](../sources/bibliography.md#s35029) — on the order of $5–11B in one year.
 
@@ -313,6 +315,11 @@ GPU rises every generation — so HBM's share of the bill keeps climbing.
 > assumption). Either way, **memory alone would cost more than an entire B200's logic, packaging and
 > test combined**, which is why HBM suppliers (SK hynix, Samsung, Micron) have become a major value
 > pool and why Rubin's bandwidth spec depends on what the memory makers can deliver.
+
+At rack level the same shift is visible: Morgan Stanley's teardown has memory rising from ~9% of a
+GB300 NVL72's cost to ~26% of a Vera Rubin NVL72's (Est.) [[S332]](../sources/bibliography.md#s332).
+
+![Stacked bar chart of estimated NVL72 rack cost: GB300 NVL72 $3.99M with GPUs $2.52M and memory $0.37M (9%); Vera Rubin NVL72 $7.80M with GPUs $3.96M and memory $2.00M (26%), a 5.4-fold rise in memory dollars per rack.](../assets/charts/03-memory-share-of-rack-bom.svg)
 
 ## 7. Putting it together: bill of materials vs. selling price
 
@@ -507,6 +514,7 @@ Why does that spending translate into a near-monopoly on AI accelerators?
 - [**S405**](../sources/bibliography.md#s405) NVIDIA Corporation via SEC EDGAR, *NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 (Form 8-K exhibit 99.1)*, 2026-08-26. [Link](https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000073/q2fy27pr.htm)
 - [**S416**](../sources/bibliography.md#s416) NVIDIA Corporation via SEC EDGAR, *NVIDIA Corporation Form 10-K for fiscal year ended January 26, 2025*, 2025-02-26. [Link](https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm)
 - [**S444**](../sources/bibliography.md#s444) NVIDIA Corporation, *NVIDIA Announces Financial Results for First Quarter Fiscal 2026 (press release with CFO commentary)*, 2025-05-28. [Link](https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2026)
+- [**S509**](../sources/bibliography.md#s509) TrendForce, *NVIDIA Rubin Ultra four-die single-package design not adopted amid advanced-packaging constraints*, 2026-04-01. [Link](https://www.trendforce.com/news/?p=55442)
 - [**S33002**](../sources/bibliography.md#s33002) NVIDIA, *NVIDIA H100 Tensor Core GPU (product page and datasheet)*, 2022-03-22. [Link](https://www.nvidia.com/en-us/data-center/h100/)
 - [**S33003**](../sources/bibliography.md#s33003) Lenovo Press, *ThinkSystem NVIDIA B200 180GB 1000W GPU product guide*, 2025. [Link](https://lenovopress.lenovo.com/lp2226-thinksystem-nvidia-b200-180gb-1000w-gpu)
 - [**S33004**](../sources/bibliography.md#s33004) NVIDIA Newsroom, *NVIDIA Kicks Off the Next Generation of AI With Rubin — Six New Chips; One Incredible AI Supercomputer*, 2026-01-05. [Link](https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer)

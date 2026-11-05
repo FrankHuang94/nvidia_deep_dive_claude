@@ -320,3 +320,56 @@ developers to `08`.
 One row per NVIDIA equity commitment to a company that has also announced a large compute plan (input for the
 circular-financing bubble chart `12-investments-in-customers-bubble`). `investment_basis` as `amount_basis` above;
 a commitment described as an LOI that was later replaced is treated as superseded by the chart.
+
+## Competition, market share and benchmarks (agent A6; sources S600–S699, charts in `scripts/charts/ch_competition.py`, `ch_mlperf.py`, `ch_market.py`)
+
+### competitor_matrix.csv — conventions
+13 entities (NVIDIA reference rows plus AMD, Google TPU, AWS Trainium, Microsoft Maia, Meta MTIA,
+Broadcom, Marvell, Intel, Huawei, Qualcomm (public information only), Cerebras, Groq). `dimension`
+for `dimension_type = layer` is the layer number plus a short name (`02 Accelerator silicon` …
+`13 Ecosystem, GTM & capital`); for `capability` it is one of nine radar axes (Peak compute, Memory
+capacity & bandwidth, Scale-up fabric, Scale-out networking, Software ecosystem, Rack-scale systems,
+Supply access (CoWoS/HBM), Cost/TCO, Merchant availability). Scores 0–5 are the repo's judgement
+(`confidence = speculative` on every row); `notes` record the confidence of the underlying evidence.
+NVIDIA rows are the reference (`verdict_vs_nvidia = parity`).
+
+### mlperf_results.csv — conventions
+Built from the MLCommons results repositories (primary data, fetched via git): Inference v4.0–v6.1
+and Training v4.1–v6.0. `metric`: `throughput` (inference, `unit` tokens/s, samples/s or queries/s;
+`per_accelerator_value` = value / accelerator_count), `time_to_train` (minutes; computed by the repo
+from the result logs with MLPerf scoring — olympic average × `scaling.json` factor — and checked
+against published headline numbers, e.g. 27.3 min on 2,496 GB200 for Llama 3.1 405B in v5.0),
+`submitting_organizations`, `performance_results_by_accelerator_vendor` (inference, closed, power
+results excluded) and `results_by_accelerator_vendor` (training). `notes` start with
+`series=same-hardware…` (same NVIDIA-submitted system across rounds) or `selection=…` (how the row
+was picked) and always state `category=available|preview`. Accelerator names are normalised
+(`NVIDIA GB300`, `AMD MI355X`, …). v6.0 training results that are byte-identical copies of v5.1
+results were dropped.
+
+### market_share.csv (long)
+`year,segment,entity,metric,value,unit,confidence,source_id,notes`
+
+`year`: calendar year (`2026E` = estimate) or quarter (`2025-Q4`; Broadcom fiscal quarters mapped
+to the calendar quarter in which they end). `segment`: `ai_datacenter_vendor_revenue` (US$ B, NVIDIA
+fiscal year used as proxy for the prior calendar year), `custom_asic_partner_revenue` (Broadcom
+quarterly AI revenue), `ai_accelerator_revenue_share` and `merchant_vs_custom` (pct; repo
+calculation = vendor AI data-center revenue / sum across vendors, custom ASICs valued at
+design-partner revenue, China domestic excluded), `datacenter_gpu_shipments` /
+`custom_asic_shipments` / `*_commitments` (units or GW), `ai_backend_network_switch_share`
+(InfiniBand vs Ethernet, pct). Third-party estimates that could not be re-verified in this session
+are `speculative` and say "as recalled" in `notes` — verify before publication.
+
+### inference_benchmarks.csv (long)
+`benchmark_suite,date,model,system,vendor,accelerators,precision,interactivity_tok_s_per_user,throughput_tok_s_per_gpu,cost_usd_per_m_tokens,confidence,source_id,notes`
+
+Throughput-vs-interactivity points. `benchmark_suite` values: `SemiAnalysis InferenceX (Pareto
+frontier, no speculative decoding|with MTP speculative decoding)` (frontier points per system and
+precision from the InferenceX public-API snapshot; throughput = total input+output tokens/s per GPU,
+interactivity = median tok/s/user), `SemiAnalysis InferenceX (history, same hardware and config)`
+(fixed concurrency and parallelism over time; `notes` carry `series=`), `NVIDIA TensorRT-LLM perf
+overview (max-throughput, trtllm-bench)` (output tokens/s per GPU at maximum load by release; no
+interactivity), `NVIDIA TensorRT-LLM tech blog …` and `SemiAnalysis InferenceX article …` (single
+published data points). `cost_usd_per_m_tokens` = InferenceX owner TCO ($/GPU-hr, S622) × 10⁶ /
+(tokens/s × 3,600), i.e. per million total tokens unless `notes` say output tokens; it is an
+estimate even when the throughput is measured. `accelerators` = GPUs in the serving instance
+(aggregated: tensor-parallel size; disaggregated: prefill + decode GPUs).

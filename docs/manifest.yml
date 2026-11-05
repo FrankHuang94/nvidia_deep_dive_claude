@@ -12,12 +12,12 @@ quotas:
 enforce_statuses: [drafted, complete, qa-passed]
 units:
   - {id: SYN, title: "README + Executive Summary + Cheat Sheet", type: synthesis, phase: 8, status: planned, qa: pending, paths: [README.md, 00-executive-summary.md, CHEATSHEET.md]}
-  - {id: "01", title: "The NVIDIA flywheel", type: chapter, phase: 2, status: planned, qa: pending, paths: [01-the-nvidia-flywheel.md]}
-  - {id: P1, title: "How AI training works", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P1-how-ai-training-works.md]}
-  - {id: P2, title: "How AI inference works", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P2-how-ai-inference-works.md]}
-  - {id: P3, title: "The four bottlenecks", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P3-the-four-bottlenecks.md]}
-  - {id: P4, title: "Parallelism explained", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P4-parallelism-explained.md]}
-  - {id: P5, title: "Chip economics 101", type: primer, phase: 2, status: planned, qa: pending, paths: [primers/P5-chip-economics-101.md]}
+  - {id: "01", title: "The NVIDIA flywheel", type: chapter, phase: 2, status: drafted, qa: pending, paths: [01-the-nvidia-flywheel.md]}
+  - {id: P1, title: "How AI training works", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P1-how-ai-training-works.md]}
+  - {id: P2, title: "How AI inference works", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P2-how-ai-inference-works.md]}
+  - {id: P3, title: "The four bottlenecks", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P3-the-four-bottlenecks.md]}
+  - {id: P4, title: "Parallelism explained", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P4-parallelism-explained.md]}
+  - {id: P5, title: "Chip economics 101", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P5-chip-economics-101.md]}
   - {id: "02", title: "GPU silicon", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/02-gpu-silicon]}
   - {id: "03", title: "Memory, packaging and supply chain", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/03-memory-packaging-supply-chain]}
   - {id: "04", title: "CPU (Grace, Vera)", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/04-cpu-grace-vera]}

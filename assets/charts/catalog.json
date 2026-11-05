@@ -701,7 +701,7 @@
   },
   {
     "id": "03-hbm-market-share-by-supplier",
-    "title": "SK hynix has held 50–70% of HBM revenue since 2022; Samsung and Micron each ~21–22% by Q3 2025",
+    "title": "SK hynix held 50–70% of HBM revenue in 2022–25; Samsung and Micron reached ~21–22% each",
     "subtitle": "Share of HBM revenue by supplier, % (TrendForce for 2022–2023; Counterpoint for 2025 quarters) · hatched = estimate",
     "alt": "Stacked 100% bar chart of HBM revenue share: 2022 SK hynix 50%, Samsung 40%, Micron 10%; 2023 estimate 53/38/9; Q1 2025 SK hynix about 70%; Q2 2025 SK hynix 62%, Micron 21%, Samsung 17%; Q3 2025 SK hynix 57%, Samsung 22%, Micron 21%.",
     "data": [
@@ -724,7 +724,7 @@
   {
     "id": "03-hbm-stack-bandwidth-by-generation",
     "title": "Per-stack HBM bandwidth rose 16× from HBM (128 GB/s) to JEDEC HBM4 (2,048 GB/s)",
-    "subtitle": "Peak GB/s per HBM stack by generation (bars; label = pin speed × interface width) · ◆ = as run in NVIDIA GPUs (GPU GB/s ÷ stacks)",
+    "subtitle": "Peak GB/s per HBM stack (bars; axis label = pin speed × interface bits) · ◆ = as run in NVIDIA GPUs (GPU GB/s ÷ stacks)",
     "alt": "Bar chart of peak bandwidth per HBM stack: HBM 128 GB/s (2013), HBM2 256, HBM2E 460, HBM3 819, HBM3E about 1,280, JEDEC HBM4 2,048 and SK hynix HBM4 at over 10 Gb/s about 2,560 GB/s, a 16-fold rise. Diamonds show NVIDIA's as-shipped rates per stack, from about 183 GB/s on P100 to about 2,400 GB/s on Rubin; HBM4 doubled the interface from 1,024 to 2,048 bits.",
     "data": [
       "hbm_and_packaging.csv"
@@ -760,7 +760,7 @@
   {
     "id": "03-hbm-stack-capacity-by-generation",
     "title": "HBM stack capacity rose 36× in a decade, from 1 GB to 36 GB; HBM4E targets 64 GB",
-    "subtitle": "Largest stack per generation, GB (label = DRAM dies stacked) · hollow ○ = JEDEC maximum · hatched = sampling or roadmap",
+    "subtitle": "Largest stack per generation, GB (axis label = DRAM dies per stack) · hollow ○ = JEDEC maximum · hatched = sampling or roadmap",
     "alt": "Bar chart of maximum HBM capacity per stack: HBM 1 GB (4-high), HBM2 8 GB, HBM2E 16 GB, HBM3 24 GB, 12-high HBM3E 36 GB, 16-high HBM3E 48 GB (sampling), HBM4 as used in Rubin 36 GB and HBM4E planned for Rubin Ultra about 64 GB per stack (1 TB in 16 stacks); JEDEC's HBM3 and HBM4 standards allow up to 64 GB.",
     "data": [
       "hbm_and_packaging.csv"
@@ -788,7 +788,7 @@
   },
   {
     "id": "03-hbm-stacks-per-package",
-    "title": "HBM stacks per GPU package grew from 4 (P100) to 16 (Rubin Ultra), forcing ever-larger CoWoS interposers",
+    "title": "HBM stacks per NVIDIA GPU package grew 4×, from 4 (P100) to 16 (Rubin Ultra, roadmap)",
     "subtitle": "HBM stacks per accelerator package (label = GB per package) · CoWoS-S silicon interposer → CoWoS-L bridges · hatched = roadmap",
     "alt": "Bar chart of HBM stacks per package: NVIDIA P100 4, V100 4, A100 5, H100 5, H200 6, B200 8, B300 8, Rubin 8 and Rubin Ultra 16 (roadmap, 1 TB); AMD MI300X 8, MI355X 8 and MI455X 12 (432 GB). NVIDIA moved from CoWoS-S silicon interposers to CoWoS-L bridges with the two-die B200; TSMC targets about 5.5x reticle interposers in 2026 and 9.5x in 2027.",
     "data": [
@@ -830,7 +830,7 @@
   },
   {
     "id": "03-memory-share-of-rack-bom",
-    "title": "Est.: memory jumps from ~9% to ~26% of an NVL72 rack's cost as HBM4 and LPDDR5X prices surge",
+    "title": "Est.: memory rises from ~9% to ~26% of an NVL72 rack's cost (GB300 → Vera Rubin)",
     "subtitle": "Morgan Stanley rack BOM (ODM price to hyperscaler, May 2026), US$ M · memory = HBM + CPU-attached LPDDR5X",
     "alt": "Stacked bar chart of estimated NVL72 rack cost: GB300 NVL72 $3.99M with GPUs $2.52M and memory $0.37M (9%); Vera Rubin NVL72 $7.80M with GPUs $3.96M and memory $2.00M (26%), a 5.4-fold rise in memory dollars per rack.",
     "data": [
@@ -1293,6 +1293,62 @@
     "html": null
   },
   {
+    "id": "06-cpo-vs-pluggable-power",
+    "title": "Co-packaged optics cut optics power from ~19 to ~5–6 pJ/bit: ~90 W → ~36 W of optics per GPU",
+    "subtitle": "Left: optical I/O energy, pJ/bit (label: W per 800 Gb/s). Right: Est. optics watts per GPU, non-blocking 3-tier 800G fabric",
+    "alt": "Two-panel bar chart. Left: DSP pluggable optics about 19 pJ/bit (~15 W per 800G; NVIDIA cites ~30 W per 1.6T module), linear pluggables about 11 pJ/bit, co-packaged optics 5.4-5.6 pJ/bit derived from NVIDIA's 3.5x and Broadcom's ~70% savings claims. Right: in a 3-tier 800G fat tree optics draw about 90 W per GPU with pluggables vs 36 W with CPO switches, roughly 5.3 MW saved per 100,000 GPUs (estimate).",
+    "data": [
+      "optics_power_estimates.csv",
+      "network_topology_estimates.csv"
+    ],
+    "chapters": [
+      "06",
+      "08"
+    ],
+    "source": "NVIDIA (GTC 2025 keynote, photonics release), Broadcom, LPO MSA; repo estimates",
+    "source_ids": [
+      "S295",
+      "S282",
+      "S294",
+      "S33020",
+      "S265",
+      "S281",
+      "S264"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-cpo-vs-pluggable-power.svg",
+    "html": null
+  },
+  {
+    "id": "06-fat-tree-max-gpus-by-radix",
+    "title": "Switch radix sets cluster size: two tiers top out at 2,048 GPUs with 64-port switches but 131,072 with 512-port 102.4T switches",
+    "subtitle": "Maximum GPUs (one NIC port each) in a non-blocking fat tree: 2 tiers = R²/2, 3 tiers = R³/4, for switch radix R",
+    "alt": "Grouped log-scale bar chart: a two-tier non-blocking fat tree supports 800 GPUs with 40-port HDR switches, 2,048 with 64-port Quantum-2, 8,192 with 128-port 51.2T, 10,368 with 144-port Quantum-X800 and 131,072 with 512-port 102.4T switches; three tiers reach 65,536, 524,288 and 746,496; a 100,000-GPU cluster therefore needs three tiers unless switches have 512-port radix (or multiple planes).",
+    "data": [
+      "network_topology_estimates.csv"
+    ],
+    "chapters": [
+      "06",
+      "P4"
+    ],
+    "source": "repo calculation; NVIDIA and Broadcom switch specs",
+    "source_ids": [
+      "S273",
+      "S294",
+      "S266",
+      "S267",
+      "S277",
+      "S264",
+      "S274",
+      "S265"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-fat-tree-max-gpus-by-radix.svg",
+    "html": null
+  },
+  {
     "id": "06-networking-revenue-and-share",
     "title": "NVIDIA networking revenue rose 5.5× in two years to ~$17.5B a quarter (~20% of DC)",
     "subtitle": "Left: Data Center networking revenue, US$ B per quarter. Right: networking as % of Data Center revenue",
@@ -1343,6 +1399,119 @@
     "html": null
   },
   {
+    "id": "06-optics-per-gpu",
+    "title": "Est.: each GPU needs ~2.5 pluggable optics in a 2-tier fat tree, ~3.5 in 3 tiers; CPO switches cut that to 1",
+    "subtitle": "Estimated optical modules per GPU, non-blocking rail-optimized fat tree (back-end fabric only), by NIC speed and tiers",
+    "alt": "Stacked bar chart (estimates): with all-optical links a GPU needs 2.5 pluggable modules in a two-tier fat tree and 3.5 in three tiers (one NIC-side module, half a twin-port leaf module, one module per upper tier), the same count at 400G and 800G; counted as optical port-ends it is 4 and 6, matching NVIDIA's '6 transceivers per GPU'; co-packaged-optics switches leave only the NIC-side module, 1 per GPU.",
+    "data": [
+      "network_topology_estimates.csv"
+    ],
+    "chapters": [
+      "06",
+      "08"
+    ],
+    "source": "repo estimate (method in data/network_topology_estimates.csv); NVIDIA; SemiAnalysis",
+    "source_ids": [
+      "S266",
+      "S267",
+      "S294",
+      "S33020",
+      "S265",
+      "S264"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-optics-per-gpu.svg",
+    "html": null
+  },
+  {
+    "id": "06-serdes-lane-rate-progression",
+    "title": "Switch SerDes lane rates doubled about every 3.3 years: 25 Gb/s (2014) to 200 Gb/s (2024)",
+    "subtitle": "Electrical lane (SerDes) rate per switch ASIC, Gb/s per lane per direction; line = fastest shipping lane rate to date",
+    "alt": "Scatter and step chart of switch SerDes lane rates by launch year: 25 Gb/s NRZ first in 2014, 50 Gb/s PAM4 in 2018, 100 Gb/s PAM4 in 2021 and 200 Gb/s PAM4 in 2024 (NVIDIA Quantum-X800, then Broadcom Tomahawk 6), a doubling roughly every 3.3 years; 400 Gb/s lanes for 3.2T Ethernet and 1.6T InfiniBand are not yet scheduled.",
+    "data": [
+      "networking_products.csv",
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "06",
+      "P3"
+    ],
+    "source": "Broadcom, NVIDIA, Cisco, Marvell; IBTA; IEEE",
+    "source_ids": [
+      "S283",
+      "S273",
+      "S206",
+      "S278",
+      "S284",
+      "S285",
+      "S261",
+      "S266",
+      "S205",
+      "S277",
+      "S267",
+      "S279",
+      "S264",
+      "S207",
+      "S263",
+      "S262",
+      "S282",
+      "S274",
+      "S276",
+      "S275",
+      "S281",
+      "S286",
+      "S265",
+      "S33004",
+      "S203",
+      "S204",
+      "S210",
+      "S211",
+      "S212",
+      "S251",
+      "S252",
+      "S253",
+      "S256"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-serdes-lane-rate-progression.svg",
+    "html": null
+  },
+  {
+    "id": "06-switch-aggregate-bandwidth",
+    "title": "Switch ASIC bandwidth doubled every ~2.2 years: Broadcom went from 3.2 Tb/s (2014) to 102.4 Tb/s (2025)",
+    "subtitle": "Switching capacity per switch (ports × port speed, one direction), Tb/s. NVIDIA's Spectrum-6 reaches 102.4 Tb/s in 2026",
+    "alt": "Log-scale line chart of switch capacity by year: Broadcom Tomahawk from 3.2 Tb/s (2014) to 102.4 Tb/s (Tomahawk 6, 2025), doubling about every 2.2 years; NVIDIA Spectrum Ethernet from 3.2 Tb/s (2015) to 51.2 Tb/s (Spectrum-4) and 102.4 Tb/s (Spectrum-6, 2026); NVIDIA Quantum InfiniBand from 3.6 to 115.2 Tb/s (Quantum-X800 system); Cisco Silicon One and Marvell Teralynx track the same cadence.",
+    "data": [
+      "networking_products.csv"
+    ],
+    "chapters": [
+      "06",
+      "16"
+    ],
+    "source": "Broadcom, NVIDIA, Cisco, Marvell announcements",
+    "source_ids": [
+      "S283",
+      "S278",
+      "S277",
+      "S274",
+      "S273",
+      "S267",
+      "S265",
+      "S33004",
+      "S266",
+      "S264",
+      "S285",
+      "S287",
+      "S284"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-switch-aggregate-bandwidth.svg",
+    "html": null
+  },
+  {
     "id": "06-switch-port-speed-by-generation",
     "title": "Port speeds rose 80× on InfiniBand (2001–2024) and 160× on Ethernet (2002–2026)",
     "subtitle": "Gb/s per direction per port: InfiniBand 4x (now 800 Gb/s XDR) and IEEE Ethernet (now 1.6 Tb/s), by first product / standard year",
@@ -1369,8 +1538,69 @@
     "html": null
   },
   {
+    "id": "06-switches-for-100k-gpu-cluster",
+    "title": "Est.: a non-blocking 100k-GPU fabric needs ~3,473–3,908 switches in 3 tiers, or ~2,348 with 102.4T multi-plane 2-tier designs",
+    "subtitle": "Estimated back-end switches by tier for 100,000 GPUs (one NIC per GPU, 1:1 fat tree), with optical modules and worst-case hops",
+    "alt": "Stacked horizontal bar chart (estimates) of switches needed for 100,000 GPUs: 3-tier designs need 3,473 to 3,908 switches and about 350k optical modules with 5 switch hops worst case; a 4-plane 2-tier design on 512-port 102.4T switches needs 2,348 switches, 250k modules (29% fewer) and 3 hops.",
+    "data": [
+      "network_topology_estimates.csv"
+    ],
+    "chapters": [
+      "06",
+      "08",
+      "CS7"
+    ],
+    "source": "repo estimate (method in data/network_topology_estimates.csv); Broadcom; NVIDIA; SemiAnalysis",
+    "source_ids": [
+      "S267",
+      "S277",
+      "S294",
+      "S264",
+      "S274",
+      "S265"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-switches-for-100k-gpu-cluster.svg",
+    "html": null
+  },
+  {
+    "id": "07-nic-bandwidth-by-generation",
+    "title": "ConnectX bandwidth rose 29× from 56 Gb/s (2011) to 1.6 Tb/s (2026), doubling about every 3 years",
+    "subtitle": "Maximum port bandwidth per NIC / DPU, Gb/s per direction, by launch year; rivals' AI NICs and DPUs shown as markers",
+    "alt": "Log-scale chart of NIC bandwidth by year: NVIDIA ConnectX from 56 Gb/s (ConnectX-3, 2011) through 100 (ConnectX-4/5), 200 (ConnectX-6), 400 (ConnectX-7), 800 (ConnectX-8) to 1,600 Gb/s (ConnectX-9, 2026); BlueField DPUs from 100 to 800 Gb/s (BlueField-4); Broadcom Thor Ultra and AMD Vulcano reach 800 Gb/s in 2025-26, Intel IPU E2100 200 Gb/s.",
+    "data": [
+      "networking_products.csv"
+    ],
+    "chapters": [
+      "07",
+      "06"
+    ],
+    "source": "NVIDIA/Mellanox, Broadcom, AMD, Intel",
+    "source_ids": [
+      "S273",
+      "S266",
+      "S264",
+      "S33004",
+      "S204",
+      "S270",
+      "S269",
+      "S272",
+      "S280",
+      "S289",
+      "S290",
+      "S226",
+      "S228",
+      "S291"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/07-nic-bandwidth-by-generation.svg",
+    "html": null
+  },
+  {
     "id": "08-accelerators-per-mw",
-    "title": "1 MW now hosts ~10× fewer NVIDIA GPUs than in 2016, yet ~5× Hopper's FP8 compute",
+    "title": "1 MW now hosts ~10× fewer NVIDIA GPUs than in 2016, yet up to ~5× Hopper's FP8 per MW",
     "subtitle": "Per MW of system IT power (excludes cooling/PUE): GPU packages (left) and dense FP8 PFLOPS (right) · hatched = announced/roadmap",
     "alt": "Two bar charts by NVIDIA system generation. Left: GPUs per MW of IT power fall from about 2,500 for DGX-1 to about 600 for GB200 NVL72 and 240 for the Rubin Ultra Kyber rack. Right: dense FP8 PFLOPS per MW rise from about 1,549 for DGX H100 to about 5,478 for Vera Rubin NVL72 and 8,333 for Kyber, roughly 5 times Hopper.",
     "data": [
@@ -1430,8 +1660,8 @@
   },
   {
     "id": "08-compute-per-kw-by-rack",
-    "title": "Vera Rubin NVL72 targets ~5.5 dense FP8 PFLOPS/kW, ~10× Huawei's CloudMatrix 384",
-    "subtitle": "Peak dense FP8 PFLOPS ÷ max IT power (kW) · peak specs, not delivered throughput · hatched = roadmap or analyst-estimated power",
+    "title": "Vera Rubin NVL72 targets ~5.5 FP8 PFLOPS/kW, ~10× Huawei's CloudMatrix 384",
+    "subtitle": "Peak dense FP8 PFLOPS ÷ max IT power · peak specs, not delivered throughput · hatched = roadmap or estimated power",
     "alt": "Horizontal bar chart of dense FP8 PFLOPS per kW: Huawei CloudMatrix 384 about 0.54 (BF16), DGX H100 about 1.5, DGX B200 about 2.5, GB300 NVL72 about 2.7, GB200 NVL72 about 3.0, AMD MI355X platform about 3.7, Vera Rubin NVL72 about 5.5, AMD Helios about 6.0 on estimated power and Rubin Ultra Kyber about 8.3.",
     "data": [
       "system_specs.csv",
@@ -1643,7 +1873,7 @@
   },
   {
     "id": "08-system-price-by-generation",
-    "title": "What a buyer pays per NVIDIA system rose ~60×: $129K DGX-1 to ~$7.8M Vera Rubin rack",
+    "title": "NVIDIA system prices rose ~60×: $129K DGX-1 (2016) to ~$7.8M Vera Rubin rack",
     "subtitle": "List or estimated price per system/rack, US$ M (log scale) · servers = list/reseller price; NVL racks = analyst Est. (hatched)",
     "alt": "Log-scale bar chart of NVIDIA system prices: DGX-1 $129K (2016), DGX-1 V100 $149K, DGX-2 $399K, DGX A100 $199K, DGX H200 about $467K, DGX B200 about $370K, then rack-scale GB200 NVL72 about $3.0M, GB300 NVL72 about $4.0M and Vera Rubin NVL72 about $7.8M (estimates), roughly 60 times the first DGX-1.",
     "data": [
@@ -1694,6 +1924,197 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/08-system-price-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "09-cuda-developers-over-time",
+    "title": "CUDA developers tripled from 2M (2020) to ~6M (2025); NVIDIA still cited 6M in 2026",
+    "subtitle": "Registered CUDA / NVIDIA developer-program members as stated by NVIDIA, millions",
+    "alt": "Line chart of NVIDIA-stated CUDA developers: about 1M around 2018 (estimate), 2M in 2020, 3M in March 2022, 4M in May 2023, 5M in June 2024, 5.9M in February 2025 and about 6M at GTC 2025 and again at GTC 2026 — a plateau in the rounded headline figure.",
+    "data": [
+      "software_ecosystem.csv"
+    ],
+    "chapters": [
+      "09",
+      "CS2",
+      "01"
+    ],
+    "source": "NVIDIA keynotes, press releases and earnings calls",
+    "source_ids": [
+      "S529",
+      "S530",
+      "S531",
+      "S532",
+      "S533",
+      "S534",
+      "S535",
+      "S536",
+      "S528"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-cuda-developers-over-time.svg",
+    "html": null
+  },
+  {
+    "id": "09-cuda-release-timeline",
+    "title": "CUDA shipped 13 major versions in 18 years; 13.x minors now land quarterly",
+    "subtitle": "CUDA Toolkit major versions with headline additions, and 13.x minor releases (pre-2019 months per NVIDIA's toolkit archive)",
+    "alt": "Timeline of CUDA major versions from 1.0 (June 2007) to 13.0 (August 2025): 13 majors, each tied to a GPU architecture or programming-model addition such as double precision (2.0), unified memory (6.0), Tensor Cores (9.0), CUDA Graphs (10.0), TF32/MIG (11.0) and Hopper (12.0); 5 13.x minor releases followed by November 2026, including CUDA Tile in 13.1.",
+    "data": [
+      "software_ecosystem.csv"
+    ],
+    "chapters": [
+      "09",
+      "CS2",
+      "16"
+    ],
+    "source": "NVIDIA CUDA Toolkit archive, release notes and PyPI",
+    "source_ids": [
+      "S525",
+      "S526",
+      "S524",
+      "S523",
+      "S527"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-cuda-release-timeline.svg",
+    "html": null
+  },
+  {
+    "id": "09-cuda-vs-rocm-release-cadence",
+    "title": "ROCm started 9 years after CUDA but now ships feature releases at the same pace: 3–4 a year",
+    "subtitle": "Left: major versions on a timeline. Right: feature releases (x.y, excl. patches) per calendar year, 2023–2026 YTD",
+    "alt": "Two panels. Left: CUDA majors from 1.0 (2007) to 13.0 (2025) and ROCm majors from 1.0 (2016) to 10.0 (2026), a 9-year head start for CUDA. Right: feature releases per year 2023–2026 — CUDA 3, 3, 4, 4 and ROCm 4, 3, 3, 3 — roughly equal cadence.",
+    "data": [
+      "software_ecosystem.csv"
+    ],
+    "chapters": [
+      "09",
+      "15"
+    ],
+    "source": "NVIDIA CUDA archive and PyPI; AMD ROCm release history",
+    "source_ids": [
+      "S525",
+      "S526",
+      "S524",
+      "S523",
+      "S527",
+      "S586"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-cuda-vs-rocm-release-cadence.svg",
+    "html": null
+  },
+  {
+    "id": "09-framework-support-by-vendor",
+    "title": "CUDA scores 36/36 on framework support; ROCm 26, Huawei 17, Qualcomm 4",
+    "subtitle": "Sum of 0–3 support scores across 12 AI frameworks (max 36); TPU and Neuron lean on their own stacks (JAX, NxD)",
+    "alt": "Horizontal bar chart of summed support scores across 12 frameworks: NVIDIA CUDA 36 of 36 (native in 12), AMD ROCm 26 (native in 4), Intel 18, Huawei CANN 17, Google TPU 14 (native in JAX and TensorFlow), AWS Neuron 7 and Qualcomm Cloud AI 4.",
+    "data": [
+      "software_ecosystem.csv"
+    ],
+    "chapters": [
+      "09",
+      "15",
+      "19"
+    ],
+    "source": "Framework docs and READMEs (GitHub), vendor docs",
+    "source_ids": [
+      "S587",
+      "S586",
+      "S553",
+      "S595",
+      "S594",
+      "S522",
+      "S592",
+      "S596",
+      "S577",
+      "S588",
+      "S580",
+      "S581",
+      "S582",
+      "S589",
+      "S578",
+      "S597",
+      "S585",
+      "S579",
+      "S583",
+      "S590",
+      "S591",
+      "S593",
+      "S584"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-framework-support-by-vendor.svg",
+    "html": null
+  },
+  {
+    "id": "09-framework-support-heatmap",
+    "title": "Only CUDA is native in all 12 major AI frameworks; ROCm 26/36, Qualcomm 4/36",
+    "subtitle": "Support level by framework and vendor stack, 2026-11-05: 0 none · 1 experimental · 2 supported · 3 native (breadth, not performance)",
+    "alt": "Heatmap of 12 frameworks by 7 vendor stacks: NVIDIA CUDA is native (3) everywhere (36/36); AMD ROCm 26, Intel 18, Huawei CANN 17, Google TPU 14, AWS Neuron 7 and Qualcomm Cloud AI 4. TensorRT-LLM is NVIDIA-only; Ray and vLLM have the broadest hardware coverage. Each cell is labelled with its level.",
+    "data": [
+      "software_ecosystem.csv"
+    ],
+    "chapters": [
+      "09",
+      "15",
+      "19"
+    ],
+    "source": "Framework docs and READMEs (GitHub), vendor docs",
+    "source_ids": [
+      "S587",
+      "S586",
+      "S553",
+      "S595",
+      "S594",
+      "S522",
+      "S592",
+      "S596",
+      "S577",
+      "S588",
+      "S580",
+      "S581",
+      "S582",
+      "S589",
+      "S578",
+      "S597",
+      "S585",
+      "S579",
+      "S583",
+      "S590",
+      "S591",
+      "S593",
+      "S584"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-framework-support-heatmap.svg",
+    "html": null
+  },
+  {
+    "id": "11-inference-engine-release-velocity",
+    "title": "vLLM ships a stable release every ~15 days; TensorRT-LLM mostly ships RCs",
+    "subtitle": "Versions first uploaded to PyPI per calendar year (solid = stable, hatched = rc/alpha/beta; nightlies excluded; 2026 to Nov 5)",
+    "alt": "Grouped bars of PyPI releases per year: vLLM 17, 30, 24 and 30 (2026 YTD) stable releases; SGLang 66 in 2024 and 63 in 2025; TensorRT-LLM 10 stable plus 28 release candidates in 2025; NVIDIA Dynamo 18 in 2025 and 23 in 2026 YTD.",
+    "data": [
+      "software_ecosystem.csv"
+    ],
+    "chapters": [
+      "11",
+      "09"
+    ],
+    "source": "PyPI JSON API (vllm, sglang, tensorrt-llm, ai-dynamo)",
+    "source_ids": [
+      "S522"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-inference-engine-release-velocity.svg",
     "html": null
   },
   {
@@ -2177,6 +2598,217 @@
     "html": "assets/interactive/15-accelerator-landscape-bubble.html"
   },
   {
+    "id": "15-competitor-breadth-vs-depth",
+    "title": "NVIDIA scores 3+ in 12 of 12 layers; the broadest rival, Google TPU, in 12, and most rivals compete in only a few",
+    "subtitle": "Breadth = layers (02-13) scored 3 or more of 5; depth = average layer score; repo analyst judgement",
+    "alt": "Scatter of stack breadth against average depth. NVIDIA scores 3 or more in 12 of 12 layers with an average of 4.7; Google TPU is the broadest rival at 12 layers (average 4.0). Custom-ASIC partners and start-ups cluster at low breadth, showing they compete on one or two layers.",
+    "data": [
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "15",
+      "19"
+    ],
+    "source": "repo analysis (competitor_matrix.csv)",
+    "source_ids": [
+      "S602",
+      "S603",
+      "S379",
+      "S412",
+      "S468",
+      "S630",
+      "S624",
+      "S402",
+      "S268",
+      "S264",
+      "S609",
+      "S644",
+      "S646",
+      "S601",
+      "S472",
+      "S467",
+      "S654",
+      "S143",
+      "S361",
+      "S144",
+      "S538",
+      "S289",
+      "S290",
+      "S257",
+      "S627",
+      "S637",
+      "S636",
+      "S546",
+      "S151",
+      "S650",
+      "S552",
+      "S655",
+      "S547",
+      "S553",
+      "S625",
+      "S653",
+      "S155",
+      "S556",
+      "S156",
+      "S353",
+      "S518",
+      "S352",
+      "S154",
+      "S620",
+      "S656",
+      "S158",
+      "S560",
+      "S559",
+      "S416",
+      "S160",
+      "S258",
+      "S628",
+      "S174",
+      "S451",
+      "S275",
+      "S274",
+      "S276",
+      "S281",
+      "S283",
+      "S661",
+      "S662",
+      "S453",
+      "S218",
+      "S131",
+      "S284",
+      "S161",
+      "S668",
+      "S452",
+      "S162",
+      "S163",
+      "S164",
+      "S340",
+      "S341",
+      "S633",
+      "S172",
+      "S173",
+      "S166",
+      "S634",
+      "S613",
+      "S167",
+      "S113",
+      "S506",
+      "S114",
+      "S474",
+      "S118"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-competitor-breadth-vs-depth.svg",
+    "html": null
+  },
+  {
+    "id": "15-competitor-radar-small-multiples",
+    "title": "Google TPU is the strongest all-round challenger, averaging 4.0 of 5 vs NVIDIA's 4.7",
+    "subtitle": "Capability scores 0-5 on nine axes; competitor (filled) vs NVIDIA reference (dashed green); analyst judgement, sourced",
+    "alt": "Six radar charts comparing AMD, Google TPU, AWS Trainium, Microsoft Maia, Meta MTIA and Intel with NVIDIA on nine capability axes. Average scores: AMD 3.3; Google TPU 4.0; AWS Trainium 3.0; Microsoft Maia 2.6; Meta MTIA 2.4; Intel 2.3 versus NVIDIA 4.7. AMD leads on memory capacity; Google TPU leads on scale-up domain size and cost; every rival trails on software ecosystem and rack-scale systems.",
+    "data": [
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "15",
+      "19"
+    ],
+    "source": "repo analysis (competitor_matrix.csv)",
+    "source_ids": [
+      "S602",
+      "S603",
+      "S143",
+      "S361",
+      "S630",
+      "S402",
+      "S265",
+      "S609",
+      "S379",
+      "S622",
+      "S144",
+      "S624",
+      "S538",
+      "S290",
+      "S627",
+      "S151",
+      "S650",
+      "S553",
+      "S653",
+      "S625",
+      "S552",
+      "S155",
+      "S353",
+      "S518",
+      "S352",
+      "S154",
+      "S158",
+      "S559",
+      "S160",
+      "S258",
+      "S161",
+      "S452",
+      "S162"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-competitor-radar-small-multiples.svg",
+    "html": null
+  },
+  {
+    "id": "15-competitor-radar-small-multiples-2",
+    "title": "ASIC partners, China and start-ups attack one or two axes each; none averages above 3.2 of 5",
+    "subtitle": "Capability scores 0-5 on nine axes; competitor (filled) vs NVIDIA reference (dashed green); analyst judgement, sourced",
+    "alt": "Six radar charts comparing Broadcom, Marvell, Huawei, Qualcomm, Cerebras and Groq with NVIDIA on nine capability axes. Average scores: Broadcom 3.2; Marvell 2.6; Huawei 2.7; Qualcomm 2.7; Cerebras 2.8; Groq 2.2 versus NVIDIA 4.7. Broadcom leads in scale-out Ethernet switching, Huawei matches on scale-up domain size but is supply-constrained, and Qualcomm, Cerebras and Groq avoid HBM supply limits with different memory designs.",
+    "data": [
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "15",
+      "19"
+    ],
+    "source": "repo analysis (competitor_matrix.csv)",
+    "source_ids": [
+      "S602",
+      "S603",
+      "S143",
+      "S361",
+      "S630",
+      "S402",
+      "S265",
+      "S609",
+      "S379",
+      "S622",
+      "S628",
+      "S275",
+      "S258",
+      "S274",
+      "S174",
+      "S451",
+      "S662",
+      "S453",
+      "S218",
+      "S284",
+      "S163",
+      "S340",
+      "S341",
+      "S633",
+      "S164",
+      "S172",
+      "S173",
+      "S166",
+      "S634",
+      "S167",
+      "S114",
+      "S113",
+      "S474"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-competitor-radar-small-multiples-2.svg",
+    "html": null
+  },
+  {
     "id": "15-fp8-compute-by-accelerator",
     "title": "On paper MI455X (20) edges Rubin (17.5 PFLOPS FP8); custom ASICs top out at ~5",
     "subtitle": "Dense FP8 PFLOPS per accelerator (no sparsity); current-generation flagship per vendor",
@@ -2213,6 +2845,101 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/15-fp8-compute-by-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "15-layer-competitor-heatmap",
+    "title": "No rival matches NVIDIA across the stack: the closest, Google TPU, is level or ahead in only 5 of 12 layers",
+    "subtitle": "Repo verdict vs NVIDIA by stack layer (02-13) and competitor; letter = verdict, number = score 0-5 (analyst judgement, sourced)",
+    "alt": "Heatmap of 12 competitors against NVIDIA's 12 stack layers. Google TPU is at parity or ahead in 5 of 12 layers, the most of any rival; 60% of all cells are 'behind', and 19 of 24 software and library cells are behind. Hyperscalers lead only in cloud services; Broadcom leads in Ethernet switching; Google's TPU leads on inference cost.",
+    "data": [
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "15",
+      "19",
+      "00"
+    ],
+    "source": "repo analysis (competitor_matrix.csv)",
+    "source_ids": [
+      "S602",
+      "S143",
+      "S361",
+      "S379",
+      "S144",
+      "S624",
+      "S538",
+      "S289",
+      "S290",
+      "S257",
+      "S627",
+      "S637",
+      "S636",
+      "S603",
+      "S546",
+      "S151",
+      "S650",
+      "S552",
+      "S655",
+      "S547",
+      "S553",
+      "S625",
+      "S653",
+      "S155",
+      "S556",
+      "S156",
+      "S353",
+      "S518",
+      "S352",
+      "S154",
+      "S620",
+      "S656",
+      "S158",
+      "S560",
+      "S559",
+      "S654",
+      "S416",
+      "S160",
+      "S258",
+      "S628",
+      "S174",
+      "S451",
+      "S275",
+      "S274",
+      "S276",
+      "S281",
+      "S283",
+      "S661",
+      "S662",
+      "S453",
+      "S218",
+      "S131",
+      "S284",
+      "S161",
+      "S668",
+      "S452",
+      "S468",
+      "S162",
+      "S163",
+      "S164",
+      "S340",
+      "S341",
+      "S633",
+      "S172",
+      "S173",
+      "S166",
+      "S634",
+      "S613",
+      "S167",
+      "S113",
+      "S506",
+      "S114",
+      "S474",
+      "S118"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-layer-competitor-heatmap.svg",
     "html": null
   },
   {
@@ -2298,8 +3025,8 @@
   },
   {
     "id": "17-competitor-roadmap-alignment",
-    "title": "NVIDIA and AMD launched flagships in the same quarter 3 years running; both now publish annual roadmaps to 2028",
-    "subtitle": "Start of availability window for each vendor's flagship AI accelerator, 2024–2028",
+    "title": "NVIDIA and AMD launched flagships in the same quarter 3 years running",
+    "subtitle": "Start of availability window for each vendor's flagship AI accelerator; both publish annual roadmaps to 2028",
     "alt": "Timeline of flagship accelerators: NVIDIA B200 (Q4 2024), B300 (Q3 2025), Rubin (Q3 2026), Rubin Ultra (2H 2027), Feynman (2028); AMD MI325X, MI355X and MI455X landed in the same quarters (3 of 3 years) with MI500 (2027) and MI600 (2028) planned; Google Trillium, Ironwood and TPU 8t/8i arrive each December–Q4; AWS Trn2 and Trn3 each December with Trn4 estimated for 2027.",
     "data": [
       "roadmap.csv"
@@ -2359,9 +3086,9 @@
   },
   {
     "id": "17-nvidia-release-cadence",
-    "title": "NVIDIA cut the gap between data-center GPU generations from ~29 months to ~10 months",
+    "title": "NVIDIA's GPU cadence sped up from ~29 months per generation to ~11 (annual)",
     "subtitle": "Months between first volume availability of successive NVIDIA data-center GPU architectures, Volta → Feynman",
-    "alt": "Bar chart of months between NVIDIA GPU generations: Volta→Ampere, Ampere→Hopper and Hopper→Blackwell averaged about 29 months; Blackwell→Blackwell Ultra and Blackwell Ultra→Rubin averaged about 10 months; planned Rubin Ultra (2H 2027) and Feynman (2028) keep a ~12-month cadence, though the Kyber rack is reported to slip to 2028.",
+    "alt": "Bar chart of months between NVIDIA GPU generations: Volta→Ampere, Ampere→Hopper and Hopper→Blackwell averaged about 29 months; Blackwell→Blackwell Ultra and Blackwell Ultra→Rubin averaged about 11 months; planned Rubin Ultra (2H 2027) and Feynman (2028) keep a ~12-month cadence, though the Kyber rack is reported to slip to 2028.",
     "data": [
       "gpu_architecture_cadence.csv"
     ],
@@ -2396,7 +3123,7 @@
   },
   {
     "id": "17-roadmap-by-layer-small-multiples",
-    "title": "NVIDIA has disclosed 15 items for 2027–2028 across every layer; rivals 20, concentrated in silicon and racks",
+    "title": "NVIDIA has 15 dated items for 2027–28 in every layer; rivals' 20 cluster in chips and racks",
     "subtitle": "Roadmap items by layer group and vendor, plotted at the start of the availability window, 2024–2028",
     "alt": "Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) show NVIDIA items in every layer through 2028 (15 items dated 2027 or later) while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies have 20 such items, mostly accelerators and racks.",
     "data": [
@@ -2597,9 +3324,9 @@
   },
   {
     "id": "17-roadmap-slips-and-pull-ins",
-    "title": "4 NVIDIA items have slipped; the reported Kyber delay is the largest at 12 months; Huawei pulled Ascend 960 in by 9 months",
-    "subtitle": "Originally announced vs current (official or reported) start of availability window",
-    "alt": "Dumbbell chart of schedule changes: Ascend 960 -9 months, Rubin CPX +3 months, Quantum-X Photonics InfiniBand +3 months, Vera Rubin NVL144 CPX rack +3 months, Kyber NVL144 +12 months. The Kyber NVL144 slip is SemiAnalysis-reported and disputed by NVIDIA; the Rubin CPX return is an analyst claim.",
+    "title": "4 NVIDIA roadmap items slipped, led by Kyber's reported 12-month delay",
+    "subtitle": "Originally announced (hollow) vs current official or reported (filled) start of availability window",
+    "alt": "Dumbbell chart of schedule changes (Huawei's is a pull-in): Ascend 960 -9 months, Rubin CPX +3 months, Quantum-X Photonics InfiniBand +3 months, Vera Rubin NVL144 CPX rack +3 months, Kyber NVL144 +12 months. The Kyber NVL144 slip is SemiAnalysis-reported and disputed by NVIDIA; the Rubin CPX return is an analyst claim.",
     "data": [
       "roadmap.csv"
     ],

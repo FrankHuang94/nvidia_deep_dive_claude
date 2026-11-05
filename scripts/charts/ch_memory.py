@@ -48,7 +48,7 @@ def hbm_stack_bandwidth_by_generation():
         w = g[(g.item.str.split(" ").str[0] == base) & (g.metric == "interface_width")]
         widths.append(w.value.iloc[0] if len(w) else np.nan)
     d = pd.DataFrame(rows).reset_index(drop=True)
-    d["label"] = [lab for _, lab, _ in gens]
+    d["label"] = [f"{lab}\n{p:g} Gb/s × {w:,.0f}" for (_, lab, _), p, w in zip(gens, pins, widths)]
     # as-shipped per-stack bandwidth in NVIDIA GPUs (bandwidth / stacks)
     pg = h[h.record_type == "hbm_per_gpu"]
     ship = [("NVIDIA P100", 1, "P100"), ("NVIDIA V100", 1, "V100"), ("NVIDIA A100 80GB", 2, "A100 80GB"),
@@ -66,7 +66,7 @@ def hbm_stack_bandwidth_by_generation():
     c = Chart(
         id="03-hbm-stack-bandwidth-by-generation",
         title=f"Per-stack HBM bandwidth rose {mult:.0f}× from HBM ({first.value:.0f} GB/s) to JEDEC HBM4 ({jedec4.value:,.0f} GB/s)",
-        subtitle="Peak GB/s per HBM stack by generation (bars; label = pin speed × interface width) · ◆ = as run in NVIDIA GPUs (GPU GB/s ÷ stacks)",
+        subtitle="Peak GB/s per HBM stack (bars; axis label = pin speed × interface bits) · ◆ = as run in NVIDIA GPUs (GPU GB/s ÷ stacks)",
         alt=(f"Bar chart of peak bandwidth per HBM stack: HBM {first.value:.0f} GB/s (2013), HBM2 256, HBM2E 460, HBM3 819, HBM3E "
              f"about 1,280, JEDEC HBM4 {jedec4.value:,.0f} and SK hynix HBM4 at over 10 Gb/s about 2,560 GB/s, a {mult:.0f}-fold rise. "
              f"Diamonds show NVIDIA's as-shipped rates per stack, from about 183 GB/s on P100 to about {rubin:,.0f} GB/s on Rubin; "
@@ -83,14 +83,14 @@ def hbm_stack_bandwidth_by_generation():
     for i, (v, p, w) in enumerate(zip(d.value, pins, widths)):
         ax.annotate(f"{v:,.0f}", (i, v), xytext=(0, 3), textcoords="offset points", ha="center", va="bottom",
                     fontsize=9.2, color=INK["title"], fontweight="bold")
-        ax.text(i, 35, f"{p:g} Gb/s\n× {w:,.0f}-bit", ha="center", va="bottom", fontsize=7.6,
-                color="white" if i >= 3 else INK["title"])
     for xi, v, lab, _, _ in pts:
-        off = {"P100": -0.18, "V100": 0.18, "H200": -0.18, "B200/B300": 0.18}.get(lab, 0)
+        off = {"P100": -0.16, "V100": 0.16, "H200": -0.16, "B200/B300": 0.16}.get(lab, 0)
+        left = lab in ("P100", "H200")
         ax.scatter(xi + off, v, marker="D", s=46, color=NV, edgecolor="white", linewidth=0.8, zorder=4)
-        ax.annotate(lab, (xi + off, v), xytext=(7, 0), textcoords="offset points", va="center", fontsize=8,
-                    color=NV_DARK, fontweight="bold")
-    ax.set_xticks(x, d.label, fontsize=8.8)
+        ax.annotate(lab, (xi + off, v), xytext=(-7 if left else 7, 0), textcoords="offset points", va="center",
+                    ha="right" if left else "left", fontsize=8, color=NV_DARK, fontweight="bold",
+                    bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.85), zorder=5)
+    ax.set_xticks(x, d.label, fontsize=8.4)
     ax.set_ylim(0, d.value.max() * 1.13)
     ax.legend(handles=[Patch(facecolor=SEQ_BLUE[5], label="Peak per stack (spec / fastest vendor bin)"),
                        Patch(facecolor=SEQ_BLUE[7], hatch="///", edgecolor="white", label="Repo calc from vendor pin speed"),
@@ -101,7 +101,7 @@ def hbm_stack_bandwidth_by_generation():
 def plt_marker():
     from matplotlib.lines import Line2D
     return Line2D([0], [0], marker="D", color="white", markerfacecolor=NV, markersize=7,
-                  label="As run in an NVIDIA GPU (◆)")
+                  label="As run in an NVIDIA GPU")
 
 
 # --------------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ def hbm_stack_capacity_by_generation():
         hh = g[(g.item == item) & (g.metric == "max_stack_height")]
         heights.append(hh.value.iloc[0] if len(hh) else np.nan)
     d = pd.DataFrame(rows).reset_index(drop=True)
-    d["label"] = [lab for _, lab in gens]
+    d["label"] = [f"{lab}\n{hh:.0f}-high" for (_, lab), hh in zip(gens, heights)]
     jed = g[g.metric == "jedec_max_stack_capacity"]
     first = d.iloc[0]
     ship_max = d[d.item == "HBM3E 12-high"].value.iloc[0]
@@ -127,7 +127,7 @@ def hbm_stack_capacity_by_generation():
     c = Chart(
         id="03-hbm-stack-capacity-by-generation",
         title=f"HBM stack capacity rose {ship_max / first.value:.0f}× in a decade, from {first.value:.0f} GB to {ship_max:.0f} GB; HBM4E targets {e.value:.0f} GB",
-        subtitle="Largest stack per generation, GB (label = DRAM dies stacked) · hollow ○ = JEDEC maximum · hatched = sampling or roadmap",
+        subtitle="Largest stack per generation, GB (axis label = DRAM dies per stack) · hollow ○ = JEDEC maximum · hatched = sampling or roadmap",
         alt=(f"Bar chart of maximum HBM capacity per stack: HBM {first.value:.0f} GB (4-high), HBM2 8 GB, HBM2E 16 GB, HBM3 24 GB, "
              f"12-high HBM3E {ship_max:.0f} GB, 16-high HBM3E 48 GB (sampling), HBM4 as used in Rubin 36 GB and HBM4E planned for "
              f"Rubin Ultra about {e.value:.0f} GB per stack (1 TB in 16 stacks); JEDEC's HBM3 and HBM4 standards allow up to 64 GB."),
@@ -143,14 +143,11 @@ def hbm_stack_capacity_by_generation():
     for i, (v, hh) in enumerate(zip(d.value, heights)):
         ax.annotate(f"{v:.0f} GB", (i, v), xytext=(0, 3), textcoords="offset points", ha="center", va="bottom",
                     fontsize=9.2, color=INK["title"], fontweight="bold")
-        if hh == hh:
-            ax.text(i, 1.0, f"{hh:.0f}-high", ha="center", va="bottom", fontsize=7.8,
-                    color="white" if i >= 3 else INK["title"])
     for _, r in jed.iterrows():
         xi = 3 if r["item"] == "HBM3" else 6
         ax.scatter(xi, r.value, s=70, facecolors="white", edgecolors=INK["text"], linewidths=1.4, zorder=4)
-        ax.annotate(f"JEDEC max {r.value:.0f} GB", (xi, r.value), xytext=(8, 0), textcoords="offset points",
-                    va="center", fontsize=8, color=INK["text"])
+        ax.annotate(f"JEDEC max {r.value:.0f} GB", (xi, r.value), xytext=(-8, 0), textcoords="offset points",
+                    va="center", ha="right", fontsize=8, color=INK["text"])
     ax.set_xticks(x, d.label, fontsize=8.4)
     ax.set_ylim(0, 72)
     c.save(fig, ax, ylabel="GB per stack", legend=False, bottom=0.15)
@@ -169,7 +166,7 @@ def hbm_market_share_by_supplier():
     hi = m[m.supplier == "SK hynix"].value.max()
     c = Chart(
         id="03-hbm-market-share-by-supplier",
-        title=f"SK hynix has held {lo:.0f}–{hi:.0f}% of HBM revenue since 2022; Samsung and Micron each ~{q3['Micron']:.0f}–{q3['Samsung']:.0f}% by Q3 2025",
+        title=f"SK hynix held {lo:.0f}–{hi:.0f}% of HBM revenue in 2022–25; Samsung, Micron ~{q3['Micron']:.0f}–{q3['Samsung']:.0f}% each",
         subtitle="Share of HBM revenue by supplier, % (TrendForce for 2022–2023; Counterpoint for 2025 quarters) · hatched = estimate",
         alt=(f"Stacked 100% bar chart of HBM revenue share: 2022 SK hynix 50%, Samsung 40%, Micron 10%; 2023 estimate 53/38/9; "
              f"Q1 2025 SK hynix about 70%; Q2 2025 SK hynix 62%, Micron 21%, Samsung 17%; Q3 2025 SK hynix {q3['SK hynix']:.0f}%, "
@@ -178,7 +175,7 @@ def hbm_market_share_by_supplier():
         source="TrendForce, Counterpoint Research",
         source_ids=sources_of(m),
     )
-    fig, ax = c.figure(width=10, height=5.8)
+    fig, ax = c.figure(width=10.5, height=5.8)
     x = np.arange(len(periods))
     bottom = np.zeros(len(periods))
     for s in sups:
@@ -255,8 +252,13 @@ def cowos_capacity_and_nvidia_share():
     for name, v, col in parts:
         bb = ax2.barh([0], [v], left=left, color=col, height=0.5, zorder=2, edgecolor="white")
         hatch_future(bb, [True])
-        ax2.text(left + v / 2, 0, f"{name}\n{v:.0f}k\n{v / total * 100:.0f}%", ha="center", va="center",
-                 fontsize=9, color="white" if name != "Others" else INK["title"], fontweight="bold")
+        big = v >= 200
+        ax2.text(left + v / 2, 0, f"{name}\n{v:.0f}k\n{v / total * 100:.0f}%" if big else f"{v:.0f}k\n{v / total * 100:.0f}%",
+                 ha="center", va="center", fontsize=9 if big else 8.2,
+                 color="white" if name != "Others" else INK["title"], fontweight="bold")
+        if not big:
+            ax2.text(left + v / 2, 0.29, name, ha="center", va="bottom", fontsize=8.6, color=INK["title"],
+                     fontweight="bold")
         left += v
     ax2.set_xlim(0, total)
     ax2.set_ylim(-0.6, 0.6)
@@ -351,9 +353,11 @@ def supply_chain_value_sankey():
         col = colors[b_]
         rgb = tuple(int(col[i:i + 2], 16) for i in (1, 3, 5))
         link_col.append(f"rgba({rgb[0]},{rgb[1]},{rgb[2]},0.35)")
+    xs = [0.001, 0.30, 0.30, 0.60, 0.60, 0.60, 0.60, 0.60, 0.999, 0.999, 0.999, 0.999, 0.999, 0.999, 0.999]
+    ys = [0.42, 0.36, 0.93, 0.40, 0.66, 0.08, 0.74, 0.80, 0.27, 0.53, 0.585, 0.635, 0.70, 0.775, 0.93]
     pf = go.Figure(go.Sankey(
-        arrangement="snap",
-        node=dict(label=nodes, color=colors, pad=14, thickness=16, line=dict(color="white", width=0.5)),
+        arrangement="fixed",
+        node=dict(label=nodes, color=colors, pad=14, thickness=16, line=dict(color="white", width=0.5), x=xs, y=ys),
         link=dict(source=[a for a, _, _ in links], target=[b_ for _, b_, _ in links],
                   value=[max(v, 0.004) for _, _, v in links], color=link_col,
                   hovertemplate="%{source.label} → %{target.label}<br>$%{value:.2f}M<extra></extra>"),
@@ -381,7 +385,7 @@ def memory_share_of_rack_bom():
     sa, sb = a["mem"] / a["price"] * 100, b_["mem"] / b_["price"] * 100
     c = Chart(
         id="03-memory-share-of-rack-bom",
-        title=f"Est.: memory jumps from ~{sa:.0f}% to ~{sb:.0f}% of an NVL72 rack's cost as HBM4 and LPDDR5X prices surge",
+        title=f"Est.: memory rises from ~{sa:.0f}% to ~{sb:.0f}% of an NVL72 rack's cost (GB300 → Vera Rubin)",
         subtitle="Morgan Stanley rack BOM (ODM price to hyperscaler, May 2026), US$ M · memory = HBM + CPU-attached LPDDR5X",
         alt=(f"Stacked bar chart of estimated NVL72 rack cost: GB300 NVL72 ${a['price']:.2f}M with GPUs ${a['gpu']:.2f}M and memory "
              f"${a['mem']:.2f}M ({sa:.0f}%); Vera Rubin NVL72 ${b_['price']:.2f}M with GPUs ${b_['gpu']:.2f}M and memory "
@@ -390,7 +394,7 @@ def memory_share_of_rack_bom():
         source="Morgan Stanley via PC Gamer, Wccftech, iTiger",
         source_ids=sources_of(used),
     )
-    fig, ax = c.figure(width=9.5, height=5.8)
+    fig, ax = c.figure(width=10.5, height=5.8)
     x = np.arange(2)
     gpu_v = np.array([a["gpu"], b_["gpu"]])
     mem_v = np.array([a["mem"], b_["mem"]])
@@ -402,8 +406,13 @@ def memory_share_of_rack_bom():
         hatch_future(bars, [False, True])
     for i in range(2):
         ax.text(i, gpu_v[i] / 2, f"${gpu_v[i]:.2f}M", ha="center", va="center", color="white", fontsize=9.5, fontweight="bold")
-        ax.text(i, gpu_v[i] + mem_v[i] / 2, f"${mem_v[i]:.2f}M\n({mem_v[i] / (gpu_v[i] + mem_v[i] + oth_v[i]) * 100:.0f}%)",
-                ha="center", va="center", color="white", fontsize=9.5, fontweight="bold")
+        mlab = f"${mem_v[i]:.2f}M ({mem_v[i] / (gpu_v[i] + mem_v[i] + oth_v[i]) * 100:.0f}%)"
+        if mem_v[i] < 0.8:
+            ax.annotate("Memory " + mlab, (i + 0.25, gpu_v[i] + mem_v[i] / 2), xytext=(8, 0), textcoords="offset points",
+                        va="center", fontsize=9.2, color="#256ABF", fontweight="bold")
+        else:
+            ax.text(i, gpu_v[i] + mem_v[i] / 2, mlab.replace(" (", "\n("), ha="center", va="center", color="white",
+                    fontsize=9.5, fontweight="bold")
         ax.text(i, gpu_v[i] + mem_v[i] + oth_v[i] / 2, f"${oth_v[i]:.2f}M", ha="center", va="center",
                 color=INK["title"], fontsize=9.2)
         tot = gpu_v[i] + mem_v[i] + oth_v[i]
@@ -430,7 +439,7 @@ def hbm_stacks_per_package():
     pk = h[h.record_type == "packaging_tech"]
     c = Chart(
         id="03-hbm-stacks-per-package",
-        title="HBM stacks per GPU package grew from 4 (P100) to 16 (Rubin Ultra), forcing ever-larger CoWoS interposers",
+        title="HBM stacks per NVIDIA GPU package grew 4×, from 4 (P100) to 16 (Rubin Ultra, roadmap)",
         subtitle="HBM stacks per accelerator package (label = GB per package) · CoWoS-S silicon interposer → CoWoS-L bridges · hatched = roadmap",
         alt=("Bar chart of HBM stacks per package: NVIDIA P100 4, V100 4, A100 5, H100 5, H200 6, B200 8, B300 8, Rubin 8 and "
              "Rubin Ultra 16 (roadmap, 1 TB); AMD MI300X 8, MI355X 8 and MI455X 12 (432 GB). NVIDIA moved from CoWoS-S silicon "
@@ -449,11 +458,11 @@ def hbm_stacks_per_package():
                     fontsize=9.5, color=INK["title"], fontweight="bold")
         ax.text(xi, 0.25, f"{cp:,.0f} GB", ha="center", va="bottom", fontsize=7.4, color=INK["title"], rotation=90)
     ax.set_xticks(x, d.label, fontsize=8)
-    ax.axvspan(-0.45, 3.45, color="#F0EFEC", zorder=0)
-    ax.text(1.5, 15.2, "CoWoS-S (silicon interposer)", ha="center", fontsize=8.6, color=INK["text"])
-    ax.text(6.5, 15.2, "CoWoS-L (bridges) from B200", ha="center", fontsize=8.6, color=INK["text"])
+    ax.axvspan(-0.45, 4.45, color="#F0EFEC", zorder=0)
+    ax.text(2.0, 15.2, "CoWoS-S (silicon interposer)", ha="center", fontsize=8.6, color=INK["text"])
+    ax.text(4.6, 15.2, "CoWoS-L (bridges) from B200 →", ha="left", fontsize=8.6, color=INK["text"])
     ax.set_ylim(0, 17.5)
     ax.legend(handles=[Patch(facecolor=GEN_PAST, label="NVIDIA (past)"), Patch(facecolor=NV, label="NVIDIA Rubin family"),
-                       Patch(facecolor=entity_color("AMD"), label="AMD Instinct")], loc="upper left",
-              bbox_to_anchor=(0.0, 0.9), frameon=False, fontsize=8.8)
+                       Patch(facecolor=entity_color("AMD"), label="AMD Instinct")], loc="upper right",
+              frameon=False, fontsize=8.8)
     c.save(fig, ax, ylabel="HBM stacks per package", legend=False, bottom=0.15)

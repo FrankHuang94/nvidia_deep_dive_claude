@@ -7,6 +7,7 @@ from datetime import date
 
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
+from matplotlib.colors import to_rgba
 from matplotlib.lines import Line2D
 
 from style import (Chart, GEN_PAST, INK, NV, NV_DARK, entity_color, load, register,
@@ -254,8 +255,8 @@ def roadmap_by_layer_small_multiples():
     comp_future = df[(df.vkey != "NVIDIA") & (df.x >= 2027)]
     c = Chart(
         id="17-roadmap-by-layer-small-multiples",
-        title=(f"NVIDIA has disclosed {len(nv_future)} items for 2027–2028 across every layer; rivals "
-               f"{len(comp_future)}, concentrated in silicon and racks"),
+        title=(f"NVIDIA has {len(nv_future)} dated items for 2027–28 in every layer; rivals' {len(comp_future)} "
+               f"cluster in chips and racks"),
         subtitle="Roadmap items by layer group and vendor, plotted at the start of the availability window, 2024–2028",
         alt=(f"Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) "
              f"show NVIDIA items in every layer through 2028 ({len(nv_future)} items dated 2027 or later) while "
@@ -263,7 +264,6 @@ def roadmap_by_layer_small_multiples():
              f"have {len(comp_future)} such items, mostly accelerators and racks."),
         data=["roadmap.csv"], chapters=["17"],
         source="Company announcements and trade press", source_ids=sources_of(df),
-        note="Filled = shipping/announced · hollow = roadmap · X = delayed",
     )
     fig, axes = c.figure_grid(4, 2, width=12, height=11.5)
     flat = list(axes.ravel())
@@ -273,10 +273,14 @@ def roadmap_by_layer_small_multiples():
         sub = per_group[g]
         vendors = [v for v in order if v in set(sub.vkey)]
         ypos = {v: len(vendors) - 1 - i for i, v in enumerate(vendors)}
-        for _, r in sub.iterrows():
+        seen: dict = {}
+        for _, r in sub.sort_values("x").iterrows():
             mk, filled = STATUS_MARK.get(r.status, ("o", True))
             col = entity_color(r.vkey) if r.vkey not in ("Standards", "Other") else "#7A7A7A"
-            y = ypos[r.vkey]
+            key = (r.vkey, round(r.x * 8))
+            k = seen.get(key, 0)
+            seen[key] = k + 1
+            y = ypos[r.vkey] + [0, 0.22, -0.22, 0.11, -0.11][k % 5]
             ax.plot(r.x, y, marker=mk, ms=8 if mk != "X" else 9, ls="",
                     mfc=col if filled else "white", mec=col, mew=1.6, zorder=4)
         ax.set_yticks(range(len(vendors)))
@@ -321,12 +325,12 @@ def nvidia_release_cadence():
     e_avg, r_avg = sum(early) / len(early), sum(recent) / len(recent)
     c = Chart(
         id="17-nvidia-release-cadence",
-        title=(f"NVIDIA cut the gap between data-center GPU generations from ~{e_avg:.0f} months to "
-               f"~{r_avg:.0f} months"),
+        title=(f"NVIDIA's GPU cadence sped up from ~{int(e_avg + 0.5)} months per generation to "
+               f"~{int(r_avg + 0.5)} (annual)"),
         subtitle="Months between first volume availability of successive NVIDIA data-center GPU architectures, Volta → Feynman",
         alt=(f"Bar chart of months between NVIDIA GPU generations: Volta→Ampere, Ampere→Hopper and "
-             f"Hopper→Blackwell averaged about {e_avg:.0f} months; Blackwell→Blackwell Ultra and Blackwell "
-             f"Ultra→Rubin averaged about {r_avg:.0f} months; planned Rubin Ultra (2H 2027) and Feynman (2028) "
+             f"Hopper→Blackwell averaged about {int(e_avg + 0.5)} months; Blackwell→Blackwell Ultra and Blackwell "
+             f"Ultra→Rubin averaged about {int(r_avg + 0.5)} months; planned Rubin Ultra (2H 2027) and Feynman (2028) "
              f"keep a ~12-month cadence, though the Kyber rack is reported to slip to 2028."),
         data=["gpu_architecture_cadence.csv"], chapters=["17", "02", "16"],
         source="NVIDIA keynotes and launch coverage", source_ids=sources_of(df),
@@ -346,7 +350,7 @@ def nvidia_release_cadence():
     ax.set_xticks(list(xs))
     ax.set_xticklabels([g["label"] for g in gaps], fontsize=8.6)
     ax.axhline(12, color=INK["muted"], ls=":", lw=1)
-    ax.text(len(gaps) - 0.45, 12.6, "12 months", fontsize=8, color=INK["muted"], ha="right")
+    ax.text(-0.45, 12.6, "12 months", fontsize=8, color=INK["muted"], ha="left")
     ax.set_ylim(0, max(g["months"] for g in gaps) * 1.18)
     c.save(fig, ax, ylabel="Months since previous generation", legend=False)
 
@@ -391,16 +395,15 @@ def competitor_roadmap_alignment():
             same_q += 1
     c = Chart(
         id="17-competitor-roadmap-alignment",
-        title=(f"NVIDIA and AMD launched flagships in the same quarter {same_q} years running; "
-               f"both now publish annual roadmaps to 2028"),
-        subtitle="Start of availability window for each vendor's flagship AI accelerator, 2024–2028",
+        title=f"NVIDIA and AMD launched flagships in the same quarter {same_q} years running",
+        subtitle="Start of availability window for each vendor's flagship AI accelerator; both publish annual roadmaps to 2028",
         alt=(f"Timeline of flagship accelerators: NVIDIA B200 (Q4 2024), B300 (Q3 2025), Rubin (Q3 2026), Rubin "
              f"Ultra (2H 2027), Feynman (2028); AMD MI325X, MI355X and MI455X landed in the same quarters "
              f"({same_q} of 3 years) with MI500 (2027) and MI600 (2028) planned; Google Trillium, Ironwood and "
              f"TPU 8t/8i arrive each December–Q4; AWS Trn2 and Trn3 each December with Trn4 estimated for 2027."),
         data=["roadmap.csv"], chapters=["17", "15"],
         source="Company announcements", source_ids=sources_of(allrows),
-        note="Hollow = roadmap; Trn4 timing is an estimate",
+        note="Hollow = roadmap · pale = not yet GA",
     )
     fig, ax = _fig_axes(11, 5.4, [0.09, 0.13, 0.88, 0.70])
     vendors = list(FLAGSHIPS)
@@ -411,7 +414,8 @@ def competitor_roadmap_alignment():
         ax.plot(xs, [y] * len(xs), color=col, lw=1.6, alpha=0.5, zorder=2)
         for k, (r, x) in enumerate(zip(picked[v], xs)):
             future = r.status in ("roadmap",)
-            ax.plot(x, y, "o", ms=11, mfc="white" if future else col, mec=col, mew=2, zorder=4)
+            face = "white" if future else (to_rgba(col, 0.35) if r.status == "announced" else col)
+            ax.plot(x, y, "o", ms=11, mfc=face, mec=col, mew=2, zorder=4)
             off = 0.22 if k % 2 == 0 else -0.36
             ax.text(x, y + off, _short(r["product"]),
                     ha="center", va="bottom", fontsize=8.4, color=INK["title"], fontweight="bold" if v == "NVIDIA" else None)
@@ -447,17 +451,16 @@ def roadmap_slips_and_pull_ins():
     pull_txt = (f"; Huawei pulled Ascend 960 in by {abs(pulls[0]['months'])} months" if pulls else "")
     c = Chart(
         id="17-roadmap-slips-and-pull-ins",
-        title=(f"{len(nv_slips)} NVIDIA items have slipped; the reported Kyber delay is the largest at "
-               f"{biggest['months']} months{pull_txt}"),
-        subtitle="Originally announced vs current (official or reported) start of availability window",
-        alt=("Dumbbell chart of schedule changes: " + ", ".join(
+        title=(f"{len(nv_slips)} NVIDIA roadmap items slipped, led by Kyber's reported "
+               f"{biggest['months']}-month delay"),
+        subtitle="Originally announced (hollow) vs current official or reported (filled) start of availability window",
+        alt=("Dumbbell chart of schedule changes (Huawei's is a pull-in): " + ", ".join(
             "{} {:+d} months".format(d["rec"]["product"].split(" (")[0], d["months"]) for d in rows) + ". "
              "The Kyber NVL144 slip is SemiAnalysis-reported and disputed by NVIDIA; the Rubin CPX return is an analyst claim."),
         data=["roadmap.csv"], chapters=["17", "18"],
         source="Company statements, SemiAnalysis, TrendForce, trade press", source_ids=sources_of(sub),
-        note="Hollow = original plan · filled = current · amber dot = reported, green = confirmed",
     )
-    fig, ax = _fig_axes(10.5, 5.2, [0.27, 0.13, 0.70, 0.70])
+    fig, ax = _fig_axes(11, 5.2, [0.33, 0.13, 0.64, 0.70])
     for i, d in enumerate(rows):
         r = d["rec"]
         col = entity_color(r.vendor)
@@ -467,8 +470,8 @@ def roadmap_slips_and_pull_ins():
         ax.plot(d["new"], i, "o", ms=10, mfc=col, mec=col, zorder=4)
         ax.text(max(d["old"], d["new"]) + 0.08, i, f"{d['months']:+d} mo", va="center", fontsize=9,
                 color=INK["title"], fontweight="bold")
-        ax.plot(2025.12, i, "o", ms=5, color=CONF_DOT.get(r.confidence, "#898781"), zorder=5)
-    labels = [f"{d['rec'].vendor}: {d['rec']['product'].split(' (')[0]}" for d in rows]
+    labels = ["{}: {} ({})".format(d["rec"].vendor, d["rec"]["product"].split(" (")[0], d["rec"].confidence)
+              for d in rows]
     ax.set_yticks(range(len(rows)))
     ax.set_yticklabels(labels, fontsize=9)
     ax.set_ylim(-0.7, len(rows) - 0.3)
