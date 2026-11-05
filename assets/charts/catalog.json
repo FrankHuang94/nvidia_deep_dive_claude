@@ -5880,7 +5880,7 @@
     ],
     "source": "CUTLASS changelog; NVIDIA availability dates",
     "source_ids": [
-      "S10508",
+      "S10010",
       "S127",
       "S315",
       "S35012",
@@ -5911,7 +5911,7 @@
     ],
     "source": "vendor library documentation; repo verdicts",
     "source_ids": [
-      "S10500",
+      "S10047",
       "S525",
       "S586",
       "S90064",
@@ -5922,12 +5922,12 @@
       "S594",
       "S10538",
       "S10537",
-      "S10505",
+      "S10039",
       "S10559",
       "S10514",
       "S10554",
       "S10542",
-      "S10508",
+      "S10010",
       "S10558",
       "S578",
       "S597",
@@ -5953,13 +5953,14 @@
       "S10552",
       "S10556",
       "S10551",
-      "S10515",
-      "S10516",
+      "S10026",
+      "S10027",
       "S10544",
       "S10519",
       "S10520",
       "S10547",
       "S10548",
+      "S10031",
       "S10518",
       "S10546",
       "S10549",
@@ -6235,9 +6236,9 @@
   },
   {
     "id": "10-software-deal-values",
-    "title": "Qualcomm's $3.9B Modular deal is ~5.6× the largest earlier chip-vendor AI-software buy",
+    "title": "Chip vendors bought 12 software teams since 2022; 6 prices are public, topped by Qualcomm's $3.9B",
     "subtitle": "Disclosed or reported value, US$ millions (log scale): AI-software, library and tools deals by chip vendors",
-    "alt": "Log-scale horizontal bar chart of software deals by chip vendors: Qualcomm's announced $3,900M Modular acquisition (2026); NVIDIA's $700M Run:ai (2024, reported), $400M CentML, $300M Deci, $250M OctoAI and $88M mental images; AMD's $665M Silo AI (2024); NVIDIA's $2,000M Synopsys equity stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, PGI, Bright Computing and Excelero were undisclosed.",
+    "alt": "Log-scale horizontal bar chart of library, AI-software and tools deals by chip vendors: 12 acquisitions since 2022, 6 with public prices. Qualcomm's announced $3,900M Modular acquisition (2026) is ~5.6x the largest earlier one, NVIDIA's $700M Run:ai (2024, reported); then $400M CentML, $300M Deci, $250M OctoAI and $88M mental images; AMD's $665M Silo AI (2024); NVIDIA's $2,000M Synopsys equity stake (2025, not an acquisition). AMD's Mipsology, Nod.ai and Brium, Intel's Codeplay and NVIDIA's Ageia, PGI, Bright Computing and Excelero were undisclosed.",
     "data": [
       "l10_software_deals.csv"
     ],
@@ -6458,7 +6459,7 @@
       "S629",
       "S522",
       "S11502",
-      "S11500",
+      "S11001",
       "S580",
       "S581",
       "S596",
@@ -6506,9 +6507,9 @@
   },
   {
     "id": "11-inference-deal-values",
-    "title": "NVIDIA's ~$20B Groq licence is ~5× Qualcomm–Modular and ~30× AMD–Silo AI",
+    "title": "NVIDIA's ~$20B Groq and $12.9B Hugging Face deals dwarf Qualcomm–Modular ($3.9B)",
     "subtitle": "Disclosed or reported deal value, US$ millions (log scale), inference software and silicon deals 2023–2026",
-    "alt": "Log-scale horizontal bar chart of inference-related deals. NVIDIA: Groq licence and team (~$20,000M reported, Dec 2025), Run:ai (~$700M, 2024), CentML (up to ~$400M incl. earn-outs, 2025), Deci (~$300M, 2024), OctoAI (~$250M, 2024). Qualcomm: Modular ($3,900M, 2026). AMD: Silo AI ($665M, 2024) plus undisclosed Nod.ai, Brium, the Untether AI team and MK1. Intel's ~$1.6B SambaNova talks did not complete; Red Hat's Neural Magic purchase was undisclosed (5 deals in total without a price).",
+    "alt": "Log-scale horizontal bar chart of inference-related deals. NVIDIA: Groq licence and team (~$20,000M reported, Dec 2025), Hugging Face ($12,930M announced Sep 2026, pending, close expected H1 2027), Run:ai (~$700M, 2024), CentML (up to ~$400M incl. earn-outs, 2025), Deci (~$300M, 2024), OctoAI (~$250M, 2024). Qualcomm: Modular ($3,900M, 2026). AMD: Silo AI ($665M, 2024) plus undisclosed Nod.ai, Brium, the Untether AI team and MK1. Intel's ~$1.6B SambaNova talks did not complete; Red Hat's Neural Magic purchase was undisclosed (5 deals in total without a price).",
     "data": [
       "l11_inference_deals.csv"
     ],
@@ -6517,8 +6518,13 @@
       "13",
       "09"
     ],
-    "source": "company releases and press",
+    "source": "releases and press",
     "source_ids": [
+      "S11025",
+      "S11026",
+      "S11500",
+      "S11027",
+      "S11028",
       "S90057",
       "S9511",
       "S9514",
@@ -6679,8 +6685,8 @@
   {
     "id": "11-inference-startup-valuations",
     "title": "Inference clouds price like chip start-ups: Fireworks ~$15B vs Etched $10.3B",
-    "subtitle": "Last disclosed or reported valuation, US$ millions (log scale); Cerebras at IPO pricing; Modular at deal price",
-    "alt": "Log-scale horizontal bar chart of inference start-up valuations. Inference clouds: Fireworks AI ~$15,000M (talks, May 2026), Together AI $8,300M (Jul 2026), Baseten $5,000M (Jan 2026), Modal ~$2,500M (talks). Serving engines: Modular $3,900M (acquired by Qualcomm, 2026), Inferact (vLLM) $800M and RadixArk (SGLang) $400M seed valuations. Silicon: Cerebras ~$40,000M at its May 2026 IPO, Etched $10,300M, Groq $6,900M before its ~$20B NVIDIA licence, Positron $5,000M, Tenstorrent ~$2,700M, d-Matrix $2,000M, SambaNova ~$1,600M (Intel offer talks); MatX and FuriosaAI valuations undisclosed.",
+    "subtitle": "Last disclosed or reported valuation, US$ millions (log scale); Cerebras at IPO pricing; acquisitions at deal price",
+    "alt": "Log-scale horizontal bar chart of inference start-up valuations. Inference clouds: Fireworks AI ~$15,000M (talks, May 2026), Together AI $8,300M (Jul 2026), Baseten $5,000M (Jan 2026), Modal ~$2,500M (talks). Serving software: Hugging Face $12,930M (NVIDIA acquisition announced Sep 2026, pending), Modular $3,900M (acquired by Qualcomm, 2026), Inferact (vLLM) $800M and RadixArk (SGLang) $400M seed valuations. Silicon: Cerebras ~${cb:,.0f}M at its May 2026 IPO, Etched ${et:,.0f}M, Groq $6,900M before its ~$20B NVIDIA licence, Positron $5,000M, Tenstorrent ~$2,700M, d-Matrix $2,000M, SambaNova ~$1,600M (Intel offer talks); MatX and FuriosaAI valuations undisclosed.",
     "data": [
       "l11_private_companies.csv"
     ],
@@ -6712,7 +6718,9 @@
       "S2508",
       "S11522",
       "S90057",
-      "S9511"
+      "S9511",
+      "S11026",
+      "S11500"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -9450,6 +9458,93 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/18-nvidia-vs-peers-dc-revenue.svg",
+    "html": null
+  },
+  {
+    "id": "CS4-amd-vs-nvidia-dc-revenue",
+    "title": "AMD's data-center revenue rose ~6.6× since 2023, but NVIDIA's lead widened from 3.3× to 13×",
+    "subtitle": "Quarterly data-center revenue (US$ B) and NVIDIA ÷ AMD; AMD's segment includes EPYC CPUs; calendar quarters",
+    "alt": "Two-panel chart, calendar 2023-Q1 to 2026-Q3. Left: AMD's Data Center segment revenue rose from $1.3B to $8.6B a quarter (2026-Q3 is a repo estimate from AMD's +97% y/y), about 6.6 times, while NVIDIA's Data Center revenue rose from $4.3B to $89.0B (2026-Q2). Right: NVIDIA's data-center revenue was 3.3 times AMD's in 2023-Q1, 9.2 times in 2024-Q4 and 13.3 times in 2026-Q2: the second source has not yet narrowed the revenue gap. AMD's figure includes EPYC server CPUs, so its GPU-only gap is larger.",
+    "data": [
+      "peer_financials.csv",
+      "cs4_amd_openai.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "CS4",
+      "15",
+      "18"
+    ],
+    "source": "AMD and NVIDIA quarterly results",
+    "source_ids": [
+      "S1",
+      "S24009",
+      "S402",
+      "S403",
+      "S405",
+      "S412",
+      "S413",
+      "S414",
+      "S416",
+      "S417",
+      "S418",
+      "S422",
+      "S423",
+      "S424",
+      "S425",
+      "S426",
+      "S427",
+      "S433",
+      "S434",
+      "S435",
+      "S436",
+      "S437",
+      "S438",
+      "S439",
+      "S440",
+      "S441",
+      "S442",
+      "S443",
+      "S444",
+      "S445",
+      "S446",
+      "S450",
+      "S542",
+      "S543"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS4-amd-vs-nvidia-dc-revenue.svg",
+    "html": null
+  },
+  {
+    "id": "CS4-warrant-value-vs-hardware-spend",
+    "title": "At the $600 hurdle, AMD's warrant (~$96B) ≈ OpenAI's 6 GW AMD hardware bill (Est. ~$90B)",
+    "subtitle": "Value of 160M AMD shares at $0.01 if fully vested (US$ B) vs share price; band = assumed 6 GW spend at $10–20B/GW",
+    "alt": "Line chart: the warrant for 160 million AMD shares at a $0.01 strike is worth about $26B at the pre-deal price of $164.67 (2025-10-03), $33B after the first day's ~24% jump, $96B at the reported $600 final-tranche hurdle and $98B at the $612.46 close of 2026-09-21. A shaded band shows a repo assumption of OpenAI's AMD hardware spend for 6 GW: $60B to $120B (base $90B). Above roughly $562 a share the fully vested warrant would be worth as much as the base-case hardware bill; vesting also needs all 6 GW deployed.",
+    "data": [
+      "cs4_amd_openai.csv"
+    ],
+    "chapters": [
+      "CS4",
+      "13"
+    ],
+    "source": "AMD/OpenAI terms and AMD share prices",
+    "source_ids": [
+      "S24001",
+      "S24002",
+      "S24005",
+      "S13507",
+      "S24003",
+      "S24000",
+      "S13506",
+      "S24004",
+      "S24010",
+      "S24006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS4-warrant-value-vs-hardware-spend.svg",
     "html": null
   },
   {

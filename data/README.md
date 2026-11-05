@@ -1006,3 +1006,143 @@ Scenario parameters for the 100,000-GPU national AI factory (`13-national-ai-fac
 NVIDIA shares of non-GPU rack content and of scale-out networking plus storage (all `speculative`). Rack prices, BOM splits,
 power, PUE, facility $/MW and electricity price are read from `tco_model_inputs.csv` (GB300 NVL72 rows; facility $/MW comes
 from a Morgan Stanley model that was later retracted and is used only as an illustration).
+
+## Case study CS4 — AMD, OpenAI and the second source (`cs4_amd_openai.csv`, charts in `scripts/charts/ch_cs4.py`; sources S24000–S24011)
+
+### cs4_amd_openai.csv (long)
+`record_type,period,entity,metric,value,unit,confidence,source_id,notes`
+
+`record_type` ∈ `dc_revenue` (AMD Data Center segment, US$ B, 2026-Q1 to 2026-Q3; extends the 2023–2025 AMD rows in
+`peer_financials.csv`, which the chart reads unchanged; 2026-Q3 is a repo calculation from the reported +97 % y/y),
+`share_price` (AMD closes around the deal and the first close above $600), `warrant_term` (160M shares at $0.01, 6 GW, the
+reported $600 final-tranche hurdle, pre-deal share count derived from market cap / price) and `assumption` (repo scenarios
+for OpenAI's AMD hardware spend per GW: $10B / $15B / $20B, all `speculative`, anchored on the reported value of AMD's
+identical 6 GW Meta deal). Used by `CS4-amd-vs-nvidia-dc-revenue` (with `financials.csv`, NVIDIA fiscal quarters mapped to
+the calendar quarter they mostly cover) and `CS4-warrant-value-vs-hardware-spend`.
+
+## Case study CS5 — the DeepSeek moment and the efficiency shock (`cs5_*.csv`, charts in `scripts/charts/ch_cs5.py`; sources S25000–S25012)
+
+### cs5_cost_claims.csv (one row per cost figure)
+`item,date,entity,category,value_usd_m,basis,confidence,source_id,notes`
+
+DeepSeek's own training-cost claims (V3 final run, R1 reinforcement learning), SemiAnalysis's fleet estimates (GPU
+investment, server capex) and NVIDIA's one-day market-value loss on 2025-01-27, all in US$ M. `category` ∈ `company claim` |
+`analyst estimate` | `market reaction`. Used by `CS5-deepseek-cost-headline-vs-fleet`.
+
+### cs5_elasticity_grid.csv (generated grid)
+`price_drop_multiple,elasticity,quantity_multiple,spend_multiple,formula,confidence,source_id,notes`
+
+Constant-elasticity demand: when the price per token falls by `price_drop_multiple` (3×, 10×, 30×), tokens demanded rise by
+drop^ε and spend changes by drop^(ε−1). Spend rises only when ε > 1. All rows `estimate` (computed); ignores outward shifts
+of the demand curve from new capabilities. Used by `CS5-spend-multiple-vs-elasticity`.
+
+## Layer 11 STRATEGY — inference competition, deals, token prices and value pools (`l11_*` strategy files; charts in `scripts/charts/ch_l11_strategy.py`; sources S11500–S11541)
+
+### l11_inference_verdicts.csv (long, challenger × dimension)
+`competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes` — repo verdict of eight
+inference challengers (open-source serving, AMD, Google TPU, AWS, Microsoft Maia, Cerebras, Groq, Qualcomm — public information
+only) against NVIDIA's GB300 / Vera Rubin NVL72 with Dynamo and TensorRT-LLM on five dimensions (tokens/s per user, throughput per
+dollar, software maturity, model coverage, deployment flexibility). `verdict_vs_nvidia`: `leads` | `parity` | `behind` |
+`different`. Judgement rows are `speculative` or carry the confidence of the underlying evidence. Feeds `11-inference-challenger-heatmap`.
+
+### l11_inference_deals.csv (one row per deal)
+`announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_it_brought,status,confidence,source_id,notes` —
+inference software and silicon deals 2023–2026 by NVIDIA, AMD, Qualcomm, Intel and Red Hat. `value_basis`: `disclosed` |
+`reported` | `up-to` | `undisclosed`; `status`: `closed` | `pending` | `not completed`. Feeds `11-inference-deal-values`.
+
+### l11_token_prices.csv (one row per price point)
+`date,model,provider,tier,input_usd_per_m,output_usd_per_m,blended_3to1_usd_per_m,basis,confidence,source_id,notes` — API list
+prices per million tokens at launch or price cut (OpenAI flagship and small tiers) and the Stanford AI Index "capability floor"
+(cheapest model at GPT-3.5-level quality). `blended_3to1` = (3 × input + output) / 4, Epoch AI's convention; AI Index rows give a
+single price. Feeds `11-api-token-price-trend`.
+
+### l11_private_companies.csv (one row per company)
+`company,segment,date,event,raise_usd_m,valuation_usd_m,valuation_basis,status,confidence,source_id,notes` — last disclosed or
+reported valuation of inference clouds, serving-engine companies and inference-silicon start-ups (public information only).
+`segment`: `inference cloud` | `serving engine` | `inference silicon`; `valuation_basis` distinguishes closed rounds from talks,
+offers, IPO pricing and acquisition prices; `status`: `private` | `public` | `acquired` | `licensed to NVIDIA`. Feeds
+`11-inference-startup-valuations`.
+
+### l11_token_value_pools.csv (one row per value-pool step)
+`scenario,step,component,value_cents_per_usd,basis,confidence,source_id,notes` — repo estimate (all `estimate` except the reported
+lab compute margin) of how $1.00 of closed-model API revenue served on rented GB300 NVL72 capacity splits between the model lab,
+the cloud operator, electricity, facility/financing, other IT hardware, NVIDIA's cost of goods and NVIDIA's gross profit. Inputs:
+OpenAI compute margin ~70% (The Information via S11537), GB300 rental $5.00 vs owner TCO $2.31 per GPU-hour (S622), power ~15% of
+owner TCO, NVIDIA ~75% of IT hardware spend and a 75% gross margin (S3). Values sum to 100. Feeds `11-token-revenue-value-pools`.
+
+`ch_l11_strategy.py` also builds `11-inference-memory-tradeoff` and `11-decode-bandwidth-by-vendor` directly from
+`gpu_product_specs.csv` and `competitor_accelerators.csv`.
+
+## Layer 13 STRATEGY — ecosystem and capital competition, deals and value chain (`l13_strat_*.csv`; charts in `scripts/charts/ch_l13_strategy.py`; sources S13500–S13536)
+
+### l13_strat_peer_capital.csv (long)
+`company,period,period_end,metric,value,unit,confidence,source_id,notes`
+
+Deployable capital for NVIDIA, AMD, Broadcom and Qualcomm at each company's latest reported quarter end (US$ B):
+cash and liquid securities (definitions differ by company and are named in `metric`), total debt, NVIDIA's listed and
+private equity stakes and buyback authorization, and the latest quarterly free cash flow found. AMD and Qualcomm free
+cash flow are aggregator figures (`estimate`). Most rows were read from filings via search snippets (sec.gov blocked).
+
+### l13_strat_capital_per_gw.csv (one row per vendor-to-customer deal)
+`deal,supplier,counterparty,announce_date,instrument,capital_usd_b,capital_basis,committed_gw,capital_per_gw_usd_b,status,confidence,source_id,notes`
+
+Vendor capital offered per gigawatt of committed compute. AMD's OpenAI warrant is valued by the repo at two AMD share
+prices (the reported $600 final-tranche hurdle and an illustrative $200); NVIDIA's 2026 OpenAI equity has no GW tie and
+a blank `capital_per_gw_usd_b`.
+
+### l13_strat_deals_2026_additions.csv
+Same schema as `acquisitions_investments.csv`. 2026 deals missing from the shared file (xAI Series E, Lumentum,
+Coherent, Marvell, the August 2026 financing platforms); `ch_l13_strategy.py` concatenates both files for the
+deal-structure chart and maps each row to a structure (acquisition, licence + acquihire, stake in customer = layers
+12/13, stake in supplier/partner = other layers, capacity or financing commitment).
+
+### l13_strat_gw_pipeline.csv (one row per buyer × supplier programme)
+`buyer,supplier,program,announce_date,deploy_window,gw,gw_basis,status,confidence,source_id,notes`
+
+Announced compute programmes in gigawatts for OpenAI, Anthropic, HUMAIN and xAI by chip supplier. `gw` is the
+announced ceiling or target, not deployed capacity; NVIDIA's OpenAI row is the September 2025 letter of intent
+(restructured in 2026) and xAI's is a contested company claim.
+
+### l13_strat_equity_portfolio.csv (long)
+`period,period_end,metric,value,unit,confidence,source_id,notes`
+
+Press readings of NVIDIA's 10-Q equity disclosures: non-marketable and marketable equity, equity purchases in the first
+half of FY2026 and FY2027, net equity gains and further equity commitments. Used with `financials.csv`
+(`shareholder_returns`) for the equity-vs-payouts chart.
+
+## Layer 12 strategy — orchestration and cloud competition, roadmap and value chain (`l12_*.csv` below; charts in `scripts/charts/ch_l12_strategy.py`; sources S12500–S12536)
+
+### l12_competitor_verdicts.csv (long, competitor × dimension)
+`competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,confidence,source_id,notes` — repo judgement of nine layer-12
+rivals (AWS, Google Cloud, Microsoft Azure, CoreWeave, Nebius, Kubernetes + Kueue, Ray/Anyscale, SkyPilot, GPU marketplaces)
+against NVIDIA's position (DGX Cloud/Lepton, Run:ai/KAI, Slurm, DSX OS, allocation and capital) on five dimensions: customer
+ownership, owned capacity, accelerator control, scheduling & orchestration, hardware neutrality. All rows `speculative`; the
+source ids are the evidence behind each cell. Feeds `12-cloud-competitor-heatmap`.
+
+### l12_equity_holdings.csv (long)
+`period,period_end,metric,value,unit,confidence,source_id,notes` — NVIDIA equity securities by balance-sheet line
+(`marketable_equity`, `non_marketable_equity`, `locked_up_public_equity`) at Jan/Apr/Jul 2026, plus H1 equity purchases, H1 net
+equity gains and outstanding equity commitments (US$ B). Q2 FY2027 lines are secondary readings of the 10-Q. The Apr 2026
+non-marketable figure ($43.4B here) differs from the ~$42.3B in the S90070 registry note; flagged for QA. Feeds
+`12-nvidia-customer-support-exposure` (with `financials.csv`).
+
+### l12_neocloud_metrics.csv (long)
+`company,period,metric,value_low,value_high,unit,confidence,source_id,notes` — CoreWeave and Nebius guidance and operating
+metrics (revenue and capex guidance, revenue backlog by quarter, active/contracted power, debt, interest, ARR). Single values
+repeat in `value_low` and `value_high`. The June 2025 CoreWeave backlog is derived from the reported +246% y/y growth
+(`estimate`). Feeds `12-neocloud-capex-vs-revenue-2026` and `12-coreweave-backlog-growth`.
+
+### l12_gpu_rental_index.csv (one row per observation)
+`date,gpu,series,contract_type,usd_per_gpu_hour,confidence,source_id,notes` — H100 rental price observations by series
+(SemiAnalysis 1-year contract index, Silicon Data index, spot prices as cited, 2023–24 anecdotal points shared with
+`gpu_rental_prices.csv`). Contract types differ: compare within a series. Feeds `12-h100-rental-price-rebound`.
+
+### l12_private_companies.csv (one row per company)
+`company,category,what_they_do,last_round_date,last_round,amount_usd_b,valuation_usd_b,valuation_basis,nvidia_backed,confidence,source_id,notes`
+— last public round of private AI-cloud and AI-infrastructure companies (public information only); Lambda's valuation is a
+press-reported pre-IPO target. Feeds `12-neocloud-private-valuations`.
+
+### l12_hyperscaler_capex_guidance.csv (one row per guidance issued)
+`company,guidance_date,period,capex_low_usd_b,capex_high_usd_b,basis,confidence,source_id,notes` — calendar-2026 capex guidance
+ranges by date issued for Alphabet, Amazon, Meta and Microsoft (calendar basis, incl. finance leases where the company does).
+February 2026 rows repeat the `[recall]` rows of `peer_financials.csv`. Feeds `12-hyperscaler-capex-guidance-drift`.

@@ -1,0 +1,70 @@
+# Layer 08: anatomy of an NVL72-class rack (GB200 / GB300 "Oberon" generation, Vera Rubin note).
+# Original schematic drawn by this repo from public specifications (NVIDIA DGX GB200 user guide and
+# SuperPOD reference architecture, NVIDIA OCP contribution coverage, SemiAnalysis, Morgan Stanley BOM
+# reporting). Not to scale, not traced from any vendor image. Exact slot positions vary by OEM.
+direction: down
+
+title: "Anatomy of an NVL72 rack (schematic, typical GB200/GB300 layout)" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+body: "" {
+  style.opacity: 0
+  grid-columns: 3
+  grid-gap: 30
+  front: "① FRONT VIEW - what fills the rack (top to bottom)" {
+    style.fill: "#F7F7F4"
+    style.stroke: "#52514E"
+    style.font-size: 19
+    grid-columns: 1
+    grid-gap: 6
+
+    mgmt: "Out-of-band management switch (BMC network to every tray)" {width: 600; height: 40; style.fill: "#E8E7E2"; style.stroke: "#898781"; style.font-size: 16}
+    ps_top: "POWER SHELVES (top group)\n1U each · 6 × 5.5 kW PSUs = up to 33 kW · AC in → ~50 V DC out" {width: 600; height: 70; style.fill: "#FBE6A2"; style.stroke: "#C98500"; style.font-size: 16}
+    ct_top: "COMPUTE TRAYS 1-10 (1U each)\neach = 2 Grace CPUs + 4 Blackwell GPUs (two superchips)\n+ SuperNICs, DPU, NVMe · cold plates on every CPU and GPU" {width: 600; height: 150; style.fill: "#5F9E00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 17}
+    sw: "NVLINK SWITCH TRAYS × 9 (1U each)\n2 NVLink switch chips per tray = 18 per rack (Vera Rubin: 36)\n144 NVLink ports per tray · no CPU, no GPU" {width: 600; height: 130; style.fill: "#3F6B00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 17; style.bold: true}
+    ct_bot: "COMPUTE TRAYS 11-18 (1U each)\n18 trays × 4 GPUs = 72 GPUs · 18 × 2 = 36 CPUs" {width: 600; height: 120; style.fill: "#5F9E00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 17}
+    ps_bot: "POWER SHELVES (bottom group)\n8 shelves in NVIDIA's DGX configuration (OEM layouts vary)" {width: 600; height: 70; style.fill: "#FBE6A2"; style.stroke: "#C98500"; style.font-size: 16}
+  }
+
+  rear: "② REAR - the four hidden systems that make 72 GPUs one machine" {
+    style.fill: "#F7F7F4"
+    style.stroke: "#52514E"
+    style.font-size: 19
+    grid-columns: 1
+    grid-gap: 10
+
+    spine: "NVLINK SPINE (copper backplane)\n~5,000 copper cables, ~2 miles, in blind-mate cable cartridges\nevery GPU reaches all 72 at 1.8 TB/s (NVLink 5) → ~130 TB/s all-to-all\ncopper instead of optics saves ~20 kW of transceivers per rack" {width: 700; height: 140; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 16}
+    busbar: "DC BUSBAR\nvertical copper bar carries ~50 V DC from the power shelves to every tray\n~132 kW at ~50 V is ~2,600 A - why NVIDIA wants 800 V DC for 2027 racks" {width: 700; height: 110; style.fill: "#FBF1E1"; style.stroke: "#C98500"; style.font-size: 16}
+    manifold: "LIQUID MANIFOLDS\nsupply + return pipes with quick-disconnects to every compute and switch tray\ncold plates take most of the heat; fans clear the residue (Vera Rubin: fanless trays)" {width: 700; height: 110; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 16}
+    scaleout: "SCALE-OUT CABLES\nSuperNIC ports leave the rack to leaf switches in separate network racks\n(800 Gb/s per GPU on GB300; 1.6 Tb/s per GPU on Vera Rubin)" {width: 700; height: 110; style.fill: "#F1EEFB"; style.stroke: "#6250D6"; style.font-size: 16}
+  }
+
+  facility: "③ OUTSIDE THE RACK" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#C3C2B7"
+    style.font-size: 19
+    grid-columns: 1
+    grid-gap: 10
+    cdu: "CDU (coolant distribution unit)\nin-row or in-rack: pumps the rack's coolant loop and\nhands heat to facility water through a heat exchanger" {width: 470; height: 110; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 16}
+    grid: "Facility power: utility AC → transformer\n→ switchgear / UPS → PDU\n→ rack power shelves (today)\n→ 800 V DC busway (2027 plan)" {width: 470; height: 100; style.fill: "#FBE6A2"; style.stroke: "#C98500"; style.font-size: 16}
+    leaf: "Leaf / spine network racks\n(Spectrum-X Ethernet or Quantum InfiniBand)" {width: 470; height: 80; style.fill: "#F1EEFB"; style.stroke: "#6250D6"; style.font-size: 16}
+  }
+}
+
+numbers: "Key numbers per rack" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#C3C2B7"
+  style.font-size: 18
+  grid-columns: 3
+  grid-gap: 8
+  g200: "GB200 NVL72 (2024)\n~120 kW IT (~145 kW incl. network share)\n13.4-13.8 TB HBM3E · ~1.36 t" {width: 440; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 16}
+  g300: "GB300 NVL72 (2025)\n~132 kW (120-140 kW estimates)\n20.7 TB HBM3E + ~17 TB LPDDR5X" {width: 440; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 16}
+  vr: "Vera Rubin NVL72 (H2 2026)\n~190-230 kW (reported) · 100% liquid\n20.7 TB HBM4 + 54 TB LPDDR5X · cable-free trays" {width: 440; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 16}
+}
+
+
+body -> numbers: "" {style.stroke: "#FFFFFF"}

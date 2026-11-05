@@ -1,0 +1,37 @@
+company,role,period,period_end,metric,value,unit,profit_basis,confidence,source_id,notes
+NVIDIA,GPU and rack designer,Q2FY2027,2026-07-26,revenue,96.2,USD_B,,confirmed,S405;S3,Quarter May-Jul 2026
+NVIDIA,GPU and rack designer,Q2FY2027,2026-07-26,revenue_data_center,89.0,USD_B,,reported,S90011;S90012,~$89.0B per fact sheet
+NVIDIA,GPU and rack designer,Q2FY2027,2026-07-26,gross_margin_pct,75.0,pct,gross,reported,S405;S90012,GAAP; exact decimal not captured
+NVIDIA,GPU and rack designer,Q2FY2027,2026-07-26,gross_profit,72.15,USD_B,gross,estimate,S405;S90012,Repo calc: $96.2B x 75.0% (whole company)
+NVIDIA,GPU and rack designer,FY2026,2026-01-25,operating_margin_pct,60.4,pct,operating,confirmed,S1,Repo calc: operating income $130.387B / revenue $215.938B
+NVIDIA,GPU and rack designer,Q2FY2027,2026-07-26,operating_profit,58.1,USD_B,operating,estimate,S405;S1,Repo calc: Q2 FY2027 revenue x FY2026 operating margin (60.4%); actual Q2 operating income not captured
+Dell (ISG),OEM,Q2FY2027,2026-07-31,segment_revenue,31.78,USD_B,,reported,S8500;S8501,Infrastructure Solutions Group (servers incl. AI servers + storage + networking)
+Dell (ISG),OEM,Q2FY2027,2026-07-31,operating_profit,4.78,USD_B,operating,reported,S8500;S8501,
+Dell (ISG),OEM,Q2FY2027,2026-07-31,operating_margin_pct,15.0,pct,operating,reported,S8500;S8501,+620 bp y/y (8.8% a year earlier)
+Dell (AI servers),OEM,Q2FY2027,2026-07-31,ai_server_revenue,16.4,USD_B,,reported,S8500,AI-optimized server revenue; orders $60.9B; backlog $95B
+Dell (AI servers),OEM,FY2026,2026-01-30,ai_server_revenue,25.2,USD_B,,reported,S8502;S8503,AI server shipments in FY2026 (orders $64.1B)
+Dell (AI servers),OEM,FY2027E,2027-01-29,ai_server_revenue,74.0,USD_B,,reported,S8500,Guidance raised from $60B (Q1) and ~$50B (Feb 2026)
+Dell (AI servers),OEM,FY2026,2026-01-30,operating_margin_pct,5.0,pct,operating,estimate,S8502;S8503,Management target described as mid-single-digit operating margin for AI servers; 5% is the repo's point estimate
+Supermicro,OEM,FY2025,2025-06-30,revenue,22.0,USD_B,,confirmed,S8504,
+Supermicro,OEM,FY2025,2025-06-30,gross_margin_pct,11.1,pct,gross,confirmed,S8504,
+Supermicro,OEM,FY2026,2026-06-30,revenue,39.1,USD_B,,reported,S8504,Preliminary and unaudited per release
+Supermicro,OEM,FY2026,2026-06-30,gross_margin_pct,10.8,pct,gross,reported,S8504,
+Supermicro,OEM,FY2027E,2027-06-30,revenue,68.5,USD_B,,reported,S8504,Guidance $65-72B; midpoint shown
+Supermicro,OEM,Q4FY2026,2026-06-30,revenue,11.1,USD_B,,reported,S8504,
+Supermicro,OEM,Q4FY2026,2026-06-30,gross_margin_pct,17.5,pct,gross,reported,S8504,GAAP per search extracts of the 8-K; well above the 10.8% full-year figure
+Supermicro,OEM,Q4FY2026,2026-06-30,gross_profit,1.94,USD_B,gross,estimate,S8504,Repo calc: $11.1B x 17.5%
+HPE (Cloud and AI),OEM,Q3FY2026,2026-07-31,segment_revenue,9.0,USD_B,,reported,S8505;S8506,Cloud and AI segment (servers + storage + AI systems)
+HPE (Cloud and AI),OEM,Q3FY2026,2026-07-31,operating_profit,1.54,USD_B,operating,reported,S8505;S8506,
+HPE (Cloud and AI),OEM,Q3FY2026,2026-07-31,operating_margin_pct,17.0,pct,operating,reported,S8505;S8506,7.0% a year earlier; 12.4% prior quarter
+HPE (AI systems),OEM,Q3FY2026,2026-07-31,ai_systems_revenue,1.6,USD_B,,reported,S8505;S8506,AI systems backlog $6.8B
+HPE (servers),OEM,Q3FY2026,2026-07-31,server_revenue,6.8,USD_B,,reported,S8505;S8506,+35% y/y on higher average selling prices
+Vertiv,power and cooling,Q3 2026,2026-09-30,revenue,4.313,USD_B,,reported,S8507,+61% y/y
+Vertiv,power and cooling,Q3 2026,2026-09-30,operating_profit,1.087,USD_B,adjusted operating,reported,S8507,Adjusted operating profit
+Vertiv,power and cooling,Q3 2026,2026-09-30,operating_margin_pct,25.2,pct,adjusted operating,reported,S8507,
+Vertiv,power and cooling,FY2026E,2026-12-31,revenue,14.65,USD_B,,reported,S8507,Guidance midpoint
+Quanta,ODM,Q4 2025,2025-12-31,gross_margin_pct,6.3,pct,gross,reported,S8529,Company-wide (KGI)
+Quanta,ODM,Q4 2025,2025-12-31,operating_margin_pct,3.8,pct,operating,reported,S8529,Company-wide (KGI)
+Quanta (GB AI servers),ODM,Q4 2025,2025-12-31,gross_margin_pct,5.0,pct,gross,estimate,S8529,KGI estimate for GB-series AI rack servers
+Foxconn (Hon Hai),ODM,Q2 2025,2025-06-30,gross_margin_pct,6.3,pct,gross,reported,S3522,Company-wide
+ODM on a GB300 NVL72 rack,ODM,2026,2026-05-20,gross_margin_pct,2.7,pct,gross,estimate,S332,Morgan Stanley BOM estimate
+ODM on a Vera Rubin NVL72 rack,ODM,2026,2026-05-20,gross_margin_pct,1.9,pct,gross,estimate,S332,Morgan Stanley BOM estimate

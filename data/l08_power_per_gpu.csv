@@ -1,0 +1,12 @@
+system,vendor,inferencex_key,all_in_kw_per_gpu,gpu_tdp_w,basis,confidence,source_id,notes
+H100,NVIDIA,h100,1.37,700,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,"Used by InferenceX to express throughput per MW. Includes the GPU's share of host server, networking and datacenter overhead from SemiAnalysis's Datacenter Model; exact scope not public. Fetched from GitHub 2026-11-05."
+H200,NVIDIA,h200,1.37,700,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,Same chassis and power as H100 in the SemiAnalysis registry.
+B200,NVIDIA,b200,1.71,1000,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,HGX/DGX B200 8-GPU servers.
+B300,NVIDIA,b300,1.90,1100,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,HGX/DGX B300 8-GPU servers.
+GB200 NVL72,NVIDIA,gb200,1.87,1200,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,"x72 = ~135 kW per rack all-in, versus ~120 kW rack IT power (system_specs.csv)."
+GB300 NVL72,NVIDIA,gb300,2.12,1400,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,"x72 = ~153 kW per rack all-in, versus ~132 kW rack IT power (system_specs.csv)."
+Vera Rubin NVL72,NVIDIA,vr200,3.30,1800,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,"x72 = ~238 kW per rack all-in; registry lists the 1,800 W Max-Q GPU TDP. No InferenceX frontier for Rubin in data/inference_benchmarks.csv yet."
+MI300X,AMD,mi300x,1.39,750,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,8-GPU UBB platform.
+MI325X,AMD,mi325x,1.69,1000,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,8-GPU UBB platform.
+MI355X,AMD,mi355x,2.09,1400,SemiAnalysis all-in utility provisioned power per GPU (InferenceX hardware registry),estimate,S622,"8-GPU UBB 2.0 platform, direct liquid cooled."
+TPU7x Ironwood,Google,tpuv7,1.207,980,SemiAnalysis all-in utility provisioned power per chip (InferenceX hardware registry),estimate,S622,No DeepSeek-R1 frontier for TPU in data/inference_benchmarks.csv.

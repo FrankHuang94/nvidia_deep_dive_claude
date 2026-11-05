@@ -1,0 +1,7 @@
+case,category,milestone,start,end,months,confidence,source_id,notes
+xAI Colossus 1 (100k Hopper),build,facility + cluster built,2024,2024,4.0,reported,S6000,"NVIDIA/xAI: built in 122 days (= 4.0 months) in Memphis, vs many months to years typical for systems of this size; company-sourced claim. Existing building retrofitted."
+xAI Colossus 1 (100k Hopper),build,first rack to training,2024,2024,0.6,reported,S6000,"19 days per NVIDIA's release (= 0.6 months)."
+Stargate Abilene phase 1 (200+ MW),build,construction start to 2 buildings live,2024-06,2025-09,15,reported,S8012;S8013,"Crusoe/Oracle/OpenAI. Construction reported to begin June 2024; first GB200 racks June 2025; Crusoe said two buildings (~980,000 sq ft, 200+ MW IT) were live in Sept 2025. Some sources date the start to July 2024."
+Stargate Abilene campus (1.2 GW),build,construction start to planned completion,2024-06,2026-Q4,24,reported,S8013;S8014,"Phase 2 (six more buildings) targeted mid-2026 per Crusoe (24 months); Epoch AI projects Q4 2026 (~28-30 months). 24 plotted, range noted."
+Dominion (N. Virginia) load >100 MW,grid,request to grid hookup (Aug 2024),2024-08,,84,reported,S8010,Up to seven years for large data centers (previously about four).
+New US generation (LBNL),grid,queue request to operation (median),,,48,reported,S8009,"Median 'over 4 years' for projects built 2018-2024 (48 plotted as a floor), up from under 2 years for projects built 2000-2007. Covers generators, not data-center loads."

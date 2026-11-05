@@ -1,0 +1,9 @@
+forecast_vintage,release_date,year,share_pct,kind,scope,confidence,source_id,notes
+TrendForce Sep 2024,2024-09-23,2024,10,estimate,liquid cooling penetration of AI data-center chips/servers,reported,S8005,"Release forecast ~10% in 2024 rising to over 20% in 2025, driven by Blackwell (GB200) and ASIC upgrades."
+TrendForce Sep 2024,2024-09-23,2025,20,forecast,liquid cooling penetration of AI data-center chips/servers,reported,S8005,'Over 20%' in the release; plotted at 20.
+TrendForce Aug 2025,2025-08-21,2024,14,estimate,liquid cooling penetration in AI data centers,reported,S8004,Release: penetration rising from 14% in 2024 to 33% in 2025.
+TrendForce Aug 2025,2025-08-21,2025,33,forecast,liquid cooling penetration in AI data centers,reported,S8004,Release title: penetration to surpass 30% in 2025.
+TrendForce Nov 2025,2025-11,2026,47,forecast,liquid cooling adoption for AI (high-end AI chips),reported,S8006,"TrendForce 2026 technology outlook (via LEDinside): liquid cooling adoption to reach 47% by 2026. Release month from secondary reporting."
+TrendForce Aug 2026,2026-08-17,2025,33,estimate,liquid cooling penetration among high-end AI chips,reported,S8528;S8004,2025 level as carried in TrendForce's 2025-2026 releases.
+TrendForce Aug 2026,2026-08-17,2026,53,forecast,liquid cooling penetration among high-end AI chips,reported,S8528,"Release: penetration expected to reach 53% in 2026; Google >80% of AI servers liquid-cooled; NVIDIA GB/VR rack shipments to roughly double in 2026; L2A transitional, L2L from 2027."
+TrendForce Aug 2026,2026-08-17,2027,60,forecast,liquid cooling penetration among high-end AI chips,reported,S8528,'Approach 60%' by 2027; plotted at 60.

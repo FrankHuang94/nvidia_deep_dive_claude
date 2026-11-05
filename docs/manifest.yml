@@ -24,7 +24,7 @@ units:
   - {id: "05", title: "Scale-up (NVLink, NVSwitch)", type: layer, phase: 4, status: drafted, qa: pending, paths: [layers/05-scale-up-nvlink-nvswitch]}
   - {id: "06", title: "Scale-out and scale-across networking", type: layer, phase: 4, status: drafted, qa: pending, paths: [layers/06-scale-out-scale-across-networking]}
   - {id: "07", title: "DPU, SuperNIC, storage, security", type: layer, phase: 4, status: drafted, qa: pending, paths: [layers/07-dpu-supernic-storage-security]}
-  - {id: "08", title: "Systems, racks and AI factories", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/08-systems-racks-ai-factories]}
+  - {id: "08", title: "Systems, racks and AI factories", type: layer, phase: 5, status: drafted, qa: pending, paths: [layers/08-systems-racks-ai-factories]}
   - {id: "09", title: "CUDA and system software", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/09-cuda-and-system-software]}
   - {id: "10", title: "Libraries (CUDA-X)", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/10-libraries-cuda-x]}
   - {id: "11", title: "Inference and AI software", type: layer, phase: 6, status: planned, qa: pending, paths: [layers/11-inference-and-ai-software]}

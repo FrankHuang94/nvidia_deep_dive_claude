@@ -1,0 +1,9 @@
+system,era,metric,low,high,unit,confidence,source_id,method,notes
+HGX H100/H200 8-GPU server,2023-24,nvidia_content_share_pct,50,75,pct,estimate,S356;S322,8 GPUs x $25-30k street price divided by OEM 8x H200 server listings of $319-398k,"Mixes 2023 H100 GPU prices with 2026 H200 server listings; NVIDIA also sells the HGX baseboard (NVSwitch), so content may be understated"
+GB200 NVL72,2024-25,nvidia_content_share_pct,72,84,pct,estimate,S326;S324,36 GB200 superchips x $60-70k divided by a ~$3.0M rack (HSBC),Excludes NVLink switch trays and NICs that NVIDIA also supplies
+GB300 NVL72,2025-26,nvidia_content_share_pct,71,83,pct,estimate,S332;S331,Low: GPUs $2.52M + HBM3E ~$0.31M over $3.99M; high adds about half of the $0.94M other content (Grace CPUs; NVLink switch trays; NICs),Morgan Stanley BOM (May 2026); HBM split from the repo Sankey estimate
+Vera Rubin NVL72,2026-27,nvidia_content_share_pct,62,72,pct,estimate,S332;S331;S330,GPUs $3.96M + Vera $0.18M + HBM4 $0.7-1.1M (memory $2.0M less LPDDR5X implied by the $6.7M direct-SOCAMM price) + up to $0.4M switches/NICs over $7.8M,Share falls because memory prices rose ~435%; HBM split is a repo inference
+HGX H100/H200 8-GPU server,2023-24,integrator_gross_margin_pct,11.1,11.1,pct,reported,S8504,Supermicro FY2025 company gross margin (server-era OEM),OEM gross margin; not rack-specific
+GB200 NVL72,2024-25,integrator_gross_margin_pct,5.0,5.0,pct,estimate,S8529,KGI estimate of Quanta's GB AI-server gross margin (4Q25),ODM
+GB300 NVL72,2025-26,integrator_gross_margin_pct,2.7,2.7,pct,estimate,S332,Morgan Stanley ODM gross margin on the rack,ODM
+Vera Rubin NVL72,2026-27,integrator_gross_margin_pct,1.9,1.9,pct,estimate,S332,Morgan Stanley ODM gross margin on the rack,ODM
