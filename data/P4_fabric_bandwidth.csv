@@ -1,0 +1,7 @@
+fabric,generation,first_product,year,scope,per_gpu_bw_gbs_unidir,per_gpu_bw_gbs_bidir,status,confidence,source_id,notes
+PCIe,Gen5 x16,H100 PCIe host link,2022,host-io,64,128,shipping,confirmed,S34016,32 GT/s x 16 lanes; ~63 GB/s usable per direction
+InfiniBand,NDR 400 Gb/s,ConnectX-7,2022,scale-out,50,100,shipping,confirmed,S34015,One 400 Gb/s NIC per GPU in a rail-optimized cluster; 400GbE (Spectrum-X / RoCE) is the same per-port rate
+InfiniBand,XDR 800 Gb/s,ConnectX-8 SuperNIC,2025,scale-out,100,200,shipping,confirmed,S34015,One 800 Gb/s NIC per GPU (Blackwell Ultra generation)
+NVLink,NVLink 4,H100,2022,scale-up,450,900,shipping,confirmed,S34014;S33002,18 links per GPU
+NVLink,NVLink 5,B200,2024,scale-up,900,1800,shipping,confirmed,S34014;S33003,18 links x 100 GB/s bidirectional
+NVLink,NVLink 6,Rubin,2026,scale-up,1500,3000,announced,confirmed,S33004;S33007,Current NVL72 product page value (reported 2026-11-02); announced at CES 2026 as 3.6 TB/s per GPU

@@ -1,0 +1,10 @@
+date,gpu,provider,provider_type,pricing_model,usd_per_gpu_hour,confidence,source_id,notes
+2023-07,H100,AWS (p5.48xlarge),hyperscaler,on-demand list,12.29,confirmed,S391,$98.32/hr for 8 GPUs at launch (us-east-1). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2023-09,H100,Neocloud market (typical),neocloud,on-demand,8.0,reported,S393,Peak-shortage pricing cited by Latent Space (~$8/hr). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2024-10,H100,GPU marketplaces (low end),marketplace,on-demand / spot,2.0,reported,S393,Prices had fallen below ~$2/hr on marketplaces by late 2024. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2025-03,H100,Lambda (8x H100 SXM),neocloud,on-demand list,2.99,reported,S395,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2025-03,H100,CoreWeave (HGX H100),neocloud,on-demand list,6.16,reported,S394,$49.24/hr for 8 GPUs. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2025-06,H100,AWS (p5.48xlarge),hyperscaler,on-demand list,6.88,reported,S392,After AWS's ~45% P5 price cut ($55.04/hr for 8 GPUs). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2025-03,B200,CoreWeave (HGX B200),neocloud,on-demand list,8.6,reported,S394,$68.80/hr for 8 GPUs. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2025-06,B200,Lambda (8x B200),neocloud,on-demand list,4.99,reported,S395,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+2025-06,GB200,CoreWeave (GB200 NVL72),neocloud,on-demand list,10.5,reported,S394,$42.00/hr per 4-GPU instance. QA: recheck (from prior knowledge; not re-verified 2026-11-05).

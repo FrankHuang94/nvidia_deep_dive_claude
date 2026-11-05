@@ -1,0 +1,9 @@
+regime,component,bytes_per_param,precision,confidence,source_id,notes
+Inference FP4,weights,0.5625,NVFP4,confirmed,S32017,"4-bit values plus one FP8 scale per 16-value block = 4.5 bits per weight"
+Inference FP8,weights,1,FP8,confirmed,S34004,"8 bits per weight"
+Inference BF16,weights,2,BF16,confirmed,S34004,"16 bits per weight"
+Training (mixed precision + Adam),weights,2,BF16,confirmed,S34004,"Working copy of weights used in forward/backward pass"
+Training (mixed precision + Adam),gradients,2,BF16,confirmed,S34004,"One gradient per weight; 4 bytes if gradients are kept in FP32 (total then ~18 B/param)"
+Training (mixed precision + Adam),master weights,4,FP32,confirmed,S34004,"FP32 master copy the optimizer updates"
+Training (mixed precision + Adam),Adam momentum,4,FP32,confirmed,S34004,"First-moment (running mean of gradients)"
+Training (mixed precision + Adam),Adam variance,4,FP32,confirmed,S34004,"Second-moment (running mean of squared gradients)"

@@ -1,0 +1,63 @@
+company,period,period_type,period_end,metric,value,unit,confidence,source_id,notes
+AMD,CY2022,FY,2022-12-31,revenue_data_center,6.043,USD_B,confirmed,S450,"[recall] Data Center segment (EPYC, Instinct, Pensando, Xilinx DC)"
+AMD,CY2023,FY,2023-12-31,revenue_data_center,6.496,USD_B,confirmed,S450,"[recall] Data Center segment (EPYC, Instinct, Pensando, Xilinx DC)"
+AMD,CY2024,FY,2024-12-31,revenue_data_center,12.579,USD_B,confirmed,S450,"[recall] Data Center segment (EPYC, Instinct, Pensando, Xilinx DC)"
+AMD,2023-Q1,Q,2023-03-31,revenue_data_center,1.295,USD_B,confirmed,S450,[recall]
+AMD,2023-Q2,Q,2023-06-30,revenue_data_center,1.321,USD_B,confirmed,S450,[recall]
+AMD,2023-Q3,Q,2023-09-30,revenue_data_center,1.598,USD_B,confirmed,S450,[recall]
+AMD,2023-Q4,Q,2023-12-31,revenue_data_center,2.282,USD_B,confirmed,S450,[recall]
+AMD,2024-Q1,Q,2024-03-31,revenue_data_center,2.337,USD_B,confirmed,S450,[recall]
+AMD,2024-Q2,Q,2024-06-30,revenue_data_center,2.834,USD_B,confirmed,S450,[recall]
+AMD,2024-Q3,Q,2024-09-30,revenue_data_center,3.549,USD_B,confirmed,S450,[recall]
+AMD,2024-Q4,Q,2024-12-31,revenue_data_center,3.859,USD_B,confirmed,S450,[recall]
+AMD,2025-Q1,Q,2025-03-31,revenue_data_center,3.674,USD_B,confirmed,S450,[recall]
+AMD,2025-Q2,Q,2025-06-30,revenue_data_center,3.24,USD_B,confirmed,S450,[recall] Q2 2025 hit by ~$0.7B MI308 China export restriction
+AMD,2025-Q3,Q,2025-09-30,revenue_data_center,4.341,USD_B,confirmed,S450,[recall]
+AMD,2025-Q4,Q,2025-12-31,revenue_data_center,5.4,USD_B,reported,S450,[recall] rounded
+AMD,CY2025,FY,2025-12-31,revenue_data_center,16.66,USD_B,estimate,S450,Calc: sum of quarters (Q4 rounded)
+AMD,CY2022,FY,2022-12-31,rd_expense,5.005,USD_B,confirmed,S450,[recall]
+AMD,CY2023,FY,2023-12-31,rd_expense,5.872,USD_B,confirmed,S450,[recall]
+AMD,CY2024,FY,2024-12-31,rd_expense,6.456,USD_B,confirmed,S450,[recall]
+Broadcom,FY2024,FY,2024-11-03,revenue_ai_semiconductor,12.2,USD_B,confirmed,S451,[recall] AI revenue (custom XPUs + AI networking); fiscal year ends ~Nov 1
+Broadcom,Q1FY2025,Q,2025-02-02,revenue_ai_semiconductor,4.1,USD_B,confirmed,S451,[recall]
+Broadcom,Q2FY2025,Q,2025-05-04,revenue_ai_semiconductor,4.4,USD_B,confirmed,S451,[recall]
+Broadcom,Q3FY2025,Q,2025-08-03,revenue_ai_semiconductor,5.2,USD_B,confirmed,S451,[recall]
+Broadcom,Q4FY2025,Q,2025-11-02,revenue_ai_semiconductor,6.5,USD_B,confirmed,S451,[recall]
+Broadcom,FY2025,FY,2025-11-02,revenue_ai_semiconductor,20.2,USD_B,estimate,S451,Calc: sum of quarters
+Broadcom,FY2022,FY,2022-10-30,rd_expense,4.919,USD_B,confirmed,S451,[recall]
+Broadcom,FY2023,FY,2023-10-29,rd_expense,5.253,USD_B,confirmed,S451,[recall]
+Broadcom,FY2024,FY,2024-11-03,rd_expense,9.31,USD_B,confirmed,S451,[recall] FY2024 includes VMware
+Intel,CY2022,FY,2022-12-31,revenue_dcai,19.196,USD_B,confirmed,S452,[recall] DCAI segment as originally reported (incl. Altera/PSG)
+Intel,CY2023,FY,2023-12-31,revenue_dcai,15.521,USD_B,confirmed,S452,[recall] DCAI segment as originally reported (incl. Altera/PSG)
+Intel,CY2024,FY,2024-12-31,revenue_dcai,12.817,USD_B,confirmed,S452,[recall] DCAI segment as reported after Altera moved out of DCAI; not comparable with 2022–2023; 2025 recast again when NEX was folded in
+Intel,CY2022,FY,2022-12-31,rd_expense,17.528,USD_B,confirmed,S452,[recall]
+Intel,CY2023,FY,2023-12-31,rd_expense,16.046,USD_B,confirmed,S452,[recall]
+Intel,CY2024,FY,2024-12-31,rd_expense,16.546,USD_B,confirmed,S452,[recall]
+Marvell,FY2024,FY,2024-02-03,revenue_data_center,2.21,USD_B,reported,S453,[recall] data center end market; fiscal year ends ~Feb 1
+Marvell,FY2025,FY,2025-02-01,revenue_data_center,4.16,USD_B,reported,S453,[recall] ~+88% y/y on custom AI silicon and electro-optics
+TSMC,CY2022,FY,2022-12-31,hpc_share_of_revenue_pct,41,pct,confirmed,S454,[recall] HPC platform share of net revenue
+TSMC,CY2023,FY,2023-12-31,hpc_share_of_revenue_pct,43,pct,confirmed,S454,[recall] HPC platform share of net revenue
+TSMC,CY2024,FY,2024-12-31,hpc_share_of_revenue_pct,51,pct,confirmed,S454,[recall] HPC platform share of net revenue
+Alphabet,CY2022,FY,2022-12-31,capex,31.485,USD_B,confirmed,S455,[recall]
+Alphabet,CY2023,FY,2023-12-31,capex,32.251,USD_B,confirmed,S455,[recall]
+Alphabet,CY2024,FY,2024-12-31,capex,52.535,USD_B,confirmed,S455,[recall]
+Alphabet,CY2025,FY,2025-12-31,capex,91.4,USD_B,reported,S455;S460,[recall] full-year actual as recalled
+Alphabet,CY2026,FY,2026-12-31,capex,180.0,USD_B,reported,S460,[recall] guidance midpoint ($175–185B) given Feb 2026
+Amazon,CY2022,FY,2022-12-31,capex,63.645,USD_B,confirmed,S456,[recall] purchases of property and equipment (gross)
+Amazon,CY2023,FY,2023-12-31,capex,52.729,USD_B,confirmed,S456,[recall]
+Amazon,CY2024,FY,2024-12-31,capex,83.004,USD_B,confirmed,S456,[recall]
+Amazon,CY2025,FY,2025-12-31,capex,125.0,USD_B,reported,S456;S461,[recall] company outlook (~$125B) given Oct 2025; actual not captured
+Amazon,CY2026,FY,2026-12-31,capex,200.0,USD_B,reported,S461,[recall] ~US$200B outlook given Feb 2026
+Meta,CY2022,FY,2022-12-31,capex,31.431,USD_B,confirmed,S457,[recall] incl. principal payments on finance leases
+Meta,CY2023,FY,2023-12-31,capex,28.101,USD_B,confirmed,S457,[recall]
+Meta,CY2024,FY,2024-12-31,capex,39.231,USD_B,confirmed,S457,[recall]
+Meta,CY2025,FY,2025-12-31,capex,72.2,USD_B,reported,S457;S462,[recall]
+Meta,CY2026,FY,2026-12-31,capex,125.0,USD_B,reported,S462,[recall] guidance midpoint ($115–135B) given Jan 2026
+Microsoft,FY2022,FY,2022-06-30,capex,23.886,USD_B,confirmed,S458,"[recall] cash additions to P&E, excludes finance leases; FY ends June"
+Microsoft,FY2023,FY,2023-06-30,capex,28.107,USD_B,confirmed,S458,[recall]
+Microsoft,FY2024,FY,2024-06-30,capex,44.477,USD_B,confirmed,S458,[recall]
+Microsoft,FY2025,FY,2025-06-30,capex,64.551,USD_B,confirmed,S458,[recall] ~$88B including finance leases
+Oracle,FY2023,FY,2023-05-31,capex,8.695,USD_B,confirmed,S459,[recall] FY ends May
+Oracle,FY2024,FY,2024-05-31,capex,6.866,USD_B,confirmed,S459,[recall]
+Oracle,FY2025,FY,2025-05-31,capex,21.215,USD_B,confirmed,S459,[recall]
+Oracle,FY2026,FY,2026-05-31,capex,50.0,USD_B,reported,S463,[recall] outlook raised to ~$50B in Dec 2025; actual not captured

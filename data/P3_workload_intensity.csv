@@ -1,0 +1,8 @@
+workload,phase,precision,batch_or_tokens,arithmetic_intensity_flops_per_byte,method,confidence,source_id,notes
+Decode (batch 1),inference-decode,BF16,1 sequence,1.0,"GEMM M=1,N=K=8192: 2MNK / 2(MK+KN+MN)",estimate,S33012;S33013;S33025,Weights-only upper bound for a 70B-class layer (hidden 8192); KV-cache reads push it lower
+Decode attention (GQA-8),inference-decode,BF16,any batch,8.0,4*heads*head_dim per context token / (2*kv_heads*head_dim*2 bytes),estimate,S33012;S33013,Each sequence reads its own KV cache so batching does not help; 64 query heads share 8 KV heads (Llama-2/3-70B layout)
+MoE expert GEMM in decode (256-token batch),inference-decode,BF16,8 tokens per expert,8.0,"GEMM M=8,N=2048,K=7168",estimate,S34007;S33013,DeepSeek-V3-like layer: 256 routed experts and 8 active per token leave each expert ~8 tokens from a 256-token batch
+Decode (batch 64),inference-decode,BF16,64 sequences,63.0,"GEMM M=64,N=K=8192",estimate,S33012;S33013,Weights read once and reused 64 times
+Decode (batch 256),inference-decode,BF16,256 sequences,241.0,"GEMM M=256,N=K=8192",estimate,S33012;S33013,Close to the BF16 ridge point of H100 and B200
+Prefill (2048-token prompt),inference-prefill,BF16,2048 tokens,1365.0,"GEMM M=2048,N=K=8192",estimate,S33025;S33013,One prompt already supplies 2048 rows so prefill is compute bound
+Training GEMM (16K tokens per GPU),training,BF16,16384 tokens,3277.0,"GEMM M=16384,N=K=8192",estimate,S33001;S34001,Large square-ish matrix multiplications sit far right of every ridge point

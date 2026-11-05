@@ -1,1 +1,153 @@
 record_type,item,period,metric,value,unit,supplier,confidence,source_id,notes
+hbm_generation,HBM,2013,pin_speed,1.0,Gb/s,JEDEC,confirmed,S370,JESD235 (Oct 2013); first product AMD Radeon R9 Fury (2015). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM,2013,interface_width,1024,bits,JEDEC,confirmed,S370,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM,2013,stack_bandwidth,128,GB/s,JEDEC,confirmed,S370,"1.0 Gb/s x 1,024 bits / 8. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM,2013,max_stack_capacity,1,GB,JEDEC,confirmed,S370,4-high stack of 2 Gb dies. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM,2013,max_stack_height,4,dies,JEDEC,confirmed,S370,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2,2016,pin_speed,2.0,Gb/s,JEDEC,confirmed,S370,JESD235A (Jan 2016). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2,2016,interface_width,1024,bits,JEDEC,confirmed,S370,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2,2016,stack_bandwidth,256,GB/s,JEDEC,confirmed,S370,"Spec maximum; P100 ran HBM2 at ~1.4 Gb/s (183 GB/s per stack), V100 at ~1.75 Gb/s (225 GB/s). QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM2,2016,max_stack_capacity,8,GB,JEDEC,confirmed,S370,8-high stack of 8 Gb dies. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2,2016,max_stack_height,8,dies,JEDEC,confirmed,S370,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2E,2020,pin_speed,3.6,Gb/s,SK hynix,reported,S370,SK hynix HBM2E (2020); Samsung Flashbolt 3.2 Gb/s (410 GB/s). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2E,2020,interface_width,1024,bits,SK hynix,reported,S370,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2E,2020,stack_bandwidth,460,GB/s,SK hynix,reported,S370,"3.6 Gb/s x 1,024 / 8. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM2E,2020,max_stack_capacity,16,GB,SK hynix,reported,S370,8-high stack of 16 Gb dies. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM2E,2020,max_stack_height,8,dies,SK hynix,reported,S370,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3,2022,pin_speed,6.4,Gb/s,JEDEC,confirmed,S368,JESD238 (Jan 2022). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3,2022,interface_width,1024,bits,JEDEC,confirmed,S368,Split into 16 64-bit channels (32 pseudo-channels). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3,2022,stack_bandwidth,819,GB/s,JEDEC,confirmed,S368,"6.4 Gb/s x 1,024 / 8. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM3,2022,channels,16,channels,JEDEC,confirmed,S368,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3,2022,max_stack_capacity,24,GB,JEDEC,confirmed,S368,"Commercial maximum: 12-high x 16 Gb (SK hynix, 2023). QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM3,2022,jedec_max_stack_capacity,64,GB,JEDEC,confirmed,S368,Standard allows 16-high x 32 Gb. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3,2022,max_stack_height,12,dies,JEDEC,confirmed,S368,Commercial; JEDEC allows 16. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 8-high,2024,pin_speed,9.2,Gb/s,Micron,confirmed,S371,Micron volume production Feb 2024 (>9.2 Gb/s); used in H200. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 8-high,2024,interface_width,1024,bits,Micron,confirmed,S371,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 8-high,2024,stack_bandwidth,1200,GB/s,Micron,confirmed,S371,Micron: >1.2 TB/s per stack. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 8-high,2024,max_stack_capacity,24,GB,Micron,confirmed,S371,8-high stack of 24 Gb dies. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 8-high,2024,max_stack_height,8,dies,Micron,confirmed,S371,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 12-high,2024,pin_speed,9.8,Gb/s,Samsung,confirmed,S372,Samsung 36 GB HBM3E 12H (Feb 2024). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 12-high,2024,stack_bandwidth,1280,GB/s,Samsung,confirmed,S372,"Samsung: up to 1,280 GB/s. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM3E 12-high,2024,max_stack_capacity,36,GB,Samsung,confirmed,S372,12-high stack of 24 Gb dies; B300 and MI355X use 8 such stacks (288 GB). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 12-high,2024,max_stack_height,12,dies,Samsung,confirmed,S372,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 12-high,2024,pin_speed,9.6,Gb/s,SK hynix,confirmed,S373,SK hynix mass production Sep 2024. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 12-high,2024,stack_bandwidth,1229,GB/s,SK hynix,estimate,S373,"Repo calc: 9.6 Gb/s x 1,024 / 8. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM3E 16-high,2025,max_stack_capacity,48,GB,SK hynix,reported,S375,16-high 48 GB unveiled Nov 2024 (SK AI Summit); samples 2025. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM3E 16-high,2025,max_stack_height,16,dies,SK hynix,reported,S375,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM4,2025,pin_speed,8.0,Gb/s,JEDEC,confirmed,S369,JESD270-4 (Apr 2025) maximum at release; vendors ship faster bins. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM4,2025,interface_width,2048,bits,JEDEC,confirmed,S369,"Interface doubled from 1,024 to 2,048 bits. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM4,2025,stack_bandwidth,2048,GB/s,JEDEC,confirmed,S369,"8 Gb/s x 2,048 / 8 = 2 TB/s per stack. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM4,2025,channels,32,channels,JEDEC,confirmed,S369,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM4,2025,jedec_max_stack_capacity,64,GB,JEDEC,confirmed,S369,16-high x 32 Gb dies. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM4,2025,max_stack_height,16,dies,JEDEC,confirmed,S369,"JEDEC supports 4-, 8-, 12- and 16-high. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM4,2025,pin_speed,10.0,Gb/s,SK hynix,confirmed,S374,SK hynix completed HBM4 development Sep 2025 at >10 Gb/s. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_generation,HBM4,2025,stack_bandwidth,2560,GB/s,SK hynix,estimate,S374,"Repo calc: 10 Gb/s x 2,048 / 8. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_generation,HBM4 (Rubin implementation),2026,stack_bandwidth,2400,GB/s,,estimate,S103;S102;S33006,"Repo calc: Rubin 19.2 TB/s / 8 stacks (revised Sep-Oct 2026 from 22 TB/s = 2,750 GB/s per stack at CES 2026); implies ~9.4 Gb/s per pin."
+hbm_generation,HBM4 (Rubin implementation),2026,max_stack_capacity,36,GB,,estimate,S33006;S360,Repo calc: 288 GB / 8 stacks (12-high).
+hbm_generation,HBM4 (Rubin implementation),2026,max_stack_height,12,dies,,estimate,S33006;S360,Implied by 36 GB per stack with 24 Gb dies.
+hbm_generation,HBM4E,2027,max_stack_capacity,64,GB,,reported,S35041;S110,"Rubin Ultra roadmap: 1 TB HBM4E in 16 stacks (repo calc 64 GB per stack); 1 TB tray shown at GTC 2026. A low-tier report (S111) says 768 GB (12-high, 48 GB) may ship instead."
+hbm_generation,HBM4E,2027,max_stack_height,16,dies,,estimate,S35041;S111,Implied by 64 GB per stack with 32 Gb dies; 12-high if the 768 GB report is right.
+hbm_generation,HBM4E,2027,interface_width,2048,bits,,speculative,S369,Assumed unchanged from HBM4; per-stack bandwidth not yet published by NVIDIA or suppliers.
+hbm_market_share,HBM supplier revenue share,2022,share,50,pct,SK hynix,reported,S376,TrendForce revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2022,share,40,pct,Samsung,reported,S376,TrendForce revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2022,share,10,pct,Micron,reported,S376,TrendForce revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2023,share,53,pct,SK hynix,estimate,S376,TrendForce 2023 estimate (made in 2023). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2023,share,38,pct,Samsung,estimate,S376,TrendForce 2023 estimate. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2023,share,9,pct,Micron,estimate,S376,TrendForce 2023 estimate. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q1,share,70,pct,SK hynix,reported,S377,Counterpoint; other suppliers not split out in the figure used. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q2,share,62,pct,SK hynix,reported,S377,Counterpoint HBM revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q2,share,21,pct,Micron,reported,S377,Counterpoint HBM revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q2,share,17,pct,Samsung,reported,S377,Counterpoint HBM revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q3,share,57,pct,SK hynix,reported,S377,Counterpoint HBM revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q3,share,22,pct,Samsung,reported,S377,Counterpoint HBM revenue share; Samsung recovering on HBM3E 12-high / HBM4 qualification. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,HBM supplier revenue share,2025-Q3,share,21,pct,Micron,reported,S377,Counterpoint HBM revenue share. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_share,NVIDIA share of HBM demand (proxy),2026,share,60,pct,,speculative,S379,"Repo inference: nearly all HBM is co-packaged on CoWoS, so NVIDIA's ~60% share of 2026 CoWoS bookings is used as a proxy for its share of HBM bit demand. No supplier discloses this."
+hbm_market_size,HBM total addressable market,2025,market_size,35,USD B,,reported,S399,Micron estimate. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_market_size,HBM total addressable market,2028,market_size,100,USD B,,estimate,S399,"Micron forecast (~$100B by CY2028, pulled in from 2030). QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+hbm_per_gpu,NVIDIA P100,2016,stacks,4,stacks,,confirmed,S125,HBM2.
+hbm_per_gpu,NVIDIA P100,2016,capacity,16,GB,,confirmed,S125,HBM2.
+hbm_per_gpu,NVIDIA P100,2016,bandwidth,0.732,TB/s,,confirmed,S125,HBM2.
+hbm_per_gpu,NVIDIA V100,2017,stacks,4,stacks,,confirmed,S126,HBM2. 32 GB version from 2018.
+hbm_per_gpu,NVIDIA V100,2017,capacity,16,GB,,confirmed,S126,HBM2. 32 GB version from 2018.
+hbm_per_gpu,NVIDIA V100,2017,bandwidth,0.9,TB/s,,confirmed,S126,HBM2. 32 GB version from 2018.
+hbm_per_gpu,NVIDIA A100 40GB,2020,stacks,5,stacks,,confirmed,S365,HBM2. 5 active stacks on 6 sites. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_per_gpu,NVIDIA A100 40GB,2020,capacity,40,GB,,confirmed,S365,HBM2. 5 active stacks on 6 sites. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_per_gpu,NVIDIA A100 40GB,2020,bandwidth,1.555,TB/s,,confirmed,S365,HBM2. 5 active stacks on 6 sites. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_per_gpu,NVIDIA A100 80GB,2020,stacks,5,stacks,,confirmed,S365,HBM2E. SXM 80 GB version (Nov 2020). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_per_gpu,NVIDIA A100 80GB,2020,capacity,80,GB,,confirmed,S365,HBM2E. SXM 80 GB version (Nov 2020). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_per_gpu,NVIDIA A100 80GB,2020,bandwidth,2.039,TB/s,,confirmed,S365,HBM2E. SXM 80 GB version (Nov 2020). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+hbm_per_gpu,NVIDIA H100 SXM,2022,stacks,5,stacks,,confirmed,S33002,HBM3. 5 active HBM3 stacks on 6 sites.
+hbm_per_gpu,NVIDIA H100 SXM,2022,capacity,80,GB,,confirmed,S33002,HBM3. 5 active HBM3 stacks on 6 sites.
+hbm_per_gpu,NVIDIA H100 SXM,2022,bandwidth,3.35,TB/s,,confirmed,S33002,HBM3. 5 active HBM3 stacks on 6 sites.
+hbm_per_gpu,NVIDIA H200,2024,stacks,6,stacks,,confirmed,S32002,"HBM3E. 6 x 24 GB 8-high stacks (144 GB raw, 141 GB usable)."
+hbm_per_gpu,NVIDIA H200,2024,capacity,141,GB,,confirmed,S32002,"HBM3E. 6 x 24 GB 8-high stacks (144 GB raw, 141 GB usable)."
+hbm_per_gpu,NVIDIA H200,2024,bandwidth,4.8,TB/s,,confirmed,S32002,"HBM3E. 6 x 24 GB 8-high stacks (144 GB raw, 141 GB usable)."
+hbm_per_gpu,NVIDIA GH200 (HBM3E),2024,capacity,144,GB,,confirmed,S128,HBM3E. Grace Hopper superchip HBM3E version.
+hbm_per_gpu,NVIDIA GH200 (HBM3E),2024,bandwidth,4.9,TB/s,,confirmed,S128,HBM3E. Grace Hopper superchip HBM3E version.
+hbm_per_gpu,NVIDIA B200,2024,stacks,8,stacks,,confirmed,S358;S33003,HBM3E. 8 x 24 GB 8-high; 180 GB usable in HGX B200.
+hbm_per_gpu,NVIDIA B200,2024,capacity,192,GB,,confirmed,S358;S33003,HBM3E. 8 x 24 GB 8-high; 180 GB usable in HGX B200.
+hbm_per_gpu,NVIDIA B200,2024,bandwidth,8.0,TB/s,,confirmed,S358;S33003,HBM3E. 8 x 24 GB 8-high; 180 GB usable in HGX B200.
+hbm_per_gpu,NVIDIA B300,2025,stacks,8,stacks,,confirmed,S123,HBM3E. 8 x 36 GB 12-high.
+hbm_per_gpu,NVIDIA B300,2025,capacity,288,GB,,confirmed,S123,HBM3E. 8 x 36 GB 12-high.
+hbm_per_gpu,NVIDIA B300,2025,bandwidth,8.0,TB/s,,confirmed,S123,HBM3E. 8 x 36 GB 12-high.
+hbm_per_gpu,NVIDIA Rubin,2026,stacks,8,stacks,,confirmed,S33006;S103;S360,HBM4. Bandwidth revised from 22 TB/s (CES 2026) to 19.2 TB/s (Sep-Oct 2026).
+hbm_per_gpu,NVIDIA Rubin,2026,capacity,288,GB,,confirmed,S33006;S103;S360,HBM4. Bandwidth revised from 22 TB/s (CES 2026) to 19.2 TB/s (Sep-Oct 2026).
+hbm_per_gpu,NVIDIA Rubin,2026,bandwidth,19.2,TB/s,,confirmed,S33006;S103;S360,HBM4. Bandwidth revised from 22 TB/s (CES 2026) to 19.2 TB/s (Sep-Oct 2026).
+hbm_per_gpu,NVIDIA Rubin Ultra,2027,stacks,16,stacks,,reported,S35041;S107;S110,"HBM4E. Roadmap: 1 TB in 16 stacks, ~32 TB/s; a low-tier report says 768 GB (S111)."
+hbm_per_gpu,NVIDIA Rubin Ultra,2027,capacity,1024,GB,,reported,S35041;S107;S110,"HBM4E. Roadmap: 1 TB in 16 stacks, ~32 TB/s; a low-tier report says 768 GB (S111)."
+hbm_per_gpu,NVIDIA Rubin Ultra,2027,bandwidth,32,TB/s,,reported,S35041;S107;S110,"HBM4E. Roadmap: 1 TB in 16 stacks, ~32 TB/s; a low-tier report says 768 GB (S111)."
+hbm_per_gpu,AMD MI300X,2023,stacks,8,stacks,,confirmed,S141,HBM3.
+hbm_per_gpu,AMD MI300X,2023,capacity,192,GB,,confirmed,S141,HBM3.
+hbm_per_gpu,AMD MI300X,2023,bandwidth,5.3,TB/s,,confirmed,S141,HBM3.
+hbm_per_gpu,AMD MI325X,2024,stacks,8,stacks,,confirmed,S142,HBM3E.
+hbm_per_gpu,AMD MI325X,2024,capacity,256,GB,,confirmed,S142,HBM3E.
+hbm_per_gpu,AMD MI325X,2024,bandwidth,6.0,TB/s,,confirmed,S142,HBM3E.
+hbm_per_gpu,AMD MI355X,2025,stacks,8,stacks,,confirmed,S143,HBM3E. 8 x 36 GB 12-high.
+hbm_per_gpu,AMD MI355X,2025,capacity,288,GB,,confirmed,S143,HBM3E. 8 x 36 GB 12-high.
+hbm_per_gpu,AMD MI355X,2025,bandwidth,8.0,TB/s,,confirmed,S143,HBM3E. 8 x 36 GB 12-high.
+hbm_per_gpu,AMD MI455X,2026,stacks,12,stacks,,reported,S144;S361,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc).
+hbm_per_gpu,AMD MI455X,2026,capacity,432,GB,,reported,S144;S361,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc).
+hbm_per_gpu,AMD MI455X,2026,bandwidth,19.6,TB/s,,reported,S144;S361,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc).
+hbm_per_gpu,Google TPU v5p,2023,capacity,95,GB,,confirmed,S149,HBM2E. 95 GB usable (96 GB physical).
+hbm_per_gpu,Google TPU v5p,2023,bandwidth,2.765,TB/s,,confirmed,S149,HBM2E. 95 GB usable (96 GB physical).
+hbm_per_gpu,Google TPU7x Ironwood,2025,capacity,192,GB,,confirmed,S151;S350,HBM3E.
+hbm_per_gpu,Google TPU7x Ironwood,2025,bandwidth,7.37,TB/s,,confirmed,S151;S350,HBM3E.
+hbm_per_gpu,AWS Trainium2,2024,capacity,96,GB,,confirmed,S154,HBM3.
+hbm_per_gpu,AWS Trainium2,2024,bandwidth,2.9,TB/s,,confirmed,S154,HBM3.
+hbm_per_gpu,AWS Trainium3,2025,capacity,144,GB,,confirmed,S155;S353,HBM3E.
+hbm_per_gpu,AWS Trainium3,2025,bandwidth,4.9,TB/s,,confirmed,S155;S353,HBM3E.
+hbm_per_gpu,Microsoft Maia 200,2026,capacity,216,GB,,reported,S158,HBM3E. Figures as recalled by the competitor-data agent; QA.
+hbm_per_gpu,Microsoft Maia 200,2026,bandwidth,7.0,TB/s,,reported,S158,HBM3E. Figures as recalled by the competitor-data agent; QA.
+hbm_per_gpu,Huawei Ascend 910C,2025,capacity,128,GB,,reported,S163;S340,HBM2E.
+hbm_per_gpu,Huawei Ascend 910C,2025,bandwidth,3.2,TB/s,,reported,S163;S340,HBM2E.
+hbm_per_gpu,Huawei Ascend 950DT,2026,capacity,144,GB,,reported,S163;S343,HiZQ 2.0 (in-house HBM). Roadmap (Q4 2026).
+hbm_per_gpu,Huawei Ascend 950DT,2026,bandwidth,4.0,TB/s,,reported,S163;S343,HiZQ 2.0 (in-house HBM). Roadmap (Q4 2026).
+hbm_per_gpu,Huawei Ascend 960,2027,capacity,288,GB,,reported,S163,in-house HBM. Roadmap (Q4 2027).
+hbm_per_gpu,Huawei Ascend 960,2027,bandwidth,9.6,TB/s,,reported,S163,in-house HBM. Roadmap (Q4 2027).
+cowos_capacity,TSMC CoWoS capacity (year-end run-rate),2023,capacity,15,k wafers/month,TSMC,estimate,S379;S378,"Repo midpoint of press-reported analyst ranges (13-15k wafers/month; TrendForce, Morgan Stanley, DigiTimes). TSMC does not disclose CoWoS capacity in wafers. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+cowos_capacity,TSMC CoWoS capacity (year-end run-rate),2024,capacity,35,k wafers/month,TSMC,estimate,S379;S378,"Repo midpoint of press-reported analyst ranges (32-40k wafers/month; TrendForce, Morgan Stanley, DigiTimes). TSMC does not disclose CoWoS capacity in wafers. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+cowos_capacity,TSMC CoWoS capacity (year-end run-rate),2025,capacity,75,k wafers/month,TSMC,estimate,S379;S378,"Repo midpoint of press-reported analyst ranges (70-80k wafers/month; TrendForce, Morgan Stanley, DigiTimes). TSMC does not disclose CoWoS capacity in wafers. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+cowos_capacity,TSMC CoWoS capacity (year-end run-rate),2026,capacity,115,k wafers/month,TSMC,estimate,S379;S378,"Repo midpoint of press-reported analyst ranges (100-130k wafers/month; TrendForce, Morgan Stanley, DigiTimes). TSMC does not disclose CoWoS capacity in wafers. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+cowos_capacity,TSMC CoWoS capacity growth,2024,growth_multiple,2.0,x,TSMC,reported,S378,TSMC management: CoWoS capacity more than doubled in 2024 and was planned to roughly double again in 2025. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+cowos_allocation,2026 CoWoS bookings: NVIDIA,2026,wafers,595,k wafers/year,NVIDIA,estimate,S379,Morgan Stanley estimate as reported in trade press. ~60% of ~1.0M wafers of 2026 CoWoS demand. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+cowos_allocation,2026 CoWoS bookings: Broadcom,2026,wafers,150,k wafers/year,Broadcom,estimate,S379,"Morgan Stanley estimate as reported in trade press. Google TPU, Meta and other custom ASICs. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+cowos_allocation,2026 CoWoS bookings: AMD,2026,wafers,105,k wafers/year,AMD,estimate,S379,Morgan Stanley estimate as reported in trade press. MI355X / MI400 family. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+cowos_allocation,2026 CoWoS bookings: total,2026,wafers,1000,k wafers/year,,estimate,S379,"Implied total (~1.0M wafers) behind the ~60% NVIDIA share; remainder (~150k) = AWS/Alchip/Marvell, MediaTek and others. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+cowos_allocation,NVIDIA share of 2026 CoWoS bookings,2026,share,60,pct,NVIDIA,estimate,S379,595k / ~1.0M wafers (Morgan Stanley via trade press). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+packaging_tech,Lithography reticle limit,2024,area,858,mm2,TSMC,confirmed,S380,26 x 33 mm field; the ceiling for one monolithic die.
+packaging_tech,CoWoS-S,2024,max_interposer_area_reticles,3.3,x reticle,TSMC,reported,S380,"Monolithic silicon interposer; used by A100, H100, H200, MI300X. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+packaging_tech,CoWoS-L,2026,max_interposer_area_reticles,5.5,x reticle,TSMC,reported,S380,Organic interposer with local silicon interconnect (LSI) bridges; ~5.5x reticle with up to 12 HBM stacks targeted for 2026 (TSMC Technology Symposium 2024). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+packaging_tech,CoWoS-L,2027,max_interposer_area_reticles,9.5,x reticle,TSMC,reported,S380,~9.5x reticle targeted for 2027 (TSMC Technology Symposium 2025); needed for 4-die Rubin Ultra-class packages. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+packaging_tech,CoWoS-L,2024,first_nvidia_product_dies,2,reticle dies,TSMC,confirmed,S35014;S358,B200: two reticle-limited dies joined by 10 TB/s NV-HBI plus 8 HBM3E stacks.
+packaging_tech,CoWoS-L,2027,rubin_ultra_dies,4,reticle dies,TSMC,reported,S35041,Rubin Ultra: four reticle-sized compute dies plus 16 HBM4E stacks.
+packaging_tech,CoWoS-S package cost (H100),2023,cost_per_package,750,USD,TSMC,estimate,S35040,Silicon Analysts estimate.
+packaging_tech,CoWoS-L package cost (B200),2025,cost_per_package,1300,USD,TSMC,estimate,S35020;S35040,"Epoch AI range $1,100-1,500 (midpoint shown); Silicon Analysts ~$1,100."
+hbm_pricing,HBM3E contract price,2025,price_per_gb,15,USD/GB,,estimate,S35020,"Epoch AI assumption for B200 cost model: triangular $14-17/GB, centre $15."
+hbm_pricing,HBM4 contract price,2027,price_per_gb,53,USD/GB,,estimate,S333,Bernstein forecast: HBM4 prices roughly triple to ~$53/GB in 2027.
+hbm_pricing,HBM share of B200 manufacturing cost,2025,share,45,pct,,estimate,S35020,Epoch AI: HBM ~$2.7-3.3k of ~$6.4k unit cost.
+hbm_pricing,GB300 NVL72 memory content (HBM3E + LPDDR5X),2026,memory_cost_per_rack,0.374,USD M,,estimate,S331;S332,"Morgan Stanley BOM: $373,939 per rack."
+hbm_pricing,Vera Rubin NVL72 memory content (HBM4 + LPDDR5X),2026,memory_cost_per_rack,2.0016,USD M,,estimate,S330;S331,"Morgan Stanley BOM: $2,001,600 per rack (+435% vs GB300)."
+hbm_pricing,GB300 NVL72 blended memory price,2026,price_per_gb,9.9,USD/GB,,estimate,S331;S337,"Repo calc: $373,939 / (20.7 TB HBM3E + 17 TB LPDDR5X)."
+hbm_pricing,Vera Rubin NVL72 blended memory price,2026,price_per_gb,26.8,USD/GB,,estimate,S330;S362,"Repo calc: $2,001,600 / 74.7 TB (20.7 TB HBM4 + 54 TB LPDDR5X)."
+hbm_pricing,Memory share of GB300 NVL72 rack BOM,2026,share,9.4,pct,,estimate,S331;S332,Repo calc: $0.374M / $3.99M.
+hbm_pricing,Memory share of Vera Rubin NVL72 rack BOM,2026,share,25.6,pct,,estimate,S330;S332,$2.0M / $7.8M; Morgan Stanley cites ~25-26% (vs 5-10% for GB200 at old memory prices).

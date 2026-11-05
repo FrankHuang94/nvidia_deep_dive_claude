@@ -1,0 +1,9 @@
+date,entity,metric,value,unit,monthly_tokens_t,basis,confidence,source_id,notes
+2024-04,Google,monthly_tokens_processed,9.7,trillion tokens per month,9.7,reported,reported,S32018,"Year-earlier baseline Google cited at I/O 2025 (across Google products and APIs)"
+2025-04,Google,monthly_tokens_processed,480,trillion tokens per month,480,reported,reported,S32018,"I/O 2025: ~50x in a year"
+2025-06,Google,monthly_tokens_processed,980,trillion tokens per month,980,reported,reported,S32019,"Q2 2025 earnings call (July 2025)"
+2025-10,Google,monthly_tokens_processed,1300,trillion tokens per month,1300,reported,reported,S32020,"Over 1.3 quadrillion monthly tokens (October 2025)"
+2024-02,Microsoft,quarterly_tokens_processed,20,trillion tokens per quarter,6.7,derived,estimate,S32021,"Implied by '100T+ tokens, up 5x year over year' for Jan-Mar 2025; monthly = quarter / 3"
+2025-02,Microsoft,quarterly_tokens_processed,100,trillion tokens per quarter,33.3,reported,reported,S32021,"Jan-Mar 2025 (Q3 FY2025) quarter; monthly average = quarter / 3"
+2025-03,Microsoft,monthly_tokens_processed,50,trillion tokens per month,50,reported,reported,S32021,"Record 50T tokens in March 2025 alone"
+2025-10,OpenAI API,tokens_per_minute,6,billion tokens per minute,259,derived,reported,S32022,"DevDay 2025: 6B tokens/min on the API; x 60 x 24 x 30 = ~259T per month"

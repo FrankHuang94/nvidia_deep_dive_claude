@@ -1,0 +1,9 @@
+scope,source_org,scenario,year,value_type,twh,share_of_electricity_pct,confidence,source_id,notes
+Global,IEA,actual,2024,estimate-of-actual,415,1.5,reported,S33015,IEA estimate of 2024 data-centre electricity use
+Global,IEA,base case,2030,forecast,945,3.0,reported,S33015,Base case; share described as just under 3% of global electricity
+United States,LBNL,actual,2018,estimate-of-actual,76,1.9,reported,S33016,
+United States,LBNL,actual,2023,estimate-of-actual,176,4.4,reported,S33016,
+United States,LBNL,low,2028,forecast,325,6.7,reported,S33016,Low end of the 2028 scenario range
+United States,LBNL,high,2028,forecast,580,12.0,reported,S33016,High end of the 2028 scenario range
+United States,EPRI,low growth (3.7%/yr),2030,forecast,196,4.6,reported,S33017,EPRI 2024 low scenario (196.3 TWh)
+United States,EPRI,higher growth (15%/yr),2030,forecast,404,9.1,reported,S33017,EPRI 2024 higher scenario (403.9 TWh)

@@ -87,3 +87,185 @@ Compute figures are **dense** (no sparsity) unless a column says otherwise.
 
 ### tco_model_inputs.csv (long)
 `system,vendor,input,value,unit,basis,confidence,source_id,notes`
+
+## Primer P3 — the four bottlenecks (`P3_*.csv`, charts in `scripts/charts/ch_primer_p3.py`)
+
+### P3_roofline_inputs.csv (wide, one row per NVIDIA flagship GPU)
+`vendor,product,architecture,year,status,bf16_tflops_dense,fp8_tflops_dense,fp4_tflops_dense,memory_bandwidth_tbs,memory_capacity_gb,scale_up_bw_gbs_bidir,tdp_w,confidence,source_id,notes`
+
+Small, self-contained spec extract (V100 → Rubin) used for roofline ridge points and the memory-wall index. All compute is dense. V100's 16-bit value is FP16 (no BF16). Rubin uses the currently listed 19.2 TB/s HBM4 and 3.0 TB/s NVLink 6 (launched as 22 TB/s and 3.6 TB/s). Superseded by `gpu_product_specs.csv` once that file is populated.
+
+### P3_workload_intensity.csv (one row per operation)
+`workload,phase,precision,batch_or_tokens,arithmetic_intensity_flops_per_byte,method,confidence,source_id,notes`
+
+Arithmetic intensity computed by the repo for a 70B-class layer (hidden 8,192, BF16) with the GEMM formula 2MNK / (2·(MK+KN+MN)); attention and MoE rows use the formulas in `method`. All rows are `estimate`.
+
+### P3_power_demand.csv (long)
+`scope,source_org,scenario,year,value_type,twh,share_of_electricity_pct,confidence,source_id,notes`
+
+Datacenter electricity use and forecasts (IEA global; LBNL and EPRI United States). `value_type`: `estimate-of-actual` | `forecast`.
+
+### P3_bottleneck_matrix.csv (long)
+`workload,bottleneck,severity_1_3,label,rationale,confidence,source_id,notes`
+
+Repo analysis (all `speculative`) of which bottleneck binds for each workload: 3 = Binding, 2 = Significant, 1 = Minor.
+
+## Primer P4 — parallelism explained (`P4_*.csv`, charts in `scripts/charts/ch_primer_p4.py`)
+
+### P4_fabric_bandwidth.csv (one row per link generation)
+`fabric,generation,first_product,year,scope,per_gpu_bw_gbs_unidir,per_gpu_bw_gbs_bidir,status,confidence,source_id,notes`
+
+Per-GPU link bandwidth (GB/s) for PCIe, InfiniBand and NVLink, used for all-reduce timing. `scope` as in `interconnect_specs.csv`. Superseded by `interconnect_specs.csv` once populated.
+
+### P4_comm_volume_example.csv (one row per parallelism type)
+`parallelism,degree,fabric,gb_per_gpu_per_step,critical_path,formula,confidence,source_id,notes`
+
+Repo estimate of GB sent per GPU per training step for a 70B dense model (80 layers, hidden 8,192, 4,096-token sequences, BF16) split TP8 × PP4 × DP64 on 2,048 GPUs with a 4M-token global batch. Formulas in `formula`.
+
+### P4_pipeline_bubble.csv (generated grid)
+`schedule,pipeline_stages,virtual_chunks,micro_batches,bubble_fraction_of_step,formula,confidence,source_id,notes`
+
+Idle share of step time = (p−1)/(v·m+p−1) for p stages, m micro-batches and v interleaved chunks (v = 1 for plain 1F1B).
+
+### P4_parallelism_configs.csv (one row per published training run)
+`run,organization,year,model_params_b,accelerator,gpus,tp,cp,pp,dp,ep,sharding,seq_len,mfu_pct,confidence,source_id,notes`
+
+Published parallelism degrees; `gpus` = tp × cp × pp × dp (expert parallelism `ep` overlaps the data-parallel GPUs). `mfu_pct` is model FLOPs utilization where the paper reports it.
+
+## Primer P5 — chip economics (`P5_wafer_economics.csv`, charts in `scripts/charts/ch_primer_p5.py`)
+
+### P5_wafer_economics.csv (long)
+`record_type,item,period,metric,value,unit,confidence,source_id,notes`
+
+Cited estimates behind the chip-economics primer. `record_type`: `wafer_price` (US$ per 300 mm
+TSMC wafer by node; several estimates per node, the chart plots the median) · `wafer_asp` (TSMC
+blended average) · `die` (die area, transistor counts) · `model_param` (reticle limits, wafer
+diameter, illustrative defect densities, Epoch AI yield and HBM-price assumptions) · `bom`
+(estimated H100/B200 unit build cost by component) · `price` (reported selling-price ranges) ·
+`hbm_share` (HBM share of unit cost or of AI-chip component spend) · `tsmc_capex` (US$ B by
+calendar year; 2026 = guidance midpoint) · `foundry_share` (share of top-10 foundry revenue) ·
+`gpu_flops` (dense peak TFLOPS by precision, reused from primer P3 sources). Yield and
+cost-per-good-die charts are computed from these parameters with the Poisson/Murphy model
+documented in the chart module; TSMC publishes neither wafer prices nor absolute defect densities.
+
+## Chapter 01 — the NVIDIA flywheel (`01_flywheel_ecosystem.csv`, charts in `scripts/charts/ch_flywheel.py`)
+
+### 01_flywheel_ecosystem.csv (long)
+`record_type,date,entity,metric,value,unit,confidence,source_id,notes`
+
+NVIDIA's self-reported developer-ecosystem counts used to quantify the developer flywheel:
+registered CUDA developers (millions), CUDA downloads, installed base of CUDA GPUs, accelerated
+applications, SDKs/models and start-ups. All rows are `reported` company claims from keynotes,
+blogs and earnings calls (sources registered by the Phase-1 software agent). Superseded by
+`software_ecosystem.csv` where that file carries the same series. The chapter's other charts read
+`financials.csv` and `acquisitions_investments.csv` directly.
+
+## Systems, memory/packaging and TCO inputs (agent A3; sources S300–S399)
+
+### system_specs.csv — conventions
+`category`: `server-8gpu` | `server-16gpu` | `rack` (one scale-up rack or rack-like unit) | `multi-rack`
+(several racks forming one product, e.g. CloudMatrix 384, DGX SuperPOD) | `pod` (pod-scale scale-up
+domain, e.g. TPU superpod, Atlas SuperPoD) | `wafer-scale`. `status`: `shipping` | `announced` |
+`roadmap` | `eol`. `accelerators_per_system` counts GPU/accelerator **packages** (Vera Rubin NVL72 = 72,
+Rubin Ultra Kyber = 144 packages / 576 dies). `fp4_pflops_dense` / `fp8_pflops_dense` are dense peak
+(vendor sparse figures halved; Rubin's NVFP4 *inference* figure relies on adaptive compression rather
+than 2:4 sparsity and is shown as published). Systems without FP8 (pre-Hopper, Ascend 910C) leave
+`fp8_pflops_dense` blank; CloudMatrix 384 BF16 is in `tco_model_inputs.csv`. `power_kw` is IT power of
+the unit (rack/system), not facility power. `est_price_usd_m` is always an analyst/reseller estimate
+or list price; see `notes` for whose. A row's `confidence` describes its specification columns; price
+and power caveats are in `notes`. Notes ending "QA: recheck" were filled from prior knowledge because
+the session's web search budget ran out — verify before publication.
+
+### hbm_and_packaging.csv — additions
+Extra `record_type` **`hbm_market_size`** (HBM TAM, US$ B). Metric names used: `hbm_generation` →
+`pin_speed` (Gb/s), `interface_width` (bits), `stack_bandwidth` (GB/s), `channels`,
+`max_stack_capacity` / `jedec_max_stack_capacity` (GB), `max_stack_height` (dies); `hbm_per_gpu` →
+`stacks`, `capacity` (GB), `bandwidth` (TB/s); `hbm_market_share` → `share` (pct; `supplier` = SK hynix /
+Samsung / Micron); `cowos_capacity` → `capacity` (k wafers/month, year-end run-rate) and
+`growth_multiple`; `cowos_allocation` → `wafers` (k wafers/year) and `share` (pct); `packaging_tech`
+and `hbm_pricing` use self-describing metric names. CoWoS figures are press-reported analyst
+estimates (TSMC does not disclose wafer capacity) and are always plotted hatched.
+
+### tco_model_inputs.csv — conventions
+`input` names are snake_case and repeat across systems (`capex_per_rack`, `capex_per_rack_low/high`,
+`bom_gpu`, `bom_memory`, `bom_cooling`, `odm_gross_margin_pct`, `rack_power_kw`,
+`accelerators_per_rack`, `revenue_per_gpu_hour`, …). Several `capex_per_rack` rows per system are
+alternative estimates — `basis` names the estimator and date. `system = All` rows are industry-wide
+inputs (PUE, $/kWh, facility capex per MW, hyperscaler server useful lives). Rows from Morgan
+Stanley's Aug 2025 "100 MW AI inference factory" model are `speculative` because MS retracted it.
+
+### gpu_rental_prices.csv (one row per observed price point)
+`date,gpu,provider,provider_type,pricing_model,usd_per_gpu_hour,confidence,source_id,notes`
+
+`provider_type`: `hyperscaler` | `neocloud` | `marketplace`. `pricing_model`: `on-demand list`,
+`on-demand`, `on-demand / spot`, `reserved`. Prices are per GPU-hour (instance price ÷ GPUs).
+
+### depreciation_useful_lives.csv (one row per accounting change)
+`company,effective_date,asset_class,useful_life_years,prior_life_years,confidence,source_id,notes`
+
+Useful-life changes for servers/network equipment disclosed in 10-K/S-1 filings; charts draw the
+policy as a step function from each `effective_date`.
+
+## Roadmap and software ecosystem (Agent A5; charts in `scripts/charts/ch_roadmap.py` and `ch_software.py`)
+
+### roadmap.csv conventions
+- `window_start` / `window_end`: the announced availability window (`YYYY-MM-DD`, `YYYY-MM`, `YYYY-Qn` or `YYYY`;
+  "H2 2027" is written `2027-Q3`…`2027-Q4`). For `delayed` rows `window_start` is the **current** (reported) window.
+- `notes` tag schedule changes in a parseable form used by `17-roadmap-slips-and-pull-ins`:
+  `SLIP from <old> to <new>` and `PULL-IN from <old> to <new>`; spec reductions are tagged `SPEC CUT:`.
+- Renamed systems keep the current name with the old one in brackets (e.g. *Vera Rubin NVL72 (formerly
+  'Vera Rubin NVL144')*: NVIDIA moved from counting dies to counting GPU packages at CES 2026).
+- `confidence` describes the row as a whole: `confirmed` = on an official roadmap/announcement (timing
+  as officially stated); `reported` = timing or status rests on press/analyst reporting (e.g. Kyber slip).
+
+### software_ecosystem.csv (long)
+- `record_type = time_series`: `metric` ∈ `cuda_registered_developers`, `cuda_downloads_cumulative`,
+  `cuda_downloads_in_year`, `cuda_downloads_per_month`, `cuda_accelerated_applications`,
+  `cuda_x_sdks_and_models`, `cuda_gpus_installed_base`, `startups_using_platform`, `cuda_release` and
+  `rocm_release` (`value` = version number as text, `unit = version`; notes start with `major` or `minor`),
+  `pypi_stable_releases` / `pypi_prereleases` (count of PyPI versions first uploaded in that calendar year;
+  dev/nightly builds excluded; 2026 = year to date). `date` may be a bare year when the source gives no month.
+- `record_type = support_matrix` (as of 2026-11-05): `entity` = framework/runtime, `metric` =
+  `support_<vendor stack>` with stacks `nvidia_cuda`, `amd_rocm`, `intel_oneapi_gaudi`, `google_tpu_xla`,
+  `aws_neuron`, `huawei_cann`, `qualcomm_cloud_ai`; `value` 0–3 (`unit = level_0_3`):
+  **3** native/first-class (upstream in-tree backend with official binaries and CI, or the vendor's own
+  framework), **2** supported (upstream backend or vendor-maintained plugin/fork that is documented and
+  released), **1** experimental/community/limited (labelled experimental/beta/preview, contributor-only
+  validation, stale, or an indirect path such as ONNX export), **0** none. `notes` start with the text label
+  and the evidence. The matrix measures breadth across common open-source frameworks, not performance.
+
+### gpu_architecture_cadence.csv (one row per NVIDIA data-center GPU architecture)
+`vendor,architecture,flagship_product,announce_event,announce_date,first_availability,availability_basis,status,confidence,source_id,notes`
+
+`first_availability` is the first volume-availability month (mid-quarter placeholder where only a quarter or
+half is known; planned dates for `roadmap` rows). Used for `17-nvidia-release-cadence`.
+
+### P1_training_compute.csv (Primer P1; one row per model or scenario)
+`model,developer,release_date,params_b,active_params_b,training_tokens_t,training_flop,flop_basis,hardware,gpu_count,gpu_hours_m,confidence,source_id,notes`
+
+`flop_basis`: `reported` (developer figure) | `derived_6nd` (6 × active params × tokens, repo arithmetic) |
+`epoch_estimate` (Epoch AI database / data insights; Epoch's own bands are ~3× confident, ~10× likely,
+~31× speculative) | `scenario` (repo what-if, never plotted as data). `params_b` / `active_params_b` in
+billions (differ for MoE models), `training_tokens_t` in trillions, `gpu_hours_m` in millions of GPU-hours.
+Used by charts `P1-frontier-training-compute-log`, `P1-gpus-needed-by-model-size`,
+`P1-tokens-per-parameter-overtraining`, `P1-training-run-cost`.
+
+### P1_memory_per_parameter.csv (Primer P1)
+`regime,component,bytes_per_param,precision,confidence,source_id,notes` — bytes of GPU memory per model
+parameter by regime (FP4/FP8/BF16 inference; mixed-precision training with Adam, ZeRO accounting).
+Activations are excluded (they depend on batch and sequence length).
+
+### P2_model_and_gpu_inputs.csv (Primer P2; long)
+`record_type,item,metric,value,unit,confidence,source_id,notes`
+
+`record_type`: `model_config` (layers, attention/KV heads, head_dim, params; MLA models use
+`kv_cache_elements_per_layer`) | `gpu_spec` (memory_gb, memory_bw_tbs, bf16/fp8/fp4 dense TFLOPS; values
+mirror `gpu_product_specs.csv`, reconcile on refresh) | `model_assumption` (inputs of the repo's
+roofline serving model: efficiencies, overhead, context, headroom; all `estimate`) | `scenario`
+(illustrative tokens per task; all `estimate`). Used by all `P2-*` charts and by `P1-gpus-needed-by-model-size`.
+
+### P2_token_demand.csv (Primer P2; one row per disclosed figure)
+`date,entity,metric,value,unit,monthly_tokens_t,basis,confidence,source_id,notes` — publicly disclosed
+token volumes (Google, Microsoft, OpenAI API). `value`/`unit` keep the figure as disclosed;
+`monthly_tokens_t` normalises it to trillions of tokens per month (quarter ÷ 3; per-minute × 60 × 24 × 30).
+`basis`: `reported` | `derived` (normalised or implied from a stated growth rate; drawn hollow).

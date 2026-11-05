@@ -1,0 +1,33 @@
+schedule,pipeline_stages,virtual_chunks,micro_batches,bubble_fraction_of_step,formula,confidence,source_id,notes
+1F1B,4,1,1,0.7500,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,2,0.6000,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,4,0.4286,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,8,0.2727,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,16,0.1579,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,32,0.0857,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,64,0.0448,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,4,1,128,0.0229,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,1,0.8750,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,2,0.7778,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,4,0.6364,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,8,0.4667,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,16,0.3043,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,32,0.1795,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,64,0.0986,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,8,1,128,0.0519,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,1,0.9375,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,2,0.8824,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,4,0.7895,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,8,0.6522,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,16,0.4839,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,32,0.3191,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,64,0.1899,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+1F1B,16,1,128,0.1049,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,1,0.7895,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,2,0.6522,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,4,0.4839,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,8,0.3191,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,16,0.1899,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,32,0.1049,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,64,0.0554,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay
+interleaved 1F1B,16,4,128,0.0285,(p-1)/(v*m+p-1),estimate,S34002;S34003,Computed from the published formula; assumes equal stage times and no communication delay

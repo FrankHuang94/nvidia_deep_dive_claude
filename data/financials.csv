@@ -1,8 +1,608 @@
 period,period_type,period_end,metric,value,unit,confidence,source_id,notes
-FY2020,FY,2020-01-26,revenue_total,10.918,USD_B,confirmed,S2,seed row (Phase 0 smoke test)
-FY2021,FY,2021-01-31,revenue_total,16.675,USD_B,confirmed,S2,seed row
-FY2022,FY,2022-01-30,revenue_total,26.914,USD_B,confirmed,S2,seed row
-FY2023,FY,2023-01-29,revenue_total,26.974,USD_B,confirmed,S2,seed row
-FY2024,FY,2024-01-28,revenue_total,60.922,USD_B,confirmed,S2,seed row
-FY2025,FY,2025-01-26,revenue_total,130.497,USD_B,confirmed,S2,seed row
-FY2026,FY,2026-01-25,revenue_total,215.9,USD_B,confirmed,S1,seed row
+FY2016,FY,2016-01-31,capex,0.086,USD_B,confirmed,S400,[recall] purchases related to property and equipment and intangible assets
+FY2016,FY,2016-01-31,dividends_paid,0.213,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,free_cash_flow,1.089,USD_B,estimate,S400,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2016,FY,2016-01-31,gross_margin_gaap_pct,56.1,pct,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,gross_margin_nongaap_pct,56.8,pct,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,inventory,0.418,USD_B,confirmed,S400,[recall] (fiscal year-end balance)
+FY2016,FY,2016-01-31,net_income,0.614,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,operating_cash_flow,1.175,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,operating_income,0.747,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,rd_expense,1.331,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,revenue_automotive,0.32,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,revenue_data_center,0.339,USD_B,confirmed,S400,[recall] market-platform revenue as originally reported; NVIDIA called it 'Datacenter' then
+FY2016,FY,2016-01-31,revenue_gaming,2.818,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,revenue_oem_other,0.783,USD_B,confirmed,S400,[recall] 'OEM & IP' (incl. Intel patent licence) until FY2019
+FY2016,FY,2016-01-31,revenue_pro_visualization,0.75,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,revenue_total,5.01,USD_B,confirmed,S400,[recall] 10-K
+FY2016,FY,2016-01-31,sga_expense,0.602,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,share_repurchases,0.587,USD_B,confirmed,S400,[recall]
+FY2016,FY,2016-01-31,shareholder_returns,0.8,USD_B,estimate,S400,Calc: share repurchases + dividends paid
+FY2017,FY,2017-01-29,capex,0.176,USD_B,confirmed,S400,[recall] purchases related to property and equipment and intangible assets
+FY2017,FY,2017-01-29,dividends_paid,0.261,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,free_cash_flow,1.496,USD_B,estimate,S400,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2017,FY,2017-01-29,gross_margin_gaap_pct,58.8,pct,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,gross_margin_nongaap_pct,59.2,pct,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,inventory,0.794,USD_B,confirmed,S400,[recall] (fiscal year-end balance)
+FY2017,FY,2017-01-29,net_income,1.666,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,operating_cash_flow,1.672,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,operating_income,1.934,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,rd_expense,1.463,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,revenue_automotive,0.487,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,revenue_data_center,0.83,USD_B,confirmed,S400,[recall] market-platform revenue as originally reported; NVIDIA called it 'Datacenter' then
+FY2017,FY,2017-01-29,revenue_gaming,4.06,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,revenue_oem_other,0.698,USD_B,confirmed,S400,[recall] 'OEM & IP' (incl. Intel patent licence) until FY2019
+FY2017,FY,2017-01-29,revenue_pro_visualization,0.835,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,revenue_total,6.91,USD_B,confirmed,S400,[recall] 10-K
+FY2017,FY,2017-01-29,sga_expense,0.663,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,share_repurchases,0.739,USD_B,confirmed,S400,[recall]
+FY2017,FY,2017-01-29,shareholder_returns,1.0,USD_B,estimate,S400,Calc: share repurchases + dividends paid
+FY2018,FY,2018-01-28,capex,0.593,USD_B,confirmed,S400,[recall] purchases related to property and equipment and intangible assets
+FY2018,FY,2018-01-28,dividends_paid,0.341,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,free_cash_flow,2.909,USD_B,estimate,S400,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2018,FY,2018-01-28,gross_margin_gaap_pct,59.9,pct,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,gross_margin_nongaap_pct,60.2,pct,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,inventory,0.796,USD_B,confirmed,S400,[recall] (fiscal year-end balance)
+FY2018,FY,2018-01-28,net_income,3.047,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,operating_cash_flow,3.502,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,operating_income,3.21,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,rd_expense,1.797,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,revenue_automotive,0.558,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,revenue_data_center,1.932,USD_B,confirmed,S400,[recall] market-platform revenue as originally reported; NVIDIA called it 'Datacenter' then
+FY2018,FY,2018-01-28,revenue_gaming,5.513,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,revenue_oem_other,0.777,USD_B,confirmed,S400,[recall] 'OEM & IP' (incl. Intel patent licence) until FY2019
+FY2018,FY,2018-01-28,revenue_pro_visualization,0.934,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,revenue_total,9.714,USD_B,confirmed,S400,[recall] 10-K
+FY2018,FY,2018-01-28,sga_expense,0.815,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,share_repurchases,0.909,USD_B,confirmed,S400,[recall]
+FY2018,FY,2018-01-28,shareholder_returns,1.25,USD_B,estimate,S400,Calc: share repurchases + dividends paid
+FY2019,FY,2019-01-27,capex,0.6,USD_B,confirmed,S400,[recall] purchases related to property and equipment and intangible assets
+FY2019,FY,2019-01-27,dividends_paid,0.371,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,free_cash_flow,3.143,USD_B,estimate,S400,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2019,FY,2019-01-27,gross_margin_gaap_pct,61.2,pct,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,gross_margin_nongaap_pct,61.7,pct,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,inventory,1.575,USD_B,confirmed,S400,[recall] (fiscal year-end balance)
+FY2019,FY,2019-01-27,net_income,4.141,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,operating_cash_flow,3.743,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,operating_income,3.804,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,rd_expense,2.376,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,revenue_automotive,0.641,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,revenue_data_center,2.932,USD_B,confirmed,S400,[recall] market-platform revenue as originally reported; NVIDIA called it 'Datacenter' then
+FY2019,FY,2019-01-27,revenue_gaming,6.246,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,revenue_oem_other,0.767,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,revenue_pro_visualization,1.13,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,revenue_total,11.716,USD_B,confirmed,S400,[recall] 10-K
+FY2019,FY,2019-01-27,sga_expense,0.991,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,share_repurchases,1.579,USD_B,confirmed,S400,[recall]
+FY2019,FY,2019-01-27,shareholder_returns,1.95,USD_B,estimate,S400,Calc: share repurchases + dividends paid
+FY2020,FY,2020-01-26,capex,0.489,USD_B,confirmed,S2,[recall] purchases related to property and equipment and intangible assets
+FY2020,FY,2020-01-26,dividends_paid,0.39,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,free_cash_flow,4.272,USD_B,estimate,S2,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2020,FY,2020-01-26,gross_margin_gaap_pct,62.0,pct,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,gross_margin_nongaap_pct,62.5,pct,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,inventory,0.979,USD_B,confirmed,S2,[recall] (fiscal year-end balance)
+FY2020,FY,2020-01-26,net_income,2.796,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,operating_cash_flow,4.761,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,operating_income,2.846,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,rd_expense,2.829,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,revenue_automotive,0.7,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,revenue_data_center,2.983,USD_B,confirmed,S2,[recall] market-platform revenue as originally reported
+FY2020,FY,2020-01-26,revenue_gaming,5.518,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,revenue_oem_other,0.505,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,revenue_pro_visualization,1.212,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,revenue_total,10.918,USD_B,confirmed,S2,seed row (Phase 0) kept
+FY2020,FY,2020-01-26,sga_expense,1.093,USD_B,confirmed,S2,[recall]
+FY2020,FY,2020-01-26,share_repurchases,0.0,USD_B,confirmed,S2,[recall] buybacks paused FY2020–FY2022 (Mellanox/Arm period)
+FY2020,FY,2020-01-26,shareholder_returns,0.39,USD_B,estimate,S2,Calc: share repurchases + dividends paid
+FY2021,FY,2021-01-31,capex,1.128,USD_B,confirmed,S2,[recall] purchases related to property and equipment and intangible assets
+FY2021,FY,2021-01-31,dividends_paid,0.395,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,free_cash_flow,4.694,USD_B,estimate,S2,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2021,FY,2021-01-31,gross_margin_gaap_pct,62.3,pct,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,gross_margin_nongaap_pct,65.6,pct,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,inventory,1.826,USD_B,confirmed,S2,[recall] (fiscal year-end balance)
+FY2021,FY,2021-01-31,net_income,4.332,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,operating_cash_flow,5.822,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,operating_income,4.532,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,rd_expense,3.924,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,revenue_automotive,0.536,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,revenue_data_center,6.696,USD_B,confirmed,S2,[recall] market-platform revenue as originally reported
+FY2021,FY,2021-01-31,revenue_gaming,7.759,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,revenue_oem_other,0.631,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,revenue_pro_visualization,1.053,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,revenue_total,16.675,USD_B,confirmed,S2,seed row (Phase 0) kept
+FY2021,FY,2021-01-31,sga_expense,1.94,USD_B,confirmed,S2,[recall]
+FY2021,FY,2021-01-31,share_repurchases,0.0,USD_B,confirmed,S2,[recall] buybacks paused FY2020–FY2022 (Mellanox/Arm period)
+FY2021,FY,2021-01-31,shareholder_returns,0.395,USD_B,estimate,S2,Calc: share repurchases + dividends paid
+FY2022,FY,2022-01-30,capex,0.976,USD_B,confirmed,S2,[recall] purchases related to property and equipment and intangible assets
+FY2022,FY,2022-01-30,dividends_paid,0.399,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,free_cash_flow,8.132,USD_B,estimate,S2,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2022,FY,2022-01-30,gross_margin_gaap_pct,64.9,pct,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,gross_margin_nongaap_pct,66.8,pct,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,inventory,2.605,USD_B,confirmed,S2,[recall] (fiscal year-end balance)
+FY2022,FY,2022-01-30,net_income,9.752,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,operating_cash_flow,9.108,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,operating_income,10.041,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,rd_expense,5.268,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,revenue_automotive,0.566,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,revenue_data_center,10.613,USD_B,confirmed,S2,[recall] market-platform revenue as originally reported
+FY2022,FY,2022-01-30,revenue_gaming,12.462,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,revenue_oem_other,1.162,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,revenue_pro_visualization,2.111,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,revenue_total,26.914,USD_B,confirmed,S2,seed row (Phase 0) kept
+FY2022,FY,2022-01-30,sga_expense,2.166,USD_B,confirmed,S2,[recall]
+FY2022,FY,2022-01-30,share_repurchases,0.0,USD_B,confirmed,S2,[recall] buybacks paused FY2020–FY2022 (Mellanox/Arm period)
+FY2022,FY,2022-01-30,shareholder_returns,0.399,USD_B,estimate,S2,Calc: share repurchases + dividends paid
+FY2023,FY,2023-01-29,capex,1.833,USD_B,confirmed,S418;S2,[recall] purchases related to property and equipment and intangible assets
+FY2023,FY,2023-01-29,cloud_service_commitments,2.23,USD_B,confirmed,S418,Multi-year cloud service agreements within non-inventory obligations; checked via web search 2026-11-05
+FY2023,FY,2023-01-29,dividends_paid,0.398,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,free_cash_flow,3.808,USD_B,estimate,S418;S2,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2023,FY,2023-01-29,gross_margin_gaap_pct,56.9,pct,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,gross_margin_nongaap_pct,59.2,pct,confirmed,S418;S2,[recall] FY2023 includes ~$2.17B inventory provisions
+FY2023,FY,2023-01-29,inventory,5.159,USD_B,confirmed,S418;S2,[recall] checked via web search 2026-11-05 (fiscal year-end balance)
+FY2023,FY,2023-01-29,net_income,4.368,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,operating_cash_flow,5.641,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,operating_income,4.224,USD_B,confirmed,S418;S2,[recall] includes $1.35B Arm termination charge
+FY2023,FY,2023-01-29,prepaid_supply_agreements,3.45,USD_B,confirmed,S419,checked via web search 2026-11-05
+FY2023,FY,2023-01-29,purchase_obligations,4.92,USD_B,confirmed,S418;S419,Outstanding inventory purchase and long-term supply obligations; checked via web search 2026-11-05
+FY2023,FY,2023-01-29,rd_expense,7.339,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,revenue_automotive,0.903,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,revenue_data_center,15.005,USD_B,confirmed,S418;S2,[recall] market-platform revenue as originally reported
+FY2023,FY,2023-01-29,revenue_gaming,9.067,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,revenue_oem_other,0.455,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,revenue_pro_visualization,1.544,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,revenue_total,26.974,USD_B,confirmed,S2,seed row (Phase 0) kept
+FY2023,FY,2023-01-29,sga_expense,2.44,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,share_repurchases,10.039,USD_B,confirmed,S418;S2,[recall]
+FY2023,FY,2023-01-29,shareholder_returns,10.437,USD_B,estimate,S418;S2,Calc: share repurchases + dividends paid
+FY2024,FY,2024-01-28,capex,1.069,USD_B,confirmed,S417;S2,[recall] purchases related to property and equipment and intangible assets
+FY2024,FY,2024-01-28,customer_a_pct_revenue,13,pct,confirmed,S417,"[recall] direct customer, Compute & Networking; 10-K also estimated one indirect customer (buying via Customer A and others) at ~19%"
+FY2024,FY,2024-01-28,dividends_paid,0.395,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,free_cash_flow,27.021,USD_B,estimate,S417;S2,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2024,FY,2024-01-28,gross_margin_gaap_pct,72.7,pct,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,gross_margin_nongaap_pct,73.8,pct,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,indirect_customer_a_pct_revenue,19,pct,reported,S417,[recall] NVIDIA estimate of an indirect customer (widely reported to be Microsoft)
+FY2024,FY,2024-01-28,inventory,5.282,USD_B,confirmed,S417;S2,[recall] (fiscal year-end balance)
+FY2024,FY,2024-01-28,net_income,29.76,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,operating_cash_flow,28.09,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,operating_income,32.972,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,purchase_obligations,16.1,USD_B,confirmed,S417,[recall] inventory purchase and long-term supply and capacity obligations
+FY2024,FY,2024-01-28,rd_expense,8.675,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,revenue_automotive,1.091,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,revenue_data_center,47.525,USD_B,confirmed,S417;S2,[recall] market-platform revenue as originally reported
+FY2024,FY,2024-01-28,revenue_dc_compute,38.955,USD_B,estimate,S416,Calc: DC $47.525B minus estimated networking
+FY2024,FY,2024-01-28,revenue_dc_networking,8.57,USD_B,estimate,S416,"Back-calculated from FY2025 quarterly y/y growth rates (+242%, +114%, +20%, -9%); consistent with $13.0B being +51% y/y"
+FY2024,FY,2024-01-28,revenue_gaming,10.447,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,revenue_oem_other,0.306,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,revenue_pro_visualization,1.553,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,revenue_total,60.922,USD_B,confirmed,S2,seed row (Phase 0) kept
+FY2024,FY,2024-01-28,sga_expense,2.654,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,share_repurchases,9.533,USD_B,confirmed,S417;S2,[recall]
+FY2024,FY,2024-01-28,shareholder_returns,9.928,USD_B,estimate,S417;S2,Calc: share repurchases + dividends paid
+FY2025,FY,2025-01-26,capex,3.236,USD_B,confirmed,S416;S2,[recall] purchases related to property and equipment and intangible assets
+FY2025,FY,2025-01-26,customer_a_pct_revenue,12,pct,confirmed,S416,"[recall] direct Customers A, B, C"
+FY2025,FY,2025-01-26,customer_b_pct_revenue,11,pct,confirmed,S416,[recall]
+FY2025,FY,2025-01-26,customer_c_pct_revenue,11,pct,confirmed,S416,[recall]
+FY2025,FY,2025-01-26,dividends_paid,0.834,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,free_cash_flow,60.853,USD_B,estimate,S416;S2,Calc: operating cash flow minus capex; NVIDIA's own FCF also deducts principal payments on PP&E (differs by <$0.15B)
+FY2025,FY,2025-01-26,gross_margin_gaap_pct,75.0,pct,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,gross_margin_nongaap_pct,75.5,pct,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,inventory,10.08,USD_B,confirmed,S416;S2,[recall] checked via web search 2026-11-05 (fiscal year-end balance)
+FY2025,FY,2025-01-26,net_income,72.88,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,operating_cash_flow,64.089,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,operating_income,81.453,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,purchase_obligations,30.8,USD_B,confirmed,S416,checked via web search 2026-11-05
+FY2025,FY,2025-01-26,rd_expense,12.914,USD_B,confirmed,S416;S2,[recall] checked via web search 2026-11-05
+FY2025,FY,2025-01-26,revenue_automotive,1.694,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,revenue_data_center,115.186,USD_B,confirmed,S416;S2,[recall] market-platform revenue as originally reported
+FY2025,FY,2025-01-26,revenue_dc_compute,102.196,USD_B,confirmed,S416;S443,[recall] sum of quarters; matches '$102.2B' in 10-K
+FY2025,FY,2025-01-26,revenue_dc_networking,12.99,USD_B,confirmed,S416;S443,"[recall] sum of quarters; matches '$13.0B, +51%' in 10-K"
+FY2025,FY,2025-01-26,revenue_gaming,11.35,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,revenue_oem_other,0.389,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,revenue_pro_visualization,1.878,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,revenue_total,130.497,USD_B,confirmed,S2,seed row (Phase 0) kept
+FY2025,FY,2025-01-26,sga_expense,3.491,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,share_repurchases,33.706,USD_B,confirmed,S416;S2,[recall]
+FY2025,FY,2025-01-26,shareholder_returns,34.54,USD_B,estimate,S416;S2,Calc: share repurchases + dividends paid
+FY2026,FY,2026-01-25,cloud_service_commitments,27.0,USD_B,confirmed,S401,Multi-year cloud service agreements payable FY2027–FY2032+; checked via web search 2026-11-05
+FY2026,FY,2026-01-25,gross_margin_gaap_pct,71.1,pct,confirmed,S1;S402,includes $4.5B Q1 H20 charge; checked via web search 2026-11-05
+FY2026,FY,2026-01-25,gross_margin_nongaap_pct,71.3,pct,confirmed,S1;S402,checked via web search 2026-11-05
+FY2026,FY,2026-01-25,inventory,21.403,USD_B,confirmed,S401;S404,checked via web search 2026-11-05
+FY2026,FY,2026-01-25,net_income,120.067,USD_B,confirmed,S1;S402,checked via web search 2026-11-05
+FY2026,FY,2026-01-25,operating_income,130.387,USD_B,confirmed,S1;S402,checked via web search 2026-11-05
+FY2026,FY,2026-01-25,purchase_obligations,95.2,USD_B,confirmed,S401,"Manufacturing, supply and capacity commitments, substantially all payable through FY2027; checked via web search 2026-11-05"
+FY2026,FY,2026-01-25,rd_expense,18.497,USD_B,confirmed,S401,+43% y/y; checked via web search 2026-11-05
+FY2026,FY,2026-01-25,revenue_automotive,2.349,USD_B,estimate,S402;S411;S446;S445;S444,Sum of quarters (0.567+0.586+0.592+0.604)
+FY2026,FY,2026-01-25,revenue_data_center,193.7,USD_B,confirmed,S1;S402,rounded as reported (+68% y/y); checked via web search 2026-11-05
+FY2026,FY,2026-01-25,revenue_dc_compute,162.3,USD_B,estimate,S402;S1,Calc: DC $193.7B minus networking ~$31.4B
+FY2026,FY,2026-01-25,revenue_dc_networking,31.4,USD_B,estimate,S402;S1,Sum of quarterly networking (4.957+7.252+8.187+~11.0); NVIDIA said networking 'exceeded $31B' in FY26
+FY2026,FY,2026-01-25,revenue_gaming,16.0,USD_B,estimate,S402;S446;S445;S444,"Sum of quarters (3.763+4.287+4.265+~3.7, Q4 rounded)"
+FY2026,FY,2026-01-25,revenue_pro_visualization,3.17,USD_B,estimate,S402;S446;S445;S444,"Sum of quarters (0.509+0.601+0.760+~1.3, Q4 rounded)"
+FY2026,FY,2026-01-25,revenue_total,215.938,USD_B,confirmed,S1;S401,"seed row (Phase 0) kept; FY2026 refined to $215,938M checked via web search 2026-11-05"
+FY2026,FY,2026-01-25,sga_expense,4.579,USD_B,estimate,S401;S1,Calc: GAAP opex ~$23.08B (sum of quarters) minus R&D $18.497B
+Q2FY22,Q,2021-08-01,purchase_obligations,4.79,USD_B,confirmed,S420,Year-ago comparison in Q2FY23 CFO commentary; checked via web search 2026-11-05
+Q3FY22,Q,2021-10-31,purchase_obligations,6.9,USD_B,confirmed,S421,Year-ago comparison in Q3FY23 CFO commentary; checked via web search 2026-11-05
+Q4FY22,Q,2022-01-30,guidance_next_q_revenue,8.1,USD_B,confirmed,S428,"[recall] midpoint, ±2%, for Q1FY23"
+Q1FY23,Q,2022-05-01,capex,0.377,USD_B,confirmed,S432,[recall] quarterly sums match the 10-K annual capex
+Q1FY23,Q,2022-05-01,free_cash_flow,1.354,USD_B,estimate,S432,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q1FY23,Q,2022-05-01,gross_margin_gaap_pct,65.5,pct,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,gross_margin_nongaap_pct,67.1,pct,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,guidance_next_q_revenue,8.1,USD_B,confirmed,S432,"[recall] midpoint, ±2%, for Q2FY23; pre-announced ~$6.70B on 2022-08-08 (gaming correction)"
+Q1FY23,Q,2022-05-01,inventory,3.163,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,net_income,1.618,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,operating_cash_flow,1.731,USD_B,confirmed,S432,[recall] quarterly sums match the 10-K annual totals
+Q1FY23,Q,2022-05-01,operating_income,1.868,USD_B,confirmed,S432,[recall] includes $1.35B Arm acquisition termination cost
+Q1FY23,Q,2022-05-01,prepaid_supply_agreements,3.06,USD_B,confirmed,S420;S421;S419,checked via web search 2026-11-05
+Q1FY23,Q,2022-05-01,purchase_obligations,9.59,USD_B,confirmed,S420,Prior-quarter comparison in Q2FY23 CFO commentary; checked via web search 2026-11-05
+Q1FY23,Q,2022-05-01,rd_expense,1.618,USD_B,confirmed,S432,[recall] quarterly sums match the 10-K annual totals
+Q1FY23,Q,2022-05-01,revenue_automotive,0.138,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,revenue_data_center,3.75,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,revenue_gaming,3.62,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,revenue_oem_other,0.158,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,revenue_pro_visualization,0.622,USD_B,confirmed,S432,[recall]
+Q1FY23,Q,2022-05-01,revenue_total,8.288,USD_B,confirmed,S432,[recall] segment rows sum exactly to total
+Q1FY23,Q,2022-05-01,sga_expense,0.59,USD_B,estimate,S432,"Derived: GAAP opex (ex-Arm charge) minus R&D; recalled split (0.557/0.625) did not reconcile with opex, Q1+Q2 total reconciles with FY2023"
+Q1FY23,Q,2022-05-01,shareholder_returns,2.1,USD_B,confirmed,S432,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q2FY23,Q,2022-07-31,capex,0.446,USD_B,confirmed,S433,[recall] quarterly sums match the 10-K annual capex
+Q2FY23,Q,2022-07-31,free_cash_flow,0.824,USD_B,estimate,S433,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q2FY23,Q,2022-07-31,gross_margin_gaap_pct,43.5,pct,confirmed,S433,[recall] includes ~$1.34B inventory charges (gaming channel correction)
+Q2FY23,Q,2022-07-31,gross_margin_nongaap_pct,45.9,pct,confirmed,S433,[recall] includes ~$1.34B inventory charges (gaming channel correction)
+Q2FY23,Q,2022-07-31,guidance_next_q_revenue,5.9,USD_B,confirmed,S433,"[recall] midpoint, ±2%, for Q3FY23"
+Q2FY23,Q,2022-07-31,inventory,3.889,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,net_income,0.656,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,operating_cash_flow,1.27,USD_B,confirmed,S433,[recall] quarterly sums match the 10-K annual totals
+Q2FY23,Q,2022-07-31,operating_income,0.499,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,prepaid_supply_agreements,3.14,USD_B,confirmed,S420;S421;S419,checked via web search 2026-11-05
+Q2FY23,Q,2022-07-31,purchase_obligations,9.22,USD_B,confirmed,S420,Gross inventory purchase and long-term supply obligations; checked via web search 2026-11-05
+Q2FY23,Q,2022-07-31,rd_expense,1.824,USD_B,confirmed,S433,[recall] quarterly sums match the 10-K annual totals
+Q2FY23,Q,2022-07-31,revenue_automotive,0.22,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,revenue_data_center,3.806,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,revenue_gaming,2.042,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,revenue_oem_other,0.14,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,revenue_pro_visualization,0.496,USD_B,confirmed,S433,[recall]
+Q2FY23,Q,2022-07-31,revenue_total,6.704,USD_B,confirmed,S433,[recall] segment rows sum exactly to total
+Q2FY23,Q,2022-07-31,sga_expense,0.59,USD_B,estimate,S433,"Derived: GAAP opex (ex-Arm charge) minus R&D; recalled split (0.557/0.625) did not reconcile with opex, Q1+Q2 total reconciles with FY2023"
+Q2FY23,Q,2022-07-31,shareholder_returns,3.44,USD_B,confirmed,S433,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q3FY23,Q,2022-10-30,capex,0.53,USD_B,confirmed,S434,[recall] quarterly sums match the 10-K annual capex
+Q3FY23,Q,2022-10-30,free_cash_flow,-0.138,USD_B,estimate,S434,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q3FY23,Q,2022-10-30,gross_margin_gaap_pct,53.6,pct,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,gross_margin_nongaap_pct,56.1,pct,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,guidance_next_q_revenue,6.0,USD_B,confirmed,S434,"[recall] midpoint, ±2%, for Q4FY23"
+Q3FY23,Q,2022-10-30,inventory,4.454,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,net_income,0.68,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,operating_cash_flow,0.392,USD_B,confirmed,S434,[recall] quarterly sums match the 10-K annual totals
+Q3FY23,Q,2022-10-30,operating_income,0.601,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,prepaid_supply_agreements,3.14,USD_B,confirmed,S420;S421;S419,checked via web search 2026-11-05
+Q3FY23,Q,2022-10-30,purchase_obligations,7.02,USD_B,confirmed,S421,Plus ~$348M charge for obligations in excess of demand; checked via web search 2026-11-05
+Q3FY23,Q,2022-10-30,rd_expense,1.945,USD_B,confirmed,S434,[recall] quarterly sums match the 10-K annual totals
+Q3FY23,Q,2022-10-30,revenue_automotive,0.251,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,revenue_data_center,3.833,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,revenue_gaming,1.574,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,revenue_oem_other,0.073,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,revenue_pro_visualization,0.2,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,revenue_total,5.931,USD_B,confirmed,S434,[recall] segment rows sum exactly to total
+Q3FY23,Q,2022-10-30,sga_expense,0.631,USD_B,confirmed,S434,[recall]
+Q3FY23,Q,2022-10-30,shareholder_returns,3.75,USD_B,confirmed,S434,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q4FY23,Q,2023-01-29,capex,0.48,USD_B,confirmed,S435;S418,[recall] quarterly sums match the 10-K annual capex
+Q4FY23,Q,2023-01-29,free_cash_flow,1.768,USD_B,estimate,S435;S418,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q4FY23,Q,2023-01-29,gross_margin_gaap_pct,63.3,pct,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,gross_margin_nongaap_pct,66.1,pct,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,guidance_next_q_revenue,6.5,USD_B,confirmed,S435,"[recall] midpoint, ±2%, for Q1FY24"
+Q4FY23,Q,2023-01-29,inventory,5.159,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,net_income,1.414,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,operating_cash_flow,2.248,USD_B,confirmed,S435;S418,[recall] quarterly sums match the 10-K annual totals
+Q4FY23,Q,2023-01-29,operating_income,1.257,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,prepaid_supply_agreements,3.45,USD_B,confirmed,S420;S421;S419,checked via web search 2026-11-05
+Q4FY23,Q,2023-01-29,purchase_obligations,4.92,USD_B,confirmed,S419;S418,checked via web search 2026-11-05
+Q4FY23,Q,2023-01-29,rd_expense,1.951,USD_B,confirmed,S435;S418,[recall] quarterly sums match the 10-K annual totals
+Q4FY23,Q,2023-01-29,revenue_automotive,0.294,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,revenue_data_center,3.616,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,revenue_gaming,1.831,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,revenue_oem_other,0.084,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,revenue_pro_visualization,0.226,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,revenue_total,6.051,USD_B,confirmed,S435;S418,[recall] segment rows sum exactly to total
+Q4FY23,Q,2023-01-29,sga_expense,0.627,USD_B,confirmed,S435;S418,[recall]
+Q4FY23,Q,2023-01-29,shareholder_returns,1.15,USD_B,confirmed,S435;S418,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q1FY24,Q,2023-04-30,capex,0.248,USD_B,confirmed,S436;S422,[recall] quarterly sums match the 10-K annual capex
+Q1FY24,Q,2023-04-30,free_cash_flow,2.663,USD_B,estimate,S436;S422,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q1FY24,Q,2023-04-30,gross_margin_gaap_pct,64.6,pct,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,gross_margin_nongaap_pct,66.8,pct,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,guidance_next_q_revenue,11.0,USD_B,confirmed,S436;S447,"[recall] midpoint, ±2%, for Q2FY24 (the 'AI guide' that reset expectations)"
+Q1FY24,Q,2023-04-30,inventory,4.611,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,net_income,2.043,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,operating_cash_flow,2.911,USD_B,confirmed,S436;S422,[recall] quarterly sums match the 10-K annual totals
+Q1FY24,Q,2023-04-30,operating_income,2.14,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,purchase_obligations,7.27,USD_B,confirmed,S422,checked via web search 2026-11-05
+Q1FY24,Q,2023-04-30,rd_expense,1.875,USD_B,confirmed,S436;S422,[recall] quarterly sums match the 10-K annual totals
+Q1FY24,Q,2023-04-30,revenue_automotive,0.296,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,revenue_data_center,4.284,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,revenue_dc_compute,3.357,USD_B,estimate,S440,Calc: Data Center minus estimated networking
+Q1FY24,Q,2023-04-30,revenue_dc_networking,0.927,USD_B,estimate,S440,Back-calculated: Q1FY25 networking $3.171B / (1+242%) y/y growth stated in Q1FY25 CFO commentary; consistent with '>$10B' (Q3) and '>$13B' (Q4) annualized run rates
+Q1FY24,Q,2023-04-30,revenue_gaming,2.24,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,revenue_oem_other,0.077,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,revenue_pro_visualization,0.295,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,revenue_total,7.192,USD_B,confirmed,S436;S422,[recall] segment rows sum exactly to total
+Q1FY24,Q,2023-04-30,sga_expense,0.633,USD_B,confirmed,S436;S422,[recall]
+Q1FY24,Q,2023-04-30,shareholder_returns,0.099,USD_B,confirmed,S436;S422,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q2FY24,Q,2023-07-30,capex,0.289,USD_B,confirmed,S437;S423,[recall] quarterly sums match the 10-K annual capex
+Q2FY24,Q,2023-07-30,free_cash_flow,6.059,USD_B,estimate,S437;S423,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q2FY24,Q,2023-07-30,gross_margin_gaap_pct,70.1,pct,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,gross_margin_nongaap_pct,71.2,pct,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,guidance_next_q_revenue,16.0,USD_B,confirmed,S437,"[recall] midpoint, ±2%, for Q3FY24"
+Q2FY24,Q,2023-07-30,inventory,4.319,USD_B,confirmed,S437;S423,[recall] checked via web search 2026-11-05
+Q2FY24,Q,2023-07-30,net_income,6.188,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,operating_cash_flow,6.348,USD_B,confirmed,S437;S423,[recall] quarterly sums match the 10-K annual totals
+Q2FY24,Q,2023-07-30,operating_income,6.8,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,purchase_obligations,11.15,USD_B,confirmed,S423,checked via web search 2026-11-05
+Q2FY24,Q,2023-07-30,rd_expense,2.04,USD_B,confirmed,S437;S423,[recall] quarterly sums match the 10-K annual totals
+Q2FY24,Q,2023-07-30,revenue_automotive,0.253,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,revenue_data_center,10.323,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,revenue_dc_compute,8.609,USD_B,estimate,S441,Calc: Data Center minus estimated networking
+Q2FY24,Q,2023-07-30,revenue_dc_networking,1.714,USD_B,estimate,S441,Back-calculated: Q2FY25 networking $3.668B / (1+114%) y/y growth stated in Q2FY25 CFO commentary; consistent with '>$10B' (Q3) and '>$13B' (Q4) annualized run rates
+Q2FY24,Q,2023-07-30,revenue_gaming,2.486,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,revenue_oem_other,0.066,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,revenue_pro_visualization,0.379,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,revenue_total,13.507,USD_B,confirmed,S437;S423,[recall] segment rows sum exactly to total
+Q2FY24,Q,2023-07-30,sga_expense,0.622,USD_B,confirmed,S437;S423,[recall]
+Q2FY24,Q,2023-07-30,shareholder_returns,3.4,USD_B,confirmed,S437;S423,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q3FY24,Q,2023-10-29,capex,0.278,USD_B,confirmed,S438;S424,[recall] quarterly sums match the 10-K annual capex
+Q3FY24,Q,2023-10-29,free_cash_flow,7.054,USD_B,estimate,S438;S424,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q3FY24,Q,2023-10-29,gross_margin_gaap_pct,74.0,pct,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,gross_margin_nongaap_pct,75.0,pct,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,guidance_next_q_revenue,20.0,USD_B,confirmed,S438,"[recall] midpoint, ±2%, for Q4FY24"
+Q3FY24,Q,2023-10-29,inventory,4.779,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,net_income,9.243,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,operating_cash_flow,7.332,USD_B,confirmed,S438;S424,[recall] quarterly sums match the 10-K annual totals
+Q3FY24,Q,2023-10-29,operating_income,10.417,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,purchase_obligations,17.11,USD_B,confirmed,S424,checked via web search 2026-11-05
+Q3FY24,Q,2023-10-29,rd_expense,2.294,USD_B,confirmed,S438;S424,[recall] quarterly sums match the 10-K annual totals
+Q3FY24,Q,2023-10-29,revenue_automotive,0.261,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,revenue_data_center,14.514,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,revenue_dc_compute,11.908,USD_B,estimate,S442,Calc: Data Center minus estimated networking
+Q3FY24,Q,2023-10-29,revenue_dc_networking,2.606,USD_B,estimate,S442,Back-calculated: Q3FY25 networking $3.127B / (1+20%) y/y growth stated in Q3FY25 CFO commentary; consistent with '>$10B' (Q3) and '>$13B' (Q4) annualized run rates
+Q3FY24,Q,2023-10-29,revenue_gaming,2.856,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,revenue_oem_other,0.073,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,revenue_pro_visualization,0.416,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,revenue_total,18.12,USD_B,confirmed,S438;S424,[recall] segment rows sum exactly to total
+Q3FY24,Q,2023-10-29,sga_expense,0.689,USD_B,confirmed,S438;S424,[recall]
+Q3FY24,Q,2023-10-29,shareholder_returns,3.8,USD_B,confirmed,S438;S424,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q4FY24,Q,2024-01-28,capex,0.254,USD_B,confirmed,S439;S417,[recall] quarterly sums match the 10-K annual capex
+Q4FY24,Q,2024-01-28,free_cash_flow,11.245,USD_B,estimate,S439;S417,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q4FY24,Q,2024-01-28,gross_margin_gaap_pct,76.0,pct,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,gross_margin_nongaap_pct,76.7,pct,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,guidance_next_q_revenue,24.0,USD_B,confirmed,S439,"[recall] midpoint, ±2%, for Q1FY25"
+Q4FY24,Q,2024-01-28,inventory,5.282,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,net_income,12.285,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,operating_cash_flow,11.499,USD_B,confirmed,S439;S417,[recall] quarterly sums match the 10-K annual totals
+Q4FY24,Q,2024-01-28,operating_income,13.615,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,purchase_obligations,16.1,USD_B,confirmed,S417,[recall]
+Q4FY24,Q,2024-01-28,rd_expense,2.465,USD_B,confirmed,S439;S417,[recall] quarterly sums match the 10-K annual totals
+Q4FY24,Q,2024-01-28,revenue_automotive,0.281,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,revenue_data_center,18.404,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,revenue_dc_compute,15.081,USD_B,estimate,S443,Calc: Data Center minus estimated networking
+Q4FY24,Q,2024-01-28,revenue_dc_networking,3.323,USD_B,estimate,S443,Back-calculated: Q4FY25 networking $3.024B / (1-9%) y/y growth stated in Q4FY25 CFO commentary; consistent with '>$10B' (Q3) and '>$13B' (Q4) annualized run rates
+Q4FY24,Q,2024-01-28,revenue_gaming,2.865,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,revenue_oem_other,0.09,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,revenue_pro_visualization,0.463,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,revenue_total,22.103,USD_B,confirmed,S439;S417,[recall] segment rows sum exactly to total
+Q4FY24,Q,2024-01-28,sga_expense,0.711,USD_B,confirmed,S439;S417,[recall]
+Q4FY24,Q,2024-01-28,shareholder_returns,2.8,USD_B,confirmed,S439;S417,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q1FY25,Q,2024-04-28,capex,0.369,USD_B,confirmed,S440;S425,[recall] quarterly sums match the 10-K annual capex
+Q1FY25,Q,2024-04-28,free_cash_flow,14.976,USD_B,estimate,S440;S425,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q1FY25,Q,2024-04-28,gross_margin_gaap_pct,78.4,pct,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,gross_margin_nongaap_pct,78.9,pct,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,guidance_next_q_revenue,28.0,USD_B,confirmed,S440,"[recall] midpoint, ±2%, for Q2FY25"
+Q1FY25,Q,2024-04-28,inventory,5.864,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,net_income,14.881,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,operating_cash_flow,15.345,USD_B,confirmed,S440;S425,[recall] quarterly sums match the 10-K annual totals
+Q1FY25,Q,2024-04-28,operating_income,16.909,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,purchase_obligations,18.8,USD_B,confirmed,S425,checked via web search 2026-11-05
+Q1FY25,Q,2024-04-28,rd_expense,2.72,USD_B,confirmed,S440;S425,[recall] quarterly sums match the 10-K annual totals
+Q1FY25,Q,2024-04-28,revenue_automotive,0.329,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,revenue_data_center,22.563,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,revenue_dc_compute,19.392,USD_B,confirmed,S440;S425,[recall] CFO commentary; compute + networking = Data Center
+Q1FY25,Q,2024-04-28,revenue_dc_networking,3.171,USD_B,confirmed,S440;S425,[recall] CFO commentary
+Q1FY25,Q,2024-04-28,revenue_gaming,2.647,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,revenue_oem_other,0.078,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,revenue_pro_visualization,0.427,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,revenue_total,26.044,USD_B,confirmed,S440;S425,[recall] segment rows sum exactly to total
+Q1FY25,Q,2024-04-28,sga_expense,0.777,USD_B,confirmed,S440;S425,[recall]
+Q1FY25,Q,2024-04-28,shareholder_returns,7.8,USD_B,confirmed,S440;S425,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q2FY25,Q,2024-07-28,capex,0.977,USD_B,confirmed,S441;S426,[recall] quarterly sums match the 10-K annual capex
+Q2FY25,Q,2024-07-28,customer_a_pct_revenue,14,pct,reported,S426,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 46%; re-verify against 10-Q"
+Q2FY25,Q,2024-07-28,customer_b_pct_revenue,11,pct,reported,S426,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 46%; re-verify against 10-Q"
+Q2FY25,Q,2024-07-28,customer_c_pct_revenue,11,pct,reported,S426,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 46%; re-verify against 10-Q"
+Q2FY25,Q,2024-07-28,customer_d_pct_revenue,10,pct,reported,S426,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 46%; re-verify against 10-Q"
+Q2FY25,Q,2024-07-28,free_cash_flow,13.512,USD_B,estimate,S441;S426,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q2FY25,Q,2024-07-28,gross_margin_gaap_pct,75.1,pct,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,gross_margin_nongaap_pct,75.7,pct,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,guidance_next_q_revenue,32.5,USD_B,confirmed,S441,"[recall] midpoint, ±2%, for Q3FY25"
+Q2FY25,Q,2024-07-28,inventory,6.675,USD_B,confirmed,S441;S426,[recall] checked via web search 2026-11-05
+Q2FY25,Q,2024-07-28,net_income,16.599,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,operating_cash_flow,14.489,USD_B,confirmed,S441;S426,[recall] quarterly sums match the 10-K annual totals
+Q2FY25,Q,2024-07-28,operating_income,18.642,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,purchase_obligations,27.8,USD_B,confirmed,S426,Hopper and Blackwell capacity and components; checked via web search 2026-11-05
+Q2FY25,Q,2024-07-28,rd_expense,3.09,USD_B,confirmed,S441;S426,[recall] quarterly sums match the 10-K annual totals
+Q2FY25,Q,2024-07-28,revenue_automotive,0.346,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,revenue_data_center,26.272,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,revenue_dc_compute,22.604,USD_B,confirmed,S441;S426,[recall] CFO commentary; compute + networking = Data Center
+Q2FY25,Q,2024-07-28,revenue_dc_networking,3.668,USD_B,confirmed,S441;S426,[recall] CFO commentary
+Q2FY25,Q,2024-07-28,revenue_gaming,2.88,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,revenue_oem_other,0.088,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,revenue_pro_visualization,0.454,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,revenue_total,30.04,USD_B,confirmed,S441;S426,[recall] segment rows sum exactly to total
+Q2FY25,Q,2024-07-28,sga_expense,0.842,USD_B,confirmed,S441;S426,[recall]
+Q2FY25,Q,2024-07-28,shareholder_returns,7.4,USD_B,confirmed,S441;S426,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q3FY25,Q,2024-10-27,capex,0.813,USD_B,confirmed,S442;S427,[recall] quarterly sums match the 10-K annual capex
+Q3FY25,Q,2024-10-27,customer_a_pct_revenue,12,pct,reported,S427,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 35%; re-verify against 10-Q"
+Q3FY25,Q,2024-10-27,customer_b_pct_revenue,12,pct,reported,S427,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 35%; re-verify against 10-Q"
+Q3FY25,Q,2024-10-27,customer_c_pct_revenue,11,pct,reported,S427,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 35%; re-verify against 10-Q"
+Q3FY25,Q,2024-10-27,free_cash_flow,16.816,USD_B,estimate,S442;S427,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q3FY25,Q,2024-10-27,gross_margin_gaap_pct,74.6,pct,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,gross_margin_nongaap_pct,75.0,pct,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,guidance_next_q_revenue,37.5,USD_B,confirmed,S442,"[recall] midpoint, ±2%, for Q4FY25"
+Q3FY25,Q,2024-10-27,inventory,7.654,USD_B,confirmed,S442;S427,[recall] checked via web search 2026-11-05
+Q3FY25,Q,2024-10-27,net_income,19.309,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,operating_cash_flow,17.629,USD_B,confirmed,S442;S427,[recall] quarterly sums match the 10-K annual totals
+Q3FY25,Q,2024-10-27,operating_income,21.869,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,purchase_obligations,28.9,USD_B,confirmed,S427,checked via web search 2026-11-05
+Q3FY25,Q,2024-10-27,rd_expense,3.39,USD_B,confirmed,S442;S427,[recall] quarterly sums match the 10-K annual totals
+Q3FY25,Q,2024-10-27,revenue_automotive,0.449,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,revenue_data_center,30.771,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,revenue_dc_compute,27.644,USD_B,confirmed,S442;S427,[recall] CFO commentary; compute + networking = Data Center
+Q3FY25,Q,2024-10-27,revenue_dc_networking,3.127,USD_B,confirmed,S442;S427,[recall] CFO commentary
+Q3FY25,Q,2024-10-27,revenue_gaming,3.279,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,revenue_oem_other,0.097,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,revenue_pro_visualization,0.486,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,revenue_total,35.082,USD_B,confirmed,S442;S427,[recall] segment rows sum exactly to total
+Q3FY25,Q,2024-10-27,sga_expense,0.897,USD_B,confirmed,S442;S427,[recall]
+Q3FY25,Q,2024-10-27,shareholder_returns,11.2,USD_B,confirmed,S442;S427,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q4FY25,Q,2025-01-26,capex,1.077,USD_B,confirmed,S443;S416,[recall] quarterly sums match the 10-K annual capex
+Q4FY25,Q,2025-01-26,free_cash_flow,15.552,USD_B,estimate,S443;S416,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q4FY25,Q,2025-01-26,gross_margin_gaap_pct,73.0,pct,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,gross_margin_nongaap_pct,73.5,pct,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,guidance_next_q_revenue,43.0,USD_B,confirmed,S443,"[recall] midpoint, ±2%, for Q1FY26"
+Q4FY25,Q,2025-01-26,inventory,10.08,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,net_income,22.091,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,operating_cash_flow,16.629,USD_B,confirmed,S443;S416,[recall] quarterly sums match the 10-K annual totals
+Q4FY25,Q,2025-01-26,operating_income,24.034,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,purchase_obligations,30.8,USD_B,confirmed,S416,Led by Blackwell commitments; checked via web search 2026-11-05
+Q4FY25,Q,2025-01-26,rd_expense,3.714,USD_B,confirmed,S443;S416,[recall] quarterly sums match the 10-K annual totals
+Q4FY25,Q,2025-01-26,revenue_automotive,0.57,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,revenue_data_center,35.58,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,revenue_dc_compute,32.556,USD_B,confirmed,S443;S416,[recall] CFO commentary; compute + networking = Data Center
+Q4FY25,Q,2025-01-26,revenue_dc_networking,3.024,USD_B,confirmed,S443;S416,[recall] CFO commentary
+Q4FY25,Q,2025-01-26,revenue_gaming,2.544,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,revenue_oem_other,0.126,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,revenue_pro_visualization,0.511,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,revenue_total,39.331,USD_B,confirmed,S443;S416,[recall] segment rows sum exactly to total
+Q4FY25,Q,2025-01-26,sga_expense,0.975,USD_B,confirmed,S443;S416,[recall]
+Q4FY25,Q,2025-01-26,shareholder_returns,8.1,USD_B,confirmed,S443;S416,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q1FY26,Q,2025-04-27,capex,1.227,USD_B,confirmed,S444;S414,[recall] quarterly sums match the 10-K annual capex
+Q1FY26,Q,2025-04-27,cloud_service_commitments,10.6,USD_B,confirmed,S414,Multi-year cloud service agreements within $13.7B non-inventory obligations; checked via web search 2026-11-05
+Q1FY26,Q,2025-04-27,customer_a_pct_revenue,16,pct,reported,S414,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 30%; re-verify against 10-Q"
+Q1FY26,Q,2025-04-27,customer_b_pct_revenue,14,pct,reported,S414,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 30%; re-verify against 10-Q"
+Q1FY26,Q,2025-04-27,free_cash_flow,26.187,USD_B,estimate,S444;S414,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q1FY26,Q,2025-04-27,gross_margin_gaap_pct,60.5,pct,confirmed,S444;S414,[recall] includes $4.5B H20 excess-inventory and purchase-obligation charge after April-2025 US export licence requirement
+Q1FY26,Q,2025-04-27,gross_margin_nongaap_ex_h20_pct,71.3,pct,confirmed,S444,[recall] non-GAAP gross margin excluding the H20 charge
+Q1FY26,Q,2025-04-27,gross_margin_nongaap_pct,61.0,pct,confirmed,S444;S414,[recall] includes $4.5B H20 excess-inventory and purchase-obligation charge after April-2025 US export licence requirement
+Q1FY26,Q,2025-04-27,guidance_next_q_revenue,45.0,USD_B,confirmed,S444,"[recall] midpoint, ±2%, for Q2FY26; absorbed ~$8.0B H20 revenue loss"
+Q1FY26,Q,2025-04-27,h20_charge,4.5,USD_B,confirmed,S444;S414,[recall] H20 excess inventory and purchase obligations charge; $2.5B of H20 orders could not ship in Q1; Q2 outlook absorbed ~$8.0B H20 loss
+Q1FY26,Q,2025-04-27,inventory,11.333,USD_B,confirmed,S444;S414,[recall] checked via web search 2026-11-05
+Q1FY26,Q,2025-04-27,inventory_provision,2.3,USD_B,confirmed,S414,Incl. $1.9B related to H20; checked via web search 2026-11-05
+Q1FY26,Q,2025-04-27,net_income,18.775,USD_B,confirmed,S444;S414,"[recall] quarterly sum matches FY2026 total $120,067M"
+Q1FY26,Q,2025-04-27,operating_cash_flow,27.414,USD_B,confirmed,S444;S414,[recall] quarterly sums match the 10-K annual totals
+Q1FY26,Q,2025-04-27,operating_income,21.638,USD_B,confirmed,S444;S414,"[recall] quarterly sum matches FY2026 total $130,387M"
+Q1FY26,Q,2025-04-27,purchase_obligations,29.8,USD_B,confirmed,S414,checked via web search 2026-11-05
+Q1FY26,Q,2025-04-27,rd_expense,3.989,USD_B,confirmed,S444;S414,[recall] quarterly sums match the 10-K annual totals
+Q1FY26,Q,2025-04-27,revenue_automotive,0.567,USD_B,confirmed,S444;S414,[recall]
+Q1FY26,Q,2025-04-27,revenue_data_center,39.112,USD_B,confirmed,S444;S414,[recall]
+Q1FY26,Q,2025-04-27,revenue_dc_compute,34.155,USD_B,confirmed,S444;S414,[recall] CFO commentary; compute + networking = Data Center
+Q1FY26,Q,2025-04-27,revenue_dc_networking,4.957,USD_B,confirmed,S444;S414,[recall] CFO commentary
+Q1FY26,Q,2025-04-27,revenue_gaming,3.763,USD_B,confirmed,S444;S414,[recall]
+Q1FY26,Q,2025-04-27,revenue_oem_other,0.111,USD_B,confirmed,S444;S414,[recall]
+Q1FY26,Q,2025-04-27,revenue_pro_visualization,0.509,USD_B,confirmed,S444;S414,[recall]
+Q1FY26,Q,2025-04-27,revenue_total,44.062,USD_B,confirmed,S444;S414,[recall] segment rows sum exactly to total
+Q1FY26,Q,2025-04-27,sga_expense,1.041,USD_B,confirmed,S444;S414,[recall]
+Q1FY26,Q,2025-04-27,shareholder_returns,14.3,USD_B,confirmed,S444;S414,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q2FY26,Q,2025-07-27,capex,1.895,USD_B,confirmed,S445;S413,[recall] quarterly sums match the 10-K annual capex
+Q2FY26,Q,2025-07-27,customer_a_pct_revenue,23,pct,reported,S413,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 39%; re-verify against 10-Q"
+Q2FY26,Q,2025-07-27,customer_b_pct_revenue,16,pct,reported,S413,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 39%; re-verify against 10-Q"
+Q2FY26,Q,2025-07-27,free_cash_flow,13.47,USD_B,estimate,S445;S413,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q2FY26,Q,2025-07-27,gross_margin_gaap_pct,72.4,pct,confirmed,S445;S413,[recall] includes $180M release of previously reserved H20 inventory (+0.4pt)
+Q2FY26,Q,2025-07-27,gross_margin_nongaap_pct,72.7,pct,confirmed,S445;S413,[recall] includes $180M release of previously reserved H20 inventory (+0.4pt)
+Q2FY26,Q,2025-07-27,guidance_next_q_revenue,54.0,USD_B,confirmed,S445,"[recall] midpoint, ±2%, for Q3FY26; no H20 China shipments assumed"
+Q2FY26,Q,2025-07-27,inventory,14.962,USD_B,confirmed,S445;S413,[recall] checked via web search 2026-11-05
+Q2FY26,Q,2025-07-27,net_income,26.422,USD_B,confirmed,S445;S413,"[recall] quarterly sum matches FY2026 total $120,067M"
+Q2FY26,Q,2025-07-27,operating_cash_flow,15.365,USD_B,confirmed,S445;S413,[recall] quarterly sums match the 10-K annual totals
+Q2FY26,Q,2025-07-27,operating_income,28.44,USD_B,confirmed,S445;S413,"[recall] quarterly sum matches FY2026 total $130,387M"
+Q2FY26,Q,2025-07-27,purchase_obligations,45.8,USD_B,reported,S413,Figure appears as the prior-year comparison in secondary analyses of the Q2FY27 10-Q; not confirmed against the Q2FY26 10-Q text
+Q2FY26,Q,2025-07-27,rd_expense,4.291,USD_B,confirmed,S445;S413,[recall] quarterly sums match the 10-K annual totals
+Q2FY26,Q,2025-07-27,revenue_automotive,0.586,USD_B,confirmed,S445;S413,[recall]
+Q2FY26,Q,2025-07-27,revenue_data_center,41.096,USD_B,confirmed,S445;S413,[recall]
+Q2FY26,Q,2025-07-27,revenue_dc_compute,33.844,USD_B,confirmed,S445;S413,[recall] CFO commentary; compute + networking = Data Center
+Q2FY26,Q,2025-07-27,revenue_dc_networking,7.252,USD_B,confirmed,S445;S413,[recall] CFO commentary
+Q2FY26,Q,2025-07-27,revenue_gaming,4.287,USD_B,confirmed,S445;S413,[recall]
+Q2FY26,Q,2025-07-27,revenue_oem_other,0.173,USD_B,confirmed,S445;S413,[recall]
+Q2FY26,Q,2025-07-27,revenue_pro_visualization,0.601,USD_B,confirmed,S445;S413,[recall]
+Q2FY26,Q,2025-07-27,revenue_total,46.743,USD_B,confirmed,S445;S413,[recall] segment rows sum exactly to total
+Q2FY26,Q,2025-07-27,sga_expense,1.122,USD_B,confirmed,S445;S413,[recall]
+Q2FY26,Q,2025-07-27,shareholder_returns,10.0,USD_B,confirmed,S445;S413,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q3FY26,Q,2025-10-26,capex,1.637,USD_B,confirmed,S446;S412,[recall] quarterly sums match the 10-K annual capex
+Q3FY26,Q,2025-10-26,customer_a_pct_revenue,22,pct,reported,S412,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 61%; re-verify against 10-Q"
+Q3FY26,Q,2025-10-26,customer_b_pct_revenue,15,pct,reported,S412,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 61%; re-verify against 10-Q"
+Q3FY26,Q,2025-10-26,customer_c_pct_revenue,13,pct,reported,S412,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 61%; re-verify against 10-Q"
+Q3FY26,Q,2025-10-26,customer_d_pct_revenue,11,pct,reported,S412,"[recall] direct customer (mostly OEM/ODM/system integrators), quarter only; total of listed customers 61%; re-verify against 10-Q"
+Q3FY26,Q,2025-10-26,free_cash_flow,22.114,USD_B,estimate,S446;S412,Calc: operating cash flow minus capex (NVIDIA's FCF also deducts small principal payments)
+Q3FY26,Q,2025-10-26,gross_margin_gaap_pct,73.4,pct,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,gross_margin_nongaap_pct,73.6,pct,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,guidance_next_q_revenue,65.0,USD_B,confirmed,S446,"[recall] midpoint, ±2%, for Q4FY26"
+Q3FY26,Q,2025-10-26,inventory,19.784,USD_B,confirmed,S446;S412,[recall] checked via web search 2026-11-05
+Q3FY26,Q,2025-10-26,net_income,31.91,USD_B,confirmed,S446;S412,"[recall] quarterly sum matches FY2026 total $120,067M"
+Q3FY26,Q,2025-10-26,operating_cash_flow,23.751,USD_B,confirmed,S446;S412,[recall] quarterly sums match the 10-K annual totals
+Q3FY26,Q,2025-10-26,operating_income,36.01,USD_B,confirmed,S446;S412,"[recall] quarterly sum matches FY2026 total $130,387M"
+Q3FY26,Q,2025-10-26,purchase_obligations,50.3,USD_B,confirmed,S412,"Label changes to 'manufacturing, supply and capacity commitments'; checked via web search 2026-11-05"
+Q3FY26,Q,2025-10-26,rd_expense,4.705,USD_B,confirmed,S446;S412,[recall] quarterly sums match the 10-K annual totals
+Q3FY26,Q,2025-10-26,revenue_automotive,0.592,USD_B,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,revenue_data_center,51.215,USD_B,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,revenue_dc_compute,43.028,USD_B,confirmed,S446;S412;S415,[recall] CFO commentary; compute + networking = Data Center
+Q3FY26,Q,2025-10-26,revenue_dc_networking,8.187,USD_B,confirmed,S446;S412;S415,[recall] CFO commentary
+Q3FY26,Q,2025-10-26,revenue_gaming,4.265,USD_B,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,revenue_oem_other,0.174,USD_B,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,revenue_pro_visualization,0.76,USD_B,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,revenue_total,57.006,USD_B,confirmed,S446;S412,[recall] segment rows sum exactly to total
+Q3FY26,Q,2025-10-26,sga_expense,1.134,USD_B,confirmed,S446;S412,[recall]
+Q3FY26,Q,2025-10-26,shareholder_returns,12.7,USD_B,confirmed,S446;S412,[recall] repurchases + dividends as stated in the press release; annual sums approximately match FY totals (FY2024 within ~$0.2B)
+Q4FY26,Q,2026-01-25,cloud_service_commitments,27.0,USD_B,confirmed,S401,checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,gross_margin_gaap_pct,75.0,pct,confirmed,S1;S402,checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,gross_margin_nongaap_pct,75.2,pct,confirmed,S1;S402,checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,guidance_next_q_revenue,78.0,USD_B,confirmed,S1;S402,"Outlook for Q1FY27 ±2%, no China DC revenue assumed; checked via web search 2026-11-05"
+Q4FY26,Q,2026-01-25,inventory,21.403,USD_B,confirmed,S401,checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,net_income,42.96,USD_B,confirmed,S1;S402,checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,operating_income,44.299,USD_B,confirmed,S1;S402,checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,purchase_obligations,95.2,USD_B,confirmed,S401,"Manufacturing, supply and capacity commitments; checked via web search 2026-11-05"
+Q4FY26,Q,2026-01-25,rd_expense,5.512,USD_B,estimate,S401;S402,"Calc: FY2026 R&D $18,497M minus Q1–Q3 R&D"
+Q4FY26,Q,2026-01-25,revenue_automotive,0.604,USD_B,confirmed,S402;S411,+6% y/y; checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,revenue_data_center,62.3,USD_B,confirmed,S1;S402,+75% y/y; rounded; checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,revenue_dc_compute,51.3,USD_B,confirmed,S1;S402,+58% y/y; rounded; checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,revenue_dc_networking,11.0,USD_B,confirmed,S1;S402,"+263% y/y, +34% q/q (NVLink for GB200/GB300, Spectrum-X, InfiniBand); checked via web search 2026-11-05"
+Q4FY26,Q,2026-01-25,revenue_gaming,3.7,USD_B,confirmed,S1;S402,"+47% y/y, -13% q/q; rounded; checked via web search 2026-11-05"
+Q4FY26,Q,2026-01-25,revenue_pro_visualization,1.3,USD_B,confirmed,S1;S402,+159% y/y; rounded; checked via web search 2026-11-05
+Q4FY26,Q,2026-01-25,revenue_total,68.127,USD_B,confirmed,S1;S402,"Calc: FY2026 $215,938M minus Q1–Q3; reported as $68.1B; checked via web search 2026-11-05"
+Q4FY26,Q,2026-01-25,sga_expense,1.282,USD_B,estimate,S402,"Calc: Q4 GAAP opex $6,794M minus derived R&D"
+Q1FY27,Q,2026-04-26,capex,1.7,USD_B,estimate,S403,Calc: operating cash flow minus reported free cash flow
+Q1FY27,Q,2026-04-26,cloud_service_commitments,30.0,USD_B,confirmed,S404,checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,free_cash_flow,48.6,USD_B,confirmed,S403,As reported by NVIDIA (vs $26.1B a year earlier); checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,gross_margin_gaap_pct,74.9,pct,confirmed,S403,checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,gross_margin_nongaap_pct,75.0,pct,confirmed,S403,From Q1FY27 non-GAAP no longer excludes stock-based compensation; checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,guidance_next_q_revenue,91.0,USD_B,confirmed,S403,"Outlook for Q2FY27 ±2%, no China DC compute assumed; checked via web search 2026-11-05"
+Q1FY27,Q,2026-04-26,inventory,25.797,USD_B,confirmed,S404,checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,net_income,58.3,USD_B,confirmed,S403,"+211% y/y; includes ~$15.9B other income, largely unrealized gains on equity stakes (e.g. Intel); checked via web search 2026-11-05"
+Q1FY27,Q,2026-04-26,operating_cash_flow,50.3,USD_B,confirmed,S403,checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,operating_expenses_total,7.6,USD_B,confirmed,S403,"GAAP opex, +52% y/y; R&D/SG&A split not captured; checked via web search 2026-11-05"
+Q1FY27,Q,2026-04-26,operating_income,53.5,USD_B,confirmed,S403,+147% y/y; checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,purchase_obligations,119.0,USD_B,confirmed,S404,Supply and capacity commitments ($95B payable in rest of FY2027); checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,revenue_data_center,75.2,USD_B,confirmed,S403,"+92% y/y; new reporting: Data Center = Hyperscale + ACIE (AI clouds, industrial, enterprise); checked via web search 2026-11-05"
+Q1FY27,Q,2026-04-26,revenue_dc_acie,37.0,USD_B,reported,S403;S409,"Approximate ('about $37B'); ACIE = AI clouds, industrial and enterprise"
+Q1FY27,Q,2026-04-26,revenue_dc_compute,60.4,USD_B,estimate,S403;S409,"Calc: DC $75.2B minus networking $14.8B (call: compute ~$60B, +77% y/y)"
+Q1FY27,Q,2026-04-26,revenue_dc_hyperscale,38.0,USD_B,reported,S403;S409,Approximate ('about $38B') per secondary summaries of the release/call
+Q1FY27,Q,2026-04-26,revenue_dc_networking,14.8,USD_B,confirmed,S403;S409,"+199% y/y, +35% q/q; checked via web search 2026-11-05"
+Q1FY27,Q,2026-04-26,revenue_edge_computing,6.4,USD_B,confirmed,S403,+29% y/y; Edge Computing = former Gaming + ProViz + Automotive + OEM & Other (individually no longer disclosed); checked via web search 2026-11-05
+Q1FY27,Q,2026-04-26,revenue_total,81.6,USD_B,confirmed,S403,"+85% y/y, +20% q/q; checked via web search 2026-11-05"
+Q1FY27,Q,2026-04-26,shareholder_returns,20.0,USD_B,confirmed,S403,Repurchases + dividends; $80B added to authorization; quarterly dividend raised to $0.25; checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,ai_cloud_capacity_agreements,36.0,USD_B,confirmed,S407;S430,NVIDIA agreed to buy committed AI-cloud capacity that partners cannot resell; checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,cloud_service_commitments,29.0,USD_B,confirmed,S407,checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,gross_margin_gaap_pct,75.0,pct,reported,S405,Reported as ~75% in secondary summaries; exact decimal not captured
+Q2FY27,Q,2026-07-26,guidance_next_q_revenue,108.0,USD_B,confirmed,S405;S408,"Outlook for Q3FY27 ±2%, no China DC compute assumed; Vera Rubin ~20% of DC; checked via web search 2026-11-05"
+Q2FY27,Q,2026-07-26,inventory,31.575,USD_B,confirmed,S407,checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,net_income,59.7,USD_B,reported,S405,Per secondary summaries; checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,operating_income,63.7,USD_B,confirmed,S405,+124% y/y; checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,purchase_obligations,279.0,USD_B,confirmed,S407;S431,"Supply and capacity commitments, mostly memory and manufacturing capacity for current and future architectures; checked via web search 2026-11-05"
+Q2FY27,Q,2026-07-26,revenue_data_center,89.0,USD_B,confirmed,S405,+117% y/y; checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,revenue_dc_acie,40.3,USD_B,reported,S406,Per secondary summaries of the CFO commentary
+Q2FY27,Q,2026-07-26,revenue_dc_compute,71.5,USD_B,estimate,S405;S408,Calc: DC $89.0B minus estimated networking
+Q2FY27,Q,2026-07-26,revenue_dc_hyperscale,48.7,USD_B,reported,S406,+102% y/y per secondary summaries of the CFO commentary
+Q2FY27,Q,2026-07-26,revenue_dc_networking,17.5,USD_B,estimate,S408,Calc: Q1FY27 $14.8B x 1.18 (CFO: networking 'grew 18% sequentially'); dollar figure not captured
+Q2FY27,Q,2026-07-26,revenue_edge_computing,7.2,USD_B,confirmed,S405,"+27% y/y, +13% q/q; checked via web search 2026-11-05"
+Q2FY27,Q,2026-07-26,revenue_total,96.2,USD_B,confirmed,S405,"+106% y/y, +18% q/q; checked via web search 2026-11-05"
+Q2FY27,Q,2026-07-26,shareholder_returns,26.0,USD_B,confirmed,S405,Repurchases + dividends (approx.); checked via web search 2026-11-05
+Q2FY27,Q,2026-07-26,total_future_commitments,366.0,USD_B,reported,S430,Total of the 10-Q commitments table per secondary summary

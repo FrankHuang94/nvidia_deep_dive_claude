@@ -1,0 +1,6 @@
+parallelism,degree,fabric,gb_per_gpu_per_step,critical_path,formula,confidence,source_id,notes
+"Tensor (TP=8, inside NVLink)",8,scale-up,150.3,yes,4 all-reduces per layer x 20 layers per stage x 2(t-1)/t x 67.1 MB activations x 16 sequences,estimate,S34001;S34002;S34012,"70B dense model (80 layers, hidden 8192), 4096-token sequences, BF16, TP8 x PP4 x DP64 on 2048 GPUs, 4M-token global batch; repo calculation"
+"Data, full replica (no TP/PP)",64,scale-out,275.6,partly,2(N-1)/N x 140 GB of BF16 gradients,estimate,S34011;S34012,Same 70B model if every GPU held a full copy; shown for contrast
+"Fully sharded data (FSDP / ZeRO-3)",64,scale-out,12.9,partly,3(N-1)/N x 4.38 GB gradient/parameter shard,estimate,S34004;S34005,Same TP8 x PP4 layout but with ZeRO-3 instead of plain DP: 1.5x DP volume
+"Data (DP=64, gradient all-reduce)",64,scale-out,8.6,partly,2(N-1)/N x 4.38 GB (2.19B params per GPU x 2 bytes),estimate,S34011;S34012,Overlaps with the backward pass; once per step
+"Pipeline (PP=4, stage boundaries)",4,scale-out,2.1,yes,2 x 67.1 MB (activation forward + gradient backward) x 16 sequences,estimate,S34002,Point-to-point sends; Megatron's scatter/gather trick can cut this ~8x when TP=8

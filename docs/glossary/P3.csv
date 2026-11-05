@@ -1,0 +1,13 @@
+term,slug,definition,see_also
+Roofline model,roofline-model,A simple chart of a chip's attainable speed: the lower of its peak compute (a flat roof) and its memory bandwidth times the work's arithmetic intensity (a sloped line). It shows at a glance whether a workload is limited by compute or by memory.,arithmetic-intensity;ridge-point
+Ridge point,ridge-point,The arithmetic intensity at which a chip switches from memory-bound to compute-bound: peak FLOPS divided by memory bandwidth. About 295 FLOPs per byte for an H100 in dense BF16.,roofline-model;arithmetic-intensity
+Memory-bound,memory-bound,"A workload whose speed is limited by how fast data can be read from memory rather than by how fast the chip can calculate; adding FLOPS does not help, adding bandwidth does.",compute-bound;memory-wall
+Compute-bound,compute-bound,A workload whose speed is limited by the chip's arithmetic throughput because it reuses each byte many times; adding memory bandwidth does not help.,memory-bound;flops
+GEMM (general matrix multiply),gemm,The matrix-multiplication operation that accounts for most of the arithmetic in neural networks. Large GEMMs have high arithmetic intensity and run near a GPU's peak FLOPS.,tensor-core;arithmetic-intensity
+Sparsity (2:4 structured),sparsity,"A hardware trick in which two of every four weights are zero so the tensor cores can skip them, doubling quoted peak FLOPS. Headline NVIDIA figures often assume it; dense figures do not.",flops;tensor-core
+Amdahl's law,amdahls-law,"The rule that the part of a job that cannot be sped up (in AI clusters, usually communication that cannot overlap with compute) caps the total speed-up from adding processors.",scale-out
+InfiniBand,infiniband,"A low-latency, lossless networking standard used for scale-out AI clusters; NVIDIA became its leading supplier through the 2020 Mellanox acquisition (Quantum switches, ConnectX adapters).",scale-out;spectrum-x
+Spectrum-X,spectrum-x,"NVIDIA's Ethernet platform for AI clusters, pairing Spectrum switches with SuperNICs and adaptive routing to approach InfiniBand-like performance on Ethernet.",infiniband;scale-out
+Liquid cooling,liquid-cooling,Removing heat with liquid circulated through cold plates on the chips rather than with air; required for racks of roughly 100 kW and above such as the GB200 NVL72.,hvdc-800v
+800 V DC power architecture,hvdc-800v,"NVIDIA's plan (from 2027) to distribute 800-volt direct current to racks, cutting conversion steps and copper so a single rack can draw up to about a megawatt.",liquid-cooling
+PUE (power usage effectiveness),pue,Total facility power divided by the power used by the IT equipment; 1.0 would mean zero overhead for cooling and power conversion.,liquid-cooling

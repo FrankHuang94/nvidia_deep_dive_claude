@@ -1,1 +1,106 @@
 system,vendor,input,value,unit,basis,confidence,source_id,notes
+GB200 NVL72,NVIDIA,capex_per_rack,3.0,USD M,"per rack, HSBC (May 2024)",estimate,S326;S324,HSBC: ~$3M per NVL72 rack; GB200 superchip $60-70k.
+GB200 NVL72,NVIDIA,capex_per_rack,3.1,USD M,"per rack, SemiAnalysis (Aug 2025)",estimate,S324,"Rack only, as summarized by fal.ai."
+GB200 NVL72,NVIDIA,capex_per_rack,3.0,USD M,"per rack, Wolfe Research (Jan 2026)",estimate,S325,As aggregated by Spheron.
+GB200 NVL72,NVIDIA,capex_per_rack_low,2.8,USD M,"per rack, media range",estimate,S327,Low end of $2.8-3.4M range.
+GB200 NVL72,NVIDIA,capex_per_rack_high,3.4,USD M,"per rack, media range",estimate,S327,High end of $2.8-3.4M range.
+GB200 NVL72,NVIDIA,capex_per_rack_all_in,3.9,USD M,"per rack incl. scale-out networking and storage, SemiAnalysis",estimate,S324,Implies ~$0.8M (~21%) of all-in cost is networking + storage.
+GB200 NVL72,NVIDIA,networking_storage_share_of_capex,20.5,pct,repo calc,estimate,S324,($3.9M - $3.1M) / $3.9M.
+GB200 NVL72,NVIDIA,superchip_price,70000,USD,per GB200 superchip (1 Grace + 2 B200),estimate,S326,HSBC: up to $70k ($60-70k).
+GB200 NVL72,NVIDIA,accelerators_per_rack,72,GPUs,per rack,confirmed,S121,
+GB200 NVL72,NVIDIA,rack_power_kw,120,kW,"per rack, IT load",reported,S336;S335,NVIDIA OCP design ~120 kW.
+GB200 NVL72,NVIDIA,rack_power_kw_all_in,145,kW,per rack incl. share of networking,estimate,S340,SemiAnalysis all-in figure used in its CloudMatrix comparison.
+GB200 NVL72,NVIDIA,cooling_bom,41550,USD,"per rack, repo calc",estimate,S334,"GB300 cooling $49,860 is +20% vs GB200 -> ~$41.6k."
+GB200 NVL72,NVIDIA,tco_100mw_factory,806.58,USD M,"100 MW inference factory, Morgan Stanley model",speculative,S357,Highest TCO among systems compared (MI355X $774.11M). Morgan Stanley later retracted this analysis; use only as an illustration.
+GB200 NVL72,NVIDIA,revenue_per_gpu_hour,7.5,USD/GPU-hr,Morgan Stanley model assumption,speculative,S357,Token revenue per chip-hour. Morgan Stanley later retracted this analysis; use only as an illustration.
+GB200 NVL72,NVIDIA,inference_speedup_vs_h100,30,x,"vendor claim, real-time trillion-parameter LLM inference",reported,S396,NVIDIA GTC 2024 claim; vendor-selected workload. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+GB300 NVL72,NVIDIA,capex_per_rack,3.99,USD M,"per rack, ODM price to CSP, Morgan Stanley (May 2026)",estimate,S332,Basis for the rack BOM waterfall.
+GB300 NVL72,NVIDIA,capex_per_rack,4.3,USD M,"per rack, Wolfe Research (Jan 2026)",estimate,S325,
+GB300 NVL72,NVIDIA,capex_per_rack,5.0,USD M,"per rack, Data Gravity (from purchase orders)",estimate,S328,
+GB300 NVL72,NVIDIA,capex_per_rack_low,6.0,USD M,"per rack, media range",reported,S327;S328,Media range $6-6.5M looks high vs bottom-up BOMs.
+GB300 NVL72,NVIDIA,capex_per_rack_high,6.5,USD M,"per rack, media range",reported,S327;S328,
+GB300 NVL72,NVIDIA,bom_gpu,2.52,USD M,"per rack (72 B300, excl. memory)",estimate,S332,Morgan Stanley; ~$35k per GPU excluding HBM value.
+GB300 NVL72,NVIDIA,bom_memory,0.374,USD M,per rack (HBM3E + LPDDR5X),estimate,S331,"Morgan Stanley: $373,939."
+GB300 NVL72,NVIDIA,bom_cooling,0.04986,USD M,per rack (liquid cooling),estimate,S334,"Morgan Stanley: compute trays $40,680 + switch trays $9,180."
+GB300 NVL72,NVIDIA,odm_gross_margin_pct,2.7,pct,of rack price,estimate,S332,Morgan Stanley.
+GB300 NVL72,NVIDIA,gpu_share_of_rack_bom,63,pct,repo calc,estimate,S332,$2.52M / $3.99M; Morgan Stanley rounds to ~65%.
+GB300 NVL72,NVIDIA,accelerators_per_rack,72,GPUs,per rack,confirmed,S32004,
+GB300 NVL72,NVIDIA,rack_power_kw,132,kW,per rack,reported,S337,Estimates span ~120-140 kW.
+Vera Rubin NVL72,NVIDIA,capex_per_rack,7.8,USD M,"per rack, ODM price to CSP, Morgan Stanley (May 2026)",estimate,S330;S332,"$7,803,148."
+Vera Rubin NVL72,NVIDIA,capex_per_rack,9.1,USD M,"per rack, Bernstein (Jul 2026)",estimate,S333,Assumes HBM4 ~$53/GB in 2027.
+Vera Rubin NVL72,NVIDIA,capex_per_rack,6.7,USD M,"per rack if CSP buys SOCAMM memory directly, Morgan Stanley",estimate,S332,
+Vera Rubin NVL72,NVIDIA,capex_per_rack_low,5.0,USD M,"per rack, quoted range",reported,S329,Quotes of $5-7M per rack.
+Vera Rubin NVL72,NVIDIA,capex_per_rack_high,8.8,USD M,"per rack, highest reported quote",reported,S329,
+Vera Rubin NVL72,NVIDIA,gpu_unit_price,55000,USD,per Rubin GPU,estimate,S330,Morgan Stanley.
+Vera Rubin NVL72,NVIDIA,bom_gpu,3.96,USD M,per rack,estimate,S332;S331,+57% vs GB300.
+Vera Rubin NVL72,NVIDIA,bom_memory,2.0016,USD M,per rack (HBM4 + LPDDR5X),estimate,S330,+435% vs GB300.
+Vera Rubin NVL72,NVIDIA,bom_cpu,0.18,USD M,per rack (36 Vera),estimate,S331,
+Vera Rubin NVL72,NVIDIA,bom_cooling,0.05571,USD M,per rack (liquid cooling),estimate,S334,"Compute trays $47,880 + switch trays $7,830."
+Vera Rubin NVL72,NVIDIA,odm_gross_margin_pct,1.9,pct,of rack price,estimate,S332,Down from 2.7% on GB300.
+Vera Rubin NVL72,NVIDIA,gpu_share_of_rack_bom,51,pct,of rack BOM,estimate,S332,
+Vera Rubin NVL72,NVIDIA,memory_share_of_rack_bom,25.6,pct,of rack BOM,estimate,S330;S332,Morgan Stanley ~25-26%.
+Vera Rubin NVL72,NVIDIA,nvswitch_asics_per_rack,36,chips,per rack,reported,S332,Up from 18 in GB300 NVL72.
+Vera Rubin NVL72,NVIDIA,accelerators_per_rack,72,GPUs,per rack,confirmed,S102,
+Vera Rubin NVL72,NVIDIA,rack_power_kw,190,kW,"per rack, Max-Q profile",reported,S302;S303;S106,
+Vera Rubin NVL72,NVIDIA,rack_power_kw,230,kW,"per rack, Max-P profile",reported,S302;S303;S106,
+Vera Rubin NVL72,NVIDIA,cost_per_token_vs_blackwell,0.1,x,vendor claim (10x lower cost per token),reported,S33006,NVIDIA CES 2026 claim; workload unspecified.
+Vera Rubin NVL72,NVIDIA,inference_perf_vs_blackwell,5,x,vendor claim (up to),reported,S33006,NVIDIA CES 2026 claim.
+Vera Rubin NVL72 + Groq 3 LPX,NVIDIA,throughput_per_mw_vs_blackwell,35,x,vendor claim,reported,S113,NVIDIA GTC 2026 claim for LPX + VR NVL72 vs Blackwell NVL72.
+Vera Rubin NVL144 CPX,NVIDIA,ai_perf_vs_gb300_nvl72,7.5,x,vendor claim,reported,S304,NVIDIA Sep 2025; CPX later dropped from GTC 2026 roadmap.
+HGX H100,NVIDIA,gpu_street_price_low,25000,USD,per GPU (2023 street price),reported,S356,Raymond James / Tom's Hardware.
+HGX H100,NVIDIA,gpu_street_price_high,30000,USD,per GPU (2023 street price),reported,S356,
+HGX H100,NVIDIA,gpu_manufacturing_cost,3320,USD,"per GPU incl. HBM, Raymond James",estimate,S356,Excludes R&D.
+HGX H100,NVIDIA,system_power_kw,10.2,kW,per 8-GPU DGX H100,confirmed,S318,
+HGX H100,NVIDIA,accelerators_per_system,8,GPUs,per system,confirmed,S318,
+HGX H100,NVIDIA,rental_on_demand_hyperscaler,6.88,USD/GPU-hr,AWS p5 after Jun 2025 cut,reported,S392,See gpu_rental_prices.csv for the time series. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+HGX H100,NVIDIA,rental_on_demand_neocloud,2.99,USD/GPU-hr,Lambda list price,reported,S395,Marketplace prices fell below $2 in late 2024 (S393). QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+HGX H200,NVIDIA,system_price,0.319,USD M,Supermicro 8x H200 starting price (Sep 2026),reported,S322,
+HGX H200,NVIDIA,system_price,0.398,USD M,Lenovo 8x H200 (Sep 2026),reported,S322,
+HGX H200,NVIDIA,system_price,0.467,USD M,Broadberry DGX H200 (Sep 2026),reported,S322,
+HGX H200,NVIDIA,used_system_value,0.3485,USD M,used HGX H200 server (Aug 2026),reported,S323,Limited sample.
+HGX H200,NVIDIA,revenue_per_gpu_hour,3.7,USD/GPU-hr,Morgan Stanley model assumption,speculative,S357,Morgan Stanley later retracted this analysis; use only as an illustration.
+HGX B200,NVIDIA,system_price,0.37,USD M,"DGX B200, Hydra Host estimate",estimate,S320,Listings range ~$0.28-0.50M.
+HGX B200,NVIDIA,system_power_kw,14.3,kW,per 8-GPU DGX B200,confirmed,S319,
+HGX B200,NVIDIA,gpu_manufacturing_cost,6400,USD,"per B200, Epoch AI central estimate",estimate,S35020,"Range $5,700-7,300."
+HGX B200,NVIDIA,bom_logic_dies,1950,USD,"per B200 (two 4NP dies), Epoch AI midpoint",estimate,S35020,"Range ~$1,700-2,200."
+HGX B200,NVIDIA,bom_hbm,3000,USD,"per B200 (192 GB HBM3E), Epoch AI midpoint",estimate,S35020,"Range ~$2,700-3,300 at $14-17/GB."
+HGX B200,NVIDIA,bom_cowos_l,1300,USD,"per B200, Epoch AI midpoint",estimate,S35020,"Range ~$1,100-1,500."
+HGX B200,NVIDIA,bom_other,250,USD,"per B200 (substrate, test, auxiliary), Epoch AI midpoint",estimate,S35020,Range ~$200-300.
+HGX B200,NVIDIA,chip_gross_margin_pct,80,pct,"chip-level, Epoch AI",estimate,S35020,Before R&D and opex; NVIDIA's reported corporate gross margin is lower.
+HGX B200,NVIDIA,rental_on_demand_neocloud,4.99,USD/GPU-hr,Lambda list price,reported,S395,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+MI355X Platform,AMD,accelerators_per_system,8,GPUs,per UBB 2.0 platform,confirmed,S347,
+MI355X Platform,AMD,gpu_power_kw,1.4,kW,per OAM (liquid cooled),confirmed,S347,
+MI355X Platform,AMD,system_power_kw,11,kW,"per 8-GPU node, third-party estimate",estimate,S348,
+MI355X Platform,AMD,tco_100mw_factory,774.11,USD M,"100 MW inference factory, Morgan Stanley model",speculative,S357,Morgan Stanley later retracted this analysis; use only as an illustration.
+MI355X Platform,AMD,revenue_per_gpu_hour,1.7,USD/GPU-hr,Morgan Stanley model assumption,speculative,S357,MS later said its method understated AMD performance. Morgan Stanley later retracted this analysis; use only as an illustration.
+Helios (MI455X),AMD,accelerators_per_rack,72,GPUs,per rack,confirmed,S344,
+Helios (MI455X),AMD,rack_power_kw,235,kW,"per rack, ServeTheHome estimate midpoint (225-245)",estimate,S346,AMD has not disclosed rack power.
+Helios (MI455X),AMD,hbm_per_rack,31.1,TB,per rack (72 x 432 GB HBM4),confirmed,S344;S361,
+TPU7x Ironwood,Google,chips_per_pod,9216,chips,per superpod,confirmed,S350;S151,
+TPU7x Ironwood,Google,chips_per_cube,64,chips,per 4x4x4 cube (rack building block),confirmed,S350,
+TPU7x Ironwood,Google,fp8_pflops_per_chip,4.614,PFLOPS,dense FP8 per chip,confirmed,S350;S151,
+TPU7x Ironwood,Google,hbm_per_chip,192,GB,HBM3E per chip,confirmed,S350;S151,
+Trn2 UltraServer,AWS,chips_per_ultraserver,64,chips,per UltraServer,confirmed,S352,
+Trn2 UltraServer,AWS,fp8_pflops,83.2,PFLOPS,dense FP8 per UltraServer,confirmed,S352,
+Trn3 UltraServer,AWS,chips_per_ultraserver,144,chips,per Gen2 UltraServer,confirmed,S353,
+Trn3 UltraServer,AWS,fp8_pflops,362,PFLOPS,FP8 (MXFP8) per Gen2 UltraServer,confirmed,S353,
+Trn3 UltraServer,AWS,hbm_per_ultraserver,20.7,TB,HBM3E per Gen2 UltraServer,confirmed,S353,
+CloudMatrix 384,Huawei,bf16_pflops_dense,300,PFLOPS,dense BF16 per system,reported,S340,910C has no FP8; BF16 used as effective rate in repo charts.
+CloudMatrix 384,Huawei,system_power_kw,559,kW,all-in per system,reported,S340,SemiAnalysis; ~3.9x GB200 NVL72 all-in.
+GB200 NVL72,NVIDIA,bf16_pflops_dense,180,PFLOPS,dense BF16 per rack,reported,S340;S121,360 PF sparse / 2.
+All,Industry,ai_factory_capex_per_gw,55,USD B,"all-in incl. compute, midpoint of $50-60B (NVIDIA CEO, Aug 2025)",reported,S398,Implies ~$50-60M per MW all-in. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Industry,nvidia_content_per_gw,35,USD B,"NVIDIA content per GW (NVIDIA CEO, Aug 2025)",reported,S398,~58-70% of all-in AI-factory capex. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Industry,facility_capex_per_mw,6.6,USD M,"datacenter infrastructure excl. IT, Morgan Stanley 100 MW model ($660M, 10-yr life)",speculative,S357,Morgan Stanley later retracted this analysis; use only as an illustration.
+All,Industry,facility_depreciation_years,10,years,Morgan Stanley 100 MW model,speculative,S357,Morgan Stanley later retracted this analysis; use only as an illustration.
+All,Industry,pue_industry_average,1.56,ratio,Uptime Institute global survey 2024,reported,S387,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Industry,pue_hyperscale_best,1.09,ratio,Google fleet trailing-12-month PUE (2024),reported,S388,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Industry,pue_assumption_air_cooled,1.4,ratio,repo assumption for an air-cooled enterprise/colo hall,estimate,S387;S388,Set between the Uptime average (1.56) and hyperscale best practice (1.09).
+All,Industry,pue_assumption_liquid_cooled,1.15,ratio,repo assumption for a new direct-liquid-cooled AI hall,estimate,S387;S388,Liquid cooling removes most fan and chiller load; hyperscale fleets run ~1.1.
+All,Industry,electricity_price_us_industrial,0.081,USD/kWh,"EIA US average industrial retail price, 2024",reported,S389,Commercial ~$0.13/kWh. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Industry,electricity_price_low,0.05,USD/kWh,repo assumption: hyperscaler PPA / low-cost US site,estimate,S390;S389,LevelTen P25 PPA offers ~$50-75/MWh. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Industry,electricity_price_high,0.1,USD/kWh,repo assumption: constrained grid / colo pass-through,estimate,S389,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Microsoft,server_useful_life_years,6,years,"servers and network equipment, since FY2023",confirmed,S382,See depreciation_useful_lives.csv. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Alphabet,server_useful_life_years,6,years,"servers, since Jan 2023",confirmed,S383,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Meta,server_useful_life_years,5.5,years,"servers and network assets, since Jan 2025",confirmed,S384,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,Amazon,server_useful_life_years,5,years,"subset of servers and networking equipment, since Jan 2025 (others 6)",confirmed,S385,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+All,CoreWeave,server_useful_life_years,6,years,technology equipment (GPU servers),confirmed,S386,QA: recheck (from prior knowledge; not re-verified 2026-11-05).

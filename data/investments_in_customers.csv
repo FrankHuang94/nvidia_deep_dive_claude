@@ -1,0 +1,7 @@
+counterparty,date,nvidia_investment_usd_b,investment_basis,customer_compute_commitment_gw,customer_commitment_usd_b,commitment_description,confidence,source_id,notes
+OpenAI,2025-09-22,100.0,up-to,10.0,,>=10 GW of NVIDIA systems (LOI),confirmed,S467,Progressive per-GW investment; LOI later superseded per reports
+OpenAI,2026-02,30.0,reported,10.0,,10 GW programme continues (as recalled),reported,S480,[recall] equity in 2026 round
+Anthropic,2025-11-18,10.0,up-to,1.0,30.0,up to 1 GW NVIDIA systems; $30B Azure compute,confirmed,S469,"Commitment in USD is to Azure, not NVIDIA directly"
+CoreWeave,2026-01-26,2.35,disclosed,5.0,,>5 GW AI factories by 2030 (target),reported,S472;S473,Equity $0.1B + $0.25B + $2B; plus $6.3B capacity backstop not counted
+xAI,2025-10,2.0,up-to,1.0,,"Colossus 2, first ~1 GW training cluster (reported)",reported,S483,[recall]
+Poolside,2025-10,1.0,up-to,2.0,,Project Horizon 2 GW campus (reported),reported,S483,[recall]

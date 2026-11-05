@@ -1,5 +1,38 @@
 [
   {
+    "id": "00-annual-revenue-by-segment",
+    "title": "Data Center grew from 7% of NVIDIA revenue in FY2016 to 90% in FY2026",
+    "subtitle": "Revenue by market platform, US$ B per fiscal year (FY ends late Jan); FY26 gaming/other = sum of quarters",
+    "alt": "Stacked bar chart of NVIDIA annual revenue by segment FY2016–FY2026: Data Center rose from $0.34B (7%) to $193.7B (90%) while gaming grew from $2.8B to about $16B; total revenue went from $5.0B to $216B.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "00",
+      "01",
+      "16"
+    ],
+    "source": "NVIDIA 10-K filings",
+    "source_ids": [
+      "S400",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S402",
+      "S411",
+      "S446",
+      "S445",
+      "S444",
+      "S1",
+      "S401"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-annual-revenue-by-segment.svg",
+    "html": null
+  },
+  {
     "id": "00-nvidia-revenue-by-fiscal-year",
     "title": "NVIDIA revenue grew ~20× in six fiscal years, from $10.9B to $216B",
     "subtitle": "Total revenue by fiscal year, US$ billions (NVIDIA's fiscal year ends in late January)",
@@ -21,6 +54,2918 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/00-nvidia-revenue-by-fiscal-year.svg",
+    "html": null
+  },
+  {
+    "id": "00-quarterly-revenue-and-guidance",
+    "title": "Quarterly revenue rose from $5.9B to $96.2B in 15 quarters; the Q3 FY27 guide is $108B",
+    "subtitle": "NVIDIA revenue per fiscal quarter (bars) and the guidance midpoint issued one quarter earlier (markers), US$ B",
+    "alt": "Bar chart of NVIDIA quarterly revenue from Q1FY23 to Q2FY27 with guidance markers: revenue fell to $5.9B in Q3FY23 and then rose to $96.2B; actual revenue landed above the guidance midpoint in every quarter since Q1 FY24, and the outlook for Q3FY27 is $108B ±2%.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "00",
+      "13"
+    ],
+    "source": "NVIDIA 8-K releases",
+    "source_ids": [
+      "S428",
+      "S432",
+      "S433",
+      "S434",
+      "S435",
+      "S418",
+      "S436",
+      "S447",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S1",
+      "S402",
+      "S403",
+      "S405",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-quarterly-revenue-and-guidance.svg",
+    "html": null
+  },
+  {
+    "id": "01-capital-deployment",
+    "title": "~$82B pledged to labs, neoclouds and partners in six months: ~68% of FY2026 net income",
+    "subtitle": "Announced equity stakes, licences and capacity backstops ≥ $0.4B, Sep 2025–Feb 2026, US$ B (hatched = 'up to' or press-reported)",
+    "alt": "Horizontal bar chart of NVIDIA's largest commitments from September 2025 to February 2026 totalling about $82B: OpenAI about $30B, Groq licence about $20B, Anthropic up to $10B, CoreWeave backstop $6.3B, Intel $5B and others; AI labs account for about $44B. The total equals about 68% of FY2026 net income of $120B.",
+    "data": [
+      "acquisitions_investments.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "01",
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA, partner releases and filings; press reports",
+    "source_ids": [
+      "S483",
+      "S475",
+      "S470",
+      "S477",
+      "S471",
+      "S472",
+      "S468",
+      "S401",
+      "S473",
+      "S469",
+      "S474",
+      "S480",
+      "S404"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/01-capital-deployment.svg",
+    "html": null
+  },
+  {
+    "id": "01-cuda-developers",
+    "title": "CUDA developers tripled from 2M (2020) to ~6M, then NVIDIA's count went flat",
+    "subtitle": "Registered CUDA developers as cited by NVIDIA in keynotes, blogs and earnings calls, millions",
+    "alt": "Line chart of NVIDIA-reported CUDA developers: 2 million in 2020, 3 million in early 2022, 4 million in mid 2023, 5 million in mid 2024 and about 6 million in March 2025, with the same ~6 million cited again in March 2026; cumulative CUDA downloads reached about 40 million by 2023.",
+    "data": [
+      "01_flywheel_ecosystem.csv"
+    ],
+    "chapters": [
+      "01",
+      "09",
+      "10"
+    ],
+    "source": "NVIDIA keynotes, blogs and earnings calls",
+    "source_ids": [
+      "S529",
+      "S530",
+      "S531",
+      "S532",
+      "S533",
+      "S534",
+      "S535",
+      "S536",
+      "S528"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/01-cuda-developers.svg",
+    "html": null
+  },
+  {
+    "id": "01-loop-engines",
+    "title": "Since FY2024 commitments grew 5.9× but CUDA developers only 1.5×",
+    "subtitle": "Growth multiple FY2024 → FY2026 of each loop's engine metric (developers: May 2023 → Mar 2025 NVIDIA statements)",
+    "alt": "Horizontal bar chart of growth multiples from FY2024 to FY2026: supply and capacity commitments 5.9 times ($16.1B to $95.2B), networking revenue and total revenue about 3.7 and 3.5 times, R&D 2.1 times and registered CUDA developers 1.5 times, so the capital and supply loops are now growing fastest.",
+    "data": [
+      "financials.csv",
+      "01_flywheel_ecosystem.csv"
+    ],
+    "chapters": [
+      "01",
+      "13"
+    ],
+    "source": "NVIDIA 10-K filings, CFO commentary and keynotes",
+    "source_ids": [
+      "S417",
+      "S2",
+      "S416",
+      "S401",
+      "S402",
+      "S1",
+      "S529",
+      "S530",
+      "S531",
+      "S532",
+      "S533",
+      "S534",
+      "S535",
+      "S536",
+      "S528"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/01-loop-engines.svg",
+    "html": null
+  },
+  {
+    "id": "01-revenue-mix-stacked-area",
+    "title": "Data Center went from 45% to 93% of NVIDIA's quarterly revenue in 17 quarters",
+    "subtitle": "Revenue by market platform, US$ B per quarter, Q1 FY23–Q2 FY27; networking split back-calculated for FY24 and Q2 FY27",
+    "alt": "Stacked area chart of NVIDIA quarterly revenue by segment from Q1FY23 to Q2FY27. Data Center rose from $3.8B (45% of $8.3B) to $89.0B (93% of $96.2B); networking reached about $17.5B a quarter while gaming and other segments stayed below $8B combined.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "01",
+      "00",
+      "13"
+    ],
+    "source": "NVIDIA 8-K, CFO commentary, 10-Q",
+    "source_ids": [
+      "S432",
+      "S433",
+      "S434",
+      "S435",
+      "S418",
+      "S436",
+      "S422",
+      "S440",
+      "S437",
+      "S423",
+      "S441",
+      "S438",
+      "S424",
+      "S442",
+      "S439",
+      "S417",
+      "S443",
+      "S425",
+      "S426",
+      "S427",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S415",
+      "S1",
+      "S402",
+      "S403",
+      "S409",
+      "S405",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/01-revenue-mix-stacked-area.svg",
+    "html": null
+  },
+  {
+    "id": "02-die-area-vs-reticle-limit",
+    "title": "Dies hit ~95% of the 858 mm² reticle by Volta; NVIDIA now scales by adding dies",
+    "subtitle": "Area per compute die, mm², vs the ~858 mm² lithography reticle limit; dies per package and total silicon labeled",
+    "alt": "Bar chart of die area per NVIDIA GPU compute die against the 858 mm2 reticle limit: P100 610 mm2, V100 815, A100 826 and H100 814 mm2 sit at about 95 percent of the limit; Blackwell and Rubin use two reticle-sized dies (about 1,600 mm2 of compute silicon, estimated) and Rubin Ultra four (about 3,200 mm2), so scaling now comes from packaging more dies rather than larger ones.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "03"
+    ],
+    "source": "NVIDIA; SemiEngineering",
+    "source_ids": [
+      "S35010",
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S35018",
+      "S33020",
+      "S110",
+      "S107",
+      "S108",
+      "S111",
+      "S35019"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-die-area-vs-reticle-limit.svg",
+    "html": null
+  },
+  {
+    "id": "02-flops-by-precision-log",
+    "title": "Rubin's 35 PFLOPS dense FP4 is 280× V100's 16-bit peak; 16-bit alone grew 32×",
+    "subtitle": "Dense peak PFLOPS per GPU package by number format, Volta → Rubin Ultra (no sparsity; log scale)",
+    "alt": "Log-scale line chart of dense peak compute per NVIDIA GPU by format from V100 (2017) to Rubin Ultra (2027 roadmap). Rubin reaches 35 PFLOPS FP4 and 17.5 PFLOPS FP8, 280 times V100's 125 TFLOPS FP16, while 16-bit throughput grew only 32 times and FP64 fell to about 1.4 TFLOPS on Blackwell Ultra before recovering to 33 TFLOPS on Rubin.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "17"
+    ],
+    "source": "NVIDIA specs",
+    "source_ids": [
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S121",
+      "S35014",
+      "S32004",
+      "S123",
+      "S100",
+      "S101",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S35018",
+      "S33020",
+      "S110",
+      "S107",
+      "S108",
+      "S111",
+      "S35019"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-flops-by-precision-log.svg",
+    "html": "assets/interactive/02-flops-by-precision-log.html"
+  },
+  {
+    "id": "02-fp64-per-gpu-by-generation",
+    "title": "FP64 peaked at 67 TFLOPS per GPU on Hopper; Blackwell Ultra cut it to ~1.4 TFLOPS",
+    "subtitle": "Peak FP64 TFLOPS per GPU (Tensor Core where available); Rubin native rate shown, emulated DGEMM excluded",
+    "alt": "Bar chart of FP64 throughput per NVIDIA GPU: P100 5.3, V100 7.8, A100 19.5 and H100 67 TFLOPS, then B200 37, GB200 40, B300 1.25 and GB300 1.39 TFLOPS, recovering to 33 TFLOPS native on Rubin (NVIDIA quotes 200 TFLOPS via emulation); NVIDIA is trading double precision for AI formats.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "18"
+    ],
+    "source": "NVIDIA specs",
+    "source_ids": [
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S121",
+      "S123",
+      "S32004",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-fp64-per-gpu-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "02-perf-per-watt-by-generation",
+    "title": "Compute/W rose 37× V100→Rubin, but just 2.7× over H100 at like-for-like FP8",
+    "subtitle": "Dense TFLOPS per watt of package power: bars = best low-precision format (labeled); diamonds = FP8",
+    "alt": "Bar chart of dense TFLOPS per watt for NVIDIA GPUs. Using each generation's best low-precision format, efficiency rose from 0.42 TFLOPS/W on V100 (FP16) to 2.8 on H100 (FP8) and 15.2 on Rubin (FP4 at ~2,300 W), 37 times overall; at the same FP8 format Rubin delivers 7.6 TFLOPS/W, 2.7 times H100, so most of the gain comes from smaller number formats.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "14"
+    ],
+    "source": "NVIDIA specs; repo calc.",
+    "source_ids": [
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32002",
+      "S33003",
+      "S35014",
+      "S101",
+      "S121",
+      "S123",
+      "S32004",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-perf-per-watt-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "02-tdp-by-generation",
+    "title": "Power per GPU rose ~7.7× from V100 (300 W) to Rubin (~2,300 W, Max-P)",
+    "subtitle": "Maximum power per GPU package, watts (superchip rows exclude the CPU share; Rubin is press-reported)",
+    "alt": "Bar chart of NVIDIA GPU package power: P100 and V100 at 300 W, A100 400 W, H100 and H200 700 W, B200 1,000 W, GB200 1,200 W, B300 1,100 W, GB300 1,400 W and Rubin about 2,300 W in its reported Max-P profile (1,800 W Max-Q), roughly 7.7 times V100.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "03",
+      "17"
+    ],
+    "source": "NVIDIA specs; SemiAnalysis",
+    "source_ids": [
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32002",
+      "S33003",
+      "S35014",
+      "S101",
+      "S121",
+      "S123",
+      "S32004",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-tdp-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "02-transistor-count-by-generation",
+    "title": "Transistors per GPU rose 22× from P100 to Rubin (15.3B → 336B), now on two dies",
+    "subtitle": "Transistors per GPU package, billions; dies per package labeled (flagship datacenter GPU per generation)",
+    "alt": "Bar chart of transistors per NVIDIA datacenter GPU: P100 15.3B (2016), V100 21.1B, A100 54.2B, H100 80B, B200 208B on two dies and Rubin 336B on two dies, a 22-fold rise; since Blackwell the growth comes from adding a second reticle-sized die.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02"
+    ],
+    "source": "NVIDIA whitepapers",
+    "source_ids": [
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-transistor-count-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "03-compute-vs-memory-bandwidth-growth",
+    "title": "Since V100, compute grew 280× but HBM bandwidth only 21×: the memory wall",
+    "subtitle": "Per-GPU growth indexed to V100 = 1: dense peak FLOPS (best format, and 16-bit) vs HBM bandwidth (log scale)",
+    "alt": "Log-scale index chart with V100 = 1: by Rubin, dense compute in the best supported format is 280 times V100 and 16-bit compute 32 times, while HBM bandwidth is only 21 times higher, so each byte of memory bandwidth must feed far more math - the memory wall that makes LLM decode bandwidth-bound.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "03",
+      "02",
+      "P3"
+    ],
+    "source": "NVIDIA specs; repo index",
+    "source_ids": [
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32002",
+      "S33003",
+      "S35014",
+      "S101",
+      "S32004",
+      "S123",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S35018",
+      "S33020",
+      "S110",
+      "S107",
+      "S108",
+      "S111",
+      "S35019"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-compute-vs-memory-bandwidth-growth.svg",
+    "html": null
+  },
+  {
+    "id": "03-hbm-bandwidth-per-gpu",
+    "title": "HBM bandwidth per GPU rose 26× from P100 to Rubin (0.73 → 19.2 TB/s)",
+    "subtitle": "Peak memory bandwidth per GPU package, TB/s; Rubin shown at the revised production figure",
+    "alt": "Bar chart of HBM bandwidth per NVIDIA GPU: P100 0.73 TB/s, V100 0.9, A100 2.0, H100 3.35, H200 4.8, B200 and B300 8, Rubin 19.2 TB/s (cut from a 22 TB/s launch target in late 2026) and Rubin Ultra about 32 TB/s on the 2027 roadmap; a 26-fold rise from P100 to Rubin.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "03",
+      "02",
+      "17"
+    ],
+    "source": "NVIDIA specs; press",
+    "source_ids": [
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32002",
+      "S33003",
+      "S35014",
+      "S101",
+      "S123",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S35018",
+      "S33020",
+      "S110",
+      "S107",
+      "S108",
+      "S111",
+      "S35019"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-bandwidth-per-gpu.svg",
+    "html": null
+  },
+  {
+    "id": "03-hbm-capacity-per-gpu",
+    "title": "HBM per GPU grew 18× from P100 to Rubin (16 → 288 GB); Rubin Ultra targets 1 TB",
+    "subtitle": "HBM capacity per GPU package, GB (usable capacity as specified; roadmap hatched)",
+    "alt": "Bar chart of HBM capacity per NVIDIA GPU: P100 16 GB, V100 32, A100 and H100 80, H200 141, B200 180, GB200 186, B300 and Rubin 288 GB, and Rubin Ultra 1,024 GB as announced for 2027 (2026 reports suggest 768 GB); 18 times more from P100 to Rubin.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "03",
+      "02",
+      "17"
+    ],
+    "source": "NVIDIA specs and roadmap",
+    "source_ids": [
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32002",
+      "S33003",
+      "S35014",
+      "S101",
+      "S121",
+      "S123",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S35018",
+      "S33020",
+      "S110",
+      "S107",
+      "S108",
+      "S111",
+      "S35019"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-capacity-per-gpu.svg",
+    "html": null
+  },
+  {
+    "id": "03-purchase-obligations-over-time",
+    "title": "Supply commitments hit $279B: 2.9× quarterly revenue vs ~1.4× before the 2022 bust",
+    "subtitle": "Left: purchase/supply commitments vs inventory, US$ B at quarter end. Right: commitments ÷ that quarter's revenue",
+    "alt": "Two-panel chart. Left: NVIDIA purchase obligations rose from $4.8B in Q2FY22 to $279B in Q2FY27 while inventory reached $31.6B. Right: commitments were about 1.4 times quarterly revenue before the FY2023 inventory write-downs and are now 2.9 times, mostly memory and capacity for Rubin.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "03",
+      "18",
+      "13"
+    ],
+    "source": "NVIDIA 10-Q/10-K",
+    "source_ids": [
+      "S420",
+      "S421",
+      "S432",
+      "S433",
+      "S434",
+      "S435",
+      "S418",
+      "S419",
+      "S436",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S401",
+      "S1",
+      "S402",
+      "S404",
+      "S403",
+      "S407",
+      "S431",
+      "S405"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-purchase-obligations-over-time.svg",
+    "html": null
+  },
+  {
+    "id": "04-cpu-cores-and-memory-bandwidth",
+    "title": "Vera's 1.2 TB/s memory bandwidth beats every shipping server CPU (88 cores)",
+    "subtitle": "Cores per socket (x) vs peak memory bandwidth per socket, GB/s (y); hollow = announced, not yet shipping",
+    "alt": "Scatter plot of server CPUs by core count and memory bandwidth: NVIDIA Vera has 88 cores and 1,200 GB/s, Grace 72 cores and 512 GB/s; x86 parts span from Xeon Sapphire Rapids (56 cores, 307 GB/s) to EPYC Turin (192 cores, 576 GB/s) and Xeon 6 Granite Rapids (128 cores, 845 GB/s with MRDIMM); only AMD's announced EPYC Venice (256 cores, 1,600 GB/s) exceeds Vera's bandwidth, while Arm cloud CPUs such as Graviton4 and AmpereOne sit at 333-538 GB/s.",
+    "data": [
+      "cpu_specs.csv"
+    ],
+    "chapters": [
+      "04"
+    ],
+    "source": "vendor specs",
+    "source_ids": [
+      "S129",
+      "S128",
+      "S100",
+      "S33004",
+      "S178",
+      "S189",
+      "S177",
+      "S188",
+      "S33022",
+      "S175",
+      "S176",
+      "S144",
+      "S145",
+      "S179",
+      "S180",
+      "S181",
+      "S185",
+      "S186"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/04-cpu-cores-and-memory-bandwidth.svg",
+    "html": null
+  },
+  {
+    "id": "04-cpu-gpu-bandwidth-pcie-vs-c2c",
+    "title": "Vera's NVLink-C2C moves 1,800 GB/s CPU↔GPU, 14× a PCIe Gen5 x16 link (128 GB/s)",
+    "subtitle": "CPU-to-GPU link bandwidth per GPU, GB/s, both directions combined: PCIe x16 generations vs NVLink-C2C",
+    "alt": "Horizontal bar chart of CPU-to-GPU bandwidth per GPU: PCIe Gen3 x16 about 32 GB/s (DGX-1), Gen4 64 GB/s (DGX A100), Gen5 128 GB/s (DGX H100) and Gen6 256 GB/s (2026 x86 CPUs such as EPYC Venice), versus NVLink-C2C at 900 GB/s on Grace and 1,800 GB/s on Vera - 14 times a Gen5 x16 link, which lets the GPU treat CPU LPDDR as a coherent second memory tier.",
+    "data": [
+      "cpu_specs.csv"
+    ],
+    "chapters": [
+      "04",
+      "05"
+    ],
+    "source": "NVIDIA, AMD, Intel specs",
+    "source_ids": [
+      "S178",
+      "S189",
+      "S177",
+      "S188",
+      "S33022",
+      "S144",
+      "S145",
+      "S129",
+      "S128",
+      "S100",
+      "S33004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/04-cpu-gpu-bandwidth-pcie-vs-c2c.svg",
+    "html": null
+  },
+  {
+    "id": "04-cpu-memory-bandwidth-per-core",
+    "title": "Vera feeds each core 13.6 GB/s of memory bandwidth, 2.1× the best shipping x86",
+    "subtitle": "Peak memory bandwidth per core, GB/s (socket bandwidth ÷ cores); CPUs launched 2022 or later",
+    "alt": "Horizontal bar chart of memory bandwidth per core: NVIDIA Vera 13.6 GB/s per core and Grace 7.1 lead; the best shipping x86 part, Xeon 6980P (Granite Rapids-AP), offers 6.6 GB/s per core, and high-core-count parts such as EPYC Turin (3.0) and Xeon 6+ Clearwater Forest (2.7) fall below 3 GB/s - Vera is tuned to keep GPUs and agentic CPU work fed rather than to maximise core count.",
+    "data": [
+      "cpu_specs.csv"
+    ],
+    "chapters": [
+      "04"
+    ],
+    "source": "vendor specs; repo calc.",
+    "source_ids": [
+      "S185",
+      "S186",
+      "S180",
+      "S176",
+      "S175",
+      "S181",
+      "S33022",
+      "S144",
+      "S145",
+      "S179",
+      "S129",
+      "S128",
+      "S100",
+      "S33004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/04-cpu-memory-bandwidth-per-core.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvlink-generations",
+    "title": "NVLink per-GPU bandwidth rose 19× in 5 generations, from 160 GB/s (P100) to 3,000 GB/s (Rubin)",
+    "subtitle": "Left: bidirectional GB/s per GPU. Right: NVLink links per GPU, labeled with GB/s per link (bidirectional)",
+    "alt": "Two-panel bar chart of NVLink generations 1 to 7: per-GPU bandwidth 160, 300, 600, 900, 1,800, 3,000, 3,600 GB/s; links per GPU 4, 6, 12, 18, 18 and 36 (NVLink 6 doubles links, with Rubin's production spec cut from 3.6 to 3.0 TB/s); NVLink 7 (Rubin Ultra, 2027) is a reported 3.6 TB/s roadmap figure.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05",
+      "02"
+    ],
+    "source": "NVIDIA whitepapers, NVLink page; SemiAnalysis (NVLink 7)",
+    "source_ids": [
+      "S259",
+      "S200",
+      "S260",
+      "S261",
+      "S205",
+      "S262",
+      "S263",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S210",
+      "S211",
+      "S214",
+      "S212"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvlink-generations.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvlink-vs-pcie-bandwidth",
+    "title": "NVLink bandwidth per GPU grew ~19× in 10 years (2016–2026) while the PCIe x16 link GPUs ship with grew 8×",
+    "subtitle": "Bidirectional GB/s per GPU (NVLink, by GPU launch year) vs one PCIe x16 slot (by specification year)",
+    "alt": "Log-scale line chart: NVLink bandwidth per GPU rose from 160 GB/s (P100, 2016) to 3,000 GB/s (Rubin, 2026), about 19 times, while PCIe x16 rose from 32 GB/s (Gen3) to 256 GB/s (Gen6, used by 2025-26 GPUs), 8 times; PCIe 7.0 (512 GB/s) is ratified but not yet in GPUs.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05",
+      "04",
+      "P3"
+    ],
+    "source": "NVIDIA whitepapers and NVLink page; PCI-SIG",
+    "source_ids": [
+      "S259",
+      "S200",
+      "S260",
+      "S261",
+      "S205",
+      "S262",
+      "S263",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S210",
+      "S211",
+      "S214",
+      "S212",
+      "S222",
+      "S264",
+      "S220",
+      "S221"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvlink-vs-pcie-bandwidth.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvswitch-generations",
+    "title": "NVSwitch chip bandwidth grew 8× from 2018 to 2024, then held at 7.2 TB/s as NVLink 6 halved ports and doubled their speed",
+    "subtitle": "Bidirectional TB/s per NVSwitch / NVLink Switch chip, labeled with NVLink ports per chip and the largest NVLink domain",
+    "alt": "Bar chart of NVSwitch generations: gen 1 (2018) 0.9 TB/s with 18 ports, gen 2 1.8 TB/s with 36 ports, gen 3 3.2 TB/s with 64 ports, NVLink 5 Switch 7.2 TB/s with 72 ports, NVLink 6 Switch 7.2 TB/s with 36 double-speed ports, NVLink 7 Switch (2027, reported) 7.2 TB/s; domains grew from 16 GPUs to 72 and 144.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05"
+    ],
+    "source": "NVIDIA Hot Chips and technical blogs; SemiAnalysis",
+    "source_ids": [
+      "S206",
+      "S261",
+      "S205",
+      "S207",
+      "S263",
+      "S262",
+      "S203",
+      "S204",
+      "S200",
+      "S210",
+      "S211"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvswitch-generations.svg",
+    "html": null
+  },
+  {
+    "id": "05-scale-up-bandwidth-per-accelerator-by-vendor",
+    "title": "AMD's Helios (3.6 TB/s) now out-specs NVIDIA's production NVLink 6 (3.0 TB/s); TPU 8t, Trainium3, Ascend 950 sit at 2.0–2.4 TB/s",
+    "subtitle": "Scale-up (accelerator-to-accelerator) bandwidth per accelerator, bidirectional TB/s, current and next generation",
+    "alt": "Horizontal bar chart of scale-up bandwidth per accelerator: NVIDIA Blackwell 1.8 TB/s, Rubin 3.0 TB/s (cut from 3.6 TB/s) and Rubin Ultra 3.6 TB/s (roadmap); AMD MI355X 1.1 TB/s and MI455X 3.6 TB/s; Google Ironwood 1.2 and TPU 8t 2.4 TB/s; AWS Trainium2 1.0 and Trainium3 2.0 TB/s; Huawei Ascend 910C 0.8 and Ascend 950 2.0 TB/s; Intel Gaudi 3 1.2 TB/s.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05",
+      "15"
+    ],
+    "source": "NVIDIA, AMD, Google, AWS, Huawei, Intel; SemiAnalysis",
+    "source_ids": [
+      "S200",
+      "S262",
+      "S263",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S210",
+      "S211",
+      "S214",
+      "S212",
+      "S229",
+      "S231",
+      "S226",
+      "S227",
+      "S228",
+      "S232",
+      "S238",
+      "S239",
+      "S240",
+      "S244",
+      "S245",
+      "S242",
+      "S243",
+      "S246",
+      "S247",
+      "S248",
+      "S249",
+      "S250",
+      "S296"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-scale-up-bandwidth-per-accelerator-by-vendor.svg",
+    "html": null
+  },
+  {
+    "id": "05-scale-up-domain-size-by-vendor",
+    "title": "NVIDIA's shipping NVLink domain (72 GPUs) is smaller than AWS's (144), Huawei's (384) or Google's TPU pods (9,216)",
+    "subtitle": "Accelerators per scale-up domain, shipping vs announced (log scale). Definitions differ: see note in chart",
+    "alt": "Horizontal log-scale bar chart of scale-up domain sizes: NVIDIA NVL72 72 GPUs today, Kyber NVL144 and NVL576 in 2027 and NVL1152 in 2028 (roadmap); AMD Helios 72; AWS Trn3 UltraServer 144; Huawei CloudMatrix 384 and Atlas 950 8,192 (Q4 2026); Google Ironwood 9,216 and TPU 8t 9,600 chips, though TPU pods are multi-hop tori rather than switched all-to-all; UALink 1.0 allows 1,024.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05",
+      "15",
+      "CS3"
+    ],
+    "source": "NVIDIA, AMD, AWS, Google, Huawei, UALink Consortium; analysts",
+    "source_ids": [
+      "S200",
+      "S205",
+      "S262",
+      "S263",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S210",
+      "S211",
+      "S214",
+      "S212",
+      "S33020",
+      "S213",
+      "S229",
+      "S231",
+      "S226",
+      "S227",
+      "S228",
+      "S244",
+      "S245",
+      "S242",
+      "S243",
+      "S246",
+      "S247",
+      "S248",
+      "S249",
+      "S250",
+      "S239",
+      "S238",
+      "S235",
+      "S232",
+      "S240",
+      "S223",
+      "S224"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-scale-up-domain-size-by-vendor.svg",
+    "html": null
+  },
+  {
+    "id": "05-scale-up-vs-scale-out-per-gpu",
+    "title": "NVLink gives each GPU 7.5–18× its scale-out NIC bandwidth: 3,000 vs 400 GB/s on Vera Rubin",
+    "subtitle": "Bidirectional GB/s per GPU: NVLink scale-up vs the one-per-GPU ConnectX NIC in NVIDIA reference designs (log scale)",
+    "alt": "Grouped log-scale bar chart comparing per-GPU NVLink and NIC bandwidth: V100 300 vs 25 GB/s, H100 900 vs 100, GB200 1,800 vs 100 (18x), GB300 1,800 vs 200, Vera Rubin 3,000 vs 400 GB/s (7.5x): the scale-up domain always has roughly an order of magnitude more bandwidth than scale-out.",
+    "data": [
+      "interconnect_specs.csv",
+      "networking_products.csv"
+    ],
+    "chapters": [
+      "05",
+      "06",
+      "P4"
+    ],
+    "source": "NVIDIA product pages and whitepapers",
+    "source_ids": [
+      "S260",
+      "S200",
+      "S273",
+      "S261",
+      "S205",
+      "S266",
+      "S262",
+      "S263",
+      "S264",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S204"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-scale-up-vs-scale-out-per-gpu.svg",
+    "html": null
+  },
+  {
+    "id": "06-networking-revenue-and-share",
+    "title": "NVIDIA networking revenue rose 5.5× in two years to ~$17.5B a quarter (~20% of DC)",
+    "subtitle": "Left: Data Center networking revenue, US$ B per quarter. Right: networking as % of Data Center revenue",
+    "alt": "Two-panel chart. Left: NVIDIA quarterly networking revenue from $0.9B (est.) in Q1FY24 to about $17.5B in Q2FY27, 5.5 times Q1FY25. Right: networking share of Data Center fell to 8% during the Blackwell compute ramp then rose to about 20% as NVLink, Spectrum-X and InfiniBand scaled.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "06",
+      "13",
+      "CS1"
+    ],
+    "source": "NVIDIA CFO commentary, 10-Q, calls",
+    "source_ids": [
+      "S436",
+      "S422",
+      "S440",
+      "S437",
+      "S423",
+      "S441",
+      "S438",
+      "S424",
+      "S442",
+      "S439",
+      "S417",
+      "S443",
+      "S425",
+      "S426",
+      "S427",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S415",
+      "S1",
+      "S402",
+      "S403",
+      "S409",
+      "S405",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-networking-revenue-and-share.svg",
+    "html": null
+  },
+  {
+    "id": "06-switch-port-speed-by-generation",
+    "title": "Port speeds rose 80× for InfiniBand (10→800 Gb/s, 2001–2024) and 160× for Ethernet (10 Gb/s→1.6 Tb/s, 2002–2026)",
+    "subtitle": "Per-port line rate, Gb/s per direction: InfiniBand 4x ports (SDR→XDR) and IEEE Ethernet port speeds, by first-product/standard year",
+    "alt": "Log-scale step chart: InfiniBand 4x port speed climbed from 10 Gb/s (SDR, 2001) through 56 (FDR), 100 (EDR), 200 (HDR), 400 (NDR) to 800 Gb/s (XDR, 2024); Ethernet from 10 GbE (2002) to 100, 400, 800 GbE and 1.6 TbE (2026); next steps (1.6 Tb/s IB GDR, 3.2 TbE) are speculative.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "06",
+      "16"
+    ],
+    "source": "IBTA, NVIDIA docs, IEEE 802.3, Ethernet Alliance",
+    "source_ids": [
+      "S251",
+      "S252",
+      "S253",
+      "S256",
+      "S255",
+      "S254"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-switch-port-speed-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "08-accelerators-per-mw",
+    "title": "1 MW now hosts ~10× fewer NVIDIA GPUs than in 2016, yet ~5× Hopper's FP8 compute",
+    "subtitle": "Per MW of system IT power (excludes cooling/PUE): GPU packages (left) and dense FP8 PFLOPS (right) · hatched = announced/roadmap",
+    "alt": "Two bar charts by NVIDIA system generation. Left: GPUs per MW of IT power fall from about 2,500 for DGX-1 to about 600 for GB200 NVL72 and 240 for the Rubin Ultra Kyber rack. Right: dense FP8 PFLOPS per MW rise from about 1,549 for DGX H100 to about 5,478 for Vera Rubin NVL72 and 8,333 for Kyber, roughly 5 times Hopper.",
+    "data": [
+      "system_specs.csv"
+    ],
+    "chapters": [
+      "08",
+      "14",
+      "17"
+    ],
+    "source": "NVIDIA, press power estimates (repo calc)",
+    "source_ids": [
+      "S310",
+      "S311",
+      "S125",
+      "S313",
+      "S314",
+      "S315",
+      "S316",
+      "S318",
+      "S33022",
+      "S33002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S305",
+      "S35041",
+      "S110",
+      "S108",
+      "S307",
+      "S309",
+      "S111"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-accelerators-per-mw.svg",
+    "html": null
+  },
+  {
+    "id": "08-compute-per-kw-by-rack",
+    "title": "Vera Rubin NVL72 targets ~5.5 dense FP8 PFLOPS/kW, ~10× Huawei's CloudMatrix 384",
+    "subtitle": "Peak dense FP8 PFLOPS ÷ max IT power (kW) · peak specs, not delivered throughput · hatched = roadmap or analyst-estimated power",
+    "alt": "Horizontal bar chart of dense FP8 PFLOPS per kW: Huawei CloudMatrix 384 about 0.54 (BF16), DGX H100 about 1.5, DGX B200 about 2.5, GB300 NVL72 about 2.7, GB200 NVL72 about 3.0, AMD MI355X platform about 3.7, Vera Rubin NVL72 about 5.5, AMD Helios about 6.0 on estimated power and Rubin Ultra Kyber about 8.3.",
+    "data": [
+      "system_specs.csv",
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "08",
+      "14",
+      "15"
+    ],
+    "source": "NVIDIA, AMD, SemiAnalysis, press (repo calc)",
+    "source_ids": [
+      "S340",
+      "S163",
+      "S318",
+      "S33022",
+      "S33002",
+      "S319",
+      "S320",
+      "S33003",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S121",
+      "S396",
+      "S336",
+      "S335",
+      "S326",
+      "S347",
+      "S348",
+      "S143",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S344",
+      "S345",
+      "S361",
+      "S144",
+      "S145",
+      "S346",
+      "S305",
+      "S35041",
+      "S110",
+      "S108",
+      "S307",
+      "S309",
+      "S111"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-compute-per-kw-by-rack.svg",
+    "html": null
+  },
+  {
+    "id": "08-kw-per-rack-by-generation",
+    "title": "Power per NVIDIA system rose ~190× in a decade: 3.2 kW (DGX-1) to ~600 kW (Kyber)",
+    "subtitle": "Maximum IT power per system or rack, kW · 8/16-GPU DGX servers 2016–2024, NVLink racks from 2024 · hatched = announced/roadmap",
+    "alt": "Bar chart of maximum power per NVIDIA system: DGX-1 3.2 kW (2016), DGX-2 10 kW, DGX A100 6.5 kW, DGX H100 10.2 kW, DGX B200 14.3 kW, then rack-scale GB200 NVL72 ~120 kW, GB300 NVL72 ~132 kW, Vera Rubin NVL72 ~190-230 kW and the Rubin Ultra Kyber rack ~600 kW, about 190 times the DGX-1.",
+    "data": [
+      "system_specs.csv"
+    ],
+    "chapters": [
+      "08",
+      "17",
+      "14"
+    ],
+    "source": "NVIDIA, AnandTech, TweakTown, eeNews, Hashrate Index, DCD",
+    "source_ids": [
+      "S310",
+      "S311",
+      "S125",
+      "S313",
+      "S314",
+      "S315",
+      "S316",
+      "S318",
+      "S33022",
+      "S33002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S305",
+      "S35041",
+      "S110",
+      "S108",
+      "S307",
+      "S309",
+      "S111"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-kw-per-rack-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "08-rack-bom-waterfall",
+    "title": "Est. ~57% of a ~$4.0M GB300 NVL72 rack is NVIDIA's gross profit on the 72 GPUs alone",
+    "subtitle": "Estimated build-up of the ODM-to-hyperscaler rack price, US$ M · Morgan Stanley BOM (May 2026) + Epoch AI B200 unit-cost basis",
+    "alt": "Waterfall chart of an estimated $3.99M GB300 NVL72 rack: GPU dies, CoWoS-L packaging and test about $0.25M, NVIDIA gross profit on the GPUs about $2.27M (57%), HBM3E and LPDDR5X memory $0.37M, other rack content (Grace CPUs, NVLink switch trays, NICs, PCB, power, chassis) about $0.94M, liquid cooling $50K and ODM gross margin about $108K.",
+    "data": [
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "08",
+      "03",
+      "14",
+      "13"
+    ],
+    "source": "Morgan Stanley via press; Epoch AI; repo calc",
+    "source_ids": [
+      "S332",
+      "S331",
+      "S334",
+      "S32004",
+      "S35020"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-rack-bom-waterfall.svg",
+    "html": null
+  },
+  {
+    "id": "08-system-memory-and-compute-by-rack",
+    "title": "AMD Helios claims ~1.5× Vera Rubin NVL72's HBM (31 vs 21 TB) and ~1.1× its dense FP8",
+    "subtitle": "Per scale-up rack or rack-like unit: total HBM (TB, left) and dense FP8 PFLOPS (right) · hatched = announced/roadmap or repo estimate",
+    "alt": "Two horizontal bar charts comparing rack-scale systems. HBM: GB200 NVL72 13.8 TB, GB300 NVL72 20.7 TB, Vera Rubin NVL72 20.7 TB, AMD Helios 31.1 TB, Rubin Ultra Kyber ~144 TB, Trn3 UltraServer 20.7 TB, Huawei CloudMatrix 384 49.2 TB. Dense FP8: GB200/GB300 360 PF, Vera Rubin 1,260 PF, Helios 1,400 PF, Kyber 5,000 PF, Trn3 362 PF, Ironwood 64-chip cube 295 PF, CloudMatrix 300 PF BF16.",
+    "data": [
+      "system_specs.csv",
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "08",
+      "15",
+      "05",
+      "03"
+    ],
+    "source": "NVIDIA, AMD, Google, AWS, SemiAnalysis",
+    "source_ids": [
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S305",
+      "S35041",
+      "S110",
+      "S108",
+      "S307",
+      "S309",
+      "S111",
+      "S344",
+      "S345",
+      "S361",
+      "S144",
+      "S145",
+      "S346",
+      "S350",
+      "S151",
+      "S352",
+      "S154",
+      "S353",
+      "S155",
+      "S163"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-system-memory-and-compute-by-rack.svg",
+    "html": "assets/interactive/08-system-memory-and-compute-by-rack.html"
+  },
+  {
+    "id": "08-system-price-by-generation",
+    "title": "What a buyer pays per NVIDIA system rose ~60×: $129K DGX-1 to ~$7.8M Vera Rubin rack",
+    "subtitle": "List or estimated price per system/rack, US$ M (log scale) · servers = list/reseller price; NVL racks = analyst Est. (hatched)",
+    "alt": "Log-scale bar chart of NVIDIA system prices: DGX-1 $129K (2016), DGX-1 V100 $149K, DGX-2 $399K, DGX A100 $199K, DGX H200 about $467K, DGX B200 about $370K, then rack-scale GB200 NVL72 about $3.0M, GB300 NVL72 about $4.0M and Vera Rubin NVL72 about $7.8M (estimates), roughly 60 times the first DGX-1.",
+    "data": [
+      "system_specs.csv"
+    ],
+    "chapters": [
+      "08",
+      "14",
+      "13"
+    ],
+    "source": "AnandTech, TweakTown, resellers, HSBC, Morgan Stanley",
+    "source_ids": [
+      "S310",
+      "S311",
+      "S125",
+      "S312",
+      "S126",
+      "S313",
+      "S314",
+      "S315",
+      "S316",
+      "S33022",
+      "S322",
+      "S32002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-system-price-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "12-investments-in-customers-bubble",
+    "title": "NVIDIA pledged up to ~$45B to five customers planning ~19 GW of compute",
+    "subtitle": "x: NVIDIA equity committed (US$ B, log); y: customer's announced compute plan (GW); bubble area ∝ NVIDIA US$ B per GW",
+    "alt": "Bubble chart of NVIDIA investments in customers: OpenAI (about $30B in 2026, after an up-to-$100B letter of intent tied to 10 GW), Anthropic (up to $10B, up to 1 GW), CoreWeave ($2.35B equity, >5 GW plan), xAI (up to $2B, ~1 GW) and Poolside (up to $1B, 2 GW). In total about $45B against ~19 GW, the core of the circular-financing debate.",
+    "data": [
+      "investments_in_customers.csv"
+    ],
+    "chapters": [
+      "12",
+      "13",
+      "18",
+      "CS4",
+      "CS7"
+    ],
+    "source": "company releases; press",
+    "source_ids": [
+      "S467",
+      "S480",
+      "S469",
+      "S472",
+      "S473",
+      "S483"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-investments-in-customers-bubble.svg",
+    "html": null
+  },
+  {
+    "id": "13-customer-concentration-over-time",
+    "title": "Customers at ≥10% of revenue rose from 1 (13%) in FY2024 to 4 (61%) in Q3FY26",
+    "subtitle": "Share of revenue per disclosed direct customer, %; letters are not the same company across periods; mostly OEMs/ODMs",
+    "alt": "Stacked bar chart of NVIDIA's disclosed direct customers above 10% of revenue: 1 customer at 13% in FY2024, 3 customers at 34% in FY2025, and 4 customers totalling 61% in Q3FY26; most are OEMs/ODMs building for hyperscalers.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 10-K/10-Q",
+    "source_ids": [
+      "S417",
+      "S416",
+      "S426",
+      "S427",
+      "S414",
+      "S413",
+      "S412"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-customer-concentration-over-time.svg",
+    "html": null
+  },
+  {
+    "id": "13-deals-count-by-layer",
+    "title": "Layer 13 draws 23 of 77 deals, nearly all stakes; M&A concentrates in layer 11 (8)",
+    "subtitle": "Number of logged NVIDIA deals (77) by the stack layer each strengthens, split by M&A vs investment",
+    "alt": "Horizontal stacked bar chart of 77 NVIDIA deals by layer: layer 13 (labs and ecosystem) has 23 deals, almost all equity stakes; layer 12 (orchestration and cloud) has 18 mixing tuck-ins like Run:ai with neocloud stakes; layer 11 (inference software) has 10, mostly acquisitions; silicon, CPU and networking layers have few but large deals (Mellanox, Arm, Intel).",
+    "data": [
+      "acquisitions_investments.csv"
+    ],
+    "chapters": [
+      "13",
+      "19"
+    ],
+    "source": "NVIDIA filings and announcements; press reports",
+    "source_ids": [
+      "S400",
+      "S484",
+      "S464",
+      "S2",
+      "S478",
+      "S465",
+      "S466",
+      "S418",
+      "S476",
+      "S479",
+      "S475",
+      "S474",
+      "S481",
+      "S473",
+      "S482",
+      "S477",
+      "S483",
+      "S468",
+      "S401",
+      "S467",
+      "S412",
+      "S470",
+      "S469",
+      "S471",
+      "S472",
+      "S480",
+      "S404"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-deals-count-by-layer.svg",
+    "html": null
+  },
+  {
+    "id": "13-deals-timeline-by-layer",
+    "title": "Since 2023, 47 of NVIDIA's 61 logged deals were stakes in customers and partners, not M&A",
+    "subtitle": "Each deal by announcement date and the stack layer it strengthens; marker area ∝ US$ amount (small hollow = undisclosed)",
+    "alt": "Timeline scatter of 77 NVIDIA acquisitions, acquihire-licence deals and strategic investments from 2000 to 2026, placed on the stack layer each strengthened. Early deals were GPU and mobile silicon tuck-ins; Mellanox ($6.9B, 2019) built the networking layer; since 2023 47 of 61 deals are equity stakes, led by OpenAI, Anthropic, Intel and CoreWeave, plus the ~$20B Groq licence.",
+    "data": [
+      "acquisitions_investments.csv"
+    ],
+    "chapters": [
+      "13",
+      "16",
+      "12"
+    ],
+    "source": "NVIDIA filings and announcements; press reports",
+    "source_ids": [
+      "S400",
+      "S484",
+      "S464",
+      "S2",
+      "S478",
+      "S465",
+      "S466",
+      "S418",
+      "S476",
+      "S479",
+      "S475",
+      "S474",
+      "S481",
+      "S473",
+      "S482",
+      "S477",
+      "S483",
+      "S468",
+      "S401",
+      "S467",
+      "S412",
+      "S470",
+      "S469",
+      "S471",
+      "S472",
+      "S480",
+      "S404"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-deals-timeline-by-layer.svg",
+    "html": null
+  },
+  {
+    "id": "13-free-cash-flow-and-buybacks",
+    "title": "NVIDIA returned $112B of $202B free cash flow (55%) to shareholders since FY23",
+    "subtitle": "Free cash flow (operating cash flow − capex) vs repurchases + dividends, US$ B per quarter; n/a = not in dataset",
+    "alt": "Grouped bar chart of NVIDIA quarterly free cash flow and shareholder returns Q1FY23–Q2FY27: over the 16 quarters with both figures, free cash flow totalled $202B and returns $112B (55%); free cash flow reached $48.6B in Q1FY27 and returns $26B in Q2FY27.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13"
+    ],
+    "source": "NVIDIA 8-K releases, 10-Q",
+    "source_ids": [
+      "S432",
+      "S433",
+      "S434",
+      "S435",
+      "S418",
+      "S436",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S403",
+      "S405"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-free-cash-flow-and-buybacks.svg",
+    "html": null
+  },
+  {
+    "id": "13-gross-margin-trend",
+    "title": "Gross margin climbed from 43.5% to ~75%, broken only by the H20 write-down",
+    "subtitle": "GAAP and non-GAAP gross margin, % of revenue, Q1 FY23–Q2 FY27; from Q1 FY27 non-GAAP includes stock-based comp",
+    "alt": "Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY26 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "14",
+      "18",
+      "CS6"
+    ],
+    "source": "NVIDIA 8-K releases",
+    "source_ids": [
+      "S432",
+      "S433",
+      "S434",
+      "S435",
+      "S418",
+      "S436",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S1",
+      "S402",
+      "S403",
+      "S405"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-gross-margin-trend.svg",
+    "html": null
+  },
+  {
+    "id": "13-guidance-beat-history",
+    "title": "NVIDIA beat its revenue-guide midpoint 16 quarters running, by +7.1% on average",
+    "subtitle": "Actual quarterly revenue vs the guidance midpoint issued the prior quarter, % difference",
+    "alt": "Bar chart of NVIDIA's revenue surprise versus its own guidance midpoint from Q1FY23 to Q2FY27: a -17% miss in Q2 FY23 during the gaming correction, then 16 consecutive beats averaging 7.1%, the largest +23% in Q2FY24.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 8-K releases",
+    "source_ids": [
+      "S428",
+      "S432",
+      "S433",
+      "S434",
+      "S435",
+      "S418",
+      "S436",
+      "S447",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S1",
+      "S402",
+      "S403",
+      "S405",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-guidance-beat-history.svg",
+    "html": null
+  },
+  {
+    "id": "13-investment-dollars-by-year",
+    "title": "NVIDIA's deal commitments jumped to ~$51B in 2025, 5× all its deals before 2025",
+    "subtitle": "Disclosed or press-reported deal value by announcement year, US$ B; excludes blocked Arm and superseded OpenAI LOI",
+    "alt": "Stacked bar chart of NVIDIA deal dollars by year 2019–2026: Mellanox ($6.9B) dominates 2019, small software tuck-ins follow, then ~$51B in 2025 (Groq licence ~$20B, Anthropic up to $10B, CoreWeave $6.3B backstop, Intel $5B, Synopsys $2B, xAI up to $2B, Nokia $1B) and ~$32B in 2026 (OpenAI ~$30B, CoreWeave $2B); all pre-2025 deals total about $10B.",
+    "data": [
+      "acquisitions_investments.csv"
+    ],
+    "chapters": [
+      "13",
+      "18",
+      "12"
+    ],
+    "source": "NVIDIA filings and announcements; press reports",
+    "source_ids": [
+      "S464",
+      "S2",
+      "S476",
+      "S479",
+      "S478",
+      "S475",
+      "S474",
+      "S481",
+      "S473",
+      "S482",
+      "S477",
+      "S483",
+      "S468",
+      "S401",
+      "S470",
+      "S469",
+      "S471",
+      "S472",
+      "S480",
+      "S404"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-investment-dollars-by-year.svg",
+    "html": null
+  },
+  {
+    "id": "13-operating-leverage",
+    "title": "Operating margin rose from 15% to 60% in ten years as R&D fell to 9% of revenue",
+    "subtitle": "GAAP operating margin, net margin and R&D expense as % of revenue, by fiscal year",
+    "alt": "Line chart of NVIDIA margins FY2016–FY2026: operating margin rose from 15% to 60% (peak 62% in FY2025), dipping to 16% in FY2023; net margin reached 56%; R&D fell from 27% to 9% of revenue.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "14"
+    ],
+    "source": "NVIDIA 10-K filings",
+    "source_ids": [
+      "S400",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S1",
+      "S402",
+      "S401"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-operating-leverage.svg",
+    "html": null
+  },
+  {
+    "id": "13-rd-expense-trend",
+    "title": "R&D spend rose 14× to $18.5B (FY2026) while falling to 9% of revenue",
+    "subtitle": "Left: GAAP research and development expense, US$ B per fiscal year. Right: R&D as % of revenue",
+    "alt": "Two-panel chart of NVIDIA R&D. Left: R&D expense grew from $1.33B in FY2016 to $18.5B in FY2026, about 14 times. Right: R&D intensity fell from 27% of revenue to 8.6% because revenue grew even faster.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "16",
+      "09"
+    ],
+    "source": "NVIDIA 10-K filings",
+    "source_ids": [
+      "S400",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S401",
+      "S1"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-rd-expense-trend.svg",
+    "html": null
+  },
+  {
+    "id": "13-rd-expense-vs-peers",
+    "title": "NVIDIA's 2024 R&D ($12.9B) passed AMD and Broadcom, still below Intel's $16.5B",
+    "subtitle": "GAAP R&D expense, US$ B per year; NVIDIA FY2023–FY2025 shown as 2022–2024, Broadcom FY ends ~Nov",
+    "alt": "Grouped bar chart of R&D expense 2022–2024: NVIDIA rose from $7.3B to $12.9B, AMD $6.5B, Broadcom $9.3B (incl. VMware) and Intel $16.5B in 2024; NVIDIA's FY2026 R&D of $18.5B is not shown.",
+    "data": [
+      "financials.csv",
+      "peer_financials.csv"
+    ],
+    "chapters": [
+      "13",
+      "15",
+      "19"
+    ],
+    "source": "company 10-K filings",
+    "source_ids": [
+      "S450",
+      "S451",
+      "S452",
+      "S418",
+      "S2",
+      "S417",
+      "S416"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/13-rd-expense-vs-peers.svg",
+    "html": null
+  },
+  {
+    "id": "15-accelerator-landscape-bubble",
+    "title": "Rubin and MI455X claim 17.5–20 PFLOPS FP8; shipping custom ASICs sit at 2.5–5",
+    "subtitle": "Dense FP8 PFLOPS (x) vs memory bandwidth TB/s (y) per accelerator; bubble area = memory GB (log–log)",
+    "alt": "Log-log bubble chart of AI accelerators: NVIDIA Rubin (17.5 PFLOPS dense FP8, 19.2 TB/s, 288 GB) and AMD's announced MI455X (20 PFLOPS, 19.6 TB/s, 432 GB) sit far up and to the right; shipping custom ASICs - Google Ironwood, AWS Trainium3 and Microsoft Maia 200 - cluster at 2.5-5 PFLOPS and 4.9-7.4 TB/s, level with GB300 and MI355X; Huawei's Ascend 950DT and Intel Gaudi 3 trail.",
+    "data": [
+      "competitor_accelerators.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "15",
+      "02",
+      "03"
+    ],
+    "source": "vendor specs",
+    "source_ids": [
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32004",
+      "S123",
+      "S100",
+      "S101",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S141",
+      "S143",
+      "S144",
+      "S145",
+      "S151",
+      "S154",
+      "S155",
+      "S156",
+      "S158",
+      "S161",
+      "S163",
+      "S169"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-accelerator-landscape-bubble.svg",
+    "html": "assets/interactive/15-accelerator-landscape-bubble.html"
+  },
+  {
+    "id": "15-fp8-compute-by-accelerator",
+    "title": "On paper MI455X (20) edges Rubin (17.5 PFLOPS FP8); custom ASICs top out at ~5",
+    "subtitle": "Dense FP8 PFLOPS per accelerator (no sparsity); current-generation flagship per vendor",
+    "alt": "Horizontal bar chart of dense FP8 compute: AMD MI455X 20 PFLOPS (announced for H2 2026) and NVIDIA Rubin 17.5 PFLOPS lead; Microsoft Maia 200 about 5, Google Ironwood 4.6, AWS Trainium3 2.5, Intel Gaudi 3 1.8, Huawei Ascend 950DT 1.0 and Tenstorrent Blackhole about 0.7 PFLOPS. Hyperscaler ASICs deliver roughly a quarter of a Rubin per chip and compete on cost per token instead.",
+    "data": [
+      "competitor_accelerators.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "15",
+      "02"
+    ],
+    "source": "vendor specs (dense)",
+    "source_ids": [
+      "S100",
+      "S101",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S144",
+      "S145",
+      "S151",
+      "S155",
+      "S156",
+      "S158",
+      "S161",
+      "S163",
+      "S169"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-fp8-compute-by-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "15-memory-bandwidth-by-accelerator",
+    "title": "MI455X and Rubin reach ~19 TB/s per chip, 2.6× the best custom ASIC",
+    "subtitle": "Peak memory bandwidth per accelerator, TB/s; current-generation flagship per vendor (Rubin at revised 19.2 TB/s)",
+    "alt": "Horizontal bar chart of memory bandwidth: AMD MI455X 19.6 TB/s (announced) and NVIDIA Rubin 19.2 TB/s lead; Google Ironwood 7.37 TB/s is the best custom ASIC, about 2.6 times lower, followed by Microsoft Maia 200 7.0, AWS Trainium3 4.9, Huawei Ascend 950DT 4.0 and Intel Gaudi 3 3.7 TB/s; LPDDR and GDDR designs such as Qualcomm Cloud AI 100 Ultra and Tenstorrent Blackhole sit near 0.5 TB/s.",
+    "data": [
+      "competitor_accelerators.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "15",
+      "03"
+    ],
+    "source": "vendor specs",
+    "source_ids": [
+      "S100",
+      "S101",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S144",
+      "S145",
+      "S151",
+      "S155",
+      "S156",
+      "S158",
+      "S161",
+      "S163",
+      "S172",
+      "S169"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-memory-bandwidth-by-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "15-memory-capacity-by-accelerator",
+    "title": "Qualcomm AI200 (768 GB LPDDR) and MI455X (432 GB) out-pack Rubin's 288 GB",
+    "subtitle": "Memory capacity per accelerator package or card, GB; current-generation flagship per vendor, memory type labeled",
+    "alt": "Horizontal bar chart of memory per accelerator: Qualcomm AI200 768 GB of LPDDR per card (announced for 2026), AMD MI455X 432 GB HBM4 (announced), NVIDIA Rubin 288 GB HBM4, Microsoft Maia 200 216 GB, Google Ironwood 192 GB, AWS Trainium3 and Huawei Ascend 950DT 144 GB, Intel Gaudi 3 128 GB, SambaNova SN40L 64 GB HBM and Cerebras WSE-3 44 GB of on-wafer SRAM; capacity leadership has passed to AMD and to LPDDR-based designs, which trade bandwidth for size.",
+    "data": [
+      "competitor_accelerators.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "15",
+      "03"
+    ],
+    "source": "vendor specs",
+    "source_ids": [
+      "S100",
+      "S101",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S144",
+      "S145",
+      "S151",
+      "S155",
+      "S156",
+      "S158",
+      "S161",
+      "S163",
+      "S173",
+      "S168",
+      "S166"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-memory-capacity-by-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "17-spec-progression-small-multiples",
+    "title": "H100 → Rubin: low-precision compute 18×, HBM bandwidth 5.7×, capacity 3.6×, power 3.3×",
+    "subtitle": "Per-GPU specs by generation, 2022–2028: dense FP8 (Hopper) or FP4 (Blackwell+) PFLOPS, HBM TB/s, HBM GB, W",
+    "alt": "Four small-multiple bar charts of NVIDIA GPU specs from H100 (2022) to Feynman (2028). From H100 to Rubin, dense low-precision compute rose 18 times (2.0 PFLOPS FP8 to 35 PFLOPS FP4), HBM bandwidth 5.7 times (3.35 to 19.2 TB/s), capacity 3.6 times (80 to 288 GB) and power 3.3 times (700 to about 2,300 W). Rubin Ultra (2027) is hatched; Feynman figures are not yet disclosed.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "17",
+      "02",
+      "03"
+    ],
+    "source": "NVIDIA specs and roadmap",
+    "source_ids": [
+      "S33002",
+      "S35011",
+      "S35013",
+      "S32002",
+      "S33003",
+      "S35014",
+      "S101",
+      "S32004",
+      "S123",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S35018",
+      "S33020",
+      "S110",
+      "S107",
+      "S108",
+      "S111",
+      "S35019",
+      "S109",
+      "S112",
+      "S119"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/17-spec-progression-small-multiples.svg",
+    "html": null
+  },
+  {
+    "id": "18-hyperscaler-capex-trend",
+    "title": "Alphabet, Amazon and Meta plan ~$505B of 2026 capex, 4.0× their $127B in 2022",
+    "subtitle": "Capex, US$ B per fiscal year; dashed/hollow = outlook or unverified; MSFT FY ends Jun (ex-leases), Oracle May",
+    "alt": "Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B guided for 2026 (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint); Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.",
+    "data": [
+      "peer_financials.csv"
+    ],
+    "chapters": [
+      "18",
+      "13",
+      "08"
+    ],
+    "source": "company 10-Ks and outlooks",
+    "source_ids": [
+      "S455",
+      "S460",
+      "S456",
+      "S461",
+      "S457",
+      "S462",
+      "S458",
+      "S459",
+      "S463"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/18-hyperscaler-capex-trend.svg",
+    "html": null
+  },
+  {
+    "id": "18-nvidia-vs-peers-dc-revenue",
+    "title": "NVIDIA's data-center revenue ($194B) is ~12× AMD's and ~10× Broadcom's AI revenue",
+    "subtitle": "Data-center / AI revenue, US$ B per year (NVIDIA and Marvell FY mapped to prior calendar year; Intel scope changed 2024)",
+    "alt": "Grouped bar chart of data-center revenue 2022–2025: NVIDIA rose from $15B to $194B; AMD Data Center from $6.0B to $16.7B; Broadcom AI semiconductors reached $20.2B; Intel DCAI fell from $19.2B to $12.8B (partly re-segmentation); Marvell data center $4.2B.",
+    "data": [
+      "financials.csv",
+      "peer_financials.csv"
+    ],
+    "chapters": [
+      "18",
+      "15"
+    ],
+    "source": "company filings",
+    "source_ids": [
+      "S418",
+      "S2",
+      "S417",
+      "S416",
+      "S1",
+      "S402",
+      "S450",
+      "S451",
+      "S452",
+      "S453"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/18-nvidia-vs-peers-dc-revenue.svg",
+    "html": null
+  },
+  {
+    "id": "P1-frontier-training-compute-log",
+    "title": "Frontier training compute rose ~1,600× in five years, roughly 4–5× per year",
+    "subtitle": "Training compute of notable language models, FLOPs (log scale); hollow = Epoch AI estimate (often ±10× or more)",
+    "alt": "Log-scale scatter of training compute for notable AI models from GPT-3 (3.1e23 FLOPs, 2020) to Grok 4 (about 5e26 FLOPs, Epoch AI estimate, 2025): roughly 1,600 times more in five years, a fitted frontier trend of about 4.9 times per year, consistent with Epoch AI's 4-5x per year. Llama 3.1 405B used 3.8e25 FLOPs; GPT-5 (about 5e25) used less than GPT-4.5 (about 3.8e26).",
+    "data": [
+      "P1_training_compute.csv"
+    ],
+    "chapters": [
+      "P1",
+      "14",
+      "02",
+      "08"
+    ],
+    "source": "Epoch AI; Meta, DeepSeek, OpenAI, DeepMind papers",
+    "source_ids": [
+      "S31015",
+      "S31005",
+      "S31011",
+      "S34006",
+      "S31002",
+      "S34007",
+      "S31010",
+      "S31008",
+      "S31007"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P1-frontier-training-compute-log.svg",
+    "html": null
+  },
+  {
+    "id": "P1-gpus-needed-by-model-size",
+    "title": "A Grok 4-scale run in 90 days needs ~163k H100s, or ~40k Rubin GPUs",
+    "subtitle": "GPUs needed to finish each training budget in 90 days at 40% BF16 utilization (log scale); hatched = scenario",
+    "alt": "Grouped log-scale bars of GPUs needed to finish a training run in 90 days at 40% BF16 model FLOPs utilization: a GPT-4-class run (2.1e25 FLOPs, Est.) needs about 6,800 H100s; Llama 3.1 405B (3.8e25) about 12,000 H100s or 5,400 B200s; Grok 4 (5e26, Est.) about 160,000 H100s, 71,000 B200s or 40,000 Rubin GPUs; a 1e27 scenario about 330,000 H100s or 80,000 Rubin GPUs.",
+    "data": [
+      "P1_training_compute.csv",
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "P1",
+      "14",
+      "02",
+      "08",
+      "P4"
+    ],
+    "source": "Epoch AI, Meta; NVIDIA spec pages",
+    "source_ids": [
+      "S31011",
+      "S34006",
+      "S31002",
+      "S31008",
+      "S31007",
+      "S33002",
+      "S32002",
+      "S33003",
+      "S33005"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P1-gpus-needed-by-model-size.svg",
+    "html": null
+  },
+  {
+    "id": "P1-memory-per-parameter-training",
+    "title": "Training needs ~16 bytes per parameter, 8× BF16 inference, before activations",
+    "subtitle": "Memory per model parameter by regime and component, bytes (mixed-precision training with the Adam optimizer)",
+    "alt": "Stacked horizontal bars of bytes per parameter: FP4 inference about 0.56, FP8 inference 1, BF16 inference 2, and mixed-precision training with Adam 16 (2 weights + 2 gradients + 4 FP32 master weights + 4 momentum + 4 variance), 8 times BF16 inference. A 405B model therefore carries about 6.5 TB of training state, about 81 H100s' worth of memory, before activations.",
+    "data": [
+      "P1_memory_per_parameter.csv"
+    ],
+    "chapters": [
+      "P1",
+      "P4",
+      "03"
+    ],
+    "source": "ZeRO paper (Microsoft) and NVIDIA NVFP4 documentation",
+    "source_ids": [
+      "S32017",
+      "S34004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P1-memory-per-parameter-training.svg",
+    "html": null
+  },
+  {
+    "id": "P1-tokens-per-parameter-overtraining",
+    "title": "Llama 3.1 8B saw ~1,875 training tokens per parameter, 94× the Chinchilla ratio",
+    "subtitle": "Training tokens per (active) parameter, log scale; Chinchilla's compute-optimal rule of thumb is ~20",
+    "alt": "Log-scale horizontal bars of training tokens per active parameter: GPT-3 about 1.7, Chinchilla 20, Llama 3.1 405B about 39, Llama 3.1 70B about 214, DeepSeek-V3 about 400 per active parameter and Llama 3.1 8B about 1,875, 94 times the compute-optimal ratio, because smaller over-trained models are cheaper to serve.",
+    "data": [
+      "P1_training_compute.csv"
+    ],
+    "chapters": [
+      "P1",
+      "14"
+    ],
+    "source": "OpenAI, DeepMind, Meta and DeepSeek papers and model cards",
+    "source_ids": [
+      "S31015",
+      "S31005",
+      "S34006",
+      "S31002",
+      "S34007"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P1-tokens-per-parameter-overtraining.svg",
+    "html": null
+  },
+  {
+    "id": "P1-training-run-cost",
+    "title": "Final-run compute bills span ~88×: $5.6M (DeepSeek-V3) to ~$0.5B (Grok 4, Est.)",
+    "subtitle": "GPU-hours × $2/GPU-hour (DeepSeek's rental assumption), US$ M (log scale); hatched = estimate",
+    "alt": "Log-scale horizontal bars of rental-equivalent compute cost at $2 per GPU-hour: Llama 3.1 8B about $2.9M (1.46M GPU-hours), DeepSeek-V3 $5.6M (2.788M H800 hours), Llama 3.1 70B $14M, Llama 3.1 405B about $62M (30.84M H100 hours) and Grok 4 about $492M (Epoch AI estimate of 246M H100-hours).",
+    "data": [
+      "P1_training_compute.csv"
+    ],
+    "chapters": [
+      "P1",
+      "14",
+      "13"
+    ],
+    "source": "Meta model card, DeepSeek-V3 report, Epoch AI",
+    "source_ids": [
+      "S31002",
+      "S34007",
+      "S34006",
+      "S31008"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P1-training-run-cost.svg",
+    "html": null
+  },
+  {
+    "id": "P2-decode-tokens-per-second-bound-by-bandwidth",
+    "title": "One Llama 3.1 70B stream at FP8 decodes at most ~48 tokens/s on H100, ~274 on Rubin",
+    "subtitle": "Upper bound on single-stream decode = HBM bandwidth ÷ weight bytes read per token, tokens/s per GPU (batch 1, KV reads ignored)",
+    "alt": "Grouped bar chart of the bandwidth ceiling on decode speed for one Llama 3.1 70B stream per GPU: at FP8 weights about 48 tokens/s on H100 (3.35 TB/s), 69 on H200 (4.8 TB/s), 114 on B200 and B300 (8 TB/s) and 274 on Rubin (19.2 TB/s); BF16 halves these and FP4 roughly doubles them. Hatched bars mark cases where the weights alone exceed 90% of the GPU's memory.",
+    "data": [
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "P2",
+      "11",
+      "14",
+      "03",
+      "P3",
+      "02"
+    ],
+    "source": "NVIDIA specs; Meta Llama 3.1 config; repo calculation",
+    "source_ids": [
+      "S33002",
+      "S32002",
+      "S33003",
+      "S32004",
+      "S33005",
+      "S33006",
+      "S33007",
+      "S32006",
+      "S33013"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P2-decode-tokens-per-second-bound-by-bandwidth.svg",
+    "html": null
+  },
+  {
+    "id": "P2-kv-cache-vs-context-length",
+    "title": "At 128k tokens, one Llama 3.1 70B chat needs ~43 GB of KV cache",
+    "subtitle": "KV-cache memory for one sequence vs context length, GB at BF16 (log-log); dotted lines = HBM per GPU (H100 = 80 GB)",
+    "alt": "Log-log line chart of KV-cache size per sequence versus context length at BF16. At 131,072 tokens: Llama 3.1 8B about 17 GB, Llama 3.1 70B about 43 GB (more than half of an 80 GB H100), Llama 3.1 405B about 68 GB, the same 70B model without grouped-query attention about 344 GB (more than a 288 GB B300 or Rubin GPU), and DeepSeek-V3 with multi-head latent attention about 9 GB.",
+    "data": [
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "P2",
+      "11",
+      "14",
+      "03",
+      "P3"
+    ],
+    "source": "Meta/DeepSeek configs; GQA, DeepSeek-V2 papers; NVIDIA",
+    "source_ids": [
+      "S32007",
+      "S32006",
+      "S32008",
+      "S32010",
+      "S34007",
+      "S32009",
+      "S32026",
+      "S33002",
+      "S32002",
+      "S33003",
+      "S32004",
+      "S33005",
+      "S33006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P2-kv-cache-vs-context-length.svg",
+    "html": null
+  },
+  {
+    "id": "P2-reasoning-token-multiplier",
+    "title": "Reasoning multiplies generated tokens ~21×; an agentic task uses ~1,100× in total (Est.)",
+    "subtitle": "Illustrative tokens per task (Est.), log scale: context read (prefill) vs tokens generated (decode, incl. hidden reasoning)",
+    "alt": "Illustrative log-scale bars of tokens per task: a chat reply reads about 600 tokens and generates 400; a reasoning answer generates about 8,400 (mostly hidden thinking), 21 times more; a 30-turn agentic coding task re-reads about 1.05 million context tokens and generates about 45 thousand, roughly 1,095 times the chat total.",
+    "data": [
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "P2",
+      "11",
+      "14",
+      "03",
+      "01"
+    ],
+    "source": "repo scenarios; OpenAI reasoning guide",
+    "source_ids": [
+      "S32025",
+      "S32024"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P2-reasoning-token-multiplier.svg",
+    "html": null
+  },
+  {
+    "id": "P2-throughput-interactivity-frontier-modeled",
+    "title": "At 100 tokens/s per user, B200 serves ~4× and Rubin ~10× H100's tokens per GPU (Est.)",
+    "subtitle": "Est. roofline model: Llama 3.1 70B on one 8-GPU node, FP8 KV cache, 4k-token average context; each point = a batch size",
+    "alt": "Modeled Pareto curves of throughput per GPU versus speed per user for Llama 3.1 70B on 8-GPU nodes: bigger batches raise tokens per GPU but slow each user. At 100 tokens/s per user the model gives about 1,273 tokens/s per GPU for H100 at FP8, 2,293 for H200, 4,953 for B200 at FP8, 5,333 for B200 at FP4 and 13,297 for Rubin at FP8; at 50 tokens/s per user the B200 lead over H100 shrinks to about 2.8 times. Estimates from a simple roofline model, not benchmarks.",
+    "data": [
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "P2",
+      "11",
+      "14",
+      "03",
+      "P3",
+      "02",
+      "08"
+    ],
+    "source": "repo roofline model; NVIDIA specs; Llama 3.1 config",
+    "source_ids": [
+      "S32025",
+      "S33013",
+      "S33002",
+      "S32002",
+      "S33003",
+      "S32004",
+      "S33005",
+      "S33006",
+      "S33007",
+      "S32006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P2-throughput-interactivity-frontier-modeled.svg",
+    "html": null
+  },
+  {
+    "id": "P2-token-demand-growth",
+    "title": "Google's monthly tokens rose ~134× in 18 months, to over 1.3 quadrillion",
+    "subtitle": "Tokens processed per month, trillions (log scale), as disclosed by companies; hollow = derived from a stated rate",
+    "alt": "Log-scale chart of disclosed AI token volumes: Google rose from 9.7 trillion tokens per month (April 2024) to 480 trillion (April 2025), about 980 trillion (mid-2025) and over 1.3 quadrillion (October 2025), about 134 times in 18 months. Microsoft processed over 100 trillion tokens in Jan-Mar 2025 (5 times a year earlier) with 50 trillion in March alone; OpenAI's API ran about 6 billion tokens per minute in October 2025, roughly 259 trillion per month.",
+    "data": [
+      "P2_token_demand.csv"
+    ],
+    "chapters": [
+      "P2",
+      "11",
+      "14",
+      "03",
+      "00",
+      "13"
+    ],
+    "source": "Alphabet, Microsoft and OpenAI executive remarks",
+    "source_ids": [
+      "S32018",
+      "S32019",
+      "S32020",
+      "S32021",
+      "S32022"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P2-token-demand-growth.svg",
+    "html": null
+  },
+  {
+    "id": "P3-bottleneck-by-workload",
+    "title": "Compute binds training and prefill; memory and interconnect bind decode and MoE",
+    "subtitle": "Which bottleneck binds, by AI workload (repo analysis; Binding = sets the speed limit, Significant, Minor)",
+    "alt": "Heatmap of seven AI workloads against six bottlenecks. Dense pre-training: compute and power binding. MoE pre-training: scale-up and scale-out interconnect and power binding. Prefill: compute binding. Small-batch decode: memory bandwidth binding. Large-batch decode: memory capacity binding. Long-context reasoning: memory bandwidth, memory capacity and scale-up interconnect binding. MoE serving: memory bandwidth and scale-up binding.",
+    "data": [
+      "P3_bottleneck_matrix.csv"
+    ],
+    "chapters": [
+      "P3",
+      "02",
+      "03",
+      "05",
+      "06",
+      "08",
+      "11"
+    ],
+    "source": "repo analysis drawing on Llama 3, DeepSeek-V3, Pope et al., IEA",
+    "source_ids": [
+      "S34006",
+      "S33001",
+      "S34004",
+      "S34001",
+      "S34002",
+      "S33015",
+      "S34007",
+      "S34017",
+      "S33025",
+      "S33023",
+      "S33012",
+      "S33013",
+      "S33004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P3-bottleneck-by-workload.svg",
+    "html": null
+  },
+  {
+    "id": "P3-datacenter-power-demand-forecast",
+    "title": "Datacenter electricity could double globally by 2030 and up to triple in the US by 2028",
+    "subtitle": "Annual datacenter electricity use, TWh; solid = estimate of actual, hatched = forecast range (low to high)",
+    "alt": "Two bar panels. Global (IEA): about 415 TWh in 2024, about 1.5% of world electricity, rising to about 945 TWh by 2030 in the base case. United States: 76 TWh in 2018 and 176 TWh in 2023 (4.4% of US electricity, LBNL), with LBNL projecting 325 to 580 TWh by 2028 (6.7% to 12%) and EPRI 196 to 404 TWh by 2030 (4.6% to 9.1%).",
+    "data": [
+      "P3_power_demand.csv"
+    ],
+    "chapters": [
+      "P3",
+      "08",
+      "18"
+    ],
+    "source": "IEA Energy and AI (2025); LBNL (2024); EPRI (2024)",
+    "source_ids": [
+      "S33015",
+      "S33016",
+      "S33017"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P3-datacenter-power-demand-forecast.svg",
+    "html": null
+  },
+  {
+    "id": "P3-rack-power-by-system",
+    "title": "One NVIDIA scale-up domain draws ~600 kW by 2027, vs 10.2 kW for an 8-GPU DGX H100",
+    "subtitle": "kW per system (left) and per GPU package incl. CPUs and switches (right); hatched = not yet shipping",
+    "alt": "Two bar panels from the shared system specs data. Power per system: DGX A100 about 6.5 kW, DGX H100 10.2 kW and DGX B200 about 14.3 kW (8 GPUs each); GB200 NVL72 about 120 kW, GB300 NVL72 about 132 kW, Vera Rubin NVL72 about 230 kW (reported Max-P) and the Rubin Ultra Kyber rack about 600 kW (144 packages, roadmap). Per GPU package, power rises from about 0.8 kW (DGX A100) and 1.3 kW (DGX H100) to about 3.2 kW (Vera Rubin) and 4.2 kW (Kyber).",
+    "data": [
+      "system_specs.csv"
+    ],
+    "chapters": [
+      "P3",
+      "08",
+      "02"
+    ],
+    "source": "NVIDIA datasheets, SemiAnalysis and press reports via system_specs.csv",
+    "source_ids": [
+      "S315",
+      "S316",
+      "S318",
+      "S33022",
+      "S33002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S305",
+      "S35041",
+      "S110",
+      "S108",
+      "S307",
+      "S309",
+      "S111"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P3-rack-power-by-system.svg",
+    "html": null
+  },
+  {
+    "id": "P3-roofline-h100-b200-rubin",
+    "title": "Batch-1 decode sits ~200-300x left of the ridge point and uses under 1% of peak FLOPS",
+    "subtitle": "Roofline: attainable dense BF16 TFLOPS per GPU vs arithmetic intensity (FLOPs per byte read from HBM), log-log",
+    "alt": "Log-log roofline chart in dense BF16. H100: 989 TFLOPS and 3.35 TB/s, ridge point about 295 FLOPs per byte; B200: 2,250 TFLOPS and 8 TB/s, ridge point about 281 FLOPs per byte; Rubin: 4,000 TFLOPS and 19.2 TB/s, ridge point about 208 FLOPs per byte. Batch-1 decode (about 1 FLOP per byte) sits far left on the bandwidth slope; batch 64 (63) and batch 256 (241) move right; prefill (about 1,365) and training matrix multiplies (about 3,277) sit on the flat compute roof.",
+    "data": [
+      "gpu_product_specs.csv",
+      "P3_workload_intensity.csv"
+    ],
+    "chapters": [
+      "P3",
+      "02",
+      "03",
+      "05",
+      "11"
+    ],
+    "source": "NVIDIA and Lenovo spec sheets; repo arithmetic",
+    "source_ids": [
+      "S33002",
+      "S33003",
+      "S33005",
+      "S33007",
+      "S33013"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P3-roofline-h100-b200-rubin.svg",
+    "html": null
+  },
+  {
+    "id": "P3-workload-arithmetic-intensity",
+    "title": "Decode runs up to ~300x below the ridge point; only prefill and training clear it",
+    "subtitle": "Arithmetic intensity of common LLM operations (FLOPs per byte, BF16, 70B-class layer), vs GPU ridge points",
+    "alt": "Horizontal bar chart on a log scale of arithmetic intensity: batch-1 decode about 1 FLOP per byte, decode attention and MoE expert matrix multiplies about 8, batch-64 decode 63, batch-256 decode 241, a 2,048-token prefill 1,365 and a training matrix multiply 3,277. The BF16 ridge points of H100, B200 and Rubin fall between 208 and 295 FLOPs per byte and the FP8 ridge points between 562 and 911, so only prefill and training clear them.",
+    "data": [
+      "P3_workload_intensity.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "P3",
+      "02",
+      "03",
+      "05",
+      "11"
+    ],
+    "source": "Pope et al.; kipply; DeepSeek-V3 report; NVIDIA specs; repo arithmetic",
+    "source_ids": [
+      "S33012",
+      "S33013",
+      "S33025",
+      "S34007",
+      "S33001",
+      "S34001"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P3-workload-arithmetic-intensity.svg",
+    "html": null
+  },
+  {
+    "id": "P4-allreduce-time-by-fabric",
+    "title": "A 70B gradient sync takes ~5.5 s over 400G InfiniBand but ~0.3 s over NVLink 5",
+    "subtitle": "Ideal ring all-reduce of 140 GB of BF16 gradients across 64 GPUs (276 GB sent per GPU), by per-GPU link; seconds",
+    "alt": "Horizontal bar chart of ideal ring all-reduce time for 140 GB of BF16 gradients (a 70-billion-parameter model) across 64 GPUs, about 276 GB sent per GPU: InfiniBand NDR 400 Gb/s about 5.5 s, PCIe Gen5 x16 about 4.3 s, InfiniBand XDR 800 Gb/s about 2.8 s, NVLink 4 about 0.61 s, NVLink 5 about 0.31 s and NVLink 6 about 0.18 s, roughly 18 times faster on NVLink 5 than on 400G InfiniBand. A 1.6 Tb/s Rubin-generation NIC takes about 1.4 s.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "P4",
+      "05",
+      "06"
+    ],
+    "source": "NVIDIA NVLink/InfiniBand specs; PCI-SIG; ring formula",
+    "source_ids": [
+      "S34014",
+      "S34015",
+      "S34016",
+      "S33004",
+      "S34011"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P4-allreduce-time-by-fabric.svg",
+    "html": null
+  },
+  {
+    "id": "P4-communication-volume-by-parallelism",
+    "title": "TP moves ~17x more data per GPU per step than DP, which is why it stays on NVLink",
+    "subtitle": "Est. GB sent per GPU per training step: 70B dense model, TP8 x PP4 x DP64 on 2,048 GPUs, 4M-token batch, BF16",
+    "alt": "Horizontal bar chart of estimated data sent per GPU per training step for a 70-billion-parameter model split 8-way tensor, 4-way pipeline and 64-way data parallel: tensor parallelism about 150 GB, data-parallel gradient all-reduce about 8.6 GB, fully sharded data parallelism about 12.9 GB and pipeline sends about 2.1 GB; for contrast, plain data parallelism with a full model copy per GPU would send about 276 GB.",
+    "data": [
+      "P4_comm_volume_example.csv"
+    ],
+    "chapters": [
+      "P4",
+      "05",
+      "06"
+    ],
+    "source": "Megatron-LM, ZeRO and ring all-reduce formulas; repo arithmetic",
+    "source_ids": [
+      "S34002",
+      "S34011",
+      "S34012",
+      "S34004",
+      "S34005",
+      "S34001"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P4-communication-volume-by-parallelism.svg",
+    "html": null
+  },
+  {
+    "id": "P4-parallelism-dimensions-frontier-runs",
+    "title": "Frontier GPU runs keep tensor parallelism at 8 or less: one NVLink server",
+    "subtitle": "Published parallelism degrees; bar length = log2(GPUs), each segment = log2(degree); GPUs = TP x CP x PP x DP",
+    "alt": "Stacked horizontal bars showing how published training runs factor their GPU counts: Megatron 1T on 3,072 A100s (TP 8, PP 64, DP 6); MT-NLG 530B on 4,480 A100s (TP 8, PP 35, DP 16); BLOOM 176B on 384 A100s (TP 4, PP 12, DP 8); PaLM 540B on 6,144 TPU v4 chips (12-way model, 512-way data); Nemotron-4 340B on 6,144 H100s (TP 8, PP 12, DP 64); Llama 3 405B on 16,384 H100s (TP 8, PP 16, DP 128, and TP 8, CP 16, PP 16, DP 8 for long context); DeepSeek-V3 on 2,048 H800s (no TP, PP 16, DP 128 with 64-way expert parallelism).",
+    "data": [
+      "P4_parallelism_configs.csv"
+    ],
+    "chapters": [
+      "P4",
+      "05",
+      "06",
+      "08"
+    ],
+    "source": "published training papers",
+    "source_ids": [
+      "S34002",
+      "S34019",
+      "S34018",
+      "S34021",
+      "S34007",
+      "S34020",
+      "S34006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P4-parallelism-dimensions-frontier-runs.svg",
+    "html": null
+  },
+  {
+    "id": "P4-pipeline-bubble-fraction",
+    "title": "A 16-stage pipeline idles ~48% of the time with 16 micro-batches and ~10% with 128",
+    "subtitle": "Pipeline bubble: share of step time each GPU sits idle vs micro-batches per step, (p-1)/(v*m+p-1)",
+    "alt": "Line chart of pipeline bubble fraction against micro-batches per step (log scale). With 4 stages the idle share falls from 75% at 1 micro-batch to about 9% at 32; with 8 stages it is about 30% at 16 micro-batches; with 16 stages it is about 48% at 16 micro-batches and about 10% at 128; an interleaved schedule with 4 virtual chunks cuts the 16-stage bubble at 16 micro-batches to about 19%.",
+    "data": [
+      "P4_pipeline_bubble.csv"
+    ],
+    "chapters": [
+      "P4",
+      "05",
+      "06"
+    ],
+    "source": "GPipe and Megatron-LM pipeline-bubble formulas",
+    "source_ids": [
+      "S34002",
+      "S34003"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P4-pipeline-bubble-fraction.svg",
+    "html": null
+  },
+  {
+    "id": "P5-cost-per-flop-trend",
+    "title": "PFLOPS got ~50× cheaper since 2017 at low precision, but BF16 stalled after GB200",
+    "subtitle": "System price ÷ dense peak PFLOPS, US$ K per PFLOPS (log scale); low precision = each system's smallest float format",
+    "alt": "Log-scale chart of system price per dense PFLOPS: about $155K for a DGX-1 with V100 (FP16, 2017) falling to about $3.1K for a Vera Rubin NVL72 at NVFP4 (2026), roughly 50 times lower; at BF16 the best value is about $17K for GB200 NVL72 while Vera Rubin NVL72 is about $27K because its gains and its memory cost are concentrated elsewhere.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03",
+      "14",
+      "08"
+    ],
+    "source": "NVIDIA, HSBC, Morgan Stanley, resellers via repo registry",
+    "source_ids": [
+      "S312",
+      "S316",
+      "S33009",
+      "S322",
+      "S33002",
+      "S32002",
+      "S320",
+      "S33003",
+      "S319",
+      "S326",
+      "S324",
+      "S121",
+      "S332",
+      "S338",
+      "S339",
+      "S330",
+      "S33005",
+      "S102"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-cost-per-flop-trend.svg",
+    "html": null
+  },
+  {
+    "id": "P5-cost-per-good-die",
+    "title": "An 8× bigger die costs ~21× more: ~$29 for 100 mm² vs ~$609 for 814 mm²",
+    "subtitle": "Modelled silicon cost per defect-free die, $17K 4N-class wafer, 0.1 defects/cm², US$ (excl. test, packaging, harvesting)",
+    "alt": "Bar chart of modelled cost per good die on a $17,000 wafer: about $29 for a 100 mm2 die (579 good dies per wafer) rising to about $609 for an 814 mm2 die (28 good dies), roughly 21 times more for eight times the area.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03"
+    ],
+    "source": "repo model; wafer price assumption from Epoch AI",
+    "source_ids": [
+      "S35020",
+      "S35008",
+      "S35009"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-cost-per-good-die.svg",
+    "html": null
+  },
+  {
+    "id": "P5-gpu-cost-build-up-waterfall",
+    "title": "Est. ~$6.4K to build a B200 vs a ~$30–40K price; HBM is the biggest cost",
+    "subtitle": "Est. unit manufacturing cost and implied gross profit per B200 GPU package, US$ (price = midpoint of CEO's range; hatched = Est.)",
+    "alt": "Waterfall chart of an estimated B200 cost build-up: logic dies about $850, HBM3E about $2,880, CoWoS-L packaging about $1,100, packaging yield loss about $1,000 and other about $570, totalling about $6,400, against a selling price of about $35,000, implying a chip-level gross margin near 82%.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03",
+      "14"
+    ],
+    "source": "Epoch AI, Silicon Analysts, CNBC via Tom's Hardware",
+    "source_ids": [
+      "S35022",
+      "S35020",
+      "S35040",
+      "S35039",
+      "S35026",
+      "S35027"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-gpu-cost-build-up-waterfall.svg",
+    "html": null
+  },
+  {
+    "id": "P5-hbm-cost-share",
+    "title": "HBM rose from ~14% of an A100's build cost to ~45% of a B200's",
+    "subtitle": "Estimated HBM share of unit manufacturing cost (left) and of all AI-accelerator component spend (right), %",
+    "alt": "Two bar panels: HBM share of unit cost rose from about 14% for the A100 to about 33% for the H100 and about 45% for the B200; across all AI accelerators memory's share of component spend rose from 52% in Q1 2024 to 63% in Q4 2025.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03"
+    ],
+    "source": "Silicon Analysts, Epoch AI",
+    "source_ids": [
+      "S35023",
+      "S35020",
+      "S35021"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-hbm-cost-share.svg",
+    "html": null
+  },
+  {
+    "id": "P5-tsmc-capex",
+    "title": "TSMC's capex rose ~3.6× from $14.9B (2019) to a guided ~$54B (2026)",
+    "subtitle": "TSMC capital expenditure by calendar year, US$ billions (2026 hatched = midpoint of $52–56B guidance, whisker = range)",
+    "alt": "Bar chart of TSMC capital expenditure: $14.9B in 2019, a then-record $36.3B in 2022, $40.9B in 2025 and guidance of $52-56B for 2026 (midpoint $54B), about 3.6 times 2019; one report says 2026 guidance was raised to $60-64B.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03",
+      "18"
+    ],
+    "source": "TSMC via AP, TrendForce, SemiWiki, TickerLeague",
+    "source_ids": [
+      "S35032",
+      "S35031",
+      "S35034",
+      "S35033",
+      "S35029"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-tsmc-capex.svg",
+    "html": null
+  },
+  {
+    "id": "P5-wafer-price-by-node",
+    "title": "A leading-edge wafer costs ~3× more at N2 (~$30K) than at N7 (~$9.4K)",
+    "subtitle": "Est. price per 300 mm TSMC wafer, US$ (bar = median of published estimates; dots = individual estimates; hatched = rumor)",
+    "alt": "Bar chart of estimated TSMC wafer prices by node: N7 about $9,400, N5/N4 about $17,000, N3 about $20,000, N2 about $30,000 and a rumored $45,000 for A16, so a wafer costs roughly 3 times more at N2 than at N7.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03"
+    ],
+    "source": "CSET, Tom's Hardware, TechNode, Epoch AI, others",
+    "source_ids": [
+      "S35001",
+      "S35006",
+      "S35005",
+      "S35020",
+      "S35002",
+      "S35003",
+      "S35004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-wafer-price-by-node.svg",
+    "html": null
+  },
+  {
+    "id": "P5-yield-vs-die-area",
+    "title": "An 814 mm² GPU die yields ~44% vs ~90% for a 100 mm² phone chip",
+    "subtitle": "Modelled share of defect-free dies vs die area; central case D0 = 0.1 defects/cm² (Poisson and Murphy models; no harvesting)",
+    "alt": "Line chart of modelled die yield versus die area: at 0.1 defects per square centimetre yield falls from about 90% for a 100 mm2 die to about 44% for an 814 mm2 H100-class die; at 0.2 defects it is about 20%; the reticle limit of 858 mm2 caps die size.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "P5",
+      "02",
+      "03"
+    ],
+    "source": "repo yield model; parameters from CSET, SemiEngineering, Epoch AI",
+    "source_ids": [
+      "S35010",
+      "S35001",
+      "S35008",
+      "S35009",
+      "S35020"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/P5-yield-vs-die-area.svg",
     "html": null
   }
 ]

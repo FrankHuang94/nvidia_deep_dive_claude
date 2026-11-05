@@ -1,0 +1,9 @@
+vendor,architecture,flagship_product,announce_event,announce_date,first_availability,availability_basis,status,confidence,source_id,notes
+NVIDIA,Volta,Tesla V100,GTC 2017,2017-05-10,2017-09,first DGX-1 (Volta) shipments,shipping,reported,S126;S312,Announce date from GTC 2017 keynote (prior knowledge); DGX Volta shipments 2017-09-07.
+NVIDIA,Ampere,A100,GTC 2020,2020-05-14,2020-05,DGX A100 shipping at launch,shipping,confirmed,S127;S315,
+NVIDIA,Hopper,H100,GTC 2022,2022-03-22,2022-10,partner systems after 'full production' at GTC Sep 2022,shipping,reported,S35012;S532,Availability month from GTC Fall 2022 messaging (prior knowledge).
+NVIDIA,Blackwell,B200 / GB200,GTC 2024,2024-03-18,2024-11,first volume shipments CY2024-Q4,shipping,reported,S35014;S121,Mid-quarter placeholder for CY2024-Q4 ramp.
+NVIDIA,Blackwell Ultra,B300 / GB300,GTC 2025,2025-03-18,2025-08,2H 2025 ramp,shipping,reported,S33020;S32004,Mid-quarter placeholder for CY2025-Q3.
+NVIDIA,Rubin,Rubin / Vera Rubin NVL72,CES 2026,2026-01-05,2026-08,production shipments commenced early Aug 2026,shipping,confirmed,S100;S500,Rubin name first shown at Computex 2024.
+NVIDIA,Rubin Ultra,Rubin Ultra / Kyber NVL144,GTC 2025 (roadmap),2025-03-18,2027-08,planned 2H 2027,roadmap,confirmed,S35018;S502;S507,Plan date; SemiAnalysis reports Kyber slip to 2028 (NVIDIA: roadmap intact).
+NVIDIA,Feynman,Feynman,GTC 2025 (roadmap),2025-03-18,2028-08,planned 2028,roadmap,confirmed,S109;S502,Mid-2028 placeholder for '2028'.

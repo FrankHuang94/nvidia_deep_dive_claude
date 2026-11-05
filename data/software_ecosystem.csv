@@ -1,1 +1,178 @@
 record_type,date,entity,metric,value,unit,confidence,source_id,notes
+time_series,2018,NVIDIA,cuda_registered_developers,1000000,developers,estimate,S529,Est.: NVIDIA says it took 13 years to reach 1M registered developers and <2 more to reach 2M (2020); 1M placed ~2018.
+time_series,2020,NVIDIA,cuda_registered_developers,2000000,developers,reported,S529,NVIDIA Developer Program milestone; blog month not verified (2020).
+time_series,2022-03-22,NVIDIA,cuda_registered_developers,3000000,developers,confirmed,S530;S531,GTC 2022 press release.
+time_series,2022-09-20,NVIDIA,cuda_registered_developers,3500000,developers,confirmed,S532,GTC 2022 Fall highlights deck.
+time_series,2023-05-29,NVIDIA,cuda_registered_developers,4000000,developers,reported,S533,Computex 2023 keynote as reported by TechCrunch.
+time_series,2024-06-02,NVIDIA,cuda_registered_developers,5000000,developers,reported,S534,Computex 2024 keynote quote: 'five million developers'.
+time_series,2025-02-26,NVIDIA,cuda_registered_developers,5900000,developers,reported,S535,Q4 FY2025 earnings call.
+time_series,2025-03-18,NVIDIA,cuda_registered_developers,6000000,developers,reported,S536,GTC 2025 keynote video: ~6 million developers in 200 countries.
+time_series,2026-03-16,NVIDIA,cuda_registered_developers,6000000,developers,confirmed,S528,GTC 2026 '20 years of CUDA': 6 million developers (rounded; same figure as GTC 2025).
+time_series,2020,NVIDIA,cuda_downloads_per_month,438000,downloads per month,reported,S529,Average monthly CUDA downloads cited with the 2M-developer milestone; registered developers ~100k of these.
+time_series,2021,NVIDIA,cuda_downloads_in_year,8000000,downloads,confirmed,S530,CUDA downloads in calendar 2021.
+time_series,2022-03-22,NVIDIA,cuda_downloads_cumulative,33000000,downloads,confirmed,S530,More than 33 million downloads since 2008.
+time_series,2023-05-29,NVIDIA,cuda_downloads_cumulative,40000000,downloads,reported,S533,~40 million cumulative downloads (Computex 2023).
+time_series,2021-04-12,NVIDIA,cuda_accelerated_applications,2000,applications,confirmed,S537,"CUDA and CUDA-X accelerate 'more than 2,000 GPU applications'."
+time_series,2023-05-29,NVIDIA,cuda_accelerated_applications,3000,applications,reported,S533,"'More than 3,000 applications'."
+time_series,2022-09-20,NVIDIA,cuda_x_sdks_and_models,550,SDKs and AI models,confirmed,S532,Count mixes SDKs/libraries and pretrained models; not comparable with library-only counts.
+time_series,2020,NVIDIA,cuda_gpus_installed_base,1000000000,GPUs,reported,S529,'More than a billion CUDA GPUs' (all segments incl. gaming).
+time_series,2022-03-22,NVIDIA,startups_using_platform,10000,startups,reported,S531,"'10,000 start-ups' cited at GTC 2022; likely NVIDIA Inception membership but the source does not name the program."
+time_series,2007-06,NVIDIA CUDA,cuda_release,1.0,version,reported,S525,"major; First public CUDA toolkit for G80/Tesla: C extensions, cuBLAS, cuFFT. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session)."
+time_series,2008-08,NVIDIA CUDA,cuda_release,2.0,version,reported,S525,major; Double precision (GT200); macOS support. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2010-03,NVIDIA CUDA,cuda_release,3.0,version,reported,S525,major; Fermi support; C++ classes/templates in device code; ECC. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2011-05,NVIDIA CUDA,cuda_release,4.0,version,reported,S525,major; Unified Virtual Addressing; GPUDirect peer-to-peer; Thrust bundled. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2012-10,NVIDIA CUDA,cuda_release,5.0,version,reported,S525,major; Kepler dynamic parallelism; GPUDirect RDMA; Nsight Eclipse Edition. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2014-04,NVIDIA CUDA,cuda_release,6.0,version,reported,S525,major; Unified Memory; drop-in libraries. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2015-03,NVIDIA CUDA,cuda_release,7.0,version,reported,S525,major; C++11; runtime compilation (NVRTC); cuSOLVER. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2016-09,NVIDIA CUDA,cuda_release,8.0,version,reported,S525,major; Pascal; NVLink; FP16; page-migration engine. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2017-09,NVIDIA CUDA,cuda_release,9.0,version,reported,S525,major; Volta Tensor Cores; cooperative groups. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2018-09,NVIDIA CUDA,cuda_release,10.0,version,reported,S525,major; Turing; CUDA Graphs. Month per NVIDIA CUDA Toolkit Archive (prior knowledge; host blocked this session).
+time_series,2019-11-19,NVIDIA CUDA,cuda_release,10.2,version,confirmed,S526,minor; Last 10.x feature release. Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2020-07,NVIDIA CUDA,cuda_release,11.0,version,reported,S525;S526,"major; Ampere (A100): TF32, MIG; Arm server support. GA build 11.0.2 July 2020; CUPTI history lists 11.0 on 2020-05-28 (release candidate)."
+time_series,2022-12-08,NVIDIA CUDA,cuda_release,12.0,version,confirmed,S524;S526,major; Hopper/Ada support; lazy loading. Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2023-02-28,NVIDIA CUDA,cuda_release,12.1,version,confirmed,S524;S526,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2023-06-28,NVIDIA CUDA,cuda_release,12.2,version,confirmed,S524,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2023-10-19,NVIDIA CUDA,cuda_release,12.3,version,confirmed,S524,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2024-03-06,NVIDIA CUDA,cuda_release,12.4,version,confirmed,S524,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2024-05-21,NVIDIA CUDA,cuda_release,12.5,version,confirmed,S524,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2024-08-01,NVIDIA CUDA,cuda_release,12.6,version,confirmed,S524;S526,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2025-01-23,NVIDIA CUDA,cuda_release,12.8,version,confirmed,S524,minor; Blackwell (B200/RTX 50) support. Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2025-05-01,NVIDIA CUDA,cuda_release,12.9,version,confirmed,S524,minor; Last 12.x feature release. Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2025-08-04,NVIDIA CUDA,cuda_release,13.0,version,confirmed,S523,major; Blackwell-era major; unified Arm platform toolkit. Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2025-12-05,NVIDIA CUDA,cuda_release,13.1,version,confirmed,S523;S527,minor; CUDA Tile (tile-based programming model). Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2026-03-05,NVIDIA CUDA,cuda_release,13.2,version,confirmed,S527;S523,minor; CUDA Tile extended to Ampere/Ada; Python profiling. Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2026-05-26,NVIDIA CUDA,cuda_release,13.3,version,confirmed,S523,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2026-09-09,NVIDIA CUDA,cuda_release,13.4,version,confirmed,S523,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2026-11-04,NVIDIA CUDA,cuda_release,13.5,version,confirmed,S523,minor; Date = first PyPI runtime-wheel upload or dated release notes.
+time_series,2016-04,AMD ROCm,rocm_release,1.0,version,reported,S586,major; First ROCm release (Boltzmann Initiative). Date from prior knowledge of ROCm GitHub releases (re-verify).
+time_series,2018-12,AMD ROCm,rocm_release,2.0,version,reported,S586,major. Date from prior knowledge of ROCm GitHub releases (re-verify).
+time_series,2019-12,AMD ROCm,rocm_release,3.0,version,reported,S586,major. Date from prior knowledge of ROCm GitHub releases (re-verify).
+time_series,2020-12,AMD ROCm,rocm_release,4.0,version,reported,S586,major; MI100 / CDNA 1 support. Month inferred from roc-4.0.x branch README (Dec 2020 MI100 ISA reference).
+time_series,2022-02-09,AMD ROCm,rocm_release,5.0,version,confirmed,S586,major. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2022-03-30,AMD ROCm,rocm_release,5.1,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2022-06-28,AMD ROCm,rocm_release,5.2,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2022-10-04,AMD ROCm,rocm_release,5.3,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2022-11-30,AMD ROCm,rocm_release,5.4,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2023-05-01,AMD ROCm,rocm_release,5.5,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2023-06-28,AMD ROCm,rocm_release,5.6,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2023-09-15,AMD ROCm,rocm_release,5.7,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2023-12-15,AMD ROCm,rocm_release,6.0,version,confirmed,S586,major; MI300X launch-era release. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2024-04-16,AMD ROCm,rocm_release,6.1,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2024-08-02,AMD ROCm,rocm_release,6.2,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2024-12-03,AMD ROCm,rocm_release,6.3,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2025-04-11,AMD ROCm,rocm_release,6.4,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2025-09-16,AMD ROCm,rocm_release,7.0,version,confirmed,S586,major; MI350-era release. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2025-10-30,AMD ROCm,rocm_release,7.1,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2026-01-21,AMD ROCm,rocm_release,7.2,version,confirmed,S586,minor. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2026-07-15,AMD ROCm,rocm_release,7.14,version,confirmed,S586,minor; First ROCm Core SDK release stream. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2026-08-26,AMD ROCm,rocm_release,10.0,version,confirmed,S586,major; Core SDK major; version jump from 7.x. Date from ROCm release-history table (docs/release/versions.rst).
+time_series,2023,vLLM,pypi_stable_releases,17,releases,confirmed,S522,PyPI package 'vllm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2023.
+time_series,2023,vLLM,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'vllm': release candidates/alpha/beta first uploaded in 2023; dev/nightly uploads excluded (0 that year).
+time_series,2024,vLLM,pypi_stable_releases,30,releases,confirmed,S522,PyPI package 'vllm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2024.
+time_series,2024,vLLM,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'vllm': release candidates/alpha/beta first uploaded in 2024; dev/nightly uploads excluded (0 that year).
+time_series,2025,vLLM,pypi_stable_releases,24,releases,confirmed,S522,PyPI package 'vllm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2025.
+time_series,2025,vLLM,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'vllm': release candidates/alpha/beta first uploaded in 2025; dev/nightly uploads excluded (0 that year).
+time_series,2026,vLLM,pypi_stable_releases,30,releases,confirmed,S522,PyPI package 'vllm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2026. 2026 = year to date (to 2026-11-05).
+time_series,2026,vLLM,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'vllm': release candidates/alpha/beta first uploaded in 2026; dev/nightly uploads excluded (0 that year). 2026 = year to date (to 2026-11-05).
+time_series,2024,SGLang,pypi_stable_releases,66,releases,confirmed,S522,PyPI package 'sglang': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2024.
+time_series,2024,SGLang,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'sglang': release candidates/alpha/beta first uploaded in 2024; dev/nightly uploads excluded (0 that year).
+time_series,2025,SGLang,pypi_stable_releases,63,releases,confirmed,S522,PyPI package 'sglang': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2025.
+time_series,2025,SGLang,pypi_prereleases,8,releases,confirmed,S522,PyPI package 'sglang': release candidates/alpha/beta first uploaded in 2025; dev/nightly uploads excluded (0 that year).
+time_series,2026,SGLang,pypi_stable_releases,22,releases,confirmed,S522,PyPI package 'sglang': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2026. 2026 = year to date (to 2026-11-05).
+time_series,2026,SGLang,pypi_prereleases,1,releases,confirmed,S522,PyPI package 'sglang': release candidates/alpha/beta first uploaded in 2026; dev/nightly uploads excluded (0 that year). 2026 = year to date (to 2026-11-05).
+time_series,2023,TensorRT-LLM,pypi_stable_releases,5,releases,confirmed,S522,PyPI package 'tensorrt-llm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2023.
+time_series,2023,TensorRT-LLM,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'tensorrt-llm': release candidates/alpha/beta first uploaded in 2023; dev/nightly uploads excluded (0 that year).
+time_series,2024,TensorRT-LLM,pypi_stable_releases,9,releases,confirmed,S522,PyPI package 'tensorrt-llm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2024.
+time_series,2024,TensorRT-LLM,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'tensorrt-llm': release candidates/alpha/beta first uploaded in 2024; dev/nightly uploads excluded (54 that year).
+time_series,2025,TensorRT-LLM,pypi_stable_releases,10,releases,confirmed,S522,PyPI package 'tensorrt-llm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2025.
+time_series,2025,TensorRT-LLM,pypi_prereleases,28,releases,confirmed,S522,PyPI package 'tensorrt-llm': release candidates/alpha/beta first uploaded in 2025; dev/nightly uploads excluded (11 that year).
+time_series,2026,TensorRT-LLM,pypi_stable_releases,2,releases,confirmed,S522,PyPI package 'tensorrt-llm': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2026. 2026 = year to date (to 2026-11-05).
+time_series,2026,TensorRT-LLM,pypi_prereleases,38,releases,confirmed,S522,PyPI package 'tensorrt-llm': release candidates/alpha/beta first uploaded in 2026; dev/nightly uploads excluded (0 that year). 2026 = year to date (to 2026-11-05).
+time_series,2025,NVIDIA Dynamo,pypi_stable_releases,18,releases,confirmed,S522,PyPI package 'ai-dynamo': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2025.
+time_series,2025,NVIDIA Dynamo,pypi_prereleases,0,releases,confirmed,S522,PyPI package 'ai-dynamo': release candidates/alpha/beta first uploaded in 2025; dev/nightly uploads excluded (1 that year).
+time_series,2026,NVIDIA Dynamo,pypi_stable_releases,23,releases,confirmed,S522,PyPI package 'ai-dynamo': stable releases (incl. .postN; excl. rc/alpha/beta/dev) first uploaded in 2026. 2026 = year to date (to 2026-11-05).
+time_series,2026,NVIDIA Dynamo,pypi_prereleases,1,releases,confirmed,S522,PyPI package 'ai-dynamo': release candidates/alpha/beta first uploaded in 2026; dev/nightly uploads excluded (84 that year). 2026 = year to date (to 2026-11-05).
+support_matrix,2026-11-05,PyTorch,support_nvidia_cuda,3,level_0_3,confirmed,S587,native/first-class: in-tree CUDA backend; reference platform
+support_matrix,2026-11-05,PyTorch,support_amd_rocm,3,level_0_3,confirmed,S587;S586,native/first-class: in-tree ROCm backend with official wheels (Linux); validated PyTorch 2.11-2.13 on ROCm 10; kernel/perf parity still lags in places
+support_matrix,2026-11-05,PyTorch,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S587,supported: in-tree Intel GPU (XPU) backend; Gaudi via Intel's out-of-tree plugin
+support_matrix,2026-11-05,PyTorch,support_google_tpu_xla,2,level_0_3,confirmed,S553;S595,supported: TorchTPU native stack (open-sourced Oct 2026) replaces deprecated PyTorch/XLA
+support_matrix,2026-11-05,PyTorch,support_aws_neuron,2,level_0_3,reported,S594;S522,"supported: torch-neuronx (XLA-based, AWS-maintained, AWS pip index) plus NxD libraries"
+support_matrix,2026-11-05,PyTorch,support_huawei_cann,2,level_0_3,confirmed,S592;S522,supported: torch_npu adapter plugin (Huawei-maintained; 67 PyPI releases since 2023)
+support_matrix,2026-11-05,PyTorch,support_qualcomm_cloud_ai,1,level_0_3,confirmed,S596,experimental/community/limited: inference only: efficient-transformers exports Hugging Face PyTorch models to ONNX for Cloud AI compilation
+support_matrix,2026-11-05,JAX,support_nvidia_cuda,3,level_0_3,confirmed,S577,native/first-class: jax[cuda13] official
+support_matrix,2026-11-05,JAX,support_amd_rocm,2,level_0_3,confirmed,S577;S586,supported: ROCm plugin supported by AMD (jax-rocm7-plugin); JAX 0.10-0.11 validated on ROCm 10
+support_matrix,2026-11-05,JAX,support_intel_oneapi_gaudi,1,level_0_3,confirmed,S577,experimental/community/limited: Intel GPU listed as experimental (oneAPI PJRT plugin)
+support_matrix,2026-11-05,JAX,support_google_tpu_xla,3,level_0_3,confirmed,S577,native/first-class: Google Cloud TPU is a first-class JAX platform
+support_matrix,2026-11-05,JAX,support_aws_neuron,1,level_0_3,speculative,S577,experimental/community/limited: not in JAX's supported-platforms table; AWS documents a JAX Neuron plugin in beta (not verified this session)
+support_matrix,2026-11-05,JAX,support_huawei_cann,0,level_0_3,confirmed,S577,none: not listed in JAX supported platforms; Huawei promotes MindSpore instead
+support_matrix,2026-11-05,JAX,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S577,none: not listed
+support_matrix,2026-11-05,TensorFlow,support_nvidia_cuda,3,level_0_3,confirmed,S588,native/first-class: tensorflow[and-cuda] official
+support_matrix,2026-11-05,TensorFlow,support_amd_rocm,2,level_0_3,confirmed,S586;S522,supported: TensorFlow 2.19-2.21 validated on ROCm 10 (AMD images); tensorflow-rocm PyPI wheel last updated 2024-01
+support_matrix,2026-11-05,TensorFlow,support_intel_oneapi_gaudi,1,level_0_3,confirmed,S588;S522,experimental/community/limited: Intel Extension for TensorFlow PluggableDevice; last PyPI release 2025-03
+support_matrix,2026-11-05,TensorFlow,support_google_tpu_xla,3,level_0_3,reported,S588,native/first-class: TPU is a native TensorFlow target
+support_matrix,2026-11-05,TensorFlow,support_aws_neuron,1,level_0_3,speculative,S522,experimental/community/limited: tensorflow-neuronx (inference only) distributed via AWS pip index; PyPI holds only a placeholder
+support_matrix,2026-11-05,TensorFlow,support_huawei_cann,1,level_0_3,speculative,S592,experimental/community/limited: Ascend TF adapter exists (not verified this session)
+support_matrix,2026-11-05,TensorFlow,support_qualcomm_cloud_ai,0,level_0_3,reported,S596,none: no TensorFlow path documented in Qualcomm Cloud AI repositories
+support_matrix,2026-11-05,vLLM,support_nvidia_cuda,3,level_0_3,confirmed,S580,native/first-class: in-tree CUDA; primary target
+support_matrix,2026-11-05,vLLM,support_amd_rocm,3,level_0_3,confirmed,S580;S586,native/first-class: in-tree ROCm backend; vLLM 0.27 validated on ROCm 10
+support_matrix,2026-11-05,vLLM,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S580;S581,"supported: in-tree Intel XPU backend; Gaudi via vllm-gaudi plugin (0.26.0, Aug 2026)"
+support_matrix,2026-11-05,vLLM,support_google_tpu_xla,2,level_0_3,confirmed,S580;S581;S553,supported: TPU via hardware plugins (vLLM JAX; vllm-torchtpu)
+support_matrix,2026-11-05,vLLM,support_aws_neuron,1,level_0_3,confirmed,S581,"experimental/community/limited: vLLM Neuron plugin is labelled Beta, though AWS recommends it for Trainium"
+support_matrix,2026-11-05,vLLM,support_huawei_cann,2,level_0_3,confirmed,S581;S522,supported: vllm-ascend plugin (vLLM project; 51 PyPI releases since 2025-02)
+support_matrix,2026-11-05,vLLM,support_qualcomm_cloud_ai,2,level_0_3,confirmed,S596,supported: Qualcomm-maintained vLLM container for QAic (Cloud AI 100/AI200)
+support_matrix,2026-11-05,SGLang,support_nvidia_cuda,3,level_0_3,confirmed,S582,"native/first-class: NVIDIA B200/B300/GB200/GB300, H100 etc."
+support_matrix,2026-11-05,SGLang,support_amd_rocm,3,level_0_3,confirmed,S582;S586,native/first-class: AMD MI300X-MI355X listed; SGLang 0.5.15 validated on ROCm 10
+support_matrix,2026-11-05,SGLang,support_intel_oneapi_gaudi,1,level_0_3,confirmed,S582,experimental/community/limited: Intel Arc GPUs and Xeon CPUs only; no Gaudi
+support_matrix,2026-11-05,SGLang,support_google_tpu_xla,2,level_0_3,confirmed,S582,supported: TPU v6e/v7 via SGLang-TorchTPU and SGL-JAX
+support_matrix,2026-11-05,SGLang,support_aws_neuron,0,level_0_3,confirmed,S582,none: not listed
+support_matrix,2026-11-05,SGLang,support_huawei_cann,2,level_0_3,confirmed,S582,"supported: Ascend A2, A3, 950PR/DT listed"
+support_matrix,2026-11-05,SGLang,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S582,none: not listed
+support_matrix,2026-11-05,TensorRT-LLM,support_nvidia_cuda,3,level_0_3,confirmed,S589,native/first-class: NVIDIA's own inference library
+support_matrix,2026-11-05,TensorRT-LLM,support_amd_rocm,0,level_0_3,confirmed,S589,none: NVIDIA GPUs only
+support_matrix,2026-11-05,TensorRT-LLM,support_intel_oneapi_gaudi,0,level_0_3,confirmed,S589,none: NVIDIA GPUs only
+support_matrix,2026-11-05,TensorRT-LLM,support_google_tpu_xla,0,level_0_3,confirmed,S589,none: NVIDIA GPUs only
+support_matrix,2026-11-05,TensorRT-LLM,support_aws_neuron,0,level_0_3,confirmed,S589,none: NVIDIA GPUs only
+support_matrix,2026-11-05,TensorRT-LLM,support_huawei_cann,0,level_0_3,confirmed,S589,none: NVIDIA GPUs only
+support_matrix,2026-11-05,TensorRT-LLM,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S589,none: NVIDIA GPUs only
+support_matrix,2026-11-05,OpenAI Triton,support_nvidia_cuda,3,level_0_3,confirmed,S578,native/first-class: NVIDIA GPUs compute capability 8.0+
+support_matrix,2026-11-05,OpenAI Triton,support_amd_rocm,3,level_0_3,confirmed,S578,native/first-class: AMD GPUs (ROCm 6.2+) in-tree
+support_matrix,2026-11-05,OpenAI Triton,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S597,supported: Intel-maintained out-of-tree XPU backend
+support_matrix,2026-11-05,OpenAI Triton,support_google_tpu_xla,0,level_0_3,confirmed,S578,none: no TPU backend (Google uses Pallas)
+support_matrix,2026-11-05,OpenAI Triton,support_aws_neuron,0,level_0_3,confirmed,S578,none: no Neuron backend (AWS uses NKI)
+support_matrix,2026-11-05,OpenAI Triton,support_huawei_cann,2,level_0_3,confirmed,S592;S522,"supported: triton-ascend backend, now under triton-lang org"
+support_matrix,2026-11-05,OpenAI Triton,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S578,none: no Cloud AI backend
+support_matrix,2026-11-05,ONNX Runtime,support_nvidia_cuda,3,level_0_3,confirmed,S585,native/first-class: CUDA and TensorRT execution providers
+support_matrix,2026-11-05,ONNX Runtime,support_amd_rocm,2,level_0_3,confirmed,S585;S586;S522,supported: MIGraphX EP (ROCm EP deprecated); ONNX Runtime 1.29 validated on ROCm 10
+support_matrix,2026-11-05,ONNX Runtime,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S585,supported: OpenVINO and oneDNN EPs (Intel CPU/GPU/NPU; not Gaudi)
+support_matrix,2026-11-05,ONNX Runtime,support_google_tpu_xla,0,level_0_3,confirmed,S585,none: no TPU EP
+support_matrix,2026-11-05,ONNX Runtime,support_aws_neuron,0,level_0_3,confirmed,S585,none: no Neuron EP
+support_matrix,2026-11-05,ONNX Runtime,support_huawei_cann,1,level_0_3,confirmed,S585;S522,"experimental/community/limited: CANN EP in preview, community-maintained"
+support_matrix,2026-11-05,ONNX Runtime,support_qualcomm_cloud_ai,1,level_0_3,confirmed,S585;S596,experimental/community/limited: ONNX is the Cloud AI SDK ingestion format but there is no Cloud AI EP; the QNN EP targets Snapdragon
+support_matrix,2026-11-05,llama.cpp,support_nvidia_cuda,3,level_0_3,confirmed,S579,native/first-class: custom CUDA kernels
+support_matrix,2026-11-05,llama.cpp,support_amd_rocm,2,level_0_3,confirmed,S579,supported: HIP backend sharing the CUDA code path
+support_matrix,2026-11-05,llama.cpp,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S579,supported: SYCL backend for Intel GPU; OpenVINO in progress
+support_matrix,2026-11-05,llama.cpp,support_google_tpu_xla,0,level_0_3,confirmed,S579,none: no TPU backend
+support_matrix,2026-11-05,llama.cpp,support_aws_neuron,0,level_0_3,confirmed,S579,none: no Neuron backend
+support_matrix,2026-11-05,llama.cpp,support_huawei_cann,2,level_0_3,confirmed,S579,supported: CANN backend for Ascend NPU
+support_matrix,2026-11-05,llama.cpp,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S579,none: no Cloud AI backend (Hexagon/OpenCL backends target Snapdragon phones and PCs)
+support_matrix,2026-11-05,DeepSpeed,support_nvidia_cuda,3,level_0_3,confirmed,S583,native/first-class: primary CI target
+support_matrix,2026-11-05,DeepSpeed,support_amd_rocm,2,level_0_3,confirmed,S583,supported: AMD CI (MI200) via HIP
+support_matrix,2026-11-05,DeepSpeed,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S583,supported: Gaudi (hpu) and Data Center GPU Max (xpu) upstream-validated
+support_matrix,2026-11-05,DeepSpeed,support_google_tpu_xla,0,level_0_3,confirmed,S583,none: no TPU accelerator
+support_matrix,2026-11-05,DeepSpeed,support_aws_neuron,0,level_0_3,confirmed,S583,none: no Neuron accelerator
+support_matrix,2026-11-05,DeepSpeed,support_huawei_cann,1,level_0_3,confirmed,S583,experimental/community/limited: Ascend npu contributor-validated only (not upstream-validated)
+support_matrix,2026-11-05,DeepSpeed,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S583,none: no Cloud AI accelerator
+support_matrix,2026-11-05,Megatron-LM,support_nvidia_cuda,3,level_0_3,confirmed,S590,native/first-class: NVIDIA's reference large-scale training library
+support_matrix,2026-11-05,Megatron-LM,support_amd_rocm,2,level_0_3,confirmed,S591,supported: AMD-maintained ROCm/Megatron-LM fork
+support_matrix,2026-11-05,Megatron-LM,support_intel_oneapi_gaudi,1,level_0_3,confirmed,S593,experimental/community/limited: HabanaAI Megatron-DeepSpeed scripts for Gaudi (older fork)
+support_matrix,2026-11-05,Megatron-LM,support_google_tpu_xla,0,level_0_3,reported,S590,none: no TPU path (Google uses MaxText/JAX)
+support_matrix,2026-11-05,Megatron-LM,support_aws_neuron,0,level_0_3,reported,S594,none: no Megatron path; AWS provides NeuronX Distributed instead
+support_matrix,2026-11-05,Megatron-LM,support_huawei_cann,2,level_0_3,confirmed,S592,supported: MindSpeed: Huawei's Megatron-style acceleration library for Ascend
+support_matrix,2026-11-05,Megatron-LM,support_qualcomm_cloud_ai,0,level_0_3,reported,S596,none: inference-only hardware
+support_matrix,2026-11-05,Ray,support_nvidia_cuda,3,level_0_3,confirmed,S584,native/first-class: NVIDIA GPU is Ray's default GPU resource
+support_matrix,2026-11-05,Ray,support_amd_rocm,2,level_0_3,confirmed,S584,supported: AMD GPU accelerator manager
+support_matrix,2026-11-05,Ray,support_intel_oneapi_gaudi,2,level_0_3,confirmed,S584,supported: Intel GPU and Intel Gaudi (HPU) managers
+support_matrix,2026-11-05,Ray,support_google_tpu_xla,2,level_0_3,confirmed,S584,supported: TPU accelerator manager
+support_matrix,2026-11-05,Ray,support_aws_neuron,2,level_0_3,confirmed,S584,supported: AWS Neuron core manager
+support_matrix,2026-11-05,Ray,support_huawei_cann,2,level_0_3,confirmed,S584,supported: Huawei Ascend NPU manager
+support_matrix,2026-11-05,Ray,support_qualcomm_cloud_ai,0,level_0_3,confirmed,S584,none: no Qualcomm accelerator manager

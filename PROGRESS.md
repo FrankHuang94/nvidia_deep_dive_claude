@@ -46,10 +46,10 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | SYN | README + Executive Summary + Cheat Sheet | 8 | planned | 361 | 4 | 1 (1) | 1 | 1 | 1 | 25% | 2 | pending |
 | 01 | The NVIDIA flywheel | 2 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P1 | How AI training works | 2 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P2 | How AI inference works | 2 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| P1 | How AI training works | 2 | planned | 3,448 | 18 | 7 (7) | 0 | 6 | 5 | 39% | 26 | pending |
+| P2 | How AI inference works | 2 | planned | 3,595 | 15 | 7 (7) | 0 | 3 | 5 | 47% | 32 | pending |
 | P3 | The four bottlenecks | 2 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P4 | Parallelism explained | 2 | planned | 32 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| P4 | Parallelism explained | 2 | planned | 3,952 | 18 | 4 (4) | 0 | 8 | 6 | 22% | 24 | pending |
 | P5 | Chip economics 101 | 2 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 02 | GPU silicon | 3 | planned | 181 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 03 | Memory, packaging and supply chain | 3 | planned | 211 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **3,389** | **4** | | | | | | **2** unique | |
+| **Total** | | | | **14,284** | **55** | | | | | | **70** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **1**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **78**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)

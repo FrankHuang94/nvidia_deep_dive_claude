@@ -1,0 +1,43 @@
+workload,bottleneck,severity_1_3,label,rationale,confidence,source_id,notes
+Pre-training (dense),Compute,3,Binding,Large GEMMs run far right of the ridge point; MFU of ~40% is the ceiling in practice,speculative,S34006;S33001,Repo analysis
+Pre-training (dense),Memory bandwidth,1,Minor,High arithmetic intensity hides HBM bandwidth,speculative,S33001,Repo analysis
+Pre-training (dense),Memory capacity,2,Significant,Weights + gradients + optimizer states (~16 bytes/param) force sharding,speculative,S34004,Repo analysis
+Pre-training (dense),Scale-up interconnect,2,Significant,Tensor parallelism all-reduces every layer inside the NVLink domain,speculative,S34001;S34002,Repo analysis
+Pre-training (dense),Scale-out network,2,Significant,Gradient all-reduce and pipeline traffic cross the cluster fabric,speculative,S34006,Repo analysis
+Pre-training (dense),Power,3,Binding,100K-GPU sites need hundreds of MW; grid hookups take years,speculative,S33015;S34006,Repo analysis
+Pre-training (MoE),Compute,2,Significant,Only ~6% of parameters active per token so FLOPs per token fall,speculative,S34007,Repo analysis
+Pre-training (MoE),Memory bandwidth,2,Significant,Small per-expert GEMMs lower arithmetic intensity,speculative,S34007,Repo analysis
+Pre-training (MoE),Memory capacity,2,Significant,All experts must be resident somewhere,speculative,S34007,Repo analysis
+Pre-training (MoE),Scale-up interconnect,3,Binding,All-to-all dispatch and combine every MoE layer,speculative,S34007;S34017,Repo analysis
+Pre-training (MoE),Scale-out network,3,Binding,Expert parallelism spans nodes; DeepSeek limited tokens to 4 nodes to cap IB traffic,speculative,S34007,Repo analysis
+Pre-training (MoE),Power,3,Binding,Same site-level constraint as dense training,speculative,S33015,Repo analysis
+Prefill (long prompts),Compute,3,Binding,Thousands of prompt tokens per GEMM put prefill right of the ridge,speculative,S33025;S33023,Repo analysis
+Prefill (long prompts),Memory bandwidth,1,Minor,Weights are reused across all prompt tokens,speculative,S33025,Repo analysis
+Prefill (long prompts),Memory capacity,1,Minor,KV cache is being written not yet read repeatedly,speculative,S33025,Repo analysis
+Prefill (long prompts),Scale-up interconnect,1,Minor,Can run on smaller groups of GPUs,speculative,S33023,Repo analysis
+Prefill (long prompts),Scale-out network,1,Minor,KV cache must be shipped to decode servers when disaggregated,speculative,S33023,Repo analysis
+Prefill (long prompts),Power,2,Significant,Compute-bound phases draw near-peak power,speculative,S33015,Repo analysis
+Decode (small batch),Compute,1,Minor,Uses under 1% of peak FLOPS at batch 1,speculative,S33012;S33013,Repo analysis
+Decode (small batch),Memory bandwidth,3,Binding,Every token re-reads all weights from HBM,speculative,S33012;S33013,Repo analysis
+Decode (small batch),Memory capacity,2,Significant,Model must fit across the GPUs serving it,speculative,S33012,Repo analysis
+Decode (small batch),Scale-up interconnect,2,Significant,Tensor parallelism for latency adds an all-reduce per layer,speculative,S33012,Repo analysis
+Decode (small batch),Scale-out network,1,Minor,Requests rarely cross the cluster fabric,speculative,S33012,Repo analysis
+Decode (small batch),Power,1,Minor,Memory-bound GPUs draw less than peak,speculative,S33015,Repo analysis
+Decode (large batch),Compute,2,Significant,Batch ~250+ approaches the ridge point,speculative,S33013,Repo analysis
+Decode (large batch),Memory bandwidth,2,Significant,Weights amortised but KV-cache reads grow with batch,speculative,S33013,Repo analysis
+Decode (large batch),Memory capacity,3,Binding,KV cache for hundreds of sequences outgrows HBM,speculative,S33013,Repo analysis
+Decode (large batch),Scale-up interconnect,2,Significant,Sharding KV and weights across GPUs,speculative,S33012,Repo analysis
+Decode (large batch),Scale-out network,1,Minor,Mostly contained in one server or rack,speculative,S33012,Repo analysis
+Decode (large batch),Power,2,Significant,Throughput mode keeps GPUs busy,speculative,S33015,Repo analysis
+Long-context reasoning,Compute,1,Minor,Attention over long KV caches is memory bound,speculative,S33012,Repo analysis
+Long-context reasoning,Memory bandwidth,3,Binding,Every generated token reads the whole KV cache,speculative,S33012;S33013,Repo analysis
+Long-context reasoning,Memory capacity,3,Binding,100K+ token contexts need hundreds of GB of KV cache,speculative,S33013,Repo analysis
+Long-context reasoning,Scale-up interconnect,3,Binding,Large NVLink domains pool HBM and spread KV cache,speculative,S33004,Repo analysis
+Long-context reasoning,Scale-out network,1,Minor,KV offload to storage over the network is emerging,speculative,S33023,Repo analysis
+Long-context reasoning,Power,2,Significant,Long thinking multiplies tokens per answer,speculative,S33015,Repo analysis
+MoE serving (wide EP),Compute,1,Minor,Few active parameters per token,speculative,S34007,Repo analysis
+MoE serving (wide EP),Memory bandwidth,3,Binding,Each expert sees few tokens so its GEMM is memory bound,speculative,S34007,Repo analysis
+MoE serving (wide EP),Memory capacity,2,Significant,671B parameters must be resident across the deployment,speculative,S34007,Repo analysis
+MoE serving (wide EP),Scale-up interconnect,3,Binding,All-to-all every layer favours one large NVLink domain,speculative,S34007,Repo analysis
+MoE serving (wide EP),Scale-out network,2,Significant,DeepSeek decode spans 320 GPUs across 40 nodes,speculative,S34007,Repo analysis
+MoE serving (wide EP),Power,2,Significant,Large deployments per model replica,speculative,S33015,Repo analysis

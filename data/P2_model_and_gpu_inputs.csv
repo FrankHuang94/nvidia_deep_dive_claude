@@ -1,0 +1,59 @@
+record_type,item,metric,value,unit,confidence,source_id,notes
+model_config,Llama 3.1 8B,params_b,8,billion,confirmed,S32007,"Dense transformer, grouped-query attention"
+model_config,Llama 3.1 8B,layers,32,count,confirmed,S32007,
+model_config,Llama 3.1 8B,attention_heads,32,count,confirmed,S32007,
+model_config,Llama 3.1 8B,kv_heads,8,count,confirmed,S32007,
+model_config,Llama 3.1 8B,head_dim,128,count,confirmed,S32007,
+model_config,Llama 3.1 70B,params_b,70,billion,confirmed,S32006,"Dense transformer, grouped-query attention, 128k context"
+model_config,Llama 3.1 70B,layers,80,count,confirmed,S32006,
+model_config,Llama 3.1 70B,attention_heads,64,count,confirmed,S32006,
+model_config,Llama 3.1 70B,kv_heads,8,count,confirmed,S32006,
+model_config,Llama 3.1 70B,head_dim,128,count,confirmed,S32006,"hidden size 8192 / 64 heads"
+model_config,Llama 3.1 405B,params_b,405,billion,confirmed,S32008,
+model_config,Llama 3.1 405B,layers,126,count,confirmed,S32008,
+model_config,Llama 3.1 405B,attention_heads,128,count,confirmed,S32008,
+model_config,Llama 3.1 405B,kv_heads,8,count,confirmed,S32008,
+model_config,Llama 3.1 405B,head_dim,128,count,confirmed,S32008,
+model_config,Llama 3.1 70B without GQA (counterfactual),params_b,70,billion,estimate,S32006;S32010,"Same model if every one of the 64 query heads kept its own key/value head (multi-head attention)"
+model_config,Llama 3.1 70B without GQA (counterfactual),layers,80,count,estimate,S32006,
+model_config,Llama 3.1 70B without GQA (counterfactual),kv_heads,64,count,estimate,S32006;S32010,
+model_config,Llama 3.1 70B without GQA (counterfactual),head_dim,128,count,estimate,S32006,
+model_config,DeepSeek-V3 (MLA),params_b,671,billion,confirmed,S34007,"Mixture-of-experts; 37B parameters active per token"
+model_config,DeepSeek-V3 (MLA),active_params_b,37,billion,confirmed,S34007,
+model_config,DeepSeek-V3 (MLA),layers,61,count,confirmed,S32009,
+model_config,DeepSeek-V3 (MLA),kv_cache_elements_per_layer,576,count,confirmed,S32009;S32026,"Multi-head latent attention caches one 512-dim compressed latent + 64-dim RoPE key per layer per token"
+gpu_spec,H100 SXM,memory_gb,80,GB,confirmed,S33002,HBM3
+gpu_spec,H100 SXM,memory_bw_tbs,3.35,TB/s,confirmed,S33002,
+gpu_spec,H100 SXM,bf16_tflops_dense,989,TFLOPS,confirmed,S33002,"datasheet lists 1979 with sparsity"
+gpu_spec,H100 SXM,fp8_tflops_dense,1979,TFLOPS,confirmed,S33002,"datasheet lists 3958 with sparsity"
+gpu_spec,H200 SXM,memory_gb,141,GB,confirmed,S32002,HBM3E
+gpu_spec,H200 SXM,memory_bw_tbs,4.8,TB/s,confirmed,S32002,
+gpu_spec,H200 SXM,bf16_tflops_dense,989,TFLOPS,confirmed,S32002,"same Hopper compute as H100"
+gpu_spec,H200 SXM,fp8_tflops_dense,1979,TFLOPS,confirmed,S32002,
+gpu_spec,B200,memory_gb,180,GB,confirmed,S33003,"HGX B200 HBM3E, 1000 W"
+gpu_spec,B200,memory_bw_tbs,8,TB/s,confirmed,S33003,
+gpu_spec,B200,bf16_tflops_dense,2250,TFLOPS,confirmed,S33003,"half the dense FP8 rate"
+gpu_spec,B200,fp8_tflops_dense,4500,TFLOPS,confirmed,S33003,
+gpu_spec,B200,fp4_tflops_dense,9000,TFLOPS,confirmed,S33003,
+gpu_spec,B300,memory_gb,288,GB,confirmed,S32004,"Blackwell Ultra, HBM3E 12-high"
+gpu_spec,B300,memory_bw_tbs,8,TB/s,confirmed,S32004,
+gpu_spec,Rubin,memory_gb,288,GB,confirmed,S33005;S33006,"HBM4, 8 stacks; partner availability 2H 2026"
+gpu_spec,Rubin,memory_bw_tbs,19.2,TB/s,reported,S33005;S33007,"Current NVL72 product-page figure (Nov 2026); 22 TB/s was quoted at CES 2026 launch (S33006)"
+gpu_spec,Rubin,bf16_tflops_dense,4000,TFLOPS,confirmed,S33005,"dense FP16/BF16"
+gpu_spec,Rubin,fp8_tflops_dense,17500,TFLOPS,confirmed,S33005,"dense FP8/FP6"
+scenario,Chat reply,input_tokens,600,tokens,estimate,S32025,"Repo scenario: a short question and context"
+scenario,Chat reply,reasoning_tokens,0,tokens,estimate,S32025,
+scenario,Chat reply,output_tokens,400,tokens,estimate,S32025,
+scenario,Reasoning answer,input_tokens,600,tokens,estimate,S32025,
+scenario,Reasoning answer,reasoning_tokens,8000,tokens,estimate,S32025;S32024,"Hidden chain of thought; OpenAI advises reserving >=25k tokens for reasoning plus output"
+scenario,Reasoning answer,output_tokens,400,tokens,estimate,S32025,
+scenario,Agentic coding task,input_tokens,1050000,tokens,estimate,S32025,"30 tool-calling turns; context grows 10k->60k tokens and is re-read each turn (avg 35k x 30)"
+scenario,Agentic coding task,reasoning_tokens,30000,tokens,estimate,S32025,"~1,000 thinking tokens per turn"
+scenario,Agentic coding task,output_tokens,15000,tokens,estimate,S32025,"~500 tokens of code/tool calls per turn"
+model_assumption,Serving model,gpus_per_node,8,count,estimate,S32025,"One 8-GPU node, model split with tensor parallelism"
+model_assumption,Serving model,avg_context_tokens,4096,tokens,estimate,S32025,"Average tokens already in each sequence's KV cache during decode"
+model_assumption,Serving model,kv_bytes_per_element,1,bytes,estimate,S32025;S32027,"FP8 KV cache"
+model_assumption,Serving model,bandwidth_efficiency,0.75,ratio,estimate,S32025;S33013,"Achieved / peak HBM bandwidth"
+model_assumption,Serving model,compute_efficiency,0.5,ratio,estimate,S32025;S33013,"Achieved / peak dense tensor FLOPS"
+model_assumption,Serving model,step_overhead_ms,3,ms,estimate,S32025,"Per decode step: tensor-parallel all-reduces, kernel launches, sampling"
+model_assumption,Serving model,memory_headroom,0.9,ratio,estimate,S32025,"Fraction of HBM usable for weights + KV cache"

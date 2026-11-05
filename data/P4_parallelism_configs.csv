@@ -1,0 +1,9 @@
+run,organization,year,model_params_b,accelerator,gpus,tp,cp,pp,dp,ep,sharding,seq_len,mfu_pct,confidence,source_id,notes
+Megatron-LM 1T benchmark,NVIDIA,2021,1008,A100,3072,8,1,64,6,1,none,2048,52,confirmed,S34002,Scaling study rather than a released model; 163 TFLOPS per GPU (52% of peak)
+Megatron-Turing NLG 530B,Microsoft + NVIDIA,2022,530,A100,4480,8,1,35,16,1,none,2048,,confirmed,S34018,560 DGX A100 nodes
+BLOOM 176B,BigScience,2022,176,A100 80GB,384,4,1,12,8,1,ZeRO-1,2048,,confirmed,S34019,48 nodes x 8 GPUs
+PaLM 540B,Google,2022,540,TPU v4,6144,12,1,1,512,1,FSDP-style,2048,46.2,confirmed,S34021,12-way model parallel x 256-way data parallel per pod x 2 pods; no pipeline (TPU ICI torus)
+Nemotron-4 340B,NVIDIA,2024,340,H100,6144,8,1,12,64,1,distributed optimizer,4096,,confirmed,S34020,DP ramped from 16 to 64 during training; final stage shown
+Llama 3 405B (8K context),Meta,2024,405,H100,16384,8,1,16,128,1,FSDP,8192,41,confirmed,S34006,Table 4 of the Llama 3 paper; 400 TFLOPS per GPU
+Llama 3 405B (128K context),Meta,2024,405,H100,16384,8,16,16,8,1,FSDP,131072,38,confirmed,S34006,Long-context stage adds 16-way context parallelism; 380 TFLOPS per GPU
+DeepSeek-V3 671B (MoE),DeepSeek,2024,671,H800,2048,1,1,16,128,64,ZeRO-1,4096,,confirmed,S34007,No tensor parallelism; 64-way expert parallelism spans 8 nodes and overlaps the data-parallel GPUs

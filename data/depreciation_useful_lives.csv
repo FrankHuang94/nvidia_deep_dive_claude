@@ -1,0 +1,14 @@
+company,effective_date,asset_class,useful_life_years,prior_life_years,confidence,source_id,notes
+Microsoft,2020-07-01,servers and network equipment,4,3,confirmed,S382,FY2021 change. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Microsoft,2022-07-01,servers and network equipment,6,4,confirmed,S382,FY2023 change; ~$3.7B FY2023 operating-income benefit disclosed. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Alphabet,2021-01-01,servers,4,3,confirmed,S383,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Alphabet,2021-01-01,network equipment,5,3,confirmed,S383,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Alphabet,2023-01-01,servers,6,4,confirmed,S383,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Alphabet,2023-01-01,network equipment,6,5,confirmed,S383,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Amazon,2020-01-01,servers,4,3,confirmed,S385,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Amazon,2022-01-01,servers,5,4,confirmed,S385,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Amazon,2024-01-01,servers,6,5,confirmed,S385,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Amazon,2025-01-01,subset of servers and networking equipment,5,6,confirmed,S385,"Shortened, citing the faster pace of AI/ML technology; the first hyperscaler reversal. QA: recheck (from prior knowledge; not re-verified 2026-11-05)."
+Meta,2022-01-01,servers and network assets,4.5,4,reported,S384,Effective date within 2022 to be pinned in QA. QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+Meta,2025-01-01,servers and network assets,5.5,4.5,confirmed,S384,QA: recheck (from prior knowledge; not re-verified 2026-11-05).
+CoreWeave,2023-01-01,technology equipment (GPU servers),6,5,reported,S386,QA: recheck (from prior knowledge; not re-verified 2026-11-05).

@@ -1,1 +1,78 @@
 announce_date,close_date,counterparty,deal_type,amount_usd_m,amount_basis,layer_strengthened,rationale,status,confidence,source_id,notes
+2000-12-15,2001-04,3dfx Interactive (graphics assets),acquisition,70,disclosed,02,"Bought a fallen rival's GPU patents, brands and engineers; consolidated PC graphics",closed,confirmed,S400;S484,[recall] US$70M cash plus 1M NVIDIA shares
+2003-07,2003-08,MediaQ,acquisition,70,reported,02,"Handheld graphics/SoC team, precursor to GoForce and Tegra",closed,reported,S484,[recall]
+2005-12-14,2006-02,ULi Electronics,acquisition,52,reported,02,PC core-logic (chipset) team for nForce; Taiwan ODM relationships,closed,reported,S484,[recall]
+2006-03,2006-03,Hybrid Graphics,acquisition,,,02,Mobile 2D/3D graphics software for handsets,closed,reported,S484,[recall] terms undisclosed
+2006-11-06,2007-01,PortalPlayer,acquisition,357,disclosed,02,iPod media-processor team that seeded the Tegra mobile SoC line (and later Arm CPU know-how),closed,confirmed,S400;S484,[recall]
+2007-11,2007-12,mental images,acquisition,88,reported,10,"Ray-tracing renderers (mental ray, iray): rendering software lineage for ProViz and Omniverse",closed,reported,S484,[recall]
+2008-02-04,2008-02,Ageia Technologies,acquisition,,,10,PhysX physics engine ported to CUDA: an early GPU-compute library and developer hook,closed,confirmed,S484,[recall] terms undisclosed
+2011-05-09,2011-06,Icera,acquisition,367,disclosed,02,Soft-modem LTE basebands to pair with Tegra phones; business wound down 2015 after failing to dent Qualcomm,closed (wound down 2015),confirmed,S400;S484,[recall] a cautionary data point for vertical moves into Qualcomm's core market
+2013-07-29,2013-07,The Portland Group (PGI),acquisition,,,09,"HPC compilers (OpenACC, CUDA Fortran) now inside the NVIDIA HPC SDK",closed,confirmed,S484,[recall] terms undisclosed
+2019-03-11,2020-04-27,Mellanox Technologies,acquisition,6900,disclosed,06,"InfiniBand/Ethernet switches, NICs and DPUs: became NVIDIA's networking business (>$31B revenue in FY2026)",closed,confirmed,S464;S2,$125/share all-cash; total purchase consideration ~$7.1B incl. assumed equity awards
+2020-03-05,2020-03,SwiftStack,acquisition,,,07,Object-storage software and team for AI data pipelines,closed,reported,S478,[recall] terms undisclosed
+2020-05-04,2020-06,Cumulus Networks,acquisition,,,06,Open network OS (Cumulus Linux) for Spectrum Ethernet switches,closed,confirmed,S478,[recall] terms undisclosed (press estimates ~US$100M)
+2020-09-13,2022-02-08,Arm Ltd (from SoftBank),failed-acquisition,40000,disclosed,04,Own the CPU ISA licensed to every rival; blocked by FTC/EC/CMA/China concerns,terminated,confirmed,S465;S466;S418,$12B cash + $21.5B stock + earn-outs; NVIDIA expensed the $1.36B prepayment in Q1 FY2023 and kept a 20-year Arm licence
+2021-06,2021-08,DeepMap,acquisition,,,11,HD mapping for the DRIVE autonomous-vehicle software stack,closed,confirmed,S478,[recall] terms undisclosed; automotive (not a DC layer) mapped to AI software
+2022-01-10,2022-01,Bright Computing,acquisition,,,12,"HPC cluster-management software, now Base Command Manager",closed,confirmed,S478,[recall] terms undisclosed
+2022-03,2022-03,Excelero,acquisition,,,07,NVMesh software-defined block storage for GPU clusters,closed,reported,S478,[recall] terms undisclosed
+2023-02,2023-02,OmniML,acquisition,,,11,Model compression/quantization for inference (feeds TensorRT Model Optimizer),closed,reported,S478,[recall] terms undisclosed
+2024-04-24,2024-12-30,Run:ai,acquisition,700,reported,12,Kubernetes GPU orchestration and scheduling; open-sourced after EU review,closed,confirmed,S476;S479,NVIDIA did not disclose terms; ~US$700M reported
+2024-04,2024-05,Deci,acquisition,300,reported,11,Neural-architecture search and inference-efficient models,closed,reported,S478;S479,[recall]
+2024-06,2024-06,Shoreline.io,acquisition,100,reported,12,Fleet incident automation for AI data centres (Mission Control-type ops),closed,reported,S478;S479,[recall]
+2024-07,2024-07,Brev.dev,acquisition,,,12,One-click developer access to GPU cloud instances (NGC/DGX Cloud on-ramp),closed,reported,S478,[recall] terms undisclosed
+2024-09,2024-10,OctoAI,acquisition,250,reported,11,Inference serving and model-optimization stack (Apache TVM founders),closed,reported,S478;S479,[recall]
+2024-12,2024-12,VinBrain,acquisition,,,13,Vietnam healthcare-AI team; sovereign/regional AI go-to-market,closed,reported,S478,[recall] terms undisclosed
+2025-03,2025-03,Gretel,acquisition,,,11,Synthetic-data generation for training (NeMo/Nemotron data pipelines),closed,reported,S478;S479,"[recall] reported 'nine figures', above Gretel's ~$320M last valuation"
+2025-03,2025-04,Lepton AI,acquisition,,,12,"GPU-cloud aggregation software, became DGX Cloud Lepton marketplace",closed,reported,S478;S479,[recall] reported 'several hundred million dollars'
+2025-06,2025-06,CentML,acquisition,400,reported,11,ML compiler and inference optimization for GPUs,closed,reported,S478;S479,[recall] up to ~US$400M including earn-outs reported
+2025,2025,Solver,acquisition,,,11,AI software-engineering agent team,closed,speculative,S478,Named in orchestrator brief; could not be verified this session (search budget exhausted)
+2025-09-18,2025-09,Enfabrica,acquihire-license,900,reported,06,Hired CEO Rochan Sankar and team and licensed ACF SuperNIC/memory-fabric tech for scale-out,closed,reported,S475,"Cash and stock, >US$900M per CNBC"
+2025-12-24,2025-12,Groq,acquihire-license,20000,reported,11,Non-exclusive licence to LPU low-latency inference tech; founder and leadership join NVIDIA; Groq keeps GroqCloud,closed,reported,S474,Terms not disclosed by the parties; ~US$20B reported by CNBC; largest NVIDIA deal by value; structured to avoid merger review
+2025-12,2025-12,SchedMD (Slurm),acquisition,,,12,"Developer of Slurm, the dominant HPC/AI cluster scheduler; NVIDIA pledged to keep it open source and vendor-neutral",closed,reported,S478,[recall] terms undisclosed
+2023-03,2023-03,Adept AI,equity-investment,,,13,Agentic-AI lab customer; part of NVIDIA's frontier-lab portfolio,closed,reported,S481,[recall] $350M Series B; NVIDIA share undisclosed
+2023-04,2023-04,CoreWeave (pre-IPO),equity-investment,100,reported,12,Seeded a GPU-only neocloud that buys NVIDIA at scale and gets early allocation,closed,reported,S481;S473,[recall] stake ~6–7% pre-IPO
+2023-06,2023-06,Cohere,equity-investment,,,13,Enterprise LLM lab; ecosystem breadth beyond US hyperscalers,closed,reported,S481,[recall] $270M Series C
+2023-06,2023-06,Runway,equity-investment,,,13,Generative-video model builder,closed,reported,S481,[recall] $141M extension with Google and Salesforce
+2023-06-29,2023-06,Inflection AI,equity-investment,,,13,Frontier lab building a 22k-H100 cluster with CoreWeave,closed,reported,S481,[recall] $1.3B round led by Microsoft and NVIDIA
+2023-07-12,2023-07,Recursion Pharmaceuticals,equity-investment,50,disclosed,10,Showcase for BioNeMo drug-discovery libraries on DGX Cloud,closed,confirmed,S482;S477,[recall]
+2023-08-24,2023-08,Hugging Face,equity-investment,,,11,Model hub where open models ship CUDA-first,closed,reported,S481,[recall] $235M Series D
+2023-09,2023-09,Enfabrica (Series B),equity-investment,,,06,AI networking silicon; later acquihired (2025),closed,reported,S482,[recall] $125M Series B
+2023-09-14,2023-09,Arm (IPO cornerstone),equity-investment,,,04,Strategic stake in the CPU ISA owner after the failed takeover,closed,reported,S477;S481,[recall] small stake disclosed in 13F filings
+2023-09-14,2023-09,Databricks,equity-investment,,,12,Data/AI platform pulling enterprise workloads onto GPUs,closed,reported,S481,[recall] Series I
+2023-12,2023-12,VAST Data,equity-investment,,,07,AI storage platform certified for DGX SuperPOD,closed,reported,S482,[recall] $118M Series E
+2024-01,2024-01,Perplexity,equity-investment,,,13,AI search start-up; NVIDIA in several rounds,closed,reported,S481,[recall]
+2024-02-29,2024-02,Figure AI,equity-investment,50,reported,13,Humanoid robotics on Jetson Thor / Isaac,closed,reported,S482,[recall] $675M Series B
+2024-05-07,2024-05,Wayve,equity-investment,,,13,End-to-end autonomous-driving models trained on NVIDIA,closed,reported,S482,[recall] $1.05B Series C led by SoftBank
+2024-05-21,2024-05,Scale AI,equity-investment,,,11,Training-data supplier to frontier labs,closed,reported,S482,[recall] $1B Series F
+2024-06-11,2024-06,Mistral AI (Series B),equity-investment,,,13,European open-weight lab; sovereign-AI anchor,closed,reported,S481,[recall] EUR600M round
+2024-09,2024-09,Applied Digital,equity-investment,,,08,AI data-centre developer/host for neoclouds,closed,reported,S482;S477,[recall] part of ~$160M private placement
+2024-09,2024-09,Sakana AI,equity-investment,,,13,Japanese model lab; sovereign-AI ecosystem,closed,reported,S482,[recall] Series A
+2024-10-02,2024-10,OpenAI (2024 round),equity-investment,100,reported,13,First direct stake in the largest GPU buyer,closed,reported,S481,[recall] ~$100M in $6.6B round
+2024-10,2024-10,"AI Infrastructure Partnership (BlackRock, GIP, MGX, Microsoft)",strategic-partnership-investment,,,08,Joined the AI data-centre/power investment vehicle as technical partner; consortium later agreed to buy Aligned Data Centers,active,reported,S481,[recall] NVIDIA capital share undisclosed
+2024-12,2024-12,xAI (Series C),equity-investment,,,13,"Stake in Colossus builder, one of the largest GPU buyers",closed,reported,S481,[recall] $6B round with AMD also participating
+2024-12,2024-12,Nebius,equity-investment,,,12,European neocloud spun out of Yandex,closed,reported,S481;S477,[recall] $700M private placement with Accel and Orbis
+2024-12,2024-12,Crusoe (Series D),equity-investment,,,12,Energy-first AI data-centre developer (Abilene/Stargate site),closed,reported,S481,[recall] $600M Series D
+2024-12,2024-12,Ayar Labs,equity-investment,,,06,Optical I/O chiplets for scale-up/scale-out,closed,reported,S482,[recall] $155M Series D; AMD and Intel also invested
+2025-02,2025-02,Lambda (Series D),equity-investment,,,12,GPU cloud with NVIDIA-first stack,closed,reported,S481,[recall] $480M Series D
+2025-02,2025-02,Together AI,equity-investment,,,12,Open-model inference/training cloud,closed,reported,S481,[recall] $305M Series B
+2025-03-28,2025-03,CoreWeave (IPO anchor),equity-investment,250,reported,12,Anchored a shaky IPO of its largest neocloud customer,closed,reported,S473,[recall]
+2025-06,2025-06,TerraPower,equity-investment,,,08,Advanced nuclear: long-run power for AI factories,closed,reported,S482,[recall] via NVentures in $650M round
+2025-07,2025-07,Thinking Machines Lab,equity-investment,,,13,New frontier lab (ex-OpenAI CTO),closed,reported,S481,[recall] $2B seed
+2025-08,2025-08,Commonwealth Fusion Systems,equity-investment,,,08,Fusion power: hedge on the power bottleneck,closed,reported,S482,[recall] $863M Series B2
+2025-09,2025-09,Mistral AI (Series C),equity-investment,,,13,European sovereign-AI lab; Mistral Compute on NVIDIA,closed,reported,S481,[recall] EUR1.7B round led by ASML
+2025-09-15,2025-09,CoreWeave capacity backstop,strategic-partnership-investment,6300,disclosed,12,NVIDIA must buy any CoreWeave capacity left unsold through April 2032,active,confirmed,S473,"Disclosed in CoreWeave 8-K; a contingent purchase commitment, not equity"
+2025-09-17,2025-09,Wayve (LOI),equity-investment,500,up-to,13,Letter of intent to invest in next round,announced,reported,S483,[recall]
+2025-09-18,2025-12,Intel,equity-investment,5000,disclosed,04,x86 CPUs with NVLink for NVIDIA platforms and x86 SoCs with RTX chiplets; secures a US foundry/packaging partner,closed,confirmed,S468;S401,$23.28/share (~4%); closed after US antitrust clearance; mark-to-market gains in FY2027 other income
+2025-09-22,,OpenAI (10 GW letter of intent),strategic-partnership-investment,100000,up-to,13,"Up to $100B invested progressively per GW as OpenAI deploys >=10 GW of NVIDIA systems (first GW on Vera Rubin, H2 2026)",superseded,confirmed,S467;S412,LOI only; 10-Q warned of no assurance of definitive terms; reportedly replaced by a ~$30B equity investment in OpenAI's 2026 round (see next row)
+2025-09,2025-09,Nscale,equity-investment,,,12,"UK/European neocloud (Stargate UK, Microsoft contracts)",closed,reported,S481,[recall] $1.1B Series B
+2025-09,2025-09,Lambda GPU lease-back,strategic-partnership-investment,1500,reported,12,NVIDIA rents back ~18k of its own GPUs from Lambda for internal use (DGX Cloud),active,reported,S483,[recall] ~$1.3B for 10k GPUs over 4 years plus ~$0.2B
+2025-10,2025-10,xAI (2025 raise),equity-investment,2000,up-to,13,Equity in a GPU-purchasing vehicle funding Colossus 2,closed,reported,S483,[recall] up to $2B of a ~$20B equity+debt raise
+2025-10,2025-10,Poolside,equity-investment,1000,up-to,13,Coding-model lab building the 2 GW Project Horizon campus,announced,reported,S483,[recall] up to $1B in a ~$2B round
+2025-10,2025-10,Reflection AI,equity-investment,,,13,US open-weight frontier lab,closed,reported,S481,[recall] NVIDIA led ~$2B round; NVIDIA amount undisclosed
+2025-10,2025-10,Crusoe (Series E),equity-investment,,,12,AI factory developer scaling to GW sites,closed,reported,S481,[recall] ~$1.38B Series E
+2025-10-28,2025-10,Nokia,equity-investment,1000,disclosed,13,AI-RAN: put NVIDIA (ARC-Pro) inside telecom base stations ahead of 6G,closed,confirmed,S470;S477,"$6.01/share, ~2.9% stake"
+2025-11,2025-11,Anysphere (Cursor),equity-investment,,,13,AI coding tool; demand for inference,closed,reported,S481,[recall] $2.3B Series D with Google
+2025-11-18,,Anthropic,equity-investment,10000,up-to,13,Wins a TPU/Trainium-heavy lab: up to 1 GW of Grace Blackwell/Vera Rubin plus co-design,announced,confirmed,S469;S401,Microsoft up to $5B alongside; Anthropic committed $30B of Azure compute
+2025-12-01,2025-12,Synopsys,equity-investment,2000,disclosed,10,GPU-accelerated EDA/simulation (CUDA-X) and Omniverse digital twins,closed,confirmed,S471;S477,$414.79/share
+2026-01-26,2026-01,CoreWeave (2026),equity-investment,2000,disclosed,12,Equity to accelerate CoreWeave's >5 GW AI-factory build-out by 2030,closed,confirmed,S472;S477,$87.20/share Class A
+2026-02,2026-02,OpenAI (2026 round),equity-investment,30000,reported,13,"Direct equity in the largest NVIDIA customer, in place of the progressive LOI",closed,reported,S480;S404,[recall] ~$30B in a ~$110B round alongside Amazon and SoftBank; verify against Q1 FY27 10-Q

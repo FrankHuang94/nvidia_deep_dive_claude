@@ -1,0 +1,6 @@
+vendor,product,architecture,year,status,bf16_tflops_dense,fp8_tflops_dense,fp4_tflops_dense,memory_bandwidth_tbs,memory_capacity_gb,scale_up_bw_gbs_bidir,tdp_w,confidence,source_id,notes
+NVIDIA,V100 SXM2,Volta,2017,eol,125,,,0.9,32,300,300,confirmed,S33010,Volta has no BF16: the 125 TFLOPS figure is dense FP16 tensor-core math and is used as the 16-bit value
+NVIDIA,A100 SXM 80GB,Ampere,2020,shipping,312,,,2.039,80,600,400,confirmed,S33009,Dense BF16 (624 with 2:4 sparsity); no FP8 support
+NVIDIA,H100 SXM,Hopper,2022,shipping,989,1979,,3.35,80,900,700,confirmed,S33002,Dense figures; NVIDIA headline numbers (1979 BF16 / 3958 FP8) assume 2:4 sparsity
+NVIDIA,B200 (HGX),Blackwell,2024,shipping,2250,4500,9000,8.0,180,1800,1000,confirmed,S33003;S34014,HGX B200 air/liquid part; the GB200 superchip variant runs at higher power with 186 GB
+NVIDIA,Rubin,Rubin,2026,announced,4000,17500,35000,19.2,288,3000,,confirmed,S33004;S33005;S33006;S33007,FP4 = dense NVFP4 training (50 PFLOPS NVFP4 inference figure uses adaptive compression); HBM4 bandwidth launched as 22 TB/s and now listed as 19.2 TB/s; NVLink 6 launched as 3.6 TB/s and now listed as 3.0 TB/s on the NVL72 page; volume shipments 2H 2026
