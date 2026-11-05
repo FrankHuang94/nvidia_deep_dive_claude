@@ -104,3 +104,17 @@ BlueField、ConnectX、CUDA、TPU、Trainium、Maia、MTIA、Ascend/昇腾、Ins
 | 19 | 对高通的启示 |
 | CS1–CS7 | Mellanox：最佳交易 · CUDA：十五年的赌注 · 谷歌 TPU：可信的替代方案 · AMD、OpenAI 与第二供应商 · DeepSeek 时刻与效率冲击 · 中国出口管制：H20 及之后 · 吉瓦级 AI 工厂：xAI、Stargate 等 |
 | — | 速查表（Cheat sheet）· 术语表（Glossary） |
+
+## 5. 补充译名（翻译过程中统一采用）
+
+| English | 中文 |
+|---|---|
+| capacity backstop | 算力兜底承诺 |
+| licence plus acquihire | 授权加收购式招聘 |
+| capital-for-capacity | 以资本换产能 |
+| non-marketable equity | 非流通股权 |
+| Alchip / GUC / MediaTek | 世芯电子（Alchip）/ 创意电子（GUC）/ 联发科（MediaTek） |
+| Cambricon / Hygon / Moore Threads / MetaX / Biren / T-Head / Kunlunxin | 寒武纪 / 海光 / 摩尔线程 / 沐曦 / 壁仞 / 平头哥 / 昆仑芯 |
+| SMIC / CXMT / SoftBank | 中芯国际（SMIC）/ 长鑫存储（CXMT）/ 软银 |
+| SuperPoD / SuperNode / UnifiedBus | 超节点 / 超节点 / 灵衢（UnifiedBus） |
+| Cross-cutting chapter | 跨层专题 |

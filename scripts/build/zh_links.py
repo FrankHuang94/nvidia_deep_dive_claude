@@ -91,8 +91,11 @@ def process(zh_file: Path) -> str:
 def main(argv):
     check = "--check" in argv
     changed = []
+    only = [Path(a).resolve() for a in argv if not a.startswith("--")]
     for p in sorted(ZH.rglob("*.md")):
         if "pdf" in p.relative_to(ZH).parts[:1]:
+            continue
+        if only and p.resolve() not in only:
             continue
         new = process(p)
         if new != p.read_text(encoding="utf-8"):
