@@ -1,0 +1,6 @@
+term,slug,definition,see_also
+Moat,moat,"A durable advantage that keeps competitors from taking a business's customers or margins, such as switching costs, scale economies, supply access or network effects. In this repo a moat is judged by how long and how much it would cost a buyer or rival to get around it.",moat-score
+Moat score,moat-score,"This repo's 1-5 judgement of how hard it is to get around NVIDIA in one stack layer: 1 = commoditised or NVIDIA behind, 3 = rivals at parity on some dimensions while NVIDIA leads on integration, 5 = no rival close and switching takes years. A synthesis of each layer page's verdicts, not a measured quantity.",gap-trend
+Gap trend,gap-trend,"Whether NVIDIA's lead over the strongest challenger in a layer has been widening, stable or narrowing over roughly the last twelve months, as judged on that layer's competition page.",moat-score
+Value pool,value-pool,"The profit available in one part of an industry's value chain (for example HBM, switch silicon or rack assembly), and who captures it. A layer can be strategically vital yet a small value pool for the company that controls it.",pricing-power
+Pricing power,pricing-power,"The ability to raise or hold prices without losing volume. For NVIDIA it shows up as a ~75% gross margin; rivals and in-house chips limit it first at the largest buyers.",price-umbrella

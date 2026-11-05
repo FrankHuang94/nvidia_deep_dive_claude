@@ -30,7 +30,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 5 | Layers 08 systems, 09 CUDA, 10 libraries | ✅ complete — 3 layers drafted, ~31k words, ~140 visuals (43–50 % data charts) | `phase-5-complete` (local tag) |
 | 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ✅ complete — 3 layers drafted, ~30.5k words, ~140 visuals (45–54 % data charts) | `phase-6-complete` (local tag) |
 | 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ✅ complete — 5 chapters (~44k words, ~260 visuals) incl. scripts/tco model; 7 case studies (~16k words, 73 visuals) | `phase-7-complete` (local tag) |
-| 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ⬜ planned | |
+| 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ✅ complete — 19 (5.8k words, 29 visuals); README + 00 + cheat sheet (8.2k words, 46 visuals) | `phase-8-complete` (local tag) |
 | 9 | Independent QA, fixes, MkDocs site, v1.0 | ⬜ planned | |
 
 > [!NOTE]
@@ -44,7 +44,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 <!-- STATS:START -->
 | Unit | Title | Phase | Status | Words | Visuals | Charts (data) | Diagrams | Mermaid | Tables | Data-chart share | Sources | QA |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| SYN | README + Executive Summary + Cheat Sheet | 8 | planned | 361 | 4 | 1 (1) | 1 | 1 | 1 | 25% | 2 | pending |
+| SYN | README + Executive Summary + Cheat Sheet | 8 | drafted | 8,197 | 46 | 28 (28) | 2 | 5 | 11 | 61% | 193 | pending |
 | 01 | The NVIDIA flywheel | 2 | drafted | 4,555 | 23 | 10 (10) | 1 | 7 | 5 | 43% | 113 | pending |
 | P1 | How AI training works | 2 | drafted | 3,448 | 18 | 7 (7) | 0 | 6 | 5 | 39% | 26 | pending |
 | P2 | How AI inference works | 2 | drafted | 3,595 | 15 | 7 (7) | 0 | 3 | 5 | 47% | 32 | pending |
@@ -76,7 +76,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **212,847** | **1040** | | | | | | **1558** unique | |
+| **Total** | | | | **220,683** | **1082** | | | | | | **1568** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
@@ -157,6 +157,7 @@ Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagra
 | 7 | chapter 15 part A / part B | 11 pages, ~21.8k words, 125 visuals | S15000–S15014, S15500–S15552 | done |
 | 7 | chapters 16 + 17 | 9.3k words, 49 visuals | S16000–S17008 | done |
 | 7 | chapter 18 | 7,315 words, 29 visuals | S18000–S18027 | done |
+| 8 | README, 00 executive summary, cheat sheet | 8,184 words, 46 visuals; 00-moat-layer-cake.d2 | S1500–S1513 | done |
 | 8 | chapter 19 Implications for Qualcomm | 5,793 words, 29 visuals (public info only; questions not recommendations) | S19001–S19005 | done |
 | 5 | layer 08 CORE / STRATEGY | 9 pages, 10,376 words, 46 visuals; 08-nvl72-rack-anatomy.d2, 08-compute-tray-anatomy.d2 | S8000–S8025, S8500–S8530 | done |
 | 5 | layer 09 CORE / STRATEGY | 9 pages, 9,996 words, 42 visuals; 09-cuda-software-stack.d2 | S9000–S9030, S9500–S9538 | done |

@@ -5,7 +5,7 @@ notes say it was entered from memory or needs re-verification. Phase 1–2 resea
 whose network policy blocked direct page fetches (sec.gov, nvidia.com, vendor and analyst sites) and capped
 web searches, so these items should be re-checked first in any session with full network access.
 
-**746 data rows** and **132 sources** flagged.
+**816 data rows** and **160 sources** flagged.
 
 ## Flagged rows by file
 
@@ -15,16 +15,33 @@ web searches, so these items should be re-checked first in any session with full
 | `data/hbm_and_packaging.csv` | 79 |
 | `data/acquisitions_investments.csv` | 64 |
 | `data/peer_financials.csv` | 60 |
-| `data/market_share.csv` | 18 |
+| `data/l10_library_timeline.csv` | 18 |
+| `data/market_share.csv` | 17 |
 | `data/tco_model_inputs.csv` | 16 |
 | `data/depreciation_useful_lives.csv` | 13 |
+| `data/l09_software_deals.csv` | 11 |
 | `data/gpu_rental_prices.csv` | 9 |
+| `data/cs2_cuda_trough.csv` | 8 |
 | `data/networking_products.csv` | 7 |
+| `data/l04_host_attach.csv` | 6 |
+| `data/l10_software_deals.csv` | 6 |
 | `data/system_specs.csv` | 6 |
 | `data/interconnect_specs.csv` | 5 |
+| `data/cs6_china_revenue.csv` | 4 |
 | `data/competitor_accelerators.csv` | 3 |
 | `data/investments_in_customers.csv` | 3 |
+| `data/l10_nccl_releases.csv` | 3 |
+| `data/l12_hyperscaler_capex_guidance.csv` | 3 |
 | `data/software_ecosystem.csv` | 3 |
+| `data/cpu_specs.csv` | 2 |
+| `data/l05_nvlink_fusion_partners.csv` | 2 |
+| `data/l10_replication_costs.csv` | 2 |
+| `data/cs3_tpu_generations.csv` | 1 |
+| `data/l04_scenarios.csv` | 1 |
+| `data/l05_rack_fabric.csv` | 1 |
+| `data/l09_rocm_lag.csv` | 1 |
+| `data/l11_inference_deals.csv` | 1 |
+| `data/x15a_accelerator_generations.csv` | 1 |
 
 ## Flagged sources
 
@@ -153,6 +170,34 @@ web searches, so these items should be re-checked first in any session with full
 | S666 | TrendForce AI server shipment forecasts (GPU-based vs ASIC-based share) | TrendForce | ASIC-based AI servers ~27.8% of 2026 AI server shipments vs ~69.7% GPU-based — as recalled from pres |
 | S667 | Dell'Oro Group AI back-end network (InfiniBand vs Ethernet) commentary | Dell'Oro Group | Directional: InfiniBand dominated AI back-end switching in 2023; Ethernet overtook InfiniBand in 202 |
 | S668 | Intel says it will not hit $500 million Gaudi 3 revenue target for 2024 | Reuters (as reported) | Intel Q3 2024 call: Gaudi revenue below $500M 2024 goal — as recalled. Deep page not fetched (host b |
+| S2007 | OCP Microscaling Formats (MX) Specification v1.0 | Open Compute Project | Defines MXFP8, MXFP6, MXFP4 and MXINT8: blocks of 32 elements sharing one 8-bit power-of-two (E8M0)  |
+| S2013 | FP8 Formats for Deep Learning | arXiv (2209.05433) | Defines E4M3 (max 448) and E5M2 (max 57,344) FP8 encodings. Recalled; not fetched in session. |
+| S2022 | CUDA C++ Programming Guide (compute capabilities; shared memory) | NVIDIA Docs | 64K 32-bit registers (256 KB) per SM across data-center GPUs; shared memory has 32 banks of 4 bytes  |
+| S2023 | NVIDIA Hopper Architecture In-Depth | NVIDIA Technical Blog | Fourth-generation tensor cores at 2x A100's per-SM dense matrix rate clock for clock (4x with FP8);  |
+| S2024 | Transformer Engine user guide (FP8 and block-scaled recipes) | NVIDIA Docs | FP8 delayed scaling from an amax history on Hopper; MXFP8 and NVFP4 block-scaling recipes on Blackwe |
+| S5021 | Report on NVIDIA NVLink Fusion guidance (third-party CPU and XPU on both ends vi | IT Home | Chinese-language report of a later NVIDIA blog post suggesting custom CPU and XPU on both ends, with |
+| S5022 | Co-packaged optics joins NVLink Fusion: Ayar Labs and Lightmatter (June 2026) | Independent tracker (vercel.app) | Low-authority aggregator: Ayar Labs said it joined the NVLink Fusion ecosystem on 2026-06-02 and Lig |
+| S6030 | [Paper notes] RDMA over Ethernet for Distributed AI Training at Meta Scale | bearblog (paper summary) | Summary of S34022: DCQCN was Meta's first congestion-control attempt and fit AI collectives poorly;  |
+| S6503 | Cisco Announces New Silicon One G300, Advanced Systems and Optics to Power and S | Cisco Investor Relations | Cisco Live EMEA: Silicon One G300 102.4 Tb/s, 200G SerDes, 1.6T Ethernet ports; N9000 and 8000 syste |
+| S8012 | Stargate (system notes) | Glenn K. Lockwood | Abilene site construction began June 2024 (others say July 2024); first NVIDIA GB200 racks delivered |
+| S9002 | FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning | arXiv:2307.08691 (ICLR 2024) | Abstract: FlashAttention reached only 25-40% of the A100's theoretical maximum FLOPs/s; FlashAttenti |
+| S9004 | FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardw | arXiv:2603.05451 | On B200 with BF16: up to 1.3x faster than cuDNN 9.13 and 2.7x faster than Triton, reaching up to 1,6 |
+| S9025 | NVIDIA Blackwell and NVIDIA CUDA 12.9 introduce family-specific architecture fea | NVIDIA Technical Blog | Architecture-specific targets (sm_90a, sm_100a: mostly Tensor Core features) are not forward-compati |
+| S10018 | Polars GPU Engine Powered by RAPIDS cuDF Now Available in Open Beta | NVIDIA Technical Blog | Up to 13x on compute-heavy PDS-H queries, H100 PCIe vs Xeon W9-3495X; transparent CPU fallback. Cont |
+| S10025 | Accelerating GPU indexes in Faiss with NVIDIA cuVS | Engineering at Meta | Faiss 1.10 adds cuVS (IVF-PQ, IVF-Flat, Flat, CAGRA). At 95% recall: IVF build up to 4.7x faster and |
+| S10032 | NVIDIA's 'cuLitho' Computational Lithography Adopted By TSMC and Synopsys For Pr | AnandTech | Recalls the GTC 2023 cuLitho launch claim of up to 40x, with 500 DGX H100 systems doing the work of  |
+| S10034 | NVIDIA's Clara Parabricks workflows in Terra bring GPU acceleration to genomic a | Terra (Broad Institute / Verily / Micros | Terra team benchmark: up to 24x speedup for germline analysis of a 30x genome. Content via web-searc |
+| S10039 | cuDNN: Efficient Primitives for Deep Learning | arXiv:1410.0759 | Describes cuDNN's design (GEMM-based convolutions) at its 2014 introduction. Identifier from prior k |
+| S10040 | Fast Multi-GPU collectives with NCCL | NVIDIA Technical Blog | Introduced NCCL as an open-source library of ring-based multi-GPU collectives. Title/date from prior |
+| S10041 | Massively Scale Your Deep Learning Training with NCCL 2.4 | NVIDIA Technical Blog | Introduced double binary trees for low-latency all-reduce at large scale. Title/date from prior know |
+| S10043 | New Scaling Algorithm and Initialization with NVIDIA Collective Communications L | NVIDIA Technical Blog | Introduced the PAT (Parallel Aggregated Trees) algorithm for all-gather and reduce-scatter at scale. |
+| S10044 | Enabling Fast Inference and Resilient Training with NCCL 2.27 | NVIDIA Technical Blog | Symmetric-memory kernels for low-latency NVLink collectives aimed at inference. Title/date from prio |
+| S10045 | TensorRT Open Source Software README and CHANGELOG | NVIDIA (GitHub: NVIDIA/TensorRT) | Fetched live 2026-11-05: TensorRT 11.x released with streamlined APIs (weakly typed networks and imp |
+| S10542 | AMD joins UXL Foundation as steering member, backs oneDNN for PyTorch | Crypto Briefing | Reports AMD became a UXL steering member (2026-10-20) and AMD and Intel agreed oneDNN as the default |
+| S11541 | New embedding models and API updates | OpenAI | gpt-3.5-turbo-0125: input price cut 50% to $0.50 per million and output 25% to $1.50 per million. No |
+| S17002 | Nvidia GTC: 7 big takeaways from Jensen | Barchart | GTC 2025: 1.3M Hopper GPUs to the top four cloud providers in 2024 vs 3.6M Blackwell GPUs (described |
+| S22005 | Lex Fridman Podcast #494 - Jensen Huang: NVIDIA, the $4 trillion company and the | Shortform (summary of Lex Fridman Podcas | Episode published 2026-03-23. Huang recalls that putting CUDA on GeForce raised costs ~50% when NVID |
+| S23005 | Gemini: A Family of Highly Capable Multimodal Models | Google DeepMind (arXiv 2312.11805) | Gemini 1.0 trained on TPU v4 and TPU v5e fleets across multiple datacenters with JAX and Pathways. N |
 | S31015 | Language Models are Few-Shot Learners (GPT-3) | OpenAI (arXiv 2005.14165) | GPT-3 175B trained on 300B tokens with 3.14e23 FLOPs. Not re-fetched in this session (search budget  |
 | S32013 | Fast Inference from Transformers via Speculative Decoding | Google Research (arXiv 2211.17192) | Draft-then-verify decoding with identical output distribution; 2-3x speed-up on T5-XXL |
 | S32015 | NVIDIA Dynamo open-source inference framework announcement (GTC 2025) | NVIDIA Newsroom | Disaggregated serving; NVIDIA claims up to 30x more requests for DeepSeek-R1 on GB200 NVL72 and ~2x  |
@@ -234,6 +279,21 @@ web searches, so these items should be re-checked first in any session with full
 | `competitor_accelerators.csv` | 20 | Microsoft · Maia 200 · ASIC | S158 | Announced Jan 2026 as an inference accelerator (Azure US Central first); Microsoft quoted >10 PFLOPS FP4 and >5 PFLOPS FP8 (lower bounds use |
 | `competitor_accelerators.csv` | 32 | Cambricon · Siyuan 590 (MLU590) · ASIC | S165 | Cambricon does not publish an English spec sheet; capacity is press-reported and compute figures vary widely across reports (left blank). Su |
 | `competitor_accelerators.csv` | 42 | Broadcom · OpenAI custom accelerator (with Broadcom) · ASIC | S174 | OpenAI-designed, Broadcom-developed accelerator: 10 GW of racks to deploy from H2 2026 to end-2029. No silicon specs public (press code name |
+| `cpu_specs.csv` | 13 | Intel · Xeon 6+ (Clearwater Forest) · x86-64 | S180 | First 18A Xeon, Foveros 3D; up to 288 E-cores per socket; 12 x DDR5-8000 = 768 GB/s. Intel guided H1 2026 launch (slipped from 2025); shippi |
+| `cpu_specs.csv` | 17 | AWS · Graviton5 · Arm v9.2 | S156;S4022;S4023 | Announced at re:Invent 2025 with 192 cores and a much larger L3 cache; memory and I/O details not verified this session. GA reported 2026-06 |
+| `cs2_cuda_trough.csv` | 2 | FY2007 · FY · 2007-01-28 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 3 | FY2007 · FY · 2007-01-28 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 5 | FY2008 · FY · 2008-01-27 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 14 | FY2011 · FY · 2011-01-30 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 23 | FY2014 · FY · 2014-01-26 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 25 | FY2014 · FY · 2014-01-26 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 26 | FY2015 · FY · 2015-01-25 | S400 | [recall] 10-K; not re-read online this session |
+| `cs2_cuda_trough.csv` | 28 | FY2015 · FY · 2015-01-25 | S400 | [recall] 10-K; not re-read online this session |
+| `cs3_tpu_generations.csv` | 2 | TPU v1 · 2016 · 2015 | S23000;S23001;S23002 | 65,536 8-bit MACs and 28 MiB on-chip memory; PCIe card for inference; 15-30x faster than K80/Haswell on production inference. DDR3 capacity/ |
+| `cs6_china_revenue.csv` | 2 | FY2019 · FY · 2019-01-27 | S400;S2 | China incl. Hong Kong, customer billing location; value from the 10-K series as compiled in a sell-side model found by web search 2026-11-05 |
+| `cs6_china_revenue.csv` | 3 | FY2020 · FY · 2020-01-26 | S2 | Billing location; same compilation. QA: recheck against the 10-K table |
+| `cs6_china_revenue.csv` | 4 | FY2021 · FY · 2021-01-31 | S2 | Billing location; same compilation. QA: recheck against the 10-K table |
+| `cs6_china_revenue.csv` | 6 | FY2023 · FY · 2023-01-29 | S418 | Billing location; October 2022 rule hit Q3 FY2023 (A800 offset part). Value recalled from the FY2023 10-K table, not re-verified in session |
 | `depreciation_useful_lives.csv` | 2 | Microsoft · 2020-07-01 · servers and network equipment | S382 | FY2021 change. QA: recheck (from prior knowledge; not re-verified 2026-11-05). |
 | `depreciation_useful_lives.csv` | 3 | Microsoft · 2022-07-01 · servers and network equipment | S382 | FY2023 change; ~$3.7B FY2023 operating-income benefit disclosed. QA: recheck (from prior knowledge; not re-verified 2026-11-05). |
 | `depreciation_useful_lives.csv` | 4 | Alphabet · 2021-01-01 · servers | S383 | QA: recheck (from prior knowledge; not re-verified 2026-11-05). |
@@ -803,6 +863,61 @@ web searches, so these items should be re-checked first in any session with full
 | `investments_in_customers.csv` | 3 | OpenAI · 2026-02 · 30.0 | S480 | [recall] equity in 2026 round |
 | `investments_in_customers.csv` | 6 | xAI · 2025-10 · 2.0 | S483 | [recall] |
 | `investments_in_customers.csv` | 7 | Poolside · 2025-10 · 1.0 | S483 | [recall] |
+| `l04_host_attach.csv` | 2 | NVIDIA · DGX-1 (V100) · 2017 | S189;S312;S222 | 2 x 20-core Xeon E5-2698 v4 with Hyper-Threading. 512 GB DDR4 system memory per the DGX-1 user guide [recall; re-verify]. GPUs reach the CPU |
+| `l04_host_attach.csv` | 3 | NVIDIA · DGX-2 · 2018 | S313;S314;S222 | 2 x 24-core Xeon Platinum 8168; 1.5 TB system memory (upgradeable to 3 TB) per the DGX-2 datasheet [recall; re-verify]. |
+| `l04_host_attach.csv` | 4 | NVIDIA · DGX A100 · 2020 | S188;S315;S222 | 2 x 64-core EPYC 7742 with SMT; 1 TB system memory (2 TB on the 640 GB model) [recall; re-verify]. |
+| `l04_host_attach.csv` | 5 | NVIDIA · DGX H100 · 2022 | S33022;S318;S222 | 2 x 56-core Xeon Platinum 8480C; 2 TB DDR5 system memory [recall; re-verify]. |
+| `l04_host_attach.csv` | 6 | NVIDIA · DGX B200 · 2024 | S319;S222 | 2 x 56-core Xeon Platinum 8570; 2 TB system memory configurable to 4 TB [recall; re-verify]. Host link limited to PCIe Gen5 by the Xeon. |
+| `l04_host_attach.csv` | 14 | Huawei · CloudMatrix 384 · 2025 | S340;S163 | 192 Kunpeng CPUs per 384 Ascend 910C as recorded in system_specs.csv from Huawei's CloudMatrix384 paper (QA: recheck). |
+| `l04_scenarios.csv` | 5 | data_loading · DGX-2 ResNet-50 training · host_cpu_cores | S313 | 2 x Xeon Platinum 8168 (24 cores each) [recall; re-verify] |
+| `l05_nvlink_fusion_partners.csv` | 13 | Ayar Labs · Co-packaged optical I/O · Connectivity and optics | S5022 | Single low-authority report; verify. |
+| `l05_nvlink_fusion_partners.csv` | 14 | Lightmatter · Photonic interconnect · Connectivity and optics | S5022 | Single low-authority report; verify. |
+| `l05_rack_fabric.csv` | 5 | HGX A100 8-GPU · 2020 · eol | S261;S200 | 12 links x 4 lanes per direction at 50 Gb/s; 6 second-generation NVSwitch chips per board (port count as recalled in S261). |
+| `l09_rocm_lag.csv` | 2 | Platform 1.0 · CUDA 1.0 · 2007-06 | S525;S586 | Month-level dates (both re-verify flags in software_ecosystem.csv); lag computed from mid-month |
+| `l09_software_deals.csv` | 2 | deal · 2008-02-04 · 2008-02 | S484 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 3 | deal · 2013-07-29 · 2013-07 | S484 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 4 | deal · 2022-01-10 · 2022-01 | S478 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 5 | deal · 2023-02 · 2023-02 | S478 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 8 | deal · 2024-04 · 2024-05 | S478;S479 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 9 | deal · 2024-07 · 2024-07 | S478 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 11 | deal · 2024-09 · 2024-10 | S478;S479 | [recall] mirrors acquisitions_investments.csv |
+| `l09_software_deals.csv` | 13 | deal · 2025-03 · 2025-03 | S478;S479 | [recall] reported 'nine figures' |
+| `l09_software_deals.csv` | 14 | deal · 2025-03 · 2025-04 | S478;S479 | [recall] reported 'several hundred million dollars' |
+| `l09_software_deals.csv` | 17 | deal · 2025-06 · 2025-06 | S478;S479 | [recall] up to ~US$400M including earn-outs reported |
+| `l09_software_deals.csv` | 19 | deal · 2025-12 · 2025-12 | S478 | [recall] mirrors acquisitions_investments.csv |
+| `l10_library_timeline.csv` | 2 | cuBLAS · Math libraries · Math and kernels | S525 | Dense linear algebra (BLAS) on GPUs. CUDA 1.0 bundled cuBLAS and cuFFT per the CUDA Toolkit Archive; month from prior knowledge of that page |
+| `l10_library_timeline.csv` | 3 | cuFFT · Math libraries · Math and kernels | S525 | Fast Fourier transforms. Month from prior knowledge of the CUDA Toolkit Archive (host blocked) [recall]. |
+| `l10_library_timeline.csv` | 4 | PhysX (GPU) · Physics engines · Simulation, science and quantum | S484;S10035 | Ageia acquired Feb 2008; PhysX is now open source (BSD-3) under NVIDIA-Omniverse/PhysX. Acquisition date [recall]. |
+| `l10_library_timeline.csv` | 5 | cuRAND · Math libraries · Math and kernels | S525 | Random-number generation. CUDA 3.2 release month [recall]; re-verify against the CUDA Toolkit Archive. |
+| `l10_library_timeline.csv` | 6 | cuSPARSE · Math libraries · Math and kernels | S525 | Sparse linear algebra. CUDA 3.2 release month [recall]; re-verify against the CUDA Toolkit Archive. |
+| `l10_library_timeline.csv` | 8 | cuDNN · Deep learning · AI training and inference | S10039 | Neural-network primitives (convolution/attention/normalization). arXiv 1410.0759 identifier from prior knowledge; not fetched [recall]. |
+| `l10_library_timeline.csv` | 9 | NCCL · Collective communication · Communication | S10000;S10040 | README copyright 2015-2020 fetched live; NVIDIA blog introducing NCCL dated 2016 [recall]. Multi-node NCCL 2 followed in 2017 [recall]. |
+| `l10_library_timeline.csv` | 11 | TensorRT · Deep learning inference · AI training and inference | S10045 | Inference optimizer and runtime; TensorRT 11.x current per the TensorRT OSS README (fetched 2026-11-05). Launch year [recall]. |
+| `l10_library_timeline.csv` | 13 | cuDF (RAPIDS) · Dataframes · Data, optimization and search | S10012 | cuDF 0.3.0 dated 2018-11-23; 0.1/0.2 merged the earlier pyGDF and libGDF projects. Month of the RAPIDS launch (Oct 2018) [recall]. |
+| `l10_library_timeline.csv` | 17 | cuDF plugin for Apache Spark · Spark SQL acceleration · Data, optimiza | S10019 | Project now named NVIDIA cuDF plugin for Apache Spark (README fetched 2026-11-05). First-release year (Spark 3.0 era) [recall]. |
+| `l10_library_timeline.csv` | 18 | cuQuantum · Quantum simulation · Simulation, science and quantum | S10038;S10029 | SDK (cuStateVec/cuTensorNet) announced 2021 [recall]; sources conflict on the month (April vs November 2021). |
+| `l10_library_timeline.csv` | 21 | PhysicsNeMo (formerly Modulus) · Physics-ML · Simulation, science and  | S10038 | Renamed PhysicsNeMo (nvidia-physicsnemo first upload 2025-03-18). Modulus was announced earlier (2021) [recall]. |
+| `l10_library_timeline.csv` | 22 | CUDA-Q · Quantum-classical programming · Simulation, science and quant | S10038;S10030 | Hybrid quantum-classical platform (nvq++ compiler); announced 2022 as QODA [recall]. |
+| `l10_library_timeline.csv` | 26 | Earth2Studio (Earth-2) · Weather and climate AI · Simulation, science  | S10038;S10036 | Python package for AI Earth-system models; the Earth-2 platform was announced earlier (2021) [recall]. |
+| `l10_library_timeline.csv` | 28 | Polars GPU engine · Polars acceleration · Data, optimization and searc | S10018;S10017 | cudf-polars first PyPI pre-release 2024-07-09 (S10038). Month of the open-beta blog [recall]. |
+| `l10_library_timeline.csv` | 30 | cuDSS · Sparse direct solver · Math and kernels | S10038 | Direct sparse solver; earlier preview builds existed outside PyPI [recall]. |
+| `l10_library_timeline.csv` | 32 | cuml.accel · scikit-learn acceleration · Data, optimization and search | S10016;S10015 | Announced at GTC 2025 [recall]; cuML 25.04 changelog documents the cuml.accel command line. |
+| `l10_library_timeline.csv` | 34 | cuOpt (open source) · Mathematical optimization · Data, optimization a | S10038;S10026;S10027 | Open-sourcing announced March 2025 with COIN-OR; cuOpt existed earlier as a commercial NVIDIA service [recall]. |
+| `l10_nccl_releases.csv` | 6 | 2.17 · 17 · 2023-03-31 | S10038 | Hopper-era release; NVLink SHARP (NVLS) support arrived around 2.17-2.18 [recall]. |
+| `l10_nccl_releases.csv` | 12 | 2.23 · 23 · 2024-09-11 | S10038;S10043 | Parallel Aggregated Trees for all-gather/reduce-scatter at large scale [recall]. |
+| `l10_nccl_releases.csv` | 16 | 2.27 · 27 · 2025-06-03 | S10038;S10044 | Low-latency NVLink kernels aimed at small inference messages [recall]. |
+| `l10_replication_costs.csv` | 5 | AMD R&D increase, CY2022 to CY2024 (per year) · AMD · rd_delta | S450 | CY2024 R&D $6.456B minus CY2022 $5.005B (peer_financials.csv, [recall] rows); hardware and software combined |
+| `l10_replication_costs.csv` | 6 | AMD annual R&D (CY2024) · AMD · annual_rd | S450 | From peer_financials.csv ([recall] row) |
+| `l10_software_deals.csv` | 2 | 2007-11 · NVIDIA · mental images | S484 | [recall] per acquisitions_investments.csv |
+| `l10_software_deals.csv` | 3 | 2008-02 · NVIDIA · Ageia Technologies | S484 | [recall] terms undisclosed |
+| `l10_software_deals.csv` | 4 | 2013-07 · NVIDIA · The Portland Group (PGI) | S484 | [recall] terms undisclosed |
+| `l10_software_deals.csv` | 11 | 2024-04 · NVIDIA · Deci | S478;S479 | [recall] press-reported value |
+| `l10_software_deals.csv` | 13 | 2024-09 · NVIDIA · OctoAI | S478;S479 | [recall] press-reported value |
+| `l10_software_deals.csv` | 14 | 2025-06 · NVIDIA · CentML | S478;S479 | [recall] up to ~US$400M incl. earn-outs reported |
+| `l11_inference_deals.csv` | 3 | 2024-04 · 2024-05 · NVIDIA | S478;S479 | ~$300M press-reported; row in acquisitions_investments.csv flagged [recall] |
+| `l12_hyperscaler_capex_guidance.csv` | 2 | Alphabet · 2026-02 · CY2026 | S460 | [recall] row in peer_financials.csv |
+| `l12_hyperscaler_capex_guidance.csv` | 5 | Amazon · 2026-02 · CY2026 | S461 | [recall] ~$200B |
+| `l12_hyperscaler_capex_guidance.csv` | 7 | Meta · 2026-01 · CY2026 | S462 | [recall] includes finance-lease principal |
 | `market_share.csv` | 12 | 2024 · ai_datacenter_vendor_revenue · AMD | S663 | AMD: data center GPU revenue 'exceeded $5 billion' in 2024 (as recalled; deep page not fetched) |
 | `market_share.csv` | 20 | 2024 · ai_datacenter_vendor_revenue · Broadcom | S660;S451 | FY2024 (to 3 Nov 2024); as recalled (deep page not fetched) |
 | `market_share.csv` | 23 | 2024-Q1 · custom_asic_partner_revenue · Broadcom | S660;S661;S451 | Broadcom fiscal Q1 FY2024 (quarter ends ~Feb/May/Aug/Nov); as recalled from earnings releases (deep pages not fetched) |
@@ -820,12 +935,11 @@ web searches, so these items should be re-checked first in any session with full
 | `market_share.csv` | 68 | 2022 · datacenter_gpu_shipments · NVIDIA | S664 | Share of data-center GPU units (excludes custom ASICs such as TPU) — as recalled |
 | `market_share.csv` | 69 | 2023 · datacenter_gpu_shipments · NVIDIA | S664 | Share of data-center GPU units (excludes custom ASICs) — as recalled |
 | `market_share.csv` | 70 | 2023 · custom_asic_shipments · Google TPU | S665 | TechInsights estimate of 2023 TPU shipments — as recalled; exact source not re-located |
-| `market_share.csv` | 85 | 2025 · ai_backend_network_switch_share · NVIDIA Spectrum-X Ethernet | S445 | NVIDIA Q2 FY2026: Spectrum-X Ethernet annualized revenue above $10B — as recalled; evidence that NVIDIA itself drives much of the Ethernet s |
 | `networking_products.csv` | 17 | NVIDIA · NVSwitch (gen 2) · nvlink-switch | S261 | port speed per direction (one NVLink port); 1.8 TB/s bidirectional per chip; port count as recalled. |
 | `networking_products.csv` | 40 | Broadcom · Tomahawk 3 · ethernet-switch | S283 | Shipping ~Jan 2018 (recalled). aggregate_tbps = ports x port speed, one direction (NVIDIA often quotes 2x as bidirectional). |
 | `networking_products.csv` | 45 | Broadcom · Tomahawk 6-Davisson CPO · cpo-switch | S281 | Announced Oct 2025 (recalled). aggregate_tbps = ports x port speed, one direction (NVIDIA often quotes 2x as bidirectional). |
 | `networking_products.csv` | 47 | Broadcom · Jericho3-AI · ethernet-switch | S279 | Announced 2023-04-18; aggregate as recalled. |
-| `networking_products.csv` | 55 | Cisco · Silicon One G300 · ethernet-switch | S287 | Recollection of Feb 2026 announcement; verify. aggregate_tbps = ports x port speed, one direction (NVIDIA often quotes 2x as bidirectional). |
+| `networking_products.csv` | 55 | Cisco · Silicon One G300 · ethernet-switch | S287;S6503 | Recollection of Feb 2026 announcement; verify. aggregate_tbps = ports x port speed, one direction (NVIDIA often quotes 2x as bidirectional). |
 | `networking_products.csv` | 57 | Arista · 7800R4 (Etherlink AI spine) · ethernet-switch | S288 | Max configuration as recalled. aggregate_tbps = ports x port speed, one direction (NVIDIA often quotes 2x as bidirectional). |
 | `networking_products.csv` | 68 | Google · Jupiter with Apollo OCS (2022) · ethernet-switch | S293 | 13 Pb/s capacity per later Google blog (recalled). Fabric, not a single switch; excluded from switch-ASIC charts. |
 | `peer_financials.csv` | 2 | AMD · CY2022 · FY | S450 | [recall] Data Center segment (EPYC, Instinct, Pensando, Xilinx DC) |
@@ -913,3 +1027,4 @@ web searches, so these items should be re-checked first in any session with full
 | `tco_model_inputs.csv` | 104 | All · Meta · server_useful_life_years | S384 | QA: recheck (from prior knowledge; not re-verified 2026-11-05). |
 | `tco_model_inputs.csv` | 105 | All · Amazon · server_useful_life_years | S385 | QA: recheck (from prior knowledge; not re-verified 2026-11-05). |
 | `tco_model_inputs.csv` | 106 | All · CoreWeave · server_useful_life_years | S386 | QA: recheck (from prior knowledge; not re-verified 2026-11-05). |
+| `x15a_accelerator_generations.csv` | 4 | Microsoft · Maia 300 · 2027 | S15005;S15006;S90046 | Unveiled 2026-10-12: TSMC N2P compute die plus two I/O dies, eight HBM4 stacks; up to 13.8 PFLOPS FP4 at 950 W; 96 accelerators per 167 kW r |

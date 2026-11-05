@@ -1,0 +1,6 @@
+period,period_type,metric,low,high,unit,kind,confidence,source_id,notes
+Q3FY27,Q,revenue_total,105.84,110.16,USD_B,guidance,confirmed,S405;S3,$108B plus or minus 2%; excludes any China Data Center compute revenue
+Q3FY27,Q,gross_margin_gaap_pct,73.5,74.5,pct,guidance,confirmed,S90085;S3,74% plus or minus 50 bp
+Q4FY27,Q,gross_margin_pct,71.0,72.0,pct,outlook,reported,S90085;S18000,Expected trough on memory costs above plan (Q2 FY2027 call)
+FY2028,FY,gross_margin_pct,72.0,73.0,pct,outlook,reported,S90085;S18000,As price increases take effect (Q2 FY2027 call)
+FY2028,FY,revenue_growth_pct,70.0,70.0,pct,outlook,reported,S90086;S18000,"Preliminary ~70% y/y, framed as supply-constrained"

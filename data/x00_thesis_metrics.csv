@@ -1,0 +1,6 @@
+thesis_no,thesis,metric,unit,before_label,before_value,after_label,after_value,confidence,source_id,notes
+1,"A system, not a chip",DeepSeek-R1 tokens/s per GPU at 50 tok/s per user,tokens/s per GPU,H200 (8-GPU HGX),308,GB300 NVL72 (72-GPU rack),6261,reported,S621,"InferenceX frontier interpolated at 50 tok/s/user, as on layer 11"
+2,Software compounds on installed hardware,"B200 DeepSeek-R1 maximum throughput, same GPU",tokens/s per GPU,Feb 2025,2000,May 2025,4600,confirmed,S646,TensorRT-LLM releases only; no new hardware
+3,Scale buys supply and cadence,Supply and capacity commitments,US$ B,Q1 FY2027,119,Q2 FY2027,279,confirmed,S404;S407,Quarter-end balances from 10-Q filings
+4,Capital makes NVIDIA the default counterparty,Non-marketable (private) equity stakes,US$ B,Jan 2025,3.4,Jul 2026,51.2,reported,S13043;S90072,10-K note and secondary reading of the July 2026 10-Q
+5,"Indispensable today, contestable at the margin",Broadcom AI revenue as % of NVIDIA Data Center revenue,%,2024-25 average,12.3,2026-Q3,18.8,estimate,S660;S661;S451;S2516;S405,Repo calculation as in chart 02-broadcom-ai-vs-nvidia-dc; same calendar quarter of quarter-end

@@ -79,7 +79,8 @@ def lint(path: Path) -> tuple[list[str], list[str], dict]:
         line = body[max(0, m.start() - 80): m.end() + 80]
         if not ANY_CITE_RE.search(line):
             warns.append(f"unsourced superlative: '{m.group(0)}'")
-    for m in re.finditer(r"[\"“]([^\"”\n]{0,400})[\"”]", body):
+    body_q = re.sub(r"(?:alt|title|href|src)=\"[^\"]*\"", "", body)  # HTML attributes are not quotes
+    for m in re.finditer(r"[\"“]([^\"”\n]{0,400})[\"”]", body_q):
         if len(m.group(1).split()) > 15:
             warns.append(f"quote longer than 15 words: “{m.group(1)[:50]}…”")
     return errors, warns, stats
