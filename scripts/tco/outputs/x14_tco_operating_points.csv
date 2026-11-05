@@ -1,0 +1,41 @@
+system,interactivity_tok_s_per_user,basis,tokens_per_s,usd_per_m_tokens,usd_per_m_tokens_if_system_free,gb300_price_cut_to_match,nvidia_gm_after_cut,tokens_per_s_mtp,usd_per_m_tokens_mtp
+H200 HGX,35,measured,402.249,1.70999,0.738614,,,1143.64,0.601448
+B200 HGX,35,measured,,,,,,10805.2,0.0748754
+GB300 NVL72,35,measured,9906.72,0.098519,0.0437047,,,,
+Vera Rubin NVL72,35,modelled,30710.8,0.0595735,0.0250071,0.49521,0.282451,,
+MI355X platform,35,measured,1496.76,0.481923,0.236416,,,2099.58,0.343555
+Helios (MI455X),35,modelled,16891,0.0815307,0.0392293,0.216013,0.650727,,
+TPU v7 Ironwood (external),35,modelled,,,,,,,
+TPU v7 Ironwood (Google internal),35,modelled,,,,,,,
+Trainium2 (Trn2 UltraServer),35,modelled,193.08,1.23454,0.625523,,,,
+Trainium3 (Trn3 UltraServer),35,modelled,804.499,0.470727,0.227121,,,,
+H200 HGX,50,measured,308.039,2.23297,0.964509,,,337.933,2.03544
+B200 HGX,50,measured,1387.37,0.583151,0.256486,,,9199.36,0.0879459
+GB300 NVL72,50,measured,6261.26,0.155879,0.0691507,,,,
+Vera Rubin NVL72,50,modelled,19409.9,0.0942586,0.0395669,0.49521,0.282451,,
+MI355X platform,50,measured,737.54,0.978009,0.479781,,,1538.71,0.468785
+Helios (MI455X),50,modelled,10675.4,0.129,0.0620695,0.216013,0.650727,,
+TPU v7 Ironwood (external),50,modelled,962.142,0.531547,0.24227,,,,
+TPU v7 Ironwood (Google internal),50,modelled,962.142,0.452424,0.214058,,,,
+Trainium2 (Trn2 UltraServer),50,modelled,147.859,1.6121,0.816831,,,,
+Trainium3 (Trn3 UltraServer),50,modelled,616.079,0.614692,0.296583,,,,
+H200 HGX,75,measured,197.45,3.48362,1.50472,,,248.233,2.77096
+B200 HGX,75,measured,695.392,1.16344,0.511714,,,5704.91,0.141816
+GB300 NVL72,75,measured,1310.85,0.744553,0.330297,,,10865.4,0.089826
+Vera Rubin NVL72,75,modelled,4063.64,0.450224,0.188991,0.49521,0.282451,,
+MI355X platform,75,measured,453.56,1.59036,0.780179,,,782.443,0.921883
+Helios (MI455X),75,modelled,2235,0.616166,0.296474,0.216013,0.650727,,
+TPU v7 Ironwood (external),75,modelled,482.254,1.06049,0.483352,,,,
+TPU v7 Ironwood (Google internal),75,modelled,482.254,0.902627,0.427066,,,,
+Trainium2 (Trn2 UltraServer),75,modelled,94.7762,2.51502,1.27433,,,,
+Trainium3 (Trn3 UltraServer),75,modelled,394.901,0.958972,0.462694,,,,
+H200 HGX,100,measured,107.205,6.41613,2.77138,,,86.9746,7.90855
+B200 HGX,100,measured,428.717,1.88714,0.830016,,,1194.36,0.677391
+GB300 NVL72,100,measured,561.829,1.73718,0.770644,,,6340.97,0.15392
+Vera Rubin NVL72,100,modelled,1741.67,1.05046,0.44095,0.49521,0.282451,,
+MI355X platform,100,measured,227.701,3.16785,1.55405,,,672.329,1.07287
+Helios (MI455X),100,modelled,957.919,1.43763,0.691729,0.216013,0.650727,,
+TPU v7 Ironwood (external),100,modelled,297.315,1.72014,0.784012,0.0122891,0.745891,,
+TPU v7 Ironwood (Google internal),100,modelled,297.315,1.46409,0.692714,0.196932,0.662563,,
+Trainium2 (Trn2 UltraServer),100,modelled,51.4585,4.63216,2.34705,,,,
+Trainium3 (Trn3 UltraServer),100,modelled,214.41,1.76623,0.85219,,,,

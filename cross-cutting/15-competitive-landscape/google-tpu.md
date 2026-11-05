@@ -41,7 +41,7 @@ A TPU's matrix units are [systolic arrays](../../glossary.md#systolic-array): gr
 
 </details>
 
-The design partner shares in the upside: Broadcom's AI revenue, which includes TPUs and AI Ethernet, reached $16.7B in its Q3 FY2026 [[S2516]](../../sources/bibliography.md#s2516), and Anthropic's next multi-gigawatt TPU tranche from 2027 was announced jointly with Broadcom [[S655]](../../sources/bibliography.md#s655). The full history and economics are in [CS3 · Google TPU: the credible alternative](../../case-studies/CS3-google-tpu-the-credible-alternative.md); the design houses are covered in custom-ASIC houses.
+The design partner shares in the upside: Broadcom's AI revenue, which includes TPUs and AI Ethernet, reached $16.7B in its Q3 FY2026 [[S2516]](../../sources/bibliography.md#s2516), and Anthropic's next multi-gigawatt TPU tranche from 2027 was announced jointly with Broadcom [[S655]](../../sources/bibliography.md#s655). The full history and economics are in [CS3 · Google TPU: the credible alternative](../../case-studies/CS3-google-tpu-the-credible-alternative.md); the design houses are covered in [custom-ASIC houses](custom-asic-houses.md).
 
 ## ICI and optical switches: why pods hold 9,216 chips
 

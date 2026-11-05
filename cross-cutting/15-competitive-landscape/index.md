@@ -108,9 +108,9 @@ Competitors attack NVIDIA in five ways, each with its own economic engine and fa
 |---|---|---|---|---|
 | [Full-stack merchant](../../glossary.md#full-stack-merchant) | NVIDIA; AMD (building); Intel (re-entering) | Sell chips, racks and software to everyone | A second source at equal specs and lower price ([AMD](amd.md)) | Software and rack maturity lag; ~13× less data-center revenue to fund cadence [[S405]](../../sources/bibliography.md#s405)[[S450]](../../sources/bibliography.md#s450) |
 | Hyperscaler in-house ([captive silicon](../../glossary.md#captive-silicon)) | Google TPU, AWS Trainium, Microsoft Maia, Meta MTIA | Remove the merchant margin on own workloads | ~18% lower cost per token on one TPU workload [[S625]](../../sources/bibliography.md#s625) | Needs ~130,000 chips per generation to pay off (🔴) [[S23010]](../../sources/bibliography.md#s23010); stays internal |
-| Design-services houses | Broadcom, Marvell, MediaTek, Alchip, GUC | Charge for design, SerDes, packaging and supply | Turn every large buyer into a potential XPU customer (custom-ASIC houses) | Concentrated on a few customers; dependent on TSMC and HBM allocation |
-| Inference specialists | Cerebras, SambaNova, Etched, d-Matrix, Tenstorrent; Qualcomm AI200/AI250 | Re-architect memory for token speed or cost | Win latency or cost niches as inference grows (inference start-ups, Qualcomm) | Narrow software; Groq's technology was licensed by NVIDIA for ~$20B (🟡) [[S90018]](../../sources/bibliography.md#s90018) |
-| [National champions](../../glossary.md#national-champion) | Huawei Ascend, Cambricon | Protected home market behind export controls | Own China's market as NVIDIA is excluded (China) | Process-node and HBM limits; SuperPoD shipments unconfirmed (🔴) [[S90042]](../../sources/bibliography.md#s90042) |
+| Design-services houses | Broadcom, Marvell, MediaTek, Alchip, GUC | Charge for design, SerDes, packaging and supply | Turn every large buyer into a potential XPU customer ([custom-ASIC houses](custom-asic-houses.md)) | Concentrated on a few customers; dependent on TSMC and HBM allocation |
+| Inference specialists | Cerebras, SambaNova, Etched, d-Matrix, Tenstorrent; Qualcomm AI200/AI250 | Re-architect memory for token speed or cost | Win latency or cost niches as inference grows ([inference start-ups](inference-startups.md), [Qualcomm](qualcomm.md)) | Narrow software; Groq's technology was licensed by NVIDIA for ~$20B (🟡) [[S90018]](../../sources/bibliography.md#s90018) |
+| [National champions](../../glossary.md#national-champion) | Huawei Ascend, Cambricon | Protected home market behind export controls | Own China's market as NVIDIA is excluded ([China](china.md)) | Process-node and HBM limits; SuperPoD shipments unconfirmed (🔴) [[S90042]](../../sources/bibliography.md#s90042) |
 
 ```mermaid
 flowchart LR
@@ -209,11 +209,11 @@ Training tells a starker story. On 8-GPU fine-tuning the MI355X (8.3 minutes) si
 | [AWS Trainium](aws-trainium.md) | Hyperscaler in-house | >$225B of Trainium commitments; Anthropic and OpenAI as anchors [[S15000]](../../sources/bibliography.md#s15000) | 🟨 Medium; capped by software |
 | [Microsoft Maia](microsoft-maia.md) | Hyperscaler in-house | ~30% better performance per dollar on Copilot inference (vendor claim) [[S15007]](../../sources/bibliography.md#s15007) | 🟨 Medium from 2027 |
 | [Meta MTIA](meta-mtia.md) | Hyperscaler in-house | Four generations in two years; owns PyTorch [[S15003]](../../sources/bibliography.md#s15003)[[S9028]](../../sources/bibliography.md#s9028) | 🟨 Low-to-medium; Meta is also a top NVIDIA buyer |
-| Custom-ASIC houses | Design services | Broadcom AI revenue $16.7B in one quarter [[S2516]](../../sources/bibliography.md#s2516) | 🟥 High: they arm every hyperscaler |
-| Intel | Merchant (re-entering) | x86 incumbency; NVIDIA's own $5B stake and NVLink x86 CPUs [[S4009]](../../sources/bibliography.md#s4009) | 🟩 Low as an accelerator rival |
-| Qualcomm | Inference specialist | 768 GB LPDDR per card for low-cost inference (public info) [[S90028]](../../sources/bibliography.md#s90028) | 🟩 Low today; no 2026 shipment confirmed (🔴) |
-| Inference start-ups | Inference specialists | SRAM and wafer-scale designs for speed; OpenAI–Cerebras up to 750 MW [[S11523]](../../sources/bibliography.md#s11523) | 🟨 Niche; NVIDIA absorbed Groq's technology [[S90018]](../../sources/bibliography.md#s90018) |
-| China | National champions | Protected market; 8,192-chip Atlas 950 SuperPoD planned [[S90042]](../../sources/bibliography.md#s90042) | 🟥 High in China, low elsewhere |
+| [Custom-ASIC houses](custom-asic-houses.md) | Design services | Broadcom AI revenue $16.7B in one quarter [[S2516]](../../sources/bibliography.md#s2516) | 🟥 High: they arm every hyperscaler |
+| [Intel](intel.md) | Merchant (re-entering) | x86 incumbency; NVIDIA's own $5B stake and NVLink x86 CPUs [[S4009]](../../sources/bibliography.md#s4009) | 🟩 Low as an accelerator rival |
+| [Qualcomm](qualcomm.md) | Inference specialist | 768 GB LPDDR per card for low-cost inference (public info) [[S90028]](../../sources/bibliography.md#s90028) | 🟩 Low today; no 2026 shipment confirmed (🔴) |
+| [Inference start-ups](inference-startups.md) | Inference specialists | SRAM and wafer-scale designs for speed; OpenAI–Cerebras up to 750 MW [[S11523]](../../sources/bibliography.md#s11523) | 🟨 Niche; NVIDIA absorbed Groq's technology [[S90018]](../../sources/bibliography.md#s90018) |
+| [China](china.md) | National champions | Protected market; 8,192-chip Atlas 950 SuperPoD planned [[S90042]](../../sources/bibliography.md#s90042) | 🟥 High in China, low elsewhere |
 
 ## Overall verdict
 

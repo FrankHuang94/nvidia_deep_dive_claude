@@ -1,0 +1,8 @@
+step,usd_per_hour,cumulative
+Layer 12 floor: straight-line IT depreciation,1.32848,1.32848
+"Layer 12 floor: power at rack kW, 100% draw",0.170775,1.49926
++ cost of capital on IT (8%),0.395745,1.895
+"+ facility capex, annualised",0.340158,2.23516
++ operations & maintenance,0.239127,2.47429
+± power on all-in kW at the load factor,-0.0147674,2.45952
+= model owner cost per installed GPU-hour,2.45952,2.45952

@@ -1,0 +1,11 @@
+system,p_cheaper_than::H200 HGX,p_cheaper_than::B200 HGX,p_cheaper_than::GB300 NVL72,p_cheaper_than::Vera Rubin NVL72,p_cheaper_than::MI355X platform,p_cheaper_than::Helios (MI455X),p_cheaper_than::TPU v7 Ironwood (external),p_cheaper_than::TPU v7 Ironwood (Google internal),p_cheaper_than::Trainium2 (Trn2 UltraServer),p_cheaper_than::Trainium3 (Trn3 UltraServer)
+H200 HGX,,0,0,0,0,0,0,0,0.00625,0
+B200 HGX,1,,0,0,0.9955,0,0.03275,0.00025,1,0.49025
+GB300 NVL72,1,1,,0,1,0.14025,1,0.99975,1,1
+Vera Rubin NVL72,1,1,1,,1,0.9135,1,1,1,1
+MI355X platform,1,0.0045,0,0,,0,0,0,0.963,0.06675
+Helios (MI455X),1,1,0.85975,0.0865,1,,0.99925,0.9975,1,1
+TPU v7 Ironwood (external),1,0.96725,0,0,1,0.00075,,0.03525,1,0.85425
+TPU v7 Ironwood (Google internal),1,0.99975,0.00025,0,1,0.0025,0.96475,,1,0.94425
+Trainium2 (Trn2 UltraServer),0.99375,0,0,0,0.037,0,0,0,,0.002
+Trainium3 (Trn3 UltraServer),1,0.50975,0,0,0.93325,0,0.14575,0.05575,0.998,

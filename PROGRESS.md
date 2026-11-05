@@ -29,7 +29,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ✅ complete — 3 layers drafted, ~30k words, ~146 visuals (42–46 % data charts) | `phase-4-complete` (local tag) |
 | 5 | Layers 08 systems, 09 CUDA, 10 libraries | ✅ complete — 3 layers drafted, ~31k words, ~140 visuals (43–50 % data charts) | `phase-5-complete` (local tag) |
 | 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ✅ complete — 3 layers drafted, ~30.5k words, ~140 visuals (45–54 % data charts) | `phase-6-complete` (local tag) |
-| 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ⏳ in progress — CS1–CS5 drafted; CS6–CS7 and chapters 14–18 running | |
+| 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ✅ complete — 5 chapters (~44k words, ~260 visuals) incl. scripts/tco model; 7 case studies (~16k words, 73 visuals) | `phase-7-complete` (local tag) |
 | 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ⬜ planned | |
 | 9 | Independent QA, fixes, MkDocs site, v1.0 | ⬜ planned | |
 
@@ -63,10 +63,10 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 11 | Inference and AI software | 6 | drafted | 10,128 | 47 | 26 (26) | 0 | 9 | 12 | 55% | 197 | pending |
 | 12 | Orchestration and cloud services | 6 | drafted | 10,354 | 48 | 22 (22) | 0 | 13 | 13 | 46% | 125 | pending |
 | 13 | Ecosystem, go-to-market and capital | 6 | drafted | 10,001 | 52 | 25 (25) | 0 | 12 | 15 | 48% | 180 | pending |
-| 14 | Training vs. inference economics | 7 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 15 | Competitive landscape | 7 | planned | 12,011 | 78 | 46 (46) | 0 | 8 | 24 | 59% | 208 | pending |
-| 16 | How NVIDIA built it (timeline) | 7 | planned | 35 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 17 | Roadmap 2025–2028 | 7 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 14 | Training vs. inference economics | 7 | drafted | 6,321 | 31 | 20 (20) | 0 | 4 | 7 | 65% | 78 | pending |
+| 15 | Competitive landscape | 7 | drafted | 21,774 | 120 | 68 (68) | 0 | 15 | 37 | 57% | 371 | pending |
+| 16 | How NVIDIA built it (timeline) | 7 | drafted | 4,614 | 24 | 12 (12) | 0 | 7 | 5 | 50% | 107 | pending |
+| 17 | Roadmap 2025–2028 | 7 | drafted | 4,637 | 25 | 14 (14) | 0 | 5 | 6 | 56% | 110 | pending |
 | 18 | Vulnerabilities and bear case | 7 | drafted | 7,315 | 29 | 21 (21) | 0 | 4 | 4 | 72% | 179 | pending |
 | 19 | Implications for Qualcomm | 8 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS1 | Mellanox: the best deal | 7 | drafted | 2,135 | 12 | 5 (5) | 0 | 3 | 4 | 42% | 48 | pending |
@@ -76,7 +76,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **181,854** | **889** | | | | | | **1456** unique | |
+| **Total** | | | | **207,087** | **1011** | | | | | | **1552** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **346**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
@@ -153,6 +153,10 @@ Charts in library (`assets/charts/catalog.json`): **346**. Visual = chart/diagra
 | 7 | case studies CS1–CS3 | 3 pages, ~6,500 words, 34 visuals | S21000–S23010 | done |
 | 7 | case studies CS4–CS5 | 2 pages, ~4,950 words, 19 visuals | S24000–S25012 | done |
 | 7 | case studies CS6–CS7 | 2 pages, ~4,600 words, 20 visuals | S26000–S27016 | done |
+| 7 | chapter 14 + TCO model | 6,321 words, 31 visuals; scripts/tco/tco_model.py (make tco) | S14000–S14006 | done |
+| 7 | chapter 15 part A / part B | 11 pages, ~21.8k words, 125 visuals | S15000–S15014, S15500–S15552 | done |
+| 7 | chapters 16 + 17 | 9.3k words, 49 visuals | S16000–S17008 | done |
+| 7 | chapter 18 | 7,315 words, 29 visuals | S18000–S18027 | done |
 | 5 | layer 08 CORE / STRATEGY | 9 pages, 10,376 words, 46 visuals; 08-nvl72-rack-anatomy.d2, 08-compute-tray-anatomy.d2 | S8000–S8025, S8500–S8530 | done |
 | 5 | layer 09 CORE / STRATEGY | 9 pages, 9,996 words, 42 visuals; 09-cuda-software-stack.d2 | S9000–S9030, S9500–S9538 | done |
 | 5 | layer 10 CORE / STRATEGY | 8 pages, ~11k words, ~50 visuals (STRATEGY agent's shell was blocked; orchestrator ran build/validation and fixed charts) | S10000–S10048, S10501–S10570 | done |

@@ -1,0 +1,23 @@
+period,period_type,period_end,metric,value,unit,confidence,source_id,notes
+FY1999,FY,1999-01-31,revenue_total,0.1582,USD_B,confirmed,S16015,FY2001 Form 10-K405 selected data (revenue $158.2M); IPO priced during this fiscal year (January 1999)
+FY2000,FY,2000-01-30,revenue_total,0.3745,USD_B,confirmed,S16015,FY2001 Form 10-K405 ($374.5M)
+FY2001,FY,2001-01-28,revenue_total,0.7353,USD_B,confirmed,S16015;S16006,FY2001 Form 10-K405 ($735.3M); repeated in FY2005 10-K selected data
+FY2002,FY,2002-01-27,revenue_total,1.3695,USD_B,confirmed,S16006,FY2005 10-K selected data ($1.37B); first year above $1B
+FY2003,FY,2003-01-26,revenue_total,1.9094,USD_B,confirmed,S16006,FY2005 10-K selected data
+FY2004,FY,2004-01-25,revenue_total,1.8229,USD_B,confirmed,S16006,FY2005 10-K selected data; revenue fell y/y
+FY2005,FY,2005-01-30,revenue_total,2.0100,USD_B,confirmed,S16006;S16007,FY2005 and FY2006 10-K selected data
+FY2006,FY,2006-01-29,revenue_total,2.3757,USD_B,confirmed,S16007;S22000,FY2006 10-K and FY2010 10-K selected data
+FY2007,FY,2007-01-28,revenue_total,3.0688,USD_B,confirmed,S22000,FY2010 10-K selected data
+FY2008,FY,2008-01-27,revenue_total,4.0979,USD_B,confirmed,S22000,FY2010 10-K selected data; CUDA 1.0 shipped in this fiscal year
+FY2009,FY,2009-01-25,revenue_total,3.4249,USD_B,confirmed,S22000,FY2010 10-K selected data
+FY2010,FY,2010-01-31,revenue_total,3.3264,USD_B,confirmed,S22000,FY2010 10-K selected data
+FY2011,FY,2011-01-30,revenue_total,3.5433,USD_B,confirmed,S22004,FY2015 10-K selected data
+FY2012,FY,2012-01-29,revenue_total,3.9979,USD_B,confirmed,S22004,FY2015 10-K selected data
+FY2013,FY,2013-01-27,revenue_total,4.2802,USD_B,confirmed,S22004,FY2015 10-K selected data
+FY2014,FY,2014-01-26,revenue_total,4.1302,USD_B,confirmed,S22004,FY2015 10-K selected data
+FY2015,FY,2015-01-25,revenue_total,4.6815,USD_B,confirmed,S22004,FY2015 10-K selected data
+FY2001,FY,2001-01-28,gross_margin_gaap_pct,37,pct,confirmed,S16008,FY2003 10-K: gross margins of 37% (rounded to whole percent in the filing)
+FY2002,FY,2002-01-27,gross_margin_gaap_pct,38,pct,confirmed,S16008,FY2003 10-K (rounded)
+FY2003,FY,2003-01-26,gross_margin_gaap_pct,30,pct,confirmed,S16008,FY2003 10-K (rounded); mix shift to lower-margin Xbox processors and an ~$21M inventory write-down
+FY2002,FY,2002-01-27,xbox_pct_revenue,9,pct,confirmed,S16008,Xbox processors as a share of revenue (FY2003 10-K)
+FY2003,FY,2003-01-26,xbox_pct_revenue,23,pct,confirmed,S16008,Xbox processors as a share of revenue (FY2003 10-K)

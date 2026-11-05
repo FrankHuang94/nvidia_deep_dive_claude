@@ -1,0 +1,11 @@
+chart_group,entity,period,metric,value_usd_b,basis,confidence,source_id,notes
+annual_scale,NVIDIA,FY2026,data_center_revenue,193.7,reported,confirmed,S1;S402,"Fiscal year to 2026-01-25"
+annual_scale,Broadcom,FY2026,ai_semiconductor_revenue,58.0,management estimate,reported,S15501,"Q4 FY2026 guided"
+annual_scale,AMD,CY2025,data_center_revenue,16.66,repo sum of quarters,estimate,S450,"Sum of 2025 quarters (peer_financials.csv; Q4 rounded)"
+annual_scale,Qualcomm,FY2029 target,data_center_revenue,15.0,company target,reported,S15512;S90059,"Investor Day 2026 goal, reiterated July 2026"
+annual_scale,Qualcomm,FY2027 target,data_center_revenue,5.0,company target,reported,S15512;S15511,"Includes >= $1B from two hyperscaler custom-silicon customers"
+latest_quarter,NVIDIA,Q2 FY2027 (to 2026-07-26),data_center_revenue,89.0,reported,confirmed,S405;S90011,"Hyperscale ~$48.7-49B; networking record"
+latest_quarter,Broadcom,Q3 FY2026 (to 2026-08-02),ai_semiconductor_revenue,16.7,reported,confirmed,S2516,"+221% y/y"
+latest_quarter,Intel,Q3 2026 (to 2026-09-26),dcai_segment_revenue,7.3,reported,reported,S15543;S15542,"Data Center and AI segment, mostly Xeon CPUs; +78% y/y"
+latest_quarter,AMD,Q2 2026 (to 2026-06-27),data_center_revenue,6.7,reported,confirmed,S543,"EPYC plus Instinct; +107% y/y"
+latest_quarter,Marvell,Q2 FY2027 (to 2026-08-01),data_center_revenue,2.17,reported,reported,S15504,"+46% y/y; ~79% of revenue"

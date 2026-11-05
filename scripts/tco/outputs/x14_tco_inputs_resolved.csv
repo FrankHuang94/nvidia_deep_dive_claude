@@ -1,0 +1,104 @@
+system,parameter,base,low,high
+H200 HGX,accelerators_per_unit,8,8,8
+H200 HGX,system_price_usd_m,0.319,0.319,0.467
+H200 HGX,it_kw_per_accelerator,1.37,1.25,1.5
+H200 HGX,vendor_margin_share,0.45,0.38,0.56
+H200 HGX,fp8_dense_pflops,1.979,1.979,1.979
+H200 HGX,training_mfu,0.3,0.22,0.38
+H200 HGX,sa_owner_tco_usd_per_hour,1.22,1.22,1.22
+B200 HGX,accelerators_per_unit,8,8,8
+B200 HGX,system_price_usd_m,0.37,0.28,0.5
+B200 HGX,it_kw_per_accelerator,1.71,1.55,1.9
+B200 HGX,vendor_margin_share,0.55,0.45,0.62
+B200 HGX,fp8_dense_pflops,4.5,4.5,4.5
+B200 HGX,training_mfu,0.3,0.22,0.38
+B200 HGX,sa_owner_tco_usd_per_hour,1.73,1.73,1.73
+GB300 NVL72,accelerators_per_unit,72,72,72
+GB300 NVL72,system_price_usd_m,3.99,3.6,5
+GB300 NVL72,it_kw_per_accelerator,2.12,1.95,2.3
+GB300 NVL72,vendor_margin_share,0.57,0.5,0.62
+GB300 NVL72,fp8_dense_pflops,5,5,5
+GB300 NVL72,training_mfu,0.3,0.22,0.38
+GB300 NVL72,sa_owner_tco_usd_per_hour,2.31,2.31,2.31
+Vera Rubin NVL72,accelerators_per_unit,72,72,72
+Vera Rubin NVL72,system_price_usd_m,7.8,5,9.1
+Vera Rubin NVL72,it_kw_per_accelerator,3.3,3,3.7
+Vera Rubin NVL72,vendor_margin_share,0.48,0.42,0.54
+Vera Rubin NVL72,tokens_anchor,1,1,1
+Vera Rubin NVL72,tokens_factor_generation,3.1,2.3,4
+Vera Rubin NVL72,fp8_dense_pflops,17.5,17.5,17.5
+Vera Rubin NVL72,training_mfu,0.28,0.2,0.36
+Vera Rubin NVL72,sa_owner_tco_usd_per_hour,3.61,3.61,3.61
+MI355X platform,accelerators_per_unit,8,8,8
+MI355X platform,system_price_usd_m,0.3,0.23,0.38
+MI355X platform,it_kw_per_accelerator,2.09,1.9,2.3
+MI355X platform,vendor_margin_share,0.34,0.25,0.4
+MI355X platform,fp8_dense_pflops,5.03,5.03,5.03
+MI355X platform,training_mfu,0.24,0.15,0.32
+MI355X platform,sa_owner_tco_usd_per_hour,1.5,1.5,1.5
+Helios (MI455X),accelerators_per_unit,72,72,72
+Helios (MI455X),system_price_usd_m,5.25,4.5,6
+Helios (MI455X),it_kw_per_accelerator,3.79,3.4,4.2
+Helios (MI455X),vendor_margin_share,0.4,0.3,0.45
+Helios (MI455X),tokens_anchor,1,1,1
+Helios (MI455X),tokens_factor_vs_rubin,0.55,0.3,0.9
+Helios (MI455X),fp8_dense_pflops,20,20,20
+Helios (MI455X),training_mfu,0.22,0.14,0.3
+TPU v7 Ironwood (external),accelerators_per_unit,64,64,64
+TPU v7 Ironwood (external),calibrate_tco_ratio_vs_gb300,0.524,0.524,0.524
+TPU v7 Ironwood (external),it_kw_per_accelerator,1.207,1.1,1.35
+TPU v7 Ironwood (external),vendor_margin_share,0.35,0.25,0.45
+TPU v7 Ironwood (external),tokens_anchor,1,1,1
+TPU v7 Ironwood (external),tokens_factor_vs_b200_same_precision,0.95,0.86,1.05
+TPU v7 Ironwood (external),tokens_factor_fp8_vs_fp4,0.73,0.6,0.85
+TPU v7 Ironwood (external),tokens_factor_topology,1,1,2
+TPU v7 Ironwood (external),fp8_dense_pflops,4.614,4.614,4.614
+TPU v7 Ironwood (external),training_mfu,0.3,0.22,0.4
+TPU v7 Ironwood (external),sa_owner_tco_usd_per_hour,1.21,1.21,1.21
+TPU v7 Ironwood (external),capex_per_accelerator_usd (calibrated),28403.4,22722.7,34084
+TPU v7 Ironwood (Google internal),accelerators_per_unit,64,64,64
+TPU v7 Ironwood (Google internal),calibrate_tco_ratio_vs_gb300,0.446,0.446,0.446
+TPU v7 Ironwood (Google internal),pue,1.09,1.09,1.15
+TPU v7 Ironwood (Google internal),it_kw_per_accelerator,1.207,1.1,1.35
+TPU v7 Ironwood (Google internal),vendor_margin_share,0.2,0.12,0.3
+TPU v7 Ironwood (Google internal),tokens_anchor,1,1,1
+TPU v7 Ironwood (Google internal),fp8_dense_pflops,4.614,4.614,4.614
+TPU v7 Ironwood (Google internal),training_mfu,0.3,0.22,0.4
+TPU v7 Ironwood (Google internal),sa_owner_tco_usd_per_hour,1.03,1.03,1.03
+TPU v7 Ironwood (Google internal),capex_per_accelerator_usd (calibrated),23404.5,18723.6,28085.4
+Trainium2 (Trn2 UltraServer),accelerators_per_unit,64,64,64
+Trainium2 (Trn2 UltraServer),capex_per_accelerator_usd_k,12,8,18
+Trainium2 (Trn2 UltraServer),it_kw_per_accelerator,0.75,0.6,0.95
+Trainium2 (Trn2 UltraServer),vendor_margin_share,0.15,0.08,0.25
+Trainium2 (Trn2 UltraServer),tokens_anchor,1,1,1
+Trainium2 (Trn2 UltraServer),tokens_factor_bandwidth,0.6,0.6,0.6
+Trainium2 (Trn2 UltraServer),tokens_factor_software,0.8,0.6,1.2
+Trainium2 (Trn2 UltraServer),fp8_dense_pflops,1.299,1.299,1.299
+Trainium2 (Trn2 UltraServer),training_mfu,0.24,0.15,0.32
+Trainium3 (Trn3 UltraServer),accelerators_per_unit,144,144,144
+Trainium3 (Trn3 UltraServer),capex_per_accelerator_usd_k,20,14,28
+Trainium3 (Trn3 UltraServer),it_kw_per_accelerator,1.05,0.8,1.4
+Trainium3 (Trn3 UltraServer),vendor_margin_share,0.15,0.08,0.25
+Trainium3 (Trn3 UltraServer),tokens_anchor,1,1,1
+Trainium3 (Trn3 UltraServer),tokens_factor_generation,2,1,3.4
+Trainium3 (Trn3 UltraServer),fp8_dense_pflops,2.52,2.52,2.52
+Trainium3 (Trn3 UltraServer),training_mfu,0.24,0.15,0.32
+All,utilisation_pct,70,40,90
+All,electricity_usd_per_kwh,0.081,0.05,0.1
+All,pue,1.15,1.09,1.4
+All,wacc_pct,8,0,12
+All,it_life_years,6,4,7
+All,facility_capex_usd_m_per_mw,12,6.6,13
+All,facility_life_years,20,15,25
+All,network_storage_ratio,0.26,0.2,0.32
+All,ops_pct_of_it_capex,3,2,5
+All,power_draw_floor,0.3,0.2,0.4
+All,hours_per_year,8760,8760,8760
+All,ref_interactivity_tok_s_per_user,50,35,100
+All,tokens_measurement_factor,1,0.75,1.25
+All,capex_uncertainty_calibrated,1,0.8,1.2
+All,training_run_flop,1e+27,5e+26,2e+27
+All,training_goodput,0.9,0.85,0.95
+All,training_cluster_accelerators,100000,100000,100000
+All,site_mw_example,100,100,100
+All,illustrative_token_price_usd_per_m,0.5,0.25,1

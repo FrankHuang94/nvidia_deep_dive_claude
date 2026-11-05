@@ -1,0 +1,26 @@
+vendor,product,first_dated_mention,first_mention_event,availability_date,availability_basis,status,confidence,source_id,notes
+NVIDIA,Blackwell Ultra (B300),2024-06-02,Computex 2024 roadmap,2025-08,2H 2025 ramp (mid-quarter placeholder),shipping,confirmed,S17003;S17004;S32004,Named for 2025 on the Computex 2024 one-year-rhythm slide
+NVIDIA,Rubin GPU,2024-06-02,Computex 2024 roadmap,2026-08,production shipments early Aug 2026,shipping,confirmed,S17003;S17004;S500,Specs first detailed at GTC 2025 (2025-03-18)
+NVIDIA,Vera CPU,2024-06-02,Computex 2024 roadmap,2026-08,ships inside Vera Rubin NVL72,shipping,confirmed,S17003;S500,Named alongside Rubin
+NVIDIA,Rubin Ultra,2024-06-02,Computex 2024 roadmap,2027-08,planned 2H 2027 (Kyber rack reported to slip to 2028),roadmap,confirmed,S17004;S35018;S507,Availability is the official plan; SemiAnalysis-reported Kyber slip would add ~12 months
+NVIDIA,Feynman,2025-03-18,GTC 2025 roadmap,2028-07,planned 2028 (mid-year placeholder),roadmap,confirmed,S35018;S109,Specs not disclosed as of 2026-11-05
+NVIDIA,Groq LP35,2026-03-16,GTC 2026 roadmap,2027-07,2027 (mid-year placeholder),roadmap,confirmed,S108,Slide position only; specs not disclosed
+AMD,Instinct MI355X,2024-06-02,Computex 2024 annual-cadence roadmap,2025-07,shipping from Q3 2025,shipping,confirmed,S17007;S143,MI350 series named for 2025 at Computex 2024
+AMD,Instinct MI455X,2024-06-02,Computex 2024 annual-cadence roadmap,2026-07,Helios first shipments ~end Q3 2026,shipping,confirmed,S17007;S538;S90020,Named as MI400 series (CDNA Next) for 2026 at Computex 2024
+AMD,Instinct MI500,2025-06-12,Advancing AI 2025,2027-07,2027 (mid-year placeholder),roadmap,confirmed,S144;S538,
+AMD,Instinct MI600,2026-07-23,Advancing AI 2026,2028-07,2028 (mid-year placeholder),roadmap,confirmed,S538;S541,
+Google,TPU v6e Trillium,2024-05-14,Google I/O 2024,2024-12,GA 2024-12-11,shipping,confirmed,S549,
+Google,TPU v7 Ironwood,2025-04-09,Cloud Next 2025,2025-11,GA announced 2025-11-06,shipping,confirmed,S151;S547,
+Google,TPU 8t / 8i,2026-04-22,Cloud Next 2026,2026-11,GA 'later in 2026' (placeholder),announced,confirmed,S550,
+AWS,Trainium3,2024-12-03,re:Invent 2024,2025-12,GA at re:Invent 2025-12-02,shipping,confirmed,S155;S90035,
+AWS,Trainium4,2025-12-02,re:Invent 2025,2027-07,no date given; 2027 is an analyst estimate (mid-year placeholder),roadmap,reported,S156;S518,
+Microsoft,Maia 200,2026-01-26,product launch,2026-01,deployed in Azure at launch,shipping,confirmed,S158;S90044,
+Microsoft,Maia 300,2026-10,press reports of the unveil,2027-07,production deployments 2027 (mid-year placeholder),announced,reported,S90046,Unveil date approximate
+Meta,MTIA 450,2026-03-11,MTIA roadmap disclosure,2027-02,early 2027 per secondary reports,roadmap,reported,S561,
+Meta,MTIA 500,2026-03-11,MTIA roadmap disclosure,2027-11,late 2027 per secondary reports,roadmap,reported,S561,
+Huawei,Ascend 950PR,2025-09-18,Huawei Connect 2025,2026-03,Q1 2026,shipping,reported,S163,
+Huawei,Ascend 960,2025-09-18,Huawei Connect 2025,2027-02,Q1 2027 after a reported pull-in from Q4 2027,roadmap,confirmed,S163;S567,
+Huawei,Ascend 970,2025-09-18,Huawei Connect 2025,2028-11,Q4 2028,roadmap,confirmed,S163,
+Qualcomm,AI200,2025-10-27,product announcement,2026-07,2026 (mid-year placeholder; no shipment confirmation found),announced,confirmed,S173,
+Qualcomm,AI250,2025-10-27,product announcement,2027-07,2027 (mid-year placeholder),roadmap,confirmed,S173,
+Qualcomm,Dragonfly AI300,2026-06-24,Investor Day 2026,2028-07,2028 (mid-year placeholder),announced,confirmed,S90060;S90056,

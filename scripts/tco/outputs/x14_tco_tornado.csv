@@ -1,0 +1,25 @@
+case,parameter,label,base_input,low_input,high_input,base_result,result_at_low,result_at_high,swing
+GB300 NVL72 $/M tokens,utilisation_pct,Utilization (%),70,40,90,0.155879,0.268189,0.122602,0.145587
+GB300 NVL72 $/M tokens,tokens_measurement_factor,Tokens/s per GPU (× measured),1,0.75,1.25,0.155879,0.207839,0.124703,0.0831355
+GB300 NVL72 $/M tokens,system_price_usd_m,Rack price (US$ M),3.99,3.6,5,0.155879,0.143716,0.187377,0.0436608
+GB300 NVL72 $/M tokens,it_life_years,Depreciation life (years),6,4,7,0.155879,0.199125,0.143632,0.055493
+GB300 NVL72 $/M tokens,wacc_pct,Cost of capital (%),8,0,12,0.155879,0.119822,0.176253,0.0564301
+GB300 NVL72 $/M tokens,electricity_usd_per_kwh,Electricity (US$/kWh),0.081,0.05,0.1,0.155879,0.152095,0.158198,0.00610335
+GB300 NVL72 $/M tokens,facility_capex_usd_m_per_mw,Facility capex (US$ M/MW),12,6.6,13,0.155879,0.146178,0.157676,0.0114979
+GB300 NVL72 $/M tokens,network_storage_ratio,Network & storage (× rack price),0.26,0.2,0.32,0.155879,0.149954,0.161805,0.0118508
+GB300 NVL72 $/M tokens,ops_pct_of_it_capex,Operations (% of IT capex/yr),3,2,5,0.155879,0.150827,0.165983,0.0151553
+GB300 NVL72 $/M tokens,pue,PUE,1.15,1.09,1.4,0.155879,0.154238,0.162715,0.00847674
+GB300 NVL72 $/M tokens,it_kw_per_accelerator,"Power per GPU (kW, all-in IT)",2.12,1.95,2.3,0.155879,0.153358,0.158549,0.00519155
+GB300 NVL72 $/M tokens,power_draw_floor,Idle power floor (share),0.3,0.2,0.4,0.155879,0.155504,0.156255,0.000750944
+TPU v7 (external) $/M ÷ GB300 $/M,TPU v7 Ironwood (external):tokens_factor_topology,TPU pod topology bonus (×),1,1,2,3.41,3.41,1.705,1.705
+TPU v7 (external) $/M ÷ GB300 $/M,TPU v7 Ironwood (external):tokens_factor_fp8_vs_fp4,TPU FP8 vs Blackwell FP4 (×),0.73,0.6,0.85,3.41,4.14883,2.92858,1.22024
+TPU v7 (external) $/M ÷ GB300 $/M,GB300 NVL72:tokens_measurement_factor,GB300 tokens/s (× measured),1,0.75,1.25,3.41,2.5575,4.26249,1.705
+TPU v7 (external) $/M ÷ GB300 $/M,B200 HGX:tokens_measurement_factor,B200 anchor tokens/s (× measured),1,0.75,1.25,3.41,4.54666,2.728,1.81866
+TPU v7 (external) $/M ÷ GB300 $/M,TPU v7 Ironwood (external):tokens_factor_vs_b200_same_precision,TPU vs B200 at equal precision (×),0.95,0.86,1.05,3.41,3.76686,3.08523,0.681622
+TPU v7 (external) $/M ÷ GB300 $/M,GB300 NVL72:system_price_usd_m,GB300 rack price (US$ M),3.99,3.6,5,3.41,3.69858,2.83678,0.861806
+TPU v7 (external) $/M ÷ GB300 $/M,TPU v7 Ironwood (external):capex_uncertainty_calibrated,TPU capex (× calibrated),1,0.8,1.2,3.41,2.87748,3.94251,1.06503
+TPU v7 (external) $/M ÷ GB300 $/M,All:wacc_pct,Cost of capital (%),8,0,12,3.41,3.39858,3.41559,0.0170148
+TPU v7 (external) $/M ÷ GB300 $/M,All:it_life_years,Depreciation life (years),6,4,7,3.41,3.3938,3.41635,0.0225516
+TPU v7 (external) $/M ÷ GB300 $/M,All:electricity_usd_per_kwh,Electricity (US$/kWh),0.081,0.05,0.1,3.41,3.40265,3.41432,0.0116665
+TPU v7 (external) $/M ÷ GB300 $/M,All:utilisation_pct,Utilization (%),70,40,90,3.41,3.40494,3.41328,0.00834003
+TPU v7 (external) $/M ÷ GB300 $/M,All:facility_capex_usd_m_per_mw,Facility capex (US$ M/MW),12,6.6,13,3.41,3.39041,3.41336,0.0229435

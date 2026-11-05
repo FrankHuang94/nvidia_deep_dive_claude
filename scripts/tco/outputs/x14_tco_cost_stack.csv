@@ -1,0 +1,71 @@
+system,component,label,usd_per_year,usd_per_accelerator_hour,usd_per_m_tokens,share
+H200 HGX,hardware,Accelerator system at cost,3655.21,0.417261,0.537528,0.240723
+H200 HGX,vendor_margin,Vendor gross margin in price,2990.62,0.341396,0.439796,0.196955
+H200 HGX,network_storage,Scale-out network & storage,1727.92,0.197251,0.254104,0.113797
+H200 HGX,cost_of_capital,Cost of capital (IT),2494.48,0.284758,0.366833,0.16428
+H200 HGX,facility,"Facility (shell, power & cooling plant)",1925.62,0.219819,0.283178,0.126817
+H200 HGX,power,Electricity,883.15,0.100816,0.129874,0.0581622
+H200 HGX,ops,Operations & maintenance,1507.28,0.172063,0.221657,0.0992656
+B200 HGX,hardware,Accelerator system at cost,3468.75,0.395976,0.11326,0.19422
+B200 HGX,vendor_margin,Vendor gross margin in price,4239.58,0.483971,0.138429,0.23738
+B200 HGX,network_storage,Scale-out network & storage,2004.17,0.228786,0.065439,0.112216
+B200 HGX,cost_of_capital,Cost of capital (IT),2893.28,0.330283,0.0944698,0.161999
+B200 HGX,facility,"Facility (shell, power & cooling plant)",2403.51,0.274373,0.0784781,0.134576
+B200 HGX,power,Electricity,1102.33,0.125836,0.0359926,0.0617209
+B200 HGX,ops,Operations & maintenance,1748.25,0.199572,0.0570829,0.0978871
+GB300 NVL72,hardware,Accelerator system at cost,3971.53,0.453371,0.0287337,0.184333
+GB300 NVL72,vendor_margin,Vendor gross margin in price,5264.58,0.60098,0.0380888,0.244349
+GB300 NVL72,network_storage,Scale-out network & storage,2401.39,0.274131,0.0173739,0.111457
+GB300 NVL72,cost_of_capital,Cost of capital (IT),3466.72,0.395745,0.0250815,0.160903
+GB300 NVL72,facility,"Facility (shell, power & cooling plant)",2979.79,0.340158,0.0215585,0.138303
+GB300 NVL72,power,Electricity,1366.63,0.156008,0.00988743,0.0634301
+GB300 NVL72,ops,Operations & maintenance,2094.75,0.239127,0.0151553,0.097225
+Vera Rubin NVL72,hardware,Accelerator system at cost,9388.89,1.07179,0.0219122,0.232469
+Vera Rubin NVL72,vendor_margin,Vendor gross margin in price,8666.67,0.989346,0.0202267,0.214587
+Vera Rubin NVL72,network_storage,Scale-out network & storage,4694.44,0.535895,0.0109561,0.116235
+Vera Rubin NVL72,cost_of_capital,Cost of capital (IT),6777.05,0.773636,0.0158166,0.1678
+Vera Rubin NVL72,facility,"Facility (shell, power & cooling plant)",4638.35,0.529492,0.0108252,0.114846
+Vera Rubin NVL72,power,Electricity,2127.3,0.242842,0.00496478,0.0526719
+Vera Rubin NVL72,ops,Operations & maintenance,4095,0.467466,0.00955709,0.101392
+MI355X platform,hardware,Accelerator system at cost,4125,0.47089,0.253357,0.259054
+MI355X platform,vendor_margin,Vendor gross margin in price,2125,0.24258,0.130517,0.133452
+MI355X platform,network_storage,Scale-out network & storage,1625,0.185502,0.0998074,0.102052
+MI355X platform,cost_of_capital,Cost of capital (IT),2345.9,0.267797,0.144085,0.147325
+MI355X platform,facility,"Facility (shell, power & cooling plant)",2937.62,0.335345,0.180429,0.184486
+MI355X platform,power,Electricity,1347.29,0.1538,0.0827504,0.084611
+MI355X platform,ops,Operations & maintenance,1417.5,0.161815,0.0870628,0.0890204
+Helios (MI455X),hardware,Accelerator system at cost,7291.67,0.832382,0.0309411,0.239854
+Helios (MI455X),vendor_margin,Vendor gross margin in price,4861.11,0.554921,0.0206274,0.159903
+Helios (MI455X),network_storage,Scale-out network & storage,3159.72,0.360699,0.0134078,0.103937
+Helios (MI455X),cost_of_capital,Cost of capital (IT),4561.48,0.520716,0.019356,0.150046
+Helios (MI455X),facility,"Facility (shell, power & cooling plant)",5327.07,0.608113,0.0226047,0.17523
+Helios (MI455X),power,Electricity,2443.17,0.2789,0.0103672,0.0803661
+Helios (MI455X),ops,Operations & maintenance,2756.25,0.31464,0.0116957,0.0906647
+TPU v7 Ironwood (external),hardware,Accelerator system at cost,3077.03,0.351259,0.144873,0.27255
+TPU v7 Ironwood (external),vendor_margin,Vendor gross margin in price,1656.86,0.18914,0.0780087,0.146758
+TPU v7 Ironwood (external),network_storage,Scale-out network & storage,1230.81,0.140504,0.0579493,0.10902
+TPU v7 Ironwood (external),cost_of_capital,Cost of capital (IT),1776.84,0.202836,0.0836575,0.157385
+TPU v7 Ironwood (external),facility,"Facility (shell, power & cooling plant)",1696.51,0.193666,0.0798754,0.15027
+TPU v7 Ironwood (external),power,Electricity,778.075,0.0888213,0.0366334,0.0689185
+TPU v7 Ironwood (external),ops,Operations & maintenance,1073.65,0.122562,0.0505496,0.095099
+TPU v7 Ironwood (Google internal),hardware,Accelerator system at cost,3120.6,0.356233,0.146925,0.32475
+TPU v7 Ironwood (Google internal),vendor_margin,Vendor gross margin in price,780.151,0.0890583,0.0367312,0.0811875
+TPU v7 Ironwood (Google internal),network_storage,Scale-out network & storage,1014.2,0.115776,0.0477505,0.105544
+TPU v7 Ironwood (Google internal),cost_of_capital,Cost of capital (IT),1464.13,0.167138,0.0689342,0.152366
+TPU v7 Ironwood (Google internal),facility,"Facility (shell, power & cooling plant)",1608,0.183561,0.075708,0.167339
+TPU v7 Ironwood (Google internal),power,Electricity,737.48,0.0841872,0.0347221,0.0767469
+TPU v7 Ironwood (Google internal),ops,Operations & maintenance,884.691,0.100992,0.0416531,0.0920667
+Trainium2 (Trn2 UltraServer),hardware,Accelerator system at cost,1700,0.194064,0.520831,0.323075
+Trainium2 (Trn2 UltraServer),vendor_margin,Vendor gross margin in price,300,0.0342466,0.0919113,0.0570132
+Trainium2 (Trn2 UltraServer),network_storage,Scale-out network & storage,520,0.0593607,0.159313,0.098823
+Trainium2 (Trn2 UltraServer),cost_of_capital,Cost of capital (IT),750.689,0.0856951,0.229989,0.142664
+Trainium2 (Trn2 UltraServer),facility,"Facility (shell, power & cooling plant)",1054.17,0.120339,0.322967,0.200339
+Trainium2 (Trn2 UltraServer),power,Electricity,483.476,0.0551914,0.148123,0.0918819
+Trainium2 (Trn2 UltraServer),ops,Operations & maintenance,453.6,0.0517808,0.13897,0.086204
+Trainium3 (Trn3 UltraServer),hardware,Accelerator system at cost,2833.33,0.32344,0.208332,0.338921
+Trainium3 (Trn3 UltraServer),vendor_margin,Vendor gross margin in price,500,0.0570776,0.0367645,0.0598097
+Trainium3 (Trn3 UltraServer),network_storage,Scale-out network & storage,866.667,0.0989346,0.0637252,0.10367
+Trainium3 (Trn3 UltraServer),cost_of_capital,Cost of capital (IT),1251.15,0.142825,0.0919957,0.149661
+Trainium3 (Trn3 UltraServer),facility,"Facility (shell, power & cooling plant)",1475.84,0.168475,0.108517,0.176539
+Trainium3 (Trn3 UltraServer),power,Electricity,676.867,0.0772679,0.0497694,0.0809664
+Trainium3 (Trn3 UltraServer),ops,Operations & maintenance,756,0.0863014,0.055588,0.0904322

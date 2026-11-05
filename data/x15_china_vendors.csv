@@ -1,0 +1,8 @@
+company,period,metric,value,unit,yoy_growth_pct,basis,confidence,source_id,notes
+Huawei,CY2025,ai_chip_revenue,7.5,USD_B,,reported (FT),reported,S15527,"Ascend AI-chip revenue as reported by the FT via Tom's Hardware"
+Huawei,CY2026E,ai_chip_revenue,12.0,USD_B,60,company expectation (FT),reported,S15527,"Expectation after DeepSeek V4 orders; ~750k Ascend 950PR units targeted"
+Hygon,H1 2026,revenue,9.10,CNY_B,66.5,reported (aggregator),reported,S15525,"CPUs and DCU accelerators combined; DCU split not disclosed"
+Cambricon,H1 2026,revenue,5.996,CNY_B,108,reported,reported,S15522,"Net profit 2.311B yuan; inventory 8.25B yuan"
+Cambricon,CY2025,revenue,6.5,CNY_B,453,reported,reported,S15521,"Full-year 2025"
+Moore Threads,H1 2026,revenue,1.736,CNY_B,147.4,reported,reported,S15523,"More than its full-year 2025 revenue"
+MetaX,H1 2026,revenue,1.3,CNY_B,,reported (conflicting),speculative,S15524,"Another summary of the same results gives 0.946B yuan"

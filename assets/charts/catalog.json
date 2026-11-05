@@ -8830,9 +8830,9 @@
   },
   {
     "id": "14-tco-free-chip-test",
-    "title": "Est.: at 50 tok/s/user even a free MI355X, TPU or Trainium makes costlier tokens than a paid-for GB300; at 100 the test fails",
+    "title": "Est.: at 50 tok/s/user even a free MI355X, TPU or Trainium makes costlier tokens than a paid-for GB300; at 100 the test mostly fails",
     "subtitle": "US$ per million tokens: rival at its estimated price (bar) vs with its accelerator system free (◆; network, facility, power, ops still paid) · line = GB300 at full price",
-    "alt": "Two-panel horizontal bar chart. At 50 tokens/s per user GB300 NVL72 costs about $0.156 per million tokens at full price, while rivals' costs with their accelerator systems given away are: MI355X (8-GPU) $0.480, Trainium2 $0.817, Trainium3 $0.297, TPU v7 (external owner) $0.242, TPU v7 (Google itself) $0.214, Helios MI455X $0.062; only Helios MI455X beat GB300 when free. At 100 tokens/s per user GB300 costs about $1.74 and the free versions all undercut it (TPU v7 external $0.78). The 'free is not cheap enough' argument holds only where NVIDIA's rack-scale throughput lead is large.",
+    "alt": "Two-panel horizontal bar chart. At 50 tokens/s per user GB300 NVL72 costs about $0.156 per million tokens at full price, while rivals' costs with their accelerator systems given away are: MI355X (8-GPU) $0.480, Trainium2 $0.817, Trainium3 $0.297, TPU v7 (external owner) $0.242, TPU v7 (Google itself) $0.214, Helios MI455X $0.062; only Helios MI455X beat GB300 when free. At 100 tokens/s per user GB300 costs about $1.74 and every free version undercuts it except Trainium2 (TPU v7 external free $0.78). The 'free is not cheap enough' argument holds only where NVIDIA's rack-scale throughput lead is large.",
     "data": [
       "x14_tco_scenarios.csv",
       "tco_model_inputs.csv",

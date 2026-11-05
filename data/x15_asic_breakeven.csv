@@ -1,0 +1,8 @@
+parameter,value,unit,confidence,source_id,notes
+merchant_price_per_gpu,35000,USD,estimate,S35026,"Midpoint of the $30-40K Blackwell price NVIDIA's CEO cited; B200-class merchant GPU"
+asic_unit_cost,15000,USD,speculative,S35020,"Repo assumption: ~$6.4K B200-class build cost (Epoch AI, incl. HBM) plus design-partner margin, packaging, test and board (~2.3x)"
+asic_relative_throughput_base,0.7,ratio,speculative,S625;S628,"Repo assumption: the custom chip delivers ~70% of a merchant GPU's useful throughput per unit on its owner's workloads"
+asic_relative_throughput_low,0.5,ratio,speculative,S625;S628,"Repo sensitivity case"
+asic_relative_throughput_high,0.9,ratio,speculative,S625;S628,"Repo sensitivity case"
+chip_nre,0.585,USD_B,estimate,S2501,"IBS-based design (NRE) cost of one large 3 nm chip; insiders consider IBS figures high"
+software_and_systems_team,0.6,USD_B,speculative,S401;S10535,"Repo assumption: 500 engineers x 3 years x ~$0.4M per engineer-year for compiler, runtime, kernels and system bring-up"

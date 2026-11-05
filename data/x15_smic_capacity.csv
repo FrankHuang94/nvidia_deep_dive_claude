@@ -1,0 +1,8 @@
+estimator,year,metric,value_k_wpm,scope,confidence,source_id,notes
+SemiAnalysis,2025,capacity,45,SMIC 7 nm-class and below (total),estimate,S15528,"Conservative estimate, end-2025"
+SemiAnalysis,2026,capacity,60,SMIC 7 nm-class and below (total),estimate,S15528,"Conservative estimate"
+SemiAnalysis,2027,capacity,80,SMIC 7 nm-class and below (total),estimate,S15528,"Conservative estimate"
+SemiAnalysis,2026,ascend_requirement,20,Wafers Ascend needs (at most),estimate,S15528,"Ceiling on the wafer starts needed for millions of Ascend dies; HBM binds first"
+Nikkei (via TrendForce),2026,output,20,7/5 nm-class output (fewer than),reported,S15529,"'Fewer than 20,000' wafers a month in early 2026"
+Nikkei (via TrendForce),2027,target,100,Government output goal,reported,S15529,"Goal within one to two years of Feb 2026 (plotted at 2027)"
+Morgan Stanley,2027,ai_chip_wafers,18,AI-chip wafers SMIC can make (at best),estimate,S15530,"Yield-limited view"
