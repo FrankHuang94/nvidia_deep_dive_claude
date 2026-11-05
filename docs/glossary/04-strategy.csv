@@ -1,0 +1,17 @@
+term,slug,definition,see_also
+ISA (instruction set architecture),isa,"The vocabulary of machine instructions a processor understands, such as x86 or Arm. Software compiled for one ISA does not run natively on another, which is why ISA choice locks in ecosystems.",x86;arm-isa;risc-v
+x86,x86,"The instruction set used by Intel and AMD processors since the 1970s-80s. Only Intel and AMD hold the licences to build x86 server CPUs, and most legacy enterprise software is compiled for it.",isa;arm-isa
+Arm (instruction set),arm-isa,"A family of instruction sets licensed by Arm Holdings to chip designers, who pay licence fees and per-chip royalties. Grace, Vera, Graviton, Axion and Cobalt are Arm CPUs.",isa;neoverse;ip-royalty
+RISC-V,risc-v,"An open, royalty-free instruction set that anyone can implement. Start-ups such as Ventana, Rivos, Tenstorrent and Akeana design high-performance RISC-V cores as an alternative to Arm.",isa;arm-isa
+Neoverse,neoverse,"Arm's family of datacenter CPU core designs (N-series for efficiency, V-series for performance). Grace and Graviton4 both use Neoverse V2 cores.",arm-isa;compute-subsystem
+Compute Subsystem (CSS),compute-subsystem,"A pre-integrated, pre-verified Arm block of cores, on-chip mesh and I/O that a licensee drops into its chip to save design time. It carries a higher royalty than licensing cores alone.",neoverse;ip-royalty
+IP royalty,ip-royalty,"A per-chip payment to the owner of licensed technology, usually a percentage of the chip's selling price or a fixed fee per unit, on top of an upfront licence fee. Arm earns most of its revenue this way.",arm-isa;compute-subsystem
+Architecture licence,architecture-licence,"An Arm licence that lets a company design its own cores implementing the Arm instruction set, rather than using Arm's core designs. Apple, Qualcomm and NVIDIA (for Vera's Olympus cores) use this route.",arm-isa;neoverse
+NVLink-C2C,nvlink-c2c,"NVIDIA's chip-to-chip link joining a Grace or Vera CPU to its GPUs at 900 GB/s (Grace) or 1.8 TB/s (Vera), several times a PCIe slot, with cache coherence so the GPU can use CPU memory directly.",cache-coherence;nvlink;superchip
+Cache coherence,cache-coherence,"Hardware that keeps every processor's cached copy of shared memory consistent, so a CPU and GPU can read and write the same data with ordinary pointers instead of explicit copies.",nvlink-c2c
+Superchip,superchip,"NVIDIA's name for a CPU and one or two GPUs joined by NVLink-C2C on one module, such as GH200 (one Grace, one Hopper) or GB200 (one Grace, two Blackwell).",nvlink-c2c
+LPDDR5X,lpddr5x,"Low-power DRAM originally made for phones, used by Grace and Vera instead of standard server DIMMs because it delivers more bandwidth per watt; it is soldered or mounted close to the CPU.",socamm
+SOCAMM,socamm,"A compact, replaceable memory module carrying LPDDR5X chips, used with Vera so that low-power memory can be serviced like a normal DIMM.",lpddr5x
+MRDIMM,mrdimm,"Multiplexed-rank DIMM: a server memory module that interleaves two ranks to roughly double the data rate per channel (e.g. 8,800 MT/s), raising CPU memory bandwidth without more channels.",lpddr5x
+Binary translation,binary-translation,Converting a program's machine code from one instruction set (or form) to another while it runs. NVIDIA's Denver cores used a related 'dynamic code optimisation' scheme.,isa
+Host CPU,host-cpu,"The general-purpose processor in an accelerated server that boots the system, runs the operating system, schedules work and moves data to and from the GPUs.",superchip;nvlink-c2c

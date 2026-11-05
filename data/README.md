@@ -423,3 +423,103 @@ revenue points that extend `market_share.csv`: Broadcom AI semiconductor revenue
 `reported` | `derived` (repo arithmetic from reported growth) | `guidance`) and MediaTek's reported 2026 AI-ASIC revenue
 target. `calendar_quarter` = calendar quarter in which the fiscal quarter ends (same convention as `market_share.csv`).
 Used with `market_share.csv` and `financials.csv` by `02-broadcom-ai-vs-nvidia-dc`.
+
+## Layer 04 — CPU (Grace, Vera), CORE (`l04_*.csv`, charts in `scripts/charts/ch_l04_core.py`; sources S4000–S4499)
+
+### l04_host_attach.csv (wide, one row per system)
+`vendor,system,year,status,accelerator,accelerators_per_system,cpus_per_system,cpu,cores_per_cpu,threads_per_core,host_threads_per_system,host_memory_gb_per_system,hbm_gb_per_accelerator,host_link,host_link_gbs_bidir_per_accelerator,confidence,source_id,notes`
+
+How the host CPU is attached to the accelerators in each system: CPU sockets, cores and hardware threads
+(`host_threads_per_system` = sockets × cores × threads per core; for AWS rows it is the vCPU count from the
+Neuron docs because AWS does not name the host CPU), CPU-attached memory per system (DDR or LPDDR5X; AWS GiB
+treated as GB) and the CPU↔GPU link bandwidth **available to each accelerator**, both directions combined: a
+PCIe x16 link per GPU, or an NVLink-C2C link divided by the GPUs that share it (GB200/GB300: 900 GB/s ÷ 2;
+Vera Rubin: 1,800 GB/s ÷ 2 — repo arithmetic). DGX system-memory sizes were entered from the datasheets as
+recalled and carry `[recall; re-verify]` in `notes`. Ratios that overlap `system_specs.csv` (sockets per system)
+are read from that file by the charts where the system exists there.
+
+### l04_scenarios.csv (long)
+`record_type,item,metric,value,unit,confidence,source_id,notes`
+
+Inputs for two worked examples and one projection band. `data_loading`: NVIDIA's DGX-2 ResNet-50 case study
+(synthetic-data ceiling, CPU-preprocessing and DALI throughput in images/s; host cores; list price).
+`kv_offload`: the illustrative 32,768-token Llama 3.1 70B conversation with an FP8 KV cache (model shape comes
+from `P2_model_and_gpu_inputs.csv`; link rates from `interconnect_specs.csv` and `l04_host_attach.csv`; recompute
+uses H100 dense FP8 from `gpu_product_specs.csv` at P2's 50 % compute efficiency). KV bytes = 2 × layers ×
+KV heads × head_dim × bytes × tokens; recompute FLOPs = 2 × params × tokens + 2 × layers × tokens² × heads ×
+head_dim (causal attention). `ratio_projection`: reported 2026 CPU:GPU ratio projections for agentic AI servers
+(Intel earnings call, TrendForce), drawn as a band.
+
+## Layer 04 strategy — CPU competition, roadmap and value chain (`l04_*.csv`, charts in `scripts/charts/ch_l04_strategy.py`; sources S4500–S4547)
+
+### l04_cpu_market_share.csv (long, one row per tracker data point)
+`period,period_date,tracker,metric,scope,entity,value,unit,basis,confidence,source_id,notes`
+
+Server CPU share as reported by Mercury Research, UBS, TrendForce and IDC (via press; trackers differ in scope, so
+series are never mixed). `metric`: `unit_share` (share of all server CPU units), `revenue_share` (IDC share of
+server *system* revenue, inflated by GPU racks), `x86_unit_share` / `x86_revenue_share` / `x86_normalized_share`
+(AMD vs Intel only). `basis`: `actual` | `forecast`. `period_date` is a plotting mid-point.
+
+### l04_cpu_verdicts.csv (long, competitor × dimension)
+`competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes`
+
+Repo verdicts (all `speculative`) for ten rival CPUs against NVIDIA Vera on five dimensions (cores per socket, memory
+bandwidth, CPU-GPU link & coherence, software / ISA, merchant availability). `verdict_vs_nvidia` as in
+`competitor_matrix.csv` (`leads` = rival ahead of NVIDIA). Feeds `04-cpu-competitor-heatmap`.
+
+### l04_cpu_roadmap_specs.csv (one row per CPU generation)
+`vendor,product,isa,core_type,year,status,max_cores,memory_bw_gbs,cpu_gpu_link,confidence,source_id,notes`
+
+Max cores and peak memory bandwidth per socket by launch year, 2022–2028, for NVIDIA, AMD, Intel, AWS, Microsoft,
+Google, Ampere, Arm, Huawei, Fujitsu and Qualcomm (public information only). Diamond Rapids values are derived from
+Intel's "+50% cores, 2× Granite Rapids bandwidth" (`reported`); Qualcomm's 80-core figure is an unconfirmed press
+report with a placeholder year (`speculative`). `status` as in `roadmap.csv`. Feeds the two roadmap charts.
+
+### l04_cpu_deals.csv (one row per CPU-related deal)
+`announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_was_bought,status,confidence,source_id,notes`
+
+Server-CPU and CPU-adjacent transactions 2015–2025 (Annapurna, Arm, NUVIA, Ampere, Alphawave, Intel stake, Rivos,
+Ventana). `value_usd_m` blank when undisclosed. Feeds `04-cpu-deal-values`.
+
+### l04_cpu_value_chain.csv (long)
+`record_type,item,component,metric,value,unit,confidence,source_id,notes`
+
+`record_type = rack_bom`: estimated cost build-up of one Vera Rubin NVL72 rack (US$ M) from Morgan Stanley figures
+(also in `tco_model_inputs.csv`), with a **repo split** of the memory line into HBM4 and LPDDR5X SOCAMM inferred
+from Morgan Stanley's $7.8M vs $6.7M (CSP buys SOCAMM directly) scenarios; "Other" is the remainder to the total.
+`record_type = royalty_rate`: analyst-estimated Arm royalty ranges as % of chip selling price (Armv8, Armv9, CSS);
+Arm does not disclose rates. All rows `estimate`.
+
+## Layer 02 CORE — GPU silicon mechanisms (`l02_*` core files, charts in `scripts/charts/ch_l02_core.py`; sources S2000–S2025)
+
+### l02_gpu_microarchitecture.csv (one row per NVIDIA flagship GPU)
+`product,architecture,year,sms,tensor_cores,tensor_cores_per_sm,dense_16bit_flops_per_clk_per_sm,register_file_kb_per_sm,l1_smem_kb_per_sm,l2_mb,tmem_kb_per_sm,new_tensor_formats,confidence,source_id,notes`
+
+Enabled SMs and tensor cores per package (V100 → Rubin), per-SM 16-bit matrix FLOPs per clock where NVIDIA
+publishes it (V100–H100), and on-chip memory sizes. Blank = not disclosed. Rubin rows come from NVIDIA's
+July 2026 architecture blog as reported by the press (`reported`). Used by `02-sms-and-throughput-per-sm`
+together with dense TFLOPS from `gpu_product_specs.csv`.
+
+### l02_memory_hierarchy.csv (long: product × memory level)
+`product,level,level_order,capacity_mb,bandwidth_tbs,basis,confidence,source_id,notes`
+
+Capacity (MB; 1 GB = 1,000 MB) and aggregate bandwidth per GPU for registers, L1/shared memory, L2, HBM and
+the NVLink domain (H100 SXM, B200, Rubin). `basis`: `spec` | `measured` (Chips and Cheese microbenchmarks) |
+`derived` (repo arithmetic: register bandwidth = SMs × 1,536 B/clock, L1 = SMs × 128 B/clock, at the clock
+implied by the dense BF16 peak; always `estimate`). NVLink-domain bandwidth is bidirectional per GPU.
+
+### l02_compute_units.csv (one row per compute unit or chip)
+`unit,category,scope,precision,flops_per_clock,basis,confidence,source_id,notes`
+
+Peak dense 16-bit matrix FLOPs per clock for a CPU core (with/without Intel AMX), NVIDIA SMs (V100–H100), Google
+TPU matrix units (128×128 and 256×256 systolic arrays) and whole chips. `category`: `CPU` | `GPU` | `ASIC`;
+`scope`: `one core or SM or array` | `whole chip`. Whole-chip rows multiply unit counts (repo arithmetic).
+
+### l02_number_formats.csv (one row per number format)
+`format,total_bits,exponent_bits,mantissa_bits,block_size,scale_format,effective_bits_per_value,max_normal_value,first_nvidia_tensor_support,confidence,source_id,notes`
+
+FP32 → NVFP4 with block-scaling overhead (`effective_bits_per_value`: MX formats add 8 bits per 32 values,
+NVFP4 adds 8 bits per 16 values). Used by `02-decode-throughput-by-precision`, which also reads the Llama 3.1
+70B configuration and serving-model efficiencies from `P2_model_and_gpu_inputs.csv` (batch 64 is a chart
+constant). `02-multi-die-silicon-cost` reads wafer price, defect density and reticle limit from
+`P5_wafer_economics.csv`.

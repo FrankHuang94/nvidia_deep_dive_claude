@@ -323,8 +323,8 @@
       "S35028",
       "S452",
       "S401",
-      "S474",
-      "S113"
+      "S90019",
+      "S474"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -353,8 +353,9 @@
       "S2510",
       "S2507",
       "S2506",
+      "S90018",
+      "S90019",
       "S474",
-      "S113",
       "S118",
       "S2504",
       "S2505"
@@ -366,8 +367,8 @@
   },
   {
     "id": "02-decode-throughput-by-precision",
-    "title": "Est.: NVFP4 lets one B200 serve ~2.7× its BF16 tokens/s on a 70B model (~4.7K vs ~1.7K)",
-    "subtitle": "Modelled decode tokens/s per GPU, Llama 3.1 70B, 64 concurrent streams × 4,096-token context, 75% of peak HBM bandwidth; FP8 KV cache for FP8/NVFP4",
+    "title": "Est.: NVFP4 lets a B200 serve ~2.7× its BF16 tokens/s on a 70B model",
+    "subtitle": "Modelled decode tokens/s per GPU: Llama 3.1 70B, 64 streams × 4,096-token context, 75% of peak HBM bandwidth",
     "alt": "Grouped bar chart of modelled decode throughput per GPU for Llama 3.1 70B with 64 concurrent users. H100: about 712 tokens/s at BF16 and 1,424 at FP8 (no FP4). B200: 1,700 at BF16, 3,400 at FP8 and 4,664 at NVFP4. Rubin: 4,080, 8,159 and 11,195. Every case is limited by memory bandwidth, so fewer bytes per weight translate almost directly into more tokens per GPU and per dollar; Rubin at NVFP4 serves about 16 times H100 at BF16. Estimates from a roofline model.",
     "data": [
       "P2_model_and_gpu_inputs.csv",
@@ -380,7 +381,7 @@
       "14",
       "P2"
     ],
-    "source": "repo roofline model; model config and GPU specs",
+    "source": "repo roofline model",
     "source_ids": [
       "S2021",
       "S32006",
@@ -507,7 +508,7 @@
   },
   {
     "id": "02-flops-per-clock-cpu-gpu-asic",
-    "title": "Per clock, one H100 does ~541K 16-bit FLOPs: ~4× a 128-core AMX Xeon and ~8,448× a plain CPU core",
+    "title": "One H100 does ~541K 16-bit FLOPs per clock, ~4× a 128-core AMX Xeon",
     "subtitle": "Peak dense matrix FLOPs per clock cycle (BF16/FP16) by compute unit and by whole chip; vendor figures and repo arithmetic",
     "alt": "Log-scale horizontal bar chart of peak 16-bit matrix FLOPs per clock. One CPU core without AMX does 64, with AMX 1,024; an NVIDIA V100 SM 1,024, A100 SM 2,048 and H100 SM 4,096; a Google TPU v4 128x128 systolic array 32,768 and an Ironwood 256x256 array 131,072. Whole chips: a 128-core Xeon with AMX about 131,072, a TPU v4 chip 262,144 and an H100 540,672, about 4 times the Xeon. GPUs win by replicating many mid-sized matrix engines, ASICs by building a few very large ones.",
     "data": [
@@ -517,7 +518,7 @@
       "02",
       "15"
     ],
-    "source": "NVIDIA whitepapers, Intel, Google TPU papers; repo arithmetic",
+    "source": "NVIDIA, Intel, Google papers",
     "source_ids": [
       "S2015",
       "S2014",
@@ -674,7 +675,7 @@
       "S158",
       "S161",
       "S163",
-      "S557"
+      "S90034"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -683,7 +684,7 @@
   },
   {
     "id": "02-memory-hierarchy-capacity-vs-bandwidth",
-    "title": "H100's registers are ~111× faster than its HBM but hold ~2,424× less: every level trades speed for size",
+    "title": "H100 registers are ~111× faster than its HBM but hold ~2,400× less data",
     "subtitle": "Total capacity vs aggregate bandwidth per GPU at each memory level, H100 SXM, B200 and Rubin (both axes log scale)",
     "alt": "Log-log chart of capacity against bandwidth for each GPU memory level. H100: registers about 33 MB at an estimated 371 TB/s, L1/shared memory 33 MB at about 31 TB/s, L2 50 MB at over 5.5 TB/s, HBM3 80 GB at 3.35 TB/s and the 8-GPU NVLink domain 640 GB at 0.9 TB/s per GPU. B200: L2 126 MB at about 21 TB/s, HBM3E 180 GB at 8 TB/s and the NVL72 domain 13.4 TB at 1.8 TB/s. Rubin: HBM4 288 GB at 19.2 TB/s and the NVL72 domain 20.7 TB at 3.0 TB/s. Each step outward gives roughly 100 to 1,000 times more capacity for less bandwidth.",
     "data": [
@@ -694,7 +695,7 @@
       "03",
       "P3"
     ],
-    "source": "NVIDIA specs, Chips and Cheese measurements, repo estimates",
+    "source": "NVIDIA, Chips and Cheese, repo Est.",
     "source_ids": [
       "S33024",
       "S2022",
@@ -717,8 +718,8 @@
   },
   {
     "id": "02-multi-die-silicon-cost",
-    "title": "Est.: splitting 1,600 mm² of GPU logic into two dies cuts silicon cost per good GPU ~62%; eight chiplets ~83%",
-    "subtitle": "Modelled cost of defect-free logic silicon for one GPU, $17K wafer, 0.1 defects/cm², Poisson yield, US$ (silicon only)",
+    "title": "Est.: two dies instead of one cut silicon cost per GPU ~62%; eight chiplets ~83%",
+    "subtitle": "Good logic silicon for one GPU (1,600 mm²), $17K wafer, 0.1 defects/cm², Poisson yield; excludes D2D area, packaging, assembly yield",
     "alt": "Bar chart of modelled silicon cost for 1,600 mm2 of GPU logic split into 1, 2, 4, 8 or 16 dies on a $17,000 wafer at 0.1 defects per cm2. One 1,600 mm2 die (impossible: the reticle limit is 858 mm2) would yield 20% and cost about $3,119; two 800 mm2 dies like Blackwell or Rubin yield 45% each and cost about $1,182; four 400 mm2 dies about $709; eight 200 mm2 chiplets about $543; sixteen 100 mm2 about $470. Savings flatten while packaging cost, die-to-die power and assembly risk rise with every extra die.",
     "data": [
       "P5_wafer_economics.csv"
@@ -728,7 +729,7 @@
       "03",
       "P5"
     ],
-    "source": "repo yield model; wafer and defect assumptions from Epoch AI and TSMC disclosures",
+    "source": "repo yield model, Epoch AI",
     "source_ids": [
       "S2021",
       "S35020",
@@ -787,7 +788,7 @@
     "id": "02-rubin-spec-revision",
     "title": "Rubin's 2026 revision cut HBM bandwidth 13% and NVLink 17%; MI455X now leads on paper",
     "subtitle": "Per-GPU specs: Rubin at CES 2026 launch (hatched, superseded) vs revised pages (Sep–Oct 2026) vs AMD MI455X",
-    "alt": "Four-panel bar chart. HBM bandwidth per GPU: Rubin launch 22 TB/s, revised 19.2, MI455X 19.6. Scale-up bandwidth: Rubin launch 3.6 TB/s, revised 3.0, MI455X 3.6. HBM capacity: Rubin 288 GB unchanged, MI455X 432 GB. Dense FP8: Rubin 17.5 PFLOPS unchanged, MI455X 20 PFLOPS (AMD did not state dense or sparse). NVIDIA says the revised figures reflect quality volume production.",
+    "alt": "Four-panel bar chart. HBM bandwidth per GPU: Rubin launch 22 TB/s, revised 19.2, MI455X 19.6. Scale-up bandwidth: Rubin launch 3.6 TB/s, revised 3.0, MI455X 3.6. HBM capacity: Rubin 288 GB unchanged, MI455X 432 GB. Dense FP8: Rubin 17.5 PFLOPS unchanged, MI455X 20 PFLOPS (AMD did not state dense or sparse). Press reports quote NVIDIA tying the new figures to volume production; the cause is unresolved.",
     "data": [
       "l02_rubin_spec_revisions.csv"
     ],
@@ -804,7 +805,7 @@
       "S33005",
       "S103",
       "S104",
-      "S2522",
+      "S90006",
       "S101",
       "S102",
       "S105",
@@ -819,7 +820,7 @@
   },
   {
     "id": "02-sms-and-throughput-per-sm",
-    "title": "Since H100, 16-bit throughput per SM rose 2.4× but low-precision per SM 10×, while SM count grew 1.7×",
+    "title": "Since H100, 16-bit FLOPS per SM rose 2.4× but low-precision FLOPS per SM 10×",
     "subtitle": "Left: streaming multiprocessors (SMs) per GPU package. Right: dense peak TFLOPS per SM by format (log scale)",
     "alt": "Two-panel chart. SMs per GPU: V100 80, A100 108, H100 132, B200 148, Blackwell Ultra 160 and Rubin 224. Dense TFLOPS per SM: 16-bit rose from 1.6 on V100 to 7.5 on H100, then only to 17.9 on Rubin; FP8 per SM went from 15 on H100 to 78 on Rubin and FP4 per SM from 61 on B200 to 156 on Rubin, so most new tensor-core silicon serves narrow formats.",
     "data": [
@@ -989,6 +990,54 @@
     "html": null
   },
   {
+    "id": "03-commitments-vs-cowos-and-revenue",
+    "title": "Since end-2023 NVIDIA's supply commitments grew 17x, outpacing revenue (4.4x) and CoWoS capacity (~8x, Est.)",
+    "subtitle": "Index, end of calendar 2023 = 1: supply/capacity commitments and quarterly revenue (NVIDIA filings); TSMC CoWoS year-end capacity (analyst Est.)",
+    "alt": "Log-scale index chart from end-2023 = 1. NVIDIA's purchase and supply commitments rose from $16.1B (January 2024) to $279B (July 2026), 17 times; quarterly revenue rose from $22.1B to $96.2B, 4.4 times; estimated TSMC CoWoS capacity rose from about 15k to 115k wafers per month by end-2026, about 8 times. Commitments outgrew physical packaging capacity because they now include multi-year memory and capacity contracts at much higher memory prices.",
+    "data": [
+      "financials.csv",
+      "hbm_and_packaging.csv"
+    ],
+    "chapters": [
+      "03",
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 10-Q/10-K and CFO commentary; TSMC capacity as estimated by analysts",
+    "source_ids": [
+      "S417",
+      "S425",
+      "S426",
+      "S427",
+      "S416",
+      "S414",
+      "S413",
+      "S412",
+      "S401",
+      "S404",
+      "S407",
+      "S431",
+      "S439",
+      "S440",
+      "S441",
+      "S442",
+      "S443",
+      "S444",
+      "S445",
+      "S446",
+      "S1",
+      "S402",
+      "S403",
+      "S405",
+      "S379",
+      "S378"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-commitments-vs-cowos-and-revenue.svg",
+    "html": null
+  },
+  {
     "id": "03-compute-vs-memory-bandwidth-growth",
     "title": "Since V100, compute grew 280× but HBM bandwidth only 21×: the memory wall",
     "subtitle": "Per-GPU growth indexed to V100 = 1: dense peak FLOPS (best format, and 16-bit) vs HBM bandwidth (log scale)",
@@ -1058,6 +1107,58 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/03-cowos-capacity-and-nvidia-share.svg",
+    "html": null
+  },
+  {
+    "id": "03-cowos-capacity-outlook-2028",
+    "title": "Reported plans would lift CoWoS to ~260k wafers/month by end-2028, ~17x end-2023 (Est.)",
+    "subtitle": "TSMC CoWoS capacity, k wafers per month at year end: midpoint of press-reported estimates with range; 2027-28 = projections",
+    "alt": "Bar chart with ranges of estimated TSMC CoWoS capacity at year end: 2023 about 15k wafers per month (13-15k), 2024 about 35k (32-40k), 2025 about 75k (65-80k), 2026 about 120k (105-130k), 2027 projected 170-200k and 2028 projected about 260k, roughly 17 times end-2023. All figures are analyst or press estimates; TSMC does not disclose CoWoS capacity in wafers.",
+    "data": [
+      "l03_cowos_outlook.csv"
+    ],
+    "chapters": [
+      "03",
+      "18"
+    ],
+    "source": "analyst and press estimates (TrendForce, JPMorgan, Economic Daily News, Commercial Times)",
+    "source_ids": [
+      "S379",
+      "S378",
+      "S90039",
+      "S3506",
+      "S3510"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-cowos-capacity-outlook-2028.svg",
+    "html": null
+  },
+  {
+    "id": "03-decode-ceiling-vs-batch-32k",
+    "title": "HBM capacity caps the batch: a 70B FP8 model at 32k context fills 288 GB at 35 users",
+    "subtitle": "Decode ceiling from memory bandwidth, tokens/s per GPU (all users) · Llama 3.1 70B, FP8 weights and KV cache, 32k context",
+    "alt": "Line chart of the memory-bandwidth ceiling on decode throughput per GPU versus batch size for Llama 3.1 70B at FP8 with 32k-token contexts (about 5.4 GB of KV cache per user). H200 runs out of memory at 10 users (~388 tokens/s), B200 at 17 (~843), B300 at 35 (~1,086) and Rubin at 35 (~2,606 tokens/s). Rubin's 2.4x bandwidth lifts speed but not the batch, and at its limit KV-cache reads are ~73% of bytes moved per step.",
+    "data": [
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "03",
+      "11",
+      "P2"
+    ],
+    "source": "repo model (Est.) on Primer P2 inputs, ignoring compute and overhead limits",
+    "source_ids": [
+      "S3000",
+      "S32006",
+      "S32002",
+      "S33003",
+      "S32004",
+      "S33007"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-decode-ceiling-vs-batch-32k.svg",
     "html": null
   },
   {
@@ -1182,6 +1283,62 @@
     "html": null
   },
   {
+    "id": "03-hbm-needed-vs-per-gpu-hbm",
+    "title": "Serving four model scenarios needs 242–745 GB of HBM: 1–3 Rubin GPUs or 4–11 H100s",
+    "subtitle": "HBM needed for FP8 weights + FP8 KV cache, GB (stacked) vs memory per GPU (dashed lines) · GPU counts assume 90% of HBM is usable",
+    "alt": "Horizontal stacked bar chart of HBM needed to serve four repo scenarios at FP8: Llama 3.1 70B with 32 users at 32k context 242 GB (70 GB weights, 172 GB KV cache); the same model with 16 users at 128k 414 GB; Llama 3.1 405B with 16 users at 32k 540 GB; DeepSeek-V3 671B with 64 users at 32k 745 GB, where compressed attention keeps the KV cache to 74 GB. Against 80, 141, 192 and 288 GB per GPU that is 1 to 3 Rubin GPUs or 4 to 11 H100s.",
+    "data": [
+      "l03_memory_scenarios.csv",
+      "P2_model_and_gpu_inputs.csv"
+    ],
+    "chapters": [
+      "03",
+      "P2",
+      "11"
+    ],
+    "source": "model configs in Primer P2; repo scenarios",
+    "source_ids": [
+      "S3000",
+      "S32006",
+      "S32027",
+      "S32008",
+      "S34007",
+      "S32009",
+      "S32026",
+      "S33002",
+      "S32002",
+      "S32004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-needed-vs-per-gpu-hbm.svg",
+    "html": null
+  },
+  {
+    "id": "03-hbm-share-shift-2025-2026",
+    "title": "Samsung's HBM share nearly doubled in a year (17% to 33%) after NVIDIA qualification; SK hynix fell from 62% to 50%",
+    "subtitle": "Share of HBM revenue by supplier, % (Counterpoint Research); hatched bar = forecast for Samsung in Q4 2026",
+    "alt": "Stacked 100% bar chart of HBM revenue share. Q2 2025: SK hynix 62%, Micron 21%, Samsung 17%. Q3 2025: 57/21/22. Q1 2026: SK hynix 58%, Samsung 21%, Micron 21%. Q2 2026: SK hynix 50%, Samsung 33%, Micron 18%. A hatched bar shows the forecast of about 40% for Samsung in Q4 2026 (KB Securities, echoed by Samsung).",
+    "data": [
+      "hbm_and_packaging.csv",
+      "l03_hbm_share_2026.csv"
+    ],
+    "chapters": [
+      "03",
+      "18"
+    ],
+    "source": "Counterpoint Research (via Counterpoint Korea and Edaily); KB Securities forecast",
+    "source_ids": [
+      "S377",
+      "S3500",
+      "S3501"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-share-shift-2025-2026.svg",
+    "html": null
+  },
+  {
     "id": "03-hbm-stack-bandwidth-by-generation",
     "title": "Per-stack HBM bandwidth rose 16× from HBM (128 GB/s) to JEDEC HBM4 (2,048 GB/s)",
     "subtitle": "Peak GB/s per HBM stack (bars; axis label = pin speed × interface bits) · ◆ = as run in NVIDIA GPUs (GPU GB/s ÷ stacks)",
@@ -1289,6 +1446,52 @@
     "html": null
   },
   {
+    "id": "03-memory-roadmap-by-vendor",
+    "title": "2026 flagships converge near 19-20 TB/s; Rubin Ultra's announced 1 TB of HBM4E would retake the capacity lead in 2027",
+    "subtitle": "Memory per accelerator package by year: capacity (GB, left) and bandwidth (TB/s, right); hollow = roadmap or estimate",
+    "alt": "Two line charts of memory per accelerator, 2024-2028. Capacity: NVIDIA B200 180 GB, B300 288, Rubin 288, Rubin Ultra 1,024 GB announced for 2027 (a report says 768 GB); AMD MI325X 256, MI355X 288, MI455X 432; Google Trillium 32 and Ironwood 192; AWS Trainium2 96, Trainium3 144, Trainium4 about 288 (estimate); Huawei 910C 128, 950DT 144, 960 and 970 288. Bandwidth: Rubin 19.2 TB/s (launch target 22), MI455X 19.6, Trainium4 about 19.6 (estimate), Ironwood 7.37, Huawei 950DT 4.0 rising to 14.4 in 2028, Rubin Ultra about 32 TB/s.",
+    "data": [
+      "l03_memory_roadmap.csv"
+    ],
+    "chapters": [
+      "03",
+      "15",
+      "17"
+    ],
+    "source": "vendor announcements and roadmaps; Trainium4 = repo Est. from AWS multipliers",
+    "source_ids": [
+      "S33003",
+      "S101",
+      "S123",
+      "S102",
+      "S103",
+      "S104",
+      "S100",
+      "S33006",
+      "S35018",
+      "S110",
+      "S107",
+      "S111",
+      "S509",
+      "S142",
+      "S143",
+      "S144",
+      "S538",
+      "S163",
+      "S150",
+      "S151",
+      "S154",
+      "S155",
+      "S353",
+      "S156",
+      "S90034"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-memory-roadmap-by-vendor.svg",
+    "html": null
+  },
+  {
     "id": "03-memory-share-of-rack-bom",
     "title": "Est.: memory rises from ~9% to ~26% of an NVL72 rack's cost (GB300 → Vera Rubin)",
     "subtitle": "Morgan Stanley rack BOM (ODM price to hyperscaler, May 2026), US$ M · memory = HBM + CPU-attached LPDDR5X",
@@ -1310,6 +1513,132 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/03-memory-share-of-rack-bom.svg",
+    "html": null
+  },
+  {
+    "id": "03-memory-supply-verdict-heatmap",
+    "title": "Rivals match or beat NVIDIA on memory specs, but 4 of 6 trail it on CoWoS/HBM allocation",
+    "subtitle": "Challenger's position vs NVIDIA's 2026 flagship (Rubin / Vera Rubin NVL72) on six memory-system dimensions",
+    "alt": "Heatmap of six challengers against six memory-system dimensions. AMD leads on memory per accelerator (432 vs 288 GB), is at parity on per-GPU and rack bandwidth (19.6 vs 19.2 TB/s; 1,411 vs 1,400 TB/s) but is behind on CoWoS and HBM allocation (about 105k vs 595k wafers). Google TPU, AWS Trainium and Huawei are behind on per-chip memory and allocation; Qualcomm's LPDDR design leads on capacity (768 GB) and independence from CoWoS and HBM but is behind on bandwidth; SRAM start-ups lead on on-chip bandwidth and independence but trail on capacity.",
+    "data": [
+      "l03_memory_verdicts.csv"
+    ],
+    "chapters": [
+      "03",
+      "15"
+    ],
+    "source": "repo analysis of vendor specs and press reports (l03_memory_verdicts.csv)",
+    "source_ids": [
+      "S144",
+      "S100",
+      "S103",
+      "S104",
+      "S102",
+      "S90006",
+      "S379",
+      "S3511",
+      "S3512",
+      "S151",
+      "S547",
+      "S90027",
+      "S2517",
+      "S3532",
+      "S155",
+      "S156",
+      "S353",
+      "S163",
+      "S340",
+      "S90042",
+      "S3516",
+      "S173",
+      "S166",
+      "S170"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-memory-supply-verdict-heatmap.svg",
+    "html": null
+  },
+  {
+    "id": "03-memory-tiers-bandwidth-vs-capacity",
+    "title": "HBM4 is 16× faster than LPDDR5X but holds 1/5 as much; SRAM is ~8× faster again",
+    "subtitle": "Memory bandwidth vs capacity per chip · marker = memory type, color = vendor · grey strip = bandwidth not disclosed",
+    "alt": "Log-log scatter of memory capacity versus bandwidth per chip. SRAM designs sit top-left: NVIDIA's Groq 3 LPU 0.5 GB at about 150 TB/s, d-Matrix Corsair 2 GB at 150 TB/s and Cerebras WSE-3 44 GB at 21,000 TB/s. HBM sits in the middle: H100 80 GB at 3.35 TB/s, B300 288 GB at 8 TB/s, Rubin 288 GB at 19.2 TB/s and AMD MI455X 432 GB at 19.6 TB/s. LPDDR sits bottom-right: Grace 480 GB at 0.5 TB/s, Vera 1,536 GB at 1.2 TB/s and Qualcomm AI 100 Ultra 128 GB at 0.55 TB/s; Qualcomm AI200 (768 GB) and Rubin CPX (128 GB GDDR7) have no disclosed bandwidth. A BlueField-4 link to NVMe context storage moves ~0.1 TB/s.",
+    "data": [
+      "gpu_product_specs.csv",
+      "competitor_accelerators.csv",
+      "cpu_specs.csv",
+      "networking_products.csv"
+    ],
+    "chapters": [
+      "03",
+      "15",
+      "04"
+    ],
+    "source": "NVIDIA, AMD, Cerebras, d-Matrix, Qualcomm, Tenstorrent specs",
+    "source_ids": [
+      "S100",
+      "S101",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S123",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S113",
+      "S114",
+      "S118",
+      "S129",
+      "S128",
+      "S144",
+      "S145",
+      "S166",
+      "S170",
+      "S172",
+      "S169",
+      "S173",
+      "S33023",
+      "S115",
+      "S116",
+      "S117",
+      "S272"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-memory-tiers-bandwidth-vs-capacity.svg",
+    "html": null
+  },
+  {
+    "id": "03-packages-per-cowos-wafer",
+    "title": "A 300-mm CoWoS wafer fits ~28 interposers at 2× reticle but only ~4 at 9.5×",
+    "subtitle": "Gross interposers per wafer (before yield) vs interposer size · shaded bands = repo estimate of NVIDIA packages",
+    "alt": "Step chart of how many rectangular interposers fit on a 300-mm CoWoS wafer as package size grows: about 28 at twice the 858 square-millimetre reticle, 16 at CoWoS-S's 3.3x limit, 8 at the 5.5x CoWoS-L size targeted for 2026 and about 4 at the 9.5x size targeted for 2027. Repo estimates place H100 at 22-28 per wafer, B200/B300 at 16-17, Rubin at 11-16 and a four-die Rubin Ultra at 4-6, so the same wafer count yields ever fewer GPU packages.",
+    "data": [
+      "hbm_and_packaging.csv",
+      "l03_cowos_geometry.csv"
+    ],
+    "chapters": [
+      "03",
+      "02",
+      "17"
+    ],
+    "source": "repo geometry model (Est., before yield) on TSMC reticle multiples",
+    "source_ids": [
+      "S380",
+      "S3000",
+      "S358",
+      "S360",
+      "S35041",
+      "S509"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-packages-per-cowos-wafer.svg",
     "html": null
   },
   {
@@ -1372,6 +1701,41 @@
     "html": null
   },
   {
+    "id": "03-rack-hbm-after-rubin-revision",
+    "title": "After Rubin's spec cut, AMD Helios edges Vera Rubin NVL72 on rack HBM bandwidth (1,411 vs 1,400 TB/s) and has 1.5x the capacity",
+    "subtitle": "HBM bandwidth (TB/s) and capacity (TB) per rack-scale system; outline = Vera Rubin launch target (CES 2026)",
+    "alt": "Two horizontal bar charts of HBM per rack-scale system. Bandwidth: AMD Helios 1,411 TB/s (72 x 19.6 TB/s), Vera Rubin NVL72 1,400 TB/s after the Sep-Oct 2026 revision (launch target 1,580), Huawei CloudMatrix 384 about 1,229 TB/s across 16 racks, AWS Trn3 UltraServer 706, GB300 NVL72 576 and a Google Ironwood 64-chip cube 472 TB/s. Capacity: CloudMatrix 49.2 TB, Helios 31.1 TB, Vera Rubin, Trn3 and GB300 20.7 TB each, Ironwood cube 12.3 TB.",
+    "data": [
+      "l03_rack_memory.csv"
+    ],
+    "chapters": [
+      "03",
+      "15",
+      "08"
+    ],
+    "source": "vendor specifications; per-chip x count where marked (repo calc)",
+    "source_ids": [
+      "S32004",
+      "S123",
+      "S102",
+      "S33006",
+      "S90006",
+      "S104",
+      "S344",
+      "S144",
+      "S90021",
+      "S353",
+      "S151",
+      "S350",
+      "S340",
+      "S163"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-rack-hbm-after-rubin-revision.svg",
+    "html": null
+  },
+  {
     "id": "03-supply-chain-value-sankey",
     "title": "Est.: of ~$4.8M spent on a GB300 NVL72 rack + network, NVIDIA keeps ~$2.3M as GPU gross profit",
     "subtitle": "Where the dollars go, US$ M · rack price $3.99M (Morgan Stanley, May 2026) + ~$0.8M scale-out network/storage (SemiAnalysis GB200 basis) · GPU cost on Epoch AI B200 basis",
@@ -1403,6 +1767,36 @@
     "asof": "2026-11-05",
     "svg": "assets/charts/03-supply-chain-value-sankey.svg",
     "html": "assets/interactive/03-supply-chain-value-sankey.html"
+  },
+  {
+    "id": "03-value-chain-margins",
+    "title": "Memory makers now out-earn NVIDIA on margin: Micron 86.8% gross vs NVIDIA 75.0%; rack ODMs keep ~2%",
+    "subtitle": "Latest reported margin by company in the AI-rack supply chain, %; hatched = operating margin (gross margin is higher)",
+    "alt": "Horizontal bar chart of margins: Micron 86.8% GAAP gross margin (fiscal Q4 2026), SK hynix about 80% operating margin (Q3 2026), NVIDIA 75.0% gross (Q2 FY2027), Astera Labs about 72% gross (guidance), TSMC 66.4% gross (Q3 2026), Advantest 51.9% operating (FY2026 forecast), Foxconn about 6.3% gross (Q2 2025) and rack ODMs an estimated 2.7% (GB300 NVL72) and 1.9% (Vera Rubin NVL72) gross margin on the rack.",
+    "data": [
+      "l03_value_chain_margins.csv"
+    ],
+    "chapters": [
+      "03",
+      "13",
+      "18"
+    ],
+    "source": "company results and guidance; ODM margins = Morgan Stanley Est.",
+    "source_ids": [
+      "S332",
+      "S3522",
+      "S3521",
+      "S3538",
+      "S3525",
+      "S405",
+      "S90012",
+      "S3502",
+      "S3533"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-value-chain-margins.svg",
+    "html": null
   },
   {
     "id": "04-amd-x86-server-share-units-vs-revenue",
@@ -1477,7 +1871,7 @@
     "id": "04-cpu-competitor-heatmap",
     "title": "8 of 10 rival CPUs out-core Vera, but none beats its coherent 1.8 TB/s GPU link",
     "subtitle": "Repo verdict for each rival CPU vs NVIDIA Vera (Grace where noted) on five dimensions; cell = verdict letter + key number",
-    "alt": "Heatmap of 10 rival server CPUs against NVIDIA Vera on five dimensions. 8 rivals lead on cores per socket (EPYC Venice 256, Graviton5 192, Kunpeng 950 192), AMD alone leads on memory bandwidth (1.6 vs 1.2 TB/s), 0 lead on CPU-GPU link and coherence (PCIe Gen5/Gen6 at 128-256 GB/s vs NVLink-C2C 1.8 TB/s), x86 vendors lead on software compatibility, and hyperscaler CPUs are a different approach because they are not sold.",
+    "alt": "Heatmap of 10 rival server CPUs against NVIDIA Vera on five dimensions. 8 rivals lead on cores per socket (EPYC Venice 256, Graviton5 192, Kunpeng 950 192), AMD alone leads on memory bandwidth (1.6 vs 1.2 TB/s), none leads on CPU-GPU link and coherence (PCIe Gen5/Gen6 at 128-256 GB/s vs NVLink-C2C 1.8 TB/s), x86 vendors lead on software compatibility, and hyperscaler CPUs are a different approach because they are not sold.",
     "data": [
       "l04_cpu_verdicts.csv"
     ],
@@ -1737,6 +2131,35 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/04-dgx2-data-loading-bottleneck.svg",
+    "html": null
+  },
+  {
+    "id": "04-grace-to-vera-generational-gains",
+    "title": "Vera vs Grace: 3.2× memory, 2.3× bandwidth, 2× C2C, only 1.22× cores",
+    "subtitle": "Vera (2026) ÷ Grace (2023) per CPU socket, × (1.0 = no change); labels show Grace → Vera values; Vera hatched (shipping H2 2026)",
+    "alt": "Horizontal bar chart of Vera-to-Grace ratios per CPU: cores 72 to 88 (1.22 times), hardware threads 72 to 176 (2.4 times, via Spatial Multithreading), memory bandwidth 512 to 1,200 GB/s (2.3 times), bandwidth per core 7.1 to 13.6 GB/s (1.9 times), memory capacity 480 to 1,536 GB (3.2 times) and NVLink-C2C 900 to 1,800 GB/s (2 times): NVIDIA spent its new transistors on feeding data rather than on core count.",
+    "data": [
+      "cpu_specs.csv",
+      "l04_host_attach.csv"
+    ],
+    "chapters": [
+      "04",
+      "17"
+    ],
+    "source": "NVIDIA Grace and Vera specifications",
+    "source_ids": [
+      "S129",
+      "S128",
+      "S100",
+      "S33004",
+      "S102",
+      "S209",
+      "S362",
+      "S4000"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/04-grace-to-vera-generational-gains.svg",
     "html": null
   },
   {

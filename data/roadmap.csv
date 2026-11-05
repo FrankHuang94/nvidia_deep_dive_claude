@@ -43,7 +43,7 @@ layer,vendor,product,category,announced_date,window_start,window_end,status,key_
 03,Huawei,In-house HBM (HiBL 1.0 / HiZQ 2.0),HBM,2025-09-18,2026-Q1,2026-Q4,announced,HiBL 1.0 128 GB 1.6 TB/s (950PR); HiZQ 2.0 144 GB 4 TB/s (950DT),confirmed,S163;S343,Self-developed HBM to work around export controls on HBM supply.
 03,Google,Ironwood HBM,HBM,2025-04-09,2025-Q4,2026-Q1,shipping,"192 GB HBM3E per chip; 1.77 PB shared HBM per 9,216-chip superpod",confirmed,S151;S547,
 04,NVIDIA,Vera CPU,CPU,2025-03-18,2026-Q3,2026-Q4,shipping,88 custom Arm 'Olympus' cores (176 threads); NVLink-C2C 1.8 TB/s to Rubin,confirmed,S100;S33004;S500,Ships in Vera Rubin NVL72 (36 per rack); also offered as standalone CPU from GTC 2026.
-04,NVIDIA,Rosa CPU,CPU,2026-03-16,2028,2028,roadmap,named for Rosalind Franklin; pairs with Feynman,confirmed,S109;S502,
+04,NVIDIA,Rosa CPU,CPU,2026-03-16,2028,2028,roadmap,named for Rosalind Franklin; pairs with Feynman,reported,S109;S502,Confidence set to reported: named in GTC 2026 keynote coverage (S90004); NVIDIA product page not verified.
 04,AMD,"EPYC Venice (6th Gen, Zen 6)",CPU,2025-06-12,2026-Q3,2026-Q4,shipping,2 nm; up to 256 cores; 1.6 TB/s memory bandwidth; 18 per Helios rack,confirmed,S144;S538;S543,Launched with Helios (Q2 2026); volume scaling in Q4 2026 (S542).
 04,AMD,EPYC Verano,CPU,2025-06-12,2027,2027,roadmap,pairs with MI500 in Helios 500; reported as Zen 6-based low-power variant,confirmed,S538;S540,
 04,AMD,EPYC Ferrara,CPU,2026-07-23,2028,2028,roadmap,pairs with MI600 in Helios 600,confirmed,S538,Core generation not confirmed (Zen 7 per roadmap labels in some coverage).

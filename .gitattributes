@@ -1,0 +1,7 @@
+# Normalise line endings in the repository (agents write CSVs with Python csv defaults = CRLF)
+* text=auto
+*.csv text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.svg binary
+*.png binary

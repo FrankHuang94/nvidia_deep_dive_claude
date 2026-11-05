@@ -158,7 +158,7 @@ def cpu_competitor_heatmap():
         subtitle="Repo verdict for each rival CPU vs NVIDIA Vera (Grace where noted) on five dimensions; cell = verdict letter + key number",
         alt=(f"Heatmap of {len(comps)} rival server CPUs against NVIDIA Vera on five dimensions. {cores_lead} rivals lead on cores "
              "per socket (EPYC Venice 256, Graviton5 192, Kunpeng 950 192), AMD alone leads on memory bandwidth (1.6 vs 1.2 TB/s), "
-             f"{n_link_lead} lead on CPU-GPU link and coherence (PCIe Gen5/Gen6 at 128-256 GB/s vs NVLink-C2C 1.8 TB/s), x86 vendors "
+             f"{'none' if n_link_lead == 0 else n_link_lead} leads on CPU-GPU link and coherence (PCIe Gen5/Gen6 at 128-256 GB/s vs NVLink-C2C 1.8 TB/s), x86 vendors "
              "lead on software compatibility, and hyperscaler CPUs are a different approach because they are not sold."),
         data=[VERD], chapters=["04", "15"], source="repo analysis of vendor specs (l04_cpu_verdicts.csv)",
         source_ids=sources_of(df), note="Analyst judgement (speculative)",
