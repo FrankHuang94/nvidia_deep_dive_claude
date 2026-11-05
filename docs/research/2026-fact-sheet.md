@@ -64,3 +64,13 @@ is stated — keep it visible in the text rather than picking silently.
 | **ESUN** (Ethernet for Scale-Up Networking) launched as an OCP workstream at OCP Global Summit 2025; Broadcom's **SUE** v1.0 contributed to OCP (2025-09-05); coordination with IEEE 802.3 and UEC | 🟢 | S90052 |
 | **AI back-end networks:** InfiniBand was ~80 % of AI back-end DC switch sales two years before 2025; Ethernet more than doubled InfiniBand in 2025 and was ~two-thirds of AI back-end switch sales in 1Q 2026 (Dell'Oro); vendor ranking 1Q26: Celestica, NVIDIA, Arista (Arista close once deferred revenue counted); Ethernet expanding into scale-up | 🟡 (analyst) | S90053, S90054, S90055 |
 | NVIDIA networking: Q1 FY2027 $14.8B record; Q2 FY2027 +18 % q/q; Spectrum-X Ethernet 2.6× y/y (Q2 FY2027) | 🟢/🟡 | S90012, S90014 |
+
+## Systems, power and software
+
+| Fact | Tag | Sources |
+|---|---|---|
+| **800 VDC power:** ~20 partners showed 800 VDC components at GTC DC 2025 (Delta, Schneider, Vertiv, Infineon, ST, ABB, Eaton, GE Vernova, Hitachi Energy, Siemens, Navitas, TI); neoclouds (CoreWeave, Lambda, Nebius, OCI, Together AI) designing for 800 V; MGX-compatible 800 VDC power rack H2 2026; 800 VDC row power center (overhead busway, up to 2 MW per row) 2027; Kyber reported at ~600 kW per rack; Omniverse **DSX** blueprint generally available for digital-twin datacenter design. Dell'Oro: a reference architecture for high-density AI factories, not yet a universal standard | 🟢/🟡 | S90061, S90062, S90063 |
+| **CUDA 13.x:** CUDA 13.2 stable (May 2026, secondary source); CUDA 13 drops Maxwell, Pascal and Volta. No reliable 2026 CUDA developer count found beyond NVIDIA's ~6M (2025) — see data/software_ecosystem.csv | 🟡 | S90065 |
+| **ROCm 7.0** (Sept 2025): AITER tuned operators, FP4/FP6, Windows support; 7.x point releases through 2026 | 🟢 | S90064 |
+| **Dynamo 1.0** production release (GTC, 2026-03-16/17), open source under Apache 2.0, adopters incl. CoreWeave, Nebius, Together AI, Cursor, Perplexity, PayPal, Pinterest, ByteDance, Meituan, AstraZeneca; up to 7× inference on GB200 NVL (partner claim); relies on NIXL / NVIDIA networking stack | 🟢 / 🟡 (perf) | S90066 |
+| **Qualcomm–Modular** ($3.9B, announced 2026-06-24, close H2 2026): Modular's Mojo language and MAX engine are a hardware-portable AI software stack — directly relevant to the CUDA-moat discussion | 🟡 | S90057 |
