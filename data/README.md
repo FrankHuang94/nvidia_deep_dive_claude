@@ -396,3 +396,30 @@ Optical-I/O power per port: DSP pluggables, linear pluggables (LPO), co-packaged
 copper reference. `pj_per_bit` = W ÷ (Gb/s) × 1000. Vendor CPO claims (NVIDIA "3.5×", Broadcom
 "~70% lower") are converted to watts against the stated pluggable baseline and marked `estimate`;
 `basis` says which.
+
+## Layer 02 — GPU silicon, strategy pages (`l02_*.csv`; charts in `scripts/charts/ch_l02_strategy.py`; sources S2500–S2999)
+
+### l02_replication_costs.csv (one row per cost reference point)
+`item,entity,category,year,value_usd_b,basis,confidence,source_id,notes` — what it costs to play in AI silicon, in US$ B:
+single-chip design (NRE) estimates by node (`design_cost`, IBS series via Silicon Analysts / Tom's Hardware, flagged as
+possibly high), start-up capital raised (`startup_capital`), acquisitions and licence deals (`acquisition`), program
+spend (`program_cost`, e.g. NVIDIA's CEO estimate for Blackwell) and annual company R&D (`annual_rd`, reused from
+`peer_financials.csv` / `financials.csv`). Used by `02-chip-program-cost-ladder`.
+
+### l02_chip_startups.csv (one row per company)
+`company,architecture,latest_event,event_date,amount_usd_b,value_usd_b,value_basis,status,confidence,source_id,notes` —
+latest disclosed valuation, IPO value or deal value of AI-chip start-ups (public information only). `value_basis` says
+what the number is (IPO pricing, round valuation, upfront deal value, reported offer); values are not like-for-like.
+`status`: `public` | `private` | `acquired` | `licensed to NVIDIA`. Used by `02-chip-startup-valuations`.
+
+### l02_rubin_spec_revisions.csv (long)
+`product,metric,spec_version,value,unit,date,confidence,source_id,notes` — Rubin per-GPU, NVL72-rack and HGX NVL8
+specifications at the CES 2026 launch (`launch`) and on the revised product pages of Sep–Oct 2026 (`revised`), with
+AMD MI455X reference values (`launch` = AMD's published figures). Used by `02-rubin-spec-revision`.
+
+### l02_custom_silicon_revenue.csv (long)
+`calendar_quarter,company,fiscal_period,metric,value,unit,basis,confidence,source_id,notes` — recent custom-silicon
+revenue points that extend `market_share.csv`: Broadcom AI semiconductor revenue for fiscal Q2–Q4 2026 (`basis`:
+`reported` | `derived` (repo arithmetic from reported growth) | `guidance`) and MediaTek's reported 2026 AI-ASIC revenue
+target. `calendar_quarter` = calendar quarter in which the fiscal quarter ends (same convention as `market_share.csv`).
+Used with `market_share.csv` and `financials.csv` by `02-broadcom-ai-vs-nvidia-dc`.
