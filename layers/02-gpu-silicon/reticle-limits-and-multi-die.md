@@ -8,7 +8,7 @@
 - **NVIDIA hit the wall in 2017:** V100 (815 mm²), A100 (826 mm²) and H100 (814 mm²) each used ~95% of it [[S126]](../../sources/bibliography.md#s126)[[S127]](../../sources/bibliography.md#s127)[[S35013]](../../sources/bibliography.md#s35013).
 - **Big dies are expensive because defects are random:** in a standard model an 814 mm² die is defect-free (its [die yield](../../glossary.md#die-yield)) only ~44% of the time at 0.1 defects/cm², vs ~90% for a 100 mm² die (repo model; inputs from Epoch AI) [[S35020]](../../sources/bibliography.md#s35020).
 - **Blackwell's answer: two reticle-sized dies, one GPU.** B200 joins them with a 10 TB/s [NV-HBI](../../glossary.md#nv-hbi) link so software sees a single device with 208B transistors [[S35014]](../../sources/bibliography.md#s35014)[[S208]](../../sources/bibliography.md#s208)[[S2003]](../../sources/bibliography.md#s2003).
-- **Rubin Ultra was announced with four compute dies** and 1 TB of HBM4E for H2 2027 🟢 [[S35018]](../../sources/bibliography.md#s35018)[[S110]](../../sources/bibliography.md#s110); in 2026 TrendForce and SemiAnalysis reported a switch to a two-die design with ~half the performance 🟡 [[S509]](../../sources/bibliography.md#s509)[[S2018]](../../sources/bibliography.md#s2018), which NVIDIA has not confirmed; it says its roadmap is intact [[S508]](../../sources/bibliography.md#s508).
+- **Rubin Ultra was announced with four compute dies** and 1 TB of [HBM4E](../../glossary.md#hbm4e) for H2 2027 🟢 [[S35018]](../../sources/bibliography.md#s35018)[[S110]](../../sources/bibliography.md#s110); in 2026 TrendForce and SemiAnalysis reported a switch to a two-die design with ~half the performance 🟡 [[S509]](../../sources/bibliography.md#s509)[[S2018]](../../sources/bibliography.md#s2018), which NVIDIA has not confirmed; it says its roadmap is intact [[S508]](../../sources/bibliography.md#s508).
 - **AMD went further, earlier:** MI355X stacks eight small N3P compute [chiplets](../../glossary.md#chiplet) on two N6 I/O dies (185B transistors) [[S2019]](../../sources/bibliography.md#s2019)[[S2020]](../../sources/bibliography.md#s2020)[[S143]](../../sources/bibliography.md#s143); the cost is more packaging steps and die-to-die energy.
 
 ![Bar chart of die area per NVIDIA GPU compute die against the 858 mm2 reticle limit: P100 610 mm2, V100 815, A100 826 and H100 814 mm2 sit at about 95 percent of the limit; Blackwell and Rubin use two reticle-sized dies (about 1,600 mm2 of compute silicon, estimated) and Rubin Ultra four (about 3,200 mm2), so scaling now comes from packaging more dies rather than larger ones.](../../assets/charts/02-die-area-vs-reticle-limit.svg)
@@ -34,7 +34,7 @@ the wall, too: one defect kills a die, and a large die is a large target (see
 
 ## Two dies, one GPU: NV-HBI and CoWoS-L
 
-The hard part is making software ignore the split. A kernel on die A reading HBM attached to die B
+The hard part is making software ignore the split. A kernel on die A reading [HBM](../../glossary.md#hbm) attached to die B
 crosses the die-to-die link; if it is slow, programmers must manage two GPUs. NVIDIA made NV-HBI wide
 enough that the split disappears and moved to [CoWoS-L](../../glossary.md#cowos-l), whose embedded bridges
 carry the wires; TSMC targets ~5.5-reticle packages in 2026 and ~9.5 in 2027 [[S380]](../../sources/bibliography.md#s380).
@@ -42,8 +42,8 @@ carry the wires; TSMC targets ~5.5-reticle packages in 2026 and ~9.5 in 2027 [[S
 > [!TIP]
 > **Worked example — is 10 TB/s enough?** Each B200 die owns four HBM stacks, ~4 TB/s of the
 > package's 8 TB/s [[S33003]](../../sources/bibliography.md#s33003). NV-HBI's 10 TB/s [[S208]](../../sources/bibliography.md#s208) exceeds the HBM bandwidth on the far side by
-> 2.5×, so a remote read is limited by memory, not the bridge. It is also 5.6× the GPU's entire NVLink 5
-> bandwidth (1.8 TB/s) [[S263]](../../sources/bibliography.md#s263). For Rubin each die owns ~9.6 TB/s of HBM4 [[S33007]](../../sources/bibliography.md#s33007); NVIDIA has not published
+> 2.5×, so a remote read is limited by memory, not the bridge. It is also 5.6× the GPU's entire [NVLink](../../glossary.md#nvlink) 5
+> bandwidth (1.8 TB/s) [[S263]](../../sources/bibliography.md#s263). For Rubin each die owns ~9.6 TB/s of [HBM4](../../glossary.md#hbm4) [[S33007]](../../sources/bibliography.md#s33007); NVIDIA has not published
 > Rubin's die-to-die bandwidth, so whether the link kept a comfortable margin is unknown 🔴.
 
 | Product | Compute dies | Process | Transistors | Die-to-die | Memory |
@@ -63,7 +63,7 @@ carry the wires; TSMC targets ~5.5-reticle packages in 2026 and ~9.5 in 2027 [[S
 <details>
 <summary>🔧 Under the hood: what happened to four-die Rubin Ultra in 2026</summary>
 
-NVIDIA showed four reticle-sized dies, 16 HBM4E stacks and ~100 PFLOPS FP4 at GTC 2025 and a 1 TB Rubin
+NVIDIA showed four reticle-sized dies, 16 HBM4E stacks and ~100 [PFLOPS](../../glossary.md#flops) [FP4](../../glossary.md#fp4) at GTC 2025 and a 1 TB Rubin
 Ultra tray at GTC 2026, in Kyber racks of 144 GPU packages for H2 2027 🟢 [[S35018]](../../sources/bibliography.md#s35018)[[S110]](../../sources/bibliography.md#s110)[[S90003]](../../sources/bibliography.md#s90003).
 TrendForce reported in April 2026 that the four-die single-package design was not adopted amid
 packaging constraints, and SemiAnalysis (June 2026) described a two-die replacement at roughly half

@@ -8,8 +8,8 @@
 - **Per clock, an H100 does ~541,000 16-bit FLOPs** (132 SMs × 4,096) [[S33024]](../../sources/bibliography.md#s33024), about 8,400× one CPU core without matrix units and ~4× a 128-core Xeon with [AMX](../../glossary.md#amx) at its theoretical peak [[S2015]](../../sources/bibliography.md#s2015)[[S179]](../../sources/bibliography.md#s179).
 - **A CPU spends its silicon on doing one thread fast; a [GPU](../../glossary.md#gpu) spends it on thousands of threads; an [ASIC](../../glossary.md#asic) spends it on one kind of math.** Google's Ironwood matrix unit is a single 256×256 array doing 65,536 multiply-accumulates per clock [[S2016]](../../sources/bibliography.md#s2016)[[S2017]](../../sources/bibliography.md#s2017).
 - **The trade-off is flexibility for efficiency.** A big [systolic array](../../glossary.md#systolic-array) idles on awkward matrix shapes [[S2017]](../../sources/bibliography.md#s2017); a GPU keeps schedulers, caches and [CUDA cores](../../glossary.md#cuda-core) that cost area but run any new model on day one.
-- **The ASIC gap is about cost more than physics:** Ironwood delivers 4.6 PFLOPS FP8 per chip [[S151]](../../sources/bibliography.md#s151) against Rubin's 17.5 per package [[S33005]](../../sources/bibliography.md#s33005), but hyperscalers buy ASICs without paying NVIDIA's ~80% chip margin (Est.) [[S35020]](../../sources/bibliography.md#s35020).
-- **NVIDIA hedged its own bet** by licensing Groq's SRAM-based [LPU](../../glossary.md#lpu) for a reported ~$20B in December 2025 🟡 [[S90018]](../../sources/bibliography.md#s90018)[[S90019]](../../sources/bibliography.md#s90019) and shipping it beside Vera Rubin for decode [[S114]](../../sources/bibliography.md#s114).
+- **The ASIC gap is about cost more than physics:** Ironwood delivers 4.6 [PFLOPS](../../glossary.md#flops) [FP8](../../glossary.md#fp8) per chip [[S151]](../../sources/bibliography.md#s151) against Rubin's 17.5 per package [[S33005]](../../sources/bibliography.md#s33005), but [hyperscalers](../../glossary.md#hyperscaler) buy ASICs without paying NVIDIA's ~80% chip margin (Est.) [[S35020]](../../sources/bibliography.md#s35020).
+- **NVIDIA hedged its own bet** by licensing Groq's SRAM-based [LPU](../../glossary.md#lpu) for a reported ~$20B in December 2025 🟡 [[S90018]](../../sources/bibliography.md#s90018)[[S90019]](../../sources/bibliography.md#s90019) and shipping it beside Vera Rubin for [decode](../../glossary.md#decode) [[S114]](../../sources/bibliography.md#s114).
 
 ![Log-scale horizontal bar chart of peak 16-bit matrix FLOPs per clock. One CPU core without AMX does 64, with AMX 1,024; an NVIDIA V100 SM 1,024, A100 SM 2,048 and H100 SM 4,096; a Google TPU v4 128x128 systolic array 32,768 and an Ironwood 256x256 array 131,072. Whole chips: a 128-core Xeon with AMX about 131,072, a TPU v4 chip 262,144 and an H100 540,672, about 4 times the Xeon. GPUs win by replicating many mid-sized matrix engines, ASICs by building a few very large ones.](../../assets/charts/02-flops-per-clock-cpu-gpu-asic.svg)
 
@@ -42,7 +42,7 @@ models — not peak TFLOPS alone.
 
 A GPU SM carries hardware an ASIC can drop: warp schedulers that juggle dozens of warps to hide
 memory latency, a 256 KB [register file](../../glossary.md#register-file) and 256 KB of L1/shared memory per
-SM [[S33024]](../../sources/bibliography.md#s33024)[[S2022]](../../sources/bibliography.md#s2022), CUDA cores for non-matrix work (softmax, normalization, expert routing) and a full
+SM [[S33024]](../../sources/bibliography.md#s33024)[[S2022]](../../sources/bibliography.md#s2022), [CUDA](../../glossary.md#cuda) cores for non-matrix work (softmax, normalization, expert routing) and a full
 instruction set. That overhead lets a GPU run a new attention variant the week a paper appears; a
 fixed-function design can spend the same area and power on more matrix math.
 
@@ -86,13 +86,13 @@ quadrantChart
 > [!WARNING]
 > **Myth vs. reality: "ASICs are 10× more efficient than GPUs."** On peak specs the gap is small or
 > reversed: OpenAI's Broadcom-built inference chip reportedly does 13.4 PFLOPS MXFP4 on one die versus
-> 17.5 PFLOPS NVFP4 per Rubin die 🟡 [[S628]](../../sources/bibliography.md#s628). The ASIC case rests on owning the chip at cost, which is
+> 17.5 PFLOPS [NVFP4](../../glossary.md#nvfp4) per Rubin die 🟡 [[S628]](../../sources/bibliography.md#s628). The ASIC case rests on owning the chip at cost, which is
 > why the strongest challengers are hyperscalers (see [Competition](competition.md)).
 
 ## 🎯 Corp Dev Lens
 
 1. If peak efficiency is near parity, ASICs are a margin-capture play; at what NVIDIA price cut does a hyperscaler program stop paying back?
-2. NVIDIA's Groq licence shows the leader buying specialised decode designs; which SRAM or near-memory architectures are still independent?
+2. NVIDIA's Groq licence shows the leader buying specialised decode designs; which [SRAM](../../glossary.md#sram) or near-memory architectures are still independent?
 3. CPU matrix units (AMX, Arm SME) make small-model inference on general servers plausible; how big is that "good-enough" segment?
 4. Compiler talent is the hidden cost of any ASIC; is a compiler team a cheaper entry ticket than a chip team?
 

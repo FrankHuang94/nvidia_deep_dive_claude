@@ -783,26 +783,24 @@ L 411.86646 102.420827
      </g>
      <g id="line2d_13"/>
      <g id="text_10">
-      <!-- 1k -->
-      <g style="fill: #52514e" transform="translate(45.434531 106.030084) scale(0.095 -0.095)">
+      <!-- 1,000 -->
+      <g style="fill: #52514e" transform="translate(29.783281 106.029713) scale(0.095 -0.095)">
        <defs>
-        <path id="DejaVuSans-4e" d="M 581 4863 
-L 1159 4863 
-L 1159 1991 
-L 2875 3500 
-L 3609 3500 
-L 1753 1863 
-L 3688 0 
-L 2938 0 
-L 1159 1709 
-L 1159 0 
-L 581 0 
-L 581 4863 
+        <path id="DejaVuSans-f" d="M 750 794 
+L 1409 794 
+L 1409 256 
+L 897 -744 
+L 494 -744 
+L 750 256 
+L 750 794 
 z
 " transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#DejaVuSans-14"/>
-       <use xlink:href="#DejaVuSans-4e" transform="translate(63.625 0)"/>
+       <use xlink:href="#DejaVuSans-f" transform="translate(63.625 0)"/>
+       <use xlink:href="#DejaVuSans-13" transform="translate(95.40625 0)"/>
+       <use xlink:href="#DejaVuSans-13" transform="translate(159.03125 0)"/>
+       <use xlink:href="#DejaVuSans-13" transform="translate(222.65625 0)"/>
       </g>
      </g>
     </g>
@@ -974,8 +972,22 @@ L -2 0
     </g>
     <g id="text_11">
      <!-- kW (log scale) -->
-     <g style="fill: #52514e" transform="translate(32.444531 254.197) rotate(-90) scale(0.1 -0.1)">
+     <g style="fill: #52514e" transform="translate(23.380938 254.197) rotate(-90) scale(0.1 -0.1)">
       <defs>
+       <path id="DejaVuSans-4e" d="M 581 4863 
+L 1159 4863 
+L 1159 1991 
+L 2875 3500 
+L 3609 3500 
+L 1753 1863 
+L 3688 0 
+L 2938 0 
+L 1159 1709 
+L 1159 0 
+L 581 0 
+L 581 4863 
+z
+" transform="scale(0.015625)"/>
        <path id="DejaVuSans-3a" d="M 213 4666 
 L 850 4666 
 L 1831 722 
@@ -3319,7 +3331,7 @@ z
   </g>
   <g id="text_47">
    <!-- Source: data from NVIDIA datasheets, SemiAnalysis and press reports via system_specs.csv [S315] [S316] [S318] [S33022] [S33002] [S319] …; chart by repo · As of 2026-11-05 -->
-   <g style="fill: #898781" transform="translate(9.072 417.732478) scale(0.082 -0.082)">
+   <g style="fill: #898781" transform="translate(9.072 417.938161) scale(0.073438 -0.073438)">
     <defs>
      <path id="DejaVuSans-36" d="M 3425 4513 
 L 3425 3897 
@@ -3370,15 +3382,6 @@ L 1259 4666
 L 1259 0 
 L 628 0 
 L 628 4666 
-z
-" transform="scale(0.015625)"/>
-     <path id="DejaVuSans-f" d="M 750 794 
-L 1409 794 
-L 1409 256 
-L 897 -744 
-L 494 -744 
-L 750 256 
-L 750 794 
 z
 " transform="scale(0.015625)"/>
      <path id="DejaVuSans-42" d="M 3263 -1063 

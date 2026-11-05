@@ -25,7 +25,7 @@ A CPU is one chef cooking a million omelettes in turn. A GPU hands the same reci
 The syntax is small (`__global__` functions launched with `<<<blocks, threads>>>`); the hard part is everything around it.
 
 > [!TIP]
-> **Worked example — adding two billion-element vectors on an H100.** One thread per element in blocks of 256 gives ~3.9 million blocks. At up to 2,048 resident threads on each of 132 SMs [[S33024]](../../sources/bibliography.md#s33024)[[S2022]](../../sources/bibliography.md#s2022), they flow through in ~3,700 waves. The data is 12 bytes per element, 12 GB in all, which takes **~3.6 ms** at 3.35 TB/s of HBM bandwidth [[S33002]](../../sources/bibliography.md#s33002). **Conclusion:** even trivial kernels are limited by memory, not math, so tuning beats syntax.
+> **Worked example — adding two billion-element vectors on an H100.** One thread per element in blocks of 256 gives ~3.9 million blocks. At up to 2,048 resident threads on each of 132 SMs [[S33024]](../../sources/bibliography.md#s33024)[[S2022]](../../sources/bibliography.md#s2022), they flow through in ~3,700 waves. The data is 12 bytes per element, 12 GB in all, which takes **~3.6 ms** at 3.35 TB/s of [HBM](../../glossary.md#hbm) bandwidth [[S33002]](../../sources/bibliography.md#s33002). **Conclusion:** even trivial kernels are limited by memory, not math, so tuning beats syntax.
 
 **[Q1 · Job & failure mode]** This layer turns model math into instructions that keep Tensor Cores and HBM busy, on every GPU generation, from the day a model or chip appears. When it is weak, peak goes unused: FlashAttention-2 left 65% of H100's attention peak on the table [[S9003]](../../sources/bibliography.md#s9003). New models also stall: DeepSeek-V4-Pro ran at 1–2 tokens/s per user on AMD's day-0 stack [[S633]](../../sources/bibliography.md#s633).
 
@@ -87,10 +87,10 @@ sequenceDiagram
   G-->>Py: result ready (asynchronous)
 ```
 
-In eager mode, PyTorch calls [cuBLAS](../../glossary.md#cublas)/cuBLASLt, whose heuristic picks one of many pre-compiled kernels that differ in tile shape and pipeline depth. Under [torch.compile](../../glossary.md#torch-compile), [TorchInductor](../../glossary.md#torchinductor) may still call cuBLAS for the matmul but generates fused [Triton](../../glossary.md#triton) kernels around it [[S9021]](../../sources/bibliography.md#s9021). Those kernels compile through LLVM to PTX and SASS.
+In eager mode, [PyTorch](../../glossary.md#pytorch) calls [cuBLAS](../../glossary.md#cublas)/cuBLASLt, whose heuristic picks one of many pre-compiled kernels that differ in tile shape and pipeline depth. Under [torch.compile](../../glossary.md#torch-compile), [TorchInductor](../../glossary.md#torchinductor) may still call cuBLAS for the matmul but generates fused [Triton](../../glossary.md#triton) kernels around it [[S9021]](../../sources/bibliography.md#s9021). Those kernels compile through LLVM to PTX and SASS.
 
 > [!TIP]
-> **Worked example — one 8,192³ BF16 matmul on an H100.** The work is 2 × 8,192³ ≈ **1.1 × 10¹² FLOPs**: 1.1 ms at 989 dense BF16 TFLOPS [[S33002]](../../sources/bibliography.md#s33002), ~1.5 ms at a realistic 75%. With 128 × 256 output tiles the grid has **2,048 blocks**, or 15.5 waves over 132 SMs [[S33024]](../../sources/bibliography.md#s33024). The last wave runs half-empty and costs ~3%; 128 × 128 tiles give 31.0 waves and no tail. **Conclusion:** the best kernel depends on shape × data type × GPU, which is why [CUTLASS](../../glossary.md#cutlass) and cuBLAS carry so many variants, and why a rival must match the whole catalogue.
+> **Worked example — one 8,192³ [BF16](../../glossary.md#bf16) matmul on an H100.** The work is 2 × 8,192³ ≈ **1.1 × 10¹² FLOPs**: 1.1 ms at 989 dense BF16 TFLOPS [[S33002]](../../sources/bibliography.md#s33002), ~1.5 ms at a realistic 75%. With 128 × 256 output tiles the grid has **2,048 blocks**, or 15.5 waves over 132 SMs [[S33024]](../../sources/bibliography.md#s33024). The last wave runs half-empty and costs ~3%; 128 × 128 tiles give 31.0 waves and no tail. **Conclusion:** the best kernel depends on shape × data type × GPU, which is why [CUTLASS](../../glossary.md#cutlass) and cuBLAS carry so many variants, and why a rival must match the whole catalogue.
 
 <details>
 <summary>🔧 Under the hood: who picks the kernel</summary>
@@ -120,7 +120,7 @@ In eager mode, PyTorch calls [cuBLAS](../../glossary.md#cublas)/cuBLASLt, whose 
 
 1. **Where is the control point?** Not the syntax, which [HIP](../../glossary.md#hip) copies, but PTX compatibility, the tuned-kernel catalogue and the driver. Which can a challenger license, rebuild or make irrelevant?
 2. **Python is the new front door.** If cuTile and CuTe DSL win mindshare [[S9007]](../../sources/bibliography.md#s9007)[[S9030]](../../sources/bibliography.md#s9030), portable DSLs lose their reason to exist on NVIDIA hardware.
-3. **Qualcomm question (public information only):** with Modular's compiler stack in-house [[S9511]](../../sources/bibliography.md#s9511), which layers of the diagram must be owned and which can be borrowed from open source (Triton, vLLM, PyTorch)?
+3. **Qualcomm question (public information only):** with Modular's compiler stack in-house [[S9511]](../../sources/bibliography.md#s9511), which layers of the diagram must be owned and which can be borrowed from open source (Triton, [vLLM](../../glossary.md#vllm), PyTorch)?
 
 ## 📚 Sources
 

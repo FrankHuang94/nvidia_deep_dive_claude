@@ -8,17 +8,17 @@
   missed its $500M Gaudi revenue goal for 2024 [[S668]](../../sources/bibliography.md#s668) and cancelled Falcon Shores as a product in January 2025
   [[S15546]](../../sources/bibliography.md#s15546)[[S564]](../../sources/bibliography.md#s564).
 - **The reset is an inference GPU first, a rack later.** Crescent Island (Xe3P, 160 GB of [LPDDR5X](../../glossary.md#lpddr5x),
-  air-cooled) samples in H2 2026 and was renamed GPU D-Series at OCP 2026; rack-scale Jaguar Shores (SK hynix HBM4,
+  air-cooled) samples in H2 2026 and was renamed GPU D-Series at OCP 2026; rack-scale Jaguar Shores (SK hynix [HBM4](../../glossary.md#hbm4),
   silicon photonics) has no confirmed date and is unlikely before 2027 🟡 [[S162]](../../sources/bibliography.md#s162)[[S15543]](../../sources/bibliography.md#s15543)[[S15544]](../../sources/bibliography.md#s15544)[[S15545]](../../sources/bibliography.md#s15545).
 - **Its data-center business is a CPU business, and it is growing again.** The Data Center and AI segment booked ~$7.3B in
   Q3 2026 (+78% y/y), about 8% of NVIDIA's latest data-center quarter [[S15543]](../../sources/bibliography.md#s15543)[[S405]](../../sources/bibliography.md#s405). Intel still ships 54.9% of server
-  CPU units, but AMD holds ~46% of x86 server revenue [[S4503]](../../sources/bibliography.md#s4503)[[S4505]](../../sources/bibliography.md#s4505).
+  CPU units, but AMD holds ~46% of [x86](../../glossary.md#x86) server revenue [[S4503]](../../sources/bibliography.md#s4503)[[S4505]](../../sources/bibliography.md#s4505).
 - **NVIDIA owns ~4% of it.** NVIDIA's $5B purchase (~214.7M shares at $23.28) closed on 2025-12-26 and funds custom x86
-  CPUs that attach over NVLink, plus x86 RTX PC chips; no data-center product date is public 🔴 [[S4009]](../../sources/bibliography.md#s4009)[[S15547]](../../sources/bibliography.md#s15547)[[S130]](../../sources/bibliography.md#s130).
+  CPUs that attach over [NVLink](../../glossary.md#nvlink), plus x86 RTX PC chips; no data-center product date is public 🔴 [[S4009]](../../sources/bibliography.md#s4009)[[S15547]](../../sources/bibliography.md#s15547)[[S130]](../../sources/bibliography.md#s130).
 - **The supplier angle is packaging.** Intel's [EMIB](../../glossary.md#emib)-T is the main non-TSMC route for large AI packages;
   Google and Amazon are reported in talks 🟡, and estimates put EMIB-T at ~15–20k CoWoS-equivalent wafers a month in 2027
   against TSMC's ~130k CoWoS at end-2026 (Est.) [[S3532]](../../sources/bibliography.md#s3532)[[S3002]](../../sources/bibliography.md#s3002).
-- **Intel sits on both sides of the scale-up war:** a [UALink](../../glossary.md#ualink) board member and an NVLink-attached x86
+- **Intel sits on both sides of the [scale-up](../../glossary.md#scale-up) war:** a [UALink](../../glossary.md#ualink) board member and an NVLink-attached x86
   partner [[S573]](../../sources/bibliography.md#s573)[[S130]](../../sources/bibliography.md#s130). The US government (9.9%), SoftBank ($2B) and NVIDIA are now shareholders [[S15550]](../../sources/bibliography.md#s15550)[[S15547]](../../sources/bibliography.md#s15547).
 - **Repo verdict 🔴:** low threat as an accelerator vendor; rising relevance as NVIDIA's x86 partner and as the only
   Western second source for advanced packaging.
@@ -71,7 +71,7 @@ timeline
     2027+ : Jaguar Shores rack-scale (no date)
 ```
 
-On paper, Gaudi 3 was competitive with the GPU it launched against. It offered 1,835 TFLOPS of dense BF16/FP8 and 128 GB
+On paper, Gaudi 3 was competitive with the GPU it launched against. It offered 1,835 TFLOPS of dense [BF16](../../glossary.md#bf16)/FP8 and 128 GB
 of HBM2e at 3.7 TB/s in a 900 W module [[S161]](../../sources/bibliography.md#s161), against H100's 80 GB at 3.35 TB/s [[S33002]](../../sources/bibliography.md#s33002). It did not sell. The reasons
 are the ones this repo keeps finding: software (most models arrive CUDA-first), scale-up (Gaudi used 24 × 200 GbE ports,
 21 of them for an 8-chip all-to-all, so there was no rack-scale domain) [[S296]](../../sources/bibliography.md#s296), and roadmap credibility (Gaudi, then
@@ -87,16 +87,16 @@ Falcon Shores, then Jaguar Shores) [[S2515]](../../sources/bibliography.md#s2515
 | NVIDIA Rubin | 2026 | 288 GB HBM4 | 19.2 TB/s | 17,500 TFLOPS | NVLink 6, 72 packages | ramping | [[S90006]](../../sources/bibliography.md#s90006)[[S90009]](../../sources/bibliography.md#s90009) |
 
 > [!TIP]
-> **Worked example — why good specs did not become revenue.** Gaudi 3 matched an H100 on dense FP8 and beat it on memory
+> **Worked example — why good specs did not become revenue.** Gaudi 3 matched an H100 on dense [FP8](../../glossary.md#fp8) and beat it on memory
 > (128 vs 80 GB) [[S161]](../../sources/bibliography.md#s161)[[S33002]](../../sources/bibliography.md#s33002), yet Gaudi revenue stayed below $500M in 2024 [[S668]](../../sources/bibliography.md#s668) while NVIDIA's FY2025 data-center
-> revenue was $115.2B [[S416]](../../sources/bibliography.md#s416). Take one 8-chip Gaudi 3 node: its scale-up domain is 8 chips, while a GB200 NVL72 joins 72
+> revenue was $115.2B [[S416]](../../sources/bibliography.md#s416). Take one 8-chip Gaudi 3 node: its scale-up domain is 8 chips, while a GB200 [NVL72](../../glossary.md#nvl72) joins 72
 > GPUs in one NVLink domain. For mixture-of-experts models that spread experts over dozens of chips, the node boundary,
 > not the chip, sets throughput ([why domain size matters](../../layers/05-scale-up-nvlink-nvswitch/why-domain-size-matters.md)).
 > Specs got Intel into evaluations; the system and software gap kept it out of deployments.
 
 The 2026 plan narrows the target. Crescent Island is an air-cooled inference card with 160 GB of LPDDR5X [[S162]](../../sources/bibliography.md#s162): the same
-capacity-over-bandwidth trade Qualcomm makes with 768 GB of LPDDR per AI200 card ([Qualcomm](qualcomm.md)).
-It aims at enterprise inference servers where liquid cooling and HBM costs are barriers, not at frontier training.
+capacity-over-bandwidth trade Qualcomm makes with 768 GB of [LPDDR](../../glossary.md#lpddr) per AI200 card ([Qualcomm](qualcomm.md)).
+It aims at enterprise inference servers where liquid cooling and [HBM](../../glossary.md#hbm) costs are barriers, not at frontier training.
 
 <details>
 <summary>🔧 Under the hood: what "rack-scale with silicon photonics" implies for Jaguar Shores</summary>
@@ -117,12 +117,12 @@ cost. Intel's UALink membership [[S573]](../../sources/bibliography.md#s573) sug
 Every NVIDIA GPU needs a host CPU. Inside NVIDIA's own GB-class racks that host is Grace or Vera; in the much larger
 x86 server world it is Xeon or EPYC. The September 2025 agreement makes Intel a supplier of custom x86 CPUs that NVIDIA
 integrates into its platforms over NVLink, alongside x86 PC SoCs with RTX chiplets [[S130]](../../sources/bibliography.md#s130)[[S468]](../../sources/bibliography.md#s468). Intel is also listed
-among NVLink Fusion's CPU partners [[S90031]](../../sources/bibliography.md#s90031).
+among [NVLink Fusion](../../glossary.md#nvlink-fusion)'s CPU partners [[S90031]](../../sources/bibliography.md#s90031).
 
 ![Timeline dot chart of NVLink Fusion partners. At launch on 19 May 2025: MediaTek, Marvell and Alchip (design services), Synopsys and Cadence (EDA), Astera Labs (connectivity), Qualcomm and Fujitsu (CPUs). Later: Intel x86 CPUs (Sept 2025), Arm Neoverse (Nov 2025), AWS Trainium4 (Dec 2025, the only hyperscaler accelerator) and, as reported but not confirmed, Ayar Labs and Lightmatter for optics (June 2026). AMD, Broadcom and Google are absent.](../../assets/charts/05-nvlink-fusion-partner-timeline.svg)
 
 > [!TIP]
-> **Worked example — why NVLink matters to an x86 host.** A PCIe Gen6 x16 host link carries ~256 GB/s; Vera's
+> **Worked example — why NVLink matters to an x86 host.** A [PCIe](../../glossary.md#pcie) Gen6 x16 host link carries ~256 GB/s; Vera's
 > [NVLink-C2C](../../glossary.md#nvlink-c2c) carries 1.8 TB/s, about 7× more [[S100]](../../sources/bibliography.md#s100)[[S144]](../../sources/bibliography.md#s144). For inference that spills the
 > [KV cache](../../glossary.md#kv-cache) to CPU memory, the host link sets how fast context reloads. An NVLink-attached Xeon would
 > give x86-only enterprises NVIDIA's coherent CPU–GPU path without switching to Arm, which is why the deal protects
@@ -148,7 +148,7 @@ minimal redesign, so TSMC could still make the compute dies [[S15548]](../../sou
 > **Worked example — how big a second source is EMIB-T?** Institutional estimates put EMIB-T at ~15–20k
 > CoWoS-equivalent wafers a month in 2027 and ~40–45k in 2028, against TSMC CoWoS of ~130k at end-2026 heading to ~260k
 > by end-2028 (Est.) [[S3002]](../../sources/bibliography.md#s3002). At the 2027 midpoint, 17.5k ÷ 130k ≈ 13% of TSMC's end-2026 base. That is enough to rescue
-> an ASIC program stuck behind NVIDIA's ~60% CoWoS allocation [[S379]](../../sources/bibliography.md#s379), not enough to change NVIDIA's own supply position.
+> an [ASIC](../../glossary.md#asic) program stuck behind NVIDIA's ~60% CoWoS allocation [[S379]](../../sources/bibliography.md#s379), not enough to change NVIDIA's own supply position.
 
 Customers are the open question. Google and Amazon are reported in packaging talks; Intel's CEO said customers are
 willing to help prepay substrate suppliers 🟡 [[S3532]](../../sources/bibliography.md#s3532). DIGITIMES lists NVIDIA among reported order sources (unconfirmed

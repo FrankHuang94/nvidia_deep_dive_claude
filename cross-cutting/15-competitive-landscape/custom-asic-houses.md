@@ -27,7 +27,7 @@
 
 ## How the custom-ASIC business works
 
-A hyperscaler that wants its own accelerator rarely builds the whole chip. Its architects decide what the compute engine
+A [hyperscaler](../../glossary.md#hyperscaler) that wants its own accelerator rarely builds the whole chip. Its architects decide what the compute engine
 looks like (matrix units, number formats, on-chip memory) because that is where its workload knowledge lives. An
 [ASIC design partner](../../glossary.md#asic-design-partner) supplies everything else: high-speed [SerDes](../../glossary.md#serdes)
 for chip-to-chip links, the [HBM](../../glossary.md#hbm) interface, packaging, physical design and a place in TSMC's queue. The
@@ -70,12 +70,12 @@ buyers now run overlapping generations: Meta has four MTIA generations planned t
 <details>
 <summary>🔧 Under the hood: why SerDes and packaging are the partner's moat</summary>
 
-A 2026 accelerator moves terabytes per second off-chip: Jalapeño is reported at 15.4 TB/s of HBM4 bandwidth [[S628]](../../sources/bibliography.md#s628), and
-scale-up links run 200G-class lanes. Designing [SerDes](../../glossary.md#serdes) that run at 200 Gb/s per lane within power
+A 2026 accelerator moves terabytes per second off-chip: Jalapeño is reported at 15.4 TB/s of [HBM4](../../glossary.md#hbm4) bandwidth [[S628]](../../sources/bibliography.md#s628), and
+[scale-up](../../glossary.md#scale-up) links run 200G-class lanes. Designing [SerDes](../../glossary.md#serdes) that run at 200 Gb/s per lane within power
 budgets, and HBM PHYs that pass memory-vendor qualification, takes years of silicon iterations. Broadcom also sells the
 switches (Tomahawk) those links plug into, so it can co-design both ends; the repo scores Broadcom as leading NVIDIA in
-scale-out Ethernet switching [[S274]](../../sources/bibliography.md#s274). Packaging adds a supply moat: TrendForce-type estimates put Broadcom at ~150k of
-~1,000k 2026 CoWoS wafers, second only to NVIDIA's ~595k (Est.) [[S379]](../../sources/bibliography.md#s379). A hyperscaler can hire compute architects; it is
+[scale-out](../../glossary.md#scale-out) Ethernet switching [[S274]](../../sources/bibliography.md#s274). Packaging adds a supply moat: TrendForce-type estimates put Broadcom at ~150k of
+~1,000k 2026 [CoWoS](../../glossary.md#cowos) wafers, second only to NVIDIA's ~595k (Est.) [[S379]](../../sources/bibliography.md#s379). A hyperscaler can hire compute architects; it is
 much harder to hire a decade of SerDes test chips and a CoWoS allocation.
 
 </details>
@@ -141,7 +141,7 @@ less customer lock-in.
 
 **MediaTek** brings a mobile-SoC company's skills (power efficiency, SerDes, high-volume execution). It raised its 2026
 AI-ASIC target from $1B to $2B and reportedly won Google TPU v7e/v8e work, possibly the [I/O die](../../glossary.md#io-die)
-rather than the compute die 🟡 [[S15503]](../../sources/bibliography.md#s15503)[[S2518]](../../sources/bibliography.md#s2518)[[S23008]](../../sources/bibliography.md#s23008). It is also an NVLink Fusion launch partner [[S90031]](../../sources/bibliography.md#s90031).
+rather than the compute die 🟡 [[S15503]](../../sources/bibliography.md#s15503)[[S2518]](../../sources/bibliography.md#s2518)[[S23008]](../../sources/bibliography.md#s23008). It is also an [NVLink](../../glossary.md#nvlink) Fusion launch partner [[S90031]](../../sources/bibliography.md#s90031).
 
 > [!TIP]
 > **Worked example — the gap inside the custom pool.** Broadcom's ~$58B FY2026 AI revenue is ~6.7× Marvell's annualised
@@ -164,7 +164,7 @@ a partner's margin and its own engineering bill and still come out ahead, if the
 > $21.4K per GPU-equivalent, saving ~$13.6K each. $1.19B ÷ $13.6K ≈ 87k GPU-equivalents. A 1 GW program runs to
 > hundreds of thousands of accelerators, so the frontier labs clear the bar; a 20k-GPU enterprise does not.
 
-The model leaves out what makes the decision hard in practice: software. Google's TPU is economic because XLA and JAX
+The model leaves out what makes the decision hard in practice: software. Google's TPU is economic because [XLA](../../glossary.md#xla) and JAX
 already exist; SemiAnalysis measured Ironwood ~18% cheaper per token than B200 on one workload, mostly from cheaper
 chip-hours rather than faster silicon [[S625]](../../sources/bibliography.md#s625). A new XPU without that stack can take years to reach its paper throughput
 (see [CUDA competition](../../layers/09-cuda-and-system-software/competition.md)).
@@ -230,7 +230,7 @@ three of which were 16%, 15% and 13% of H1 FY2027 revenue [[S90069]](../../sourc
    asset be worth to a buyer that already has SerDes and packaging know-how, and which anchor customers remain
    uncommitted after Broadcom's six?
 3. NVIDIA's $2B Marvell stake and Fusion licences turn rivals into suppliers. Is "custom accelerator inside an NVIDIA
-   rack" a durable middle ground, or a transition state before UALink/ESUN racks mature in 2027?
+   rack" a durable middle ground, or a transition state before [UALink](../../glossary.md#ualink)/ESUN racks mature in 2027?
 4. Revenue share (~11%) and unit share (~28%) tell different stories. Which metric should a corp dev model use to size
    the custom pool, and how sensitive is it to XPU pricing?
 5. The break-even favours buyers at hundreds of thousands of units. Is there a market for "custom-lite" (shared base die,

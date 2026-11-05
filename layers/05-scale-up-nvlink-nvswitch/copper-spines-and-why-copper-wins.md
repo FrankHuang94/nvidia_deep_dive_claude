@@ -4,10 +4,10 @@
 
 ## ⚡ The Executive Take
 
-- **The NVL72's backbone is copper:** ~5,000 NVLink cables, ~2 miles in total, join 72 GPUs to 18 switch chips [[S5000]](../../sources/bibliography.md#s5000)[[S5001]](../../sources/bibliography.md#s5001); link arithmetic gives 5,184 pairs (repo calc).
+- **The [NVL72](../../glossary.md#nvl72)'s backbone is copper:** ~5,000 [NVLink](../../glossary.md#nvlink) cables, ~2 miles in total, join 72 GPUs to 18 switch chips [[S5000]](../../sources/bibliography.md#s5000)[[S5001]](../../sources/bibliography.md#s5001); link arithmetic gives 5,184 pairs (repo calc).
 - **Copper saves ~19 kW and ~$0.5M per rack (Est.).** 130 TB/s on 800G optics needs ~1,300 modules: ~19 kW, matching NVIDIA's ~20 kW claim and ~16% of a ~120 kW rack [[S5000]](../../sources/bibliography.md#s5000)[[S295]](../../sources/bibliography.md#s295)[[S336]](../../sources/bibliography.md#s336), and ~$0.65–0.78M versus ~$0.13–0.19M for DAC-priced copper [[S5016]](../../sources/bibliography.md#s5016)[[S5015]](../../sources/bibliography.md#s5015).
 - **Reliability:** passive copper has no lasers or DSPs; NVIDIA itself sells co-packaged optics as 10× more resilient than pluggables [[S265]](../../sources/bibliography.md#s265).
-- **The catch is reach.** At 200 Gb/s per lane, passive copper reaches ~1 m [[S5010]](../../sources/bibliography.md#s5010), so a copper scale-up domain stops at the rack; Kyber moves to a printed-circuit [midplane](../../glossary.md#midplane) for 144 GPUs [[S510]](../../sources/bibliography.md#s510).
+- **The catch is reach.** At 200 Gb/s per lane, passive copper reaches ~1 m [[S5010]](../../sources/bibliography.md#s5010), so a copper [scale-up](../../glossary.md#scale-up) domain stops at the rack; Kyber moves to a printed-circuit [midplane](../../glossary.md#midplane) for 144 GPUs [[S510]](../../sources/bibliography.md#s510).
 - **Optics come inside next:** NVIDIA's Feynman-era Kyber NVL1152 pairs copper with [co-packaged optics](../../glossary.md#co-packaged-optics) 🟢 [[S109]](../../sources/bibliography.md#s109)[[S108]](../../sources/bibliography.md#s108); Huawei already runs an all-optical 384-NPU domain, at ~3.9× an NVL72's power [[S340]](../../sources/bibliography.md#s340).
 
 ![Two-panel chart. Left: power to drive an NVL72 spine of 648 800G links: passive copper about 0 kW beyond the chips' SerDes, co-packaged optics about 5.6 kW, linear pluggables about 11 kW and DSP pluggables about 19 kW, matching NVIDIA's claim of 20 kW saved. Right: media cost per rack about $0.13-0.19M for copper priced like 800G DACs versus $0.65-0.78M for 1,296 DSP optical modules. All estimates.](../../assets/charts/05-nvl72-spine-copper-vs-optics.svg)
@@ -66,7 +66,7 @@ flowchart TD
   class C,F nvidia
 ```
 
-NVIDIA's 256-GPU DGX GH200 used optical NVLink and saw limited deployment [[S205]](../../sources/bibliography.md#s205)[[S200]](../../sources/bibliography.md#s200); its roadmap brings optics back for Feynman's multi-rack Kyber NVL1152 🟢 [[S109]](../../sources/bibliography.md#s109)[[S108]](../../sources/bibliography.md#s108). Huawei's CloudMatrix 384 links 384 NPUs all-optically at ~559 kW, ~3.9× an NVL72's ~145 kW, for ~1.7× its dense BF16 compute [[S340]](../../sources/bibliography.md#s340)[[S121]](../../sources/bibliography.md#s121).
+NVIDIA's 256-GPU DGX GH200 used optical NVLink and saw limited deployment [[S205]](../../sources/bibliography.md#s205)[[S200]](../../sources/bibliography.md#s200); its roadmap brings optics back for Feynman's multi-rack Kyber NVL1152 🟢 [[S109]](../../sources/bibliography.md#s109)[[S108]](../../sources/bibliography.md#s108). Huawei's CloudMatrix 384 links 384 NPUs all-optically at ~559 kW, ~3.9× an NVL72's ~145 kW, for ~1.7× its dense [BF16](../../glossary.md#bf16) compute [[S340]](../../sources/bibliography.md#s340)[[S121]](../../sources/bibliography.md#s121).
 
 > [!TIP]
 > **Worked example — optics for a 576-GPU NVLink domain.** A Rubin Ultra-class GPU moves 14.4 Tb/s each way [[S210]](../../sources/bibliography.md#s210) = 18 × 800G ports at each end. DSP pluggables: 36 × 15 W = **540 W per GPU** (~311 kW for 576); CPO at ~4.3 W per 800G-equivalent: **~155 W** (~89 kW) [[S295]](../../sources/bibliography.md#s295)[[S265]](../../sources/bibliography.md#s265) (Est.). Against ~4.2 kW per package (600 kW ÷ 144) [[S305]](../../sources/bibliography.md#s305), that is ~13% versus ~4% overhead. **Conclusion:** co-packaged optics make multi-rack NVLink affordable; until they ship in volume, copper sets the domain size.
@@ -74,9 +74,9 @@ NVIDIA's 256-GPU DGX GH200 used optical NVLink and saw limited deployment [[S205
 ## 🎯 Corp Dev Lens
 
 1. **Copper is a supply chain too.** Cable cartridges, connectors and rack mechanics grow with every NVL72 shipped ([Value chain and corp dev](value-chain-and-corp-dev.md)).
-2. **The CPO transition is the swing factor.** NVIDIA's CPO partners include TSMC, Coherent, Corning, Foxconn, Lumentum and SENKO [[S90049]](../../sources/bibliography.md#s90049); optical-I/O start-ups Ayar Labs and Lightmatter were reported joining NVLink Fusion 🟡 [[S5022]](../../sources/bibliography.md#s5022). When scale-up turns optical, which of these captures the value NVIDIA does not keep in its switch?
-3. **Reach decides domain size.** A rival promising 1,024-device pods (UALink 1.0 [[S573]](../../sources/bibliography.md#s573)) must pay the optics premium beyond one rack ([Competition](competition.md)).
-4. **Qualcomm question (public information only):** for inference racks with 768 GB of LPDDR per card [[S90028]](../../sources/bibliography.md#s90028), is a copper-only, single-rack domain enough for now?
+2. **The CPO transition is the swing factor.** NVIDIA's CPO partners include TSMC, Coherent, Corning, Foxconn, Lumentum and SENKO [[S90049]](../../sources/bibliography.md#s90049); optical-I/O start-ups Ayar Labs and Lightmatter were reported joining [NVLink Fusion](../../glossary.md#nvlink-fusion) 🟡 [[S5022]](../../sources/bibliography.md#s5022). When scale-up turns optical, which of these captures the value NVIDIA does not keep in its switch?
+3. **Reach decides domain size.** A rival promising 1,024-device pods ([UALink](../../glossary.md#ualink) 1.0 [[S573]](../../sources/bibliography.md#s573)) must pay the optics premium beyond one rack ([Competition](competition.md)).
+4. **Qualcomm question (public information only):** for inference racks with 768 GB of [LPDDR](../../glossary.md#lpddr) per card [[S90028]](../../sources/bibliography.md#s90028), is a copper-only, single-rack domain enough for now?
 
 ## 📚 Sources
 

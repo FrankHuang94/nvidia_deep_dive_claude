@@ -4,12 +4,12 @@
 
 ## ⚡ The Executive Take
 
-- **CUDA developers tripled, then the headline stopped moving.** NVIDIA counted 2M registered developers in 2020 and ~6M at GTC 2025, and cited the same ~6M at GTC 2026 [[S529]](../../sources/bibliography.md#s529)[[S536]](../../sources/bibliography.md#s536)[[S528]](../../sources/bibliography.md#s528).
+- **[CUDA](../../glossary.md#cuda) developers tripled, then the headline stopped moving.** NVIDIA counted 2M registered developers in 2020 and ~6M at GTC 2025, and cited the same ~6M at GTC 2026 [[S529]](../../sources/bibliography.md#s529)[[S536]](../../sources/bibliography.md#s536)[[S528]](../../sources/bibliography.md#s528).
 - **[GTC](../../glossary.md#gtc) became an industry trade show.** Attendance went from ~1,500 at the first GTC (2009) [[S13024]](../../sources/bibliography.md#s13024) to ~25,000 in person plus ~300,000 online in 2025 [[S13020]](../../sources/bibliography.md#s13020), and >30,000 expected from >190 countries in 2026 [[S13533]](../../sources/bibliography.md#s13533), with 500+ sessions [[S13023]](../../sources/bibliography.md#s13023).
 - **Training is a feeder, not a business.** The [Deep Learning Institute](../../glossary.md#deep-learning-institute) set out to train 100,000 developers in 2017 [[S13031]](../../sources/bibliography.md#s13031) and had trained >200,000 by ~2020, with >550 certified instructors [[S13032]](../../sources/bibliography.md#s13032).
 - **Inception is free and broad:** 2,000 start-ups in 2017 [[S13027]](../../sources/bibliography.md#s13027), 8,500 in 2021 that had raised >$60B [[S13026]](../../sources/bibliography.md#s13026), ~10,000 by 2022 [[S531]](../../sources/bibliography.md#s531); secondary sources cite >22,000 in 2025 [[S13536]](../../sources/bibliography.md#s13536).
 - **NVentures is the equity arm, and it sped up:** ~30 deals in 2025 against 1 in 2022; NVIDIA as a whole joined ~67 venture rounds in 2025 vs 54 in 2024 (PitchBook via press) 🟡 [[S13029]](../../sources/bibliography.md#s13029).
-- **Bear case:** frameworks such as PyTorch, Triton and Mojo abstract CUDA away. Qualcomm closed its ~$3.9B all-stock Modular acquisition in July 2026 to own such a stack [[S9511]](../../sources/bibliography.md#s9511)[[S90057]](../../sources/bibliography.md#s90057).
+- **Bear case:** frameworks such as [PyTorch](../../glossary.md#pytorch), [Triton](../../glossary.md#triton) and Mojo abstract CUDA away. Qualcomm closed its ~$3.9B all-stock Modular acquisition in July 2026 to own such a stack [[S9511]](../../sources/bibliography.md#s9511)[[S90057]](../../sources/bibliography.md#s90057).
 
 ![Line chart of NVIDIA-stated CUDA developers: about 1M around 2018 (estimate), 2M in 2020, 3M in March 2022, 4M in May 2023, 5M in June 2024, 5.9M in February 2025 and about 6M at GTC 2025 and again at GTC 2026 — a plateau in the rounded headline figure.](../../assets/charts/09-cuda-developers-over-time.svg)
 
@@ -33,7 +33,7 @@ Think of CUDA as an operating system that happens to sell hardware. Developers p
 
 ## GTC as a platform
 
-GTC began as a GPU-computing conference and now works as NVIDIA's annual roadmap event, partner launch window and sales floor. The spring keynote sets the cadence the supply chain plans around. GTC 2026 introduced Vera Rubin NVL72, the Groq 3 LPX rack and the Kyber roadmap [[S90003]](../../sources/bibliography.md#s90003), released Dynamo 1.0 with named adopters such as CoreWeave, Perplexity and PayPal [[S90066]](../../sources/bibliography.md#s90066), and raised NVIDIA's demand claim from $500B to $1 trillion through 2027 [[S90001]](../../sources/bibliography.md#s90001). Partners time launches to the keynote; regional events extend the format, and GTC DC runs Nov 30 – Dec 3, 2026, after this repo's as-of date [[S90047]](../../sources/bibliography.md#s90047).
+GTC began as a GPU-computing conference and now works as NVIDIA's annual roadmap event, partner launch window and sales floor. The spring keynote sets the cadence the supply chain plans around. GTC 2026 introduced Vera Rubin [NVL72](../../glossary.md#nvl72), the Groq 3 LPX rack and the Kyber roadmap [[S90003]](../../sources/bibliography.md#s90003), released [Dynamo](../../glossary.md#dynamo) 1.0 with named adopters such as CoreWeave, Perplexity and PayPal [[S90066]](../../sources/bibliography.md#s90066), and raised NVIDIA's demand claim from $500B to $1 trillion through 2027 [[S90001]](../../sources/bibliography.md#s90001). Partners time launches to the keynote; regional events extend the format, and GTC DC runs Nov 30 – Dec 3, 2026, after this repo's as-of date [[S90047]](../../sources/bibliography.md#s90047).
 
 ![Bar chart of in-person attendance at NVIDIA's spring GTC: about 1,500 at the first GTC in 2009, more than 16,000 projected for 2024, about 25,000 estimated by NVIDIA for 2025 with about 300,000 online, and more than 30,000 from over 190 countries expected for 2026, when the agenda listed 500+ sessions. Attendance grew about 20-fold, making GTC a launch platform for partners as well as NVIDIA.](../../assets/charts/13-gtc-attendance.svg)
 
@@ -80,7 +80,7 @@ The funnel ends with renting before owning. DGX Cloud Lepton routes developers t
 
 1. **Who owns the developer when CUDA is hidden?** If PyTorch, Triton or Mojo become the interface, the owner of the compiler layer captures the habit. Qualcomm's Modular deal [[S9511]](../../sources/bibliography.md#s9511) is one public bet on this. How quickly can a portable stack reach "default" status in start-up programs?
 2. **Start-up programs are cheap options.** Cloud credits are common across vendors (see [Competition](competition.md)). NVIDIA's edge is that members' hardware choice is already made. What would a rival need to offer before a start-up designs for a second architecture?
-3. **GTC is a coordination device.** Suppliers, OEMs and clouds align launch calendars to it. Is there a neutral forum (OCP, MLCommons, UALink events) where a challenger coalition can coordinate as visibly?
+3. **GTC is a coordination device.** Suppliers, OEMs and clouds align launch calendars to it. Is there a neutral forum (OCP, MLCommons, [UALink](../../glossary.md#ualink) events) where a challenger coalition can coordinate as visibly?
 
 ## 📚 Sources
 

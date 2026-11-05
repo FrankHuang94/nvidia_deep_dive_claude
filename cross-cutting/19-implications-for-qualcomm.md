@@ -22,12 +22,12 @@
   Dragonfly C1000 customer from H2 2028. AWS signed for custom inference silicon, with a warrant vesting on up to $60B of
   purchases through 2036 [[S90030]](../sources/bibliography.md#s90030)[[S90058]](../sources/bibliography.md#s90058)[[S90087]](../sources/bibliography.md#s90087). No AI200 volume shipment or MLPerf/InferenceX result was public
   🔴 [[S90028]](../sources/bibliography.md#s90028)[[S602]](../sources/bibliography.md#s602)[[S620]](../sources/bibliography.md#s620).
-- **🔴 Where a challenger can win:** the repo scores hyperscaler custom silicon and agentic head-node CPUs as the most open
+- **🔴 Where a challenger can win:** the repo scores [hyperscaler](../glossary.md#hyperscaler) custom silicon and agentic head-node CPUs as the most open
   segments; in custom silicon the main rival is Broadcom, not NVIDIA. Chat-speed [MoE](../glossary.md#mixture-of-experts)
-  serving per megawatt is NVIDIA's fortress: GB300 NVL72 serves ~2.6M tokens/s per MW against ≤0.7M for shipping rivals
+  serving per megawatt is NVIDIA's fortress: GB300 [NVL72](../glossary.md#nvl72) serves ~2.6M tokens/s per MW against ≤0.7M for shipping rivals
   (Est.) [[S14000]](../sources/bibliography.md#s14000)[[S2516]](../sources/bibliography.md#s2516)[[S4522]](../sources/bibliography.md#s4522).
 - **LPDDR capacity is a different bet, not a moat.** A reported 🟡 AI200 rack holds ~43 TB on its cards, 2× a Vera Rubin
-  NVL72's 20.7 TB of HBM4. But NVIDIA's rack also carries 54 TB of LPDDR5X behind its Vera CPUs, and an LPDDR card's
+  NVL72's 20.7 TB of [HBM4](../glossary.md#hbm4). But NVIDIA's rack also carries 54 TB of LPDDR5X behind its Vera CPUs, and an LPDDR card's
   bandwidth is ~35× below Rubin's (0.548 vs 19.2 TB/s) [[S19003]](../sources/bibliography.md#s19003)[[S362]](../sources/bibliography.md#s362)[[S172]](../sources/bibliography.md#s172)[[S90006]](../sources/bibliography.md#s90006).
 - **The edge is the one place the challenger is bigger.** Qualcomm's chip business sold ~$8.5B in the quarter to June
   2026, against $7.2B for NVIDIA's Edge Computing platform. In datacenter, NVIDIA's $89.0B quarter is ~71× Qualcomm's
@@ -150,10 +150,10 @@ Three readings of the map differ from, or add to, [chapter 15's Qualcomm page](1
 - **Layers 07 and 10 appear separately here.** Chapter 15 merges layers 09–11 and leaves 07 out. The absent layers are
   where build, buy and partner questions concentrate (section 4), so this page shows them on their own.
 - **Today's merchant rack partners with NVIDIA's nearest merchant rival.** Two low-tier reports from MWC 2026 describe
-  the AI200 rack as 56 cards hosted by AMD EPYC CPUs, linked by PCIe inside each node and 800G Ethernet across the rack
-  🟡 [[S19003]](../sources/bibliography.md#s19003)[[S19005]](../sources/bibliography.md#s19005). The NVLink Fusion CPU and the C1000 are later items, so in 2026 Qualcomm's CPU "partner" role
+  the AI200 rack as 56 cards hosted by AMD EPYC CPUs, linked by [PCIe](../glossary.md#pcie) inside each node and 800G Ethernet across the rack
+  🟡 [[S19003]](../sources/bibliography.md#s19003)[[S19005]](../sources/bibliography.md#s19005). The [NVLink](../glossary.md#nvlink) Fusion CPU and the C1000 are later items, so in 2026 Qualcomm's CPU "partner" role
   with NVIDIA is still on paper.
-- **"Compete" in scale-up is about governance, not a boycott.** ESUN is an OCP workstream that NVIDIA itself co-founded
+- **"Compete" in [scale-up](../glossary.md#scale-up) is about governance, not a boycott.** ESUN is an OCP workstream that NVIDIA itself co-founded
   [[S576]](../sources/bibliography.md#s576). UALink is where NVIDIA is absent. The dual track (Fusion CPU, UALink/ESUN accelerator) keeps Qualcomm on both
   sides, as it does Intel ([NVLink Fusion](../layers/05-scale-up-nvlink-nvswitch/nvlink-fusion.md)).
 
@@ -186,7 +186,7 @@ NVIDIA in November 2026 (`competitor_matrix.csv`).
 
 This section scores eleven segments on two axes (all 🔴 repo judgement). **Attractiveness** combines the size and growth
 of the spending pool with how well it fits a challenger's public assets. **NVIDIA defensibility** measures how hard
-NVIDIA's advantages make it to take share: [tokens per MW](../glossary.md#tokens-per-megawatt), the 72-GPU NVLink domain, CUDA, the
+NVIDIA's advantages make it to take share: [tokens per MW](../glossary.md#tokens-per-megawatt), the 72-GPU NVLink domain, [CUDA](../glossary.md#cuda), the
 annual cadence and supply allocation. Evidence comes from the layer pages and chapters 14, 15 and 18. Data:
 `data/x19_win_matrix.csv`.
 
@@ -263,8 +263,8 @@ compete at is therefore a strategic decision, not a benchmark detail.
 > [!WARNING]
 > **Myth vs. reality: "memory capacity is Qualcomm's moat."** Capacity is shared ground. Each Vera CPU carries ~1.5 TB of
 > LPDDR5X (54 TB per rack) [[S362]](../sources/bibliography.md#s362) and reaches its GPUs coherently over [NVLink-C2C](../glossary.md#nvlink-c2c) at 1.8 TB/s [[S209]](../sources/bibliography.md#s209). Rubin
-> Ultra targets 1 TB of HBM4E per package in H2 2027 [[S305]](../sources/bibliography.md#s305). Intel's inference GPU carries 160 GB of LPDDR5X and samples
-> in H2 2026 [[S162]](../sources/bibliography.md#s162), and d-Matrix pairs SRAM with LPDDR [[S2511]](../sources/bibliography.md#s2511). A capacity position is defensible only together with
+> Ultra targets 1 TB of [HBM4E](../glossary.md#hbm4e) per package in H2 2027 [[S305]](../sources/bibliography.md#s305). Intel's inference GPU carries 160 GB of LPDDR5X and samples
+> in H2 2026 [[S162]](../sources/bibliography.md#s162), and d-Matrix pairs [SRAM](../glossary.md#sram) with LPDDR [[S2511]](../sources/bibliography.md#s2511). A capacity position is defensible only together with
 > software, cost and a published cost-per-token result at a named operating point.
 
 ### 3.2 Power-constrained deployments
@@ -290,7 +290,7 @@ in the [interconnection queue](../glossary.md#interconnection-queue) [[S18016]](
 **Agentic orchestration CPUs.** [Agentic AI](../glossary.md#agentic-ai) workloads call tools, run code and coordinate many
 model calls, and much of that work runs on CPUs. NVIDIA reported visibility to nearly $20B of standalone CPU revenue
 this fiscal year and cited a "$200B" CPU opportunity 🟡 [[S4522]](../sources/bibliography.md#s4522). The C1000's >250 cores are ~2.8× Vera's 88 and level
-with AMD's 256-core EPYC Venice [[S90056]](../sources/bibliography.md#s90056)[[S100]](../sources/bibliography.md#s100)[[S144]](../sources/bibliography.md#s144). The market is crowded: AMD holds ~46% of x86 server CPU revenue,
+with AMD's 256-core EPYC Venice [[S90056]](../sources/bibliography.md#s90056)[[S100]](../sources/bibliography.md#s100)[[S144]](../sources/bibliography.md#s144). The market is crowded: AMD holds ~46% of [x86](../glossary.md#x86) server CPU revenue,
 and Arm now sells its own 136-core AGI CPU to Meta [[S4503]](../sources/bibliography.md#s4503)[[S4510]](../sources/bibliography.md#s4510). Meta is also the C1000's first customer [[S90058]](../sources/bibliography.md#s90058).
 
 > [!TIP]
@@ -305,7 +305,7 @@ bandwidth, which suits LPDDR: Meta's MTIA v2 ran them with 128 GB of LPDDR5 at ~
 largest buyer of recommendation compute built its own chip and has since moved MTIA to HBM [[S15003]](../sources/bibliography.md#s15003). The merchant opening
 lies with second-tier platforms and enterprises, a smaller and less visible pool (🔴).
 
-**Small and medium dense models.** A 70B-parameter model in FP8 (~70 GB) fits on one Cloud AI 100 Ultra with ~58 GB left
+**Small and medium dense models.** A 70B-parameter model in [FP8](../glossary.md#fp8) (~70 GB) fits on one Cloud AI 100 Ultra with ~58 GB left
 for KV cache. Because LPDDR is slow per gigabyte, one user would see only ~8 tokens/s, against ~274 on a Rubin GPU
 [[S172]](../sources/bibliography.md#s172)[[S90006]](../sources/bibliography.md#s90006). Batching many users recovers throughput per card. Dense models also gain little from a 72-GPU domain. In
 SemiAnalysis tests MI355X beat B200 on vLLM cost per token below 225 tokens/s per user [[S623]](../sources/bibliography.md#s623), and a depreciated H100 rents
@@ -375,7 +375,7 @@ value-chain pages, with their last public valuation. These are examples of what 
 ![Log-scale horizontal bar chart of datacenter capability deals. Qualcomm (indigo): NUVIA CPU cores $1.4B (2021), Alphawave SerDes and connectivity IP ~$2.4B (2025) and Modular portable AI software $3.9B (2026), $7.7B in total; Ventana (RISC-V) was undisclosed. For comparison: NVIDIA's Groq licence and team ~$20B, Mellanox $6.9B, Enfabrica >$0.9B and Run:ai ~$0.7B; SoftBank-Ampere $6.5B; AMD's ZT Systems $4.9B (~$2B net), Pensando ~$1.9B and Silo AI $0.665B; Marvell-Celestial AI $3.25B upfront; Intel-Habana ~$2B; Amazon-Annapurna ~$0.36B; Microsoft-Fungible ~$0.19B. Capabilities Qualcomm has not publicly bought, such as NIC, DPU and rack-design teams, changed hands for $0.19-4.9B (layers 07 and 08).](../assets/charts/19-capability-price-points.svg)
 
 > [!TIP]
-> **Worked example — the NIC, priced three ways.** AMD paid ~$1.9B for Pensando and took ~4 years to reach an 800G AI
+> **Worked example — the [NIC](../glossary.md#nic), priced three ways.** AMD paid ~$1.9B for Pensando and took ~4 years to reach an 800G AI
 > NIC. NVIDIA paid >$900M for Enfabrica's team and a licence [[S7527]](../sources/bibliography.md#s7527)[[S475]](../sources/bibliography.md#s475). Buying two merchant 800G NICs per
 > accelerator costs ~$0.2–0.4M per 72-accelerator rack, or $0.2–0.4B a year at 1,000 racks (Est., layer 07)
 > ([value chain](../layers/07-dpu-supernic-storage-security/value-chain-and-corp-dev.md)). **Conclusion:** at a few
@@ -498,7 +498,7 @@ evidence from those pages. The right-hand column turns it into a question, not a
    signpost (UALink switch volume, Fusion terms) would settle it?
 4. LPDDR is exposed to the same DRAM upcycle that coincided with a 20% fall in Qualcomm's handset revenue [[S19002]](../sources/bibliography.md#s19002)[[S3518]](../sources/bibliography.md#s3518).
    What contracts or prepayments secure supply for AI200 and AI250?
-5. Which absent layers (NIC/DPU, domain libraries, cloud capacity) would need filling before neoclouds and sovereigns buy
+5. Which absent layers (NIC/DPU, domain libraries, cloud capacity) would need filling before [neoclouds](../glossary.md#neocloud) and sovereigns buy
    AI200 racks? Is the answer build, buy (precedents at $0.2–4.9B) or partner?
 6. How do custom chips for AWS and merchant AI200 sales to AWS's competitors coexist without channel conflict?
 7. Which milestones would show that this attempt has passed the point where Centriq stopped, ~7 months after launch:
@@ -525,7 +525,7 @@ evidence from those pages. The right-hand column turns it into a question, not a
 2. **Complement roles may be the cheapest leverage.** Alphawave IP, optics and Mojo sell to both camps and gain under
    every scenario in section 5 (🔴). What public metrics (licence revenue, optics shipments, third-party Mojo use) would
    show them compounding?
-3. **The absent layers concentrate the M&A questions.** NIC, DPU and rack-design capabilities changed hands at $0.2–4.9B,
+3. **The absent layers concentrate the M&A questions.** NIC, [DPU](../glossary.md#dpu) and rack-design capabilities changed hands at $0.2–4.9B,
    and independents such as Xsight Labs ($2.8B) and Upscale AI (~$2B) remain [[S7517]](../sources/bibliography.md#s7517)[[S6518]](../sources/bibliography.md#s6518). Is a stake plus a
    commercial agreement enough, or does control matter for racks that must win on day one?
 4. **Deal structure is strategy.** Penny warrants (AMD) buy deep commitment at high dilution. At-the-money warrants

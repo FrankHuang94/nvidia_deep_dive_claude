@@ -5,7 +5,7 @@
 ## ⚡ The Executive Take
 
 - **[CUDA](../../glossary.md#cuda) is free, which is the point.** NVIDIA earns from it indirectly, through [hardware pull-through](../../glossary.md#pull-through): Data Center revenue was $193.7B in FY2026 [[S1]](../../sources/bibliography.md#s1)[[S402]](../../sources/bibliography.md#s402).
-- **Direct software revenue is small.** Software and services reached a ~$1B annualised run-rate in Q4 FY2024 [[S9516]](../../sources/bibliography.md#s9516). NVIDIA AI Enterprise lists at $4,500 per GPU-year (or $1 per GPU-hour in the cloud), and Huang put software licensing at ~$2,000 per GPU-year in October 2026 [[S9515]](../../sources/bibliography.md#s9515)[[S9517]](../../sources/bibliography.md#s9517).
+- **Direct software revenue is small.** Software and services reached a ~$1B annualised run-rate in Q4 FY2024 [[S9516]](../../sources/bibliography.md#s9516). NVIDIA AI Enterprise lists at $4,500 per GPU-year (or $1 per [GPU-hour](../../glossary.md#gpu-hour) in the cloud), and Huang put software licensing at ~$2,000 per GPU-year in October 2026 [[S9515]](../../sources/bibliography.md#s9515)[[S9517]](../../sources/bibliography.md#s9517).
 - **The software layer has become an M&A market.** Chip vendors made 15 AI-software deals from 2023 to 2026, against 3 tracked in 2008–2022. AMD alone bought Nod.ai, Silo AI ($665M), Brium, MK1 and the Untether AI team [[S9508]](../../sources/bibliography.md#s9508)[[S9506]](../../sources/bibliography.md#s9506)[[S9507]](../../sources/bibliography.md#s9507)[[S9509]](../../sources/bibliography.md#s9509).
 - **Prices are rising fast.** Qualcomm's ~$3.9B for Modular is ~5.6× NVIDIA's largest software tuck-in (Run:ai, ~$700M reported) and ~2.4× Modular's September 2025 valuation [[S90057]](../../sources/bibliography.md#s90057)[[S479]](../../sources/bibliography.md#s479)[[S9510]](../../sources/bibliography.md#s9510).
 - **The independent bench is thin.** NVIDIA bought OctoAI, Deci and CentML; Red Hat bought Neural Magic. What remains is mostly open-source maintainers ([vLLM](../../glossary.md#vllm)'s Inferact, [SGLang](../../glossary.md#sglang)'s RadixArk) and early compiler start-ups [[S478]](../../sources/bibliography.md#s478)[[S9533]](../../sources/bibliography.md#s9533)[[S633]](../../sources/bibliography.md#s633).
@@ -46,7 +46,7 @@ flowchart LR
 <details>
 <summary>🔧 Under the hood: what AI Enterprise actually sells</summary>
 
-The licence bundles supported, security-patched builds of NVIDIA's AI software with enterprise support, priced per GPU [[S9515]](../../sources/bibliography.md#s9515). CUDA, cuDNN and the open-source projects (Dynamo, TensorRT-LLM, Megatron) stay free to download. Enterprises pay for the *support and certification*, as they do with Red Hat Linux, not for the code. So the buyers are likely enterprises and sovereign projects rather than hyperscalers, who support themselves 🔴.
+The licence bundles supported, security-patched builds of NVIDIA's AI software with enterprise support, priced per GPU [[S9515]](../../sources/bibliography.md#s9515). CUDA, cuDNN and the open-source projects ([Dynamo](../../glossary.md#dynamo), [TensorRT-LLM](../../glossary.md#tensorrt-llm), Megatron) stay free to download. Enterprises pay for the *support and certification*, as they do with Red Hat Linux, not for the code. So the buyers are likely enterprises and sovereign projects rather than [hyperscalers](../../glossary.md#hyperscaler), who support themselves 🔴.
 
 </details>
 

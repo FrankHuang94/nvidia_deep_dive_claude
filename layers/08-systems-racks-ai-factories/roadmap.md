@@ -4,9 +4,9 @@
 
 ## ⚡ The Executive Take
 
-- **Vera Rubin NVL72 is the 2026 rack.** Production shipments began in August 2026; volume ramps in Q4 🟢 [[S500]](../../sources/bibliography.md#s500)[[S90009]](../../sources/bibliography.md#s90009). Google Cloud expects A5X instances on it to be GA in November 2026 [[S554]](../../sources/bibliography.md#s554).
+- **Vera Rubin [NVL72](../../glossary.md#nvl72) is the 2026 rack.** Production shipments began in August 2026; volume ramps in Q4 🟢 [[S500]](../../sources/bibliography.md#s500)[[S90009]](../../sources/bibliography.md#s90009). Google Cloud expects A5X instances on it to be GA in November 2026 [[S554]](../../sources/bibliography.md#s554).
 - **Kyber is the contested date.** The 144-package, ~600 kW Rubin Ultra rack is officially 2H 2027. SemiAnalysis reports a >12-month slip on midplane manufacturability, which NVIDIA denies 🟡 [[S510]](../../sources/bibliography.md#s510)[[S507]](../../sources/bibliography.md#s507)[[S508]](../../sources/bibliography.md#s508).
-- **Per rack, GB200 → Kyber means ~5× the power (120 → ~600 kW) for ~14× the dense FP8 and ~10× the HBM** (as announced) [[S121]](../../sources/bibliography.md#s121)[[S336]](../../sources/bibliography.md#s336)[[S305]](../../sources/bibliography.md#s305).
+- **Per rack, GB200 → Kyber means ~5× the power (120 → ~600 kW) for ~14× the dense [FP8](../../glossary.md#fp8) and ~10× the [HBM](../../glossary.md#hbm)** (as announced) [[S121]](../../sources/bibliography.md#s121)[[S336]](../../sources/bibliography.md#s336)[[S305]](../../sources/bibliography.md#s305).
 - **[800 V DC](../../glossary.md#hvdc-800v) is the enabling roadmap.** An MGX-compatible 800 V DC power rack is due in H2 2026 and a row power center (up to 2 MW per row) in 2027 [[S90063]](../../sources/bibliography.md#s90063). Dell'Oro calls it a reference architecture, not yet a standard [[S90062]](../../sources/bibliography.md#s90062).
 - **Rivals match NVIDIA's annual cadence.** AMD: Helios (2026), Helios 500 (2027), Helios 600 (2028) [[S538]](../../sources/bibliography.md#s538). Google's TPU 8t pod is due late 2026 [[S550]](../../sources/bibliography.md#s550), Maia 300 in 2027 [[S90046]](../../sources/bibliography.md#s90046) and Huawei's Atlas 960 in Q4 2027 [[S567]](../../sources/bibliography.md#s567).
 - **[Q7 · Roadmap & what changes the picture]** Three things matter more than the next spec sheet: grid power, the liquid-cooling supply chain (penetration 33% → 53% → ~60% of AI chips, 2025–27) and reliability at 600 kW 🟡 [[S8528]](../../sources/bibliography.md#s8528).
@@ -64,7 +64,7 @@ gantt
 | Qualcomm AI200 → AI250 → AI300 (public information) | 2026 / 2027 / 2028 | announced; 2026 volume unconfirmed | 🟢 / 🔴 | [[S173]](../../sources/bibliography.md#s173)[[S90060]](../../sources/bibliography.md#s90060)[[S90028]](../../sources/bibliography.md#s90028) |
 
 > [!TIP]
-> **Worked example — reading a slip.** Kyber's official window is 2H 2027 [[S510]](../../sources/bibliography.md#s510). If SemiAnalysis's >12-month slip is right [[S507]](../../sources/bibliography.md#s507), 2027 buyers get Rubin Ultra in the existing Oberon NVL72 rack instead, which GTC 2026 listed as an option [[S108]](../../sources/bibliography.md#s108). The cost of the slip is domain size, not compute: 72 GPUs per NVLink domain for one more year. Meanwhile AWS offers 144 and Google 9,216 [[S353]](../../sources/bibliography.md#s353)[[S350]](../../sources/bibliography.md#s350).
+> **Worked example — reading a slip.** Kyber's official window is 2H 2027 [[S510]](../../sources/bibliography.md#s510). If SemiAnalysis's >12-month slip is right [[S507]](../../sources/bibliography.md#s507), 2027 buyers get Rubin Ultra in the existing Oberon NVL72 rack instead, which GTC 2026 listed as an option [[S108]](../../sources/bibliography.md#s108). The cost of the slip is domain size, not compute: 72 GPUs per [NVLink](../../glossary.md#nvlink) domain for one more year. Meanwhile AWS offers 144 and Google 9,216 [[S353]](../../sources/bibliography.md#s353)[[S350]](../../sources/bibliography.md#s350).
 
 ![Dumbbell chart of schedule changes (Huawei's is a pull-in): Ascend 960 -9 months, Rubin CPX +3 months, Quantum-X Photonics InfiniBand +3 months, Vera Rubin NVL144 CPX rack +3 months, Kyber NVL144 +12 months. The Kyber NVL144 slip is SemiAnalysis-reported and disputed by NVIDIA; the Rubin CPX return is an analyst claim.](../../assets/charts/17-roadmap-slips-and-pull-ins.svg)
 
@@ -78,7 +78,7 @@ Each rack generation is bounded by how much power and heat one rack can move. To
 <details>
 <summary>🔧 Under the hood: what the 800 V DC ecosystem must deliver</summary>
 
-About 20 partners showed 800 V DC components at GTC DC in October 2025. They span silicon (Infineon, ST, Navitas, TI), power equipment (Delta, Eaton, Schneider, Vertiv, ABB) and grid gear (GE Vernova, Hitachi Energy, Siemens) [[S90061]](../../sources/bibliography.md#s90061). Neoclouds including CoreWeave, Lambda and Nebius are designing for 800 V [[S90061]](../../sources/bibliography.md#s90061). Open questions: safety codes for high-voltage DC in white space, and whether hyperscalers adopt NVIDIA's version [[S90062]](../../sources/bibliography.md#s90062).
+About 20 partners showed 800 V DC components at GTC DC in October 2025. They span silicon (Infineon, ST, Navitas, TI), power equipment (Delta, Eaton, Schneider, Vertiv, ABB) and grid gear (GE Vernova, Hitachi Energy, Siemens) [[S90061]](../../sources/bibliography.md#s90061). [Neoclouds](../../glossary.md#neocloud) including CoreWeave, Lambda and Nebius are designing for 800 V [[S90061]](../../sources/bibliography.md#s90061). Open questions: safety codes for high-voltage DC in white space, and whether [hyperscalers](../../glossary.md#hyperscaler) adopt NVIDIA's version [[S90062]](../../sources/bibliography.md#s90062).
 
 </details>
 
@@ -87,10 +87,10 @@ About 20 partners showed 800 V DC components at GTC DC in October 2025. They spa
 **[Q7 · Roadmap & what changes the picture]** On paper the roadmaps converge: everyone ships an annual rack with ~20–30 TB of HBM. What would change the picture:
 
 - **Power availability.** Racks rise from ~120 kW to ~600 kW, with 1 MW in view [[S90061]](../../sources/bibliography.md#s90061); grid-connected, 800 V-ready halls set everyone's pace.
-- **Liquid-cooling supply.** TrendForce sees liquid cooling on ~53% of AI chips in 2026 and ~60% in 2027 🟡 [[S8528]](../../sources/bibliography.md#s8528). Cold plates and CDUs could bottleneck racks as CoWoS once did.
+- **Liquid-cooling supply.** TrendForce sees liquid cooling on ~53% of AI chips in 2026 and ~60% in 2027 🟡 [[S8528]](../../sources/bibliography.md#s8528). Cold plates and CDUs could bottleneck racks as [CoWoS](../../glossary.md#cowos) once did.
 - **Rack reliability.** Kyber's reported issue is a midplane, a manufacturing problem, not silicon [[S507]](../../sources/bibliography.md#s507). A clean Helios ramp would narrow NVIDIA's lead faster than any spec.
 - **Memory cost.** Memory rose to ~26% of a Vera Rubin rack's bill of materials (Est., Morgan Stanley), and Bernstein sees racks at ~$9.1M 🟡 [[S332]](../../sources/bibliography.md#s332)[[S333]](../../sources/bibliography.md#s333). 
-- **Open scale-up.** UALink 1.0 products are expected in 2027 🟡 [[S90051]](../../sources/bibliography.md#s90051). Merchant racks would then get a non-NVIDIA scale-up fabric.
+- **Open [scale-up](../../glossary.md#scale-up).** [UALink](../../glossary.md#ualink) 1.0 products are expected in 2027 🟡 [[S90051]](../../sources/bibliography.md#s90051). Merchant racks would then get a non-NVIDIA scale-up fabric.
 
 > [!TIP]
 > **Worked example — cooling cost is small, cooling supply is not.** Morgan Stanley puts liquid cooling at ~$50K per GB300 NVL72 rack and ~$56K per Vera Rubin rack. That is under 1% of a $7.8M rack [[S334]](../../sources/bibliography.md#s334)[[S330]](../../sources/bibliography.md#s330). Yet a missing $56K CDU idles $7.8M of compute. That asymmetry is why Eaton paid $9.5B for Boyd Thermal [[S8508]](../../sources/bibliography.md#s8508).

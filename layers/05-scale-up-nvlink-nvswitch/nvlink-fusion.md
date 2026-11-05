@@ -4,8 +4,8 @@
 
 ## ⚡ The Executive Take
 
-- **What it is:** announced on 2025-05-19, [NVLink Fusion](../../glossary.md#nvlink-fusion) licenses NVLink (as IP or a [chiplet](../../glossary.md#chiplet)) to third-party CPUs and custom accelerators for NVIDIA's rack-scale fabric [[S131]](../../sources/bibliography.md#s131)[[S215]](../../sources/bibliography.md#s215).
-- **Who signed:** MediaTek, Marvell, Alchip, Astera Labs, Synopsys, Cadence, Qualcomm and Fujitsu at launch [[S131]](../../sources/bibliography.md#s131)[[S90031]](../../sources/bibliography.md#s90031); then Intel x86 [[S130]](../../sources/bibliography.md#s130), Arm Neoverse [[S90036]](../../sources/bibliography.md#s90036) and AWS Trainium4 [[S518]](../../sources/bibliography.md#s518)[[S519]](../../sources/bibliography.md#s519).
+- **What it is:** announced on 2025-05-19, [NVLink Fusion](../../glossary.md#nvlink-fusion) licenses [NVLink](../../glossary.md#nvlink) (as IP or a [chiplet](../../glossary.md#chiplet)) to third-party CPUs and custom accelerators for NVIDIA's rack-scale fabric [[S131]](../../sources/bibliography.md#s131)[[S215]](../../sources/bibliography.md#s215).
+- **Who signed:** MediaTek, Marvell, Alchip, Astera Labs, Synopsys, Cadence, Qualcomm and Fujitsu at launch [[S131]](../../sources/bibliography.md#s131)[[S90031]](../../sources/bibliography.md#s90031); then Intel [x86](../../glossary.md#x86) [[S130]](../../sources/bibliography.md#s130), Arm Neoverse [[S90036]](../../sources/bibliography.md#s90036) and AWS Trainium4 [[S518]](../../sources/bibliography.md#s518)[[S519]](../../sources/bibliography.md#s519).
 - **Capital behind it:** NVIDIA reportedly invested $2B in Marvell (Mar 2026) to deepen the tie 🟡 [[S90037]](../../sources/bibliography.md#s90037); optical-I/O start-ups Ayar Labs and Lightmatter were reported joining in June 2026 🟡 [[S5022]](../../sources/bibliography.md#s5022).
 - **Open, but on NVIDIA's terms:** NVIDIA keeps the NVLink switch silicon, and a Fusion platform must include at least one NVIDIA chip, so it cannot join an AMD CPU to an AMD GPU 🟡 [[S5018]](../../sources/bibliography.md#s5018)[[S5020]](../../sources/bibliography.md#s5020).
 - **The prize:** custom silicon stays in NVIDIA racks. Trainium4 will use NVLink 6 and [MGX](../../glossary.md#mgx) racks [[S518]](../../sources/bibliography.md#s518), so NVIDIA sells switches even when it loses the accelerator.
@@ -34,12 +34,12 @@ flowchart LR
 ```
 
 > [!TIP]
-> **Worked example — what a Fusion CPU partner buys.** A CPU on PCIe Gen6 x16 reaches its GPU at 256 GB/s [[S222]](../../sources/bibliography.md#s222); Vera reaches Rubin over NVLink-C2C at 1.8 TB/s, **~7×** more and cache-coherent [[S209]](../../sources/bibliography.md#s209). A partner CPU with Vera-class C2C (an assumption; partner configurations are unpublished) could turn CPU memory into a second GPU memory tier ([Layer 04](../04-cpu-grace-vera/index.md)). **Conclusion:** Fusion is Qualcomm's and Fujitsu's ticket into NVIDIA's highest-value racks, a socket otherwise reserved for Grace and Vera.
+> **Worked example — what a Fusion CPU partner buys.** A CPU on [PCIe](../../glossary.md#pcie) Gen6 x16 reaches its GPU at 256 GB/s [[S222]](../../sources/bibliography.md#s222); Vera reaches Rubin over NVLink-C2C at 1.8 TB/s, **~7×** more and cache-coherent [[S209]](../../sources/bibliography.md#s209). A partner CPU with Vera-class C2C (an assumption; partner configurations are unpublished) could turn CPU memory into a second GPU memory tier ([Layer 04](../04-cpu-grace-vera/index.md)). **Conclusion:** Fusion is Qualcomm's and Fujitsu's ticket into NVIDIA's highest-value racks, a socket otherwise reserved for Grace and Vera.
 
 <details>
 <summary>🔧 Under the hood: IP, chiplet or UCIe?</summary>
 
-- **IP route:** NVLink controller and SerDes IP integrated in the partner's die, using Synopsys or Cadence tools [[S216]](../../sources/bibliography.md#s216).
+- **IP route:** NVLink controller and [SerDes](../../glossary.md#serdes) IP integrated in the partner's die, using Synopsys or Cadence tools [[S216]](../../sources/bibliography.md#s216).
 - **Chiplet route:** an NVLink chiplet beside the partner's die; one report says XPUs could attach it over [UCIe](../../glossary.md#ucie), even with custom chips on both ends 🔴 [[S5021]](../../sources/bibliography.md#s5021), unconfirmed by NVIDIA.
 - **Rack route:** Trainium4 inherits NVIDIA's switch trays, spine and management in MGX racks [[S518]](../../sources/bibliography.md#s518).
 
@@ -56,14 +56,14 @@ flowchart LR
 | Reference rack (MGX), spine, management | 🟡 NVIDIA designs, partners build | [[S518]](../../sources/bibliography.md#s518)[[S5001]](../../sources/bibliography.md#s5001) |
 
 > [!TIP]
-> **Worked example — how much NVIDIA silicon stays in a Fusion rack.** A Vera Rubin NVL72 holds 72 Rubin packages, 36 Vera CPUs, 36 NVLink 6 switch chips and a ConnectX-9 NIC per GPU: ~216 NVIDIA chips [[S102]](../../sources/bibliography.md#s102)[[S203]](../../sources/bibliography.md#s203)[[S33004]](../../sources/bibliography.md#s33004). A hypothetical 72-XPU Fusion rack keeps the **36 switch chips** and NVLink IP in every XPU, optionally Vera CPUs and NICs (repo calc). **Conclusion:** NVIDIA's chip count falls to about a sixth, but it keeps the hardest part to replace and its software: the "open, on NVIDIA's terms" bargain.
+> **Worked example — how much NVIDIA silicon stays in a Fusion rack.** A Vera Rubin [NVL72](../../glossary.md#nvl72) holds 72 Rubin packages, 36 Vera CPUs, 36 NVLink 6 switch chips and a ConnectX-9 [NIC](../../glossary.md#nic) per GPU: ~216 NVIDIA chips [[S102]](../../sources/bibliography.md#s102)[[S203]](../../sources/bibliography.md#s203)[[S33004]](../../sources/bibliography.md#s33004). A hypothetical 72-XPU Fusion rack keeps the **36 switch chips** and NVLink IP in every XPU, optionally Vera CPUs and NICs (repo calc). **Conclusion:** NVIDIA's chip count falls to about a sixth, but it keeps the hardest part to replace and its software: the "open, on NVIDIA's terms" bargain.
 
 > [!WARNING]
 > **Myth vs. reality:** "NVLink Fusion makes NVLink an open standard." It is a licence: NVIDIA sets the terms, makes the switches and requires its own silicon [[S5018]](../../sources/bibliography.md#s5018)[[S5020]](../../sources/bibliography.md#s5020).
 
 ## 3. The strategic logic: Fusion vs UALink vs ESUN
 
-Hyperscalers want custom accelerators without giving up rack-scale scale-up. NVIDIA lets them keep the accelerator but rent the fabric; the rest of the industry wants an open fabric. Counterpoint framed Fusion as NVIDIA's response to UALink [[S5019]](../../sources/bibliography.md#s5019).
+[Hyperscalers](../../glossary.md#hyperscaler) want custom accelerators without giving up rack-scale [scale-up](../../glossary.md#scale-up). NVIDIA lets them keep the accelerator but rent the fabric; the rest of the industry wants an open fabric. Counterpoint framed Fusion as NVIDIA's response to UALink [[S5019]](../../sources/bibliography.md#s5019).
 
 | | NVLink Fusion | UALink | ESUN (Ethernet scale-up) |
 |---|---|---|---|
@@ -77,7 +77,7 @@ Hyperscalers want custom accelerators without giving up rack-scale scale-up. NVI
 > **Worked example — the time-to-market gap.** Fusion IP was offered from May 2025; AWS committed Trainium4 that December [[S131]](../../sources/bibliography.md#s131)[[S518]](../../sources/bibliography.md#s518). UALink 1.0 was ratified in April 2025, but silicon reaches labs in H2 2026 and products in 2027 🟡 [[S573]](../../sources/bibliography.md#s573)[[S90051]](../../sources/bibliography.md#s90051). A team taping out in 2026 chooses between a fabric shipping today and one ~18–24 months from volume. **Conclusion:** Fusion's weapon is time; its risk is UALink and ESUN closing the gap by 2027–28.
 
 > [!NOTE]
-> **🐂 Bull view:** Fusion turns the custom-ASIC threat into switch, rack and software revenue: AWS chose NVLink for Trainium4 [[S518]](../../sources/bibliography.md#s518), and the $2B Marvell stake ties an ASIC design house to NVIDIA's fabric 🟡 [[S90037]](../../sources/bibliography.md#s90037).
+> **🐂 Bull view:** Fusion turns the custom-ASIC threat into switch, rack and software revenue: AWS chose NVLink for Trainium4 [[S518]](../../sources/bibliography.md#s518), and the $2B Marvell stake ties an [ASIC](../../glossary.md#asic) design house to NVIDIA's fabric 🟡 [[S90037]](../../sources/bibliography.md#s90037).
 
 > [!WARNING]
 > **🐻 Bear view:** the terms that protect NVIDIA (its silicon required, switches closed) [[S5018]](../../sources/bibliography.md#s5018) push AMD and Broadcom to open fabrics, and dual-track partners such as Qualcomm [[S131]](../../sources/bibliography.md#s131)[[S90060]](../../sources/bibliography.md#s90060) can walk away once open switches ship.

@@ -9,7 +9,7 @@
 - **Failures make speed pay:** Llama 3 saw 466 job interruptions in 54 days on 16,384 GPUs [[S34006]](../../sources/bibliography.md#s34006). Moving from 100 GB/s to 1 TB/s storage cuts checkpoint-plus-rework losses from ~10% to ~3% of GPU time, ~$30M a year at $2.99/GPU-hour (Est.) [[S395]](../../sources/bibliography.md#s395)[[S7000]](../../sources/bibliography.md#s7000).
 - **KV-cache tiers gain a "G3.5"**: pod-level flash managed by BlueField-4 between local SSD and shared storage [[S7026]](../../sources/bibliography.md#s7026)[[S7027]](../../sources/bibliography.md#s7027). Reloading a 128K-token 70B context takes ~0.2 s from it versus ~4.7 s to recompute (Est.) [[S7000]](../../sources/bibliography.md#s7000).
 - **NVIDIA does not sell storage; it sets the reference design.** The AI Data Platform (GTC 2025) and BlueField-4 STX (GTC 2026) are blueprints for partners [[S7022]](../../sources/bibliography.md#s7022)[[S7511]](../../sources/bibliography.md#s7511)[[S7004]](../../sources/bibliography.md#s7004); 🟢 12 vendors co-design STX systems due in H2 2026, with vendor-claimed 5× token throughput and 4× energy efficiency [[S7511]](../../sources/bibliography.md#s7511).
-- **Weakness:** the storage software margin goes to partners such as VAST Data (~$30B valuation in 2026) [[S7512]](../../sources/bibliography.md#s7512), DDN and WEKA. NVIDIA's share is the DPU, the NIC and the software glue.
+- **Weakness:** the storage software margin goes to partners such as VAST Data (~$30B valuation in 2026) [[S7512]](../../sources/bibliography.md#s7512), DDN and WEKA. NVIDIA's share is the [DPU](../../glossary.md#dpu), the [NIC](../../glossary.md#nic) and the software glue.
 
 ![Log-log line chart of checkpoint write time against storage bandwidth for four model sizes at 14 bytes per parameter: Llama 3.1 70B (~0.98 TB), Llama 3.1 405B (~5.7 TB), DeepSeek-V3 671B (~9.4 TB) and a 1-trillion-parameter model (14 TB). At 100 GB/s, the line rate of one BlueField-4 port, the 405B checkpoint takes about 57 seconds; at 1 TB/s about 5.7 s; at the ~7 TB/s peak of Meta's Llama 3 storage cluster about 0.8 s.](../../assets/charts/07-checkpoint-write-time.svg)
 
@@ -53,7 +53,7 @@ NVIDIA certifies and publishes reference designs rather than selling arrays: two
 
 ## 3. KV-cache tiers: storage becomes inference memory
 
-Agents keep long conversations alive, each with a KV cache that grows every token. Recomputing it costs GPU time; keeping it all in [HBM](../../glossary.md#hbm) is impossible. NVIDIA's answer is a ladder of tiers ([storage tiering](../../glossary.md#storage-tiering)), with Dynamo and NIXL moving KV blocks between them [[S3013]](../../sources/bibliography.md#s3013)[[S7026]](../../sources/bibliography.md#s7026):
+Agents keep long conversations alive, each with a KV cache that grows every token. Recomputing it costs GPU time; keeping it all in [HBM](../../glossary.md#hbm) is impossible. NVIDIA's answer is a ladder of tiers ([storage tiering](../../glossary.md#storage-tiering)), with [Dynamo](../../glossary.md#dynamo) and NIXL moving KV blocks between them [[S3013]](../../sources/bibliography.md#s3013)[[S7026]](../../sources/bibliography.md#s7026):
 
 ```mermaid
 flowchart TB
@@ -75,7 +75,7 @@ flowchart TB
 ![Log-scale horizontal bar chart of the time to restore a 21.5 GB KV cache (Llama 3.1 70B, 128K tokens, FP8): G1 HBM4 at 19.2 TB/s about 1.1 ms; G2 Vera LPDDR5X over NVLink-C2C at ~450 GB/s about 47.7 ms; G3.5 BlueField-4 context-memory storage over an 800 Gb/s link about 215 ms; G3 one local PCIe Gen5 x4 SSD about 1.4 s; recomputing the prefill on a Rubin GPU at 50% of dense FP8 peak about 4.7 s (estimate); and a per-GPU share of Meta's 7 TB/s Llama 3 storage cluster about 50 s. The G3.5 tier is ~22x faster than recomputing.](../../assets/charts/07-kv-cache-reload-by-tier.svg)
 
 > [!TIP]
-> **Worked example — how many long conversations each tier can park.** Llama 3.1 70B stores 163,840 bytes of FP8 KV cache per token [[S32006]](../../sources/bibliography.md#s32006), so a full 131,072-token context is **21.5 GB**. A Rubin GPU's 288 GB of HBM4 minus ~70 GB of FP8 weights parks ~**10** such sessions [[S100]](../../sources/bibliography.md#s100). Vera's ~750 GB of LPDDR5X per GPU (1.5 TB per CPU, two GPUs each) [[S100]](../../sources/bibliography.md#s100) adds ~**35**. One petabyte of G3.5 flash holds ~**46,500**, and the tier is reported at petabytes per pod [[S7027]](../../sources/bibliography.md#s7027). **Conclusion:** the context tier turns a GPU-time problem into a flash-capacity problem, ~20× faster than recomputing (Est.) [[S7000]](../../sources/bibliography.md#s7000).
+> **Worked example — how many long conversations each tier can park.** Llama 3.1 70B stores 163,840 bytes of [FP8](../../glossary.md#fp8) KV cache per token [[S32006]](../../sources/bibliography.md#s32006), so a full 131,072-token context is **21.5 GB**. A Rubin GPU's 288 GB of [HBM4](../../glossary.md#hbm4) minus ~70 GB of FP8 weights parks ~**10** such sessions [[S100]](../../sources/bibliography.md#s100). Vera's ~750 GB of LPDDR5X per GPU (1.5 TB per CPU, two GPUs each) [[S100]](../../sources/bibliography.md#s100) adds ~**35**. One petabyte of G3.5 flash holds ~**46,500**, and the tier is reported at petabytes per pod [[S7027]](../../sources/bibliography.md#s7027). **Conclusion:** the context tier turns a GPU-time problem into a flash-capacity problem, ~20× faster than recomputing (Est.) [[S7000]](../../sources/bibliography.md#s7000).
 
 > [!WARNING]
 > **Myth vs. reality.** *Myth:* "NVIDIA is entering the storage business." *Reality:* STX is a reference architecture for partners, not an NVIDIA-sold system [[S7004]](../../sources/bibliography.md#s7004). NVIDIA sells the BlueField-4 inside and the software that places KV blocks; partners sell drives, software and support, and keep most of the storage margin.
@@ -83,9 +83,9 @@ flowchart TB
 ## 🎯 Corp Dev Lens
 
 1. **NVIDIA has written itself into the storage bill of materials.** Every STX enclosure needs BlueField-4 [[S7511]](../../sources/bibliography.md#s7511), and NVIDIA's software decides which tier holds context. How much storage value does that capture versus drive and software vendors? See [value chain](value-chain-and-corp-dev.md).
-2. **Context memory could drive flash demand.** If agentic inference keeps petabytes of KV cache per pod [[S7027]](../../sources/bibliography.md#s7027), flash and controller vendors gain; the 5× throughput claims still need independent benchmarks [[S7511]](../../sources/bibliography.md#s7511).
+2. **Context memory could drive flash demand.** If [agentic](../../glossary.md#agentic-ai) inference keeps petabytes of KV cache per pod [[S7027]](../../sources/bibliography.md#s7027), flash and controller vendors gain; the 5× throughput claims still need independent benchmarks [[S7511]](../../sources/bibliography.md#s7511).
 3. **Partner valuations price in the shift.** VAST Data's ~$30B mark [[S7512]](../../sources/bibliography.md#s7512) shows how much value sits in storage software, and NVIDIA is a VAST investor [[S482]](../../sources/bibliography.md#s482). Which partners become indispensable to the reference design?
-4. **Qualcomm question (public information only):** AI200 cards carry 768 GB of LPDDR each [[S173]](../../sources/bibliography.md#s173). Does that on-card capacity reduce the need for a G3.5-style tier, or does long-context agentic serving still require one?
+4. **Qualcomm question (public information only):** AI200 cards carry 768 GB of [LPDDR](../../glossary.md#lpddr) each [[S173]](../../sources/bibliography.md#s173). Does that on-card capacity reduce the need for a G3.5-style tier, or does long-context agentic serving still require one?
 
 ## 📚 Sources
 

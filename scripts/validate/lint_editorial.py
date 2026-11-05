@@ -99,7 +99,8 @@ def main(argv):
                 [p for p in md_files() if is_content(p)]
     n_err = 0
     for p in files:
-        if not is_content(p) or "Status: planned" in p.read_text(encoding="utf-8")[:400]:
+        if not is_content(p) or rel(p) in ("PROGRESS.md", "QA_LOG.md") or \
+                "Status: planned" in p.read_text(encoding="utf-8")[:400]:
             continue
         errors, warns, s = lint(p)
         n_err += len(errors)

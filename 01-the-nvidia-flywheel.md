@@ -445,7 +445,7 @@ mostly OEMs and ODMs building for hyperscalers, were 61% of Q3 FY2026 revenue [[
 > **🐂 Bull view.** The pledges total ~$82B against $120B of FY2026 net income [[S1]](sources/bibliography.md#s1) and are spread
 > across the whole ecosystem; most are equity in fast-growing companies, not loans. NVIDIA is
 > seeding the customers, neoclouds and partners that diversify it *away* from four hyperscalers, at
-> a time when the hyperscalers themselves plan ~$505B of 2026 capex [[S460]](sources/bibliography.md#s460)[[S461]](sources/bibliography.md#s461)[[S462]](sources/bibliography.md#s462). A vendor with
+> a time when the hyperscalers themselves plan ~$558B of 2026 capex (raised from ~$505B in their first guides) [[S12518]](sources/bibliography.md#s12518)[[S12519]](sources/bibliography.md#s12519) [[S460]](sources/bibliography.md#s460)[[S461]](sources/bibliography.md#s461)[[S462]](sources/bibliography.md#s462). A vendor with
 > ~75% gross margins can afford to subsidize adoption the way platform companies always have.
 
 > [!WARNING]
@@ -523,7 +523,7 @@ quadrantChart
   TPUs or Trainium), or if inference shifts to compiled, hardware-neutral graphs where kernel tuning
   is automated. Indicator: framework release notes listing non-NVIDIA targets as tier one.
 - **Loop ② stalls** if hyperscaler capex flattens (it was guided to ~$505B for 2026 across three
-  companies [[S460]](sources/bibliography.md#s460)[[S461]](sources/bibliography.md#s461)[[S462]](sources/bibliography.md#s462)) while commitments are fixed, or if a generation slips by a year —
+  companies [[S460]](sources/bibliography.md#s460)[[S461]](sources/bibliography.md#s461)[[S462]](sources/bibliography.md#s462), since raised to ~$558B [[S12518]](sources/bibliography.md#s12518)) while commitments are fixed, or if a generation slips by a year —
   customers then wait instead of buying the current part.
 - **Loop ③ stalls** if Ethernet-based scale-up ([UEC](glossary.md#ultra-ethernet) 1.1, ESUN) reaches NVLink-class latency at lower
   cost, letting buyers mix GPUs and ASICs in one fabric; NVIDIA's counter is to open NVLink itself
@@ -693,6 +693,8 @@ turn. The table sets out the entry ticket per loop, using NVIDIA's numbers as th
 - [**S595**](sources/bibliography.md#s595) PyTorch (GitHub: pytorch/xla), *PyTorch/XLA README (deprecation notice)*, 2026-11. [Link](https://github.com/pytorch/xla/blob/master/README.md)
 - [**S596**](sources/bibliography.md#s596) Qualcomm (GitHub: quic), *Qualcomm Cloud AI SDK and Efficient Transformers repositories*, 2026-11. [Link](https://github.com/quic/cloud-ai-sdk)
 - [**S597**](sources/bibliography.md#s597) Intel (GitHub: intel/intel-xpu-backend-for-triton), *Intel XPU backend for Triton*, 2026-11. [Link](https://github.com/intel/intel-xpu-backend-for-triton)
+- [**S12518**](sources/bibliography.md#s12518) Datacentres.com, *Hyperscaler capex trends: over $700 billion for 2026*, 2026-08. [Link](https://www.datacentres.com/guides/hyperscaler-capex-trends)
+- [**S12519**](sources/bibliography.md#s12519) Hargreaves Lansdown, *AI hyperscalers are expected to finish the year spending a whopping $828 billion on capex*, 2026-10. [Link](https://www.hl.co.uk/news/ai-hyperscalers-are-expected-to-finish-the-year-spending-a-whopping-828-billion-on-capex)
 - [**S32015**](sources/bibliography.md#s32015) NVIDIA Newsroom, *NVIDIA Dynamo open-source inference framework announcement (GTC 2025)*, 2025-03-18. [Link](https://nvidianews.nvidia.com/news/nvidia-dynamo-open-source-library-accelerates-and-scales-ai-reasoning-models)
 - [**S32017**](sources/bibliography.md#s32017) NVIDIA Technical Blog, *Introducing NVFP4 for Efficient and Accurate Low-Precision Inference*, 2025-06. [Link](https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/)
 - [**S33002**](sources/bibliography.md#s33002) NVIDIA, *NVIDIA H100 Tensor Core GPU (product page and datasheet)*, 2022-03-22. [Link](https://www.nvidia.com/en-us/data-center/h100/)

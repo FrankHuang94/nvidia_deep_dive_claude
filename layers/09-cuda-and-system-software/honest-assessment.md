@@ -8,8 +8,8 @@
 - **Inference on popular models is the thinnest part** (2.7/5 vs ~3.9 for training and new architectures). It needs few kernels, it is cost-sensitive, and it runs at a scale that pays for porting.
 - **Erosion is real at the top.** Anthropic committed to up to 1M TPUs [[S653]](../../sources/bibliography.md#s653); OpenAI signed for 6 GW of AMD [[S546]](../../sources/bibliography.md#s546) and 10 GW of Broadcom-built accelerators [[S174]](../../sources/bibliography.md#s174); Meta runs MTIA and rents TPUs [[S561]](../../sources/bibliography.md#s561)[[S90025]](../../sources/bibliography.md#s90025).
 - **So is NVIDIA's pull.** Q2 FY2027 revenue was $96.2B, Data Center ~$89.0B [[S3]](../../sources/bibliography.md#s3)[[S90011]](../../sources/bibliography.md#s90011). Anthropic also took up to 1 GW of NVIDIA systems [[S654]](../../sources/bibliography.md#s654), and Meta agreed to buy millions of NVIDIA chips [[S4006]](../../sources/bibliography.md#s4006).
-- **DeepSeek cuts both ways.** It went *below* CUDA to PTX and SASS [[S5005]](../../sources/bibliography.md#s5005)[[S9010]](../../sources/bibliography.md#s9010), then released Ascend versions of its kernel libraries in September 2026 [[S9009]](../../sources/bibliography.md#s9009)[[S9010]](../../sources/bibliography.md#s9010).
-- **Software is only part of the lead.** GB300 NVL72 served DeepSeek-V4-Pro at ~$0.156 per million output tokens at 50 tokens/s per user, helped by its 72-GPU [NVLink](../../glossary.md#nvlink) domain [[S633]](../../sources/bibliography.md#s633).
+- **DeepSeek cuts both ways.** It went *below* [CUDA](../../glossary.md#cuda) to PTX and SASS [[S5005]](../../sources/bibliography.md#s5005)[[S9010]](../../sources/bibliography.md#s9010), then released Ascend versions of its kernel libraries in September 2026 [[S9009]](../../sources/bibliography.md#s9009)[[S9010]](../../sources/bibliography.md#s9010).
+- **Software is only part of the lead.** GB300 [NVL72](../../glossary.md#nvl72) served DeepSeek-V4-Pro at ~$0.156 per million output tokens at 50 tokens/s per user, helped by its 72-GPU [NVLink](../../glossary.md#nvlink) domain [[S633]](../../sources/bibliography.md#s633).
 
 ![Heatmap scoring CUDA lock-in from 1 to 5 for seven customer segments across four workloads. Averages: academia 4.75, enterprises 4.50, sovereign AI 3.75, startups and neoclouds 3.75, hyperscalers 3.00, frontier labs 2.75, Chinese labs 2.50. Inference on popular models is the weakest column (average 2.7) versus about 3.9 for pre-training and new architectures.](../../assets/charts/09-moat-strength-by-segment.svg)
 
@@ -17,17 +17,17 @@
 
 **Training** is long and fragile: kernels, [NCCL](../../glossary.md#nccl) collectives and numerics must stay stable for months, so switching mid-generation is risky. Google and Anthropic manage it only by co-designing chip, compiler and model [[S653]](../../sources/bibliography.md#s653)[[S656]](../../sources/bibliography.md#s656).
 
-**Popular-model inference** is narrow: one model, a fixed kernel set, measured cost per token, and fleets big enough to fund a port. AMD's DeepSeek-V4 sprint, Modular's MI355X port and vLLM's TPU back end all target serving [[S631]](../../sources/bibliography.md#s631)[[S9022]](../../sources/bibliography.md#s9022)[[S9015]](../../sources/bibliography.md#s9015). **New and agentic inference** swings back to NVIDIA: day-0 kernels and KV-offload libraries matured on CUDA [[S627]](../../sources/bibliography.md#s627).
+**Popular-model inference** is narrow: one model, a fixed kernel set, measured cost per token, and fleets big enough to fund a port. AMD's DeepSeek-V4 sprint, Modular's MI355X port and [vLLM](../../glossary.md#vllm)'s TPU back end all target serving [[S631]](../../sources/bibliography.md#s631)[[S9022]](../../sources/bibliography.md#s9022)[[S9015]](../../sources/bibliography.md#s9015). **New and [agentic](../../glossary.md#agentic-ai) inference** swings back to NVIDIA: day-0 kernels and KV-offload libraries matured on CUDA [[S627]](../../sources/bibliography.md#s627).
 
 > [!TIP]
 > **Worked example — who can afford to leave?** Ironwood TPU served Qwen3.5 397B at **$0.181** per million tokens vs **$0.222** on B200 at 100 tokens/s per user [[S625]](../../sources/bibliography.md#s625), **~18% cheaper**. A lab spending an illustrative $10B a year on inference (🔴) would save **~$1.8B**. A 200-engineer porting team at ~$0.6M a head [[S401]](../../sources/bibliography.md#s401) costs **~$0.12B**, so it pays back in weeks. An enterprise spending $5M saves ~$0.9M, enough for ~1.5 engineers, far short of one ~1.8–5.5 engineer-year kernel port. **Conclusion:** lock-in falls as compute spend rises, so NVIDIA's largest customers have the strongest incentive to leave.
 
 ## 2. By customer segment
 
-- **Frontier labs (2.75) and hyperscalers (3.0)** run several stacks: Anthropic on TPU, Trainium and NVIDIA [[S653]](../../sources/bibliography.md#s653), Microsoft's Maia 200 on Copilot [[S90044]](../../sources/bibliography.md#s90044). Their exposure is research prototyping, which still starts on NVIDIA.
+- **Frontier labs (2.75) and [hyperscalers](../../glossary.md#hyperscaler) (3.0)** run several stacks: Anthropic on TPU, Trainium and NVIDIA [[S653]](../../sources/bibliography.md#s653), Microsoft's Maia 200 on Copilot [[S90044]](../../sources/bibliography.md#s90044). Their exposure is research prototyping, which still starts on NVIDIA.
 - **Chinese labs (2.5)** are pushed off by export controls. DeepSeek-V4 had day-0 Ascend support [[S633]](../../sources/bibliography.md#s633), and TileLang added an Ascend 950 back end [[S9011]](../../sources/bibliography.md#s9011).
 - **Sovereign AI (3.75)** bought >$30B of NVIDIA systems in FY2026 (management commentary) [[S90071]](../../sources/bibliography.md#s90071) and rarely employs kernel engineers.
-- **Startups and neoclouds (3.75)** switch for price on popular models (MI355X up to 29.6% cheaper per token than B200 on GLM-5 FP8 [[S637]](../../sources/bibliography.md#s637)) but stay on NVIDIA for anything new.
+- **Startups and [neoclouds](../../glossary.md#neocloud) (3.75)** switch for price on popular models (MI355X up to 29.6% cheaper per token than B200 on GLM-5 [FP8](../../glossary.md#fp8) [[S637]](../../sources/bibliography.md#s637)) but stay on NVIDIA for anything new.
 - **Enterprises (4.5) and academia (4.75)** depend on the long tail, tutorials and tools; for them the moat is close to absolute.
 
 > [!TIP]
@@ -45,7 +45,7 @@
 | Google TPU | ~18% cheaper per token than B200 on Qwen3.5 [[S625]](../../sources/bibliography.md#s625); sold into customer datacenters [[S90027]](../../sources/bibliography.md#s90027) | Framework breadth 14/36 vs CUDA 36/36 [[S577]](../../sources/bibliography.md#s577)[[S587]](../../sources/bibliography.md#s587) |
 
 > [!WARNING]
-> **Myth vs. reality: "CUDA is the moat."** On DeepSeek-V4, GB300 NVL72's lead came largely from keeping expert-parallel traffic inside one 72-GPU NVLink domain [[S633]](../../sources/bibliography.md#s633), and NVIDIA reportedly holds ~60% of TSMC's CoWoS allocation [[S90039]](../../sources/bibliography.md#s90039). **Reality:** the moat is software + scale-up networking + supply. Matching CUDA without NVLink-class racks or CoWoS volume still loses deals ([Layer 05](../05-scale-up-nvlink-nvswitch/index.md), [Layer 03](../03-memory-packaging-supply-chain/index.md)).
+> **Myth vs. reality: "CUDA is the moat."** On DeepSeek-V4, GB300 NVL72's lead came largely from keeping expert-parallel traffic inside one 72-GPU NVLink domain [[S633]](../../sources/bibliography.md#s633), and NVIDIA reportedly holds ~60% of TSMC's [CoWoS](../../glossary.md#cowos) allocation [[S90039]](../../sources/bibliography.md#s90039). **Reality:** the moat is software + [scale-up](../../glossary.md#scale-up) networking + supply. Matching CUDA without NVLink-class racks or CoWoS volume still loses deals ([Layer 05](../05-scale-up-nvlink-nvswitch/index.md), [Layer 03](../03-memory-packaging-supply-chain/index.md)).
 
 > [!WARNING]
 > **Myth vs. reality: "DeepSeek proved you don't need CUDA."** DeepSeek's 2025 code went *deeper* into NVIDIA-specific PTX and SASS [[S5005]](../../sources/bibliography.md#s5005)[[S9010]](../../sources/bibliography.md#s9010); its Ascend ports came in 2026 under export controls. **Reality:** it proved that efficiency beats raw GPU count ([CS5](../../case-studies/CS5-deepseek-moment-and-efficiency-shock.md)), not that CUDA is optional.
@@ -74,7 +74,7 @@
 
 1. **Segment the opportunity.** A challenger only needs the low-lock-in cells: popular-model inference at hyperscalers, frontier labs and price-sensitive neoclouds. Which can a newcomer reach without a top lab as anchor?
 2. **Buy breadth, not just speed.** The bring-up gap is weeks; the breadth gap (36 vs 26 vs 4) is years. Upstream maintainers and packaging/CI teams compound fastest.
-3. **Qualcomm question (public information only):** after the Modular deal [[S9511]](../../sources/bibliography.md#s9511), is the goal first-class status in the open stack (vLLM, Triton, PyTorch) or a parallel Mojo/MAX stack? The first rides the erosion vectors; the second must win developers from zero.
+3. **Qualcomm question (public information only):** after the Modular deal [[S9511]](../../sources/bibliography.md#s9511), is the goal first-class status in the open stack (vLLM, [Triton](../../glossary.md#triton), [PyTorch](../../glossary.md#pytorch)) or a parallel Mojo/MAX stack? The first rides the erosion vectors; the second must win developers from zero.
 4. **Watch anchor deals.** Each 1–10 GW deal (Anthropic–TPU, OpenAI–AMD, OpenAI–Broadcom) funds software that lowers lock-in for everyone after it.
 
 ## 📚 Sources

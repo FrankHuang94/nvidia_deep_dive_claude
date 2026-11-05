@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **An AI GPU is a package, not a chip.** No die can exceed the ~858 mm² [reticle limit](../../glossary.md#reticle-limit), and HBM must sit millimetres from the GPU [[S380]](../../sources/bibliography.md#s380). TSMC's [CoWoS](../../glossary.md#cowos) places dies and HBM side by side on a silicon [interposer](../../glossary.md#interposer) or bridges: [2.5D packaging](../../glossary.md#advanced-packaging).
+- **An AI GPU is a package, not a chip.** No die can exceed the ~858 mm² [reticle limit](../../glossary.md#reticle-limit), and [HBM](../../glossary.md#hbm) must sit millimetres from the GPU [[S380]](../../sources/bibliography.md#s380). TSMC's [CoWoS](../../glossary.md#cowos) places dies and HBM side by side on a silicon [interposer](../../glossary.md#interposer) or bridges: [2.5D packaging](../../glossary.md#advanced-packaging).
 - **Three flavours.** [CoWoS-S](../../glossary.md#cowos-s) uses one silicon interposer up to ~3.3× the reticle (H100). [CoWoS-L](../../glossary.md#cowos-l) embeds small silicon bridges in organic layers, targeting ~5.5× in 2026 and ~9.5× in 2027 (B200 onward). [CoWoS-R](../../glossary.md#cowos-r) drops silicon for cheaper wiring [[S380]](../../sources/bibliography.md#s380)[[S358]](../../sources/bibliography.md#s358).
 - **Packages grow faster than capacity.** A 300-mm wafer holds ~28 interposers at 2× reticle but ~4 at 9.5× (Est.) [[S3000]](../../sources/bibliography.md#s3000). H100- to Rubin-class roughly halves GPUs per wafer.
 - 🟡 **Capacity is growing but short.** Estimates run from ~15k wafers a month (end-2023) to ~115–130k (end-2026) and ~260k (end-2028) [[S379]](../../sources/bibliography.md#s379)[[S3002]](../../sources/bibliography.md#s3002), with a ~20% gap reported for 2026 [[S3003]](../../sources/bibliography.md#s3003).
@@ -17,7 +17,7 @@
 **Analogy.** A motherboard is a city street grid; an interposer is a silicon circuit board with wiring ~100× finer, so tens of thousands of short wires fit in a few square centimetres. Two forces push every flagship accelerator onto it: the reticle limit, which NVIDIA now beats by joining two reticle-size dies with a 10 TB/s link [[S35014]](../../sources/bibliography.md#s35014) (see [Layer 02](../02-gpu-silicon/index.md)), and HBM's wide bus (see [HBM explained](hbm-explained.md)).
 
 > [!TIP]
-> **Worked example — counting wires on a Rubin package.** 8 HBM4 stacks × 2,048 data wires = 16,384 memory data wires, before clocks, power and the die-to-die link [[S369]](../../sources/bibliography.md#s369)[[S360]](../../sources/bibliography.md#s360). A 12-channel DDR5 server socket has 768 [[S179]](../../sources/bibliography.md#s179). **Business reading:** packaging capacity, not just wafer capacity, caps GPU output, and NVIDIA, AMD, Google and AWS flagships all queue for the same CoWoS lines.
+> **Worked example — counting wires on a Rubin package.** 8 [HBM4](../../glossary.md#hbm4) stacks × 2,048 data wires = 16,384 memory data wires, before clocks, power and the die-to-die link [[S369]](../../sources/bibliography.md#s369)[[S360]](../../sources/bibliography.md#s360). A 12-channel DDR5 server socket has 768 [[S179]](../../sources/bibliography.md#s179). **Business reading:** packaging capacity, not just wafer capacity, caps GPU output, and NVIDIA, AMD, Google and AWS flagships all queue for the same CoWoS lines.
 
 ```mermaid
 flowchart LR
@@ -95,7 +95,7 @@ Each GPU package uses one interposer, so **packages per wafer** falls as interpo
 ## 🎯 Corp Dev Lens
 
 1. **The bottleneck is cheap to own and valuable to control.** CoWoS is ~3–4% of the revenue it gates (Est.) [[S3000]](../../sources/bibliography.md#s3000), which is why NVIDIA locks in allocation years ahead.
-2. **Second sources matter most to ASIC programs behind NVIDIA in TSMC's queue.** Which hyperscaler or merchant programs commit first to EMIB-T, OSAT lines or CoPoS [[S3002]](../../sources/bibliography.md#s3002)[[S3003]](../../sources/bibliography.md#s3003)[[S3004]](../../sources/bibliography.md#s3004)?
+2. **Second sources matter most to [ASIC](../../glossary.md#asic) programs behind NVIDIA in TSMC's queue.** Which [hyperscaler](../../glossary.md#hyperscaler) or merchant programs commit first to EMIB-T, OSAT lines or CoPoS [[S3002]](../../sources/bibliography.md#s3002)[[S3003]](../../sources/bibliography.md#s3003)[[S3004]](../../sources/bibliography.md#s3004)?
 3. **Package size is a roadmap risk.** The reported Rubin Ultra rework [[S509]](../../sources/bibliography.md#s509) shows packaging can redraw products. How exposed are rival roadmaps that assume 5–9× reticle packages in 2027? Suppliers riding the build-out are in [value chain](value-chain-and-corp-dev.md).
 
 ## 📚 Sources

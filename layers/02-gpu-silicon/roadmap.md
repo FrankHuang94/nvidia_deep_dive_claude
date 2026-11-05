@@ -6,7 +6,7 @@
 
 - **Rubin is shipping; the next two steps are dated.** Production shipments began in August 2026, with volume in
   Q4 [[S500]](../../sources/bibliography.md#s500)[[S90009]](../../sources/bibliography.md#s90009); 🟢 Rubin Ultra is officially due in H2 2027 and 🟢 Feynman in 2028 [[S35018]](../../sources/bibliography.md#s35018)[[S109]](../../sources/bibliography.md#s109).
-- **Rubin's specs were cut after launch:** per-GPU HBM4 bandwidth from 22 to 19.2 TB/s and NVLink 6 from 3.6 to
+- **Rubin's specs were cut after launch:** per-GPU [HBM4](../../glossary.md#hbm4) bandwidth from 22 to 19.2 TB/s and [NVLink](../../glossary.md#nvlink) 6 from 3.6 to
   3.0 TB/s; capacity (288 GB) and compute are unchanged [[S90006]](../../sources/bibliography.md#s90006)[[S90007]](../../sources/bibliography.md#s90007). The cause is unresolved (🔴) [[S104]](../../sources/bibliography.md#s104).
 - **Two items moved.** 🟡 Rubin CPX left the GTC 2026 roadmap and is reported back as an HBM4 redesign for 1Q27
   [[S115]](../../sources/bibliography.md#s115)[[S117]](../../sources/bibliography.md#s117); 🟢 the Groq 3 LPU took the inference-accelerator slot [[S113]](../../sources/bibliography.md#s113)[[S506]](../../sources/bibliography.md#s506).
@@ -14,7 +14,7 @@
   Kyber rack slip to 2028 [[S509]](../../sources/bibliography.md#s509)[[S111]](../../sources/bibliography.md#s111)[[S507]](../../sources/bibliography.md#s507), against NVIDIA's "roadmap intact" [[S508]](../../sources/bibliography.md#s508).
 - **Everyone is on an annual cadence:** 🟢 AMD MI500 (2027) and MI600 (2028) [[S538]](../../sources/bibliography.md#s538), 🟢 TPU 8t/8i (late 2026)
   [[S550]](../../sources/bibliography.md#s550), 🟢 Trainium4 (AWS claims 3× FP8) [[S90034]](../../sources/bibliography.md#s90034), 🟡 Maia 300 (2027) [[S90046]](../../sources/bibliography.md#s90046), 🟢 Ascend 960/970 [[S90042]](../../sources/bibliography.md#s90042).
-- **Per chip, NVIDIA and AMD pull away from the ASICs:** Est. ~35 PFLOPS FP8 for Rubin Ultra vs ~7.6 for
+- **Per chip, NVIDIA and AMD pull away from the ASICs:** Est. ~35 [PFLOPS](../../glossary.md#flops) [FP8](../../glossary.md#fp8) for Rubin Ultra vs ~7.6 for
   Trainium4 and 2 for Ascend 960 (repo estimates from vendor multiples) [[S35018]](../../sources/bibliography.md#s35018)[[S90034]](../../sources/bibliography.md#s90034)[[S163]](../../sources/bibliography.md#s163).
 
 ![Log-scale line chart of flagship FP8 compute per chip by year: NVIDIA rises from 2.0 PFLOPS (H100, 2022) to 17.5 (Rubin, 2026) and an estimated ~35 for Rubin Ultra (2027); AMD from 2.6 (MI300X, 2023) to 20 (MI455X, 2026, basis not stated); Google Ironwood 4.6 (2025); AWS Trainium2 1.3, Trainium3 2.5 and an estimated ~7.6 for Trainium4; Microsoft Maia 200 5; Intel Gaudi 3 1.8; Huawei Ascend 950 1, 960 2 and 970 4 PFLOPS by 2028.](../../assets/charts/02-fp8-roadmap-by-vendor.svg)
@@ -93,8 +93,8 @@ gantt
 
 ## The 2026 Rubin revision: what changed and why it matters
 
-NVIDIA's pages now list lower bandwidth than at launch: the NVL72 rack fell from 1,580 to 1,400 TB/s of HBM
-bandwidth and the HGX NVL8 board from 176 to 130 TB/s [[S90007]](../../sources/bibliography.md#s90007)[[S105]](../../sources/bibliography.md#s105). The pages give no reason; press reports
+NVIDIA's pages now list lower bandwidth than at launch: the [NVL72](../../glossary.md#nvl72) rack fell from 1,580 to 1,400 TB/s of [HBM](../../glossary.md#hbm)
+bandwidth and the [HGX](../../glossary.md#hgx) NVL8 board from 176 to 130 TB/s [[S90007]](../../sources/bibliography.md#s90007)[[S105]](../../sources/bibliography.md#s105). The pages give no reason; press reports
 quote an NVIDIA statement tying the figures to quality volume production [[S104]](../../sources/bibliography.md#s104)[[S2523]](../../sources/bibliography.md#s2523), while an analyst blames
 HBM4 pin speeds of ~9.4 instead of ~10.7 Gb/s (🔴 unresolved) [[S90006]](../../sources/bibliography.md#s90006). NVIDIA had pushed suppliers for HBM4 above
 10–11 Gb/s [[S90040]](../../sources/bibliography.md#s90040).
@@ -113,7 +113,7 @@ HBM4 pin speeds of ~9.4 instead of ~10.7 Gb/s (🔴 unresolved) [[S90006]](../..
 ## What would change the picture
 
 **[Q7 · Roadmap & what changes the picture]** NVIDIA plans one flagship a year to 2028 (Rubin → Rubin Ultra →
-Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S113]](../../sources/bibliography.md#s113); AMD matches the cadence and hyperscalers iterate yearly. Signposts:
+Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S113]](../../sources/bibliography.md#s113); AMD matches the cadence and [hyperscalers](../../glossary.md#hyperscaler) iterate yearly. Signposts:
 
 - 🟡 **Rubin Ultra downgraded or late.** A two-die, 768 GB part or a 2028 Kyber rack [[S509]](../../sources/bibliography.md#s509)[[S111]](../../sources/bibliography.md#s111)[[S507]](../../sources/bibliography.md#s507) would let
   MI500 (2027) [[S538]](../../sources/bibliography.md#s538) lead on memory for a second year.
@@ -123,7 +123,7 @@ Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S11
   roadmap is exposed first to pin-speed and yield problems.
 - 🟢 **TPUs become merchant silicon.** Meta's rental and purchase talks plus TPUs in Oracle's cloud from 2027 would
   give buyers a second full-stack supplier [[S90025]](../../sources/bibliography.md#s90025)[[S552]](../../sources/bibliography.md#s552).
-- 🟢 **NVLink Fusion inside rival chips.** Trainium4 is designed to support it [[S90034]](../../sources/bibliography.md#s90034): NVIDIA would earn from
+- 🟢 **[NVLink Fusion](../../glossary.md#nvlink-fusion) inside rival chips.** Trainium4 is designed to support it [[S90034]](../../sources/bibliography.md#s90034): NVIDIA would earn from
   custom silicon, not only compete with it.
 - 🟡 **OpenAI's own accelerator.** 10 GW of OpenAI–Broadcom racks from H2 2026 [[S174]](../../sources/bibliography.md#s174); SemiAnalysis credits the
   first chip with 13.4 PFLOPS MXFP4 on one die vs 17.5 per Rubin die [[S628]](../../sources/bibliography.md#s628).
@@ -134,7 +134,7 @@ Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S11
 
 > [!TIP]
 > **Worked example — the cost of the reported Rubin Ultra memory cut.** A 144-package Kyber rack at 1 TB per
-> package holds ~147 TB of HBM4E; at 768 GB, ~111 TB: **25% less** [[S35018]](../../sources/bibliography.md#s35018)[[S111]](../../sources/bibliography.md#s111). In long-context inference the
+> package holds ~147 TB of [HBM4E](../../glossary.md#hbm4e); at 768 GB, ~111 TB: **25% less** [[S35018]](../../sources/bibliography.md#s35018)[[S111]](../../sources/bibliography.md#s111). In long-context inference the
 > [KV cache](../../glossary.md#kv-cache) fills memory before compute runs out, so that is ~25% fewer concurrent sessions
 > per rack, an opening for a memory-heavy MI500.
 
@@ -143,8 +143,8 @@ Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S11
 
 - **Dies vs packages.** "Vera Rubin NVL144" (dies) became NVL72 (packages) at CES 2026; Kyber "NVL576" became
   NVL144 on the same logic [[S90009]](../../sources/bibliography.md#s90009)[[S90003]](../../sources/bibliography.md#s90003).
-- **"Inference" numbers.** Rubin's 50 PFLOPS NVFP4 relies on adaptive compression; 35 PFLOPS is the dense training
-  figure [[S100]](../../sources/bibliography.md#s100). AMD did not say whether MI455X's 40 PFLOPS FP4 is dense [[S144]](../../sources/bibliography.md#s144).
+- **"Inference" numbers.** Rubin's 50 PFLOPS [NVFP4](../../glossary.md#nvfp4) relies on adaptive compression; 35 PFLOPS is the dense training
+  figure [[S100]](../../sources/bibliography.md#s100). AMD did not say whether MI455X's 40 PFLOPS [FP4](../../glossary.md#fp4) is dense [[S144]](../../sources/bibliography.md#s144).
 - **Announced ≠ volume.** Huawei SuperPoD and Qualcomm AI200 shipments are unconfirmed [[S90042]](../../sources/bibliography.md#s90042)[[S90028]](../../sources/bibliography.md#s90028).
 
 </details>
@@ -152,7 +152,7 @@ Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S11
 ## 🎯 Corp Dev Lens
 
 1. NVIDIA traded bandwidth for volume on Rubin. If HBM stays the binding input, do memory-light architectures
-   (LPDDR, SRAM, [near-memory compute](../../glossary.md#near-memory-compute)) gain a window in 2027–28?
+   ([LPDDR](../../glossary.md#lpddr), [SRAM](../../glossary.md#sram), [near-memory compute](../../glossary.md#near-memory-compute)) gain a window in 2027–28?
 2. Rubin Ultra's final memory will be known before H2 2027. Which partners or customers would re-plan at 768 GB?
 3. Trainium4's NVLink Fusion support blurs "rival" and "partner". Is attaching to NVIDIA's fabric a durable
    option for third-party accelerators, or a dependency?

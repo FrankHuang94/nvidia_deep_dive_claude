@@ -276,15 +276,21 @@ class Chart:
                     a.tick_params(length=0)
         # Plain tick labels on every log axis (mathtext is disabled, so matplotlib's default
         # LogFormatterSciNotation would print raw '$\\mathdefault{10^{2}}$' strings).
+        from matplotlib.ticker import LogFormatter
         for a in fig.get_axes():
             if a.name != "rectilinear":
                 continue
-            if a.get_yscale() == "log":
-                a.yaxis.set_major_formatter(PLAIN_LOG)
-                a.yaxis.set_minor_formatter(NULL_FMT)
-            if a.get_xscale() == "log":
-                a.xaxis.set_major_formatter(PLAIN_LOG)
-                a.xaxis.set_minor_formatter(NULL_FMT)
+            for axis, scale, getl, setl in ((a.yaxis, a.get_yscale(), a.get_ylabel, a.set_ylabel),
+                                            (a.xaxis, a.get_xscale(), a.get_xlabel, a.set_xlabel)):
+                if scale != "log":
+                    continue
+                # only replace matplotlib's default formatter; respect a module's own formatter
+                if isinstance(axis.get_major_formatter(), LogFormatter):
+                    axis.set_major_formatter(PLAIN_LOG)
+                    axis.set_minor_formatter(NULL_FMT)
+                lab = getl()
+                if lab and "log" not in lab.lower():  # STYLE_GUIDE 6.5: log scales are always labelled
+                    setl(f"{lab} (log scale)")
         # Title block: shrink (never wrap) long titles/subtitles so they cannot collide.
         w_in = fig.get_size_inches()[0]
         t_fs = max(10.0, min(14.5, 14.5 * (8.3 * w_in) / max(len(self.title), 1)))
@@ -300,7 +306,8 @@ class Chart:
         ids = " ".join(f"[{s}]" for s in self.source_ids[:6])
         more = " …" if len(self.source_ids) > 6 else ""
         foot = f"Source: data from {self.source} {ids}{more}; chart by repo · As of {self.asof}"
-        fig.text(0.012, 0.012, foot, ha="left", va="bottom", fontsize=8.2, color=INK["muted"])
+        f_fs = max(6.0, min(8.2, 8.2 * (14.5 * w_in) / max(len(foot), 1)))  # shrink, never clip
+        fig.text(0.012, 0.012, foot, ha="left", va="bottom", fontsize=f_fs, color=INK["muted"])
         if self.note:  # own line above the source footer, so long footers never collide with it
             fig.text(0.988, 0.040, self.note, ha="right", va="bottom", fontsize=8.2,
                      color=INK["muted"], style="italic")

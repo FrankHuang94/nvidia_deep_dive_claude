@@ -4,13 +4,13 @@
 
 ## ⚡ The Executive Take
 
-- **The network is a fifth of the cluster.** Estimates put networking at ~17–21% of AI cluster hardware capex; SemiAnalysis's all-in GB200 NVL72 cost implies ~20.5% for networking plus storage [[S6026]](../../sources/bibliography.md#s6026)[[S324]](../../sources/bibliography.md#s324).
-- **NVIDIA takes the biggest single pool.** Its FY2026 networking revenue (~$31.4B, including NVLink switches) is ~6× Innolight's 2025 revenue and ~9× Arista's 2026 AI target [[S402]](../../sources/bibliography.md#s402)[[S6513]](../../sources/bibliography.md#s6513)[[S6500]](../../sources/bibliography.md#s6500).
+- **The network is a fifth of the cluster.** Estimates put networking at ~17–21% of AI cluster hardware capex; SemiAnalysis's all-in GB200 [NVL72](../../glossary.md#nvl72) cost implies ~20.5% for networking plus storage [[S6026]](../../sources/bibliography.md#s6026)[[S324]](../../sources/bibliography.md#s324).
+- **NVIDIA takes the biggest single pool.** Its FY2026 networking revenue (~$31.4B, including [NVLink](../../glossary.md#nvlink) switches) is ~6× Innolight's 2025 revenue and ~9× Arista's 2026 AI target [[S402]](../../sources/bibliography.md#s402)[[S6513]](../../sources/bibliography.md#s6513)[[S6500]](../../sources/bibliography.md#s6500).
 - **Optics is the fastest-growing and scarcest link.** Innolight grew 61% and Eoptolink 189% in 2025 [[S6513]](../../sources/bibliography.md#s6513); Credo grew 206% in fiscal 2026 [[S6515]](../../sources/bibliography.md#s6515). Coherent says data-center orders exceed 4× its current throughput [[S6512]](../../sources/bibliography.md#s6512).
 - **NVIDIA is buying supply security.** It put $2B each into Lumentum and Coherent in March 2026, tied to purchase commitments for co-packaged-optics lasers [[S6511]](../../sources/bibliography.md#s6511).
 - **The layer's M&A sets the price of entry.** Mellanox ($6.9B), AMD–Pensando ($1.9B), Marvell–Celestial AI (~$3.25B), Qualcomm–Alphawave (~$2.4B) and HPE–Juniper ($14B) [[S464]](../../sources/bibliography.md#s464)[[S6521]](../../sources/bibliography.md#s6521)[[S2513]](../../sources/bibliography.md#s2513)[[S4514]](../../sources/bibliography.md#s4514)[[S6522]](../../sources/bibliography.md#s6522).
 - **Private optics and networking start-ups are richly valued:** Ayar Labs ~$3.75B, Lightmatter $4.4B, Nexthop AI $4.2B, Upscale AI ~$2B [[S6519]](../../sources/bibliography.md#s6519)[[S2510]](../../sources/bibliography.md#s2510)[[S6517]](../../sources/bibliography.md#s6517)[[S6518]](../../sources/bibliography.md#s6518).
-- **[Q8 · Value pools & M&A angles]** The open seats are the scale-out NIC for non-NVIDIA accelerators and the optics supply chain. NVIDIA has already locked up the latter with stakes.
+- **[Q8 · Value pools & M&A angles]** The open seats are the [scale-out](../../glossary.md#scale-out) [NIC](../../glossary.md#nic) for non-NVIDIA accelerators and the optics supply chain. NVIDIA has already locked up the latter with stakes.
 
 ![Horizontal bar chart of AI-networking-related revenue: NVIDIA networking $31.4B in FY2026 and a ~$70B annualized run-rate in Q2 FY2027 (both include NVLink switches); Broadcom AI semiconductors $20.2B in FY2025, which mixes custom XPUs with AI Ethernet; optics makers Innolight $5.3B and Eoptolink $3.5B in 2025; Arista's 2026 AI networking target of at least $3.6B; Credo $1.34B in fiscal 2026. NVIDIA alone books more networking revenue than the merchant switch, optics and cable specialists shown combined, excluding Broadcom.](../../assets/charts/06-networking-value-pool-by-vendor.svg)
 
@@ -61,7 +61,7 @@ flowchart LR
 | 2025-12 | Qualcomm–Alphawave (closed) | ~$2.4B | SerDes and connectivity IP | [[S4513]](../../sources/bibliography.md#s4513)[[S4514]](../../sources/bibliography.md#s4514) |
 
 > [!TIP]
-> **Worked example — what supply security costs NVIDIA.** The $4B of laser stakes [[S6511]](../../sources/bibliography.md#s6511) equals ~13% of FY2026 networking revenue (~$31.4B) [[S402]](../../sources/bibliography.md#s402). It is below 1% of the $1 trillion of Blackwell and Vera Rubin demand Huang cited through 2027 [[S90001]](../../sources/bibliography.md#s90001). Non-exclusive stakes buy priority, not a lock-out. This is the same playbook as its HBM and CoWoS commitments ([layer 03](../03-memory-packaging-supply-chain/value-chain-and-corp-dev.md)).
+> **Worked example — what supply security costs NVIDIA.** The $4B of laser stakes [[S6511]](../../sources/bibliography.md#s6511) equals ~13% of FY2026 networking revenue (~$31.4B) [[S402]](../../sources/bibliography.md#s402). It is below 1% of the $1 trillion of Blackwell and Vera Rubin demand Huang cited through 2027 [[S90001]](../../sources/bibliography.md#s90001). Non-exclusive stakes buy priority, not a lock-out. This is the same playbook as its [HBM](../../glossary.md#hbm) and [CoWoS](../../glossary.md#cowos) commitments ([layer 03](../03-memory-packaging-supply-chain/value-chain-and-corp-dev.md)).
 
 ## Private companies worth knowing
 
@@ -79,7 +79,7 @@ flowchart LR
 <sub>Public information only; funding figures are as reported and not independently verified.</sub>
 
 > [!TIP]
-> **Worked example — what a $4.2B valuation asks for.** Assume, for illustration only 🔴, that investors pay ~10× forward sales. Nexthop AI's $4.2B [[S6517]](../../sources/bibliography.md#s6517) then implies ~$420M of annual revenue, about 0.6% of NVIDIA's ~$70B networking run-rate [[S408]](../../sources/bibliography.md#s408). Start-ups need one hyperscaler design win, not victory over NVIDIA, which is why their rounds are large and early.
+> **Worked example — what a $4.2B valuation asks for.** Assume, for illustration only 🔴, that investors pay ~10× forward sales. Nexthop AI's $4.2B [[S6517]](../../sources/bibliography.md#s6517) then implies ~$420M of annual revenue, about 0.6% of NVIDIA's ~$70B networking run-rate [[S408]](../../sources/bibliography.md#s408). Start-ups need one [hyperscaler](../../glossary.md#hyperscaler) design win, not victory over NVIDIA, which is why their rounds are large and early.
 
 <details>
 <summary>🔧 Under the hood: why CPO shifts margin from module makers to chip vendors</summary>
@@ -90,14 +90,14 @@ A pluggable [optical transceiver](../../glossary.md#pluggable-transceiver) bundl
 
 **[Q8 · Value pools & M&A angles]** The largest pool, switch plus NIC (~$31B a year at NVIDIA alone, ~$0.24 per $1 of its compute; see [history](history-and-how-built.md)), is held by NVIDIA and Broadcom. The fastest-growing pools are optics and copper connectivity (+61% to +206% growth) [[S6513]](../../sources/bibliography.md#s6513)[[S6515]](../../sources/bibliography.md#s6515). The open angles are:
 
-- **Scale-out NICs for non-NVIDIA accelerators.** UEC makes the NIC a standard part (AMD Vulcano, Broadcom Thor) [[S257]](../../sources/bibliography.md#s257)[[S290]](../../sources/bibliography.md#s290)[[S280]](../../sources/bibliography.md#s280).
+- **Scale-out NICs for non-NVIDIA accelerators.** [UEC](../../glossary.md#ultra-ethernet) makes the NIC a standard part (AMD Vulcano, Broadcom Thor) [[S257]](../../sources/bibliography.md#s257)[[S290]](../../sources/bibliography.md#s290)[[S280]](../../sources/bibliography.md#s280).
 - **Photonics and laser supply,** where NVIDIA has bought priority [[S6511]](../../sources/bibliography.md#s6511) but start-ups remain independent.
 - **Scale-across routers** (Jericho4, Cisco P200, Spectrum-XGS) [[S276]](../../sources/bibliography.md#s276)[[S286]](../../sources/bibliography.md#s286)[[S268]](../../sources/bibliography.md#s268).
 
 ## 🎯 Corp Dev Lens
 
 1. NVIDIA's stakes in Lumentum and Coherent are non-exclusive [[S6511]](../../sources/bibliography.md#s6511). How much laser capacity is left for other CPO buyers in 2027, and at what price?
-2. A UEC NIC is the missing piece in most non-NVIDIA racks. Is a NIC team (Enfabrica cost ~$900M [[S475]](../../sources/bibliography.md#s475)) or a SerDes asset (Alphawave [[S4513]](../../sources/bibliography.md#s4513)) the better starting point for an accelerator vendor?
+2. A UEC NIC is the missing piece in most non-NVIDIA racks. Is a NIC team (Enfabrica cost ~$900M [[S475]](../../sources/bibliography.md#s475)) or a [SerDes](../../glossary.md#serdes) asset (Alphawave [[S4513]](../../sources/bibliography.md#s4513)) the better starting point for an accelerator vendor?
 3. Start-up valuations ($2–4B before volume revenue) [[S6517]](../../sources/bibliography.md#s6517)[[S6518]](../../sources/bibliography.md#s6518)[[S6519]](../../sources/bibliography.md#s6519) exceed Mellanox's 2019 multiple of ~5× sales [[S464]](../../sources/bibliography.md#s464)[[S6510]](../../sources/bibliography.md#s6510). Is a minority stake plus commercial agreement a better way in than control?
 4. CPO moves value from module makers into switch packages. Which optics suppliers (Innolight, Eoptolink, Coherent) are most exposed, and which gain as laser suppliers?
 5. Arista targets ~30% of its AI revenue from scale-across [[S6500]](../../sources/bibliography.md#s6500). Is the data-center interconnect router a separate, less NVIDIA-dominated pool worth partnering into?

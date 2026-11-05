@@ -4,10 +4,10 @@
 
 ## ⚡ The Executive Take
 
-- **The moat is breadth.** CUDA is native in all 12 major AI frameworks and engines tracked here (36/36); ROCm scores 26, Huawei CANN 17, Google TPU 14 and Qualcomm Cloud AI 4 [[S587]](../../sources/bibliography.md#s587)[[S580]](../../sources/bibliography.md#s580)[[S582]](../../sources/bibliography.md#s582)[[S586]](../../sources/bibliography.md#s586)[[S596]](../../sources/bibliography.md#s596).
-- **New models run on CUDA on day 0.** DeepSeek-V4-Pro (released 2026-04-24) ran natively on CUDA in vLLM and SGLang. On AMD MI355X, FP4 took 8 days and serving at 50 tokens/s per user took 27 [[S633]](../../sources/bibliography.md#s633)[[S631]](../../sources/bibliography.md#s631).
+- **The moat is breadth.** [CUDA](../../glossary.md#cuda) is native in all 12 major AI frameworks and engines tracked here (36/36); [ROCm](../../glossary.md#rocm) scores 26, Huawei CANN 17, Google TPU 14 and Qualcomm Cloud AI 4 [[S587]](../../sources/bibliography.md#s587)[[S580]](../../sources/bibliography.md#s580)[[S582]](../../sources/bibliography.md#s582)[[S586]](../../sources/bibliography.md#s586)[[S596]](../../sources/bibliography.md#s596).
+- **New models run on CUDA on day 0.** DeepSeek-V4-Pro (released 2026-04-24) ran natively on CUDA in vLLM and [SGLang](../../glossary.md#sglang). On AMD MI355X, [FP4](../../glossary.md#fp4) took 8 days and serving at 50 tokens/s per user took 27 [[S633]](../../sources/bibliography.md#s633)[[S631]](../../sources/bibliography.md#s631).
 - **Rivals now catch up in weeks, not quarters.** AMD lifted MI355X throughput 110× in 26 days with 31 pull requests, yet B200 stayed ~5× ahead at equal interactivity [[S631]](../../sources/bibliography.md#s631).
-- **Research lands on NVIDIA first.** FlashAttention 1–4 all launched on NVIDIA GPUs. FA4 targets Hopper and Blackwell and runs up to 2.7× faster than Triton on B200; AMD has FA2-class kernels and no FA4 [[S9000]](../../sources/bibliography.md#s9000)[[S9004]](../../sources/bibliography.md#s9004).
+- **Research lands on NVIDIA first.** FlashAttention 1–4 all launched on NVIDIA GPUs. FA4 targets Hopper and Blackwell and runs up to 2.7× faster than [Triton](../../glossary.md#triton) on B200; AMD has FA2-class kernels and no FA4 [[S9000]](../../sources/bibliography.md#s9000)[[S9004]](../../sources/bibliography.md#s9004).
 - **Porting is mostly tuning.** 🔴 Est.: one FlashAttention-class kernel needs ~1.8–5.5 engineer-years per new chip, plus yearly re-tuning.
 - **Weakness:** NVIDIA's developer count has been flat at ~6M since GTC 2025 [[S536]](../../sources/bibliography.md#s536)[[S528]](../../sources/bibliography.md#s528), and the tail thins where budgets are large. AMD's MiniMax-M3 disaggregated serving landed on day 0; DeepSeek-R1 parity had taken months [[S627]](../../sources/bibliography.md#s627).
 
@@ -15,7 +15,7 @@
 
 ## 1. Thousands of kernels, and every model adds more
 
-A model is a graph of hundreds of operators, and each operator × data type × shape × GPU generation is its own tuning problem. Every vendor covers the head (dense matmul, standard attention). The **long tail** is where rivals fall back to slow generic code: new attention variants, MoE routing, FP4 formats, KV-cache transfer and the packaging that makes it all installable. On DeepSeek-V4-Pro's day 0, AMD's ATOM engine ran nearly every hot path on fallbacks [[S633]](../../sources/bibliography.md#s633).
+A model is a graph of hundreds of operators, and each operator × data type × shape × GPU generation is its own tuning problem. Every vendor covers the head (dense matmul, standard attention). The **long tail** is where rivals fall back to slow generic code: new attention variants, [MoE](../../glossary.md#mixture-of-experts) routing, FP4 formats, KV-cache transfer and the packaging that makes it all installable. On DeepSeek-V4-Pro's day 0, AMD's ATOM engine ran nearly every hot path on fallbacks [[S633]](../../sources/bibliography.md#s633).
 
 ![Horizontal bar chart of summed support scores across 12 frameworks: NVIDIA CUDA 36 of 36 (native in 12), AMD ROCm 26 (native in 4), Intel 18, Huawei CANN 17, Google TPU 14 (native in JAX and TensorFlow), AWS Neuron 7 and Qualcomm Cloud AI 4.](../../assets/charts/09-framework-support-by-vendor.svg)
 
@@ -24,7 +24,7 @@ A model is a graph of hundreds of operators, and each operator × data type × s
 
 ![Timeline dot chart of DeepSeek-V4-Pro (released 2026-04-24) bring-up: on NVIDIA CUDA, vLLM and SGLang supported it natively on day 0, GB200 NVL72 disaggregated serving and MTP ran by day 3, and a TensorRT-LLM output-corruption bug was found on day 9; Huawei documented day-0 Ascend support; on AMD MI355X, first light on day 1 was FP8-only at 1-2 tok/s/user, FP4 worked on day 8, 50 tok/s/user on day 27, MTP around day 28, and multi-node serving still did not work at day 43.](../../assets/charts/09-dsv4-day0-readiness.svg)
 
-Caveats: NVIDIA's own TensorRT-LLM silently corrupted V4-Pro outputs for over a week, so open engines carried CUDA's lead; Huawei had day-0 support because the model was partly co-designed for Ascend [[S633]](../../sources/bibliography.md#s633).
+Caveats: NVIDIA's own [TensorRT-LLM](../../glossary.md#tensorrt-llm) silently corrupted V4-Pro outputs for over a week, so open engines carried CUDA's lead; Huawei had day-0 support because the model was partly co-designed for Ascend [[S633]](../../sources/bibliography.md#s633).
 
 ![Bar chart of AMD MI355X DeepSeek-V4-Pro throughput at 15 tokens/s per user: unreachable on day 1 (FP8 first light never exceeded 2.5 tok/s/user), then 104 tok/s/GPU on day 8 after FP4 was enabled, 194 on day 10, 775 on day 16 and 1,272 on day 27 after 31 optimization PRs - about 12x in 19 days, yet NVIDIA B200 on CUDA SGLang was still about 5x higher in the 15-30 tok/s/user band.](../../assets/charts/09-dsv4-mi355x-bringup.svg)
 
@@ -36,7 +36,7 @@ Caveats: NVIDIA's own TensorRT-LLM silently corrupted V4-Pro outputs for over a 
 
 - **Fusion multiplies kernels.** Each fused combination (RoPE with Hadamard, norm with quantisation) is a new kernel; AMD's fork added half a dozen [[S631]](../../sources/bibliography.md#s631).
 - **Systems code counts.** LMCache's CacheBlend relied on the CUDA-only FlashInfer, Mooncake had no ROCm wheel, and a batched-copy API that vLLM offload needs reached ROCm only in 7.14 [[S627]](../../sources/bibliography.md#s627).
-- **Correctness bites.** AMD's FP8 encoding (e4m3fnuz) differs from NVIDIA's (e4m3fn) and corrupted MiniMax-M3's KV cache on day 0 until fixed [[S627]](../../sources/bibliography.md#s627).
+- **Correctness bites.** AMD's [FP8](../../glossary.md#fp8) encoding (e4m3fnuz) differs from NVIDIA's (e4m3fn) and corrupted MiniMax-M3's [KV cache](../../glossary.md#kv-cache) on day 0 until fixed [[S627]](../../sources/bibliography.md#s627).
 
 </details>
 
@@ -83,7 +83,7 @@ timeline
 6. **Developers and cadence:** ~6M developers [[S528]](../../sources/bibliography.md#s528); 3–4 feature releases a year for CUDA and ROCm alike [[S523]](../../sources/bibliography.md#s523)[[S586]](../../sources/bibliography.md#s586).
 
 > [!TIP]
-> **Worked example — reading the developer chart.** NVIDIA took 13 years to reach 1M developers and had 2M by 2020 [[S529]](../../sources/bibliography.md#s529), then tripled to ~6M by 2025 [[S536]](../../sources/bibliography.md#s536). It has quoted ~6M since [[S528]](../../sources/bibliography.md#s528). **Conclusion:** the headline funnel has stopped growing, possibly because new AI developers write PyTorch and never register for CUDA. 🔴
+> **Worked example — reading the developer chart.** NVIDIA took 13 years to reach 1M developers and had 2M by 2020 [[S529]](../../sources/bibliography.md#s529), then tripled to ~6M by 2025 [[S536]](../../sources/bibliography.md#s536). It has quoted ~6M since [[S528]](../../sources/bibliography.md#s528). **Conclusion:** the headline funnel has stopped growing, possibly because new AI developers write [PyTorch](../../glossary.md#pytorch) and never register for CUDA. 🔴
 
 ## 4. Worked example: porting one new attention kernel
 

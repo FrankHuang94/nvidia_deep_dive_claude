@@ -8,7 +8,7 @@
 - **Compute outran bandwidth.** Since V100, dense low-precision compute grew ~280× but [HBM](../../glossary.md#hbm) bandwidth ~21× [[S33010]](../../sources/bibliography.md#s33010)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007). Micron told Hot Chips 2026 the gap is not closing [[S3006]](../../sources/bibliography.md#s3006).
 - **More work is memory-bound.** The FP8 [ridge point](../../glossary.md#ridge-point) rose from ~591 FLOPs per byte (H100) to ~911 (Rubin) [[S33002]](../../sources/bibliography.md#s33002)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007).
 - **Capacity is the second wall.** At 32k context a 70B FP8 model needs ~5.4 GB of [KV cache](../../glossary.md#kv-cache) per user, so a 288 GB GPU fills at ~35 users (Est.) [[S3000]](../../sources/bibliography.md#s3000). Four serving scenarios need 1–3 Rubin GPUs or 4–11 H100s (Est.) [[S3000]](../../sources/bibliography.md#s3000).
-- 🟢 **The binding resource is bought in.** Rubin's HBM4 listing fell from 22 to 19.2 TB/s, cutting the batch-1 ceiling ~13% [[S90006]](../../sources/bibliography.md#s90006)[[S33007]](../../sources/bibliography.md#s33007). AMD's MI455X pairs 23.3 TB/s (~21% above Rubin) with 432 GB [[S144]](../../sources/bibliography.md#s144)[[S361]](../../sources/bibliography.md#s361)[[S90093]](../../sources/bibliography.md#s90093).
+- 🟢 **The binding resource is bought in.** Rubin's [HBM4](../../glossary.md#hbm4) listing fell from 22 to 19.2 TB/s, cutting the batch-1 ceiling ~13% [[S90006]](../../sources/bibliography.md#s90006)[[S33007]](../../sources/bibliography.md#s33007). AMD's MI455X pairs 23.3 TB/s (~21% above Rubin) with 432 GB [[S144]](../../sources/bibliography.md#s144)[[S361]](../../sources/bibliography.md#s361)[[S90093]](../../sources/bibliography.md#s90093).
 
 ![Log-scale index chart with V100 = 1: by Rubin, dense compute in the best supported format is 280 times V100 and 16-bit compute 32 times, while HBM bandwidth is only 21 times higher, so each byte of memory bandwidth must feed far more math - the memory wall that makes LLM decode bandwidth-bound.](../../assets/charts/03-compute-vs-memory-bandwidth-growth.svg)
 
@@ -25,7 +25,7 @@
 > |---|---|---|---|---|
 > | H100 | 80 GB | 3.35 TB/s | ~48 | ~2 GB |
 > | H200 | 141 GB | 4.8 TB/s | ~69 | ~57 GB |
-> | B200 (HGX) | 180 GB | 8 TB/s | ~114 | ~92 GB |
+> | B200 ([HGX](../../glossary.md#hgx)) | 180 GB | 8 TB/s | ~114 | ~92 GB |
 > | Rubin, launch | 288 GB | 22 TB/s | ~314 | ~189 GB |
 > | Rubin, revised | 288 GB | 19.2 TB/s | ~274 | ~189 GB |
 >
@@ -62,7 +62,7 @@ The [memory wall](../../glossary.md#memory-wall) is a growth-rate gap: industry-
 > **Worked example — H100 to Rubin, like for like.** Dense FP8 rose 8.8× (1,979 → 17,500 TFLOPS), bandwidth 5.7× (3.35 → 19.2 TB/s) [[S33002]](../../sources/bibliography.md#s33002)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007). Work at 600 FLOPs per byte kept an H100 busy but idles a third of Rubin's FP8 units. **Business reading:** ask for tokens per second at a stated latency, not peak FLOPS.
 
 > [!WARNING]
-> **Myth vs. reality:** "Rubin's 50 PFLOPS NVFP4 makes chat ~10× faster." Decode is capped by bandwidth, 2.4× B300's (19.2 vs 8 TB/s) [[S33007]](../../sources/bibliography.md#s33007)[[S32004]](../../sources/bibliography.md#s32004); FP4 helps mainly by halving bytes per token.
+> **Myth vs. reality:** "Rubin's 50 [PFLOPS](../../glossary.md#flops) [NVFP4](../../glossary.md#nvfp4) makes chat ~10× faster." Decode is capped by bandwidth, 2.4× B300's (19.2 vs 8 TB/s) [[S33007]](../../sources/bibliography.md#s33007)[[S32004]](../../sources/bibliography.md#s32004); [FP4](../../glossary.md#fp4) helps mainly by halving bytes per token.
 
 ## Capacity: the second wall
 
@@ -89,7 +89,7 @@ NVIDIA's answer is more capacity per GPU (1 TB planned for Rubin Ultra; reports 
 
 1. **Price inference hardware in bytes, not FLOPS.** Diligence ratio: TB/s and GB per dollar and per watt, then tokens per second at a stated latency.
 2. **Model architecture moves hardware value.** Latent attention cut DeepSeek's KV cache ~93% [[S32026]](../../sources/bibliography.md#s32026). Who owns IP that shrinks bytes per token?
-3. **Capacity-heavy designs have a niche.** Long-context agents and large MoE models reward GB per dollar, the AMD and Qualcomm AI200 pitch [[S144]](../../sources/bibliography.md#s144)[[S173]](../../sources/bibliography.md#s173). Which customers would trade per-stream speed for it?
+3. **Capacity-heavy designs have a niche.** Long-context agents and large [MoE](../../glossary.md#mixture-of-experts) models reward GB per dollar, the AMD and Qualcomm AI200 pitch [[S144]](../../sources/bibliography.md#s144)[[S173]](../../sources/bibliography.md#s173). Which customers would trade per-stream speed for it?
 
 ## 📚 Sources
 

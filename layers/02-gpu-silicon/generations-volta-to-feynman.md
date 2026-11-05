@@ -5,10 +5,10 @@
 ## ⚡ The Executive Take
 
 - **The cadence went from ~2–3 years to annual:** Volta (2017), Ampere (2020), Hopper (2022), Blackwell (2024), Blackwell Ultra (2025), Rubin (2026), with Rubin Ultra (H2 2027) and Feynman (2028) on the official roadmap 🟢 [[S33020]](../../sources/bibliography.md#s33020)[[S502]](../../sources/bibliography.md#s502).
-- **Each generation pairs a new [tensor core](../../glossary.md#tensor-core) with a new number format, a new [HBM](../../glossary.md#hbm) generation and a faster [NVLink](../../glossary.md#nvlink);** the format usually delivers the biggest jump (FP8 on Hopper, FP4 on Blackwell) [[S2023]](../../sources/bibliography.md#s2023)[[S35014]](../../sources/bibliography.md#s35014).
+- **Each generation pairs a new [tensor core](../../glossary.md#tensor-core) with a new number format, a new [HBM](../../glossary.md#hbm) generation and a faster [NVLink](../../glossary.md#nvlink);** the format usually delivers the biggest jump ([FP8](../../glossary.md#fp8) on Hopper, [FP4](../../glossary.md#fp4) on Blackwell) [[S2023]](../../sources/bibliography.md#s2023)[[S35014]](../../sources/bibliography.md#s35014).
 - **Transistors per GPU rose 16× from V100 to Rubin** (21.1B → 336B), the last 4× by adding a second die [[S126]](../../sources/bibliography.md#s126)[[S100]](../../sources/bibliography.md#s100).
 - **Power rose ~7.7×** from 300 W (V100) to ~2,300 W for Rubin's reported Max-P profile [[S33010]](../../sources/bibliography.md#s33010)[[S106]](../../sources/bibliography.md#s106).
-- **2026 brought NVIDIA's first visible spec retreat:** Rubin's HBM4 fell from 22 to 19.2 TB/s per GPU and NVLink 6 from 3.6 to 3.0 TB/s 🟢; the cause is unconfirmed 🔴 [[S90006]](../../sources/bibliography.md#s90006)[[S90007]](../../sources/bibliography.md#s90007)[[S90008]](../../sources/bibliography.md#s90008).
+- **2026 brought NVIDIA's first visible spec retreat:** Rubin's [HBM4](../../glossary.md#hbm4) fell from 22 to 19.2 TB/s per GPU and NVLink 6 from 3.6 to 3.0 TB/s 🟢; the cause is unconfirmed 🔴 [[S90006]](../../sources/bibliography.md#s90006)[[S90007]](../../sources/bibliography.md#s90007)[[S90008]](../../sources/bibliography.md#s90008).
 - **The roadmap is getting more heterogeneous:** Rubin CPX left the GTC 2026 roadmap 🟡 [[S115]](../../sources/bibliography.md#s115), a Groq-derived [LPU](../../glossary.md#lpu) now sits beside Rubin [[S114]](../../sources/bibliography.md#s114), and Feynman is reported with an LP40 LPU and a Rosa CPU 🟡 [[S90004]](../../sources/bibliography.md#s90004).
 
 ![Bar chart of transistors per NVIDIA datacenter GPU: P100 15.3B (2016), V100 21.1B, A100 54.2B, H100 80B, B200 208B on two dies and Rubin 336B on two dies, a 22-fold rise; since Blackwell the growth comes from adding a second reticle-sized die.](../../assets/charts/02-transistor-count-by-generation.svg)
@@ -63,7 +63,7 @@ timeline
 | HBM capacity; dense FP8 | 288 GB; 17.5 PFLOPS | unchanged [[S33005]](../../sources/bibliography.md#s33005) | 0 |
 
 > [!TIP]
-> **Worked example — what the cut means for a customer.** Decode is bandwidth-bound, so its ceiling
+> **Worked example — what the cut means for a customer.** [Decode](../../glossary.md#decode) is bandwidth-bound, so its ceiling
 > falls in proportion: a 70B model at FP8 drops from ~236 to ~206 tokens/s per stream at 75% bandwidth
 > efficiency (22 or 19.2 TB/s × 0.75 ÷ 70 GB; repo arithmetic). Compute-bound training is unaffected.
 > NVIDIA says the new figures reflect what systems sustain in volume production [[S104]](../../sources/bibliography.md#s104); an analyst links
@@ -73,11 +73,11 @@ timeline
 <details>
 <summary>🔧 Under the hood: Rubin CPX, the LPU and Feynman</summary>
 
-- **Rubin CPX** (announced 2025-09-09): a single-die prefill accelerator with 30 PFLOPS NVFP4 and 128 GB
+- **Rubin CPX** (announced 2025-09-09): a single-die [prefill](../../glossary.md#prefill) accelerator with 30 [PFLOPS](../../glossary.md#flops) NVFP4 and 128 GB
   of GDDR7 instead of HBM [[S33023]](../../sources/bibliography.md#s33023). It was missing from the GTC 2026 roadmap; NVIDIA's Ian Buck said it
   was pushed out to focus on LPU decode 🟡 [[S115]](../../sources/bibliography.md#s115)[[S116]](../../sources/bibliography.md#s116); an analyst reports a redesign with HBM4 for 1Q27
   🔴 [[S117]](../../sources/bibliography.md#s117).
-- **Groq 3 LPU (LP30)**: ~500 MB of SRAM at ~150 TB/s and ~1.2 PFLOPS FP8 per chip, 256 per LPX rack,
+- **Groq 3 LPU (LP30)**: ~500 MB of [SRAM](../../glossary.md#sram) at ~150 TB/s and ~1.2 PFLOPS FP8 per chip, 256 per LPX rack,
   shipping beside Vera Rubin [[S114]](../../sources/bibliography.md#s114)[[S90003]](../../sources/bibliography.md#s90003).
 - **Feynman (2028)**: die stacking and custom HBM, Kyber NVL1152 racks with copper and co-packaged optics
   🟡 [[S502]](../../sources/bibliography.md#s502)[[S108]](../../sources/bibliography.md#s108); process reported as TSMC A16 🔴 [[S119]](../../sources/bibliography.md#s119). No compute or memory figures are published.
@@ -88,7 +88,7 @@ timeline
 
 1. An annual cadence shrinks each product's selling window to ~12 months; what does that do to residual values and customers' depreciation lives?
 2. Suppliers can now move NVIDIA's headline specs; should diligence weight memory roadmaps as heavily as NVIDIA's?
-3. A CPU, a GPU and an LPU per rack: does that heterogeneity open sockets for third-party accelerators via NVLink Fusion, or close them?
+3. A CPU, a GPU and an LPU per rack: does that heterogeneity open sockets for third-party accelerators via [NVLink Fusion](../../glossary.md#nvlink-fusion), or close them?
 
 ## 📚 Sources
 

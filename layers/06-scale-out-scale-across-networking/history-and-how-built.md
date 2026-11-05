@@ -7,8 +7,8 @@
 - **NVIDIA bought its network.** Mellanox was founded in Yokneam, Israel, in 1999 to build [InfiniBand](../../glossary.md#infiniband) chips and had ~$1.33B of revenue in 2019 [[S6510]](../../sources/bibliography.md#s6510). NVIDIA paid $6.9B in cash (announced 2019-03-11, closed 2020-04-27) [[S464]](../../sources/bibliography.md#s464)[[S6510]](../../sources/bibliography.md#s6510).
 - **It was a contested auction.** Seven bidders pushed the price up; Intel reportedly offered ~$6B [[S6508]](../../sources/bibliography.md#s6508)[[S6509]](../../sources/bibliography.md#s6509).
 - **The payback is extreme.** Networking revenue went from $13.0B in FY2025 to ~$31.4B in FY2026 [[S416]](../../sources/bibliography.md#s416)[[S402]](../../sources/bibliography.md#s402), then ~$17.5B in Q2 FY2027 alone [[S408]](../../sources/bibliography.md#s408). The purchase price now equals about five weeks of networking sales.
-- **The pivot that mattered was Ethernet.** Spectrum-X (May 2023) paired a switch with a [SuperNIC](../../glossary.md#supernic) for hyperscalers that would not buy InfiniBand [[S271]](../../sources/bibliography.md#s271). By Q2 FY2027 it was growing 2.6× y/y [[S408]](../../sources/bibliography.md#s408).
-- **[Q4 · Source of advantage]** End-to-end co-design (GPU, NIC, switch, NCCL) plus attach to GPU sales: ~$0.24 of networking per $1 of compute in Q2 FY2027 (Est.) [[S408]](../../sources/bibliography.md#s408).
+- **The pivot that mattered was Ethernet.** [Spectrum-X](../../glossary.md#spectrum-x) (May 2023) paired a switch with a [SuperNIC](../../glossary.md#supernic) for [hyperscalers](../../glossary.md#hyperscaler) that would not buy InfiniBand [[S271]](../../sources/bibliography.md#s271). By Q2 FY2027 it was growing 2.6× y/y [[S408]](../../sources/bibliography.md#s408).
+- **[Q4 · Source of advantage]** End-to-end co-design (GPU, [NIC](../../glossary.md#nic), switch, [NCCL](../../glossary.md#nccl)) plus attach to GPU sales: ~$0.24 of networking per $1 of compute in Q2 FY2027 (Est.) [[S408]](../../sources/bibliography.md#s408).
 - **[Q6 · Replication cost]** Repo estimate 🔴: 5–7 years, $5–10B and ~1,500–3,000 engineers to rebuild the full stack. Broadcom needs far less because it already owns the switch.
 - **2025–26 extended the stack into light and distance:** co-packaged optics [[S265]](../../sources/bibliography.md#s265), Spectrum-XGS scale-across [[S268]](../../sources/bibliography.md#s268), the ~$900M Enfabrica team [[S475]](../../sources/bibliography.md#s475) and $4B of laser stakes [[S6511]](../../sources/bibliography.md#s6511).
 
@@ -42,11 +42,11 @@ timeline
 | 2026-03 | $2B each in Lumentum and Coherent | Secures lasers for [co-packaged optics](../../glossary.md#co-packaged-optics) | [[S6511]](../../sources/bibliography.md#s6511) |
 
 > [!TIP]
-> **Worked example — the Mellanox payback.** NVIDIA paid $6.9B for a company with ~$1.33B of revenue, about 5.2× sales [[S464]](../../sources/bibliography.md#s464)[[S6510]](../../sources/bibliography.md#s6510). In Q2 FY2027 networking brought in ~$17.5B in 13 weeks [[S408]](../../sources/bibliography.md#s408): ~$1.35B a week. So the purchase price equals ~5 weeks of today's networking revenue. (Networking includes NVLink switches, which Mellanox did not sell.)
+> **Worked example — the Mellanox payback.** NVIDIA paid $6.9B for a company with ~$1.33B of revenue, about 5.2× sales [[S464]](../../sources/bibliography.md#s464)[[S6510]](../../sources/bibliography.md#s6510). In Q2 FY2027 networking brought in ~$17.5B in 13 weeks [[S408]](../../sources/bibliography.md#s408): ~$1.35B a week. So the purchase price equals ~5 weeks of today's networking revenue. (Networking includes [NVLink](../../glossary.md#nvlink) switches, which Mellanox did not sell.)
 
 **[Q4 · Source of advantage]** Three sources, in order of weight:
 
-1. **Integration and attach.** Reference designs put one ConnectX NIC beside every GPU: 400G (CX-7), then 800G (CX-8) and 1.6T (CX-9) [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264)[[S33004]](../../sources/bibliography.md#s33004). Networking rides along with GPU orders (the [attach rate](../../glossary.md#attach-rate) below).
+1. **Integration and attach.** Reference designs put one [ConnectX](../../glossary.md#connectx) NIC beside every GPU: 400G (CX-7), then 800G (CX-8) and 1.6T (CX-9) [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264)[[S33004]](../../sources/bibliography.md#s33004). Networking rides along with GPU orders (the [attach rate](../../glossary.md#attach-rate) below).
 2. **Co-design.** Spectrum-X's [adaptive routing](../../glossary.md#adaptive-routing) works only because the SuperNIC reorders packets [[S271]](../../sources/bibliography.md#s271). NVIDIA claims ~95% effective bandwidth against ~60% for standard Ethernet; that is a vendor claim [[S6012]](../../sources/bibliography.md#s6012).
 3. **Installed base and know-how.** InfiniBand held ~80% of AI back-end switch sales two years before 2025 [[S90053]](../../sources/bibliography.md#s90053). SHARP has run since 2015 [[S273]](../../sources/bibliography.md#s273).
 
@@ -77,7 +77,7 @@ The repo's estimate (🔴 analysis) is **5–7 years, $5–10B and ~1,500–3,00
 <details>
 <summary>🔧 Under the hood: why the NIC is the hard part</summary>
 
-A switch sees only its own queues; the NIC sees the whole message. Spectrum-X and UEC both spray one message over many paths, so packets arrive out of order. The NIC must buffer and reorder them at line rate: 1.6 Tb/s on ConnectX-9 [[S33004]](../../sources/bibliography.md#s33004). It must also read switch telemetry to slow senders before queues overflow. Getting that loop stable across 100,000 endpoints is software and firmware work tuned on live clusters. This is why acquihires (Enfabrica) carry high prices [[S475]](../../sources/bibliography.md#s475).
+A switch sees only its own queues; the NIC sees the whole message. Spectrum-X and [UEC](../../glossary.md#ultra-ethernet) both spray one message over many paths, so packets arrive out of order. The NIC must buffer and reorder them at line rate: 1.6 Tb/s on ConnectX-9 [[S33004]](../../sources/bibliography.md#s33004). It must also read switch telemetry to slow senders before queues overflow. Getting that loop stable across 100,000 endpoints is software and firmware work tuned on live clusters. This is why acquihires (Enfabrica) carry high prices [[S475]](../../sources/bibliography.md#s475).
 
 </details>
 
@@ -92,7 +92,7 @@ A switch sees only its own queues; the NIC sees the whole message. Spectrum-X an
 
 ## 🎯 Corp Dev Lens
 
-1. Mellanox shows the value of buying the *adjacent* bottleneck before it is obvious. Which adjacent bottleneck (optics, SerDes, NIC firmware) is under-priced today?
+1. Mellanox shows the value of buying the *adjacent* bottleneck before it is obvious. Which adjacent bottleneck (optics, [SerDes](../../glossary.md#serdes), NIC firmware) is under-priced today?
 2. Price discovery: Mellanox went for ~5× sales in 2019 [[S464]](../../sources/bibliography.md#s464)[[S6510]](../../sources/bibliography.md#s6510). Start-ups now raise at $2–4B before volume revenue [[S6518]](../../sources/bibliography.md#s6518)[[S6517]](../../sources/bibliography.md#s6517). Is the scarce asset the team, not the revenue?
 3. NVIDIA needed ~3–4 years to turn Mellanox into Spectrum-X. What integration time should an acquirer of a NIC or switch team assume?
 4. Qualcomm closed Alphawave (SerDes and connectivity) in December 2025 [[S4513]](../../sources/bibliography.md#s4513). What would it take to turn SerDes IP into a UEC NIC, and how does that compare with partnering?

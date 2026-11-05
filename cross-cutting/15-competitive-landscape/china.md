@@ -9,13 +9,13 @@
   were reported below 1% of Q2 FY2027 data-center revenue 🟡 [[S2]](../../sources/bibliography.md#s2)[[S401]](../../sources/bibliography.md#s401)[[S90070]](../../sources/bibliography.md#s90070)[[S90069]](../../sources/bibliography.md#s90069)[[S90032]](../../sources/bibliography.md#s90032)[[S26009]](../../sources/bibliography.md#s26009).
 - **Huawei is the main beneficiary.** It expects ~$12B of AI-chip revenue in 2026, up ~60% from ~$7.5B in 2025, and
   targets ~750k Ascend 950PR chips this year 🟡 [[S15527]](../../sources/bibliography.md#s15527).
-- **Per chip, Huawei still trails.** Ascend 950 lists 1 PFLOPS FP8, ~3.4× the H20 that China could buy, but about half a
+- **Per chip, Huawei still trails.** Ascend 950 lists 1 [PFLOPS](../../glossary.md#flops) [FP8](../../glossary.md#fp8), ~3.4× the H20 that China could buy, but about half a
   licensed H200; even the 2028 Ascend 970 (4 PFLOPS) trails 2026's Rubin (17.5) ~4.4× [[S163]](../../sources/bibliography.md#s163)[[S26003]](../../sources/bibliography.md#s26003)[[S90006]](../../sources/bibliography.md#s90006).
-- **It answers with scale and power.** CloudMatrix 384 delivers ~300 PF of dense BF16 vs ~180 PF for a GB200 NVL72, at
+- **It answers with scale and power.** CloudMatrix 384 delivers ~300 PF of dense [BF16](../../glossary.md#bf16) vs ~180 PF for a GB200 [NVL72](../../glossary.md#nvl72), at
   559 kW vs 145 kW (Est., SemiAnalysis) [[S340]](../../sources/bibliography.md#s340); the 8,192-chip Atlas 950 SuperPoD (8 EF FP8) is due Q4 2026 and Huawei
   says it is in large-scale commercial use; independent confirmation is missing 🔴 [[S341]](../../sources/bibliography.md#s341)[[S567]](../../sources/bibliography.md#s567)[[S90042]](../../sources/bibliography.md#s90042).
 - **Supply is the binding constraint.** SMIC's 7 nm-class capacity is estimated at ~45–60k wafers a month (SemiAnalysis),
-  output at under 20k (Nikkei), and domestic HBM (CXMT HBM3E) is only at small scale, with a ramp targeted for 2027
+  output at under 20k (Nikkei), and domestic [HBM](../../glossary.md#hbm) (CXMT [HBM3E](../../glossary.md#hbm3e)) is only at small scale, with a ramp targeted for 2027
   [[S15528]](../../sources/bibliography.md#s15528)[[S15529]](../../sources/bibliography.md#s15529)[[S3516]](../../sources/bibliography.md#s3516).
 - **A listed domestic field is growing fast.** In H1 2026 Cambricon's revenue rose 108% to 6.0B yuan, Moore Threads' 147%
   to 1.7B yuan and Hygon's 67% to 9.1B yuan (CPUs included); Biren, MetaX and Moore Threads listed in 2025–26 and
@@ -138,12 +138,12 @@ scale in H2 2026 [[S90080]](../../sources/bibliography.md#s90080). SemiAnalysis 
 ([CS5 · the DeepSeek moment](../../case-studies/CS5-deepseek-moment-and-efficiency-shock.md)).
 
 The software stack is thinner but open: CANN was open-sourced in August 2025 [[S10537]](../../sources/bibliography.md#s10537); Huawei says external developers
-are 61% of the CANN community (company claim) [[S13523]](../../sources/bibliography.md#s13523); PyTorch (torch_npu), vLLM (vllm-ascend) and llama.cpp support
+are 61% of the CANN community (company claim) [[S13523]](../../sources/bibliography.md#s13523); [PyTorch](../../glossary.md#pytorch) (torch_npu), [vLLM](../../glossary.md#vllm) (vllm-ascend) and llama.cpp support
 Ascend [[S592]](../../sources/bibliography.md#s592)[[S581]](../../sources/bibliography.md#s581)[[S579]](../../sources/bibliography.md#s579).
 
 > [!TIP]
 > **Worked example — price vs cost of serving V4.** DeepSeek priced V4-Pro at ~$3.48 per million output tokens [[S90080]](../../sources/bibliography.md#s90080).
-> In its day-0 to day-43 tracking of V4, SemiAnalysis measured a GB300 NVL72 running SGLang at ~$0.156 per million
+> In its day-0 to day-43 tracking of V4, SemiAnalysis measured a GB300 NVL72 running [SGLang](../../glossary.md#sglang) at ~$0.156 per million
 > output tokens at 50 tokens/s per user [[S633]](../../sources/bibliography.md#s633). List price is ~22× that serving cost, so a Chinese provider can absorb a large hardware
 > efficiency gap on Ascend and still serve V4 profitably. The constraint DeepSeek cites is capacity, not unit cost
 > [[S90080]](../../sources/bibliography.md#s90080).

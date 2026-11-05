@@ -5,7 +5,7 @@
 ## ⚡ The Executive Take
 
 - **[Confidential computing](../../glossary.md#confidential-computing) protects data while it is used.** Weights, prompts and KV caches stay inside a [trusted execution environment](../../glossary.md#trusted-execution-environment) that the cloud operator, hypervisor and host OS cannot read, and the customer checks this by [attestation](../../glossary.md#attestation) before sending secrets.
-- **NVIDIA moved first on GPUs:** H100 was the first GPU with confidential computing, anchored in an on-die [hardware root of trust](../../glossary.md#root-of-trust); Blackwell added TEE-I/O and inline NVLink protection; Vera Rubin NVL72 extends it across a rack [[S7012]](../../sources/bibliography.md#s7012)[[S301]](../../sources/bibliography.md#s301)[[S7028]](../../sources/bibliography.md#s7028).
+- **NVIDIA moved first on GPUs:** H100 was the first GPU with confidential computing, anchored in an on-die [hardware root of trust](../../glossary.md#root-of-trust); Blackwell added TEE-I/O and inline [NVLink](../../glossary.md#nvlink) protection; Vera Rubin [NVL72](../../glossary.md#nvl72) extends it across a rack [[S7012]](../../sources/bibliography.md#s7012)[[S301]](../../sources/bibliography.md#s301)[[S7028]](../../sources/bibliography.md#s7028).
 - **Measured cost is small for big models:** on H100, confidential mode cut throughput 6.85% on Llama-3.1-8B, 4.58% on Phi-3-14B and ~0% on Llama-3.1-70B, but raised the 8B model's time to first token 19% [[S7011]](../../sources/bibliography.md#s7011).
 - **Blackwell's "nearly identical" throughput is a vendor claim**; this repo found no independent benchmark of Blackwell or Rubin confidential mode 🔴 [[S7012]](../../sources/bibliography.md#s7012).
 - **Public clouds offer it:** Azure's confidential H100 VMs reached GA in September 2024 [[S7013]](../../sources/bibliography.md#s7013); Google's A3 H100 confidential VMs pair the GPU with Intel TDX [[S7016]](../../sources/bibliography.md#s7016).
@@ -19,7 +19,7 @@ Think of a bank vault in a rented building: the landlord cannot open it, and an 
 
 1. **A confidential VM on the CPU.** Intel TDX or AMD SEV-SNP encrypts the VM's memory and blocks the hypervisor [[S7014]](../../sources/bibliography.md#s7014)[[S7016]](../../sources/bibliography.md#s7016).
 2. **The GPU in confidential mode.** Firmware locks the GPU so the host cannot read its memory; identity keys sit in the on-die root of trust [[S7012]](../../sources/bibliography.md#s7012).
-3. **A protected link.** On H100, data crossing PCIe is encrypted by the driver and decrypted by the GPU, the main source of overhead [[S7011]](../../sources/bibliography.md#s7011). Blackwell's TEE-I/O protects the link and NVLink inline in hardware [[S7012]](../../sources/bibliography.md#s7012).
+3. **A protected link.** On H100, data crossing [PCIe](../../glossary.md#pcie) is encrypted by the driver and decrypted by the GPU, the main source of overhead [[S7011]](../../sources/bibliography.md#s7011). Blackwell's TEE-I/O protects the link and NVLink inline in hardware [[S7012]](../../sources/bibliography.md#s7012).
 4. **Attestation.** The GPU signs a report of its firmware and mode; the customer's verifier checks it before the key service releases weights or data.
 
 ```mermaid
@@ -54,10 +54,10 @@ sequenceDiagram
 
 - **Sovereign AI programmes** want proof that a foreign operator, or a chip vendor's firmware, cannot see national data; attestation turns "trust us" into a check the customer runs.
 - **Regulated industries** (health, finance, public sector) can use shared GPU clouds if data in use is protected.
-- **Model owners** increasingly deploy frontier weights in data centres they do not control: neoclouds, sovereign sites, enterprise premises. Encrypted weights decrypt only inside an attested GPU.
+- **Model owners** increasingly deploy frontier weights in data centres they do not control: [neoclouds](../../glossary.md#neocloud), sovereign sites, enterprise premises. Encrypted weights decrypt only inside an attested GPU.
 
 > [!TIP]
-> **Worked example — what is being protected.** Meta reports 30.84M H100 GPU-hours to train Llama 3.1 405B [[S31002]](../../sources/bibliography.md#s31002). At $2–3 per GPU-hour that is **~$62–92M of compute** embodied in one set of weights (Est.), before data, people and post-training. Protecting it costs 0–7% of serving throughput on H100 [[S7011]](../../sources/bibliography.md#s7011). **Conclusion:** for a lab licensing weights into third-party sites, confidential computing is cheap insurance, which is why NVIDIA markets Vera Rubin NVL72 as a rack-scale confidential platform [[S7012]](../../sources/bibliography.md#s7012)[[S7028]](../../sources/bibliography.md#s7028).
+> **Worked example — what is being protected.** Meta reports 30.84M H100 GPU-hours to train Llama 3.1 405B [[S31002]](../../sources/bibliography.md#s31002). At $2–3 per [GPU-hour](../../glossary.md#gpu-hour) that is **~$62–92M of compute** embodied in one set of weights (Est.), before data, people and post-training. Protecting it costs 0–7% of serving throughput on H100 [[S7011]](../../sources/bibliography.md#s7011). **Conclusion:** for a lab licensing weights into third-party sites, confidential computing is cheap insurance, which is why NVIDIA markets Vera Rubin NVL72 as a rack-scale confidential platform [[S7012]](../../sources/bibliography.md#s7012)[[S7028]](../../sources/bibliography.md#s7028).
 
 ## 3. How AMD, Intel and Arm compare at the platform level
 
@@ -71,7 +71,7 @@ Confidential AI needs a CPU TEE, an accelerator TEE and protected links between 
 | Scale-up link encryption | 🟩 Inline NVLink protection, rack-scale on Rubin [[S7012]](../../sources/bibliography.md#s7012)[[S301]](../../sources/bibliography.md#s301) | 🟥 Not found for Infinity Fabric or UALink 🔴 | n/a | n/a |
 
 > [!TIP]
-> **Worked example — why NVLink encryption is the real unlock.** Llama 3.1 405B in FP8 needs ~405 GB for weights alone [[S32008]](../../sources/bibliography.md#s32008): at least **6 H100s** (80 GB each) or **2 Rubin GPUs** (288 GB each) [[S100]](../../sources/bibliography.md#s100), before any KV cache; a 1-trillion-parameter FP8 model needs at least **4 Rubin GPUs**. Frontier-scale confidential inference is always multi-GPU, and those GPUs talk over NVLink, which NVIDIA protects inline from Blackwell onward [[S7012]](../../sources/bibliography.md#s7012). **Conclusion:** protected scale-up links, not single-GPU TEEs, make confidential serving of frontier models practical, and no rival has publicly matched them yet (🔴 repo judgement as of 2026-11-05).
+> **Worked example — why NVLink encryption is the real unlock.** Llama 3.1 405B in [FP8](../../glossary.md#fp8) needs ~405 GB for weights alone [[S32008]](../../sources/bibliography.md#s32008): at least **6 H100s** (80 GB each) or **2 Rubin GPUs** (288 GB each) [[S100]](../../sources/bibliography.md#s100), before any [KV cache](../../glossary.md#kv-cache); a 1-trillion-parameter FP8 model needs at least **4 Rubin GPUs**. Frontier-scale confidential inference is always multi-GPU, and those GPUs talk over NVLink, which NVIDIA protects inline from Blackwell onward [[S7012]](../../sources/bibliography.md#s7012). **Conclusion:** protected [scale-up](../../glossary.md#scale-up) links, not single-GPU TEEs, make confidential serving of frontier models practical, and no rival has publicly matched them yet (🔴 repo judgement as of 2026-11-05).
 
 > [!NOTE]
 > **🐂 Bull view.** NVIDIA has the only shipping GPU TEE with protected scale-up links [[S7012]](../../sources/bibliography.md#s7012); sovereign and regulated buyers who demand attestation land on NVIDIA racks, and the feature costs little for large models [[S7011]](../../sources/bibliography.md#s7011).

@@ -15,7 +15,7 @@
 
 ## 1. Context
 
-**How big the stake was.** NVIDIA reports revenue by geography. Until Q3 FY2026 it assigned revenue by customer billing location. Since then it has used [customer headquarters](../glossary.md#revenue-by-customer-hq), and FY2024–FY2025 were recast [[S26013]](../sources/bibliography.md#s26013). On either basis China was one of NVIDIA's largest markets: $7.1B and 26.4 % in FY2022 [[S2]](../sources/bibliography.md#s2), then $25.0B in FY2025 on the headquarters basis [[S401]](../sources/bibliography.md#s401). That market included hyperscalers (Alibaba, Tencent, ByteDance, Baidu) building the same large-language-model fleets as their US peers.
+**How big the stake was.** NVIDIA reports revenue by geography. Until Q3 FY2026 it assigned revenue by customer billing location. Since then it has used [customer headquarters](../glossary.md#revenue-by-customer-hq), and FY2024–FY2025 were recast [[S26013]](../sources/bibliography.md#s26013). On either basis China was one of NVIDIA's largest markets: $7.1B and 26.4 % in FY2022 [[S2]](../sources/bibliography.md#s2), then $25.0B in FY2025 on the headquarters basis [[S401]](../sources/bibliography.md#s401). That market included [hyperscalers](../glossary.md#hyperscaler) (Alibaba, Tencent, ByteDance, Baidu) building the same large-language-model fleets as their US peers.
 
 **How the rules work.** US [export controls](../glossary.md#export-controls) on AI chips are written by the [BIS](../glossary.md#bis) in the Commerce Department. They do not name products. They set performance thresholds, and any chip above the line needs a licence to ship to China:
 
@@ -35,10 +35,10 @@ The mechanism matters. Each rule targeted one physical property. Each [compliant
 
 **TPP** = 2 × (multiply-accumulate operations per second, in tera) × bit width of the operation, taking the highest-scoring precision. A MAC is two operations, so in practice TPP ≈ dense TFLOPS (or TOPS) × bits.
 
-- H100 / H200: 1,979 dense FP8 TFLOPS × 8 = **15,832** (BF16 gives the same: 989 × 16) [[S33002]](../sources/bibliography.md#s33002).
+- H100 / H200: 1,979 dense [FP8](../glossary.md#fp8) TFLOPS × 8 = **15,832** ([BF16](../glossary.md#bf16) gives the same: 989 × 16) [[S33002]](../sources/bibliography.md#s33002).
 - A100: 312 BF16 TFLOPS × 16 = **4,992**, just above the 4,800 line [[S33009]](../sources/bibliography.md#s33009).
 - H20: ~296 FP8 TFLOPS × 8 = **~2,368** (reports round to ~2,400–2,500) [[S26003]](../sources/bibliography.md#s26003).
-- Huawei Ascend 910C: 800 FP16 TFLOPS × 16 = **~12,800** on paper. Ascend 950PR: 1 PFLOPS FP8 × 8 = **~8,000** [[S163]](../sources/bibliography.md#s163).
+- Huawei Ascend 910C: 800 FP16 TFLOPS × 16 = **~12,800** on paper. Ascend 950PR: 1 [PFLOPS](../glossary.md#flops) FP8 × 8 = **~8,000** [[S163]](../sources/bibliography.md#s163).
 
 **Performance density** = TPP ÷ die area in mm². The 2023 rule added it so a vendor could not escape the TPP line by spreading the same compute over more silicon. The H20 sits just under the 2,400-TPP tier, and on an ~814 mm² Hopper-class die its density is ~2,368 ÷ 814 ≈ 2.9. That is below both the 3.2 and 5.92 density triggers, so on the leaked specs it cleared every tier of the 2023 rule (repo calculation) [[S26000]](../sources/bibliography.md#s26000)[[S26002]](../sources/bibliography.md#s26002)[[S33002]](../sources/bibliography.md#s33002). Memory bandwidth was **not** a control parameter until the April 2025 action, which is exactly the gap the H20 exploited.
 
@@ -106,7 +106,7 @@ The domestic stack still costs more power for the same work. Huawei matches NVID
 > 1. **Unrestricted:** $17.5B × 75 % = **$13.1B** of gross profit a year.
 > 2. **H200 deal:** the 25 % levy is on *revenue*, so it comes straight out of gross profit: $17.5B × (75 % − 25 %) = **$8.75B**. That is −$4.4B, and the effective margin is 50 %. The 15 % H20 arrangement gave $10.5B.
 > 3. **Ban, capacity idle:** **$0**, a loss of $13.1B. This is roughly the April 2025 case: demand was there and the product could not ship.
-> 4. **Ban, capacity resold:** in a [supply-constrained](../glossary.md#supply-constrained) year, the same wafers, HBM and CoWoS go to US or sovereign buyers at the same margin. The short-run loss is **≈ $0**. NVIDIA's CFO calls the FY2028 outlook supply-constrained [[S90012]](../sources/bibliography.md#s90012).
+> 4. **Ban, capacity resold:** in a [supply-constrained](../glossary.md#supply-constrained) year, the same wafers, HBM and [CoWoS](../glossary.md#cowos) go to US or sovereign buyers at the same margin. The short-run loss is **≈ $0**. NVIDIA's CFO calls the FY2028 outlook supply-constrained [[S90012]](../sources/bibliography.md#s90012).
 >
 > **Conclusion:** the levy costs NVIDIA a third of China's gross profit. Whether a ban costs anything depends on whether NVIDIA can sell everything else it makes. The lasting cost does not show up in this calculation: Huawei gets a protected home market in which to mature.
 
@@ -116,7 +116,7 @@ The domestic stack still costs more power for the same work. Huawei matches NVID
 
 **What worked.**
 - **Compliant SKUs bought time.** For about 2.5 years (FY2023–FY2025), redesigns kept China revenue growing in dollars while its share fell. The engineering cost was small because each part reused an existing die.
-- **Diversification absorbed the shock.** Demand from US hyperscalers, sovereigns and neoclouds outgrew the lost market. Revenue still grew 65 % in the year China was closed off [[S1]](../sources/bibliography.md#s1).
+- **Diversification absorbed the shock.** Demand from US hyperscalers, sovereigns and [neoclouds](../glossary.md#neocloud) outgrew the lost market. Revenue still grew 65 % in the year China was closed off [[S1]](../sources/bibliography.md#s1).
 
 **What didn't.**
 - **Each compliant SKU lasted about a year.** The A800/H800 lasted ~12 months and the H20 ~15 months before a new rule caught them. Every redesign rebuilt inventory exposure. The result was the $4.5B H20 charge and a reported ~$400M H200 provision [[S90082]](../sources/bibliography.md#s90082)[[S26010]](../sources/bibliography.md#s26010).
@@ -125,7 +125,7 @@ The domestic stack still costs more power for the same work. Huawei matches NVID
 - **The ecosystem lock-in eroded.** DeepSeek's kernels and frameworks now have Ascend paths, and CANN is open source [[S90079]](../sources/bibliography.md#s90079)[[S13521]](../sources/bibliography.md#s13521). The cost of switching away from CUDA in China fell in the years NVIDIA was absent.
 
 > [!WARNING]
-> **Myth vs. reality: "the controls kept China ~2 years behind."** The rules capped *chip* performance, not *system* performance. Huawei's CloudMatrix 384 links 384 Ascend 910C chips into one scale-up domain. It beats a GB200 NVL72 on dense BF16 throughput (~300 vs ~180 PFLOPS) at ~3.9× the power [[S340]](../sources/bibliography.md#s340). Where adding power is easier than getting leading-edge lithography, buying watts substitutes for buying better chips. The controls raised the cost of AI compute in China, but did not set a hard limit on how much China could build. DeepSeek-V3 was trained on 2,048 export-compliant H800s [[S34007]](../sources/bibliography.md#s34007). The binding constraints are now volume (SMIC capacity, domestic HBM) and software maturity, not peak FLOPS per chip [[S164]](../sources/bibliography.md#s164)[[S3516]](../sources/bibliography.md#s3516).
+> **Myth vs. reality: "the controls kept China ~2 years behind."** The rules capped *chip* performance, not *system* performance. Huawei's CloudMatrix 384 links 384 Ascend 910C chips into one [scale-up](../glossary.md#scale-up) domain. It beats a GB200 [NVL72](../glossary.md#nvl72) on dense BF16 throughput (~300 vs ~180 PFLOPS) at ~3.9× the power [[S340]](../sources/bibliography.md#s340). Where adding power is easier than getting leading-edge lithography, buying watts substitutes for buying better chips. The controls raised the cost of AI compute in China, but did not set a hard limit on how much China could build. DeepSeek-V3 was trained on 2,048 export-compliant H800s [[S34007]](../sources/bibliography.md#s34007). The binding constraints are now volume (SMIC capacity, domestic HBM) and software maturity, not peak FLOPS per chip [[S164]](../sources/bibliography.md#s164)[[S3516]](../sources/bibliography.md#s3516).
 
 ```mermaid
 flowchart TD
@@ -180,7 +180,7 @@ Related: [CS5 · DeepSeek](CS5-deepseek-moment-and-efficiency-shock.md) · [Chap
 2. **What is China revenue worth after a levy?** Run the regimes in the worked example (unrestricted, 15 %, 25 %, ban) with probabilities. Value China revenue on that expected gross profit, not on revenue multiples.
 3. **For Qualcomm's own exposure (public data):** with ~42 % of FY2026 revenue from China-headquartered customers [[S13503]](../sources/bibliography.md#s13503), what would a licence-plus-levy regime mean if it were extended to AI-capable SoCs or inference accelerators? Which product lines have the most control margin?
 4. **Is the supply-constraint hedge real for a challenger?** NVIDIA's China loss is cushioned because it can sell every wafer elsewhere. A smaller vendor without that backlog cannot resell capacity. Does a China-exposed AI-silicon target have demand outside China to absorb its supply?
-5. **Who benefits from domestic substitution?** Huawei, Cambricon and China's HBM and packaging efforts (CXMT HBM3E) [[S26007]](../sources/bibliography.md#s26007)[[S3516]](../sources/bibliography.md#s3516) are a protected market. Partnership or licensing options there are limited by the same controls. The practical question is which non-China markets those vendors could later export to.
+5. **Who benefits from domestic substitution?** Huawei, Cambricon and China's HBM and packaging efforts (CXMT [HBM3E](../glossary.md#hbm3e)) [[S26007]](../sources/bibliography.md#s26007)[[S3516]](../sources/bibliography.md#s3516) are a protected market. Partnership or licensing options there are limited by the same controls. The practical question is which non-China markets those vendors could later export to.
 
 ## 📚 Sources
 

@@ -7,9 +7,9 @@
 - **Fifteen years from first try to a credible server CPU.** Project Denver (CES 2011) shipped only in Tegra mobile and automotive chips from 2014 [[S4536]](../../sources/bibliography.md#s4536)[[S4537]](../../sources/bibliography.md#s4537).
 - **The shortcut that failed:** NVIDIA's $40B bid for Arm (September 2020) would have bought the [instruction set](../../glossary.md#isa) every Arm rival licenses; it died in February 2022 (~$1.36B charge), but NVIDIA kept a 20-year licence [[S465]](../../sources/bibliography.md#s465)[[S466]](../../sources/bibliography.md#s466).
 - **Grace (announced April 2021) won with licensed cores** (Arm [Neoverse](../../glossary.md#neoverse) V2, the same family as Graviton4) and a differentiated 900 GB/s [NVLink-C2C](../../glossary.md#nvlink-c2c) link [[S537]](../../sources/bibliography.md#s537)[[S129]](../../sources/bibliography.md#s129)[[S181]](../../sources/bibliography.md#s181).
-- **The rack made the CPU business:** GB200 NVL72 put 36 Grace in every rack, and Mercury credits Grace for Arm's server-unit gains [[S396]](../../sources/bibliography.md#s396)[[S4502]](../../sources/bibliography.md#s4502).
+- **The rack made the CPU business:** GB200 [NVL72](../../glossary.md#nvl72) put 36 Grace in every rack, and Mercury credits Grace for Arm's server-unit gains [[S396]](../../sources/bibliography.md#s396)[[S4502]](../../sources/bibliography.md#s4502).
 - **Vera (2026) adds NVIDIA's first custom datacenter cores** (88 Olympus) and a standalone CPU business; a Feynman-era Rosa CPU is reported for 2028 🟡 [[S100]](../../sources/bibliography.md#s100)[[S90003]](../../sources/bibliography.md#s90003)[[S90004]](../../sources/bibliography.md#s90004).
-- **NVIDIA also hedged:** NVLink Fusion opened the host socket to Qualcomm and Fujitsu (May 2025) and a $5B Intel stake buys NVLink-attached x86 (September 2025) [[S90031]](../../sources/bibliography.md#s90031)[[S468]](../../sources/bibliography.md#s468).
+- **NVIDIA also hedged:** [NVLink](../../glossary.md#nvlink) Fusion opened the host socket to Qualcomm and Fujitsu (May 2025) and a $5B Intel stake buys NVLink-attached [x86](../../glossary.md#x86) (September 2025) [[S90031]](../../sources/bibliography.md#s90031)[[S468]](../../sources/bibliography.md#s468).
 - **[Q4]** The edge has been the coherent attach and platform control more than the core; **[Q6]** a competitive custom server CPU takes ~5–7 years and ~$1.5–3B 🔴.
 
 ```mermaid
@@ -30,7 +30,7 @@ timeline
 
 ## From Denver to Vera: the path
 
-Three phases. **Phase 1 (2011–2018): the ambitious detour.** Denver used [binary translation](../../glossary.md#binary-translation)-style "dynamic code optimisation" and reportedly began as an x86 design; without an x86 licence it shipped as Arm cores in the Nexus 9 tablet (2014) and later in car chips [[S4536]](../../sources/bibliography.md#s4536)[[S4537]](../../sources/bibliography.md#s4537). **Phase 2 (2016–2022): buying hosts from rivals.** DGX-1 used Intel Xeon and DGX A100 used AMD EPYC, so NVIDIA's flagship systems depended on competitors' CPUs and on PCIe [[S189]](../../sources/bibliography.md#s189)[[S188]](../../sources/bibliography.md#s188). **Phase 3 (2020–): own the host, then open it.**
+Three phases. **Phase 1 (2011–2018): the ambitious detour.** Denver used [binary translation](../../glossary.md#binary-translation)-style "dynamic code optimisation" and reportedly began as an x86 design; without an x86 licence it shipped as Arm cores in the Nexus 9 tablet (2014) and later in car chips [[S4536]](../../sources/bibliography.md#s4536)[[S4537]](../../sources/bibliography.md#s4537). **Phase 2 (2016–2022): buying hosts from rivals.** DGX-1 used Intel Xeon and DGX A100 used AMD EPYC, so NVIDIA's flagship systems depended on competitors' CPUs and on [PCIe](../../glossary.md#pcie) [[S189]](../../sources/bibliography.md#s189)[[S188]](../../sources/bibliography.md#s188). **Phase 3 (2020–): own the host, then open it.**
 
 | Date | Decision | Why it mattered | Source |
 |---|---|---|---|
@@ -91,7 +91,7 @@ Evidence: what others paid and how long they took. Amazon bought Annapurna Labs 
 <details>
 <summary>🔧 Under the hood: why custom cores are hard</summary>
 
-A competitive server core needs a wide out-of-order engine, good branch prediction, large caches, a mesh linking 100+ cores and years of validation. Denver's translation approach saved decode hardware but suffered on unpredictable code [[S4537]](../../sources/bibliography.md#s4537). Vera's Olympus cores add "spatial multithreading" (176 threads on 88 cores) [[S100]](../../sources/bibliography.md#s100). Each generation also needs firmware, compiler and Linux-kernel work, which is why licensees usually start with Arm's own cores.
+A competitive server core needs a wide out-of-order engine, good branch prediction, large caches, a mesh linking 100+ cores and years of validation. Denver's translation approach saved [decode](../../glossary.md#decode) hardware but suffered on unpredictable code [[S4537]](../../sources/bibliography.md#s4537). Vera's Olympus cores add "spatial multithreading" (176 threads on 88 cores) [[S100]](../../sources/bibliography.md#s100). Each generation also needs firmware, compiler and Linux-kernel work, which is why licensees usually start with Arm's own cores.
 
 </details>
 

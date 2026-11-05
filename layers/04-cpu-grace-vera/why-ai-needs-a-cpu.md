@@ -6,10 +6,10 @@
 
 - **The GPU does the math; the [host CPU](../../glossary.md#host-cpu) does everything else:** scheduling and launching GPU work, loading and decoding data, tokenizing, network and storage I/O, overflow memory and, increasingly, the tools AI agents call. A slow host leaves expensive GPUs waiting.
 - **Starvation is measurable.** On a 16-GPU DGX-2, ResNet-50 training ran at 12,586 images/s with CPU preprocessing versus 22,656 images/s on synthetic data, so the GPUs sat idle ~44% of the time; moving decoding onto the GPUs recovered 21,034 images/s [[S4017]](../../sources/bibliography.md#s4017).
-- **NVIDIA keeps adding host compute per GPU:** ~28 host threads per GPU on DGX H100 [[S33022]](../../sources/bibliography.md#s33022), 36 on GB200 NVL72 (36 Grace for 72 GPUs) [[S396]](../../sources/bibliography.md#s396) and ~88 on Vera Rubin NVL72 (repo arithmetic on [[S4000]](../../sources/bibliography.md#s4000)[[S102]](../../sources/bibliography.md#s102)).
+- **NVIDIA keeps adding host compute per GPU:** ~28 host threads per GPU on DGX H100 [[S33022]](../../sources/bibliography.md#s33022), 36 on GB200 [NVL72](../../glossary.md#nvl72) (36 Grace for 72 GPUs) [[S396]](../../sources/bibliography.md#s396) and ~88 on Vera Rubin NVL72 (repo arithmetic on [[S4000]](../../sources/bibliography.md#s4000)[[S102]](../../sources/bibliography.md#s102)).
 - **Agentic AI and reinforcement learning push CPU demand up.** Intel said in 2026 that CPU:GPU ratios could tighten toward 1:1 in agentic scenarios [[S4012]](../../sources/bibliography.md#s4012); TrendForce projects 1:2 to 1:1 [[S4013]](../../sources/bibliography.md#s4013); server-CPU lead times reached ~6 months in early 2026 [[S4015]](../../sources/bibliography.md#s4015).
 - **NVIDIA now sells CPUs for that demand:** a 256-CPU Vera rack sustaining >22,500 concurrent CPU environments [[S4000]](../../sources/bibliography.md#s4000), about one per core (256 × 88 = 22,528).
-- **Bear point:** the host is the cheap part of the rack (~$180k of an estimated $7.8M Vera Rubin NVL72) [[S331]](../../sources/bibliography.md#s331), and hyperscalers can run agent tools on their own Arm fleets; AWS gives each Trainium3 only 16 host vCPUs [[S354]](../../sources/bibliography.md#s354).
+- **Bear point:** the host is the cheap part of the rack (~$180k of an estimated $7.8M Vera Rubin NVL72) [[S331]](../../sources/bibliography.md#s331), and [hyperscalers](../../glossary.md#hyperscaler) can run agent tools on their own Arm fleets; AWS gives each Trainium3 only 16 host vCPUs [[S354]](../../sources/bibliography.md#s354).
 
 ![Bar chart of host CPU threads per accelerator: DGX-1 V100 10, DGX-2 6, DGX A100 32, DGX H100 28, DGX B200 28, GH200 72 (72 Grace cores, no SMT), GB200 and GB300 NVL72 36, Vera Rubin NVL72 88 (44 Olympus cores with two threads each); AWS Trn2 instances have 12 host vCPUs per Trainium2 and Trn3 Gen2 UltraServers 16 per Trainium3, so NVIDIA's rack designs carry several times more host compute per accelerator.](../../assets/charts/04-host-threads-per-accelerator.svg)
 
@@ -17,11 +17,11 @@
 
 Think of a restaurant: the GPUs are very fast cooks who can only cook; the host CPU is the expediter and prep kitchen. If the expediter is slow, the cooks stand idle. The host's six jobs:
 
-1. **Orchestration:** drivers, the CUDA runtime and the thousands of kernel launches per step ([Layer 09](../09-cuda-and-system-software/index.md)).
+1. **Orchestration:** drivers, the [CUDA](../../glossary.md#cuda) runtime and the thousands of kernel launches per step ([Layer 09](../09-cuda-and-system-software/index.md)).
 2. **Data loading:** reading, decoding, augmenting and tokenizing training data. A slow [data loader](../../glossary.md#data-loader) causes [GPU starvation](../../glossary.md#gpu-starvation).
 3. **I/O:** checkpoints, storage and network setup, partly offloaded to DPUs ([Layer 07](../07-dpu-supernic-storage-security/index.md)).
 4. **Serving:** request handling, tokenization, batching and streaming.
-5. **Overflow memory:** weights, [KV cache](../../glossary.md#kv-cache) and embeddings that do not fit in HBM ([Grace and the superchip](grace-and-the-superchip.md)).
+5. **Overflow memory:** weights, [KV cache](../../glossary.md#kv-cache) and embeddings that do not fit in [HBM](../../glossary.md#hbm) ([Grace and the superchip](grace-and-the-superchip.md)).
 6. **Agent tools and RL environments:** code execution, browsing and API calls for [agentic AI](../../glossary.md#agentic-ai), and scoring for [reinforcement learning](../../glossary.md#reinforcement-learning).
 
 In one agent turn, only the GPU steps below are matrix math:
@@ -61,7 +61,7 @@ sequenceDiagram
 
 - **Kernel launches** cost microseconds of CPU time each; CUDA Graphs record a step and replay it with one call.
 - **Pinned memory:** data must sit in page-locked host memory before the GPU's copy engines can move it.
-- **NUMA:** in a two-socket x86 server each CPU owns half the GPUs; a loader thread on the wrong socket crosses the inter-socket link. A single-CPU superchip avoids this.
+- **NUMA:** in a two-socket [x86](../../glossary.md#x86) server each CPU owns half the GPUs; a loader thread on the wrong socket crosses the inter-socket link. A single-CPU superchip avoids this.
 
 </details>
 

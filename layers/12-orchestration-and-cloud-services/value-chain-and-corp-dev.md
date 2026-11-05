@@ -37,7 +37,7 @@ NVIDIA systems content,NVIDIA cost of goods,9
 
 ## Neocloud financing: contracts, GPU-backed loans and backstops
 
-It works like project finance. A lab or hyperscaler signs a multi-year [take-or-pay](../../glossary.md#take-or-pay) contract ([offtake agreement](../../glossary.md#offtake-agreement)); the neocloud puts the contract and GPUs in a special-purpose vehicle and borrows against both ([GPU-backed loan](../../glossary.md#gpu-backed-loan)). Third parties cut the rate further: NVIDIA by buying unsold capacity ([capacity backstop](../../glossary.md#capacity-backstop)), Google by guaranteeing Fluidstack's leases with TeraWulf (~$3.2B) and Cipher (~$1.4B) for equity 🟡 [[S90067]](../../sources/bibliography.md#s90067)[[S12525]](../../sources/bibliography.md#s12525).
+It works like project finance. A lab or [hyperscaler](../../glossary.md#hyperscaler) signs a multi-year [take-or-pay](../../glossary.md#take-or-pay) contract ([offtake agreement](../../glossary.md#offtake-agreement)); the neocloud puts the contract and GPUs in a special-purpose vehicle and borrows against both ([GPU-backed loan](../../glossary.md#gpu-backed-loan)). Third parties cut the rate further: NVIDIA by buying unsold capacity ([capacity backstop](../../glossary.md#capacity-backstop)), Google by guaranteeing Fluidstack's leases with TeraWulf (~$3.2B) and Cipher (~$1.4B) for equity 🟡 [[S90067]](../../sources/bibliography.md#s90067)[[S12525]](../../sources/bibliography.md#s12525).
 
 ```mermaid
 flowchart LR

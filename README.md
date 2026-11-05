@@ -91,7 +91,7 @@ are listed in the [chart catalog](assets/charts/CATALOG.md).
 > [!TIP]
 > **Worked example — how to read one number in this repository.** Take "~$0.16 per million tokens on GB300". The
 > `~` and "Est." say it is an estimate. The token [[S14000]](sources/bibliography.md#s14000) resolves in the [bibliography](sources/bibliography.md)
-> to chapter 14's transparent TCO model, whose every input sits in `data/x14_tco_scenarios.csv` with its own source.
+> to chapter 14's transparent [TCO](glossary.md#tco) model, whose every input sits in `data/x14_tco_scenarios.csv` with its own source.
 > The chapter gives the range, P10–P90 $0.13–0.23, and tags modelled rivals 🔴 [[S14000]](sources/bibliography.md#s14000). **Conclusion:** before
 > quoting any figure, check three things: the qualifier (~, Est.), the confidence tag (🟢 company-confirmed, 🟡
 > credibly reported, 🔴 speculative or repo analysis) and the source behind the token.
@@ -193,7 +193,7 @@ Conventions: [style guide](docs/STYLE_GUIDE.md) · [contributor brief](docs/AGEN
    [[S1500]](sources/bibliography.md#s1500).
 2. **Price challengers at NVIDIA's post-cut price.** NVIDIA could cut GB300 prices ~20% and keep a ~66% gross margin
    (🔴 chapter 14 estimate) [[S14000]](sources/bibliography.md#s14000). A second-source business case should survive that step.
-3. **The value pools and the moats sit in different layers.** NVIDIA earns in GPUs, scale-up, networking and racks,
+3. **The value pools and the moats sit in different layers.** NVIDIA earns in GPUs, [scale-up](glossary.md#scale-up), networking and racks,
    and defends in software and supply. Each layer's value-chain page lists the private companies in it.
 4. **For Qualcomm-specific questions** (partner, compete or complement, layer by layer, on public information
    only), go to [chapter 19](cross-cutting/19-implications-for-qualcomm.md).

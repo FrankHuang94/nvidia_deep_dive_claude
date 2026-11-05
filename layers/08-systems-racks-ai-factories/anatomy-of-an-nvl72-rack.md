@@ -15,7 +15,7 @@
 
 ## 1. The rack: four systems hidden behind 27 trays
 
-**[Q1 · Job & failure mode]** The rack's job is to make 72 GPUs act as one machine and keep them powered and cool at ~130 kW. If a hidden system fails (spine cable, coolant connector, power shelf), the NVLink domain degrades and the whole rack slows, not one server [[S5007]](../../sources/bibliography.md#s5007)[[S626]](../../sources/bibliography.md#s626).
+**[Q1 · Job & failure mode]** The rack's job is to make 72 GPUs act as one machine and keep them powered and cool at ~130 kW. If a hidden system fails (spine cable, coolant connector, power shelf), the [NVLink](../../glossary.md#nvlink) domain degrades and the whole rack slows, not one server [[S5007]](../../sources/bibliography.md#s5007)[[S626]](../../sources/bibliography.md#s626).
 
 The front is trays stacked like drawers; the work happens at the back. The [NVLink spine](../../glossary.md#nvlink-spine) takes every tray blind into copper cable cartridges, 144 NVLink ports per switch tray, copper because at ~1 metre it needs no power-hungry optics ([copper spines](../05-scale-up-nvlink-nvswitch/copper-spines-and-why-copper-wins.md)) [[S5007]](../../sources/bibliography.md#s5007)[[S5008]](../../sources/bibliography.md#s5008). The busbar carries ~50 V DC from the power shelves [[S8000]](../../sources/bibliography.md#s8000). Manifolds with quick-disconnects feed [cold plates](../../glossary.md#cold-plate) on GPUs, CPUs and switch chips [[S334]](../../sources/bibliography.md#s334). Each tray has a [BMC](../../glossary.md#bmc) on an out-of-band management network [[S5007]](../../sources/bibliography.md#s5007).
 
@@ -41,7 +41,7 @@ A 132 kW rack at ~50 V draws 132,000 ÷ 50 ≈ **2,640 A** (repo arithmetic) [[S
 
 ## 2. The compute tray: where 5.6 kW of GPUs live
 
-Each 1U compute tray carries two superchip boards. On GB300 a board pairs one 72-core Grace CPU (~480 GB LPDDR5X) with two Blackwell Ultra GPUs (288 GB HBM3E each) over a 900 GB/s coherent [NVLink-C2C](../../glossary.md#nvlink-c2c) link [[S337]](../../sources/bibliography.md#s337)[[S129]](../../sources/bibliography.md#s129). The tray's front holds four ConnectX-8 [SuperNICs](../../glossary.md#supernic) (one 800 Gb/s port per GPU for scale-out) and one BlueField-3 [DPU](../../glossary.md#dpu) for storage and tenancy traffic [[S8001]](../../sources/bibliography.md#s8001).
+Each 1U compute tray carries two superchip boards. On GB300 a board pairs one 72-core Grace CPU (~480 GB LPDDR5X) with two Blackwell Ultra GPUs (288 GB [HBM3E](../../glossary.md#hbm3e) each) over a 900 GB/s coherent [NVLink-C2C](../../glossary.md#nvlink-c2c) link [[S337]](../../sources/bibliography.md#s337)[[S129]](../../sources/bibliography.md#s129). The tray's front holds four ConnectX-8 [SuperNICs](../../glossary.md#supernic) (one 800 Gb/s port per GPU for [scale-out](../../glossary.md#scale-out)) and one BlueField-3 [DPU](../../glossary.md#dpu) for storage and tenancy traffic [[S8001]](../../sources/bibliography.md#s8001).
 
 ![Diagram of one NVL72 compute tray, top view. Rear edge: NVLink connectors (4 GPUs times 18 NVLink 5 links, 1.8 TB/s per GPU into the spine), busbar clip delivering about 50 V DC (4 GPUs times 1.4 kW = 5.6 kW of GPU load) and liquid quick-disconnects. Middle: two superchip boards, each with two Blackwell Ultra GPUs (288 GB HBM3E, about 1.4 kW, cold plate) and one Grace CPU (72 Arm cores, about 480 GB LPDDR5X, 900 GB/s NVLink-C2C). Front edge: four ConnectX-8 SuperNICs at 800 Gb/s, one BlueField-3 DPU, local NVMe SSDs and a BMC management port. Vera Rubin tray changes: 2 Vera CPUs with 88 cores and up to 1.5 TB LPDDR5X each, 4 Rubin GPUs with 288 GB HBM4 at about 1.8 to 2.3 kW, NVLink 6 at 3.0 TB/s per GPU, ConnectX-9 at 1.6 Tb/s per GPU and BlueField-4, and a cable-free, hose-free, fanless tray assembled in about 5 minutes.](../../assets/diagrams/08-compute-tray-anatomy.svg)
 
@@ -68,13 +68,13 @@ At ~1.36 t a GB200 rack weighs about as much as a car, so floors and delivery ro
 > **Worked example — what one idle rack costs.** SemiAnalysis puts a GB300 GPU at ~$2.31 per hour to own and ~$5.00 to rent [[S622]](../../sources/bibliography.md#s622). A rack down for a day loses 72 × 24 × $2.31 ≈ **$4,000 of owner cost** or ≈ **$8,600 of rental revenue** (repo arithmetic). **Conclusion:** reliability and fast swaps of trays, cartridges and quick-disconnects are worth real money at fleet scale.
 
 > [!WARNING]
-> **🐻 Bear view:** a 72-GPU NVLink domain is a single failure domain. A coolant leak or a bad spine cartridge can idle ~$4M of hardware until fixed, and SemiAnalysis notes the GB200 copper backplane "faced many reliability challenges" during its ramp [[S626]](../../sources/bibliography.md#s626). Scale-out designs built from 8-GPU nodes (TPU cubes, Trainium UltraServers, HGX) lose less when one node fails.
+> **🐻 Bear view:** a 72-GPU NVLink domain is a single failure domain. A coolant leak or a bad spine cartridge can idle ~$4M of hardware until fixed, and SemiAnalysis notes the GB200 copper backplane "faced many reliability challenges" during its ramp [[S626]](../../sources/bibliography.md#s626). Scale-out designs built from 8-GPU nodes (TPU cubes, Trainium UltraServers, [HGX](../../glossary.md#hgx)) lose less when one node fails.
 
 ## 🎯 Corp Dev Lens
 
 1. **Interconnect and power hardware are the rack's new chokepoints.** The spine cartridges, busbars, quick-disconnects and cold plates are low-glamour parts with high qualification barriers; which suppliers are designed into Vera Rubin and Kyber?
 2. **Serviceability is becoming a moat.** Tray assembly and burn-in time decide how fast a new generation ramps [[S8002]](../../sources/bibliography.md#s8002)[[S626]](../../sources/bibliography.md#s626). Rivals entering rack-scale must solve manufacturing, not just silicon.
-3. **Qualcomm question (public information only):** AI200/AI250 racks use PCIe scale-up and Ethernet scale-out at ~160 kW [[S173]](../../sources/bibliography.md#s173); would joining [NVLink Fusion](../../glossary.md#nvlink-fusion) for CPUs [[S90031]](../../sources/bibliography.md#s90031) or partnering on an MGX-style rack shorten the path to a validated rack?
+3. **Qualcomm question (public information only):** AI200/AI250 racks use [PCIe](../../glossary.md#pcie) [scale-up](../../glossary.md#scale-up) and Ethernet scale-out at ~160 kW [[S173]](../../sources/bibliography.md#s173); would joining [NVLink Fusion](../../glossary.md#nvlink-fusion) for CPUs [[S90031]](../../sources/bibliography.md#s90031) or partnering on an MGX-style rack shorten the path to a validated rack?
 
 ## 📚 Sources
 

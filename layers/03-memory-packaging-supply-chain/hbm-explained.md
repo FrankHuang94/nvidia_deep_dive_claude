@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **[HBM](../../glossary.md#hbm) is DRAM built as a skyscraper next to the GPU.** 8–16 thinned DRAM dies sit on a base die, wired vertically by [through-silicon vias](../../glossary.md#through-silicon-via), and talk to the GPU over 1,024 data wires (HBM3E) or 2,048 (HBM4) [[S368]](../../sources/bibliography.md#s368)[[S369]](../../sources/bibliography.md#s369).
+- **[HBM](../../glossary.md#hbm) is DRAM built as a skyscraper next to the GPU.** 8–16 thinned DRAM dies sit on a base die, wired vertically by [through-silicon vias](../../glossary.md#through-silicon-via), and talk to the GPU over 1,024 data wires ([HBM3E](../../glossary.md#hbm3e)) or 2,048 ([HBM4](../../glossary.md#hbm4)) [[S368]](../../sources/bibliography.md#s368)[[S369]](../../sources/bibliography.md#s369).
 - **[Q3 · Generational progress]** Per-stack peak bandwidth rose 16×, from 128 GB/s (2013) to 2,048 GB/s (JEDEC HBM4) [[S370]](../../sources/bibliography.md#s370)[[S369]](../../sources/bibliography.md#s369). Per GPU, P100 → Rubin went 0.73 → 19.2 TB/s (26×) and 16 → 288 GB (18×), with 16 stacks planned for Rubin Ultra [[S125]](../../sources/bibliography.md#s125)[[S33007]](../../sources/bibliography.md#s33007)[[S35041]](../../sources/bibliography.md#s35041).
 - **HBM is costly because it is wasteful to make.** HBM3E needs ~3× DDR5's wafer area per GB (Micron) [[S3006]](../../sources/bibliography.md#s3006), and one bad die scraps a whole stack. HBM was ~45% of a B200's build cost (Est.) [[S35020]](../../sources/bibliography.md#s35020).
 - 🟡 **HBM4 moves the base die to a logic process, often at TSMC** [[S3011]](../../sources/bibliography.md#s3011)[[S3007]](../../sources/bibliography.md#s3007), shifting part of the value pool to the foundry and the GPU designer.
@@ -47,7 +47,7 @@ GPU-level gains multiply pin speed, bus width and stack count: 4 stacks on P100,
 
 1. **Silicon per bit:** ~3× DDR5's wafer area per GB, a gap Micron says is not narrowing [[S3006]](../../sources/bibliography.md#s3006).
 2. **Compounding yield:** one bad die or bond scraps the stack; [known-good-die](../../glossary.md#known-good-die) testing limits the damage at a cost.
-3. **Packaging:** every stack then needs scarce CoWoS.
+3. **Packaging:** every stack then needs scarce [CoWoS](../../glossary.md#cowos).
 
 > [!TIP]
 > **Worked example — stack yield and the HBM bill.** 🔴 At 99% yield per die-and-bond step, a 12-high stack yields ~89% and a 16-high ~85%. HBM3E at ~$15/GB puts a B200's 192 GB at ~$2,900, ~45% of its ~$6,400 build cost (Est., Epoch AI) [[S35020]](../../sources/bibliography.md#s35020); 🟡 at Bernstein's ~$53/GB 2027 HBM4 forecast [[S333]](../../sources/bibliography.md#s333), Rubin's 288 GB would top $15,000. **Business reading:** memory makers now set a GPU's largest cost line.
@@ -59,7 +59,7 @@ GPU-level gains multiply pin speed, bus width and stack count: 4 stacks on P100,
 
 ## HBM4's custom base die: logic moves into the memory stack
 
-To drive 2,048 wires, the HBM4 base die moves from a DRAM process to a logic process [[S3009]](../../sources/bibliography.md#s3009). 🟡 SK hynix reportedly uses TSMC 12 nm; Samsung uses its own 4 nm [[S3011]](../../sources/bibliography.md#s3011). Micron says TSMC will make its HBM4E base dies from 2027, with custom designs for customers who pay a premium [[S3007]](../../sources/bibliography.md#s3007). TSMC offers custom HBM4E base dies on N3P [[S3008]](../../sources/bibliography.md#s3008).
+To drive 2,048 wires, the HBM4 base die moves from a DRAM process to a logic process [[S3009]](../../sources/bibliography.md#s3009). 🟡 SK hynix reportedly uses TSMC 12 nm; Samsung uses its own 4 nm [[S3011]](../../sources/bibliography.md#s3011). Micron says TSMC will make its [HBM4E](../../glossary.md#hbm4e) base dies from 2027, with custom designs for customers who pay a premium [[S3007]](../../sources/bibliography.md#s3007). TSMC offers custom HBM4E base dies on N3P [[S3008]](../../sources/bibliography.md#s3008).
 
 > [!TIP]
 > **Worked example — wider and slower beats narrow and fast.** JEDEC HBM4 at only 8 Gb/s gives 8 × 2,048 ÷ 8 = 2,048 GB/s; the fastest HBM3E, 9.8 Gb/s on 1,024 wires, gives ~1,280 GB/s [[S369]](../../sources/bibliography.md#s369)[[S372]](../../sources/bibliography.md#s372). That is +60% bandwidth at an 18% lower pin speed, easing power and signal integrity. **Business reading:** the base die now decides speed, so whoever designs it gains leverage.

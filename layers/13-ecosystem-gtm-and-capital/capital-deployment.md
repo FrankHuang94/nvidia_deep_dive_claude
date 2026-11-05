@@ -94,7 +94,7 @@ Direct customers are mostly OEMs and ODMs; NVIDIA estimates that some indirect c
 ![Stacked bar chart of NVIDIA's disclosed direct customers above 10% of revenue: 1 customer at 13% in FY2024, 3 customers at 34% in FY2025, and 4 customers totalling 61% in Q3FY26; most are OEMs/ODMs building for hyperscalers.](../../assets/charts/13-customer-concentration-over-time.svg)
 
 > [!TIP]
-> **Worked example — concentration in dollars.** In Q2 FY2027 one direct customer was 16% of $96.2B revenue [[S90069]](../../sources/bibliography.md#s90069)[[S405]](../../sources/bibliography.md#s405), **~$15.4B in a quarter**. Over H1 FY2027 three direct customers were 16%, 15% and 13%, together **44%** of $177.8B [[S90069]](../../sources/bibliography.md#s90069)[[S403]](../../sources/bibliography.md#s403)[[S405]](../../sources/bibliography.md#s405), or **~$78B** through three assemblers. If one hyperscaler behind them shifted a fifth of its accelerator budget to in-house chips, NVIDIA would feel it within a quarter.
+> **Worked example — concentration in dollars.** In Q2 FY2027 one direct customer was 16% of $96.2B revenue [[S90069]](../../sources/bibliography.md#s90069)[[S405]](../../sources/bibliography.md#s405), **~$15.4B in a quarter**. Over H1 FY2027 three direct customers were 16%, 15% and 13%, together **44%** of $177.8B [[S90069]](../../sources/bibliography.md#s90069)[[S403]](../../sources/bibliography.md#s403)[[S405]](../../sources/bibliography.md#s405), or **~$78B** through three assemblers. If one [hyperscaler](../../glossary.md#hyperscaler) behind them shifted a fifth of its accelerator budget to in-house chips, NVIDIA would feel it within a quarter.
 
 > [!NOTE]
 > **🐂 Bull view:** the ~$30B OpenAI stake is less than one quarter's free cash flow ($48.6B in Q1 FY2027) [[S403]](../../sources/bibliography.md#s403). Stakes buy information and design-ins and have produced large gains, while customers still pay cash for GPUs.
@@ -106,7 +106,7 @@ Direct customers are mostly OEMs and ODMs; NVIDIA estimates that some indirect c
 
 1. **Capital is now a competitive weapon.** NVIDIA's ~$56.6B of cash and debt securities [[S13500]](../../sources/bibliography.md#s13500) plus ~$99B of stakes [[S90073]](../../sources/bibliography.md#s90073) dwarf peers (see [Value chain and corp dev](value-chain-and-corp-dev.md)). What deal structures, such as warrants, revenue-linked credits or co-investment with infrastructure funds, let a smaller balance sheet compete?
 2. **Licence-plus-team is the new M&A template.** Enfabrica and Groq show regulators can be sidestepped without buying the company [[S90018]](../../sources/bibliography.md#s90018). Which private inference and interconnect teams are exposed to the same structure?
-3. **Supplier stakes lock capacity.** The optics stakes came with purchase commitments and capacity rights [[S6511]](../../sources/bibliography.md#s6511). Where in a challenger's supply chain (lasers, HBM, CoWoS, power) could similar stakes secure scarce capacity?
+3. **Supplier stakes lock capacity.** The optics stakes came with purchase commitments and capacity rights [[S6511]](../../sources/bibliography.md#s6511). Where in a challenger's supply chain (lasers, [HBM](../../glossary.md#hbm), [CoWoS](../../glossary.md#cowos), power) could similar stakes secure scarce capacity?
 4. **Concentration is two-sided.** Three direct customers took 44% of H1 FY2027 revenue [[S90069]](../../sources/bibliography.md#s90069). Which of the indirect customers behind them are most open to a second supplier?
 
 ## 📚 Sources

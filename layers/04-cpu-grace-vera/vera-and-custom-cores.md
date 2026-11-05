@@ -8,7 +8,7 @@
 - **NVIDIA spent its transistors on feeding data:** versus Grace, memory capacity is 3.2×, bandwidth 2.3× and the GPU link 2×, but cores only 1.22× [[S129]](../../sources/bibliography.md#s129)[[S4000]](../../sources/bibliography.md#s4000)[[S209]](../../sources/bibliography.md#s209).
 - **Early tests are good, not dominant.** NVIDIA's summary of Phoronix testing puts Vera ~1.63× Grace and ~10% ahead of a 5 GHz AMD EPYC 9575F [[S4004]](../../sources/bibliography.md#s4004); NVIDIA's own SPECrate estimate (925) trails an audited two-socket EPYC 9755 result (1,070) [[S4003]](../../sources/bibliography.md#s4003).
 - **Vera is also a standalone product,** launched at GTC 2026 with a 256-CPU rack and partner availability in H2 2026 [[S4000]](../../sources/bibliography.md#s4000); coverage says NVIDIA called it a multi-billion-dollar business 🟡 [[S90003]](../../sources/bibliography.md#s90003). Meta may deploy Vera CPU-only servers at scale from 2027 🟡 [[S4006]](../../sources/bibliography.md#s4006).
-- **x86 is covered by partnership:** NVIDIA's $5B Intel stake closed on 2025-12-26 [[S4009]](../../sources/bibliography.md#s4009); Intel is building a custom [x86](../../glossary.md#x86) Xeon with NVLink for AI host nodes, with no product name or date disclosed by May 2026 🟡 [[S4011]](../../sources/bibliography.md#s4011)[[S4010]](../../sources/bibliography.md#s4010).
+- **x86 is covered by partnership:** NVIDIA's $5B Intel stake closed on 2025-12-26 [[S4009]](../../sources/bibliography.md#s4009); Intel is building a custom [x86](../../glossary.md#x86) Xeon with [NVLink](../../glossary.md#nvlink) for AI host nodes, with no product name or date disclosed by May 2026 🟡 [[S4011]](../../sources/bibliography.md#s4011)[[S4010]](../../sources/bibliography.md#s4010).
 - **Next:** the Feynman generation (2028) is reported to pair with a CPU named Rosa 🟡 [[S90004]](../../sources/bibliography.md#s90004)[[S109]](../../sources/bibliography.md#s109).
 
 ![Scatter plot of server CPUs by core count and memory bandwidth: NVIDIA Vera has 88 cores and 1,200 GB/s, Grace 72 cores and 512 GB/s; x86 parts span from Xeon Sapphire Rapids (56 cores, 307 GB/s) to EPYC Turin (192 cores, 576 GB/s) and Xeon 6 Granite Rapids (128 cores, 845 GB/s with MRDIMM); only AMD's announced EPYC Venice (256 cores, 1,600 GB/s) exceeds Vera's bandwidth, while Arm cloud CPUs such as Graviton4 and AmpereOne sit at 333-538 GB/s.](../../assets/charts/04-cpu-cores-and-memory-bandwidth.svg)
@@ -36,7 +36,7 @@ The silicon split is disputed: one Hot Chips 2026 report describes six dies on a
 
 ![Horizontal bar chart of memory bandwidth per core: NVIDIA Vera 13.6 GB/s per core and Grace 7.1 lead; the best shipping x86 part, Xeon 6980P (Granite Rapids-AP), offers 6.6 GB/s per core, and high-core-count parts such as EPYC Turin (3.0) and Xeon 6+ Clearwater Forest (2.7) fall below 3 GB/s - Vera is tuned to keep GPUs and agentic CPU work fed rather than to maximise core count.](../../assets/charts/04-cpu-memory-bandwidth-per-core.svg)
 
-**[Q3 · Generational progress]** NVIDIA's host improved on every axis that feeds GPUs: host link per GPU from 128 GB/s (PCIe Gen5, DGX H100) to 900 GB/s (GH200), ~450 GB/s on GB200 and ~900 GB/s again on Vera Rubin; CPU memory per GPU from ~240 GB (GB200) to ~750 GB; host threads per GPU from 28 to 88 (charts in [Why AI needs a CPU](why-ai-needs-a-cpu.md) and [Grace and the superchip](grace-and-the-superchip.md)). Per socket:
+**[Q3 · Generational progress]** NVIDIA's host improved on every axis that feeds GPUs: host link per GPU from 128 GB/s ([PCIe](../../glossary.md#pcie) Gen5, DGX H100) to 900 GB/s (GH200), ~450 GB/s on GB200 and ~900 GB/s again on Vera Rubin; CPU memory per GPU from ~240 GB (GB200) to ~750 GB; host threads per GPU from 28 to 88 (charts in [Why AI needs a CPU](why-ai-needs-a-cpu.md) and [Grace and the superchip](grace-and-the-superchip.md)). Per socket:
 
 ![Horizontal bar chart of Vera-to-Grace ratios per CPU: cores 72 to 88 (1.22 times), hardware threads 72 to 176 (2.4 times, via Spatial Multithreading), memory bandwidth 512 to 1,200 GB/s (2.3 times), bandwidth per core 7.1 to 13.6 GB/s (1.9 times), memory capacity 480 to 1,536 GB (3.2 times) and NVLink-C2C 900 to 1,800 GB/s (2 times): NVIDIA spent its new transistors on feeding data rather than on core count.](../../assets/charts/04-grace-to-vera-generational-gains.svg)
 
@@ -53,7 +53,7 @@ Grace's Neoverse V2 core [[S129]](../../sources/bibliography.md#s129) is the sam
 - **Two kinds of Arm licence.** A core licence drops in Arm's finished design (Grace). An [architecture licence](../../glossary.md#architecture-licence) lets a company design its own core for the Arm instruction set (Vera; also Apple, Qualcomm, Ampere).
 - **What stays compatible:** compilers, operating systems and applications target the instruction set, so Arm server software runs on Vera.
 - **What changes:** pipeline width, branch prediction, caches, multithreading and power management, which decide per-thread speed and watts.
-- **Arm's counter-move:** Arm added NVLink Fusion support to Neoverse [[S90036]](../../sources/bibliography.md#s90036), so Arm-core licensees can also attach to NVIDIA GPUs.
+- **Arm's counter-move:** Arm added [NVLink Fusion](../../glossary.md#nvlink-fusion) support to Neoverse [[S90036]](../../sources/bibliography.md#s90036), so Arm-core licensees can also attach to NVIDIA GPUs.
 
 </details>
 
@@ -77,7 +77,7 @@ timeline
 
 Timeline sources: [[S537]](../../sources/bibliography.md#s537)[[S128]](../../sources/bibliography.md#s128)[[S396]](../../sources/bibliography.md#s396)[[S131]](../../sources/bibliography.md#s131)[[S130]](../../sources/bibliography.md#s130)[[S209]](../../sources/bibliography.md#s209)[[S4006]](../../sources/bibliography.md#s4006)[[S4000]](../../sources/bibliography.md#s4000)[[S4002]](../../sources/bibliography.md#s4002)[[S4001]](../../sources/bibliography.md#s4001)[[S90004]](../../sources/bibliography.md#s90004).
 
-NVIDIA positions standalone Vera for agentic AI and reinforcement learning, claiming twice the efficiency of traditional rack-scale CPUs (vendor claim) [[S4000]](../../sources/bibliography.md#s4000); Dell, HPE, Lenovo and Supermicro offer Vera servers [[S4032]](../../sources/bibliography.md#s4032)[[S4033]](../../sources/bibliography.md#s4033). Meta is the anchor reference [[S4006]](../../sources/bibliography.md#s4006)[[S4008]](../../sources/bibliography.md#s4008).
+NVIDIA positions standalone Vera for [agentic](../../glossary.md#agentic-ai) AI and reinforcement learning, claiming twice the efficiency of traditional rack-scale CPUs (vendor claim) [[S4000]](../../sources/bibliography.md#s4000); Dell, HPE, Lenovo and Supermicro offer Vera servers [[S4032]](../../sources/bibliography.md#s4032)[[S4033]](../../sources/bibliography.md#s4033). Meta is the anchor reference [[S4006]](../../sources/bibliography.md#s4006)[[S4008]](../../sources/bibliography.md#s4008).
 
 > [!TIP]
 > **Worked example — what "multi-billion-dollar" implies in units.** Morgan Stanley's estimate puts 36 Vera CPUs at ~$180k, **~$5,000 per CPU** inside a rack (Est.) [[S331]](../../sources/bibliography.md#s331). At that price a $2B standalone business needs **~400,000 CPUs a year**, ~1,560 of the 256-CPU racks [[S4000]](../../sources/bibliography.md#s4000); standalone prices are probably higher, so fewer units (🔴 repo analysis). **Conclusion:** the claim rests on a handful of hyperscale buyers like Meta, so customer concentration is high.
@@ -85,7 +85,7 @@ NVIDIA positions standalone Vera for agentic AI and reinforcement learning, clai
 **The x86 hedge.** On 2025-09-18 NVIDIA and Intel agreed that Intel would build NVIDIA-custom x86 CPUs connected to NVIDIA platforms over NVLink [[S130]](../../sources/bibliography.md#s130); NVIDIA's $5.0B purchase of 214,776,632 shares at $23.28 closed on 2025-12-26 (a ~4–5% stake; sources differ) [[S4009]](../../sources/bibliography.md#s4009). Intel described a custom Xeon integrated with NVLink for AI host nodes in January 2026 [[S4011]](../../sources/bibliography.md#s4011) and in May 2026 confirmed the work continues, still without a name or date 🟡 [[S4010]](../../sources/bibliography.md#s4010). It keeps x86-heavy enterprises inside NVLink racks and gives Intel a route back into the AI host socket.
 
 > [!WARNING]
-> **🐻 Bear view:** a custom core is a multi-generation commitment in a market where AMD shipped 256-core Venice in July 2026 [[S4028]](../../sources/bibliography.md#s4028) and hyperscalers build their own Arm CPUs. Intel's NVLink Xeon could also cannibalize it.
+> **🐻 Bear view:** a custom core is a multi-generation commitment in a market where AMD shipped 256-core Venice in July 2026 [[S4028]](../../sources/bibliography.md#s4028) and [hyperscalers](../../glossary.md#hyperscaler) build their own Arm CPUs. Intel's NVLink Xeon could also cannibalize it.
 
 ## 🎯 Corp Dev Lens
 

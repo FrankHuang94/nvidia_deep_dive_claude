@@ -5,8 +5,8 @@
 ## ⚡ The Executive Take
 
 - **Rivals compete for scarce supply as much as for design.** Every [HBM](../../glossary.md#hbm)-based accelerator needs the same TSMC [CoWoS](../../glossary.md#cowos) lines and three memory makers, so [capacity allocation](../../glossary.md#capacity-allocation) matters as much as the memory spec.
-- **On per-chip memory, the gap has reversed.** AMD's MI455X carries 432 GB of HBM4 at 23.3 TB/s [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093) against Rubin's 288 GB at 19.2 TB/s, which NVIDIA cut from 22 TB/s in Sep–Oct 2026 [[S103]](../../sources/bibliography.md#s103)[[S104]](../../sources/bibliography.md#s104): ~21% more bandwidth and 1.5× the capacity per GPU. 🟢
-- **At rack level AMD now leads too.** Helios holds 31 TB of HBM4 [[S344]](../../sources/bibliography.md#s344) and ~1,678 TB/s (72 × 23.3 TB/s, repo calc; ~1.7 PB/s) [[S90093]](../../sources/bibliography.md#s90093) versus 20.7 TB and 1,400 TB/s for Vera Rubin NVL72 (was 1,580) [[S102]](../../sources/bibliography.md#s102)[[S90006]](../../sources/bibliography.md#s90006), ~20% more bandwidth.
+- **On per-chip memory, the gap has reversed.** AMD's MI455X carries 432 GB of [HBM4](../../glossary.md#hbm4) at 23.3 TB/s [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093) against Rubin's 288 GB at 19.2 TB/s, which NVIDIA cut from 22 TB/s in Sep–Oct 2026 [[S103]](../../sources/bibliography.md#s103)[[S104]](../../sources/bibliography.md#s104): ~21% more bandwidth and 1.5× the capacity per GPU. 🟢
+- **At rack level AMD now leads too.** Helios holds 31 TB of HBM4 [[S344]](../../sources/bibliography.md#s344) and ~1,678 TB/s (72 × 23.3 TB/s, repo calc; ~1.7 PB/s) [[S90093]](../../sources/bibliography.md#s90093) versus 20.7 TB and 1,400 TB/s for Vera Rubin [NVL72](../../glossary.md#nvl72) (was 1,580) [[S102]](../../sources/bibliography.md#s102)[[S90006]](../../sources/bibliography.md#s90006), ~20% more bandwidth.
 - **On supply, NVIDIA still leads by a wide margin.** It holds an estimated ~60% of 2026 CoWoS bookings (~595k wafers) versus ~105k for AMD and ~150k for Broadcom's custom-chip customers (Est., Morgan Stanley via press) [[S379]](../../sources/bibliography.md#s379); other reports put NVIDIA at 800–850k wafers [[S3003]](../../sources/bibliography.md#s3003). 🟡
 - **Custom ASICs trail on memory per chip.** Google's Ironwood (192 GB, 7.37 TB/s) [[S151]](../../sources/bibliography.md#s151) and AWS Trainium3 (144 GB, 4.9 TB/s) [[S353]](../../sources/bibliography.md#s353) sit 2.6–3.9× below Rubin on bandwidth, though pod-level designs pool memory differently.
 - **Different-approach players avoid the bottleneck.** Qualcomm's AI200 puts 768 GB of [LPDDR](../../glossary.md#lpddr) on each card and needs neither CoWoS nor HBM [[S173]](../../sources/bibliography.md#s173); SRAM-first designs (Cerebras, d-Matrix) trade capacity for on-chip bandwidth [[S166]](../../sources/bibliography.md#s166)[[S170]](../../sources/bibliography.md#s170).
@@ -70,7 +70,7 @@ AWS says Trainium4 will have 4× Trainium3's memory bandwidth and 2× its capaci
 
 ### Huawei — self-sufficiency under export controls
 
-Cut off from leading-edge HBM, Huawei announced in-house HBM: 128 GB at 1.6 TB/s for the 950PR and 144 GB at 4 TB/s for the 950DT [[S163]](../../sources/bibliography.md#s163). China's CXMT began small-scale HBM3E production in 2026 [[S3516]](../../sources/bibliography.md#s3516). Huawei compensates with scale: CloudMatrix 384 spreads 49 TB over 16 racks [[S340]](../../sources/bibliography.md#s340).
+Cut off from leading-edge HBM, Huawei announced in-house HBM: 128 GB at 1.6 TB/s for the 950PR and 144 GB at 4 TB/s for the 950DT [[S163]](../../sources/bibliography.md#s163). China's CXMT began small-scale [HBM3E](../../glossary.md#hbm3e) production in 2026 [[S3516]](../../sources/bibliography.md#s3516). Huawei compensates with scale: CloudMatrix 384 spreads 49 TB over 16 racks [[S340]](../../sources/bibliography.md#s340).
 
 ### Qualcomm (public information only) — the LPDDR bet
 
@@ -83,26 +83,26 @@ Cerebras keeps 44 GB of [SRAM](../../glossary.md#sram) on a wafer at 21 PB/s [[S
 ### Net assessment
 
 > [!TIP]
-> **Worked example — what the Rubin revision cost in decode speed.** In memory-bound decode, each new token requires reading the model's weights and cache from HBM, so tokens per second scale with bandwidth (see [P3](../../primers/P3-the-four-bottlenecks.md)). Cutting 22 → 19.2 TB/s is −12.7% per GPU [[S103]](../../sources/bibliography.md#s103). MI455X's 23.3 TB/s is ~21% over Rubin (and above Rubin's 22 TB/s launch target) [[S90093]](../../sources/bibliography.md#s90093), so ~21% faster memory-bound decode per GPU on paper, and its 432 GB holds 50% more [KV cache](../../glossary.md#kv-cache): more concurrent long-context users per GPU.
+> **Worked example — what the Rubin revision cost in [decode](../../glossary.md#decode) speed.** In memory-bound decode, each new token requires reading the model's weights and cache from HBM, so tokens per second scale with bandwidth (see [P3](../../primers/P3-the-four-bottlenecks.md)). Cutting 22 → 19.2 TB/s is −12.7% per GPU [[S103]](../../sources/bibliography.md#s103). MI455X's 23.3 TB/s is ~21% over Rubin (and above Rubin's 22 TB/s launch target) [[S90093]](../../sources/bibliography.md#s90093), so ~21% faster memory-bound decode per GPU on paper, and its 432 GB holds 50% more [KV cache](../../glossary.md#kv-cache): more concurrent long-context users per GPU.
 
 ![Horizontal bar chart of memory bandwidth: AMD MI455X 23.3 TB/s (announced) and NVIDIA Rubin 19.2 TB/s lead; Google Ironwood 7.37 TB/s is the best custom ASIC, about 2.6 times lower, followed by Microsoft Maia 200 7.0, AWS Trainium3 4.9, Huawei Ascend 950DT 4.0 and Intel Gaudi 3 3.7 TB/s; LPDDR and GDDR designs such as Qualcomm Cloud AI 100 Ultra and Tenstorrent Blackhole sit near 0.5 TB/s.](../../assets/charts/15-memory-bandwidth-by-accelerator.svg)
 
 <details>
 <summary>🔧 Under the hood: why rack bandwidth comparisons are slippery</summary>
 
-NVIDIA lists 1,400 TB/s for Vera Rubin NVL72 but 72 × 19.2 TB/s is 1,382 TB/s, and the HGX Rubin NVL8 page shows 130 TB/s, below 8 × 19.2 [[S105]](../../sources/bibliography.md#s105). AMD's figure here is a per-GPU multiple, not a measured rack number. Compare per-accelerator specs for design, and scale-up domains for serving capacity; treat ±2% differences as ties.
+NVIDIA lists 1,400 TB/s for Vera Rubin NVL72 but 72 × 19.2 TB/s is 1,382 TB/s, and the [HGX](../../glossary.md#hgx) Rubin NVL8 page shows 130 TB/s, below 8 × 19.2 [[S105]](../../sources/bibliography.md#s105). AMD's figure here is a per-GPU multiple, not a measured rack number. Compare per-accelerator specs for design, and [scale-up](../../glossary.md#scale-up) domains for serving capacity; treat ±2% differences as ties.
 
 </details>
 
 > [!NOTE]
-> **🐂 Bull view.** Memory specs are table stakes that any HBM buyer can match; what cannot be matched quickly is ~60% of CoWoS, first claim on all three HBM makers (SK hynix alone is expected to supply >50% of NVIDIA's 2026 HBM) [[S90039]](../../sources/bibliography.md#s90039) and $279B of commitments [[S407]](../../sources/bibliography.md#s407). Rubin Ultra's 1 TB HBM4E retakes the capacity lead in 2027 [[S110]](../../sources/bibliography.md#s110).
+> **🐂 Bull view.** Memory specs are table stakes that any HBM buyer can match; what cannot be matched quickly is ~60% of CoWoS, first claim on all three HBM makers (SK hynix alone is expected to supply >50% of NVIDIA's 2026 HBM) [[S90039]](../../sources/bibliography.md#s90039) and $279B of commitments [[S407]](../../sources/bibliography.md#s407). Rubin Ultra's 1 TB [HBM4E](../../glossary.md#hbm4e) retakes the capacity lead in 2027 [[S110]](../../sources/bibliography.md#s110).
 
 > [!WARNING]
 > **🐻 Bear view.** NVIDIA had to cut a launched spec while AMD did not [[S90006]](../../sources/bibliography.md#s90006); Samsung, the fastest-growing HBM supplier, is prioritising AMD [[S3512]](../../sources/bibliography.md#s3512); and CoWoS capacity may double by 2028 [[S3002]](../../sources/bibliography.md#s3002), eroding allocation as a moat just as Rubin Ultra reportedly shrinks to two dies [[S509]](../../sources/bibliography.md#s509).
 
 ## 🎯 Corp Dev Lens
 
-1. If allocation is the moat, which supply contracts (HBM [long-term agreements](../../glossary.md#long-term-agreement), CoWoS slots) must a challenger sign before launch to be credible to hyperscalers?
+1. If allocation is the moat, which supply contracts (HBM [long-term agreements](../../glossary.md#long-term-agreement), CoWoS slots) must a challenger sign before launch to be credible to [hyperscalers](../../glossary.md#hyperscaler)?
 2. Does the LPDDR route (AI200's 768 GB) cover enough capacity-bound inference to sustain a business outside the HBM queue?
 3. AMD's capacity lead came from choosing 12 stacks per package: what package-size and cost penalties does that carry, and would a partner accept them?
 4. Will Samsung's AMD priority survive if NVIDIA offers larger HBM4E volumes in 2027?

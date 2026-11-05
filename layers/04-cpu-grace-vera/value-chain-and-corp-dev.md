@@ -4,13 +4,13 @@
 
 ## ⚡ The Executive Take
 
-- **Inside an AI rack the CPU is a small line item:** 36 Vera CPUs cost an estimated ~$0.18M of a ~$7.8M Vera Rubin NVL72 rack (~2%), about 4.5 cents per GPU dollar (Est., Morgan Stanley) [[S331]](../../sources/bibliography.md#s331)[[S330]](../../sources/bibliography.md#s330).
+- **Inside an AI rack the CPU is a small line item:** 36 Vera CPUs cost an estimated ~$0.18M of a ~$7.8M Vera Rubin [NVL72](../../glossary.md#nvl72) rack (~2%), about 4.5 cents per GPU dollar (Est., Morgan Stanley) [[S331]](../../sources/bibliography.md#s331)[[S330]](../../sources/bibliography.md#s330).
 - **Its memory is not small:** the rack holds 54 TB of [LPDDR5X](../../glossary.md#lpddr5x), and Morgan Stanley's figures imply ~$1.1M (~14%) for the CPU-attached [SOCAMM](../../glossary.md#socamm) modules 🔴 [[S362]](../../sources/bibliography.md#s362)[[S332]](../../sources/bibliography.md#s332).
 - **Outside the rack the CPU is a large, contested pool:** AMD holds ~46% of x86 server CPU value, and NVIDIA reportedly sees ~$20B of standalone CPU revenue this fiscal year within a "$200B" opportunity 🟡 [[S4503]](../../sources/bibliography.md#s4503)[[S4522]](../../sources/bibliography.md#s4522).
 - **Arm's toll is rising:** analysts put royalties at ~1–3% of chip price for Armv8, ~2–5% for Armv9 and ~8–10% for [Compute Subsystems](../../glossary.md#compute-subsystem) (Est.) [[S4508]](../../sources/bibliography.md#s4508)[[S4509]](../../sources/bibliography.md#s4509); Arm's royalty revenue was $670M in the September 2026 quarter [[S4506]](../../sources/bibliography.md#s4506).
 - **Arm now also sells chips:** its 136-core AGI CPU (March 2026, Meta) competes with its own licensees [[S4510]](../../sources/bibliography.md#s4510).
 - **CPU teams change hands at $0.4B–$6.5B:** Annapurna, NUVIA, Ampere; Ventana and Rivos went undisclosed in 2025 [[S4540]](../../sources/bibliography.md#s4540)[[S4539]](../../sources/bibliography.md#s4539)[[S4530]](../../sources/bibliography.md#s4530)[[S4512]](../../sources/bibliography.md#s4512)[[S4518]](../../sources/bibliography.md#s4518).
-- **[Q8 · Value pools & M&A angles]** Three pools: rack attach (small dollars, high control), the general-purpose and agentic fleet (large dollars, contested), and the IP layer (Arm royalties, RISC-V cores, interconnect IP).
+- **[Q8 · Value pools & M&A angles]** Three pools: rack attach (small dollars, high control), the general-purpose and [agentic](../../glossary.md#agentic-ai) fleet (large dollars, contested), and the IP layer (Arm royalties, RISC-V cores, interconnect IP).
 
 ![Horizontal bar chart of an estimated $7.80M Vera Rubin NVL72 rack: 72 Rubin GPUs $3.96M, other content (NVSwitch trays, NICs, PCB, power, chassis) about $1.46M, LPDDR5X SOCAMM memory for the Vera CPUs about $1.10M (implied), HBM4 about $0.90M, 36 Vera CPUs $0.18M (about $5k each, 4.5 cents per GPU dollar), ODM margin $0.15M and cooling $0.06M.](../../assets/charts/04-vera-rubin-rack-cpu-share.svg)
 
@@ -99,8 +99,8 @@ See also [systems and racks](../08-systems-racks-ai-factories/index.md), [scale-
 1. In NVIDIA-attached racks the CPU silicon is ~2% of value but its memory ~14%: is the more attractive pool the CPU, the memory module, or the coherent interconnect IP that links them?
 2. Hyperscalers and Meta are buying CPU teams (Annapurna, Rivos) rather than CPUs; what does that imply for the exit options of independent Arm and RISC-V CPU start-ups?
 3. With Arm both raising royalties and selling its own AGI CPU, how should a licensee value an architecture licence versus a RISC-V hedge such as Ventana?
-4. NVLink Fusion lets partners sell CPUs into NVIDIA racks; on what economic terms (licence fees, chiplet purchases, certification) does NVIDIA capture value from that socket?
-5. If the agentic CPU pool is as large as NVIDIA claims, which assets (core teams, SerDes and chiplet IP, memory-module design) would be scarce first?
+4. [NVLink](../../glossary.md#nvlink) Fusion lets partners sell CPUs into NVIDIA racks; on what economic terms (licence fees, chiplet purchases, certification) does NVIDIA capture value from that socket?
+5. If the agentic CPU pool is as large as NVIDIA claims, which assets (core teams, [SerDes](../../glossary.md#serdes) and chiplet IP, memory-module design) would be scarce first?
 
 ## 📚 Sources
 

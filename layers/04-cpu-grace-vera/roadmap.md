@@ -8,8 +8,8 @@
 - **Standalone Vera is the new line:** NVIDIA called it a "multi-billion-dollar business" at GTC 2026, and Meta plans Vera-only servers after its Grace deployment 🟢 [[S90003]](../../sources/bibliography.md#s90003)[[S4519]](../../sources/bibliography.md#s4519).
 - **Next NVIDIA CPU:** Rosa, paired with Feynman in 2028, has no published specifications 🟡 [[S90004]](../../sources/bibliography.md#s90004)[[S109]](../../sources/bibliography.md#s109).
 - **[x86](../../glossary.md#x86) closes the bandwidth gap quickly:** EPYC Venice claims 1.6 TB/s in 2026 and Diamond Rapids is reported at ~2× Granite Rapids for mid-2027 🟡 [[S144]](../../sources/bibliography.md#s144)[[S4524]](../../sources/bibliography.md#s4524).
-- **One undated entrant:** Intel's NVLink x86 for NVIDIA has no public date 🔴 [[S468]](../../sources/bibliography.md#s468). Qualcomm's Oryon-based Dragonfly C1000 (> 250 cores) is now dated: first deployments H2 2028, Meta the first named customer 🟢 [[S90056]](../../sources/bibliography.md#s90056)[[S90058]](../../sources/bibliography.md#s90058).
-- **[Q7 · Roadmap & what changes the picture]** Watch NVLink Fusion CPUs shipping, CPU-per-GPU ratios in agentic racks, Arm's own silicon, and whether x86 gets a coherent link above PCIe speeds.
+- **One undated entrant:** Intel's [NVLink](../../glossary.md#nvlink) x86 for NVIDIA has no public date 🔴 [[S468]](../../sources/bibliography.md#s468). Qualcomm's Oryon-based Dragonfly C1000 (> 250 cores) is now dated: first deployments H2 2028, Meta the first named customer 🟢 [[S90056]](../../sources/bibliography.md#s90056)[[S90058]](../../sources/bibliography.md#s90058).
+- **[Q7 · Roadmap & what changes the picture]** Watch NVLink Fusion CPUs shipping, CPU-per-GPU ratios in [agentic](../../glossary.md#agentic-ai) racks, Arm's own silicon, and whether x86 gets a coherent link above [PCIe](../../glossary.md#pcie) speeds.
 
 ## The 2024–2028 roadmap
 
@@ -94,12 +94,12 @@ Peak memory bandwidth = channels × transfer rate × 8 bytes. Twelve channels of
 
 - **[NVLink Fusion](../../glossary.md#nvlink-fusion) CPUs ship.** Qualcomm and Fujitsu CPUs or Intel's NVLink x86 inside NVIDIA racks would turn a captive socket into a contested one 🔴 [[S90031]](../../sources/bibliography.md#s90031)[[S468]](../../sources/bibliography.md#s468). Arm added NVLink Fusion support to Neoverse in November 2025 [[S90036]](../../sources/bibliography.md#s90036).
 - **The CPU-per-GPU ratio rises.** TrendForce expects server CPU shipments to grow over 40% in 2027 as agentic AI adds CPU work 🟡 [[S4500]](../../sources/bibliography.md#s4500); Futurum reports Intel and AMD effectively sold out of high-core-count parts 🟡 [[S4546]](../../sources/bibliography.md#s4546).
-- **x86 gets a coherent fast link.** A CXL or UALink path well above PCIe Gen6's ~256 GB/s would erase Vera's main structural lead; AMD, Broadcom and Intel back UALink [[S90031]](../../sources/bibliography.md#s90031).
-- **Arm becomes a chip vendor.** Arm, which targeted half of hyperscaler CPU shipments by 2025 [[S4547]](../../sources/bibliography.md#s4547), now sells an AGI CPU reported to target ~$15B over five years 🟡, competing with its licensees [[S4510]](../../sources/bibliography.md#s4510)[[S4511]](../../sources/bibliography.md#s4511).
-- **Spec revisions.** NVIDIA cut Rubin's published HBM4 and NVLink 6 figures in late 2026 [[S90006]](../../sources/bibliography.md#s90006); Vera's published CPU specs have not changed, but buyers should model sustained, not launch, numbers.
+- **x86 gets a coherent fast link.** A CXL or [UALink](../../glossary.md#ualink) path well above PCIe Gen6's ~256 GB/s would erase Vera's main structural lead; AMD, Broadcom and Intel back UALink [[S90031]](../../sources/bibliography.md#s90031).
+- **Arm becomes a chip vendor.** Arm, which targeted half of [hyperscaler](../../glossary.md#hyperscaler) CPU shipments by 2025 [[S4547]](../../sources/bibliography.md#s4547), now sells an AGI CPU reported to target ~$15B over five years 🟡, competing with its licensees [[S4510]](../../sources/bibliography.md#s4510)[[S4511]](../../sources/bibliography.md#s4511).
+- **Spec revisions.** NVIDIA cut Rubin's published [HBM4](../../glossary.md#hbm4) and NVLink 6 figures in late 2026 [[S90006]](../../sources/bibliography.md#s90006); Vera's published CPU specs have not changed, but buyers should model sustained, not launch, numbers.
 
 > [!TIP]
-> **Worked example — what a gigawatt means for CPU volume.** At ~230 kW per Vera Rubin NVL72 rack (Max-P) [[S302]](../../sources/bibliography.md#s302), 1 GW of IT power is ~4,350 racks and ~157,000 Vera CPUs (36 per rack). At ~$5,000 each (Morgan Stanley) [[S331]](../../sources/bibliography.md#s331) that is ~$0.8B of CPU silicon per GW. If agentic workloads added one standalone CPU per GPU, CPU units per GW would roughly triple (from 0.5 to 1.5 per GPU) 🔴.
+> **Worked example — what a gigawatt means for CPU volume.** At ~230 kW per Vera Rubin [NVL72](../../glossary.md#nvl72) rack (Max-P) [[S302]](../../sources/bibliography.md#s302), 1 GW of IT power is ~4,350 racks and ~157,000 Vera CPUs (36 per rack). At ~$5,000 each (Morgan Stanley) [[S331]](../../sources/bibliography.md#s331) that is ~$0.8B of CPU silicon per GW. If agentic workloads added one standalone CPU per GPU, CPU units per GW would roughly triple (from 0.5 to 1.5 per GPU) 🔴.
 
 ## 🎯 Corp Dev Lens
 

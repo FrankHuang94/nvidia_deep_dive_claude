@@ -24,7 +24,7 @@
 | Frontier labs (OpenAI, Anthropic, xAI) | Funded by very large equity rounds | ~$30B, up to $10B, Series E stakes [[S13526]](../../sources/bibliography.md#s13526)[[S469]](../../sources/bibliography.md#s469)[[S13039]](../../sources/bibliography.md#s13039) |
 
 > [!TIP]
-> **Worked example — who earns what on a Vera Rubin NVL72 rack.** Morgan Stanley puts the rack at ~$7.8M, of which the 72 Rubin GPUs are ~$3.96M [[S332]](../../sources/bibliography.md#s332). NVIDIA's 75% gross margin on the GPU line alone is ~$3.0M of gross profit (illustrative; it also sells the rack's CPUs, switches and NICs). The ODM's ~1.9% rack margin is ~$0.15M (Est.) [[S332]](../../sources/bibliography.md#s332). NVIDIA earns roughly 20× the assembler on the same box.
+> **Worked example — who earns what on a Vera Rubin [NVL72](../../glossary.md#nvl72) rack.** Morgan Stanley puts the rack at ~$7.8M, of which the 72 Rubin GPUs are ~$3.96M [[S332]](../../sources/bibliography.md#s332). NVIDIA's 75% gross margin on the GPU line alone is ~$3.0M of gross profit (illustrative; it also sells the rack's CPUs, switches and NICs). The ODM's ~1.9% rack margin is ~$0.15M (Est.) [[S332]](../../sources/bibliography.md#s332). NVIDIA earns roughly 20× the assembler on the same box.
 
 ![Line chart of NVIDIA margins FY2016–FY2026: operating margin rose from 15% to 60% (peak 62% in FY2025), dipping to 16% in FY2023; net margin reached 56%; R&D fell from 27% to 9% of revenue.](../../assets/charts/13-operating-leverage.svg)
 
@@ -109,7 +109,7 @@ US merger notification covers acquisitions of voting shares or assets above size
 1. **Licence plus acquihire:** which inference, interconnect or compiler teams could be secured this way, and how should a buyer price the risk that agencies start treating the structure as a merger?
 2. **Strategic stakes in customers:** NVIDIA's stakes pay back ~2.6× in gross profit per gigawatt only if the capacity is built. What return would a smaller vendor need, and should it be in equity, warrants or prepaid capacity?
 3. **Sovereign partnerships:** when a sovereign fund supplies the capital, does the chip vendor still need a balance sheet, or only a credible roadmap and local partners?
-4. **Supplier capacity:** NVIDIA now buys optics capacity with equity. Which components (lasers, HBM, substrates) are scarce enough that a stake beats a long-term agreement?
+4. **Supplier capacity:** NVIDIA now buys optics capacity with equity. Which components (lasers, [HBM](../../glossary.md#hbm), substrates) are scarce enough that a stake beats a long-term agreement?
 
 ## 📚 Sources
 

@@ -40,7 +40,7 @@ NVIDIA's first orchestration software ran customers' own DGX SuperPODs; Bright C
 | 2026-10 | Open-source the full Run:ai platform | Commoditizes orchestration; Crusoe and Nebius adopt it | [[S12510]](../../sources/bibliography.md#s12510)[[S12512]](../../sources/bibliography.md#s12512) |
 
 > [!TIP]
-> **Worked example — why NVIDIA stopped selling DGX Cloud head-on.** The launch price of $36,999 per 8-GPU instance-month is ~$6.33 per GPU-hour [[S12007]](../../sources/bibliography.md#s12007). NVIDIA rented that capacity from Oracle, Microsoft and Google and resold it against them. Hyperscalers bought ~$48.7B of NVIDIA's $89.0B Q2 FY2027 Data Center revenue 🟡 [[S406]](../../sources/bibliography.md#s406)[[S405]](../../sources/bibliography.md#s405). Competing with buyers of more than half your core revenue is a poor trade, so DGX Cloud became an internal resource and Lepton a traffic router 🟡 [[S90068]](../../sources/bibliography.md#s90068).
+> **Worked example — why NVIDIA stopped selling DGX Cloud head-on.** The launch price of $36,999 per 8-GPU instance-month is ~$6.33 per [GPU-hour](../../glossary.md#gpu-hour) [[S12007]](../../sources/bibliography.md#s12007). NVIDIA rented that capacity from Oracle, Microsoft and Google and resold it against them. [Hyperscalers](../../glossary.md#hyperscaler) bought ~$48.7B of NVIDIA's $89.0B Q2 FY2027 Data Center revenue 🟡 [[S406]](../../sources/bibliography.md#s406)[[S405]](../../sources/bibliography.md#s405). Competing with buyers of more than half your core revenue is a poor trade, so DGX Cloud became an internal resource and Lepton a traffic router 🟡 [[S90068]](../../sources/bibliography.md#s90068).
 
 ## The CoreWeave relationship (2020 → 2026)
 
@@ -70,7 +70,7 @@ flowchart LR
 ```
 
 1. **Allocation.** When demand exceeds supply, whoever gets GPUs first wins customers; NVIDIA's FY2028 outlook is supply-constrained and new H100 capacity was booked through September 2026 🟡 [[S90012]](../../sources/bibliography.md#s90012)[[S12516]](../../sources/bibliography.md#s12516).
-2. **Ecosystem.** Lepton, Dynamo and open Run:ai make a new neocloud credible on day one; Dynamo 1.0 adopters include CoreWeave, Nebius and Together AI [[S12009]](../../sources/bibliography.md#s12009)[[S90066]](../../sources/bibliography.md#s90066)[[S12510]](../../sources/bibliography.md#s12510).
+2. **Ecosystem.** Lepton, [Dynamo](../../glossary.md#dynamo) and open Run:ai make a new [neocloud](../../glossary.md#neocloud) credible on day one; Dynamo 1.0 adopters include CoreWeave, Nebius and Together AI [[S12009]](../../sources/bibliography.md#s12009)[[S90066]](../../sources/bibliography.md#s90066)[[S12510]](../../sources/bibliography.md#s12510).
 3. **Equity and credit.** NVIDIA's support lowers its buyers' cost of capital: its 10-Q lists $36B of AI-cloud capacity agreements and $29B of cloud service agreements [[S407]](../../sources/bibliography.md#s407).
 
 > [!TIP]
@@ -92,7 +92,7 @@ flowchart LR
 
 ## Counterfactuals — what if NVIDIA hadn't…
 
-- 🔴 **…retreated from DGX Cloud and become a full public cloud?** A 1 GW AI factory costs ~$50–60B all-in, ~$35B of it NVIDIA content [[S398]](../../sources/bibliography.md#s398). NVIDIA would have financed that capex itself, diluted its ~75% gross margin and competed with buyers of ~55% of its Data Center output [[S405]](../../sources/bibliography.md#s405)[[S406]](../../sources/bibliography.md#s406). Likely result: faster hyperscaler ASIC adoption.
+- 🔴 **…retreated from DGX Cloud and become a full public cloud?** A 1 GW AI factory costs ~$50–60B all-in, ~$35B of it NVIDIA content [[S398]](../../sources/bibliography.md#s398). NVIDIA would have financed that capex itself, diluted its ~75% gross margin and competed with buyers of ~55% of its Data Center output [[S405]](../../sources/bibliography.md#s405)[[S406]](../../sources/bibliography.md#s406). Likely result: faster hyperscaler [ASIC](../../glossary.md#asic) adoption.
 - 🔴 **…not backed neoclouds?** The non-hyperscale ACIE segment (~$40.3B in Q2 FY2027) would be smaller and hyperscaler bargaining power larger [[S406]](../../sources/bibliography.md#s406). CoreWeave's debt would cost more and it would grow more slowly.
 - 🔴 **…let a hyperscaler buy SchedMD or Run:ai?** The default training job queue would favour that owner's chips [[S12000]](../../sources/bibliography.md#s12000)[[S476]](../../sources/bibliography.md#s476).
 

@@ -4,10 +4,10 @@
 
 ## ⚡ The Executive Take
 
-- **NVIDIA bought this layer, then sped it up.** ConnectX came with Mellanox ($6.9B, announced 2019-03-11, closed 2020-04-27); per-port speed rose from 56 Gb/s (ConnectX-3, 2011) to 1.6 Tb/s (ConnectX-9, 2026) [[S464]](../../sources/bibliography.md#s464)[[S273]](../../sources/bibliography.md#s273)[[S33004]](../../sources/bibliography.md#s33004).
-- **The [DPU](../../glossary.md#dpu) was bought too:** EZchip bought Tilera (2014, up to $130M), Mellanox bought EZchip ($811M, 2016) and unveiled BlueField months later [[S7510]](../../sources/bibliography.md#s7510)[[S7507]](../../sources/bibliography.md#s7507)[[S7509]](../../sources/bibliography.md#s7509).
+- **NVIDIA bought this layer, then sped it up.** [ConnectX](../../glossary.md#connectx) came with Mellanox ($6.9B, announced 2019-03-11, closed 2020-04-27); per-port speed rose from 56 Gb/s (ConnectX-3, 2011) to 1.6 Tb/s (ConnectX-9, 2026) [[S464]](../../sources/bibliography.md#s464)[[S273]](../../sources/bibliography.md#s273)[[S33004]](../../sources/bibliography.md#s33004).
+- **The [DPU](../../glossary.md#dpu) was bought too:** EZchip bought Tilera (2014, up to $130M), Mellanox bought EZchip ($811M, 2016) and unveiled [BlueField](../../glossary.md#bluefield) months later [[S7510]](../../sources/bibliography.md#s7510)[[S7507]](../../sources/bibliography.md#s7507)[[S7509]](../../sources/bibliography.md#s7509).
 - **Within six months of closing, NVIDIA launched BlueField-2 and the [DOCA](../../glossary.md#doca) software kit** (2020-10-05) [[S270]](../../sources/bibliography.md#s270).
-- **2023 recast the NIC as a GPU part:** Spectrum-X paired the Spectrum-4 switch with a BlueField-3 [SuperNIC](../../glossary.md#supernic) [[S271]](../../sources/bibliography.md#s271); BlueField-4 (October 2025) fuses a 64-core Grace with ConnectX-9 and points the DPU at storage [[S272]](../../sources/bibliography.md#s272)[[S512]](../../sources/bibliography.md#s512)[[S7511]](../../sources/bibliography.md#s7511).
+- **2023 recast the [NIC](../../glossary.md#nic) as a GPU part:** [Spectrum-X](../../glossary.md#spectrum-x) paired the Spectrum-4 switch with a BlueField-3 [SuperNIC](../../glossary.md#supernic) [[S271]](../../sources/bibliography.md#s271); BlueField-4 (October 2025) fuses a 64-core Grace with ConnectX-9 and points the DPU at storage [[S272]](../../sources/bibliography.md#s272)[[S512]](../../sources/bibliography.md#s512)[[S7511]](../../sources/bibliography.md#s7511).
 - **The payoff:** networking hit a record ~$17.5B in Q2 FY2027, ~2.5× the Mellanox price in one quarter [[S90012]](../../sources/bibliography.md#s90012)[[S464]](../../sources/bibliography.md#s464).
 - **[Q4]** The edge is attach and co-design (one NIC per GPU in NVIDIA's racks, tuned with its switches and libraries) more than NIC silicon, which rivals now copy within a year.
 - **[Q6]** Est. 🔴: ~3–4 years and ~$0.5–1B for a merchant 800G AI NIC; 5–7 years and ~$1.5–3B for a DPU franchise; a Mellanox-style franchise cannot be bought again.
@@ -64,7 +64,7 @@ flowchart LR
   class B,C nvidia
 ```
 
-**Answer:** attach and co-design first, then speed. NIC silicon alone is not the moat: Broadcom sampled an 800G NIC the year ConnectX-8 shipped and AMD shipped one a year later [[S7529]](../../sources/bibliography.md#s7529)[[S7500]](../../sources/bibliography.md#s7500). What rivals cannot copy is the rack: NVIDIA specifies one ConnectX per GPU in HGX and NVL72, tunes its libraries and switches against it, and makes Spectrum-X adaptive routing depend on the SuperNIC reordering packets [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264)[[S271]](../../sources/bibliography.md#s271). Where it does not design the server, the NIC goes to in-house silicon ([competition](competition.md)).
+**Answer:** attach and co-design first, then speed. NIC silicon alone is not the moat: Broadcom sampled an 800G NIC the year ConnectX-8 shipped and AMD shipped one a year later [[S7529]](../../sources/bibliography.md#s7529)[[S7500]](../../sources/bibliography.md#s7500). What rivals cannot copy is the rack: NVIDIA specifies one ConnectX per GPU in [HGX](../../glossary.md#hgx) and [NVL72](../../glossary.md#nvl72), tunes its libraries and switches against it, and makes Spectrum-X adaptive routing depend on the SuperNIC reordering packets [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264)[[S271]](../../sources/bibliography.md#s271). Where it does not design the server, the NIC goes to in-house silicon ([competition](competition.md)).
 
 > [!TIP]
 > **Worked example — attach turns GPUs into NIC volume.** A Vera Rubin NVL72 carries 72 GPUs and so 72 ConnectX-9 SuperNICs [[S33004]](../../sources/bibliography.md#s33004). Every 1,000 racks is 72,000 NICs; at an assumed $2,500–4,500 each (Est., repo 🔴) that is $180–324M of NIC silicon no merchant vendor got to bid for.
@@ -83,7 +83,7 @@ Amazon's Annapurna deal (January 2015) led to the Nitro System ~3 years later an
 | NIC + DPU + switch co-design at 1:1 GPU attach | 10+ years, plus a GPU platform | Mellanox $6.9B plus a decade of R&D [[S464]](../../sources/bibliography.md#s464) | Thousands of RDMA veterans |
 
 > [!TIP]
-> **Worked example — build cost of an 800G AI NIC team.** 300 engineers at ~$0.35M loaded cost for 4 years is ~$0.42B before tape-outs (Est., repo 🔴); two 3–5 nm tape-outs and IP licences take it to ~$0.5–1B. Pensando cost $1.9B because it came with products and customers [[S7527]](../../sources/bibliography.md#s7527); Enfabrica's team and licence cost NVIDIA >$900M without a volume product [[S475]](../../sources/bibliography.md#s475). The scarce input is transport and SerDes talent, not cash.
+> **Worked example — build cost of an 800G AI NIC team.** 300 engineers at ~$0.35M loaded cost for 4 years is ~$0.42B before tape-outs (Est., repo 🔴); two 3–5 nm tape-outs and IP licences take it to ~$0.5–1B. Pensando cost $1.9B because it came with products and customers [[S7527]](../../sources/bibliography.md#s7527); Enfabrica's team and licence cost NVIDIA >$900M without a volume product [[S475]](../../sources/bibliography.md#s475). The scarce input is transport and [SerDes](../../glossary.md#serdes) talent, not cash.
 
 <details>
 <summary>🔧 Under the hood: why a DPU needed a CPU acquisition</summary>
@@ -95,18 +95,18 @@ A DPU, unlike a NIC, runs software: a virtual switch, storage protocols, encrypt
 ## Counterfactuals — what if NVIDIA hadn't…
 
 - 🔴 **…bought Mellanox?** NVIDIA would attach third-party NICs, as AMD did before Pensando: no Spectrum-X, no 1:1 SuperNIC attach, no BlueField storage play, and the ~$17.5B-a-quarter networking line split among Mellanox's eventual owner, Broadcom and others [[S90012]](../../sources/bibliography.md#s90012).
-- 🔴 **…lost the hyperscalers to in-house DPUs?** It did: AWS (Annapurna), Microsoft (Fungible) and Google (Titanium, with Intel) chose their own cards [[S4540]](../../sources/bibliography.md#s4540)[[S7504]](../../sources/bibliography.md#s7504)[[S7520]](../../sources/bibliography.md#s7520). Standardising on BlueField would have put their cloud security in NVIDIA's firmware, which is why they did not.
+- 🔴 **…lost the [hyperscalers](../../glossary.md#hyperscaler) to in-house DPUs?** It did: AWS (Annapurna), Microsoft (Fungible) and Google (Titanium, with Intel) chose their own cards [[S4540]](../../sources/bibliography.md#s4540)[[S7504]](../../sources/bibliography.md#s7504)[[S7520]](../../sources/bibliography.md#s7520). Standardising on BlueField would have put their cloud security in NVIDIA's firmware, which is why they did not.
 - 🔴 **…moved into Ethernet?** Ethernet went from ~20% of AI back-end switch sales to about two-thirds by 1Q 2026 (Dell'Oro); an InfiniBand-only NVIDIA would have watched most back-end NIC sockets go to Broadcom and AMD [[S90053]](../../sources/bibliography.md#s90053)[[S90054]](../../sources/bibliography.md#s90054).
 
 > [!TIP]
-> **Worked example — the cost of an InfiniBand-only strategy.** With InfiniBand down from ~80% to ~33% of AI back-end switch sales, an InfiniBand-only NVIDIA would reach at most a third of back-end ports and their NICs [[S90053]](../../sources/bibliography.md#s90053)[[S90054]](../../sources/bibliography.md#s90054). Spectrum-X (up 2.6× y/y in Q2 FY2027) kept the rest in reach [[S90012]](../../sources/bibliography.md#s90012).
+> **Worked example — the cost of an InfiniBand-only strategy.** With [InfiniBand](../../glossary.md#infiniband) down from ~80% to ~33% of AI back-end switch sales, an InfiniBand-only NVIDIA would reach at most a third of back-end ports and their NICs [[S90053]](../../sources/bibliography.md#s90053)[[S90054]](../../sources/bibliography.md#s90054). Spectrum-X (up 2.6× y/y in Q2 FY2027) kept the rest in reach [[S90012]](../../sources/bibliography.md#s90012).
 
 ## 🎯 Corp Dev Lens
 
 1. Every DPU franchise was bought (Annapurna, EZchip, Pensando, Fungible): which teams are left, and does scarce RDMA talent make the next one dearer than Pensando's $1.9B?
 2. Mellanox paid off because NVIDIA attached the NIC to the GPU; can a NIC or DPU business succeed without an accelerator or cloud fleet to attach to?
 3. BlueField's pivot to storage creates an attach point in storage servers: defensible pool, or a feature storage vendors rebuild on merchant silicon?
-4. For an accelerator entrant, is it cheaper to buy a NIC team, license IP (as NVIDIA did with Enfabrica) or partner with a UEC merchant?
+4. For an accelerator entrant, is it cheaper to buy a NIC team, license IP (as NVIDIA did with Enfabrica) or partner with a [UEC](../../glossary.md#ultra-ethernet) merchant?
 
 ## 📚 Sources
 

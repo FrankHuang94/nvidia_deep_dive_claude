@@ -9,7 +9,7 @@
 - **NVIDIA's own commitments run longer still.** The CoreWeave [capacity backstop](../../glossary.md#capacity-backstop) lasts to 2032-04-13, and the financing platforms announced in August 2026 are memoranda of understanding awaiting final agreements 🟡 [[S90067]](../../sources/bibliography.md#s90067)[[S12528]](../../sources/bibliography.md#s12528).
 - **Regulators have open files.** China's SAMR issued a preliminary finding in September 2025 that NVIDIA breached its Mellanox approval conditions; the US DOJ opened a probe in 2024; neither has a public 2026 resolution 🔴 [[S9505]](../../sources/bibliography.md#s9505)[[S9503]](../../sources/bibliography.md#s9503)[[S9504]](../../sources/bibliography.md#s9504).
 - **The portfolio now moves earnings.** NVIDIA booked $23.7B of net equity gains in H1 FY2027, largely [mark-to-market](../../glossary.md#mark-to-market); they can reverse [[S90072]](../../sources/bibliography.md#s90072).
-- **[Q7 · Roadmap & what changes the picture]** Three things would change it: antitrust action against investments-for-allocation, a turn in the hyperscaler capex cycle, and write-downs on private stakes.
+- **[Q7 · Roadmap & what changes the picture]** Three things would change it: antitrust action against investments-for-allocation, a turn in the [hyperscaler](../../glossary.md#hyperscaler) capex cycle, and write-downs on private stakes.
 
 ```mermaid
 gantt
@@ -79,13 +79,13 @@ Private stakes appear as non-marketable equity securities, measured at cost and 
 **2. A turn in the capex cycle.** NVIDIA guided Q3 FY2027 revenue to $108B ± 2%, excluding China Data Center compute [[S3]](../../sources/bibliography.md#s3).
 
 > [!TIP]
-> **Worked example — how much a hyperscaler pause would remove.** Hyperscale customers bought ~$48.7B of NVIDIA's $89.0B Q2 FY2027 Data Center revenue [[S90011]](../../sources/bibliography.md#s90011)[[S405]](../../sources/bibliography.md#s405). A 20% cut in their NVIDIA spend removes ~$9.7B a quarter, close to the entire ~$11.8B step-up NVIDIA guided from Q2 ($96.2B) to Q3 ($108B) [[S405]](../../sources/bibliography.md#s405)[[S3]](../../sources/bibliography.md#s3). Neocloud and sovereign buyers cushion that, but NVIDIA has financed many of them.
+> **Worked example — how much a hyperscaler pause would remove.** Hyperscale customers bought ~$48.7B of NVIDIA's $89.0B Q2 FY2027 Data Center revenue [[S90011]](../../sources/bibliography.md#s90011)[[S405]](../../sources/bibliography.md#s405). A 20% cut in their NVIDIA spend removes ~$9.7B a quarter, close to the entire ~$11.8B step-up NVIDIA guided from Q2 ($96.2B) to Q3 ($108B) [[S405]](../../sources/bibliography.md#s405)[[S3]](../../sources/bibliography.md#s3). [Neocloud](../../glossary.md#neocloud) and sovereign buyers cushion that, but NVIDIA has financed many of them.
 
 ![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B in their first 2026 guides (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint), since raised to about $558B by October 2026; Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
 
 **3. Mark-to-market losses.** H1 FY2027's $23.7B of net equity gains flattered other income; a reversal would hit earnings just as customers' funding tightens [[S90072]](../../sources/bibliography.md#s90072).
 
-**4. Custom silicon delivering.** SemiAnalysis rates OpenAI's Broadcom-built inference chip as competitive with Blackwell on performance per TCO 🟡 [[S628]](../../sources/bibliography.md#s628). If it ships on time, the coalition's case strengthens with every frontier lab.
+**4. Custom silicon delivering.** SemiAnalysis rates OpenAI's Broadcom-built inference chip as competitive with Blackwell on performance per [TCO](../../glossary.md#tco) 🟡 [[S628]](../../sources/bibliography.md#s628). If it ships on time, the coalition's case strengthens with every frontier lab.
 
 **5. What would help NVIDIA.** Final agreements on the >$500B financing platforms would shift funding risk to third parties [[S12528]](../../sources/bibliography.md#s12528); 16 straight quarters of beating its own guidance (chart below) help with financiers.
 

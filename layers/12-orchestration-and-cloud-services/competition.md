@@ -44,7 +44,7 @@ A 1,024-GPU job must start on all GPUs at once ([gang scheduling](../../glossary
 
 **[Q5 · Strongest challenger]** AWS, Google and Microsoft are NVIDIA's largest customers (hyperscale was ~$48.7B of $89.0B Q2 FY2027 Data Center revenue 🟡) and its most complete rivals [[S406]](../../sources/bibliography.md#s406)[[S405]](../../sources/bibliography.md#s405):
 
-- **AWS:** Trainium3 GA (December 2025); Trainium4 will support NVLink Fusion; ~500k Trainium2 in Project Rainier [[S90034]](../../sources/bibliography.md#s90034)[[S90035]](../../sources/bibliography.md#s90035).
+- **AWS:** Trainium3 GA (December 2025); Trainium4 will support [NVLink](../../glossary.md#nvlink) Fusion; ~500k Trainium2 in Project Rainier [[S90034]](../../sources/bibliography.md#s90034)[[S90035]](../../sources/bibliography.md#s90035).
 - **Google:** up to 1M TPUs (>1 GW in 2026) for Anthropic, a TPU rental to Meta, and TPUs sold into customer data centers 🟡 [[S90026]](../../sources/bibliography.md#s90026)[[S90025]](../../sources/bibliography.md#s90025)[[S90027]](../../sources/bibliography.md#s90027).
 - **Microsoft:** Maia 200 runs Copilot; Maia 300 and multi-gigawatt plans from 2027 🟡 [[S90044]](../../sources/bibliography.md#s90044)[[S90046]](../../sources/bibliography.md#s90046)[[S90045]](../../sources/bibliography.md#s90045).
 
@@ -63,11 +63,11 @@ CoreWeave grew from ~360 MW active power at end-2024 to ~1.5 GW at mid-2026 [[S1
 
 ### Open-source schedulers
 
-Kueue adds queues, fair sharing, gang and topology-aware scheduling to Kubernetes [[S12533]](../../sources/bibliography.md#s12533). Ray (Anyscale) scales Python AI code on any cluster [[S12535]](../../sources/bibliography.md#s12535). SkyPilot spans Kubernetes, Slurm and 20+ clouds and claims a 14% NVL72 training gain (vendor claim) [[S12534]](../../sources/bibliography.md#s12534). They lead on neutrality and are free. NVIDIA joined rather than fought: KAI Scheduler is a CNCF sandbox project, and Crusoe, Nebius and six others are adopting open Run:ai [[S12002]](../../sources/bibliography.md#s12002)[[S12512]](../../sources/bibliography.md#s12512).
+Kueue adds queues, fair sharing, gang and topology-aware scheduling to Kubernetes [[S12533]](../../sources/bibliography.md#s12533). Ray (Anyscale) scales Python AI code on any cluster [[S12535]](../../sources/bibliography.md#s12535). SkyPilot spans Kubernetes, Slurm and 20+ clouds and claims a 14% [NVL72](../../glossary.md#nvl72) training gain (vendor claim) [[S12534]](../../sources/bibliography.md#s12534). They lead on neutrality and are free. NVIDIA joined rather than fought: KAI Scheduler is a CNCF sandbox project, and Crusoe, Nebius and six others are adopting open Run:ai [[S12002]](../../sources/bibliography.md#s12002)[[S12512]](../../sources/bibliography.md#s12512).
 
 ### GPU marketplaces
 
-Lepton launched with ten partner clouds and added Mistral, Nscale, Fluidstack and Together AI in June 2025 [[S12009]](../../sources/bibliography.md#s12009)[[S12008]](../../sources/bibliography.md#s12008). [GPU marketplaces](../../glossary.md#gpu-marketplace) such as Vast.ai and SF Compute, and brokers such as SkyPilot's GPU Compass, compete on price [[S12534]](../../sources/bibliography.md#s12534). Silicon Data, whose H100 index rose from $2.00 to $2.20 per GPU-hour in four weeks, is partnering with CME Group on compute futures 🟡 [[S12517]](../../sources/bibliography.md#s12517).
+Lepton launched with ten partner clouds and added Mistral, Nscale, Fluidstack and Together AI in June 2025 [[S12009]](../../sources/bibliography.md#s12009)[[S12008]](../../sources/bibliography.md#s12008). [GPU marketplaces](../../glossary.md#gpu-marketplace) such as Vast.ai and SF Compute, and brokers such as SkyPilot's GPU Compass, compete on price [[S12534]](../../sources/bibliography.md#s12534). Silicon Data, whose H100 index rose from $2.00 to $2.20 per [GPU-hour](../../glossary.md#gpu-hour) in four weeks, is partnering with CME Group on compute futures 🟡 [[S12517]](../../sources/bibliography.md#s12517).
 
 
 ### Positioning
@@ -100,7 +100,7 @@ quadrantChart
 > **🐂 Bull view.** NVIDIA need not win layer 12 outright. Non-hyperscale buyers (neoclouds, sovereign, enterprise) were ~$40.3B of Q2 FY2027 Data Center revenue, and regional neoclouds grew more than 3× y/y 🟡 [[S406]](../../sources/bibliography.md#s406)[[S90071]](../../sources/bibliography.md#s90071). Open-sourcing the orchestration stack makes every cloud easier to run on NVIDIA.
 
 > [!WARNING]
-> **🐻 Bear view.** Customer ownership is the scarce asset here, and NVIDIA has the least of it. TPUs are now sold beyond Google, Trainium4 will speak NVLink Fusion, and hyperscalers decide which chip sits behind an API [[S90027]](../../sources/bibliography.md#s90027)[[S90034]](../../sources/bibliography.md#s90034). If neocloud financing tightens, NVIDIA's remaining channel narrows to the very buyers building alternatives.
+> **🐻 Bear view.** Customer ownership is the scarce asset here, and NVIDIA has the least of it. TPUs are now sold beyond Google, Trainium4 will speak [NVLink Fusion](../../glossary.md#nvlink-fusion), and hyperscalers decide which chip sits behind an API [[S90027]](../../sources/bibliography.md#s90027)[[S90034]](../../sources/bibliography.md#s90034). If neocloud financing tightens, NVIDIA's remaining channel narrows to the very buyers building alternatives.
 
 ## 🎯 Corp Dev Lens
 

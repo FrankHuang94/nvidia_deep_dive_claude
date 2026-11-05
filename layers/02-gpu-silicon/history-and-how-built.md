@@ -7,9 +7,9 @@
 - **Twenty-seven years, one compounding bet.** NVIDIA marketed the GeForce 256 (1999) as the first GPU [[S2502]](../../sources/bibliography.md#s2502);
   the G80 (2006) made it programmable with [CUDA](../../glossary.md#cuda) [[S2503]](../../sources/bibliography.md#s2503); Rubin (2026) packs 336B transistors on
   two dies [[S100]](../../sources/bibliography.md#s100).
-- **Three hardware bets defined the AI era:** HBM2 and NVLink on P100 (2016) [[S125]](../../sources/bibliography.md#s125),
+- **Three hardware bets defined the AI era:** HBM2 and [NVLink](../../glossary.md#nvlink) on P100 (2016) [[S125]](../../sources/bibliography.md#s125),
   [tensor cores](../../glossary.md#tensor-core) on V100 (2017; 8× its FP32 throughput on matrix math) [[S126]](../../sources/bibliography.md#s126), and ever lower
-  precision, from FP8 (2022) to [NVFP4](../../glossary.md#nvfp4) (2025) [[S35011]](../../sources/bibliography.md#s35011)[[S32017]](../../sources/bibliography.md#s32017).
+  precision, from [FP8](../../glossary.md#fp8) (2022) to [NVFP4](../../glossary.md#nvfp4) (2025) [[S35011]](../../sources/bibliography.md#s35011)[[S32017]](../../sources/bibliography.md#s32017).
 - **Since 2024 NVIDIA scales by adding dies and shortening the cycle:** two reticle-sized dies in Blackwell
   [[S35014]](../../sources/bibliography.md#s35014) and ~11 months between generations, down from ~29 [[S33020]](../../sources/bibliography.md#s33020)[[S100]](../../sources/bibliography.md#s100).
 - **[Q4 · Source of advantage]** No longer the silicon itself (AMD's MI455X out-specs Rubin on paper [[S144]](../../sources/bibliography.md#s144)), but
@@ -78,7 +78,7 @@ GB, 23.3 vs 19.2 TB/s [[S144]](../../sources/bibliography.md#s144)[[S90093]](../
 
 > [!TIP]
 > **Worked example — why NVFP4 is a co-design win, not a transistor win.** From Blackwell to Rubin, transistors
-> rose 1.6× (208B → 336B) [[S35014]](../../sources/bibliography.md#s35014)[[S100]](../../sources/bibliography.md#s100). Within Rubin, BF16 runs at 4 PFLOPS, FP8 at 17.5 and NVFP4 at 35 dense
+> rose 1.6× (208B → 336B) [[S35014]](../../sources/bibliography.md#s35014)[[S100]](../../sources/bibliography.md#s100). Within Rubin, [BF16](../../glossary.md#bf16) runs at 4 [PFLOPS](../../glossary.md#flops), FP8 at 17.5 and NVFP4 at 35 dense
 > [[S33005]](../../sources/bibliography.md#s33005)[[S100]](../../sources/bibliography.md#s100): an **8.75× gain from number formats** on one chip. It pays only if models keep accuracy at 4
 > bits (NVFP4 stores one FP8 scale per 16 values [[S32017]](../../sources/bibliography.md#s32017)) and if kernels and serving engines support it on day
 > one. That is software, where the moat now lives.
@@ -112,8 +112,8 @@ high [[S2501]](../../sources/bibliography.md#s2501)[[S2500]](../../sources/bibli
 <summary>🔧 Under the hood: why talent, not money, binds</summary>
 
 - **Teams compound.** NVIDIA had ~42,000 employees at FY2026 year-end, ~31,000 in R&D, with 3.7% turnover [[S401]](../../sources/bibliography.md#s401).
-- **Design partners rent out talent.** Broadcom, Marvell, MediaTek and Alchip supply physical design, SerDes and
-  packaging teams, so hyperscalers skip part of the hiring curve (see [value chain](value-chain-and-corp-dev.md)).
+- **Design partners rent out talent.** Broadcom, Marvell, MediaTek and Alchip supply physical design, [SerDes](../../glossary.md#serdes) and
+  packaging teams, so [hyperscalers](../../glossary.md#hyperscaler) skip part of the hiring curve (see [value chain](value-chain-and-corp-dev.md)).
 - **Acquired teams leak.** Habana ran alongside a rival Intel GPU roadmap and never cracked CUDA [[S2515]](../../sources/bibliography.md#s2515).
 
 </details>
@@ -140,9 +140,9 @@ All analysis below is the repo's (🔴 Speculative).
    compiler teams, packaging know-how or memory partnerships?
 2. Design partners sell hard-to-hire talent by the project. Is that a better route than buying a start-up team,
    given Intel's Habana experience?
-3. NVIDIA paid ~$20B to license Groq rather than build an SRAM decode chip. What does that price say about the
+3. NVIDIA paid ~$20B to license Groq rather than build an [SRAM](../../glossary.md#sram) [decode](../../glossary.md#decode) chip. What does that price say about the
    value of proven alternative architectures to the incumbent?
-4. Each new number format shifted value to whoever controlled the software at launch. Which transition (HBM4E,
+4. Each new number format shifted value to whoever controlled the software at launch. Which transition ([HBM4E](../../glossary.md#hbm4e),
    near-memory compute) could reset that advantage?
 
 ## 📚 Sources

@@ -6,8 +6,8 @@
 
 - **A GPU is a hierarchy of copies:** Rubin has 8 [GPCs](../../glossary.md#gpc) holding 224 [SMs](../../glossary.md#streaming-multiprocessor), each with four [tensor cores](../../glossary.md#tensor-core) (896 in total), split across two dies [[S2000]](../../sources/bibliography.md#s2000)[[S2001]](../../sources/bibliography.md#s2001)[[S2025]](../../sources/bibliography.md#s2025).
 - **Tensor cores do the matrix math; [CUDA cores](../../glossary.md#cuda-core) do the rest.** The 16-bit matrix rate per SM doubled every generation from V100 to H100, from 1,024 to 4,096 FLOPs per clock [[S126]](../../sources/bibliography.md#s126)[[S127]](../../sources/bibliography.md#s127)[[S2023]](../../sources/bibliography.md#s2023).
-- **Since H100, 16-bit throughput per SM rose only ~2.4×, while FP8/FP4 per SM rose ~10×:** new tensor-core silicon goes to narrow formats (Rubin: 17.9 vs 156 dense TFLOPS per SM, repo arithmetic) [[S33005]](../../sources/bibliography.md#s33005)[[S100]](../../sources/bibliography.md#s100)[[S2000]](../../sources/bibliography.md#s2000).
-- **The [Transformer Engine](../../glossary.md#transformer-engine)** chooses formats and scale factors so models survive FP8 (Hopper), FP4 (Blackwell) and Rubin's adaptive compression [[S2024]](../../sources/bibliography.md#s2024)[[S2000]](../../sources/bibliography.md#s2000).
+- **Since H100, 16-bit throughput per SM rose only ~2.4×, while [FP8](../../glossary.md#fp8)/FP4 per SM rose ~10×:** new tensor-core silicon goes to narrow formats (Rubin: 17.9 vs 156 dense TFLOPS per SM, repo arithmetic) [[S33005]](../../sources/bibliography.md#s33005)[[S100]](../../sources/bibliography.md#s100)[[S2000]](../../sources/bibliography.md#s2000).
+- **The [Transformer Engine](../../glossary.md#transformer-engine)** chooses formats and scale factors so models survive FP8 (Hopper), [FP4](../../glossary.md#fp4) (Blackwell) and Rubin's adaptive compression [[S2024]](../../sources/bibliography.md#s2024)[[S2000]](../../sources/bibliography.md#s2000).
 - **Memory is a ladder:** on H100, registers move data ~110× faster than HBM but hold ~2,400× less (Est.) [[S2021]](../../sources/bibliography.md#s2021); B200's [L2](../../glossary.md#l2-cache) grew to 126 MB at ~21 TB/s measured [[S2004]](../../sources/bibliography.md#s2004).
 - **Compute has outrun memory:** since V100, peak compute rose ~280× but HBM bandwidth only ~21× [[S33010]](../../sources/bibliography.md#s33010)[[S33007]](../../sources/bibliography.md#s33007), so on-chip reuse decides real-world speed.
 
@@ -16,7 +16,7 @@
 ## SMs, CUDA cores and tensor cores
 
 Picture a factory campus: the GPC is a building, the SM a production line, and the tensor core the
-press that stamps out a small matrix multiply every clock. CUDA cores are the general workers for
+press that stamps out a small matrix multiply every clock. [CUDA](../../glossary.md#cuda) cores are the general workers for
 everything that is not a matrix.
 
 ```mermaid
@@ -35,7 +35,7 @@ flowchart LR
 
 > [!TIP]
 > **Worked example — rebuilding a datasheet number from the parts.** An H100 SM does 8,192 FP8 FLOPs
-> per clock (twice its 4,096 at BF16) [[S2023]](../../sources/bibliography.md#s2023). 8,192 × 132 SMs × ~1.83 GHz = **1.98 PFLOPS**, exactly
+> per clock (twice its 4,096 at [BF16](../../glossary.md#bf16)) [[S2023]](../../sources/bibliography.md#s2023). 8,192 × 132 SMs × ~1.83 GHz = **1.98 [PFLOPS](../../glossary.md#flops)**, exactly
 > the dense FP8 figure on the datasheet [[S33002]](../../sources/bibliography.md#s33002). Run the same arithmetic backwards on Rubin: 4 PFLOPS
 > of BF16 [[S33005]](../../sources/bibliography.md#s33005) ÷ 224 SMs = 17.9 TFLOPS per SM, which at an assumed Blackwell-like 8,192 FLOPs per clock
 > implies ~2.2 GHz (repo Est.). So Rubin's 16-bit gain over Blackwell comes from more SMs and clock,
@@ -50,7 +50,7 @@ depends on bytes available per FLOP at each level of the memory ladder.
 - **Hopper (2022):** FP8 tensor cores plus software that tracks the largest value (amax) of each tensor
   over recent steps and picks one FP32 scale per tensor ("delayed scaling") [[S2024]](../../sources/bibliography.md#s2024)[[S2023]](../../sources/bibliography.md#s2023).
 - **Blackwell (2024):** hardware support for block scaling, so each small block of values carries its
-  own scale (MXFP8, MXFP6, MXFP4 and NVFP4) [[S2024]](../../sources/bibliography.md#s2024)[[S2007]](../../sources/bibliography.md#s2007); a 256 KB per-SM [tensor memory](../../glossary.md#tensor-memory)
+  own scale (MXFP8, MXFP6, MXFP4 and [NVFP4](../../glossary.md#nvfp4)) [[S2024]](../../sources/bibliography.md#s2024)[[S2007]](../../sources/bibliography.md#s2007); a 256 KB per-SM [tensor memory](../../glossary.md#tensor-memory)
   holds accumulators next to the larger tensor cores [[S2006]](../../sources/bibliography.md#s2006).
 - **Rubin (2026):** a third-generation Transformer Engine with hardware "adaptive compression" that NVIDIA
   credits for 50 PFLOPS of NVFP4 inference versus 35 PFLOPS dense for training [[S2000]](../../sources/bibliography.md#s2000)[[S100]](../../sources/bibliography.md#s100). It is not
@@ -77,13 +77,13 @@ operands every clock, L1/shared memory stages matrix tiles, the L2 is shared by 
 > **Worked example — why reuse matters more than raw bandwidth.** To keep an H100's 989 TFLOPS of BF16
 > busy straight from HBM, every byte fetched must feed ~295 FLOPs (989 ÷ 3.35). Rubin at dense FP4 needs
 > ~1,820 FLOPs per HBM byte (35,000 ÷ 19.2) [[S100]](../../sources/bibliography.md#s100)[[S33007]](../../sources/bibliography.md#s33007). A 128 × 128 BF16 tile staged once in shared
-> memory and reused across 128 output columns supplies that reuse; batch-1 decode, which reads every weight
+> memory and reused across 128 output columns supplies that reuse; batch-1 [decode](../../glossary.md#decode), which reads every weight
 > once per token, cannot, and runs at under 1% of peak FLOPS (see [P3](../../primers/P3-the-four-bottlenecks.md)).
 
 ![Log-scale index chart with V100 = 1: by Rubin, dense compute in the best supported format is 280 times V100 and 16-bit compute 32 times, while HBM bandwidth is only 21 times higher, so each byte of memory bandwidth must feed far more math - the memory wall that makes LLM decode bandwidth-bound.](../../assets/charts/03-compute-vs-memory-bandwidth-growth.svg)
 
 > [!WARNING]
-> **Bear view:** Rubin's HBM4 bandwidth was cut 13% before volume shipment [[S33007]](../../sources/bibliography.md#s33007)[[S90007]](../../sources/bibliography.md#s90007), and
+> **Bear view:** Rubin's [HBM4](../../glossary.md#hbm4) bandwidth was cut 13% before volume shipment [[S33007]](../../sources/bibliography.md#s33007)[[S90007]](../../sources/bibliography.md#s90007), and
 > SRAM-heavy designs such as the Groq LPU (~500 MB at ~150 TB/s) [[S114]](../../sources/bibliography.md#s114) attack the gap this ladder leaves
 > for decode.
 
@@ -104,7 +104,7 @@ eight HBM stacks, all mounted on a [CoWoS-L](../../glossary.md#cowos-l) interpos
 ## 🎯 Corp Dev Lens
 
 1. Per-SM 16-bit throughput has flattened; can a cheaper, simpler architecture compete for BF16-heavy training?
-2. On-chip SRAM is the least disclosed, most strategic spec; which IP vendors (SRAM, 3D-stacked cache) gain if Feynman's die stacking moves cache onto separate dies?
+2. On-chip [SRAM](../../glossary.md#sram) is the least disclosed, most strategic spec; which IP vendors (SRAM, 3D-stacked cache) gain if Feynman's die stacking moves cache onto separate dies?
 3. HBM pin speed now caps NVIDIA's headline bandwidth; is a memory or base-die partner more strategic than a logic designer?
 4. Tensor memory and block-scaled formats tie kernels to each NVIDIA generation; how much porting cost does that impose on rivals?
 

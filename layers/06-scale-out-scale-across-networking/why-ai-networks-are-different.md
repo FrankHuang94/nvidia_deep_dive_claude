@@ -6,15 +6,15 @@
 
 - **Training is a synchronized march.** Every step ends with GPUs swapping gradients through a [collective operation](../../glossary.md#collective-operation); no GPU starts the next step until the slowest message lands. Meta trained Llama 3 405B on 16,384 H100 GPUs this way [[S34006]](../../sources/bibliography.md#s34006).
 - **So the tail, not the average, sets the pace.** In a simple repo model, if 1% of network flows run 10× slow, a 1,000-flow step takes ~3.2× as long (Est.) [[S6029]](../../sources/bibliography.md#s6029).
-- **The money is large:** at ~$2 per GPU-hour [[S393]](../../sources/bibliography.md#s393), a 100,000-GPU cluster costs ~$200,000 an hour; losing 17% of it to network waits wastes ~$300M a year (Est.).
-- **AI traffic is the worst case for ordinary networks:** a few huge, simultaneous, many-to-one flows ([incast](../../glossary.md#incast)). Clusters therefore run a separate [back-end network](../../glossary.md#back-end-network) with [RDMA](../../glossary.md#rdma) and one 400–800 Gb/s NIC per GPU [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264).
-- **NVIDIA's pitch** is low [tail latency](../../glossary.md#tail-latency) under load: it claims 95% effective bandwidth on Spectrum-X vs ~60% for standard Ethernet at 100k-GPU scale, a vendor claim [[S6000]](../../sources/bibliography.md#s6000).
+- **The money is large:** at ~$2 per [GPU-hour](../../glossary.md#gpu-hour) [[S393]](../../sources/bibliography.md#s393), a 100,000-GPU cluster costs ~$200,000 an hour; losing 17% of it to network waits wastes ~$300M a year (Est.).
+- **AI traffic is the worst case for ordinary networks:** a few huge, simultaneous, many-to-one flows ([incast](../../glossary.md#incast)). Clusters therefore run a separate [back-end network](../../glossary.md#back-end-network) with [RDMA](../../glossary.md#rdma) and one 400–800 Gb/s [NIC](../../glossary.md#nic) per GPU [[S266]](../../sources/bibliography.md#s266)[[S264]](../../sources/bibliography.md#s264).
+- **NVIDIA's pitch** is low [tail latency](../../glossary.md#tail-latency) under load: it claims 95% effective bandwidth on [Spectrum-X](../../glossary.md#spectrum-x) vs ~60% for standard Ethernet at 100k-GPU scale, a vendor claim [[S6000]](../../sources/bibliography.md#s6000).
 
 ![Line chart from a simple repo model: a synchronous training step waits for its slowest network flow. With 25% of step time in exposed communication and slow flows taking 10 times longer, a step with 1,000 flows takes 121 (index) if 0.01% of flows are slow, 242 if 0.1% are slow and 325 if 1% are slow, versus 100 with none; the ceiling is 325. Bigger collectives hit the ceiling at lower slow-flow rates.](../../assets/charts/06-step-time-vs-tail-latency.svg)
 
 ## 1. The job: keep thousands of GPUs in lockstep
 
-In [data-parallel](../../glossary.md#data-parallelism) training all GPUs must agree on averaged gradients before updating weights. Like a rowing crew, it moves at the pace of the slowest stroke. A [straggler](../../glossary.md#straggler) need not be broken hardware: ByteDance's five-month study of its LLM training fleet found stragglers common and often caused by interacting factors [[S6029]](../../sources/bibliography.md#s6029). Failures add to the bill: Llama 3's 54-day run saw 466 job interruptions [[S34006]](../../sources/bibliography.md#s34006).
+In [data-parallel](../../glossary.md#data-parallelism) training all GPUs must agree on averaged gradients before updating weights. Like a rowing crew, it moves at the pace of the slowest stroke. A [straggler](../../glossary.md#straggler) need not be broken hardware: ByteDance's five-month study of its [LLM](../../glossary.md#llm) training fleet found stragglers common and often caused by interacting factors [[S6029]](../../sources/bibliography.md#s6029). Failures add to the bill: Llama 3's 54-day run saw 466 job interruptions [[S34006]](../../sources/bibliography.md#s34006).
 
 > [!TIP]
 > **Worked example — 1% of flows delayed 10×.** Assume 25% of a step is communication that cannot hide behind compute, and a collective involves ~1,000 flows (repo assumptions).
@@ -24,7 +24,7 @@ In [data-parallel](../../glossary.md#data-parallelism) training all GPUs must ag
 >
 > **Conclusion:** shaving the tail is worth far more than the network's own bill of materials: NVIDIA's core argument for premium fabrics.
 
-**[Q1 · Job & failure mode]** The scale-out network turns thousands of GPUs (beyond one [NVLink](../../glossary.md#nvlink) domain, see [Layer 05](../05-scale-up-nvlink-nvswitch/index.md)) into one training or inference machine. When it is weak nothing crashes: steps stretch, [MFU](../../glossary.md#mfu) falls, jobs restart more often and expensive GPUs idle.
+**[Q1 · Job & failure mode]** The [scale-out](../../glossary.md#scale-out) network turns thousands of GPUs (beyond one [NVLink](../../glossary.md#nvlink) domain, see [Layer 05](../05-scale-up-nvlink-nvswitch/index.md)) into one training or inference machine. When it is weak nothing crashes: steps stretch, [MFU](../../glossary.md#mfu) falls, jobs restart more often and expensive GPUs idle.
 
 <details>
 <summary>🔧 Under the hood: the model behind the chart</summary>
@@ -57,7 +57,7 @@ flowchart LR
 ```
 
 > [!TIP]
-> **Worked example — how much a ring all-reduce sends.** In a [ring all-reduce](../../glossary.md#ring-all-reduce) each GPU sends 2(N−1)/N times the message: 1.75× for 8 GPUs, ~2× for thousands [[S34011]](../../sources/bibliography.md#s34011)[[S34012]](../../sources/bibliography.md#s34012). BF16 gradients of a 70B-parameter model are ~140 GB, so each GPU pushes ~280 GB per full exchange: ~2.8 s at 800 Gb/s (100 GB/s) unless overlapped or sharded.
+> **Worked example — how much a ring all-reduce sends.** In a [ring all-reduce](../../glossary.md#ring-all-reduce) each GPU sends 2(N−1)/N times the message: 1.75× for 8 GPUs, ~2× for thousands [[S34011]](../../sources/bibliography.md#s34011)[[S34012]](../../sources/bibliography.md#s34012). [BF16](../../glossary.md#bf16) gradients of a 70B-parameter model are ~140 GB, so each GPU pushes ~280 GB per full exchange: ~2.8 s at 800 Gb/s (100 GB/s) unless overlapped or sharded.
 >
 > **Conclusion:** per-GPU bandwidth sets how long GPUs wait, which is why NICs went to 800 Gb/s (ConnectX-8) and 1.6 Tb/s (ConnectX-9) [[S264]](../../sources/bibliography.md#s264)[[S33004]](../../sources/bibliography.md#s33004).
 
@@ -65,7 +65,7 @@ All-to-all, where every GPU talks to every other at once, is the hardest pattern
 
 ## 3. Transport, congestion and incast
 
-TCP/IP copies data through the operating system and CPU. [RDMA](../../glossary.md#rdma) lets the NIC write straight into a remote GPU's memory ([GPUDirect RDMA](../../glossary.md#gpudirect-rdma)). InfiniBand was built around RDMA; [RoCE](../../glossary.md#roce) carries it inside Ethernet.
+TCP/IP copies data through the operating system and CPU. [RDMA](../../glossary.md#rdma) lets the NIC write straight into a remote GPU's memory ([GPUDirect RDMA](../../glossary.md#gpudirect-rdma)). [InfiniBand](../../glossary.md#infiniband) was built around RDMA; [RoCE](../../glossary.md#roce) carries it inside Ethernet.
 
 | | TCP/IP | RoCEv2 (RDMA on Ethernet) | InfiniBand |
 |---|---|---|---|

@@ -6,8 +6,8 @@
 
 - **Optics are becoming the network's power problem:** ~6 transceivers per GPU at ~30 W and ~$1,000 each, i.e. ~180 W and ~$6,000 per GPU (Huang) [[S6016]](../../sources/bibliography.md#s6016)[[S6017]](../../sources/bibliography.md#s6017).
 - **[Co-packaged optics](../../glossary.md#co-packaged-optics) (CPO)** moves the optical engines from front-panel [pluggable transceivers](../../glossary.md#pluggable-transceiver) onto the switch package; by repo estimate that saves ~5–11 MW of optics power per 100,000 GPUs (Est.).
-- **NVIDIA claimed 3.5× better power efficiency and 10× resiliency (March 2025),** and 5× lower power with 4× fewer lasers for Spectrum-X Photonics in 2026 [[S265]](../../sources/bibliography.md#s265)[[S6020]](../../sources/bibliography.md#s6020).
-- **Products:** Quantum-X Photonics (InfiniBand, 144 × 800G) and Spectrum-X Photonics (Ethernet, up to ~400 Tb/s across 2,048 × 200G ports), built on TSMC's COUPE process with [micro-ring modulators](../../glossary.md#micro-ring-modulator) [[S90048]](../../sources/bibliography.md#s90048)[[S90049]](../../sources/bibliography.md#s90049).
+- **NVIDIA claimed 3.5× better power efficiency and 10× resiliency (March 2025),** and 5× lower power with 4× fewer lasers for [Spectrum-X](../../glossary.md#spectrum-x) Photonics in 2026 [[S265]](../../sources/bibliography.md#s265)[[S6020]](../../sources/bibliography.md#s6020).
+- **Products:** Quantum-X Photonics ([InfiniBand](../../glossary.md#infiniband), 144 × 800G) and Spectrum-X Photonics (Ethernet, up to ~400 Tb/s across 2,048 × 200G ports), built on TSMC's COUPE process with [micro-ring modulators](../../glossary.md#micro-ring-modulator) [[S90048]](../../sources/bibliography.md#s90048)[[S90049]](../../sources/bibliography.md#s90049).
 - **Timing:** first InfiniBand CPO deployments were reported for early 2026 (CoreWeave, Lambda, TACC) 🟡 [[S6022]](../../sources/bibliography.md#s6022); NVIDIA began shipping Spectrum-X CPO switches to select partners in June 2026 and announced full production in August 🟡 [[S6019]](../../sources/bibliography.md#s6019)[[S6020]](../../sources/bibliography.md#s6020). Volume evidence is thin 🔴 [[S6021]](../../sources/bibliography.md#s6021).
 - **The catch is serviceability:** a failed pluggable is a hot-swap; a failed co-packaged engine can mean replacing a switch; Huang said copper stays more reliable for GPU-to-GPU links [[S6018]](../../sources/bibliography.md#s6018).
 
@@ -15,7 +15,7 @@
 
 ## 1. What CPO changes
 
-A switch ASIC talks through its electrical [SerDes](../../glossary.md#serdes). In a pluggable design those signals cross inches of circuit board to the front panel, where a module's DSP cleans them up and a laser and modulator turn them into light; at 200 Gb/s per lane, driving that board path costs a lot of power. CPO puts the optical engines millimetres from the ASIC on the same package, so the electrical hop is tiny and the DSP disappears. Lasers, the most failure-prone and heat-sensitive part, sit in replaceable [external laser source](../../glossary.md#external-laser-source) modules on the front panel.
+A switch [ASIC](../../glossary.md#asic) talks through its electrical [SerDes](../../glossary.md#serdes). In a pluggable design those signals cross inches of circuit board to the front panel, where a module's DSP cleans them up and a laser and modulator turn them into light; at 200 Gb/s per lane, driving that board path costs a lot of power. CPO puts the optical engines millimetres from the ASIC on the same package, so the electrical hop is tiny and the DSP disappears. Lasers, the most failure-prone and heat-sensitive part, sit in replaceable [external laser source](../../glossary.md#external-laser-source) modules on the front panel.
 
 ```mermaid
 flowchart LR
@@ -57,16 +57,16 @@ Specs: [[S265]](../../sources/bibliography.md#s265)[[S90048]](../../sources/bibl
 
 - **For CPO:** no DSPs and 4× fewer lasers mean fewer failure points; NVIDIA claims 10× resiliency and 10× higher mean time between incidents [[S265]](../../sources/bibliography.md#s265)[[S6020]](../../sources/bibliography.md#s6020).
 - **Against CPO:** a failed engine sits next to an expensive ASIC, operators lose the quick module swap, supply concentrates in the switch vendor and micro-rings need tight temperature control.
-- **Where it lands first:** switches, where port counts and power are highest. Scale-up stays on copper inside the rack for now [[S6018]](../../sources/bibliography.md#s6018) (see [Layer 05](../05-scale-up-nvlink-nvswitch/index.md)).
+- **Where it lands first:** switches, where port counts and power are highest. [Scale-up](../../glossary.md#scale-up) stays on copper inside the rack for now [[S6018]](../../sources/bibliography.md#s6018) (see [Layer 05](../05-scale-up-nvlink-nvswitch/index.md)).
 
 ![Grouped bar chart (estimates). Counting twin-port modules (1 NIC module at 15 W plus 2.5 switch-side 1.6T modules at 30 W per GPU) optics draw 9.0 MW for 100,000 GPUs; CPO switches cut that to 3.6 MW with NVIDIA's 3.5x claim or 3.0 MW with its 2026 5x claim. Using Jensen Huang's keynote framing of six 30 W transceivers per GPU, optics draw 18 MW and CPO 7.3 MW. Savings range 5.4 to 10.7 MW before cooling overhead.](../../assets/charts/06-cpo-power-100k-gpus.svg)
 
 > [!TIP]
 > **Worked example — MW saved per 100,000-GPU cluster.** In a 3-tier fabric each GPU needs 1 NIC-side module (~15 W at 800G) plus 2.5 switch-side 1.6T modules (~30 W each) [[S294]](../../sources/bibliography.md#s294)[[S33020]](../../sources/bibliography.md#s33020):
 > - **Pluggable:** 15 + 2.5 × 30 = 90 W per GPU → **9.0 MW**.
-> - **CPO switches (3.5×):** 15 + 2.5 × 8.6 = 36.4 W → **3.6 MW**, saving **5.4 MW** (~6.4 MW at a PUE of 1.2).
+> - **CPO switches (3.5×):** 15 + 2.5 × 8.6 = 36.4 W → **3.6 MW**, saving **5.4 MW** (~6.4 MW at a [PUE](../../glossary.md#pue) of 1.2).
 > - **Huang's framing** (six 30 W transceivers per GPU [[S6016]](../../sources/bibliography.md#s6016)): 18 MW → 7.3 MW, saving **10.7 MW**.
-> - At ~2 kW all-in per GB200 NVL72 GPU (145 kW per rack) [[S340]](../../sources/bibliography.md#s340), that powers **~2,700–5,300 more GPUs**.
+> - At ~2 kW all-in per GB200 [NVL72](../../glossary.md#nvl72) GPU (145 kW per rack) [[S340]](../../sources/bibliography.md#s340), that powers **~2,700–5,300 more GPUs**.
 >
 > **Conclusion:** CPO is a ~3–5% capacity gain for a power-capped 100k-GPU site, worth hundreds of millions of dollars of compute (Est.).
 

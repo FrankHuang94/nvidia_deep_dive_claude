@@ -4,13 +4,13 @@
 
 ## ⚡ The Executive Take
 
-- **Memory has become the biggest new value pool in an AI rack.** Morgan Stanley estimates memory at ~$2.0M of a ~$7.8M Vera Rubin NVL72 (~26%), up from ~$0.37M of ~$4.0M (~9%) for GB300 NVL72 (Est.) [[S330]](../../sources/bibliography.md#s330)[[S331]](../../sources/bibliography.md#s331)[[S332]](../../sources/bibliography.md#s332).
+- **Memory has become the biggest new value pool in an AI rack.** Morgan Stanley estimates memory at ~$2.0M of a ~$7.8M Vera Rubin [NVL72](../../glossary.md#nvl72) (~26%), up from ~$0.37M of ~$4.0M (~9%) for GB300 NVL72 (Est.) [[S330]](../../sources/bibliography.md#s330)[[S331]](../../sources/bibliography.md#s331)[[S332]](../../sources/bibliography.md#s332).
 - **Memory makers now out-earn NVIDIA on margin.** Micron reported an 86.8% GAAP gross margin for its quarter to September 2026 [[S3533]](../../sources/bibliography.md#s3533) and SK hynix an ~80% operating margin in Q3 2026 [[S3502]](../../sources/bibliography.md#s3502), against NVIDIA's 75.0% gross margin [[S405]](../../sources/bibliography.md#s405).
 - **TSMC monetises packaging steadily but less spectacularly.** Its Q3 2026 gross margin was 66.4% [[S3538]](../../sources/bibliography.md#s3538); advanced packaging was ~10% of 2025 revenue [[S3509]](../../sources/bibliography.md#s3509), and CoWoS prices are reported to rise 10–20% (🟡) [[S3510]](../../sources/bibliography.md#s3510).
 - **Test and connectivity specialists earn chip-like margins.** Advantest forecasts a 51.9% operating margin for FY2026 [[S3521]](../../sources/bibliography.md#s3521); Astera Labs guides ~72% gross margin [[S3525]](../../sources/bibliography.md#s3525).
 - **Rack builders keep crumbs.** An [ODM](../../glossary.md#odm) earns an estimated 1.9% gross margin on a Vera Rubin rack (Est.) [[S332]](../../sources/bibliography.md#s332); Foxconn, with ~40% of AI servers [[S3014]](../../sources/bibliography.md#s3014), reported a ~6.3% company gross margin [[S3522]](../../sources/bibliography.md#s3522).
 - **NVIDIA's "M&A" in this layer is contracts, not acquisitions.** It holds $279B of supply commitments [[S407]](../../sources/bibliography.md#s407); its relevant deals are the Enfabrica acquihire (>$900M) [[S475]](../../sources/bibliography.md#s475), the Groq licence (~$20B reported) [[S90019]](../../sources/bibliography.md#s90019) and a $5B Intel stake [[S468]](../../sources/bibliography.md#s468).
-- **[Q8 · Value pools & M&A angles]** The fastest-growing pools are HBM and packaging; the investable private angles sit in memory tiers outside HBM ([CXL](../../glossary.md#cxl), SRAM, photonic fabrics), where Marvell paid ~$3.25B upfront for Celestial AI [[S2513]](../../sources/bibliography.md#s2513).
+- **[Q8 · Value pools & M&A angles]** The fastest-growing pools are HBM and packaging; the investable private angles sit in memory tiers outside HBM ([CXL](../../glossary.md#cxl), [SRAM](../../glossary.md#sram), photonic fabrics), where Marvell paid ~$3.25B upfront for Celestial AI [[S2513]](../../sources/bibliography.md#s2513).
 
 ![Horizontal bar chart of margins: Micron 86.8% GAAP gross margin (fiscal Q4 2026), SK hynix about 80% operating margin (Q3 2026), NVIDIA 75.0% gross (Q2 FY2027), Astera Labs about 72% gross (guidance), TSMC 66.4% gross (Q3 2026), Advantest 51.9% operating (FY2026 forecast), Foxconn about 6.3% gross (Q2 2025) and rack ODMs an estimated 2.7% (GB300 NVL72) and 1.9% (Vera Rubin NVL72) gross margin on the rack.](../../assets/charts/03-value-chain-margins.svg)
 
@@ -50,7 +50,7 @@ flowchart LR
 <details>
 <summary>🔧 Under the hood: why memory margins can exceed NVIDIA's</summary>
 
-DRAM is normally a commodity with boom-bust margins. In 2026 conventional DRAM contract prices rose 93–98% in one quarter [[S3518]](../../sources/bibliography.md#s3518) because HBM consumes far more wafer area per bit, Micron says about 3× DDR5's for HBM3E [[S3006]](../../sources/bibliography.md#s3006). Every HBM wafer start removes conventional supply, so prices rise across the product line. Memory margins are cyclical, which matters for anyone underwriting long-term supply contracts.
+DRAM is normally a commodity with boom-bust margins. In 2026 conventional DRAM contract prices rose 93–98% in one quarter [[S3518]](../../sources/bibliography.md#s3518) because HBM consumes far more wafer area per bit, Micron says about 3× DDR5's for [HBM3E](../../glossary.md#hbm3e) [[S3006]](../../sources/bibliography.md#s3006). Every HBM wafer start removes conventional supply, so prices rise across the product line. Memory margins are cyclical, which matters for anyone underwriting long-term supply contracts.
 
 </details>
 
@@ -65,9 +65,9 @@ DRAM is normally a commodity with boom-bust margins. In 2026 conventional DRAM c
 | Groq (GroqCloud) | SRAM-based LPU cloud, after licensing to NVIDIA | ~$20B NVIDIA licence (reported) [[S90019]](../../sources/bibliography.md#s90019) | Shows the price NVIDIA pays to absorb an alternative memory architecture |
 
 > [!TIP]
-> **Worked example — what a memory tier adds.** Enfabrica's EMFASYS claims up to 18 TB of DDR5 behind one Ethernet-attached appliance [[S3526]](../../sources/bibliography.md#s3526), the HBM capacity of ~62 Rubin GPUs (18,000 ÷ 288 GB) [[S100]](../../sources/bibliography.md#s100), at DDR5 rather than HBM bandwidth. For rarely read KV cache, such a tier can beat buying GPUs for their memory; the vendor claims up to 50% lower cost per token [[S3526]](../../sources/bibliography.md#s3526). See also [Memory tiering and Rubin CPX](memory-tiering-and-rubin-cpx.md).
+> **Worked example — what a memory tier adds.** Enfabrica's EMFASYS claims up to 18 TB of DDR5 behind one Ethernet-attached appliance [[S3526]](../../sources/bibliography.md#s3526), the HBM capacity of ~62 Rubin GPUs (18,000 ÷ 288 GB) [[S100]](../../sources/bibliography.md#s100), at DDR5 rather than HBM bandwidth. For rarely read [KV cache](../../glossary.md#kv-cache), such a tier can beat buying GPUs for their memory; the vendor claims up to 50% lower cost per token [[S3526]](../../sources/bibliography.md#s3526). See also [Memory tiering and Rubin CPX](memory-tiering-and-rubin-cpx.md).
 
-Public peers to watch: Astera Labs (PCIe/CXL connectivity; Q2 2026 revenue $392M, +104% y/y) [[S3524]](../../sources/bibliography.md#s3524) and Cerebras (public since May 2026) [[S2504]](../../sources/bibliography.md#s2504).
+Public peers to watch: Astera Labs ([PCIe](../../glossary.md#pcie)/CXL connectivity; Q2 2026 revenue $392M, +104% y/y) [[S3524]](../../sources/bibliography.md#s3524) and Cerebras (public since May 2026) [[S2504]](../../sources/bibliography.md#s2504).
 
 ## M&A history in this layer
 
@@ -87,7 +87,7 @@ Public peers to watch: Astera Labs (PCIe/CXL connectivity; Q2 2026 revenue $392M
 
 ## 🎯 Corp Dev Lens
 
-1. For LPDDR-heavy inference such as AI200's 768 GB per card [[S173]](../../sources/bibliography.md#s173), at what bandwidth per gigabyte does LPDDR beat HBM on cost per token?
+1. For LPDDR-heavy inference such as AI200's 768 GB per card [[S173]](../../sources/bibliography.md#s173), at what bandwidth per gigabyte does [LPDDR](../../glossary.md#lpddr) beat HBM on cost per token?
 2. Would a stake in a CXL switch or memory-fabric company (Panmnesia, or partnership with Astera Labs) give a challenger a capacity tier that NVIDIA's HBM-only package lacks?
 3. At ~$2–3B entry valuations (d-Matrix, Celestial AI), do SRAM and photonic memory architectures look like buy, partner or watch?
 4. Is capital better spent on supply prepayments and LTAs with memory makers earning 80%+ margins, or on equity in them?

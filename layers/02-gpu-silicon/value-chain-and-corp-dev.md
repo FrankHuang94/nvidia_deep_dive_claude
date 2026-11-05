@@ -7,8 +7,8 @@
 - **NVIDIA keeps most of each GPU dollar.** Epoch AI estimates a B200 costs ~$6.4K to build against a $30–40K
   price: a chip-level [gross margin](../../glossary.md#gross-margin) near 80% (Est.) [[S35020]](../../sources/bibliography.md#s35020)[[S35026]](../../sources/bibliography.md#s35026). Company GAAP gross
   margin was 75.0% in Q2 FY2027 [[S405]](../../sources/bibliography.md#s405).
-- **Memory is the largest supplier slice and growing:** HBM is ~45% of a B200's build cost (Est.) [[S35020]](../../sources/bibliography.md#s35020), and
-  Bernstein expects HBM4 at ~$53/GB in 2027, ~3.5× the ~$15/GB assumed for B200 [[S333]](../../sources/bibliography.md#s333)[[S35020]](../../sources/bibliography.md#s35020).
+- **Memory is the largest supplier slice and growing:** [HBM](../../glossary.md#hbm) is ~45% of a B200's build cost (Est.) [[S35020]](../../sources/bibliography.md#s35020), and
+  Bernstein expects [HBM4](../../glossary.md#hbm4) at ~$53/GB in 2027, ~3.5× the ~$15/GB assumed for B200 [[S333]](../../sources/bibliography.md#s333)[[S35020]](../../sources/bibliography.md#s35020).
 - **TSMC is paid little per GPU but owns the scarcest capacity:** ~$1.95K per B200 for logic dies and CoWoS-L,
   plus ~$1K of parts scrapped in packaging (Est.) [[S35022]](../../sources/bibliography.md#s35022)[[S35039]](../../sources/bibliography.md#s35039); NVIDIA booked ~60% of 2026 CoWoS (Est.) [[S379]](../../sources/bibliography.md#s379).
 - **The fastest-growing pool is custom silicon:** Broadcom's AI revenue reached $16.7B in the quarter to August
@@ -48,7 +48,7 @@ B200 price,Substrate test and other,570
 > [!TIP]
 > **Worked example — memory makers' rising take.** B200: 192 GB × ~$15/GB ≈ $2.9K of HBM [[S35020]](../../sources/bibliography.md#s35020). Rubin: 288 GB
 > × Bernstein's ~$53/GB ≈ **$15.3K per GPU** (Est.) [[S333]](../../sources/bibliography.md#s333), about 5× more. Unless prices follow, margin moves to
-> SK hynix, Samsung and Micron; memory's share of an NVL72 rack's estimated cost rises from ~9% to ~26% between
+> SK hynix, Samsung and Micron; memory's share of an [NVL72](../../glossary.md#nvl72) rack's estimated cost rises from ~9% to ~26% between
 > GB300 and Vera Rubin [[S332]](../../sources/bibliography.md#s332)[[S331]](../../sources/bibliography.md#s331) (see [Layer 03](../03-memory-packaging-supply-chain/index.md)).
 
 ## Suppliers, enablers and the custom-silicon chain
@@ -76,7 +76,7 @@ flowchart LR
   class N,F nvidia
 ```
 
-An [ASIC design partner](../../glossary.md#asic-design-partner) supplies physical design, SerDes and packaging (Alchip
+An [ASIC design partner](../../glossary.md#asic-design-partner) supplies physical design, [SerDes](../../glossary.md#serdes) and packaging (Alchip
 holds Trainium3 orders) [[S2517]](../../sources/bibliography.md#s2517); [NVLink Fusion](../../glossary.md#nvlink-fusion) puts NVIDIA's fabric in Trainium4 [[S90034]](../../sources/bibliography.md#s90034).
 
 > [!TIP]
@@ -139,7 +139,7 @@ ecosystem; large silicon acquisitions have been blocked (Arm) or disappointed (H
 
 - **Regulatory path.** A non-exclusive licence plus hiring left Groq a going concern (GroqCloud continues) [[S90018]](../../sources/bibliography.md#s90018).
 - **Speed.** The Groq 3 LPU entered production on Samsung 4 nm about eight months after the deal [[S506]](../../sources/bibliography.md#s506).
-- **Leverage.** Stakes in Intel, Synopsys and Marvell tie CPUs, EDA and custom XPUs to NVLink without buying
+- **Leverage.** Stakes in Intel, Synopsys and Marvell tie CPUs, EDA and custom XPUs to [NVLink](../../glossary.md#nvlink) without buying
   them [[S468]](../../sources/bibliography.md#s468)[[S471]](../../sources/bibliography.md#s471)[[S90037]](../../sources/bibliography.md#s90037).
 
 </details>

@@ -81,7 +81,7 @@ NVIDIA does not publish a "Mellanox" line. It said Mellanox was ~10% of FY2021 r
 
 ![Bar chart of networking revenue. Mellanox alone earned $1.09B in 2018 and $1.33B in 2019. After the April 2020 close NVIDIA's networking line was about $1.67B in FY2021 (estimate: ~10% of revenue for ~9 months), was not disclosed for FY2022-FY2023, then reached about $8.6B in FY2024 (estimate), $13.0B in FY2025 and about $31.4B in FY2026, roughly 24 times Mellanox's 2019 revenue; the first half of FY2027 alone brought about $32.3B. The line now also includes NVLink switches, which Mellanox never sold.](../assets/charts/CS1-networking-before-after.svg)
 
-One caveat matters most for any payback claim. The networking line includes NVLink switch trays for GB200 and GB300 racks [[S402]](../sources/bibliography.md#s402). That is NVIDIA's own scale-up technology, not Mellanox's. Calcalist estimates ~70% of NVIDIA's connectivity business relies on Mellanox and its Israeli centres [[S21009]](../sources/bibliography.md#s21009). The model below therefore credits Mellanox with 50%, 70% or 100% of the line.
+One caveat matters most for any payback claim. The networking line includes NVLink switch trays for GB200 and GB300 racks [[S402]](../sources/bibliography.md#s402). That is NVIDIA's own [scale-up](../glossary.md#scale-up) technology, not Mellanox's. Calcalist estimates ~70% of NVIDIA's connectivity business relies on Mellanox and its Israeli centres [[S21009]](../sources/bibliography.md#s21009). The model below therefore credits Mellanox with 50%, 70% or 100% of the line.
 
 > [!TIP]
 > **Worked example — deal payback, three ways.** Start from networking revenue: FY2021 ~$1.67B [[S418]](../sources/bibliography.md#s418); FY2022–FY2023 set to a floor of $2.2B a year (not disclosed, 🔴); then $8.57B, $13.0B, $31.4B and $32.3B in H1 FY2027 [[S416]](../sources/bibliography.md#s416)[[S402]](../sources/bibliography.md#s402)[[S21009]](../sources/bibliography.md#s21009).
@@ -117,11 +117,11 @@ The deal also changed what NVIDIA sells. Networking rides along with compute: ab
 
 ## 4. Why it worked (or didn't)
 
-**Mechanism 1: one vendor tunes the whole data path.** A training step ends with an all-reduce, in which every GPU swaps gradients with every other. The slowest packet sets the pace. NVIDIA now designs the GPU, the NIC, the switch and the collective library ([NCCL](../glossary.md#nccl)) together [[S10000]](../sources/bibliography.md#s10000). Features such as SHARP, which does part of the all-reduce maths inside the switch, need all four pieces to cooperate [[S6013]](../sources/bibliography.md#s6013). Think of a relay race where one coach trains every runner and also designs the baton hand-off.
+**Mechanism 1: one vendor tunes the whole data path.** A training step ends with an [all-reduce](../glossary.md#all-reduce), in which every GPU swaps gradients with every other. The slowest packet sets the pace. NVIDIA now designs the GPU, the [NIC](../glossary.md#nic), the switch and the collective library ([NCCL](../glossary.md#nccl)) together [[S10000]](../sources/bibliography.md#s10000). Features such as SHARP, which does part of the all-reduce maths inside the switch, need all four pieces to cooperate [[S6013]](../sources/bibliography.md#s6013). Think of a relay race where one coach trains every runner and also designs the baton hand-off.
 
 **Mechanism 2: [attach rate](../glossary.md#attach-rate).** Reference designs put one ConnectX adapter beside every GPU, now at 1.6 Tb/s with Rubin [[S33004]](../sources/bibliography.md#s33004). A customer who buys the GPU tends to buy the adapter and often the switch.
 
-**Mechanism 3: the Ethernet pivot.** Hyperscalers resisted InfiniBand. NVIDIA answered in May 2023 with [Spectrum-X](../glossary.md#spectrum-x), an Ethernet switch paired with a [SuperNIC](../glossary.md#supernic) [[S271]](../sources/bibliography.md#s271). It won xAI's Colossus and later Meta and Oracle [[S6000]](../sources/bibliography.md#s6000)[[S6009]](../sources/bibliography.md#s6009), and grew 2.6× y/y in Q2 FY2027 [[S408]](../sources/bibliography.md#s408). Without that pivot, Mellanox's InfiniBand franchise would have shrunk with its share. Details: [Spectrum-X Ethernet](../layers/06-scale-out-scale-across-networking/spectrum-x-ethernet.md) and [InfiniBand and SHARP](../layers/06-scale-out-scale-across-networking/infiniband-and-sharp.md).
+**Mechanism 3: the Ethernet pivot.** [Hyperscalers](../glossary.md#hyperscaler) resisted InfiniBand. NVIDIA answered in May 2023 with [Spectrum-X](../glossary.md#spectrum-x), an Ethernet switch paired with a [SuperNIC](../glossary.md#supernic) [[S271]](../sources/bibliography.md#s271). It won xAI's Colossus and later Meta and Oracle [[S6000]](../sources/bibliography.md#s6000)[[S6009]](../sources/bibliography.md#s6009), and grew 2.6× y/y in Q2 FY2027 [[S408]](../sources/bibliography.md#s408). Without that pivot, Mellanox's InfiniBand franchise would have shrunk with its share. Details: [Spectrum-X Ethernet](../layers/06-scale-out-scale-across-networking/spectrum-x-ethernet.md) and [InfiniBand and SHARP](../layers/06-scale-out-scale-across-networking/infiniband-and-sharp.md).
 
 **Mechanism 4: timing.** The deal closed in April 2020. GPT-3-era clusters, then the H100 build-out of 2023, needed exactly what Mellanox sold. Luck mattered as much as foresight.
 
@@ -140,10 +140,10 @@ The deal also changed what NVIDIA sells. Networking rides along with compute: ab
 > **Worked example — how much revenue sits on Israeli engineering.** Calcalist's estimate is that ~70% of connectivity depends on Mellanox and Israeli centres [[S21009]](../sources/bibliography.md#s21009). Applied to ~$31.4B of FY2026 networking [[S402]](../sources/bibliography.md#s402), that is ~$22B a year, ~10% of NVIDIA's $215.9B total revenue [[S1]](../sources/bibliography.md#s1). A disruption that delayed one switch or NIC generation by six months would put roughly $11B of revenue timing at risk (🔴 repo arithmetic).
 
 > [!NOTE]
-> **🐂 Bull view:** The deal turned NVIDIA from a chip vendor into a system vendor. Networking is now ~20% of Data Center revenue and drives co-designed products (NVLink Fusion, co-packaged optics) that rivals must match piece by piece [[S408]](../sources/bibliography.md#s408)[[S6511]](../sources/bibliography.md#s6511).
+> **🐂 Bull view:** The deal turned NVIDIA from a chip vendor into a system vendor. Networking is now ~20% of Data Center revenue and drives co-designed products ([NVLink Fusion](../glossary.md#nvlink-fusion), co-packaged optics) that rivals must match piece by piece [[S408]](../sources/bibliography.md#s408)[[S6511]](../sources/bibliography.md#s6511).
 
 > [!WARNING]
-> **🐻 Bear view:** The best returns may be behind it. Ethernet standards (Ultra Ethernet, ESUN) let buyers mix vendors, and Broadcom leads on switch bandwidth. If attach falls back toward FY2025's ~$0.09 per compute dollar, networking growth will trail GPU growth [[S90052]](../sources/bibliography.md#s90052)[[S274]](../sources/bibliography.md#s274)[[S443]](../sources/bibliography.md#s443).
+> **🐻 Bear view:** The best returns may be behind it. Ethernet standards (Ultra Ethernet, [ESUN](../glossary.md#esun)) let buyers mix vendors, and Broadcom leads on switch bandwidth. If attach falls back toward FY2025's ~$0.09 per compute dollar, networking growth will trail GPU growth [[S90052]](../sources/bibliography.md#s90052)[[S274]](../sources/bibliography.md#s274)[[S443]](../sources/bibliography.md#s443).
 
 ## 5. Lessons for corp dev
 
@@ -185,7 +185,7 @@ quadrantChart
 
 ## 🎯 Corp Dev Lens
 
-1. Mellanox was bought at ~6× sales when the AI case was not yet in its numbers. Which adjacent layer today (optics, SerDes, NIC firmware, power delivery) has the same profile: profitable, sub-scale and about to become binding?
+1. Mellanox was bought at ~6× sales when the AI case was not yet in its numbers. Which adjacent layer today (optics, [SerDes](../glossary.md#serdes), NIC firmware, power delivery) has the same profile: profitable, sub-scale and about to become binding?
 2. The return depended on a pivot (InfiniBand → Ethernet) that the acquirer had to execute. How should a model value an asset whose best use requires a product the target does not yet make?
 3. Behavioural remedies outlived closing by five years. For a deal involving a supplier to Chinese customers, what enforcement exposure should be priced, and for how long?
 4. Qualcomm closed Alphawave (SerDes and connectivity IP) in December 2025 [[S4513]](../sources/bibliography.md#s4513). What would a Mellanox-style path look like from SerDes IP to a NIC or switch franchise, and is it a build, a partnership or a further acquisition?

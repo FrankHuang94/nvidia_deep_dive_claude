@@ -4,12 +4,12 @@
 
 ## ⚡ The Executive Take
 
-- **Software moves on a monthly beat:** Dynamo went from open-source launch (March 2025) to 1.0 (March 2026) to 1.5.1 with enterprise support (October 2026); TensorRT-LLM reached 1.0 in September 2025 [[S32015]](../../sources/bibliography.md#s32015)[[S521]](../../sources/bibliography.md#s521)[[S522]](../../sources/bibliography.md#s522).
-- **NVIDIA's inference hardware now has two tiers:** Vera Rubin NVL72 (production shipments from Q3 2026) for throughput, and the Groq 3 LPX rack (256 SRAM LPUs, full production August 2026) for fast decode 🟢 [[S90009]](../../sources/bibliography.md#s90009)[[S114]](../../sources/bibliography.md#s114)[[S506]](../../sources/bibliography.md#s506).
-- **More decode silicon is coming:** LP35 (2027) and LP40 with Feynman (2028), and a reported Rubin CPX revival with HBM4 for prefill 🟡 [[S108]](../../sources/bibliography.md#s108)[[S90004]](../../sources/bibliography.md#s90004)[[S117]](../../sources/bibliography.md#s117).
+- **Software moves on a monthly beat:** [Dynamo](../../glossary.md#dynamo) went from open-source launch (March 2025) to 1.0 (March 2026) to 1.5.1 with enterprise support (October 2026); [TensorRT-LLM](../../glossary.md#tensorrt-llm) reached 1.0 in September 2025 [[S32015]](../../sources/bibliography.md#s32015)[[S521]](../../sources/bibliography.md#s521)[[S522]](../../sources/bibliography.md#s522).
+- **NVIDIA's inference hardware now has two tiers:** Vera Rubin [NVL72](../../glossary.md#nvl72) (production shipments from Q3 2026) for throughput, and the Groq 3 LPX rack (256 [SRAM](../../glossary.md#sram) LPUs, full production August 2026) for fast decode 🟢 [[S90009]](../../sources/bibliography.md#s90009)[[S114]](../../sources/bibliography.md#s114)[[S506]](../../sources/bibliography.md#s506).
+- **More decode silicon is coming:** LP35 (2027) and LP40 with Feynman (2028), and a reported Rubin CPX revival with [HBM4](../../glossary.md#hbm4) for prefill 🟡 [[S108]](../../sources/bibliography.md#s108)[[S90004]](../../sources/bibliography.md#s90004)[[S117]](../../sources/bibliography.md#s117).
 - **Rivals ship on annual cadences too:** MI455X Helios (2026) and MI500 (2027); TPU 8i (late 2026); Maia 300 and Trainium4 (2027); Qualcomm AI250 (2027) and AI300 (2028) [[S538]](../../sources/bibliography.md#s538)[[S550]](../../sources/bibliography.md#s550)[[S90046]](../../sources/bibliography.md#s90046)[[S156]](../../sources/bibliography.md#s156)[[S173]](../../sources/bibliography.md#s173)[[S90060]](../../sources/bibliography.md#s90060).
 - **AMD now leads on memory bandwidth per chip:** MI455X 23.3 TB/s vs Rubin 19.2 TB/s after NVIDIA's spec revision (~21% more); cloud ASICs sit ~2.6× below Rubin [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093)[[S90006]](../../sources/bibliography.md#s90006).
-- **[Q7 · Roadmap & what changes the picture]** Watch three things: open serving reaching parity on non-NVIDIA racks (llm-d 1.0, Helios in volume Q2 2027), a public ASIC cost-per-token lead above ~2×, and token prices falling faster than cost per token.
+- **[Q7 · Roadmap & what changes the picture]** Watch three things: open serving reaching parity on non-NVIDIA racks (llm-d 1.0, Helios in volume Q2 2027), a public [ASIC](../../glossary.md#asic) cost-per-token lead above ~2×, and token prices falling faster than cost per token.
 
 ```mermaid
 gantt
@@ -77,7 +77,7 @@ gantt
 ![Log-scale line chart of memory bandwidth per accelerator by vendor. NVIDIA rises from A100 (2.0 TB/s, 2021) and H100 (3.35) to B200/B300 (8.0) and Rubin (19.2 TB/s after the 2026 spec revision), with Rubin Ultra estimated at 32 TB/s in 2027. AMD tracks or leads at each step: MI300X 5.3, MI355X 8.0, MI455X 23.3. Google Ironwood (7.37) and Microsoft Maia 200 (7.0) sit ~2.6x below Rubin; AWS Trainium3 is 4.9 with Trainium4 estimated near 19.6 in 2027; Huawei's Ascend roadmap reaches 14.4 TB/s in 2028; Qualcomm's LPDDR-based AI 100 Ultra is 0.55 TB/s.](../../assets/charts/11-decode-bandwidth-by-vendor.svg)
 
 > [!TIP]
-> **Worked example — the decode ceiling, generation by generation.** One user's stream of a 70B model at FP8 (~70 GB) can go no faster than memory bandwidth divided by 70 GB: ~48 tokens/s on H100 (3.35 TB/s), ~114 on B200 (8 TB/s), ~274 on Rubin (19.2 TB/s), ~333 on MI455X (23.3 TB/s) [[S33002]](../../sources/bibliography.md#s33002)[[S33003]](../../sources/bibliography.md#s33003)[[S90006]](../../sources/bibliography.md#s90006)[[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093). Had Rubin kept its launch spec of 22 TB/s, the ceiling would be ~314 [[S90006]](../../sources/bibliography.md#s90006), still below MI455X. AMD leads on this one metric and the spec cut widened the gap; NVLink domains, software and the LPX tier are what keep NVIDIA ahead on [interactivity](../../glossary.md#interactivity).
+> **Worked example — the decode ceiling, generation by generation.** One user's stream of a 70B model at [FP8](../../glossary.md#fp8) (~70 GB) can go no faster than memory bandwidth divided by 70 GB: ~48 tokens/s on H100 (3.35 TB/s), ~114 on B200 (8 TB/s), ~274 on Rubin (19.2 TB/s), ~333 on MI455X (23.3 TB/s) [[S33002]](../../sources/bibliography.md#s33002)[[S33003]](../../sources/bibliography.md#s33003)[[S90006]](../../sources/bibliography.md#s90006)[[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093). Had Rubin kept its launch spec of 22 TB/s, the ceiling would be ~314 [[S90006]](../../sources/bibliography.md#s90006), still below MI455X. AMD leads on this one metric and the spec cut widened the gap; [NVLink](../../glossary.md#nvlink) domains, software and the LPX tier are what keep NVIDIA ahead on [interactivity](../../glossary.md#interactivity).
 
 <details>
 <summary>🔧 Under the hood: why NVIDIA swapped Rubin CPX for Groq LPUs, then may want both</summary>
@@ -98,9 +98,9 @@ gantt
 
 ## 🎯 Corp Dev Lens
 
-1. With MI455X now ahead of Rubin on bandwidth, where do other challengers differentiate: capacity (768 GB LPDDR), SRAM speed, or price?
+1. With MI455X now ahead of Rubin on bandwidth, where do other challengers differentiate: capacity (768 GB [LPDDR](../../glossary.md#lpddr)), SRAM speed, or price?
 2. If NVIDIA's own roadmap adds SRAM decode (LP30 → LP35 → LP40), what is left for independent SRAM start-ups besides being acquired or licensed?
-3. Which 2027 milestone (Helios volume, TPU 8i, Maia 300, Trainium4) would most change a hyperscaler's mix?
+3. Which 2027 milestone (Helios volume, TPU 8i, Maia 300, Trainium4) would most change a [hyperscaler](../../glossary.md#hyperscaler)'s mix?
 4. What would a $2,000-per-GPU software fee do to open-source adoption and inference cloud margins?
 
 ## 📚 Sources

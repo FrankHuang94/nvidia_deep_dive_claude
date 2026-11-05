@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **[DGX Cloud](../../glossary.md#dgx-cloud) (March 2023) was NVIDIA's cloud inside other people's clouds:** NVIDIA-run clusters hosted first on Oracle Cloud, then Azure and Google Cloud, from $36,999 a month per 8-GPU instance (~$6.34 per GPU-hour) [[S12007]](../../sources/bibliography.md#s12007); AWS joined in November 2023 [[S5525]](../../sources/bibliography.md#s5525).
+- **[DGX Cloud](../../glossary.md#dgx-cloud) (March 2023) was NVIDIA's cloud inside other people's clouds:** NVIDIA-run clusters hosted first on Oracle Cloud, then Azure and Google Cloud, from $36,999 a month per 8-GPU instance (~$6.34 per [GPU-hour](../../glossary.md#gpu-hour)) [[S12007]](../../sources/bibliography.md#s12007); AWS joined in November 2023 [[S5525]](../../sources/bibliography.md#s5525).
 - **The mechanism is a lease-back.** NVIDIA rents capacity from the clouds that bought its GPUs and resells it with its own software. Its [multi-year cloud service agreements](../../glossary.md#cloud-service-agreement) grew ~13×, from $2.23B (January 2023) to $29B (July 2026) [[S418]](../../sources/bibliography.md#s418)[[S407]](../../sources/bibliography.md#s407).
 - 🟡 **The 2025 pivot:** most DGX Cloud capacity was reportedly redirected to NVIDIA's own research as it stepped back from competing with AWS and Azure [[S90068]](../../sources/bibliography.md#s90068); a reported ~$1.5B deal to rent back ~18,000 GPUs from Lambda points the same way [[S483]](../../sources/bibliography.md#s483).
 - **[DGX Cloud Lepton](../../glossary.md#dgx-cloud-lepton) (May 2025) is a marketplace, not a cloud.** It routes developers to partner capacity (CoreWeave, Crusoe, Lambda, Nebius, Nscale and others) without owning hardware [[S598]](../../sources/bibliography.md#s598)[[S12009]](../../sources/bibliography.md#s12009), built on the Lepton AI acquisition (April 2025; reportedly several hundred million dollars) [[S478]](../../sources/bibliography.md#s478)[[S479]](../../sources/bibliography.md#s479).
@@ -28,7 +28,7 @@ timeline
 ```
 
 > [!TIP]
-> **Worked example — what DGX Cloud charged.** $36,999 a month ÷ (8 GPUs × ~730 hours) = **~$6.34 per GPU-hour** [[S12007]](../../sources/bibliography.md#s12007), including NVIDIA's software and support. AWS's own H100 instance listed at $12.29 per GPU-hour at its July 2023 launch [[S391]](../../sources/bibliography.md#s391), and neocloud H100s ran ~$8 at the 2023 peak [[S393]](../../sources/bibliography.md#s393). **Conclusion:** DGX Cloud was priced as a premium, software-rich service, not a discount channel, and it competed with the hosts' own instances.
+> **Worked example — what DGX Cloud charged.** $36,999 a month ÷ (8 GPUs × ~730 hours) = **~$6.34 per GPU-hour** [[S12007]](../../sources/bibliography.md#s12007), including NVIDIA's software and support. AWS's own H100 instance listed at $12.29 per GPU-hour at its July 2023 launch [[S391]](../../sources/bibliography.md#s391), and [neocloud](../../glossary.md#neocloud) H100s ran ~$8 at the 2023 peak [[S393]](../../sources/bibliography.md#s393). **Conclusion:** DGX Cloud was priced as a premium, software-rich service, not a discount channel, and it competed with the hosts' own instances.
 
 ## The 2025 pivot: from cloud seller to cloud tenant
 

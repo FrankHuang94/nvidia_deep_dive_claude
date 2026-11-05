@@ -5,8 +5,8 @@
 ## ⚡ The Executive Take
 
 - **[Mixture-of-experts](../../glossary.md#mixture-of-experts) models turn every layer into an [all-to-all](../../glossary.md#all-to-all).** DeepSeek-V3 sends each token to 8 of 256 experts in each of 58 MoE layers [[S5006]](../../sources/bibliography.md#s5006): ~10 MB of traffic per token (repo calc).
-- **Domain size decides where it flows.** With 64-way [expert parallelism](../../glossary.md#expert-parallelism) on 8-GPU servers, 87.5% crosses NICs: ~22 ms per decode step on HGX H200 versus ~1.4 ms in a GB300 NVL72 (Est.), against a ~50 ms step [[S5004]](../../sources/bibliography.md#s5004)[[S5005]](../../sources/bibliography.md#s5005).
-- **[Wide EP](../../glossary.md#wide-ep) saves memory:** at 72-way EP each GPU holds ~9 GB of FP8 expert weights versus ~82 GB at 8-way (repo calc from [[S5006]](../../sources/bibliography.md#s5006)), room that reasoning models fill with [KV cache](../../glossary.md#kv-cache).
+- **Domain size decides where it flows.** With 64-way [expert parallelism](../../glossary.md#expert-parallelism) on 8-GPU servers, 87.5% crosses NICs: ~22 ms per [decode](../../glossary.md#decode) step on [HGX](../../glossary.md#hgx) H200 versus ~1.4 ms in a GB300 [NVL72](../../glossary.md#nvl72) (Est.), against a ~50 ms step [[S5004]](../../sources/bibliography.md#s5004)[[S5005]](../../sources/bibliography.md#s5005).
+- **[Wide EP](../../glossary.md#wide-ep) saves memory:** at 72-way EP each GPU holds ~9 GB of [FP8](../../glossary.md#fp8) expert weights versus ~82 GB at 8-way (repo calc from [[S5006]](../../sources/bibliography.md#s5006)), room that reasoning models fill with [KV cache](../../glossary.md#kv-cache).
 - **Claims vs data:** NVIDIA claims ~10× on MoE for GB200 NVL72 over HGX H200 [[S5002]](../../sources/bibliography.md#s5002); same-silicon data show ~3× at throughput-heavy points [[S630]](../../sources/bibliography.md#s630) and none at high per-user speed (repo calc on [[S621]](../../sources/bibliography.md#s621)).
 - **Counter-argument:** Google joins 9,216 Ironwood TPUs in one domain via a 3D [torus](../../glossary.md#torus-topology) and [optical circuit switches](../../glossary.md#optical-circuit-switch) [[S232]](../../sources/bibliography.md#s232)[[S237]](../../sources/bibliography.md#s237), 128× bigger, though with ~200 GB/s of all-to-all per chip in a 64-chip cube versus 900 in NVL72 (🔴 Est.).
 
@@ -29,19 +29,19 @@ flowchart LR
 ```
 
 > [!TIP]
-> **Worked example — bytes moved by a DeepSeek-V3-class model.** Hidden size 7,168, 8 experts per token, 58 MoE layers [[S5006]](../../sources/bibliography.md#s5006). Dispatch in FP8: 8 × 7,168 × 1 B = **57 KB**; combine in BF16: **115 KB**; ~**10 MB per token** across the model [[S5004]](../../sources/bibliography.md#s5004). A GPU with 128 tokens per decode step sends **22 MB per layer**. With 64-way EP on 8-GPU servers, 56/64 leaves the server: 19 MB ÷ 50 GB/s (400G NIC) = **385 µs per layer, ~22 ms per step**; in a GB300 NVL72: 22 MB ÷ 900 GB/s ≈ **1.4 ms per step** [[S266]](../../sources/bibliography.md#s266)[[S200]](../../sources/bibliography.md#s200). DeepSeek's measured kernels need ~28 ms per step [[S5005]](../../sources/bibliography.md#s5005); a step at ~20 tokens/s per user lasts ~50 ms [[S5004]](../../sources/bibliography.md#s5004). **Conclusion:** on 8-GPU nodes the all-to-all eats half of every step unless hidden behind compute; in an NVL72 it nearly disappears.
+> **Worked example — bytes moved by a DeepSeek-V3-class model.** Hidden size 7,168, 8 experts per token, 58 MoE layers [[S5006]](../../sources/bibliography.md#s5006). Dispatch in FP8: 8 × 7,168 × 1 B = **57 KB**; combine in [BF16](../../glossary.md#bf16): **115 KB**; ~**10 MB per token** across the model [[S5004]](../../sources/bibliography.md#s5004). A GPU with 128 tokens per decode step sends **22 MB per layer**. With 64-way EP on 8-GPU servers, 56/64 leaves the server: 19 MB ÷ 50 GB/s (400G [NIC](../../glossary.md#nic)) = **385 µs per layer, ~22 ms per step**; in a GB300 NVL72: 22 MB ÷ 900 GB/s ≈ **1.4 ms per step** [[S266]](../../sources/bibliography.md#s266)[[S200]](../../sources/bibliography.md#s200). DeepSeek's measured kernels need ~28 ms per step [[S5005]](../../sources/bibliography.md#s5005); a step at ~20 tokens/s per user lasts ~50 ms [[S5004]](../../sources/bibliography.md#s5004). **Conclusion:** on 8-GPU nodes the all-to-all eats half of every step unless hidden behind compute; in an NVL72 it nearly disappears.
 
 <details>
 <summary>🔧 Under the hood: how DeepSeek designed its model around the network</summary>
 
 - **Node-limited routing.** DeepSeek-V3 lets each token pick experts from at most 4 of 8 expert groups [[S5006]](../../sources/bibliography.md#s5006); in training a token visits at most 4 nodes [[S34007]](../../sources/bibliography.md#s34007).
-- **Overlap.** Two micro-batches alternate so one computes while the other communicates [[S5004]](../../sources/bibliography.md#s5004). A larger NVLink domain reduces the need for this engineering.
+- **Overlap.** Two micro-batches alternate so one computes while the other communicates [[S5004]](../../sources/bibliography.md#s5004). A larger [NVLink](../../glossary.md#nvlink) domain reduces the need for this engineering.
 
 </details>
 
 ## 2. Wide expert parallelism and KV-cache sharing
 
-Spreading experts over more GPUs leaves each GPU fewer to store and read, freeing memory for larger batches and longer contexts. DeepSeek serves prefill at 32-way EP (9 routed experts per GPU) and decode at 144-way (2 per GPU) [[S5004]](../../sources/bibliography.md#s5004); a 72-GPU domain runs such wide EP at NVLink speed.
+Spreading experts over more GPUs leaves each GPU fewer to store and read, freeing memory for larger batches and longer contexts. DeepSeek serves [prefill](../../glossary.md#prefill) at 32-way EP (9 routed experts per GPU) and decode at 144-way (2 per GPU) [[S5004]](../../sources/bibliography.md#s5004); a 72-GPU domain runs such wide EP at NVLink speed.
 
 > [!TIP]
 > **Worked example — memory freed, and KV moved.** Each DeepSeek-V3 expert has three 7,168 × 2,048 matrices (~44 M parameters); 256 experts × 58 layers ≈ **654 GB** in FP8 (repo calc from [[S5006]](../../sources/bibliography.md#s5006)). At 8-way EP each GPU holds **~82 GB**; at 72-way **~9 GB**, freeing ~70 GB of a 288 GB GB300 for KV cache [[S32004]](../../sources/bibliography.md#s32004). [MLA](../../glossary.md#multi-head-latent-attention) stores 576 values per layer per token [[S32009]](../../sources/bibliography.md#s32009), so a 32k-token context in BF16 is ≈ **2.3 GB**: **2.6 ms** over NVLink 5 versus **23 ms** over an 800G NIC when handed from a prefill to a decode GPU [[S200]](../../sources/bibliography.md#s200)[[S264]](../../sources/bibliography.md#s264). **Conclusion:** a bigger domain buys bigger batches and cheaper KV handoffs, the levers that set cost per token for reasoning models.
@@ -58,7 +58,7 @@ Spreading experts over more GPUs leaves each GPU fewer to store and read, freein
 | GB200 NVL72, DeepSeek-R1 FP4 | repo calc on InferenceX [[S621]](../../sources/bibliography.md#s621) | B200 | ~3.5× at 49 tok/s/user, ~0.85× at 90 | configs from different dates |
 
 > [!TIP]
-> **Worked example — where does "10×" come from?** Blackwell versus Hopper: dense FP8 4.5 vs 1.98 PFLOPS (2.3×), HBM 8 vs 4.8 TB/s (1.7×) [[S33003]](../../sources/bibliography.md#s33003)[[S32002]](../../sources/bibliography.md#s32002); FP4 can double compute again: ~2–4.5× before any NVLink effect, which same-silicon data put at ~2–3.5× [[S630]](../../sources/bibliography.md#s630)[[S621]](../../sources/bibliography.md#s621). **Conclusion:** 10× stacks generation, number format, domain size and software; ask for the same-GPU number.
+> **Worked example — where does "10×" come from?** Blackwell versus Hopper: dense FP8 4.5 vs 1.98 [PFLOPS](../../glossary.md#flops) (2.3×), [HBM](../../glossary.md#hbm) 8 vs 4.8 TB/s (1.7×) [[S33003]](../../sources/bibliography.md#s33003)[[S32002]](../../sources/bibliography.md#s32002); [FP4](../../glossary.md#fp4) can double compute again: ~2–4.5× before any NVLink effect, which same-silicon data put at ~2–3.5× [[S630]](../../sources/bibliography.md#s630)[[S621]](../../sources/bibliography.md#s621). **Conclusion:** 10× stacks generation, number format, domain size and software; ask for the same-GPU number.
 
 ## 4. The counter-argument: TPU pods and the torus
 
@@ -86,8 +86,8 @@ Google wires each Ironwood TPU to its neighbours with six [ICI](../../glossary.m
 ## 🎯 Corp Dev Lens
 
 1. **Model architecture follows the fabric.** DeepSeek's node-limited routing [[S5006]](../../sources/bibliography.md#s5006) shows labs design around interconnects; MoE layers tuned for NVL72 may run poorly elsewhere, deepening lock-in.
-2. **Pricing power rests on ~2–3.5×, not 10×.** Same-silicon data [[S630]](../../sources/bibliography.md#s630)[[S621]](../../sources/bibliography.md#s621) are the right base for the NVL72 premium in TCO models ([Layer 08](../08-systems-racks-ai-factories/index.md)).
-3. **Qualcomm question (public information only):** Dragonfly AI300 is slated to use UALink and ESUN for scale-up in 2028 [[S90060]](../../sources/bibliography.md#s90060); what domain size and per-chip all-to-all bandwidth would it need to serve 2028-era MoE models competitively?
+2. **Pricing power rests on ~2–3.5×, not 10×.** Same-silicon data [[S630]](../../sources/bibliography.md#s630)[[S621]](../../sources/bibliography.md#s621) are the right base for the NVL72 premium in [TCO](../../glossary.md#tco) models ([Layer 08](../08-systems-racks-ai-factories/index.md)).
+3. **Qualcomm question (public information only):** Dragonfly AI300 is slated to use [UALink](../../glossary.md#ualink) and [ESUN](../../glossary.md#esun) for [scale-up](../../glossary.md#scale-up) in 2028 [[S90060]](../../sources/bibliography.md#s90060); what domain size and per-chip all-to-all bandwidth would it need to serve 2028-era MoE models competitively?
 
 ## 📚 Sources
 

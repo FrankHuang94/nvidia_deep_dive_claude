@@ -8,7 +8,7 @@
 - **The advantage was built with the balance sheet.** NVIDIA's [purchase obligations](../../glossary.md#purchase-obligations) rose from $4.9B in January 2023 to $279B in July 2026, mostly memory and manufacturing capacity [[S419]](../../sources/bibliography.md#s419)[[S407]](../../sources/bibliography.md#s407); the disclosed line was broadened in 2026, so the multiple is indicative [[S90092]](../../sources/bibliography.md#s90092).
 - **It was not free.** The FY2023 downturn brought ~$2.17B of inventory provisions [[S418]](../../sources/bibliography.md#s418) and a ~$348M charge for commitments above demand [[S421]](../../sources/bibliography.md#s421), after $3.45B of supplier [prepayments](../../glossary.md#prepayment) [[S419]](../../sources/bibliography.md#s419).
 - **Commitments now outrun physical capacity.** Since end-2023 they grew 17× against 4.4× for quarterly revenue and ~8× for estimated CoWoS capacity [[S407]](../../sources/bibliography.md#s407)[[S379]](../../sources/bibliography.md#s379), because they now include multi-year memory contracts at supercycle prices.
-- **Supplier qualification is a weapon and a risk.** Samsung needed ~19 months to pass NVIDIA's HBM3E tests (Sep 2025) [[S3514]](../../sources/bibliography.md#s3514); once in, its HBM share rose from 17% to 33% in a year [[S3500]](../../sources/bibliography.md#s3500).
+- **Supplier qualification is a weapon and a risk.** Samsung needed ~19 months to pass NVIDIA's [HBM3E](../../glossary.md#hbm3e) tests (Sep 2025) [[S3514]](../../sources/bibliography.md#s3514); once in, its HBM share rose from 17% to 33% in a year [[S3500]](../../sources/bibliography.md#s3500).
 - **[Q4 · Source of advantage]** Mostly scale, purchasing power and timing, not memory engineering: AMD out-specs Rubin on capacity and bandwidth [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093), while NVIDIA holds an estimated ~60% of CoWoS [[S379]](../../sources/bibliography.md#s379).
 - **[Q6 · Replication cost]** Est. 3–5 years and $100–300B of multi-year commitments to match NVIDIA's supply position, but only a few hundred specialist engineers (🔴 repo estimate).
 
@@ -55,7 +55,7 @@ An HBM maker cannot simply sell to NVIDIA. Each stack generation goes through [H
 
 ![Stacked 100% bar chart of HBM revenue share: 2022 SK hynix 50%, Samsung 40%, Micron 10%; 2023 estimate 53/38/9; Q1 2025 SK hynix about 70%; Q2 2025 SK hynix 62%, Micron 21%, Samsung 17%; Q3 2025 SK hynix 57%, Samsung 22%, Micron 21%.](../../assets/charts/03-hbm-market-share-by-supplier.svg)
 
-**[Q4 · Source of advantage]** The evidence points to **supply bought early with a risk-tolerant balance sheet**, not superior memory engineering. AMD fits more HBM and more bandwidth per GPU [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093); NVIDIA's own HBM4 speed target had to be revised [[S104]](../../sources/bibliography.md#s104). What rivals lack is NVIDIA's estimated ~60% CoWoS share [[S379]](../../sources/bibliography.md#s379) and first claim on three HBM makers [[S90039]](../../sources/bibliography.md#s90039). Engineering co-design matters (B200 was NVIDIA's first CoWoS-L package [[S358]](../../sources/bibliography.md#s358)) but TSMC sells the same process to everyone. 🔴 repo analysis; mechanics in [Supply chain as a weapon](supply-chain-as-a-weapon.md).
+**[Q4 · Source of advantage]** The evidence points to **supply bought early with a risk-tolerant balance sheet**, not superior memory engineering. AMD fits more HBM and more bandwidth per GPU [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093); NVIDIA's own [HBM4](../../glossary.md#hbm4) speed target had to be revised [[S104]](../../sources/bibliography.md#s104). What rivals lack is NVIDIA's estimated ~60% CoWoS share [[S379]](../../sources/bibliography.md#s379) and first claim on three HBM makers [[S90039]](../../sources/bibliography.md#s90039). Engineering co-design matters (B200 was NVIDIA's first CoWoS-L package [[S358]](../../sources/bibliography.md#s358)) but TSMC sells the same process to everyone. 🔴 repo analysis; mechanics in [Supply chain as a weapon](supply-chain-as-a-weapon.md).
 
 ## What would it take to replicate?
 
@@ -91,7 +91,7 @@ CoWoS wafers count packaging slots; commitments count dollars. Between end-2023 
 1. Which supply contracts would a new entrant need signed before launch, and could equity stakes or prepayments to memory makers substitute for NVIDIA-scale volume?
 2. How much write-down risk sits in $279B of commitments if 2027 demand slows, and what do disclosures say about cancellability?
 3. Does Samsung's late qualification make it the natural partner for challengers seeking priority supply?
-4. Could a consortium of buyers (labs, hyperscalers) contract memory directly, as OpenAI's letters of intent suggest, and bypass chip vendors' allocation power?
+4. Could a consortium of buyers (labs, [hyperscalers](../../glossary.md#hyperscaler)) contract memory directly, as OpenAI's letters of intent suggest, and bypass chip vendors' allocation power?
 
 ## 📚 Sources
 

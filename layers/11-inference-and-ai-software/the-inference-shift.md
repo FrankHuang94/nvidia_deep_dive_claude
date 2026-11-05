@@ -5,7 +5,7 @@
 ## ⚡ The Executive Take
 
 - **Tokens per task, not users, drive demand.** A reasoning answer generates ~21× a chat reply's tokens; a 30-turn coding agent handles ~1,100× the total (Est.) [[S32025]](../../sources/bibliography.md#s32025). Google's monthly tokens grew ~134× in 18 months [[S32018]](../../sources/bibliography.md#s32018)[[S32020]](../../sources/bibliography.md#s32020).
-- **Inference is sold on a latency curve.** On DeepSeek-R1, GB300 NVL72 serves ~6,261 tokens/s per GPU at 50 tokens/s per user but ~562 at 100 [[S621]](../../sources/bibliography.md#s621). Faster tiers cost ~11× more per token (Est.) [[S622]](../../sources/bibliography.md#s622).
+- **Inference is sold on a latency curve.** On DeepSeek-R1, GB300 [NVL72](../../glossary.md#nvl72) serves ~6,261 tokens/s per GPU at 50 tokens/s per user but ~562 at 100 [[S621]](../../sources/bibliography.md#s621). Faster tiers cost ~11× more per token (Est.) [[S622]](../../sources/bibliography.md#s622).
 - **Power is the binding budget.** At 50 tokens/s per user, GB300 NVL72 yields ~3.0M tokens/s per MW of all-in power vs ~225k for H200, ~13× [[S621]](../../sources/bibliography.md#s621)[[S622]](../../sources/bibliography.md#s622). 🟡 NVIDIA claims Vera Rubin plus Groq LPX raises tokens per watt 35× [[S113]](../../sources/bibliography.md#s113)[[S90003]](../../sources/bibliography.md#s90003).
 - **NVIDIA's last number: inference was >40% of Data Center revenue** for the year to Q2 FY2025, implying ≥$33B [[S11011]](../../sources/bibliography.md#s11011)[[S441]](../../sources/bibliography.md#s441). 🔴 At that share the latest year's $277.7B would hold ~$111B, but no split has been disclosed since [[S405]](../../sources/bibliography.md#s405).
 - **Management now talks qualitatively.** It cites an "inflection in inference demand" and $1T of Blackwell plus Rubin demand through 2027 [[S409]](../../sources/bibliography.md#s409)[[S90001]](../../sources/bibliography.md#s90001).
@@ -27,7 +27,7 @@
 > | | GB300 NVL72 | H200 |
 > |---|---|---|
 > | Tokens/s per GPU at 50 tokens/s per user | ~6,261 | ~308 |
-> | Owner cost per GPU-hour (Est.) | $2.31 | $1.22 |
+> | Owner cost per [GPU-hour](../../glossary.md#gpu-hour) (Est.) | $2.31 | $1.22 |
 > | $ per million tokens = cost ÷ (tokens/s × 3,600) × 10⁶ | ~$0.10 | ~$1.10 |
 > | Cost of ~1.1M tokens | ~$0.11 | ~$1.20 |
 >
@@ -60,7 +60,7 @@
 <details>
 <summary>🔧 Under the hood: how the InferenceX frontier is measured</summary>
 
-SemiAnalysis's InferenceX runs each system nightly across engines, parallelism settings and concurrency, keeping the best points as the frontier [[S620]](../../sources/bibliography.md#s620)[[S621]](../../sources/bibliography.md#s621). Throughput counts input plus output tokens per GPU; interactivity is the median tokens/s per user. Cost per million tokens divides SemiAnalysis's owner TCO per GPU-hour by throughput [[S622]](../../sources/bibliography.md#s622): an estimate, not a price.
+SemiAnalysis's InferenceX runs each system nightly across engines, parallelism settings and concurrency, keeping the best points as the frontier [[S620]](../../sources/bibliography.md#s620)[[S621]](../../sources/bibliography.md#s621). Throughput counts input plus output tokens per GPU; interactivity is the median tokens/s per user. Cost per million tokens divides SemiAnalysis's owner [TCO](../../glossary.md#tco) per GPU-hour by throughput [[S622]](../../sources/bibliography.md#s622): an estimate, not a price.
 
 </details>
 
@@ -87,14 +87,14 @@ The split is soft. The same GPUs train and serve, and reinforcement-learning pos
 > **🐂 Bull view.** Tokens per task compound with reasoning and agents [[S32025]](../../sources/bibliography.md#s32025). Interactivity tiers reward the newest racks, and software keeps raising the installed base's output [[S603]](../../sources/bibliography.md#s603). NVIDIA leads the recurring market on tokens per MW [[S621]](../../sources/bibliography.md#s621)[[S622]](../../sources/bibliography.md#s622).
 
 > [!WARNING]
-> **🐻 Bear view.** Inference splits into small, independent jobs that do not need NVIDIA's training fabric. Cost per token is easy to benchmark and multi-source, which TPUs and custom ASICs exploit [[S625]](../../sources/bibliography.md#s625). Sparse models, FP4 and caching may cut hardware per token faster than demand grows.
+> **🐻 Bear view.** Inference splits into small, independent jobs that do not need NVIDIA's training fabric. Cost per token is easy to benchmark and multi-source, which TPUs and custom ASICs exploit [[S625]](../../sources/bibliography.md#s625). Sparse models, [FP4](../../glossary.md#fp4) and caching may cut hardware per token faster than demand grows.
 
 ## 🎯 Corp Dev Lens
 
 1. **Price follows the latency tier.** Cost per token rises ~11× between 50 and 100 tokens/s per user on the same rack (Est.) [[S622]](../../sources/bibliography.md#s622). Which customers pay for fast tiers, and where can a cheaper accelerator win at relaxed latency?
 2. **Tokens per MW is the procurement metric.** A challenger needs independent, workload-matched numbers on this axis. How would Qualcomm's AI200 and AI250 [[S173]](../../sources/bibliography.md#s173) show up on it?
-3. **The inference share is undisclosed.** Any training-vs-inference revenue split rests on 2024 data [[S11011]](../../sources/bibliography.md#s11011). What would update it: hyperscaler commentary, benchmark volumes, token disclosures?
-4. **Agents change the product.** Long-lived contexts favor capacity, KV offload and fast networks. Which memory, storage and NIC suppliers gain regardless of the accelerator?
+3. **The inference share is undisclosed.** Any training-vs-inference revenue split rests on 2024 data [[S11011]](../../sources/bibliography.md#s11011). What would update it: [hyperscaler](../../glossary.md#hyperscaler) commentary, benchmark volumes, token disclosures?
+4. **Agents change the product.** Long-lived contexts favor capacity, KV offload and fast networks. Which memory, storage and [NIC](../../glossary.md#nic) suppliers gain regardless of the accelerator?
 
 ## 📚 Sources
 

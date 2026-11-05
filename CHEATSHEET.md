@@ -7,13 +7,13 @@
 - **Read across a row** for one layer's job, NVIDIA's products now → next, the metric that matters, where the
   advantage comes from, the strongest challenger, the trend, the [value pool](glossary.md#value-pool) and the corp-dev
   angle. Read down the "Moat · trend" column for the whole story.
-- **Deepest moats:** libraries (4.5 of 5), then memory and supply, scale-up, systems and ecosystem (4.0 each). 🔴
+- **Deepest moats:** libraries (4.5 of 5), then memory and supply, [scale-up](glossary.md#scale-up), systems and ecosystem (4.0 each). 🔴
   **Thinnest:** CPU and orchestration and cloud (2.0) [[S1500]](sources/bibliography.md#s1500).
 - **The gap is narrowing in 6 of 12 layers** and widening only in supply, where commitments hit $279B [[S1500]](sources/bibliography.md#s1500)[[S407]](sources/bibliography.md#s407).
-- **The money sits in four hardware layers:** GPUs, NVLink, networking (~$31.4B in FY2026) and racks (~$35B of
+- **The money sits in four hardware layers:** GPUs, [NVLink](glossary.md#nvlink), networking (~$31.4B in FY2026) and racks (~$35B of
   NVIDIA content per gigawatt) [[S402]](sources/bibliography.md#s402)[[S398]](sources/bibliography.md#s398). The software layers are mostly free and defend that margin [[S1510]](sources/bibliography.md#s1510).
 - **Strongest challengers by layer:** AMD on chips and racks, Google's TPU on systems and cost per token, Broadcom
-  on Ethernet and custom ASICs, hyperscalers on cloud [[S144]](sources/bibliography.md#s144)[[S90021]](sources/bibliography.md#s90021)[[S625]](sources/bibliography.md#s625)[[S274]](sources/bibliography.md#s274)[[S90026]](sources/bibliography.md#s90026).
+  on Ethernet and custom ASICs, [hyperscalers](glossary.md#hyperscaler) on cloud [[S144]](sources/bibliography.md#s144)[[S90021]](sources/bibliography.md#s90021)[[S625]](sources/bibliography.md#s625)[[S274]](sources/bibliography.md#s274)[[S90026]](sources/bibliography.md#s90026).
 
 ![Layer-cake diagram of NVIDIA's twelve stack layers coloured by the repo's moat verdict: deep (green) in libraries 4.5, memory and supply 4.0 (the only widening gap), scale-up 4.0, systems 4.0 and ecosystem 4.0; contested (amber) in CUDA 3.5, GPU silicon 3.0, scale-out networking 3.0, DPU 3.0 and inference software 3.0; thin (red) in CPU 2.0 and orchestration and cloud 2.0. Dollar signs mark where NVIDIA books gross profit directly: GPU silicon, scale-up, scale-out and systems.](assets/diagrams/00-moat-layer-cake.svg)
 
@@ -45,10 +45,10 @@ Moat = this repo's 1–5 [moat score](glossary.md#moat-score); arrow = [gap tren
 | <a href="assets/charts/01-revenue-mix-stacked-area.svg"><img src="assets/charts/01-revenue-mix-stacked-area.svg" width="420" alt="Stacked area chart of NVIDIA quarterly revenue by segment from Q1FY23 to Q2FY27. Data Center rose from $3.8B (45% of $8.3B) to $89.0B (93% of $96.2B); networking reached about $17.5B a quarter while gaming and other segments stayed below $8B combined."></a><br><sub>**Revenue mix:** Data Center went from 45% to 93% of quarterly revenue in 17 quarters [[S405]](sources/bibliography.md#s405) · [01 Flywheel](01-the-nvidia-flywheel.md)</sub> | <a href="assets/charts/18-risk-heatmap.svg"><img src="assets/charts/18-risk-heatmap.svg" width="420" alt="Risk heatmap with likelihood on the x-axis and impact on the y-axis, each scored 1 to 5, plus a ranked bar panel. Scores (likelihood x impact): hyperscaler custom ASICs 16 (4x4), circular financing and the capex cycle 15 (3x5), customer concentration 12 (3x4), inference commoditization 12 (4x3), software abstraction eroding CUDA 9 (3x3), power constraints 8 (4x2), China and export controls 8 (4x2), antitrust 6 (3x2), open interconnect standards 6 (3x2) and TSMC/Taiwan concentration 5 (1x5), a low-probability, extreme-impact tail. All scores are the repo&#x27;s judgement."></a><br><sub>**🔴 Risk map:** custom ASICs (16) and the capex cycle (15) lead [[S18027]](sources/bibliography.md#s18027) · [18 Bear case](cross-cutting/18-vulnerabilities-and-bear-case.md)</sub> |
 
 > [!TIP]
-> **Worked example — reading one row: scale-out networking.** The metric says networking earned ~$17.5B in Q2
+> **Worked example — reading one row: [scale-out](glossary.md#scale-out) networking.** The metric says networking earned ~$17.5B in Q2
 > FY2027 (Est.), ~20% of Data Center revenue [[S408]](sources/bibliography.md#s408). The moat column says only 3.0 and stable, because Broadcom
 > shipped a 102.4 Tb/s switch ~12 months before Spectrum-6 and Ethernet took ~⅔ of AI back-end switch sales
-> [[S274]](sources/bibliography.md#s274)[[S6019]](sources/bibliography.md#s6019)[[S90054]](sources/bibliography.md#s90054). Both are true at once: buyers pay NVIDIA for the tuned NIC–switch–NCCL bundle, not for
+> [[S274]](sources/bibliography.md#s274)[[S6019]](sources/bibliography.md#s6019)[[S90054]](sources/bibliography.md#s90054). Both are true at once: buyers pay NVIDIA for the tuned [NIC](glossary.md#nic)–switch–[NCCL](glossary.md#nccl) bundle, not for
 > silicon no one else has. **Conclusion:** a contested layer can still be a large value pool; the corp-dev question is
 > which piece (optics, lasers, NIC IP) moves value next [[S90049]](sources/bibliography.md#s90049).
 
@@ -71,10 +71,10 @@ Moat = this repo's 1–5 [moat score](glossary.md#moat-score); arrow = [gap tren
 1. **Arrows matter more than scores.** Six ↘ arrows mark where rivals are closing; each is a window for partnerships
    that the incumbent may not offer later [[S1500]](sources/bibliography.md#s1500).
 2. **Money and moat diverge.** The four layers that earn (GPU, scale-up, networking, racks) are defended by layers that
-   do not (CUDA, libraries, supply). A challenger needs a plan for both.
+   do not ([CUDA](glossary.md#cuda), libraries, supply). A challenger needs a plan for both.
 3. **The thin layers are open sockets.** CPU and cloud orchestration score 2.0. NVIDIA co-opts rather than wins them
-   (NVLink Fusion, open-sourced Run:ai), so a third party can still build position there [[S131]](sources/bibliography.md#s131)[[S12510]](sources/bibliography.md#s12510).
-4. **Supply is the one widening gap.** No partnership question in this table matters if the HBM and CoWoS for 2027–2028
+   ([NVLink Fusion](glossary.md#nvlink-fusion), open-sourced Run:ai), so a third party can still build position there [[S131]](sources/bibliography.md#s131)[[S12510]](sources/bibliography.md#s12510).
+4. **Supply is the one widening gap.** No partnership question in this table matters if the [HBM](glossary.md#hbm) and [CoWoS](glossary.md#cowos) for 2027–2028
    are already allocated [[S407]](sources/bibliography.md#s407)[[S379]](sources/bibliography.md#s379).
 
 ## 📚 Sources

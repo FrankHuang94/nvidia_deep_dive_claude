@@ -4,12 +4,12 @@
 
 ## ⚡ The Executive Take
 
-- **Libraries shipped with CUDA from day one:** CUDA 1.0 (June 2007) included cuBLAS and cuFFT [[S525]](../../sources/bibliography.md#s525). NVIDIA then added a library whenever a new workload appeared: cuDNN (2014), NCCL (on GitHub from April 2016), CUTLASS (December 2017) and RAPIDS (October 2018) [[S10039]](../../sources/bibliography.md#s10039)[[S10506]](../../sources/bibliography.md#s10506)[[S10010]](../../sources/bibliography.md#s10010)[[S10517]](../../sources/bibliography.md#s10517).
+- **Libraries shipped with [CUDA](../../glossary.md#cuda) from day one:** CUDA 1.0 (June 2007) included cuBLAS and cuFFT [[S525]](../../sources/bibliography.md#s525). NVIDIA then added a library whenever a new workload appeared: cuDNN (2014), [NCCL](../../glossary.md#nccl) (on GitHub from April 2016), CUTLASS (December 2017) and RAPIDS (October 2018) [[S10039]](../../sources/bibliography.md#s10039)[[S10506]](../../sources/bibliography.md#s10506)[[S10010]](../../sources/bibliography.md#s10010)[[S10517]](../../sources/bibliography.md#s10517).
 - **"[CUDA-X](../../glossary.md#cuda-x)" is a 2019 brand**, and NVIDIA's counts change definition: "550 SDKs and AI models" in 2022, ~350 libraries in October 2025 [[S10502]](../../sources/bibliography.md#s10502)[[S532]](../../sources/bibliography.md#s532)[[S10501]](../../sources/bibliography.md#s10501).
 - **Openness has swung back and forth.** NCCL 2 was binary-only from 2017 until v2.3.5 (September 2018) and moved to Apache 2.0 in February 2026; cuOpt went Apache 2.0 in 2025 [[S10506]](../../sources/bibliography.md#s10506)[[S10507]](../../sources/bibliography.md#s10507)[[S10027]](../../sources/bibliography.md#s10027).
 - **[Q4 · Source of advantage]** Hardware–software co-design executed for two decades: CUTLASS supported each new data-center GPU within 24–71 days of first volume shipments, and Rubin got CUTLASS and NCCL support on the same day [[S10010]](../../sources/bibliography.md#s10010)[[S10507]](../../sources/bibliography.md#s10507).
 - **[Q6 · Replication cost]** Est. ~$3B, ~1,500 engineers and ~5 years for an AI-core library stack; ~$16B over ~10 years for NVIDIA's full breadth 🔴. Time and specialist talent, not cash, are the binding constraints [[S401]](../../sources/bibliography.md#s401)[[S10535]](../../sources/bibliography.md#s10535).
-- **Counterfactual:** had NVIDIA left libraries to third parties, frameworks would have built their own compilers, as Google did with XLA, and CUDA would be a thinner moat 🔴.
+- **Counterfactual:** had NVIDIA left libraries to third parties, frameworks would have built their own compilers, as Google did with [XLA](../../glossary.md#xla), and CUDA would be a thinner moat 🔴.
 
 ```mermaid
 timeline
@@ -66,7 +66,7 @@ A new hardware feature is worthless until a library exposes it. Volta's [tensor 
 **Answer:** the advantage is integration plus speed of execution, sustained long enough to become ecosystem. Technology alone is copyable: RCCL copies NCCL's interface and hipDF forks cuDF [[S10002]](../../sources/bibliography.md#s10002)[[S10511]](../../sources/bibliography.md#s10511). What is hard to copy is an organisation that ships the library, the compiler and the GPU together, every year, across 15 domains.
 
 > [!TIP]
-> **Worked example — Rubin day-one readiness.** Rubin production shipments began in early August 2026 [[S500]](../../sources/bibliography.md#s500). CUTLASS 4.8.0 and NCCL 2.32.3, both adding initial Rubin support, were tagged on 2026-09-17, about 33 days after a mid-August reference date [[S10010]](../../sources/bibliography.md#s10010)[[S10507]](../../sources/bibliography.md#s10507). AMD's FP4 path took longer: CUDA 12.8 supported FP4 in January 2025, ROCm 7.0 in September 2025, 236 days later [[S524]](../../sources/bibliography.md#s524)[[S586]](../../sources/bibliography.md#s586).
+> **Worked example — Rubin day-one readiness.** Rubin production shipments began in early August 2026 [[S500]](../../sources/bibliography.md#s500). CUTLASS 4.8.0 and NCCL 2.32.3, both adding initial Rubin support, were tagged on 2026-09-17, about 33 days after a mid-August reference date [[S10010]](../../sources/bibliography.md#s10010)[[S10507]](../../sources/bibliography.md#s10507). AMD's [FP4](../../glossary.md#fp4) path took longer: CUDA 12.8 supported FP4 in January 2025, [ROCm](../../glossary.md#rocm) 7.0 in September 2025, 236 days later [[S524]](../../sources/bibliography.md#s524)[[S586]](../../sources/bibliography.md#s586).
 
 ## [Q6 · Replication cost] Time, dollars and talent
 
@@ -92,7 +92,7 @@ A new hardware feature is worthless until a library exposes it. Volta's [tensor 
 - 🔴 **…skipped RAPIDS and the non-AI domains?** GPUs would be an AI-only purchase. There would be no Snowflake or Spark integration to pull data-analytics budgets onto GPUs [[S10521]](../../sources/bibliography.md#s10521)[[S10517]](../../sources/bibliography.md#s10517).
 
 > [!TIP]
-> **Worked example — the price of outsourced libraries.** Suppose a third party had charged NVIDIA AI Enterprise's list price of $4,500 per GPU per year for the libraries [[S10526]](../../sources/bibliography.md#s10526). A 72-GPU rack would carry 72 × $4,500 = $324,000 a year, ~4% a year of a ~$7.8M Vera Rubin NVL72 rack (Est., Morgan Stanley) [[S331]](../../sources/bibliography.md#s331). Bundling the libraries free removes that friction and keeps the margin in the GPU.
+> **Worked example — the price of outsourced libraries.** Suppose a third party had charged NVIDIA AI Enterprise's list price of $4,500 per GPU per year for the libraries [[S10526]](../../sources/bibliography.md#s10526). A 72-GPU rack would carry 72 × $4,500 = $324,000 a year, ~4% a year of a ~$7.8M Vera Rubin [NVL72](../../glossary.md#nvl72) rack (Est., Morgan Stanley) [[S331]](../../sources/bibliography.md#s331). Bundling the libraries free removes that friction and keeps the margin in the GPU.
 
 <details>
 <summary>🔧 Under the hood: how a library release reaches users</summary>

@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **CUDA-X is a catalog of pre-tuned engines,** each packaging years of GPU tuning for one domain. NVIDIA cites "hundreds" [[S10047]](../../sources/bibliography.md#s10047); about 20 carry most of the commercial weight, and they are listed below.
+- **[CUDA-X](../../glossary.md#cuda-x) is a catalog of pre-tuned engines,** each packaging years of GPU tuning for one domain. NVIDIA cites "hundreds" [[S10047]](../../sources/bibliography.md#s10047); about 20 carry most of the commercial weight, and they are listed below.
 - **The AI core is small and mostly closed.** [cuBLAS](../../glossary.md#cublas) (matrix math) and [cuDNN](../../glossary.md#cudnn) (neural-network layers) ship under proprietary licences [[S10038]](../../sources/bibliography.md#s10038). [CUTLASS](../../glossary.md#cutlass), the open template kit for custom kernels, gained a Python DSL in version 4.0 (June 2025) [[S10010]](../../sources/bibliography.md#s10010).
 - **Library quality is money.** Lifting a 70B training run from 41% to 52% of peak FLOPS (Meta's Llama 3 vs NVIDIA's Megatron benchmark) [[S34006]](../../sources/bibliography.md#s34006)[[S34002]](../../sources/bibliography.md#s34002), saves ~0.4M B200-hours on a 15T-token run.
 - **The newer libraries serve customers outside AI.** TSMC runs [cuLitho](../../glossary.md#culitho) in production [[S10031]](../../sources/bibliography.md#s10031). A peer-reviewed study measured [Parabricks](../../glossary.md#parabricks) germline calling up to 65× faster than CPU [[S10033]](../../sources/bibliography.md#s10033).
@@ -15,7 +15,7 @@
 
 ## How a library sits between the framework and the silicon
 
-**Analogy.** CUDA ([layer 09](../09-cuda-and-system-software/index.md)) is a machine shop where anyone can cut parts from raw steel; CUDA-X is the catalog of pre-machined parts. A PyTorch user multiplying two matrices never writes GPU code: PyTorch calls cuBLAS, which picks from hundreds of hand-tuned [GPU kernels](../../glossary.md#gpu-kernel) the one that best fits this matrix shape, number format and GPU generation. The same pattern repeats for convolutions and attention (cuDNN), communication (NCCL) and inference engines (TensorRT).
+**Analogy.** [CUDA](../../glossary.md#cuda) ([layer 09](../09-cuda-and-system-software/index.md)) is a machine shop where anyone can cut parts from raw steel; CUDA-X is the catalog of pre-machined parts. A [PyTorch](../../glossary.md#pytorch) user multiplying two matrices never writes GPU code: PyTorch calls cuBLAS, which picks from hundreds of hand-tuned [GPU kernels](../../glossary.md#gpu-kernel) the one that best fits this matrix shape, number format and GPU generation. The same pattern repeats for convolutions and attention (cuDNN), communication ([NCCL](../../glossary.md#nccl)) and inference engines (TensorRT).
 
 ```mermaid
 flowchart LR
@@ -36,7 +36,7 @@ flowchart LR
 **[Q1 · Job & failure mode]** The library layer's job is to close the gap between peak and delivered performance. When it is weak, hardware sits idle (a GPU whose kernels reach half of peak is, economically, half a GPU) and new features stay dark: low-precision formats, sparsity and in-switch reduction pay off only once a library uses them.
 
 > [!TIP]
-> **Worked example — what 11 points of efficiency are worth.** A Llama-3-style 70B model trained on 15T tokens needs about 6 × 70B × 15T ≈ 6.3 × 10²⁴ FLOPs. A B200 peaks at 2,250 dense BF16 TFLOPS [[S33003]](../../sources/bibliography.md#s33003). At the 41% of peak ([MFU](../../glossary.md#mfu)) Meta reported for Llama 3 405B [[S34006]](../../sources/bibliography.md#s34006), each GPU delivers ~920 TFLOPS and the run takes ~1.9M B200-hours. At the 52% NVIDIA reported for its Megatron 1T benchmark [[S34002]](../../sources/bibliography.md#s34002), it takes ~1.5M. **Conclusion:** the ~0.4M GPU-hours saved are worth ~$2M at an illustrative $5 per GPU-hour [[S395]](../../sources/bibliography.md#s395). Parallelism choices explain part of the gap; tuned kernels and collectives explain most of the rest.
+> **Worked example — what 11 points of efficiency are worth.** A Llama-3-style 70B model trained on 15T tokens needs about 6 × 70B × 15T ≈ 6.3 × 10²⁴ FLOPs. A B200 peaks at 2,250 dense [BF16](../../glossary.md#bf16) TFLOPS [[S33003]](../../sources/bibliography.md#s33003). At the 41% of peak ([MFU](../../glossary.md#mfu)) Meta reported for Llama 3 405B [[S34006]](../../sources/bibliography.md#s34006), each GPU delivers ~920 TFLOPS and the run takes ~1.9M B200-hours. At the 52% NVIDIA reported for its Megatron 1T benchmark [[S34002]](../../sources/bibliography.md#s34002), it takes ~1.5M. **Conclusion:** the ~0.4M GPU-hours saved are worth ~$2M at an illustrative $5 per [GPU-hour](../../glossary.md#gpu-hour) [[S395]](../../sources/bibliography.md#s395). Parallelism choices explain part of the gap; tuned kernels and collectives explain most of the rest.
 
 ## The catalog at a glance
 
@@ -97,10 +97,10 @@ mindmap
 
 ## The AI core: math, kernels and inference
 
-Four libraries carry almost all AI arithmetic: cuBLAS and cuDNN hold the general kernels, TensorRT assembles them into an engine, and CUTLASS is how NVIDIA and outsiders build kernels that do not exist yet. They decide how fast customers can use each new number format. CUTLASS today covers FP64 down to block-scaled NVFP4, MXFP4, MXFP6 and MXFP8 from Volta to Blackwell [[S10009]](../../sources/bibliography.md#s10009).
+Four libraries carry almost all AI arithmetic: cuBLAS and cuDNN hold the general kernels, TensorRT assembles them into an engine, and CUTLASS is how NVIDIA and outsiders build kernels that do not exist yet. They decide how fast customers can use each new number format. CUTLASS today covers FP64 down to block-scaled [NVFP4](../../glossary.md#nvfp4), MXFP4, MXFP6 and MXFP8 from Volta to Blackwell [[S10009]](../../sources/bibliography.md#s10009).
 
 > [!TIP]
-> **Worked example — why a new number format is worth nothing until the libraries catch up.** A Rubin GPU is listed at 35 PFLOPS dense FP4 versus 4 PFLOPS dense BF16 [[S100]](../../sources/bibliography.md#s100), a factor of 8.75. A model served in BF16 uses 4 PFLOPS of that silicon. Only after cuBLAS, CUTLASS and TensorRT ship FP4 kernels, and the model is quantized without losing accuracy, does the other 31 PFLOPS become usable. **Conclusion:** at the format level, the library is the gate between data-sheet compute and revenue. See [number formats](../02-gpu-silicon/number-formats-and-precision.md).
+> **Worked example — why a new number format is worth nothing until the libraries catch up.** A Rubin GPU is listed at 35 [PFLOPS](../../glossary.md#flops) dense [FP4](../../glossary.md#fp4) versus 4 PFLOPS dense BF16 [[S100]](../../sources/bibliography.md#s100), a factor of 8.75. A model served in BF16 uses 4 PFLOPS of that silicon. Only after cuBLAS, CUTLASS and TensorRT ship FP4 kernels, and the model is quantized without losing accuracy, does the other 31 PFLOPS become usable. **Conclusion:** at the format level, the library is the gate between data-sheet compute and revenue. See [number formats](../02-gpu-silicon/number-formats-and-precision.md).
 
 Kernels also have to be rewritten for each generation. FlashAttention-2 reached 50–73% of an A100's peak but only 35% of an H100's, until the Hopper-specific FlashAttention-3 reached 75% [[S9002]](../../sources/bibliography.md#s9002)[[S9003]](../../sources/bibliography.md#s9003). FlashAttention-4, written in CuTe DSL for Blackwell, reaches 71% of B200 BF16 peak, up to 1.3× faster than NVIDIA's cuDNN 9.13 and 2.7× faster than Triton [[S9004]](../../sources/bibliography.md#s9004). The fastest attention kernel on NVIDIA's flagship came from outside NVIDIA's library team, built with NVIDIA's tools.
 
@@ -109,7 +109,7 @@ Kernels also have to be rewritten for each generation. FlashAttention-2 reached 
 <details>
 <summary>🔧 Under the hood: how a kernel library chooses what to run</summary>
 
-A GEMM call carries a shape (M, N, K), data types and memory layouts. cuBLAS keeps many pre-compiled kernels per GPU architecture (different tile sizes, pipeline depths and work splits across SMs), and a heuristic or autotuning pass picks one. Follow-on operations (bias, activation, scaling) can be fused into the kernel's epilogue so results never round-trip through HBM. CUTLASS exposes the same building blocks as templates, and CuTe's layout algebra describes which thread owns which element of a tile. The CUTLASS 4 Python DSL drops the C++ templates and promises far faster compiles [[S10009]](../../sources/bibliography.md#s10009). Rival kernel languages (OpenAI's [Triton](../../glossary.md#triton), Modular's [Mojo](../../glossary.md#mojo)) target the same job portably.
+A GEMM call carries a shape (M, N, K), data types and memory layouts. cuBLAS keeps many pre-compiled kernels per GPU architecture (different tile sizes, pipeline depths and work splits across SMs), and a heuristic or autotuning pass picks one. Follow-on operations (bias, activation, scaling) can be fused into the kernel's epilogue so results never round-trip through [HBM](../../glossary.md#hbm). CUTLASS exposes the same building blocks as templates, and CuTe's layout algebra describes which thread owns which element of a tile. The CUTLASS 4 Python DSL drops the C++ templates and promises far faster compiles [[S10009]](../../sources/bibliography.md#s10009). Rival kernel languages (OpenAI's [Triton](../../glossary.md#triton), Modular's [Mojo](../../glossary.md#mojo)) target the same job portably.
 
 </details>
 

@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **NVIDIA keeps most of a rack.** Of an estimated $3.99M GB300 NVL72, ~$2.27M (~57%) is NVIDIA's gross profit on the GPUs. The [ODM](../../glossary.md#odm) keeps ~$108K (2.7%) and liquid cooling costs ~$50K (Est., Morgan Stanley) [[S332]](../../sources/bibliography.md#s332)[[S334]](../../sources/bibliography.md#s334).
+- **NVIDIA keeps most of a rack.** Of an estimated $3.99M GB300 [NVL72](../../glossary.md#nvl72), ~$2.27M (~57%) is NVIDIA's gross profit on the GPUs. The [ODM](../../glossary.md#odm) keeps ~$108K (2.7%) and liquid cooling costs ~$50K (Est., Morgan Stanley) [[S332]](../../sources/bibliography.md#s332)[[S334]](../../sources/bibliography.md#s334).
 - **Integrators run on thin margins.** ODM gross margin falls to ~1.9% on a Vera Rubin rack (Est.) [[S332]](../../sources/bibliography.md#s332). Quanta's GB rack servers earn ~5% gross (KGI) [[S8529]](../../sources/bibliography.md#s8529)[[S8530]](../../sources/bibliography.md#s8530); Dell targets mid-single-digit operating margins on AI servers [[S8502]](../../sources/bibliography.md#s8502)[[S8503]](../../sources/bibliography.md#s8503).
 - **Value moved from OEMs to NVIDIA.** NVIDIA content rose from ~50–75% of an HGX server to ~71–84% of an NVL72 rack (🔴 repo estimate from analyst [bills of materials](../../glossary.md#bill-of-materials)).
 - **Memory is the new claimant.** Memory rises from ~9% (GB300) to ~26% (Vera Rubin) of the rack bill (Est., Morgan Stanley) [[S332]](../../sources/bibliography.md#s332)[[S331]](../../sources/bibliography.md#s331).
@@ -15,7 +15,7 @@
 
 ## Who captures the dollars in a rack
 
-NVIDIA buys wafers, packaging and HBM and sells GPU modules, CPUs, switch trays and NICs. ODMs build and test the rack at L10–L11 ([integration levels](../../glossary.md#l6-l10-l11)); OEMs add service and financing.
+NVIDIA buys wafers, packaging and [HBM](../../glossary.md#hbm) and sells GPU modules, CPUs, switch trays and NICs. ODMs build and test the rack at L10–L11 ([integration levels](../../glossary.md#l6-l10-l11)); OEMs add service and financing.
 
 ```mermaid
 flowchart LR
@@ -68,7 +68,7 @@ The next step is under way: JPMorgan reports that NVIDIA will ship fully assembl
 <details>
 <summary>🔧 Under the hood: how the content-share estimate is built</summary>
 
-HGX: 8 GPUs at $25–30K each (2023 street price) [[S356]](../../sources/bibliography.md#s356), divided by OEM 8× H200 server listings of $319–398K [[S322]](../../sources/bibliography.md#s322). GB200: 36 superchips at $60–70K over a ~$3.0M rack [[S326]](../../sources/bibliography.md#s326). GB300: GPUs ($2.52M) plus HBM (~$0.31M), and up to half of the other content, over $3.99M [[S332]](../../sources/bibliography.md#s332). Vera Rubin: GPUs ($3.96M), Vera ($0.18M), HBM4 (~$0.7–1.1M, inferred) and switches over $7.8M [[S332]](../../sources/bibliography.md#s332)[[S331]](../../sources/bibliography.md#s331).
+HGX: 8 GPUs at $25–30K each (2023 street price) [[S356]](../../sources/bibliography.md#s356), divided by OEM 8× H200 server listings of $319–398K [[S322]](../../sources/bibliography.md#s322). GB200: 36 superchips at $60–70K over a ~$3.0M rack [[S326]](../../sources/bibliography.md#s326). GB300: GPUs ($2.52M) plus HBM (~$0.31M), and up to half of the other content, over $3.99M [[S332]](../../sources/bibliography.md#s332). Vera Rubin: GPUs ($3.96M), Vera ($0.18M), [HBM4](../../glossary.md#hbm4) (~$0.7–1.1M, inferred) and switches over $7.8M [[S332]](../../sources/bibliography.md#s332)[[S331]](../../sources/bibliography.md#s331).
 
 </details>
 
@@ -97,7 +97,7 @@ The pattern: chip vendors buy design teams and sell factories (AMD, ZT, Sanmina)
 
 1. For a new rack-scale inference entrant (public example: Qualcomm's AI200/AI250 racks for HUMAIN [[S173]](../../sources/bibliography.md#s173)[[S90030]](../../sources/bibliography.md#s90030)), what is faster: a ZT-style design team (~$2B net) [[S5527]](../../sources/bibliography.md#s5527), an ODM or EMS partnership (Sanmina-style) [[S5528]](../../sources/bibliography.md#s5528), or licensing a reference rack such as MGX?
 2. Where is margin left outside the accelerator: 800 V power conversion, coolant services or connectors (Amphenol's AI-led growth [[S5503]](../../sources/bibliography.md#s5503))?
-3. Memory is heading to ~26% of a Vera Rubin rack (Est.) [[S332]](../../sources/bibliography.md#s332). Are LPDDR capacity designs (768 GB per AI200 card) cheaper per GB, or exposed to the same DRAM cycle?
+3. Memory is heading to ~26% of a Vera Rubin rack (Est.) [[S332]](../../sources/bibliography.md#s332). Are [LPDDR](../../glossary.md#lpddr) capacity designs (768 GB per AI200 card) cheaper per GB, or exposed to the same DRAM cycle?
 4. With OEM AI-server margins in single digits [[S8502]](../../sources/bibliography.md#s8502), would Dell, HPE or Supermicro back a second-source accelerator that leaves them more of the system value?
 5. Do datacenter owners such as Aligned (bought by a consortium including the NVIDIA co-founded AIP) [[S8521]](../../sources/bibliography.md#s8521) become gatekeepers that favour one rack architecture?
 

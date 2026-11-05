@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **2026 is the [HBM4](../../glossary.md#hbm) year, and it started with a stumble.** Rubin shipped with 288 GB of HBM4 but its listed bandwidth fell from 22 to 19.2 TB/s [[S103]](../../sources/bibliography.md#s103)[[S104]](../../sources/bibliography.md#s104); an analyst ties this to ~9.4 versus ~10.7 Gb/s [pin speeds](../../glossary.md#pin-speed) (🔴 cause) [[S90006]](../../sources/bibliography.md#s90006).
+- **2026 is the [HBM4](../../glossary.md#hbm) year, and it started with a stumble.** Rubin shipped with 288 GB of [HBM4](../../glossary.md#hbm4) but its listed bandwidth fell from 22 to 19.2 TB/s [[S103]](../../sources/bibliography.md#s103)[[S104]](../../sources/bibliography.md#s104); an analyst ties this to ~9.4 versus ~10.7 Gb/s [pin speeds](../../glossary.md#pin-speed) (🔴 cause) [[S90006]](../../sources/bibliography.md#s90006).
 - **2027 brings [HBM4E](../../glossary.md#hbm4e) and custom base dies.** Samsung and SK hynix sampled HBM4E in May–June 2026 [[S3528]](../../sources/bibliography.md#s3528); TrendForce expects HBM4E to be ~40% of the 2027 market [[S3531]](../../sources/bibliography.md#s3531), with [HBM base dies](../../glossary.md#hbm-base-die) moving to logic processes such as TSMC N3P [[S3008]](../../sources/bibliography.md#s3008)[[S3011]](../../sources/bibliography.md#s3011).
 - **NVIDIA's announced 2027 jump is Rubin Ultra with 1 TB of HBM4E in 16 stacks** [[S35018]](../../sources/bibliography.md#s35018)[[S110]](../../sources/bibliography.md#s110). 🟡 Reports say it may ship with 768 GB or as a two-die package [[S111]](../../sources/bibliography.md#s111)[[S509]](../../sources/bibliography.md#s509); NVIDIA says its roadmap is intact [[S508]](../../sources/bibliography.md#s508).
 - **AMD stays capacity-first.** MI455X (432 GB, 23.3 TB/s) ships in 2026 and MI500 follows in 2027 [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093)[[S538]](../../sources/bibliography.md#s538); AWS claims Trainium4 will quadruple Trainium3's memory bandwidth [[S156]](../../sources/bibliography.md#s156).
@@ -103,7 +103,7 @@ A 300 mm round wafer fits fewer large rectangular interposers as packages grow t
 - **Samsung's share.** Forecasts put it near 40% by Q4 2026 [[S3501]](../../sources/bibliography.md#s3501); if that capacity tilts to AMD [[S3512]](../../sources/bibliography.md#s3512), NVIDIA's multi-sourcing advantage shrinks.
 - **CoWoS supply overtaking demand.** The shortfall is seen narrowing from ~20% to ~10% by end-2026 [[S3505]](../../sources/bibliography.md#s3505); KGI sees NVIDIA and Broadcom each gaining ~100k wafers in 2027 [[S3001]](../../sources/bibliography.md#s3001). Abundant packaging erodes allocation as a moat.
 - **Memory prices.** Memory is already ~26% of a Vera Rubin rack's cost (Est.) [[S330]](../../sources/bibliography.md#s330); further HBM inflation squeezes either NVIDIA's margin or customers' budgets.
-- **China.** CXMT plans to ramp HBM3E in 2027 [[S3516]](../../sources/bibliography.md#s3516); Huawei targets 14.4 TB/s by 2028 [[S163]](../../sources/bibliography.md#s163).
+- **China.** CXMT plans to ramp [HBM3E](../../glossary.md#hbm3e) in 2027 [[S3516]](../../sources/bibliography.md#s3516); Huawei targets 14.4 TB/s by 2028 [[S163]](../../sources/bibliography.md#s163).
 
 **[Q7 · Roadmap & what changes the picture]** NVIDIA's roadmap regains the capacity lead in 2027 only if 1 TB Rubin Ultra ships as announced; the bigger swing factor is whether packaging and HBM supply stop being scarce.
 

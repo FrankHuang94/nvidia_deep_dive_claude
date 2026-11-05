@@ -16,13 +16,13 @@
   2026-07-29) for hardware-portable AI software [[S4538]](../../sources/bibliography.md#s4538)[[S4513]](../../sources/bibliography.md#s4513)[[S4514]](../../sources/bibliography.md#s4514)[[S4512]](../../sources/bibliography.md#s4512)[[S9511]](../../sources/bibliography.md#s9511).
 - **Accelerators bet on memory capacity, not HBM.** AI200 (2026) puts 768 GB of [LPDDR](../../glossary.md#lpddr) on each card in
   160 kW liquid-cooled racks; AI250 (2027) adds [near-memory compute](../../glossary.md#near-memory-compute); Dragonfly AI300
-  (2028) claims 54× AI200's memory bandwidth and uses UALink and ESUN scale-up [[S173]](../../sources/bibliography.md#s173)[[S90060]](../../sources/bibliography.md#s90060). No AI200 volume shipment
+  (2028) claims 54× AI200's memory bandwidth and uses [UALink](../../glossary.md#ualink) and [ESUN](../../glossary.md#esun) [scale-up](../../glossary.md#scale-up) [[S173]](../../sources/bibliography.md#s173)[[S90060]](../../sources/bibliography.md#s90060). No AI200 volume shipment
   was public by 2026-11-05 🔴 [[S90028]](../../sources/bibliography.md#s90028).
-- **CPUs are a partner play with NVIDIA and a standalone play.** Qualcomm joined NVLink Fusion for server CPUs in May
+- **CPUs are a partner play with NVIDIA and a standalone play.** Qualcomm joined [NVLink](../../glossary.md#nvlink) Fusion for server CPUs in May
   2025 [[S90031]](../../sources/bibliography.md#s90031); the Dragonfly C1000 (>250 Oryon cores) has Meta as first customer, deploying from H2 2028 [[S90056]](../../sources/bibliography.md#s90056)[[S90058]](../../sources/bibliography.md#s90058).
 - **Customers now exist on paper.** HUMAIN plans 200 MW [[S90030]](../../sources/bibliography.md#s90030). AWS signed a multi-generation deal for custom inference
   silicon and 1.6T optics, with a warrant for up to 25M Qualcomm shares that vests as AWS buys up to $60B over ~10 years
-  🟢 [[S15510]](../../sources/bibliography.md#s15510)[[S15509]](../../sources/bibliography.md#s15509). Two hyperscaler custom-silicon contracts exceed $1B each [[S15511]](../../sources/bibliography.md#s15511).
+  🟢 [[S15510]](../../sources/bibliography.md#s15510)[[S15509]](../../sources/bibliography.md#s15509). Two [hyperscaler](../../glossary.md#hyperscaler) custom-silicon contracts exceed $1B each [[S15511]](../../sources/bibliography.md#s15511).
 - **The targets are $5B of datacenter revenue in FY2027 and $15B by FY2029** [[S15512]](../../sources/bibliography.md#s15512)[[S90059]](../../sources/bibliography.md#s90059). The FY2029 goal is ~8% of
   NVIDIA's FY2026 data-center revenue [[S1]](../../sources/bibliography.md#s1).
 - **Map vs NVIDIA:** partner in CPUs (NVLink Fusion), competitor in inference accelerators and scale-up standards
@@ -58,8 +58,8 @@ from NVIDIA's [HBM](../../glossary.md#hbm) GPUs ([the memory wall](../../layers/
 | NVIDIA Rubin (reference) | 2026 | 288 GB HBM4 | 19.2 TB/s | liquid-cooled NVL72 rack | NVLink 6, 72 packages | ramping | [[S90006]](../../sources/bibliography.md#s90006)[[S90009]](../../sources/bibliography.md#s90009) |
 
 > [!TIP]
-> **Worked example — capacity vs bandwidth on one model.** A 70B-parameter model in FP8 needs ~70 GB of weights.
-> Decode re-reads them for every token, so one user's speed is capped at bandwidth ÷ weights: 0.548 TB/s ÷ 70 GB ≈ 8
+> **Worked example — capacity vs bandwidth on one model.** A 70B-parameter model in [FP8](../../glossary.md#fp8) needs ~70 GB of weights.
+> [Decode](../../glossary.md#decode) re-reads them for every token, so one user's speed is capped at bandwidth ÷ weights: 0.548 TB/s ÷ 70 GB ≈ 8
 > tokens/s on a Cloud AI 100 Ultra vs 19.2 TB/s ÷ 70 GB ≈ 274 on a Rubin GPU [[S172]](../../sources/bibliography.md#s172)[[S90006]](../../sources/bibliography.md#s90006). Batching many users shares
 > each weight read, so total throughput per card can be respectable at low power; what LPDDR cannot buy is high speed per
 > user. 768 GB per AI200 card holds a ~600B-parameter FP8 model with ~170 GB left for [KV cache](../../glossary.md#kv-cache),
@@ -72,7 +72,7 @@ from NVIDIA's [HBM](../../glossary.md#hbm) GPUs ([the memory wall](../../layers/
 <summary>🔧 Under the hood: why LPDDR, and what "near-memory" and HBC change</summary>
 
 LPDDR is phone and laptop memory: cheap per gigabyte, low power, made in high volume by several vendors, and it needs no
-CoWoS interposer. It reaches a processor through narrow channels, so bandwidth per gigabyte is low. HBM stacks DRAM dies
+[CoWoS](../../glossary.md#cowos) interposer. It reaches a processor through narrow channels, so bandwidth per gigabyte is low. HBM stacks DRAM dies
 with thousands of through-silicon connections next to the GPU: Rubin's 19.2 TB/s is ~35× the AI 100 Ultra's 0.548 TB/s
 [[S90006]](../../sources/bibliography.md#s90006)[[S172]](../../sources/bibliography.md#s172), but HBM supply is tight and expensive ([HBM explained](../../layers/03-memory-packaging-supply-chain/hbm-explained.md)). Qualcomm's AI250 moves some
 compute next to memory so less data travels over the narrow channel, which is why it quotes *effective* bandwidth gains
@@ -86,7 +86,7 @@ CoWoS allocations where NVIDIA holds ~60% of 2026 CoWoS wafers (Est.) [[S379]](.
 
 Two CPU tracks run in parallel. The first is a partner track: Oryon-based server CPUs that attach to NVIDIA GPUs through
 [NVLink Fusion](../../glossary.md#nvlink-fusion), announced at Computex 2025 [[S90031]](../../sources/bibliography.md#s90031)[[S4516]](../../sources/bibliography.md#s4516). The second is standalone: the
-Dragonfly C1000, a chiplet CPU with more than 250 cores, a >5 GHz target, PCIe Gen 7 and CXL, pitched as an
+Dragonfly C1000, a chiplet CPU with more than 250 cores, a >5 GHz target, [PCIe](../../glossary.md#pcie) Gen 7 and CXL, pitched as an
 [AI head node](../../glossary.md#ai-head-node) for agentic workloads, with Meta as the first named customer and deployments from
 H2 2028 [[S90056]](../../sources/bibliography.md#s90056)[[S90058]](../../sources/bibliography.md#s90058). An earlier unconfirmed report described an 80-core part with NVLink Fusion [[S4515]](../../sources/bibliography.md#s4515). For scale,
 NVIDIA's Vera has 88 cores and AMD's EPYC Venice up to 256 [[S100]](../../sources/bibliography.md#s100)[[S144]](../../sources/bibliography.md#s144); RISC-V work from Ventana runs alongside Oryon
@@ -94,7 +94,7 @@ NVIDIA's Vera has 88 cores and AMD's EPYC Venice up to 256 [[S100]](../../source
 
 > [!TIP]
 > **Worked example — cores and calendar.** More than 250 cores is ~2.8× Vera's 88 and level with EPYC Venice's 256
-> [[S100]](../../sources/bibliography.md#s100)[[S144]](../../sources/bibliography.md#s144). Venice ships in AMD's Helios racks from around Q3 2026 and Vera in Vera Rubin NVL72 from Q3 2026
+> [[S100]](../../sources/bibliography.md#s100)[[S144]](../../sources/bibliography.md#s144). Venice ships in AMD's Helios racks from around Q3 2026 and Vera in Vera Rubin [NVL72](../../glossary.md#nvl72) from Q3 2026
 > [[S90020]](../../sources/bibliography.md#s90020)[[S90009]](../../sources/bibliography.md#s90009); C1000 deploys from H2 2028 [[S90058]](../../sources/bibliography.md#s90058), so it will meet those vendors' next generations. Core count gets a
 > CPU into evaluation; memory bandwidth per core, the GPU link and the software ecosystem decide head-node wins
 > ([why AI needs a CPU](../../layers/04-cpu-grace-vera/why-ai-needs-a-cpu.md)).
@@ -104,7 +104,7 @@ NVIDIA's Vera has 88 cores and AMD's EPYC Venice up to 256 [[S100]](../../source
 **Alphawave** brings SerDes, chiplet and optical-connectivity IP, the same capability the custom-ASIC houses treat as
 their moat ([custom-ASIC houses](custom-asic-houses.md)) [[S4514]](../../sources/bibliography.md#s4514). **Modular**
 brings Mojo and the MAX inference engine, a hardware-portable stack; Mojo was open-sourced under Apache 2.0 in August
-2026 [[S9511]](../../sources/bibliography.md#s9511)[[S9512]](../../sources/bibliography.md#s9512). The repo's layer-09 analysis treats portable software as one of the main erosion vectors for CUDA
+2026 [[S9511]](../../sources/bibliography.md#s9511)[[S9512]](../../sources/bibliography.md#s9512). The repo's layer-09 analysis treats portable software as one of the main erosion vectors for [CUDA](../../glossary.md#cuda)
 ([CUDA competition](../../layers/09-cuda-and-system-software/competition.md)).
 
 ![Horizontal bar chart of AI-software deal values: Qualcomm-Modular about $3,900M (2026), NVIDIA-Run:ai about $700M (2024), AMD-Silo AI $665M (2024), NVIDIA-CentML up to about $400M (2025), NVIDIA-Deci about $300M (2024) and NVIDIA-OctoAI about $250M (2024). For reference, Modular was valued at $1,600M in its September 2025 Series C and had raised $380M in total, so Qualcomm paid about 2.4 times the last private valuation and about 10 times the capital invested.](../../assets/charts/09-software-deal-values.svg)
@@ -212,7 +212,7 @@ any time since 2018 (see the timeline above). The repo's matrix scores Qualcomm 
    (Alphawave IP, Mojo) at once. Which public evidence would show which role contributes most revenue by FY2029?
 2. The custom-silicon contracts (>$1B each, two hyperscalers) and the AWS deal resemble Broadcom's model. How do NRE,
    per-unit margin and warrant dilution compare with the merchant AI200 line, on public numbers?
-3. LPDDR capacity is now shared ground with Intel's Crescent Island and SRAM/HBM hybrids from start-ups. What would
+3. LPDDR capacity is now shared ground with Intel's Crescent Island and [SRAM](../../glossary.md#sram)/HBM hybrids from start-ups. What would
    distinguish a durable position in that niche: memory, software, power or customer access?
 4. Modular was bought for $3.9B, ~2.4× its $1.6B Series C valuation [[S9511]](../../sources/bibliography.md#s9511)[[S9510]](../../sources/bibliography.md#s9510). What milestones (framework adoption, third-party
    hardware support, developer counts) would show the software is moving workloads?

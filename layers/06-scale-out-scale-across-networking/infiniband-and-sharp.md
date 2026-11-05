@@ -4,10 +4,10 @@
 
 ## ⚡ The Executive Take
 
-- **NVIDIA bought its network.** The $6.9B all-cash Mellanox deal (announced 2019-03-11, closed 2020-04-27) brought InfiniBand, Spectrum Ethernet and ConnectX NICs in-house [[S464]](../../sources/bibliography.md#s464); networking now sells ~$17.5B a quarter (Est., Q2 FY2027) [[S408]](../../sources/bibliography.md#s408). See [CS1 · Mellanox](../../case-studies/CS1-mellanox-the-best-deal.md).
+- **NVIDIA bought its network.** The $6.9B all-cash Mellanox deal (announced 2019-03-11, closed 2020-04-27) brought InfiniBand, Spectrum Ethernet and [ConnectX](../../glossary.md#connectx) NICs in-house [[S464]](../../sources/bibliography.md#s464); networking now sells ~$17.5B a quarter (Est., Q2 FY2027) [[S408]](../../sources/bibliography.md#s408). See [CS1 · Mellanox](../../case-studies/CS1-mellanox-the-best-deal.md).
 - **[InfiniBand](../../glossary.md#infiniband) was designed for what AI needs:** lossless [credit-based flow control](../../glossary.md#credit-based-flow-control), native [RDMA](../../glossary.md#rdma), [adaptive routing](../../glossary.md#adaptive-routing) and a central [subnet manager](../../glossary.md#subnet-manager) [[S273]](../../sources/bibliography.md#s273).
 - **Port speed rose 80×** from 10 Gb/s (SDR, 2001) to 800 Gb/s (XDR, 2024); switch radix grew from 36 ports (EDR) to 144 ports at 800G on Quantum-X800 [[S273]](../../sources/bibliography.md#s273)[[S264]](../../sources/bibliography.md#s264).
-- **[SHARP](../../glossary.md#sharp) makes the switch do the math,** cutting the data each GPU sends per all-reduce from ~2× to 1× the message; NVIDIA reported ~2× all-reduce bandwidth on HDR, worth ~17% on BERT training [[S6013]](../../sources/bibliography.md#s6013)[[S6014]](../../sources/bibliography.md#s6014).
+- **[SHARP](../../glossary.md#sharp) makes the switch do the math,** cutting the data each GPU sends per [all-reduce](../../glossary.md#all-reduce) from ~2× to 1× the message; NVIDIA reported ~2× all-reduce bandwidth on HDR, worth ~17% on BERT training [[S6013]](../../sources/bibliography.md#s6013)[[S6014]](../../sources/bibliography.md#s6014).
 - **Co-packaged Quantum-X Photonics** (144 × 800G) is the next switch; first deployments were reported for early 2026 🟡 [[S265]](../../sources/bibliography.md#s265)[[S6022]](../../sources/bibliography.md#s6022).
 - **The weakness is the market:** InfiniBand fell from ~80% of AI back-end switch sales to about one-third by 1Q 2026 [[S90053]](../../sources/bibliography.md#s90053)[[S90054]](../../sources/bibliography.md#s90054).
 
@@ -58,7 +58,7 @@ An InfiniBand "4x" port bundles four electrical lanes, so XDR's 200 Gb/s [SerDes
 
 ## 2. SHARP: computing inside the network
 
-In a ring all-reduce the GPUs do all the adding and each sends about twice its data [[S34011]](../../sources/bibliography.md#s34011). **SHARP** (Scalable Hierarchical Aggregation and Reduction Protocol) moves the adding into switch silicon: GPUs send their data up an aggregation tree once, each switch sums what arrives and forwards one result, and the root sends the total back down [[S34024]](../../sources/bibliography.md#s34024)[[S6015]](../../sources/bibliography.md#s6015). First shipped on Switch-IB 2 in 2015 [[S273]](../../sources/bibliography.md#s273), it now runs in Quantum InfiniBand and, as NVLink SHARP, in NVSwitch ([Layer 05](../05-scale-up-nvlink-nvswitch/index.md)).
+In a ring all-reduce the GPUs do all the adding and each sends about twice its data [[S34011]](../../sources/bibliography.md#s34011). **SHARP** (Scalable Hierarchical Aggregation and Reduction Protocol) moves the adding into switch silicon: GPUs send their data up an aggregation tree once, each switch sums what arrives and forwards one result, and the root sends the total back down [[S34024]](../../sources/bibliography.md#s34024)[[S6015]](../../sources/bibliography.md#s6015). First shipped on Switch-IB 2 in 2015 [[S273]](../../sources/bibliography.md#s273), it now runs in Quantum InfiniBand and, as [NVLink](../../glossary.md#nvlink) SHARP, in [NVSwitch](../../glossary.md#nvswitch) ([Layer 05](../05-scale-up-nvlink-nvswitch/index.md)).
 
 ![Line chart: with ring all-reduce each GPU sends 2(N-1)/N times the message, 1.75 times at 8 GPUs and approaching 2.0 times at tens of thousands of GPUs; with SHARP in-network reduction each GPU sends its data once (1.0 times) because the switches do the additions, so bandwidth-bound all-reduces can run up to about twice as fast. NVIDIA reported about 2x all-reduce bandwidth on HDR InfiniBand.](../../assets/charts/06-allreduce-traffic-sharp.svg)
 
@@ -75,13 +75,13 @@ In a ring all-reduce the GPUs do all the adding and each sends about twice its d
 <details>
 <summary>🔧 Under the hood: SHARP versions</summary>
 
-SHARPv1 (EDR) handled small messages; SHARPv2 (HDR) added streaming aggregation for large ones, behind the ~2× NCCL result [[S6013]](../../sources/bibliography.md#s6013)[[S6015]](../../sources/bibliography.md#s6015); SHARPv3 (Quantum-2) supports concurrent multi-tenant jobs [[S266]](../../sources/bibliography.md#s266); SHARPv4 (Quantum-X800) adds FP8 reductions [[S264]](../../sources/bibliography.md#s264). NCCL reaches it through its CollNet path [[S34024]](../../sources/bibliography.md#s34024). Ethernet rivals are adding in-network collectives through Ultra Ethernet 1.1 (Oct 2026) [[S575]](../../sources/bibliography.md#s575).
+SHARPv1 (EDR) handled small messages; SHARPv2 (HDR) added streaming aggregation for large ones, behind the ~2× [NCCL](../../glossary.md#nccl) result [[S6013]](../../sources/bibliography.md#s6013)[[S6015]](../../sources/bibliography.md#s6015); SHARPv3 (Quantum-2) supports concurrent multi-tenant jobs [[S266]](../../sources/bibliography.md#s266); SHARPv4 (Quantum-X800) adds [FP8](../../glossary.md#fp8) reductions [[S264]](../../sources/bibliography.md#s264). NCCL reaches it through its CollNet path [[S34024]](../../sources/bibliography.md#s34024). Ethernet rivals are adding in-network collectives through Ultra Ethernet 1.1 (Oct 2026) [[S575]](../../sources/bibliography.md#s575).
 
 </details>
 
 ## 🎯 Corp Dev Lens
 
-1. **Mellanox as template.** $6.9B [[S464]](../../sources/bibliography.md#s464) bought a business now selling ~2.5× that price every quarter (Est.) [[S408]](../../sources/bibliography.md#s408): buy the system bottleneck before the market prices it. Which interconnect assets (optics, NIC transport, switch silicon) are today's equivalents?
+1. **Mellanox as template.** $6.9B [[S464]](../../sources/bibliography.md#s464) bought a business now selling ~2.5× that price every quarter (Est.) [[S408]](../../sources/bibliography.md#s408): buy the system bottleneck before the market prices it. Which interconnect assets (optics, [NIC](../../glossary.md#nic) transport, switch silicon) are today's equivalents?
 2. **InfiniBand's moat is narrowing to SHARP and integration** as Ethernet adds adaptive routing and in-network collectives [[S575]](../../sources/bibliography.md#s575); how long does NVIDIA's NCCL-tuned lead last?
 3. **Single-vendor risk cuts both ways.** Lock-in pushed buyers to Ethernet [[S90054]](../../sources/bibliography.md#s90054); NVIDIA hedged by selling Ethernet itself (see [Spectrum-X Ethernet](spectrum-x-ethernet.md)).
 4. **Qualcomm question (public information only):** could in-network reduction or collective offload differentiate a non-NVIDIA inference rack, or is inference traffic too latency-bound for it to matter?

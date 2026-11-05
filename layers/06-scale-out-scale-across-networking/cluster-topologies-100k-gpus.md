@@ -4,25 +4,25 @@
 
 ## ⚡ The Executive Take
 
-- **AI clusters are built as [rail-optimized](../../glossary.md#rail-optimized) [fat trees](../../glossary.md#fat-tree):** NIC k of every server plugs into the rail-k leaf, and every leaf reaches every spine [[S34022]](../../sources/bibliography.md#s34022)[[S294]](../../sources/bibliography.md#s294).
+- **AI clusters are built as [rail-optimized](../../glossary.md#rail-optimized) [fat trees](../../glossary.md#fat-tree):** [NIC](../../glossary.md#nic) k of every server plugs into the rail-k leaf, and every leaf reaches every spine [[S34022]](../../sources/bibliography.md#s34022)[[S294]](../../sources/bibliography.md#s294).
 - **[Switch radix](../../glossary.md#switch-radix) sets the size limit.** Two tiers hold R²/2 GPUs: 10,368 with 144-port Quantum-X800, 131,072 with 512-port 102.4 Tb/s switches; three tiers hold R³/4 (Est.) [[S264]](../../sources/bibliography.md#s264)[[S274]](../../sources/bibliography.md#s274).
 - **A 100,000-GPU back-end fabric needs ~3,500–3,900 switches and ~350,000 optical modules in three tiers,** or ~2,350 switches and ~250,000 modules as a four-plane two-tier design (Est.) [[S294]](../../sources/bibliography.md#s294).
 - **Networking is ~17–21% of AI cluster hardware capex** in most estimates (13% of a whole site including buildings) [[S6025]](../../sources/bibliography.md#s6025)[[S6026]](../../sources/bibliography.md#s6026)[[S324]](../../sources/bibliography.md#s324); optics alone are ~$6,000 per GPU by NVIDIA's own math [[S6016]](../../sources/bibliography.md#s6016).
-- **The biggest disclosed fabrics since 2024 are Ethernet:** xAI's 100,000-GPU Colossus on Spectrum-X [[S6000]](../../sources/bibliography.md#s6000), Meta's RoCE clusters [[S6002]](../../sources/bibliography.md#s6002) and Oracle's multi-plane design targeting up to 800,000 GPUs [[S6008]](../../sources/bibliography.md#s6008).
+- **The biggest disclosed fabrics since 2024 are Ethernet:** xAI's 100,000-GPU Colossus on [Spectrum-X](../../glossary.md#spectrum-x) [[S6000]](../../sources/bibliography.md#s6000), Meta's RoCE clusters [[S6002]](../../sources/bibliography.md#s6002) and Oracle's multi-plane design targeting up to 800,000 GPUs [[S6008]](../../sources/bibliography.md#s6008).
 - **Weakness for NVIDIA:** 512-port merchant silicon (Broadcom's Tomahawk 6 claims two tiers for 100k+ accelerators [[S274]](../../sources/bibliography.md#s274)) makes flat, multi-vendor designs viable without NVIDIA switches.
 
 ![Stacked horizontal bar chart (estimates) of switches needed for 100,000 GPUs: 3-tier designs need 3,473 to 3,908 switches and about 350k optical modules with 5 switch hops worst case; a 4-plane 2-tier design on 512-port 102.4T switches needs 2,348 switches, 250k modules (29% fewer) and 3 hops.](../../assets/charts/06-switches-for-100k-gpu-cluster.svg)
 
 ## 1. Rail-optimized fat trees
 
-In a fat tree each switch uses half its ports down and half up, so bandwidth never narrows toward the top ([full bisection bandwidth](../../glossary.md#bisection-bandwidth)). Rail optimization adds a twist: NIC 1 of every 8-GPU server connects to the "rail 1" leaf, NIC 2 to rail 2, and so on. Collective libraries move data over NVLink to the GPU on the right rail first, so most cross-server traffic crosses one switch [[S34022]](../../sources/bibliography.md#s34022).
+In a fat tree each switch uses half its ports down and half up, so bandwidth never narrows toward the top ([full bisection bandwidth](../../glossary.md#bisection-bandwidth)). Rail optimization adds a twist: NIC 1 of every 8-GPU server connects to the "rail 1" leaf, NIC 2 to rail 2, and so on. Collective libraries move data over [NVLink](../../glossary.md#nvlink) to the GPU on the right rail first, so most cross-server traffic crosses one switch [[S34022]](../../sources/bibliography.md#s34022).
 
 ![Diagram of a rail-optimized two-tier fat tree: four servers, each with four GPUs joined by NVLink and one NIC per GPU; NIC 1 of every server connects to the rail-1 leaf switch, NIC 2 to rail 2 and so on; each of the four rail leaves has one uplink to each of four spine switches, so same-rail GPUs are one switch hop apart and any two GPUs at most three.](../../assets/diagrams/06-rail-optimized-fat-tree.svg)
 
 > [!TIP]
 > **Worked example — hops on a rail.** GPU 3 in server 1 sends to GPU 3 in server 9 under the same leaf: NIC 3 → rail-3 leaf → NIC 3, **one switch hop**. To GPU 5 in that server: either 3 hops (leaf → spine → leaf) or one NVLink hop to GPU 5 at home, then one switch hop on rail 5.
 >
-> **Conclusion:** the bigger the NVLink domain (72 GPUs in NVL72), the less traffic touches upper tiers.
+> **Conclusion:** the bigger the NVLink domain (72 GPUs in [NVL72](../../glossary.md#nvl72)), the less traffic touches upper tiers.
 
 ## 2. Radix math: two tiers or three
 
@@ -63,7 +63,7 @@ Counted as port-ends, three tiers need six per GPU, matching Huang's "six transc
 > [!TIP]
 > **Worked example — the network bill for 100,000 GB300-class GPUs.** Morgan Stanley puts a GB300 NVL72 at ~$3.99M, ~$55,400 per GPU [[S332]](../../sources/bibliography.md#s332): ~**$5.5B** of racks. If networking is 17–21% of the total [[S6026]](../../sources/bibliography.md#s6026)[[S324]](../../sources/bibliography.md#s324), the cluster costs ~$6.6–7.0B and the network **~$1.1–1.5B**, or ~$11,000–15,000 per GPU, of which Huang's ~$6,000 of optics [[S6016]](../../sources/bibliography.md#s6016) is roughly half (Est.).
 >
-> **Conclusion:** the network is a ~$1B+ line item per 100k GPUs. NVIDIA's networking revenue near ~20% of its Data Center revenue [[S408]](../../sources/bibliography.md#s408)[[S3]](../../sources/bibliography.md#s3) suggests it captures a large share, though that figure includes NVLink scale-up switches.
+> **Conclusion:** the network is a ~$1B+ line item per 100k GPUs. NVIDIA's networking revenue near ~20% of its Data Center revenue [[S408]](../../sources/bibliography.md#s408)[[S3]](../../sources/bibliography.md#s3) suggests it captures a large share, though that figure includes NVLink [scale-up](../../glossary.md#scale-up) switches.
 
 ## 4. What real clusters use
 
@@ -79,8 +79,8 @@ Counted as port-ends, three tiers need six per GPU, matching Huang's "six transc
 
 ## 🎯 Corp Dev Lens
 
-1. **The ~$1B-per-100k-GPU network pool** (Est.) is split among switch silicon, NICs, optics, cables and integrators; tiers, planes and CPO move dollars between them.
-2. **Radix is strategic.** 512-port merchant switches let hyperscalers build flat multi-vendor fabrics [[S274]](../../sources/bibliography.md#s274); NVIDIA's counter is the switch-plus-SuperNIC bundle and CPO timing.
+1. **The ~$1B-per-100k-GPU network pool** (Est.) is split among switch silicon, NICs, optics, cables and integrators; tiers, planes and [CPO](../../glossary.md#co-packaged-optics) move dollars between them.
+2. **Radix is strategic.** 512-port merchant switches let [hyperscalers](../../glossary.md#hyperscaler) build flat multi-vendor fabrics [[S274]](../../sources/bibliography.md#s274); NVIDIA's counter is the switch-plus-SuperNIC bundle and CPO timing.
 3. **Multi-plane designs favor NIC owners.** When the NIC splits traffic across planes and steers around failures [[S6008]](../../sources/bibliography.md#s6008), intelligence moves into the NIC, raising the value of NIC/DPU franchises ([Layer 07](../07-dpu-supernic-storage-security/index.md)).
 4. **Qualcomm question (public information only):** for a 2027–2028 inference rack [[S90056]](../../sources/bibliography.md#s90056), is a merchant-Ethernet back end with a third-party NIC enough, or does winning large deployments require owning a NIC or networking partner?
 

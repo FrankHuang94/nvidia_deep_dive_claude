@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **An [AI factory](../../glossary.md#ai-factory) is a datacenter judged by output per unit of power.** NVIDIA's headline metric is [tokens per second per megawatt](../../glossary.md#tokens-per-megawatt): it quotes 2.8M for GB300 NVL72 vs 54K for HGX H200, a 50× claim at its chosen operating point [[S8021]](../../sources/bibliography.md#s8021)[[S32004]](../../sources/bibliography.md#s32004).
+- **An [AI factory](../../glossary.md#ai-factory) is a datacenter judged by output per unit of power.** NVIDIA's headline metric is [tokens per second per megawatt](../../glossary.md#tokens-per-megawatt): it quotes 2.8M for GB300 [NVL72](../../glossary.md#nvl72) vs 54K for [HGX](../../glossary.md#hgx) H200, a 50× claim at its chosen operating point [[S8021]](../../sources/bibliography.md#s8021)[[S32004]](../../sources/bibliography.md#s32004).
 - **Independent data shrink but confirm the gap:** on InferenceX DeepSeek-R1 data at 50 tok/s per user, GB300 NVL72 makes ~2.95M tokens/s per MW vs ~225K for H200, ~13× (repo Est.) [[S621]](../../sources/bibliography.md#s621)[[S622]](../../sources/bibliography.md#s622).
 - **Vera Rubin extends it:** SemiAnalysis measures ~2× GB300's tokens per MW up to 100 tok/s per user and ~4× near 200, on early engineering samples [[S626]](../../sources/bibliography.md#s626).
 - **Blueprints sell the whole site:** DGX SuperPOD (8 GB200 racks), a 40-rack Vera Rubin POD, the Vera Rubin DSX reference design with the Omniverse DSX digital twin, and Mission Control software to run it [[S396]](../../sources/bibliography.md#s396)[[S511]](../../sources/bibliography.md#s511)[[S8017]](../../sources/bibliography.md#s8017)[[S8019]](../../sources/bibliography.md#s8019).
@@ -17,7 +17,7 @@
 
 For an AI datacenter the scarce input is **megawatts** (grid connections take years, see [power and cooling](power-and-cooling.md)) and the output is **tokens**. The yardstick is tokens per second per MW *at a stated speed per user* ([interactivity](../../glossary.md#interactivity)), because batching more users raises throughput but slows each one (the [Pareto frontier](../../glossary.md#pareto-frontier)).
 
-**[Q2 · Metrics that matter]** Five numbers decide this layer's economics: (1) **tokens/s per MW** at a stated interactivity; (2) **kW per rack and [all-in power](../../glossary.md#all-in-power) per GPU** (GB300: ~132 kW, ~2.12 kW) [[S337]](../../sources/bibliography.md#s337)[[S622]](../../sources/bibliography.md#s622); (3) **[PUE](../../glossary.md#pue)** (1.54 industry average in 2025, ~1.1 for the best hyperscale fleets) [[S8007]](../../sources/bibliography.md#s8007)[[S388]](../../sources/bibliography.md#s388); (4) **time to power and to first token**; (5) **cost per GPU-hour**, the denominator of $ per million tokens ([chapter 14](../../cross-cutting/14-training-vs-inference-economics.md)).
+**[Q2 · Metrics that matter]** Five numbers decide this layer's economics: (1) **tokens/s per MW** at a stated interactivity; (2) **kW per rack and [all-in power](../../glossary.md#all-in-power) per GPU** (GB300: ~132 kW, ~2.12 kW) [[S337]](../../sources/bibliography.md#s337)[[S622]](../../sources/bibliography.md#s622); (3) **[PUE](../../glossary.md#pue)** (1.54 industry average in 2025, ~1.1 for the best hyperscale fleets) [[S8007]](../../sources/bibliography.md#s8007)[[S388]](../../sources/bibliography.md#s388); (4) **time to power and to first token**; (5) **cost per [GPU-hour](../../glossary.md#gpu-hour)**, the denominator of $ per million tokens ([chapter 14](../../cross-cutting/14-training-vs-inference-economics.md)).
 
 > [!TIP]
 > **Worked example — what 100 MW produces.** At ~2.12 kW all-in per GB300 GPU [[S622]](../../sources/bibliography.md#s622), 100 MW runs **~47,000 GPUs**. At ~2.95M tokens/s per MW (DeepSeek-R1, 50 tok/s per user, Est.) the site produces **~295M tokens per second**, about **9.3 quadrillion tokens a year** at full utilization. The same 100 MW of H200s (~225K per MW) yields ~22M tokens/s, **~13× less** [[S621]](../../sources/bibliography.md#s621)[[S622]](../../sources/bibliography.md#s622). GPU-hours fall the other way: 1 MW holds 472 GB300s (**4.1M GPU-hours a year**) vs 730 H200s (6.4M), but a GB300 GPU-hour yields ~22.5M tokens vs ~1.1M (repo arithmetic). **Conclusion:** in a power-capped site a megawatt of old GPUs earns a fraction of the tokens.
@@ -54,9 +54,9 @@ flowchart TB
   class DSX,REF,POD,RACK,NET,SW nvidia
 ```
 
-- **[DGX SuperPOD](../../glossary.md#superpod):** 8 GB200 NVL72 racks, 576 GPUs, 11.5 EF sparse FP4 [[S396]](../../sources/bibliography.md#s396); the Vera Rubin POD spans 40 racks, ~60 EF [[S511]](../../sources/bibliography.md#s511).
+- **[DGX SuperPOD](../../glossary.md#superpod):** 8 GB200 NVL72 racks, 576 GPUs, 11.5 EF sparse [FP4](../../glossary.md#fp4) [[S396]](../../sources/bibliography.md#s396); the Vera Rubin POD spans 40 racks, ~60 EF [[S511]](../../sources/bibliography.md#s511).
 - **[Omniverse DSX](../../glossary.md#digital-twin):** a digital-twin blueprint for gigawatt sites (October 2025) [[S8018]](../../sources/bibliography.md#s8018), generally available with the Vera Rubin DSX reference design since GTC 2026, aimed at tokens per watt and time to first production. Vertiv (prefabricated OneCore Rubin DSX), Switch and Nscale with Caterpillar build on it [[S8017]](../../sources/bibliography.md#s8017)[[S90063]](../../sources/bibliography.md#s90063).
-- **[Mission Control](../../glossary.md#mission-control)** (GTC 2025) automates provisioning, monitoring and failure diagnosis by combining Base Command Manager with Run:ai, which NVIDIA says can raise utilization up to 5× (vendor claim) [[S8019]](../../sources/bibliography.md#s8019)[[S8020]](../../sources/bibliography.md#s8020); Dynamo 1.0 schedules inference [[S90066]](../../sources/bibliography.md#s90066) ([layer 11](../11-inference-and-ai-software/index.md)).
+- **[Mission Control](../../glossary.md#mission-control)** (GTC 2025) automates provisioning, monitoring and failure diagnosis by combining Base Command Manager with Run:ai, which NVIDIA says can raise utilization up to 5× (vendor claim) [[S8019]](../../sources/bibliography.md#s8019)[[S8020]](../../sources/bibliography.md#s8020); [Dynamo](../../glossary.md#dynamo) 1.0 schedules inference [[S90066]](../../sources/bibliography.md#s90066) ([layer 11](../11-inference-and-ai-software/index.md)).
 
 > [!TIP]
 > **Worked example — how much of a gigawatt is NVIDIA's.** NVIDIA's CEO put a 1 GW AI factory at ~$50–60B all-in, of which ~$35B is NVIDIA content [[S398]](../../sources/bibliography.md#s398): **~58–70%**. Our 100,000-GPU GB300 site (~255 MW, [power and cooling](power-and-cooling.md)) has ~$5.5B of racks at Morgan Stanley's price, ~$3.5B of it the GPUs alone (Est.) [[S332]](../../sources/bibliography.md#s332). **Conclusion:** reference designs let NVIDIA steer the remaining 30–40% (power, cooling, building, network) toward partners who fit its spec.
@@ -67,7 +67,7 @@ flowchart TB
 2. **Pre-built trays:** NVIDIA reportedly ships [L10](../../glossary.md#l6-l10-l11) Vera Rubin compute trays, ~90% of a server's cost (🟡) [[S8022]](../../sources/bibliography.md#s8022)[[S329]](../../sources/bibliography.md#s329).
 3. **Blueprints and software:** facilities are designed to DSX, and Mission Control and Dynamo sit where OEM management tools used to [[S8017]](../../sources/bibliography.md#s8017)[[S8019]](../../sources/bibliography.md#s8019).
 
-OEMs keep enterprise service and financing, and hyperscalers design racks for their own chips; the dollar split is in [value chain and corp dev](value-chain-and-corp-dev.md).
+OEMs keep enterprise service and financing, and [hyperscalers](../../glossary.md#hyperscaler) design racks for their own chips; the dollar split is in [value chain and corp dev](value-chain-and-corp-dev.md).
 
 ## 3. Time to first token: from site to production
 
@@ -102,7 +102,7 @@ gantt
 <details>
 <summary>🔧 Under the hood: why burn-in matters for rack-scale systems</summary>
 
-An NVL72 must pass NVLink, liquid-loop and power tests as a whole rack before it earns money. SemiAnalysis notes GB200 copper-backplane reliability problems during its ramp and expects a faster Vera Rubin ramp thanks to the cable-free tray; CoreWeave's first Vera Rubin results came from a pre-production rack without a scale-out fabric [[S626]](../../sources/bibliography.md#s626).
+An NVL72 must pass [NVLink](../../glossary.md#nvlink), liquid-loop and power tests as a whole rack before it earns money. SemiAnalysis notes GB200 copper-backplane reliability problems during its ramp and expects a faster Vera Rubin ramp thanks to the cable-free tray; CoreWeave's first Vera Rubin results came from a pre-production rack without a [scale-out](../../glossary.md#scale-out) fabric [[S626]](../../sources/bibliography.md#s626).
 
 </details>
 

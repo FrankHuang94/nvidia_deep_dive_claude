@@ -9,7 +9,7 @@
 - **NVIDIA's software line is small:** AI Enterprise lists at $4,500 per GPU-year; a ~$2B run rate exiting FY2025 is under 1% of FY2026 revenue [[S9515]](../../sources/bibliography.md#s9515)[[S11011]](../../sources/bibliography.md#s11011)[[S1]](../../sources/bibliography.md#s1).
 - **[Inference providers](../../glossary.md#inference-provider) price like chip start-ups:** Fireworks ~$15B (talks), Together AI $8.3B, Baseten $5B; NVIDIA invested in the latter two [[S11514]](../../sources/bibliography.md#s11514)[[S11516]](../../sources/bibliography.md#s11516)[[S11518]](../../sources/bibliography.md#s11518).
 - **Deals:** NVIDIA–Groq (~$20B), NVIDIA–Hugging Face (~$12.9B, pending), Qualcomm–Modular ($3.9B), AMD–Silo AI ($665M) [[S90019]](../../sources/bibliography.md#s90019)[[S11026]](../../sources/bibliography.md#s11026)[[S90057]](../../sources/bibliography.md#s90057)[[S9506]](../../sources/bibliography.md#s9506).
-- **[Q8 · Value pools & M&A angles]** Pools: lab margin, cloud rental margin, NVIDIA hardware. Angles: portable software, decode silicon and the inference clouds that pick hardware.
+- **[Q8 · Value pools & M&A angles]** Pools: lab margin, cloud rental margin, NVIDIA hardware. Angles: portable software, [decode](../../glossary.md#decode) silicon and the inference clouds that pick hardware.
 
 ![Waterfall chart splitting $1.00 of API revenue: the model lab's compute margin leaves ~70 cents of gross profit (reported ~70% for OpenAI, Oct 2025); the remaining 30 cents of compute splits into the cloud operator's gross margin (~16 cents, from rental $5.00 vs owner TCO $2.31 per GB300 GPU-hour), electricity (~2 cents), facility, operations and financing (~3 cents), other IT hardware (~2 cents), NVIDIA's cost of goods (~2 cents) and NVIDIA's gross profit (~5 cents). The lab's share must still fund training compute and R&D, much of which also flows to NVIDIA.](../../assets/charts/11-token-revenue-value-pools.svg)
 
@@ -18,7 +18,7 @@
 Think of a token as a restaurant meal: the model lab owns the recipe and brand, the cloud rents the kitchen, NVIDIA sold the ovens. The brand sets the menu price, so the lab keeps most of the bill while customers want its model.
 
 > [!TIP]
-> **Worked example — one million DeepSeek-R1 tokens on GB300 NVL72.** At 50 tokens/s per user a GB300 GPU emits ~6,261 tokens/s, or ~22.5M an hour [[S621]](../../sources/bibliography.md#s621). At SemiAnalysis's $5.00 rental price that is ~$0.22 per million tokens; at the owner's $2.31 TCO, ~$0.10 [[S622]](../../sources/bibliography.md#s622). NVIDIA's revenue is ~23% of the rental (~$1.13 per GPU-hour): ~$0.05 per million tokens, ~$0.04 of it gross profit 🔴 [[S3]](../../sources/bibliography.md#s3). If compute is 30% of revenue, the lab charges ~$0.74 per million.
+> **Worked example — one million DeepSeek-R1 tokens on GB300 [NVL72](../../glossary.md#nvl72).** At 50 tokens/s per user a GB300 GPU emits ~6,261 tokens/s, or ~22.5M an hour [[S621]](../../sources/bibliography.md#s621). At SemiAnalysis's $5.00 rental price that is ~$0.22 per million tokens; at the owner's $2.31 [TCO](../../glossary.md#tco), ~$0.10 [[S622]](../../sources/bibliography.md#s622). NVIDIA's revenue is ~23% of the rental (~$1.13 per [GPU-hour](../../glossary.md#gpu-hour)): ~$0.05 per million tokens, ~$0.04 of it gross profit 🔴 [[S3]](../../sources/bibliography.md#s3). If compute is 30% of revenue, the lab charges ~$0.74 per million.
 
 <details>
 <summary>🔧 Under the hood: assumptions and sensitivity</summary>
@@ -82,11 +82,11 @@ Inputs: OpenAI's ~70% compute margin [[S11537]](../../sources/bibliography.md#s1
 
 The full deal chart is on [History and how NVIDIA built it](history-and-how-built.md).
 
-**[Q8 · Value pools & M&A angles]** The largest pool is the model lab's margin (~70% of API revenue, before training costs), then the cloud's rental margin, then NVIDIA's hardware margin; NVIDIA's own software is under 1% of revenue [[S11537]](../../sources/bibliography.md#s11537)[[S622]](../../sources/bibliography.md#s622)[[S11011]](../../sources/bibliography.md#s11011). M&A followed scarcity: NVIDIA paid little for engine teams and a lot for decode silicon and distribution; AMD and Qualcomm bought portability. Open angles: portable serving companies (Inferact, RadixArk), SRAM or near-memory decode IP (d-Matrix, Positron, Etched) and the inference clouds that choose hardware for [open-weight models](../../glossary.md#open-weight-model).
+**[Q8 · Value pools & M&A angles]** The largest pool is the model lab's margin (~70% of API revenue, before training costs), then the cloud's rental margin, then NVIDIA's hardware margin; NVIDIA's own software is under 1% of revenue [[S11537]](../../sources/bibliography.md#s11537)[[S622]](../../sources/bibliography.md#s622)[[S11011]](../../sources/bibliography.md#s11011). M&A followed scarcity: NVIDIA paid little for engine teams and a lot for decode silicon and distribution; AMD and Qualcomm bought portability. Open angles: portable serving companies (Inferact, RadixArk), [SRAM](../../glossary.md#sram) or near-memory decode IP (d-Matrix, Positron, Etched) and the inference clouds that choose hardware for [open-weight models](../../glossary.md#open-weight-model).
 
 ## 🎯 Corp Dev Lens
 
-1. Qualcomm ships a vLLM container for AI 100 and now owns Modular [[S596]](../../sources/bibliography.md#s596)[[S9511]](../../sources/bibliography.md#s9511): should AI200/AI250 software lean on upstream vLLM/llm-d for reach, on MAX for differentiation, or both?
+1. Qualcomm ships a [vLLM](../../glossary.md#vllm) container for AI 100 and now owns Modular [[S596]](../../sources/bibliography.md#s596)[[S9511]](../../sources/bibliography.md#s9511): should AI200/AI250 software lean on upstream vLLM/llm-d for reach, on MAX for differentiation, or both?
 2. NVIDIA holds stakes in Together AI and Baseten [[S11516]](../../sources/bibliography.md#s11516)[[S11518]](../../sources/bibliography.md#s11518). What would make an inference cloud qualify a second platform?
 3. NVIDIA licensed Groq rather than buying it. Would licences or minority stakes in SRAM and near-memory start-ups beat $2–10B acquisitions?
 4. If labs keep ~70¢ of each API dollar, is co-design with a token buyer (a HUMAIN-style sovereign or a lab) worth more than a merchant sale [[S90030]](../../sources/bibliography.md#s90030)?

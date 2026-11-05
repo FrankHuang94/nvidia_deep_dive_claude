@@ -7,9 +7,9 @@
 - **Ethernet won the protocol war.** [InfiniBand](../../glossary.md#infiniband) held ~80% of AI back-end switch sales two years before 2025; in 2025 Ethernet sold more than twice as much, and ~two-thirds in 1Q26 [[S90053]](../../sources/bibliography.md#s90053)[[S90054]](../../sources/bibliography.md#s90054).
 - **NVIDIA kept its seat anyway.** Dell'Oro ranks Celestica first, NVIDIA a close second and Arista third in Ethernet AI back-end switches (1Q26, 2Q26) [[S90054]](../../sources/bibliography.md#s90054)[[S6523]](../../sources/bibliography.md#s6523). IDC puts NVIDIA first in all data-center Ethernet switch revenue in 1Q26 (~$2.1B) [[S6028]](../../sources/bibliography.md#s6028).
 - **[Q5 · Strongest challenger]** Broadcom-centred merchant Ethernet: Tomahawk 6 shipped 102.4 Tb/s about 12 months before NVIDIA's Spectrum-6 reached partners [[S274]](../../sources/bibliography.md#s274)[[S6019]](../../sources/bibliography.md#s6019). Arista, white-box ODMs and the [Ultra Ethernet Consortium](../../glossary.md#ultra-ethernet) carry it to market.
-- **NVIDIA's lead has moved to the NIC.** Every Vera Rubin GPU ships with a 1.6 Tb/s ConnectX-9 [SuperNIC](../../glossary.md#supernic) [[S33004]](../../sources/bibliography.md#s33004). Broadcom's Thor Ultra is 800G [[S280]](../../sources/bibliography.md#s280); AMD gets more per GPU (2.4 Tb/s) only by fitting three 800G UEC NICs [[S228]](../../sources/bibliography.md#s228).
+- **NVIDIA's lead has moved to the [NIC](../../glossary.md#nic).** Every Vera Rubin GPU ships with a 1.6 Tb/s ConnectX-9 [SuperNIC](../../glossary.md#supernic) [[S33004]](../../sources/bibliography.md#s33004). Broadcom's Thor Ultra is 800G [[S280]](../../sources/bibliography.md#s280); AMD gets more per GPU (2.4 Tb/s) only by fitting three 800G UEC NICs [[S228]](../../sources/bibliography.md#s228).
 - **Challengers are growing faster from a smaller base.** Broadcom's AI networking revenue rose >2.5× y/y [[S6505]](../../sources/bibliography.md#s6505) and Arista targets ≥$3.6B of AI revenue in 2026 [[S6500]](../../sources/bibliography.md#s6500). NVIDIA booked ~$17.5B of networking in one quarter (+18% q/q) [[S408]](../../sources/bibliography.md#s408).
-- **Hyperscaler fabrics cap the market.** Google runs up to 80,000 Vera Rubin GPUs per site on its own Virgo network [[S554]](../../sources/bibliography.md#s554); AWS uses its own EFA [[S292]](../../sources/bibliography.md#s292).
+- **[Hyperscaler](../../glossary.md#hyperscaler) fabrics cap the market.** Google runs up to 80,000 Vera Rubin GPUs per site on its own Virgo network [[S554]](../../sources/bibliography.md#s554); AWS uses its own EFA [[S292]](../../sources/bibliography.md#s292).
 
 ![Heatmap of 8 scale-out networking rivals against NVIDIA on six dimensions. Broadcom alone leads on switch radix and bandwidth (Tomahawk 6 at 102.4 Tb/s in 2025, about a year before Spectrum-6); 6 rivals lead on openness (merchant silicon, UEC, SONiC); none leads on NIC co-design, where Broadcom's 800G Thor Ultra trails ConnectX-9 at 1.6 Tb/s and AMD's UEC NICs reach parity only by using three per GPU; white-box ODMs led by Celestica lead on share of Ethernet AI back-end switch sales; Google and AWS run captive, different-approach fabrics.](../../assets/charts/06-scale-out-competitor-heatmap.svg)
 
@@ -90,7 +90,7 @@ quadrantChart
 ```
 
 > [!NOTE]
-> **🐂 Bull view.** NVIDIA is the only vendor shipping all four of InfiniBand, Ethernet switches, 1.6 Tb/s NICs (ConnectX-9 with every Vera Rubin GPU [[S33004]](../../sources/bibliography.md#s33004)) and NVLink. Networking runs at ~$0.24 per $1 of compute ([history](history-and-how-built.md)), and Spectrum-X turned the Ethernet shift into growth (2.6× y/y) [[S408]](../../sources/bibliography.md#s408).
+> **🐂 Bull view.** NVIDIA is the only vendor shipping all four of InfiniBand, Ethernet switches, 1.6 Tb/s NICs (ConnectX-9 with every Vera Rubin GPU [[S33004]](../../sources/bibliography.md#s33004)) and [NVLink](../../glossary.md#nvlink). Networking runs at ~$0.24 per $1 of compute ([history](history-and-how-built.md)), and Spectrum-X turned the Ethernet shift into growth (2.6× y/y) [[S408]](../../sources/bibliography.md#s408).
 
 > [!WARNING]
 > **🐻 Bear view.** Switch silicon has commoditised. Broadcom ships first, white boxes lead share, and UEC removes the need for NVIDIA's NIC [[S274]](../../sources/bibliography.md#s274)[[S90054]](../../sources/bibliography.md#s90054)[[S257]](../../sources/bibliography.md#s257). Once GPUs are bought separately from their network, attach falls toward the share NVIDIA wins in open bids. In those bids, white-box ODMs led by Celestica already out-sell NVIDIA [[S6523]](../../sources/bibliography.md#s6523).
@@ -100,10 +100,10 @@ quadrantChart
 ## 🎯 Corp Dev Lens
 
 1. Merchant Ethernet won the protocol, but NVIDIA still sells ~#2 in Ethernet AI switches [[S6523]](../../sources/bibliography.md#s6523). Is NVIDIA's networking moat now mostly the NIC and software rather than the switch?
-2. Qualcomm's AI200/AI250 and its 2028 AI300 (UALink and ESUN scale-up) [[S90060]](../../sources/bibliography.md#s90060)[[S90028]](../../sources/bibliography.md#s90028) still need scale-out NICs. Which source gives the most leverage: Broadcom Thor, AMD Pensando, a start-up, or NVIDIA via Spectrum-X?
+2. Qualcomm's AI200/AI250 and its 2028 AI300 ([UALink](../../glossary.md#ualink) and [ESUN](../../glossary.md#esun) [scale-up](../../glossary.md#scale-up)) [[S90060]](../../sources/bibliography.md#s90060)[[S90028]](../../sources/bibliography.md#s90028) still need [scale-out](../../glossary.md#scale-out) NICs. Which source gives the most leverage: Broadcom Thor, AMD Pensando, a start-up, or NVIDIA via Spectrum-X?
 3. Arista's growth on Broadcom silicon [[S6502]](../../sources/bibliography.md#s6502) shows system software captures value on merchant chips. Where would a new accelerator vendor partner rather than build?
 4. If UEC 1.1 and ESUN converge on one Ethernet for scale-up and scale-out [[S575]](../../sources/bibliography.md#s575)[[S90052]](../../sources/bibliography.md#s90052), who gains: merchant switch vendors or NVLink?
-5. Google runs Rubin GPUs on its own fabric [[S554]](../../sources/bibliography.md#s554). How sticky is NVIDIA's attach in hyperscalers versus neoclouds?
+5. Google runs Rubin GPUs on its own fabric [[S554]](../../sources/bibliography.md#s554). How sticky is NVIDIA's attach in hyperscalers versus [neoclouds](../../glossary.md#neocloud)?
 
 ## 📚 Sources
 

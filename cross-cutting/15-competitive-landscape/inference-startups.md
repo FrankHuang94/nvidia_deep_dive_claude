@@ -44,7 +44,7 @@ memory bandwidth divided by the bytes of weights. GPUs keep weights in [HBM](../
 ![Heatmap of eight inference challengers on five dimensions. Open-source serving (vLLM, SGLang, llm-d) is at parity on speed, cost and maturity and leads on model coverage and hardware breadth (seven hardware families). Google TPU leads on throughput per dollar (~18% below B200 per token); Cerebras and Groq lead on tokens per second per user thanks to on-chip SRAM but trail on cost; AMD is at parity on cost and model coverage but behind on interactivity and software; 6 of 7 hardware challengers are behind on software maturity; AWS, Microsoft and Qualcomm lack public benchmarks and are mostly 'different approach' or 'behind'.](../../assets/charts/11-inference-challenger-heatmap.svg)
 
 > [!TIP]
-> **Worked example — why SRAM is fast and expensive.** A 70B-parameter model in FP8 is ~70 GB. One Rubin GPU holds it
+> **Worked example — why SRAM is fast and expensive.** A 70B-parameter model in [FP8](../../glossary.md#fp8) is ~70 GB. One Rubin GPU holds it
 > and can stream it ~274 times a second (19.2 TB/s ÷ 70 GB) [[S90006]](../../sources/bibliography.md#s90006). A Groq 3 LPU holds 0.5 GB, so the weights alone
 > need ~140 chips, more than half of a 256-LPU LPX rack; each chip re-reads its slice ~300,000 times a second (150 TB/s ÷
 > 0.5 GB) [[S114]](../../sources/bibliography.md#s114). Cerebras's 44 GB wafer needs two wafers for the FP8 weights [[S166]](../../sources/bibliography.md#s166). The speed per user is real; the
@@ -92,7 +92,7 @@ another outlet puts far lower 🟡 [[S2512]](../../sources/bibliography.md#s2512
 LPDDR5) [[S170]](../../sources/bibliography.md#s170). Etched reports ~$1B of Sohu pre-orders but no verified shipments [[S2507]](../../sources/bibliography.md#s2507)[[S171]](../../sources/bibliography.md#s171). MatX raised $500M and
 plans shipments in 2027 [[S2508]](../../sources/bibliography.md#s2508). Positron's mark rose from ~$1B to $5B within 2026 [[S11520]](../../sources/bibliography.md#s11520)[[S11521]](../../sources/bibliography.md#s11521).
 
-**Photonics** has split in two: Lightmatter ($4.4B, 2024) sells optical interconnect and is reported joining NVLink
+**Photonics** has split in two: Lightmatter ($4.4B, 2024) sells optical interconnect and is reported joining [NVLink](../../glossary.md#nvlink)
 Fusion 🟡 [[S2510]](../../sources/bibliography.md#s2510)[[S5022]](../../sources/bibliography.md#s5022); Celestial AI's photonic memory fabric went to Marvell for $3.25B upfront [[S2513]](../../sources/bibliography.md#s2513).
 
 > [!TIP]
@@ -178,7 +178,7 @@ quadrantChart
 ```
 
 Placement is 🔴 repo judgement from public funding and customer disclosures above. The independents most likely to last
-have either a lab or hyperscaler buying at gigawatt-scale (Cerebras–OpenAI) or a business that does not depend on beating
+have either a lab or [hyperscaler](../../glossary.md#hyperscaler) buying at gigawatt-scale (Cerebras–OpenAI) or a business that does not depend on beating
 NVIDIA on tokens per dollar (Tenstorrent's IP licensing). GroqCloud's runway is the least clear after its founders left.
 
 ## Verdict by layer: start-ups (as a group) vs NVIDIA
@@ -205,12 +205,12 @@ Cerebras's ~600 MW contracted is meaningful but a fraction of NVIDIA's shipments
 Cerebras 2.8 and Groq 2.2 of 5 vs NVIDIA's 4.7 ([index](index.md)).
 
 > [!NOTE]
-> **🐂 Bull view (for NVIDIA).** NVIDIA bought the best SRAM design and shipped it as LPX within a year; Rubin NVL72 plus
+> **🐂 Bull view (for NVIDIA).** NVIDIA bought the best SRAM design and shipped it as LPX within a year; Rubin [NVL72](../../glossary.md#nvl72) plus
 > LPX covers both batch and ultra-low-latency tiers, leaving start-ups a shrinking niche [[S90003]](../../sources/bibliography.md#s90003)[[S114]](../../sources/bibliography.md#s114).
 
 > [!WARNING]
 > **🐻 Bear view (for NVIDIA).** The start-ups are better funded than at any time since 2021, a public Cerebras can raise
-> equity at will, and open serving engines (vLLM, SGLang) run on seven hardware families, so switching costs for
+> equity at will, and open serving engines ([vLLM](../../glossary.md#vllm), [SGLang](../../glossary.md#sglang)) run on seven hardware families, so switching costs for
 > inference keep falling [[S2504]](../../sources/bibliography.md#s2504)[[S15516]](../../sources/bibliography.md#s15516)[[S580]](../../sources/bibliography.md#s580).
 
 ## 🎯 Corp Dev Lens

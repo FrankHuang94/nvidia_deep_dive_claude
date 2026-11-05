@@ -8,8 +8,8 @@
 - **The DPU is being repurposed for storage:** BlueField-4 STX, a reference design for [context-memory storage](../../glossary.md#context-memory-storage) (KV caches on flash), reaches partners' platforms in H2 2026; NVIDIA claims up to 5× token throughput against an unspecified baseline 🟢 [[S7511]](../../sources/bibliography.md#s7511)[[S3012]](../../sources/bibliography.md#s3012).
 - **2028 is named but blank:** Feynman pairs ConnectX-10 and BlueField-5, with no published specs 🟡 [[S109]](../../sources/bibliography.md#s109)[[S502]](../../sources/bibliography.md#s502)[[S90004]](../../sources/bibliography.md#s90004); secondary sources conflict on speed 🔴 [[S213]](../../sources/bibliography.md#s213).
 - **Only AMD matches NVIDIA's naming horizon:** Vulcano (2026), Como/Monza (2027) and Palma/Levanzo (2028) are named, without specs 🟢 [[S538]](../../sources/bibliography.md#s538)[[S7500]](../../sources/bibliography.md#s7500).
-- **No rival has announced a 1.6T NIC:** Broadcom's Thor Ultra (800G) was sampling from October 2025 and AWS's Nitro v6 runs up to 400 Gb/s per card [[S7529]](../../sources/bibliography.md#s7529)[[S7503]](../../sources/bibliography.md#s7503).
-- **[Q7 · Roadmap & what changes the picture]** The roadmap is safe on speed; what could change the picture is commercial: [Ultra Ethernet](../../glossary.md#ultra-ethernet) NICs proven at scale, NICs absorbed into accelerators or optics, and hyperscalers extending [captive silicon](../../glossary.md#captive-silicon) to the [back-end network](../../glossary.md#back-end-network).
+- **No rival has announced a 1.6T [NIC](../../glossary.md#nic):** Broadcom's Thor Ultra (800G) was sampling from October 2025 and AWS's Nitro v6 runs up to 400 Gb/s per card [[S7529]](../../sources/bibliography.md#s7529)[[S7503]](../../sources/bibliography.md#s7503).
+- **[Q7 · Roadmap & what changes the picture]** The roadmap is safe on speed; what could change the picture is commercial: [Ultra Ethernet](../../glossary.md#ultra-ethernet) NICs proven at scale, NICs absorbed into accelerators or optics, and [hyperscalers](../../glossary.md#hyperscaler) extending [captive silicon](../../glossary.md#captive-silicon) to the [back-end network](../../glossary.md#back-end-network).
 
 ## The 2024–2028 roadmap
 
@@ -60,7 +60,7 @@ gantt
 | Xsight Labs E1, 800G DPU | 2026 | early operator wins | 🟡 | [[S7517]](../../sources/bibliography.md#s7517) |
 
 > [!TIP]
-> **Worked example — why the NIC lags NVLink by design.** On Vera Rubin, NVLink 6 gives each GPU 3.0 TB/s and ConnectX-9 gives it 1.6 Tb/s = 0.2 TB/s, a 15:1 ratio [[S90006]](../../sources/bibliography.md#s90006)[[S33004]](../../sources/bibliography.md#s33004). Even if ConnectX-10 doubled to 3.2 Tb/s (🔴, unconfirmed [[S213]](../../sources/bibliography.md#s213)), the ratio would still be 7.5:1 unless NVLink also grows. So the chattiest traffic (tensor and expert parallelism) stays inside the NVLink domain ([layer 05](../05-scale-up-nvlink-nvswitch/roadmap.md)), and the NIC only has to keep pace with data and pipeline parallelism.
+> **Worked example — why the NIC lags [NVLink](../../glossary.md#nvlink) by design.** On Vera Rubin, NVLink 6 gives each GPU 3.0 TB/s and ConnectX-9 gives it 1.6 Tb/s = 0.2 TB/s, a 15:1 ratio [[S90006]](../../sources/bibliography.md#s90006)[[S33004]](../../sources/bibliography.md#s33004). Even if ConnectX-10 doubled to 3.2 Tb/s (🔴, unconfirmed [[S213]](../../sources/bibliography.md#s213)), the ratio would still be 7.5:1 unless NVLink also grows. So the chattiest traffic (tensor and expert parallelism) stays inside the NVLink domain ([layer 05](../05-scale-up-nvlink-nvswitch/roadmap.md)), and the NIC only has to keep pace with data and pipeline parallelism.
 
 ## Spec progression
 
@@ -68,7 +68,7 @@ gantt
 
 ![Log-scale chart of NIC bandwidth by year: NVIDIA ConnectX from 56 Gb/s (ConnectX-3, 2011) through 100 (ConnectX-4/5), 200 (ConnectX-6), 400 (ConnectX-7), 800 (ConnectX-8) to 1,600 Gb/s (ConnectX-9, 2026); BlueField DPUs from 100 to 800 Gb/s (BlueField-4); Broadcom Thor Ultra and AMD Vulcano reach 800 Gb/s in 2025-26, Intel IPU E2100 200 Gb/s.](../../assets/charts/07-nic-bandwidth-by-generation.svg)
 
-NVIDIA's own cadence has sped up (400G to 1.6T in four years, against six years for the previous 3.6× under Mellanox, see [history](history-and-how-built.md)), while rivals' lag shrank from ~3 years at 400G to under a year at 800G, because 200G-per-lane SerDes and the UEC transport are now industry property rather than Mellanox know-how [[S7528]](../../sources/bibliography.md#s7528)[[S7529]](../../sources/bibliography.md#s7529).
+NVIDIA's own cadence has sped up (400G to 1.6T in four years, against six years for the previous 3.6× under Mellanox, see [history](history-and-how-built.md)), while rivals' lag shrank from ~3 years at 400G to under a year at 800G, because 200G-per-lane [SerDes](../../glossary.md#serdes) and the UEC transport are now industry property rather than Mellanox know-how [[S7528]](../../sources/bibliography.md#s7528)[[S7529]](../../sources/bibliography.md#s7529).
 
 > [!TIP]
 > **Worked example — the cost of matching Rubin with 800G NICs.** A custom-accelerator rack that wants Rubin's 1.6 Tb/s per chip from 800G merchant NICs needs two per chip: 144 NICs for 72 accelerators instead of 72. At an assumed $1,500–3,000 per 800G NIC (Est., repo 🔴) that is $216–432K per rack, against $180–324K for 72 ConnectX-9 at $2,500–4,500 (same assumption set, see [value chain](value-chain-and-corp-dev.md)). Being a step behind costs NIC count, power and optics.
@@ -76,7 +76,7 @@ NVIDIA's own cadence has sped up (400G to 1.6T in four years, against six years 
 <details>
 <summary>🔧 Under the hood: why 1.6 Tb/s turns the NIC into a PCIe switch</summary>
 
-1.6 Tb/s is 200 GB/s in each direction. A PCIe Gen6 x16 link carries ~128 GB/s each way before overhead, so a 1.6T NIC cannot run at line rate through one standard x16 host link; it needs more lanes or a different attach (the sources used here do not detail ConnectX-9's host interface). NVIDIA already built a PCIe Gen6 switch into ConnectX-8, so the NIC sits between the GPUs and the host rather than hanging off the CPU [[S264]](../../sources/bibliography.md#s264). The logical next step for ConnectX-10 is a direct die-to-die or NVLink-class attach, or optics on the NIC package (🔴 repo inference); either would make the NIC even harder to swap for a third-party part.
+1.6 Tb/s is 200 GB/s in each direction. A [PCIe](../../glossary.md#pcie) Gen6 x16 link carries ~128 GB/s each way before overhead, so a 1.6T NIC cannot run at line rate through one standard x16 host link; it needs more lanes or a different attach (the sources used here do not detail ConnectX-9's host interface). NVIDIA already built a PCIe Gen6 switch into ConnectX-8, so the NIC sits between the GPUs and the host rather than hanging off the CPU [[S264]](../../sources/bibliography.md#s264). The logical next step for ConnectX-10 is a direct die-to-die or NVLink-class attach, or optics on the NIC package (🔴 repo inference); either would make the NIC even harder to swap for a third-party part.
 
 </details>
 
@@ -84,14 +84,14 @@ NVIDIA's own cadence has sped up (400G to 1.6T in four years, against six years 
 
 NVIDIA's NIC and DPU roadmap is the most fully named through 2028, and its speed lead is real but one step deep. What could change the picture lies mostly outside its silicon:
 
-- **Ultra Ethernet proven at scale.** A 100k-accelerator cluster on Thor Ultra or Vulcano NICs matching Spectrum-X results would make the AI NIC a standard part [[S7528]](../../sources/bibliography.md#s7528)[[S7529]](../../sources/bibliography.md#s7529)[[S7500]](../../sources/bibliography.md#s7500).
-- **Hyperscalers extend captive NICs to the back end.** AWS already runs EFA for GPU instances; if Microsoft and Google follow, 1:1 SuperNIC attach shrinks to neoclouds, sovereign and enterprise buyers [[S292]](../../sources/bibliography.md#s292)[[S7504]](../../sources/bibliography.md#s7504)[[S7520]](../../sources/bibliography.md#s7520).
+- **Ultra Ethernet proven at scale.** A 100k-accelerator cluster on Thor Ultra or Vulcano NICs matching [Spectrum-X](../../glossary.md#spectrum-x) results would make the AI NIC a standard part [[S7528]](../../sources/bibliography.md#s7528)[[S7529]](../../sources/bibliography.md#s7529)[[S7500]](../../sources/bibliography.md#s7500).
+- **Hyperscalers extend captive NICs to the back end.** AWS already runs EFA for GPU instances; if Microsoft and Google follow, 1:1 SuperNIC attach shrinks to [neoclouds](../../glossary.md#neocloud), sovereign and enterprise buyers [[S292]](../../sources/bibliography.md#s292)[[S7504]](../../sources/bibliography.md#s7504)[[S7520]](../../sources/bibliography.md#s7520).
 - **The NIC disappears into something else.** Intel's Gaudi 3 put 24 × 200 GbE on the die; co-packaged optics or die-to-die NIC attach could do the same at higher speed [[S296]](../../sources/bibliography.md#s296).
 - **Context memory becomes a standard storage tier.** BlueField-4 then gains attach in storage servers, unless storage vendors get the same result on merchant silicon [[S7511]](../../sources/bibliography.md#s7511)[[S3012]](../../sources/bibliography.md#s3012).
 - 🔴 **ConnectX-10's speed.** 3.2 Tb/s would reopen the gap; 1.6 Tb/s would let rivals catch up.
 
 > [!TIP]
-> **Worked example — how much NIC dollar volume rides on the attach question.** At ~230 kW per Vera Rubin NVL72 rack (Max-P, reported), 1 GW of IT power holds ~4,350 racks or ~313,000 GPUs [[S302]](../../sources/bibliography.md#s302)[[S303]](../../sources/bibliography.md#s303). One ConnectX-9 each at $2,500–4,500 (Est., repo 🔴) is $0.8–1.4B of NIC silicon per gigawatt. Every gigawatt deployed by a buyer with a captive NIC moves that sum off NVIDIA's table.
+> **Worked example — how much NIC dollar volume rides on the attach question.** At ~230 kW per Vera Rubin [NVL72](../../glossary.md#nvl72) rack (Max-P, reported), 1 GW of IT power holds ~4,350 racks or ~313,000 GPUs [[S302]](../../sources/bibliography.md#s302)[[S303]](../../sources/bibliography.md#s303). One ConnectX-9 each at $2,500–4,500 (Est., repo 🔴) is $0.8–1.4B of NIC silicon per gigawatt. Every gigawatt deployed by a buyer with a captive NIC moves that sum off NVIDIA's table.
 
 ## 🎯 Corp Dev Lens
 

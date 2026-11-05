@@ -100,7 +100,7 @@ An ISV or data platform that adopts cuDF or cuML gets years of tuning without hi
 1. NVIDIA monetises libraries through hardware, not licences. Could an entrant price software separately at all, or must it also give libraries away?
 2. The non-AI pull-through markets (analytics, EDA, quantum, CAE) each rest on one or two partners. Which partner relationships are contestable, and on what terms?
 3. NVIDIA takes minority stakes in CAE and quantum start-ups rather than buying them. What does an investor learn from those cap tables (PhysicsX, Quantinuum, PsiQuantum)?
-4. Qualcomm's Modular deal (closed 2026-07-29, public information) [[S9511]](../../sources/bibliography.md#s9511) buys a portable stack: which CUDA-X domains would it still need partners for?
+4. Qualcomm's Modular deal (closed 2026-07-29, public information) [[S9511]](../../sources/bibliography.md#s9511) buys a portable stack: which [CUDA-X](../../glossary.md#cuda-x) domains would it still need partners for?
 5. Vendor-neutral companies (Voltron Data, Anyscale, Coiled) sit between libraries and users. Are they partners, acquisition targets, or both, for a second GPU source?
 
 ## 📚 Sources

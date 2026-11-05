@@ -4,7 +4,7 @@
 
 ## ⚡ The Executive Take
 
-- **On paper, the chip-level gap has closed.** AMD's MI455X claims 20 PFLOPS FP8, 432 GB of [HBM](../../glossary.md#hbm)
+- **On paper, the chip-level gap has closed.** AMD's MI455X claims 20 [PFLOPS](../../glossary.md#flops) FP8, 432 GB of [HBM](../../glossary.md#hbm)
   and 23.3 TB/s [[S144]](../../sources/bibliography.md#s144)[[S538]](../../sources/bibliography.md#s538)[[S90093]](../../sources/bibliography.md#s90093); NVIDIA's Rubin lists 17.5 PFLOPS dense FP8, 288 GB and, after a 2026 revision,
   19.2 TB/s [[S33005]](../../sources/bibliography.md#s33005)[[S90006]](../../sources/bibliography.md#s90006). Both ship from late Q3 2026 [[S90009]](../../sources/bibliography.md#s90009)[[S90020]](../../sources/bibliography.md#s90020).
 - **AMD is the strongest challenger at the chip level; Google's TPU is the strongest overall.** SemiAnalysis
@@ -14,7 +14,7 @@
   deliver 2.5–5 PFLOPS FP8 [[S155]](../../sources/bibliography.md#s155)[[S151]](../../sources/bibliography.md#s151)[[S158]](../../sources/bibliography.md#s158), yet Broadcom's AI revenue rose from ~12% to ~19% of NVIDIA's
   data-center revenue in 2026 [[S2516]](../../sources/bibliography.md#s2516)[[S405]](../../sources/bibliography.md#s405).
 - **NVIDIA still leads where it counts commercially:** ~7.6 FP8 TFLOPS/W for Rubin vs ~3.6 for MI355X (power
-  partly reported) [[S106]](../../sources/bibliography.md#s106)[[S143]](../../sources/bibliography.md#s143), framework support of 36/36 vs ROCm's 26 [[S580]](../../sources/bibliography.md#s580)[[S586]](../../sources/bibliography.md#s586), and the only
+  partly reported) [[S106]](../../sources/bibliography.md#s106)[[S143]](../../sources/bibliography.md#s143), framework support of 36/36 vs [ROCm](../../glossary.md#rocm)'s 26 [[S580]](../../sources/bibliography.md#s580)[[S586]](../../sources/bibliography.md#s586), and the only
   [merchant](../../glossary.md#merchant-silicon) platform shipping at scale.
 - **Share has barely moved:** ~87% of AI data-center silicon revenue in 2025 vs ~90% in 2023 (repo calculation)
   [[S416]](../../sources/bibliography.md#s416)[[S660]](../../sources/bibliography.md#s660)[[S663]](../../sources/bibliography.md#s663).
@@ -44,7 +44,7 @@ credit).
 > **Worked example — what AMD's memory lead buys.** A 1-trillion-parameter model at [FP8](../../glossary.md#fp8) needs
 > ~1,000 GB for weights. Four Rubin GPUs hold 1,152 GB, leaving ~152 GB for the [KV cache](../../glossary.md#kv-cache);
 > four MI455X hold 1,728 GB, leaving ~728 GB: **4.8× the room for concurrent conversations** on the same GPU
-> count. Bigger decode batches mean more tokens per GPU-hour, AMD's best economic argument.
+> count. Bigger [decode](../../glossary.md#decode) batches mean more tokens per [GPU-hour](../../glossary.md#gpu-hour), AMD's best economic argument.
 
 ![Horizontal bar chart of memory per accelerator: Qualcomm AI200 768 GB of LPDDR per card (announced for 2026), AMD MI455X 432 GB HBM4 (announced), NVIDIA Rubin 288 GB HBM4, Microsoft Maia 200 216 GB, Google Ironwood 192 GB, AWS Trainium3 and Huawei Ascend 950DT 144 GB, Intel Gaudi 3 128 GB, SambaNova SN40L 64 GB HBM and Cerebras WSE-3 44 GB of on-wafer SRAM; capacity leadership has passed to AMD and to LPDDR-based designs, which trade bandwidth for size.](../../assets/charts/15-memory-capacity-by-accelerator.svg)
 
@@ -52,14 +52,14 @@ credit).
 
 **AMD Instinct — memory and openness.** In MLPerf Inference v6.0 the MI355X matched B200 per GPU on Llama 2 70B
 (12,935 vs 12,994 tokens/s) but trailed GB300 (15,651) [[S602]](../../sources/bibliography.md#s602). MI455X ships in the 72-GPU Helios rack (1.4 EF
-FP8, 31 TB HBM4) [[S90021]](../../sources/bibliography.md#s90021), anchored by OpenAI (6 GW), Oracle (50,000 MI450) and Anthropic (up to 2 GW)
+FP8, 31 TB [HBM4](../../glossary.md#hbm4)) [[S90021]](../../sources/bibliography.md#s90021), anchored by OpenAI (6 GW), Oracle (50,000 MI450) and Anthropic (up to 2 GW)
 [[S546]](../../sources/bibliography.md#s546)[[S90022]](../../sources/bibliography.md#s90022)[[S538]](../../sources/bibliography.md#s538). MI300X trailed H100 by about a year [[S141]](../../sources/bibliography.md#s141)[[S33002]](../../sources/bibliography.md#s33002); MI455X lands in Rubin's quarter.
 Still missing: revenue (~3% share in 2025) [[S663]](../../sources/bibliography.md#s663) and software depth.
 
 ![Horizontal bar chart of the best closed-division MLPerf Inference v6.0 Llama 2 70B Offline result per accelerator, in tokens/s per accelerator: GB300 15,651, B300 14,466, B200 12,994, MI355X 12,935, GB200 12,334, MI350X 10,060, MI325X 4,235, H200 NVL 4,000, MI300X 3,450; Intel Arc Pro cards below 1,000.](../../assets/charts/15-mlperf-llm-inference-per-accelerator.svg)
 
 **Google TPU — cost per token.** Ironwood offers 4,614 TFLOPS FP8 and 9,216-chip pods [[S151]](../../sources/bibliography.md#s151); TPU 8t claims 12.6
-PFLOPS FP4 per chip [[S552]](../../sources/bibliography.md#s552). TPUs now reach outside customers: Anthropic (up to 1M), a multibillion-dollar Meta
+PFLOPS [FP4](../../glossary.md#fp4) per chip [[S552]](../../sources/bibliography.md#s552). TPUs now reach outside customers: Anthropic (up to 1M), a multibillion-dollar Meta
 rental with purchase talks, and Oracle Cloud from 2027 [[S90026]](../../sources/bibliography.md#s90026)[[S90025]](../../sources/bibliography.md#s90025)[[S552]](../../sources/bibliography.md#s552).
 
 > [!TIP]
@@ -75,7 +75,7 @@ generations through 2027 [[S561]](../../sources/bibliography.md#s561).
 
 **Huawei, Intel, start-ups, Qualcomm.** Huawei's SuperPoD shipments are unconfirmed (🔴) [[S90042]](../../sources/bibliography.md#s90042); Intel cancelled
 Falcon Shores after Gaudi 3 missed its target [[S668]](../../sources/bibliography.md#s668)[[S564]](../../sources/bibliography.md#s564); Groq's technology now sits inside NVIDIA [[S90018]](../../sources/bibliography.md#s90018);
-Qualcomm's AI200 (768 GB LPDDR per card) has no confirmed 2026 volume (🔴) [[S173]](../../sources/bibliography.md#s173)[[S90028]](../../sources/bibliography.md#s90028).
+Qualcomm's AI200 (768 GB [LPDDR](../../glossary.md#lpddr) per card) has no confirmed 2026 volume (🔴) [[S173]](../../sources/bibliography.md#s173)[[S90028]](../../sources/bibliography.md#s90028).
 
 ## Perf/W and the flexibility–efficiency trade-off
 
@@ -115,10 +115,10 @@ quadrantChart
 <details>
 <summary>🔧 Under the hood: why spec-sheet comparisons mislead</summary>
 
-- **Dense vs sparse.** AMD has not said whether MI455X's 20/40 PFLOPS are dense [[S144]](../../sources/bibliography.md#s144); Rubin's 50 PFLOPS NVFP4
+- **Dense vs sparse.** AMD has not said whether MI455X's 20/40 PFLOPS are dense [[S144]](../../sources/bibliography.md#s144); Rubin's 50 PFLOPS [NVFP4](../../glossary.md#nvfp4)
   "inference" figure relies on adaptive compression, 35 PFLOPS is the training figure [[S100]](../../sources/bibliography.md#s100).
 - **Power definitions differ.** Rubin's ~1.8/2.3 kW are analyst-reported [[S106]](../../sources/bibliography.md#s106); Maia's 750 W is a vendor TDP [[S158]](../../sources/bibliography.md#s158).
-- **Paper vs product.** Rubin's HBM and NVLink figures were cut after launch (see [roadmap](roadmap.md));
+- **Paper vs product.** Rubin's HBM and [NVLink](../../glossary.md#nvlink) figures were cut after launch (see [roadmap](roadmap.md));
   measured results (MLPerf, InferenceX) are the better guide [[S602]](../../sources/bibliography.md#s602)[[S625]](../../sources/bibliography.md#s625).
 
 </details>
@@ -135,7 +135,7 @@ quadrantChart
 > moving from ~3% to ~6% of the 2026 pool would mean ~$13B more revenue, without denting NVIDIA's lead.
 
 **[Q5 · Strongest challenger]** At the chip level it is **AMD**: its best argument is memory (432 vs 288 GB) and,
-since NVIDIA's 2026 revision, a paper lead in HBM and scale-up bandwidth, sold as an open merchant alternative
+since NVIDIA's 2026 revision, a paper lead in HBM and [scale-up](../../glossary.md#scale-up) bandwidth, sold as an open merchant alternative
 [[S144]](../../sources/bibliography.md#s144)[[S90006]](../../sources/bibliography.md#s90006). The gap has closed from "a year late" to "same quarter, better paper specs", but not in revenue
 (~3%) or software [[S663]](../../sources/bibliography.md#s663)[[S586]](../../sources/bibliography.md#s586). At the system level it is **Google's TPU**: ~18% lower measured cost per token
 and parity or better in more stack layers than any rival [[S625]](../../sources/bibliography.md#s625).
@@ -154,7 +154,7 @@ and parity or better in more stack layers than any rival [[S625]](../../sources/
 1. With the chip gap measured in months and gigabytes, does differentiation move to racks, software or supply?
 2. [Hyperscaler](../../glossary.md#hyperscaler) ASICs win on cost per token for their own workloads. Is there a durable
    pool for a third-party inference accelerator outside the largest clouds, and at what price per token?
-3. AMD and Qualcomm both lead on memory capacity. How defensible is that once HBM4E stacks reach 48–64 GB (see
+3. AMD and Qualcomm both lead on memory capacity. How defensible is that once [HBM4E](../../glossary.md#hbm4e) stacks reach 48–64 GB (see
    [Layer 03](../03-memory-packaging-supply-chain/index.md))?
 4. Would credible, audited perf/W disclosure be a commercial weapon for a newcomer?
 5. As TPUs become merchant silicon, which suppliers gain bargaining power?

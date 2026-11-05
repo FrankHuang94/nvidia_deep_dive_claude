@@ -6,8 +6,8 @@
 
 - **NVIDIA has sold systems for a decade.** The first [DGX](../../glossary.md#dgx)-1 (8 GPUs, 3.2 kW, $129,000) shipped in 2016, and Jensen Huang hand-delivered one to OpenAI that August [[S310]](../../sources/bibliography.md#s310)[[S8522]](../../sources/bibliography.md#s8522)[[S8523]](../../sources/bibliography.md#s8523).
 - **The OEM standard came in 2017.** [HGX](../../glossary.md#hgx)-1, built with Microsoft and Foxconn's Ingrasys and published via OCP, gave every server maker the same GPU baseboard [[S8525]](../../sources/bibliography.md#s8525)[[S8526]](../../sources/bibliography.md#s8526).
-- **Each step widened what NVIDIA designs.** DGX-2 (2018) added NVSwitch [[S313]](../../sources/bibliography.md#s313). [MGX](../../glossary.md#mgx) (2023) modularised the server [[S8524]](../../sources/bibliography.md#s8524). GB200 NVL72 (2024) made the 120 kW liquid-cooled rack the product [[S396]](../../sources/bibliography.md#s396)[[S336]](../../sources/bibliography.md#s336).
-- **Rack scale was hard even for NVIDIA.** Early GB200 racks reportedly overheated and showed link glitches, and some hyperscalers trimmed orders [[S5500]](../../sources/bibliography.md#s5500)[[S5501]](../../sources/bibliography.md#s5501).
+- **Each step widened what NVIDIA designs.** DGX-2 (2018) added [NVSwitch](../../glossary.md#nvswitch) [[S313]](../../sources/bibliography.md#s313). [MGX](../../glossary.md#mgx) (2023) modularised the server [[S8524]](../../sources/bibliography.md#s8524). GB200 [NVL72](../../glossary.md#nvl72) (2024) made the 120 kW liquid-cooled rack the product [[S396]](../../sources/bibliography.md#s396)[[S336]](../../sources/bibliography.md#s336).
+- **Rack scale was hard even for NVIDIA.** Early GB200 racks reportedly overheated and showed link glitches, and some [hyperscalers](../../glossary.md#hyperscaler) trimmed orders [[S5500]](../../sources/bibliography.md#s5500)[[S5501]](../../sources/bibliography.md#s5501).
 - **[Q4 · Source of advantage]** The edge is integration and orchestration, not any single chip: NVIDIA designs the rack and its network and lines up the partners. ~20 power partners showed 800 V DC parts in 2025 [[S90061]](../../sources/bibliography.md#s90061).
 - **[Q6 · Replication cost]** AMD's answer was to buy ZT Systems for $4.9B and resell the factories to Sanmina, a net ~$1.9–2.35B for a rack-design team [[S5527]](../../sources/bibliography.md#s5527)[[S8527]](../../sources/bibliography.md#s8527). First Helios racks shipped ~2 years after the deal was announced 🟡 [[S90020]](../../sources/bibliography.md#s90020).
 
@@ -58,7 +58,7 @@ January 2025 reports said the first GB200 NVL72 racks overheated and had chip-to
 
 **[Q4 · Source of advantage]** NVIDIA's lead in this layer rests on three things that reinforce each other:
 
-1. **System integration.** NVIDIA specifies trays, copper spine, power shelves and cooling loops; ODMs build to that design. A Vera Rubin NVL72 holds 72 Rubin GPUs, 36 Vera CPUs and 36 NVLink switch chips, all NVIDIA silicon [[S102]](../../sources/bibliography.md#s102)[[S332]](../../sources/bibliography.md#s332).
+1. **System integration.** NVIDIA specifies trays, copper spine, power shelves and cooling loops; ODMs build to that design. A Vera Rubin NVL72 holds 72 Rubin GPUs, 36 Vera CPUs and 36 [NVLink](../../glossary.md#nvlink) switch chips, all NVIDIA silicon [[S102]](../../sources/bibliography.md#s102)[[S332]](../../sources/bibliography.md#s332).
 2. **Supply-chain orchestration.** NVIDIA held $279B of supply and capacity commitments in mid-2026 [[S407]](../../sources/bibliography.md#s407). It allocates scarce [CoWoS](../../glossary.md#cowos)-built GPUs across ODMs such as Foxconn (~40% of AI servers) [[S3014]](../../sources/bibliography.md#s3014). ~20 partners built 800 V DC parts to its roadmap [[S90061]](../../sources/bibliography.md#s90061).
 3. **Co-designed networking.** Owning NVLink, NICs and switches lets NVIDIA tune rack and cluster together. Networking revenue reached a record $14.8B in Q1 FY2027 [[S90014]](../../sources/bibliography.md#s90014)[[S464]](../../sources/bibliography.md#s464).
 
@@ -86,7 +86,7 @@ Raw technology is *not* the moat: Helios matches or beats Vera Rubin NVL72 on pa
 
 ## Counterfactuals — what if NVIDIA hadn't…
 
-1. 🔴 **…moved beyond chips (no DGX, HGX or NVL72).** OEMs would have built 8-GPU boxes, with no 72-GPU domain. NVIDIA claims MoE models run ~10× faster on GB200 NVL72 than on HGX H200 (vendor claim) [[S5002]](../../sources/bibliography.md#s5002). TPU pods would have faced no rival for frontier MoE work, and OEMs would have kept more of each system dollar.
+1. 🔴 **…moved beyond chips (no DGX, HGX or NVL72).** OEMs would have built 8-GPU boxes, with no 72-GPU domain. NVIDIA claims [MoE](../../glossary.md#mixture-of-experts) models run ~10× faster on GB200 NVL72 than on HGX H200 (vendor claim) [[S5002]](../../sources/bibliography.md#s5002). TPU pods would have faced no rival for frontier MoE work, and OEMs would have kept more of each system dollar.
 2. 🔴 **…become a full OEM with its own factories.** It would capture the ODM's ~2–3% rack margin [[S332]](../../sources/bibliography.md#s332). But it would carry inventory and field service and turn Dell, HPE and Supermicro into rivals. Design-led, ODM-built (the "Apple model") protects a ~75% gross margin [[S405]](../../sources/bibliography.md#s405).
 3. 🔴 **…fixed the GB200 rack problems more slowly.** Had customers reverted to Hopper at scale, as OpenAI reportedly asked to [[S5501]](../../sources/bibliography.md#s5501), AMD and Google would have won a 12-month window in 2025.
 
