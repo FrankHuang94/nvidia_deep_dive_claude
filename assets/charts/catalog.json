@@ -6290,8 +6290,8 @@
   },
   {
     "id": "11-api-token-price-trend",
-    "title": "Same-capability tokens got ~286× cheaper in two years, yet OpenAI's flagship price rose 3.3× in 2026",
-    "subtitle": "API list price, US$ per million tokens (log scale), blended 3:1 input:output; OpenAI tiers vs the cheapest model at GPT-3.5-level quality (AI Index)",
+    "title": "GPT-3.5-level tokens fell ~286× in 2 years, but OpenAI's flagship rose 3.3× in 2026",
+    "subtitle": "API list price, US$ per million tokens, blended 3:1 input:output; OpenAI tiers vs the cheapest GPT-3.5-level model",
     "alt": "Log-scale chart of API prices per million tokens. The cheapest model at GPT-3.5-level quality fell from $20 (Nov 2022) to $0.07 (Oct 2024), ~286x. OpenAI's flagship fell from GPT-4 at $37.50 blended (Mar 2023) through GPT-4 Turbo ($15), GPT-4o ($7.50, then $4.38) to GPT-5 at $3.44 (Aug 2025), ~11x cheaper, then GPT-5.5 launched at $11.25 (Apr 2026, reported), 3.3x GPT-5. OpenAI's small tier fell from gpt-3.5-turbo at $2.00 (2023) to GPT-4o mini ($0.26) and GPT-5 nano ($0.14).",
     "data": [
       "l11_token_prices.csv"
@@ -6301,7 +6301,7 @@
       "14",
       "P2"
     ],
-    "source": "OpenAI launch posts; Stanford AI Index 2025; press",
+    "source": "OpenAI posts, AI Index 2025, press",
     "source_ids": [
       "S11526",
       "S11528",
@@ -6353,7 +6353,7 @@
   },
   {
     "id": "11-decode-bandwidth-by-vendor",
-    "title": "Decode bandwidth per chip: AMD matches NVIDIA in 2026 (19.6 vs 19.2 TB/s); cloud ASICs trail ~2.6×",
+    "title": "MI455X matches Rubin's memory bandwidth (19.6 vs 19.2 TB/s); cloud ASICs trail ~2.6×",
     "subtitle": "Peak memory (HBM or LPDDR) bandwidth per accelerator, TB/s (log scale), by first shipment year, 2021–2028",
     "alt": "Log-scale line chart of memory bandwidth per accelerator by vendor. NVIDIA rises from A100 (2.0 TB/s, 2021) and H100 (3.35) to B200/B300 (8.0) and Rubin (19.2 TB/s after the 2026 spec revision), with Rubin Ultra estimated at 32 TB/s in 2027. AMD tracks or leads at each step: MI300X 5.3, MI355X 8.0, MI455X 19.6. Google Ironwood (7.37) and Microsoft Maia 200 (7.0) sit ~2.6x below Rubin; AWS Trainium3 is 4.9 with Trainium4 estimated near 19.6 in 2027; Huawei's Ascend roadmap reaches 14.4 TB/s in 2028; Qualcomm's LPDDR-based AI 100 Ultra is 0.55 TB/s.",
     "data": [
@@ -6506,7 +6506,7 @@
   },
   {
     "id": "11-inference-deal-values",
-    "title": "NVIDIA's ~$20B Groq licence is ~5× Qualcomm–Modular and ~30× AMD's largest AI-software buy",
+    "title": "NVIDIA's ~$20B Groq licence is ~5× Qualcomm–Modular and ~30× AMD–Silo AI",
     "subtitle": "Disclosed or reported deal value, US$ millions (log scale), inference software and silicon deals 2023–2026",
     "alt": "Log-scale horizontal bar chart of inference-related deals. NVIDIA: Groq licence and team (~$20,000M reported, Dec 2025), Run:ai (~$700M, 2024), CentML (up to ~$400M incl. earn-outs, 2025), Deci (~$300M, 2024), OctoAI (~$250M, 2024). Qualcomm: Modular ($3,900M, 2026). AMD: Silo AI ($665M, 2024) plus undisclosed Nod.ai, Brium, the Untether AI team and MK1. Intel's ~$1.6B SambaNova talks did not complete; Red Hat's Neural Magic purchase was undisclosed (5 deals in total without a price).",
     "data": [
@@ -6517,7 +6517,7 @@
       "13",
       "09"
     ],
-    "source": "company releases, filings and press",
+    "source": "company releases and press",
     "source_ids": [
       "S90057",
       "S9511",
@@ -6678,8 +6678,8 @@
   },
   {
     "id": "11-inference-startup-valuations",
-    "title": "Inference clouds now price like chip start-ups: Fireworks ~$15B and Together $8.3B vs Etched $10.3B",
-    "subtitle": "Last disclosed or reported valuation, US$ millions (log scale); public companies at IPO pricing",
+    "title": "Inference clouds price like chip start-ups: Fireworks ~$15B vs Etched $10.3B",
+    "subtitle": "Last disclosed or reported valuation, US$ millions (log scale); Cerebras at IPO pricing; Modular at deal price",
     "alt": "Log-scale horizontal bar chart of inference start-up valuations. Inference clouds: Fireworks AI ~$15,000M (talks, May 2026), Together AI $8,300M (Jul 2026), Baseten $5,000M (Jan 2026), Modal ~$2,500M (talks). Serving engines: Modular $3,900M (acquired by Qualcomm, 2026), Inferact (vLLM) $800M and RadixArk (SGLang) $400M seed valuations. Silicon: Cerebras ~$40,000M at its May 2026 IPO, Etched $10,300M, Groq $6,900M before its ~$20B NVIDIA licence, Positron $5,000M, Tenstorrent ~$2,700M, d-Matrix $2,000M, SambaNova ~$1,600M (Intel offer talks); MatX and FuriosaAI valuations undisclosed.",
     "data": [
       "l11_private_companies.csv"
@@ -6689,30 +6689,30 @@
       "13",
       "15"
     ],
-    "source": "company announcements, filings and press",
+    "source": "company announcements and press",
     "source_ids": [
-      "S11519",
-      "S11518",
+      "S11514",
       "S11516",
       "S11517",
-      "S11514",
-      "S11512",
-      "S11513",
+      "S11518",
+      "S11519",
       "S11511",
       "S11540",
-      "S90057",
-      "S9511",
-      "S2508",
-      "S11522",
-      "S2512",
-      "S2511",
-      "S2509",
+      "S11512",
+      "S11513",
+      "S2504",
+      "S2505",
+      "S2507",
+      "S90019",
       "S11521",
       "S11520",
-      "S90019",
-      "S2507",
-      "S2504",
-      "S2505"
+      "S2509",
+      "S2511",
+      "S2512",
+      "S2508",
+      "S11522",
+      "S90057",
+      "S9511"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -6852,8 +6852,8 @@
   },
   {
     "id": "11-token-revenue-value-pools",
-    "title": "Est.: of $1 of API revenue, the model lab keeps ~70¢, the cloud ~16¢ and NVIDIA's gross profit is ~5¢",
-    "subtitle": "Where $1.00 of closed-model API revenue goes when served on rented GB300 NVL72 capacity, US cents; repo estimate from reported margins and TCO data",
+    "title": "Est.: of $1 of API revenue the lab keeps ~70¢, the cloud ~16¢, NVIDIA ~5¢ of gross profit",
+    "subtitle": "Split of $1.00 of closed-model API revenue served on rented GB300 NVL72 capacity, US cents (repo estimate)",
     "alt": "Waterfall chart splitting $1.00 of API revenue: the model lab's compute margin leaves ~70 cents of gross profit (reported ~70% for OpenAI, Oct 2025); the remaining 30 cents of compute splits into the cloud operator's gross margin (~16 cents, from rental $5.00 vs owner TCO $2.31 per GB300 GPU-hour), electricity (~2 cents), facility, operations and financing (~3 cents), other IT hardware (~2 cents), NVIDIA's cost of goods (~2 cents) and NVIDIA's gross profit (~5 cents). The lab's share must still fund training compute and R&D, much of which also flows to NVIDIA.",
     "data": [
       "l11_token_value_pools.csv"
@@ -6863,7 +6863,7 @@
       "14",
       "13"
     ],
-    "source": "repo estimate on The Information (via The Decoder), SemiAnalysis TCO and NVIDIA margins",
+    "source": "repo estimate on reported margins and TCO",
     "source_ids": [
       "S11537",
       "S11538",
@@ -7128,6 +7128,30 @@
     "html": null
   },
   {
+    "id": "12-neocloud-power-active-vs-contracted",
+    "title": "CoreWeave's live power grew ~4× to 1.5 GW in 18 months; contracts run ~3× ahead",
+    "subtitle": "Data-center power, GW · active = energized and billing; contracted = signed future capacity · hatched = target or secondary estimate",
+    "alt": "Two panels. Left, CoreWeave: active power 0.36 GW at end-2024, 0.85 GW at end-2025 and 1.5 GW in mid-2026, with about 1.85 GW targeted for end-2026; contracted power rose from 1.3 GW to 3.1 GW and 4.2 GW by August 2026. Right, contracted vs active: CoreWeave 4.2 vs 1.5 GW; Nebius targets about 5 GW contracted by end-2026; Crusoe about 4.9 GW contracted and 0.2 GW energized at Abilene (secondary estimate).",
+    "data": [
+      "l12_gpu_cloud_capacity.csv"
+    ],
+    "chapters": [
+      "12",
+      "08"
+    ],
+    "source": "CoreWeave filings and results; DCD; MarkTechPost (secondary)",
+    "source_ids": [
+      "S12011",
+      "S12012",
+      "S12010",
+      "S12013"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-neocloud-power-active-vs-contracted.svg",
+    "html": null
+  },
+  {
     "id": "12-neocloud-private-valuations",
     "title": "Six private AI-cloud companies carry ~$100B of last-round value; NVIDIA backs 5 of them",
     "subtitle": "Latest reported valuation, US$ B, with round and date; hatched = target or reported, not company-confirmed",
@@ -7150,6 +7174,31 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/12-neocloud-private-valuations.svg",
+    "html": null
+  },
+  {
+    "id": "12-nvidia-cloud-service-commitments",
+    "title": "NVIDIA's cloud-service commitments rose ~13× to $29B: it is now a big GPU-cloud tenant",
+    "subtitle": "Multi-year cloud service agreements disclosed in 10-K/10-Q filings, US$ B at period end (capacity NVIDIA rents from clouds)",
+    "alt": "Bar chart of NVIDIA's disclosed multi-year cloud service agreements: $2.23B at the end of FY2023 (January 2023, just before DGX Cloud launched), $10.6B at Q1 FY2026 (April 2025), $27.0B at FY2026 year-end (January 2026), $30B at Q1 FY2027 and $29B at Q2 FY2027 (July 2026). The commitments pay for capacity NVIDIA leases from cloud partners for DGX Cloud and, increasingly, its own research; they are separate from the $36B of AI-cloud capacity agreements disclosed in July 2026.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "12",
+      "13"
+    ],
+    "source": "NVIDIA 10-K and 10-Q filings",
+    "source_ids": [
+      "S418",
+      "S414",
+      "S401",
+      "S404",
+      "S407"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/12-nvidia-cloud-service-commitments.svg",
     "html": null
   },
   {

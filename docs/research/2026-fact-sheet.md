@@ -70,10 +70,10 @@ is stated — keep it visible in the text rather than picking silently.
 | Fact | Tag | Sources |
 |---|---|---|
 | **800 VDC power:** ~20 partners showed 800 VDC components at GTC DC 2025 (Delta, Schneider, Vertiv, Infineon, ST, ABB, Eaton, GE Vernova, Hitachi Energy, Siemens, Navitas, TI); neoclouds (CoreWeave, Lambda, Nebius, OCI, Together AI) designing for 800 V; MGX-compatible 800 VDC power rack H2 2026; 800 VDC row power center (overhead busway, up to 2 MW per row) 2027; Kyber reported at ~600 kW per rack; Omniverse **DSX** blueprint generally available for digital-twin datacenter design. Dell'Oro: a reference architecture for high-density AI factories, not yet a universal standard | 🟢/🟡 | S90061, S90062, S90063 |
-| **CUDA 13.x:** CUDA 13.2 stable (May 2026, secondary source); CUDA 13 drops Maxwell, Pascal and Volta. No reliable 2026 CUDA developer count found beyond NVIDIA's ~6M (2025) — see data/software_ecosystem.csv | 🟡 | S90065 |
+| **CUDA 13.x:** CUDA 13.2 released 2026-03-05 per NVIDIA release notes (S527; a secondary source says May 2026); CUDA 13 drops Maxwell, Pascal and Volta. No reliable 2026 CUDA developer count found beyond NVIDIA's ~6M (2025) — see data/software_ecosystem.csv | 🟡 | S90065 |
 | **ROCm 7.0** (Sept 2025): AITER tuned operators, FP4/FP6, Windows support; 7.x point releases through 2026 | 🟢 | S90064 |
 | **Dynamo 1.0** production release (GTC, 2026-03-16/17), open source under Apache 2.0, adopters incl. CoreWeave, Nebius, Together AI, Cursor, Perplexity, PayPal, Pinterest, ByteDance, Meituan, AstraZeneca; up to 7× inference on GB200 NVL (partner claim); relies on NIXL / NVIDIA networking stack | 🟢 / 🟡 (perf) | S90066 |
-| **Qualcomm–Modular** ($3.9B, announced 2026-06-24, close H2 2026): Modular's Mojo language and MAX engine are a hardware-portable AI software stack — directly relevant to the CUDA-moat discussion | 🟡 | S90057 |
+| **Qualcomm–Modular** ($3.9B announced 2026-06-24; reported closed 2026-07-29 and Mojo open-sourced Aug 2026 (Qualcomm press release S9511; Phoronix S9512); one low-tier source cites ~$3.1B recorded): Modular's Mojo language and MAX engine are a hardware-portable AI software stack — directly relevant to the CUDA-moat discussion | 🟡 | S90057 |
 
 ## Customers, cloud and capital deployment
 

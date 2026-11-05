@@ -908,3 +908,101 @@ DeepSeek-V4-Pro (released 2026-04-24) bring-up by platform from SemiAnalysis Inf
 `segment,segment_order,workload,workload_order,score_1_5,rationale,confidence,source_id,notes`
 
 Repo scoring (all `speculative`) of switching cost off CUDA, 1 = can move within months, 5 = prohibitive, for seven customer segments × four workloads, each with a one-line rationale and sources. Feeds `09-moat-strength-by-segment`.
+
+## Layer 10 CORE — Libraries, CUDA-X (`l10_*.csv` below; charts in `scripts/charts/ch_l10_core.py`; sources S10000–S10048)
+
+### l10_library_timeline.csv (one row per library or framework integration)
+`library,family,domain_group,kind,date,year,event,date_basis,confidence,source_id,notes`
+
+A dated **sample** of 29 major CUDA-X libraries plus 5 zero-code-change framework integrations (`kind` = `library` | `integration`), not NVIDIA's full count (NVIDIA cites "hundreds"). `domain_group` is one of five chart groups (Math and kernels; Communication; AI training and inference; Data, optimization and search; Simulation, science and quantum). `date` is the first *verifiable* public release and `date_basis` says how it was dated: `changelog`, `pypi_first_upload` (earliest PyPI wheel; some libraries were announced earlier, noted in `notes`), `press_release`, `paper`, `toolkit_archive`, `repo`, `acquisition` or `recall` (from memory; notes carry `[recall]`).
+
+### l10_library_speedups.csv (one row per published test)
+`domain,library,label,workload,baseline,accelerated,metric,speedup_x,evidence_type,confidence,source_id,notes`
+
+Published GPU-library speedups as reported (not re-run). `metric` = `runtime` (baseline time ÷ GPU time; values below 1 mean the GPU was slower) or `job_cost` (baseline cost ÷ GPU cost). `evidence_type` = `vendor` | `vendor-partner` | `customer` | `third-party` | `peer-company` | `peer-reviewed` | `independent`. Rows are not like-for-like: baselines, data sizes and hardware differ.
+
+### l10_spark_benchmark.csv (one row per Spark engine)
+`engine,instance_type,nodes,hardware_per_node,runtime_h,on_demand_usd_per_node_hr,total_job_cost_usd,speed_vs_native_x,confidence,source_id,notes`
+
+AWS Labs data-on-eks benchmark (2026-01-12): TPC-DS-derived 1 TB, 104 queries × 3 iterations on Amazon EKS for native Spark, Gluten/Velox and NVIDIA's cuDF plugin for Spark. Not an official TPC-DS result.
+
+### l10_nccl_model.csv (long)
+`record_type,item,fabric,algorithm,protocol,value,unit,confidence,source_id,notes`
+
+`record_type = latency_constant`: NCCL's default tuner constants in microseconds (`base_latency`, `hw_latency_per_step` by fabric NVLink | Network, algorithm and protocol) read from NCCL's source. `record_type = scenario`: inputs for the 70B gradient all-reduce example (parameters, bytes per parameter, GPUs per fabric scenario). Link bandwidths come from `interconnect_specs.csv` (per-direction = bidirectional ÷ 2). Ring time = 2(N−1)/N × size ÷ bandwidth; in-network (SHARP/NVLS) time = size ÷ bandwidth; ring latency = base + 2(N−1) × hop; tree latency = base + 2·log2(N) × hop (simplified, one GPU per node).
+
+### l10_nccl_releases.csv (one row per NCCL minor version)
+`version,minor,first_pypi_upload,package,feature,confidence,source_id,notes`
+
+First PyPI upload of each NCCL 2.x minor version across the `nvidia-nccl-cu11/cu12/cu13` wheels, with selected feature milestones (2.23 and 2.27 features `reported`, from recalled NVIDIA blog posts).
+
+## Layer 10 STRATEGY — library competition, history, roadmap and value chain (`l10_*` strategy files; charts in `scripts/charts/ch_l10_strategy.py`; sources S10500–S10570)
+
+### l10_library_coverage.csv (long: domain × vendor)
+`domain_order,domain,vendor,libraries,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes` — first-party
+accelerated libraries in 15 domains for NVIDIA, AMD, Intel, Google, AWS and Huawei. NVIDIA rows are the reference
+(`verdict_vs_nvidia = reference`, `confirmed`); rival rows carry a repo verdict (`leads` | `parity` | `behind` |
+`different`, all `speculative`) cited to vendor documentation. "none found" means absent from the vendor's library index
+or docs as of 2026-11-05. `different` = the vendor reaches the workload through a compiler (XLA, Neuron) or a managed
+service rather than a library. Feeds `10-library-coverage-heatmap` and `10-library-coverage-tally`.
+
+### l10_port_versions.csv (one row per release)
+`library,vendor,version,release_date,release_vehicle,upstream_library,upstream_version,confidence,source_id,notes` —
+NCCL GitHub tag dates (first tag of each 2.x minor plus the patches RCCL matched) and, for AMD's ports, the NVIDIA version
+each port states compatibility with: RCCL per ROCm release (date = ROCm release date from `software_ecosystem.csv`) and
+hipDF 2.0.0 in ROCm-DS 25.10 (aligned with cuDF 25.02; month precision, plotted mid-month). Lag = port date − upstream
+date; when one RCCL version spans two ROCm releases only the first is used for lag. Feeds `10-port-lag-amd-vs-nvidia` and
+`10-nccl-rccl-version-progression` (gap = latest NCCL minor released by the ROCm date − RCCL's matched minor).
+
+### l10_cutlass_arch_support.csv (one row per architecture milestone)
+`architecture,sm_target,milestone,cutlass_version,cutlass_date,what_landed,confidence,source_id,notes` — the CUTLASS
+release that first supported each data-center GPU architecture (`first support`) and, for Hopper, the release with native
+TMA/WGMMA kernels (`native kernels`), from the CUTLASS changelog. The chart subtracts `first_availability` (month, plotted
+mid-month) from `gpu_architecture_cadence.csv`. Feeds `10-cutlass-architecture-lead-time`.
+
+### l10_replication_costs.csv (one row per reference point)
+`item,entity,category,year,value_usd_b,basis,confidence,source_id,notes` — US$ B reference points for replicating a
+CUDA-X-class library stack: software acquisitions (`acquisition`), R&D budgets (`annual_rd`, `rd_delta`) and two repo
+estimates (`estimate`, `speculative`) = years × engineers × $0.4M loaded cost per software engineer-year (assumption,
+below NVIDIA's ~$0.6M of R&D spend per R&D employee in FY2026). Feeds `10-replication-cost-ladder`.
+
+### l10_software_deals.csv (one row per deal)
+`announce_date,acquirer,target,deal_type,what_was_bought,value_usd_m,value_basis,status,confidence,source_id,notes` —
+library, AI-software and developer-tool deals by chip vendors (NVIDIA, AMD, Intel, Qualcomm) 2007–2026 plus NVIDIA's
+Synopsys equity stake (`deal_type = equity-investment`). `value_basis`: `disclosed` | `reported` | `announced` |
+`undisclosed` (blank value). NVIDIA rows mirror `acquisitions_investments.csv` (several `[recall]`); overlaps with
+`l09_software_deals.csv` by design (different scope). Feeds `10-software-deal-values`.
+
+## Layer 13 CORE — ecosystem, sovereign AI, enterprise channel and capital (`l13_sovereign_commitments.csv`, `l13_ecosystem_metrics.csv`, `l13_equity_holdings.csv`, `l13_ai_factory_model.csv`; charts in `scripts/charts/ch_l13_core.py`; sources S13000–S13043)
+
+### l13_sovereign_commitments.csv (one row per country-level announcement)
+`announce_date,country,region,counterparties,nvidia_role,gpus_committed,gpu_platform,power_mw,stated_value,timeline,status,headline_row,confidence,source_id,notes`
+
+`gpus_committed` is the NVIDIA GPU count named in the announcement (blank when undisclosed); `power_mw` the stated site or
+cluster power; `stated_value` free text in the announced currency. `headline_row = yes` marks the one row per country used by
+`13-sovereign-gpu-commitments` (later expansions and superseded plans are `no`). Saudi Arabia's 600,000 is HUMAIN's
+three-year plan across Saudi and US sites. (The layer-13 STRATEGY author's `l13_sovereign_deals.csv` tracks plans vs firm
+orders and export-licence caps; the two files are complementary.)
+
+### l13_ecosystem_metrics.csv (long)
+`record_type,date,metric,value,unit,confidence,source_id,notes`
+
+`record_type` ∈ `gtc` (`gtc_attendees_in_person`, `gtc_attendees_virtual`, `gtc_sessions`; 2024–26 are NVIDIA pre-event
+figures), `inception` (`inception_members`; the 2025 row is a secondary, PitchBook-based `estimate`), `dli`
+(`dli_training_target`, `dli_developers_trained_cumulative`), `nventures` (`nventures_deals`) and `corporate`
+(`nvidia_venture_rounds`, PitchBook via press; counts conflict across outlets).
+
+### l13_equity_holdings.csv (long)
+`period,period_end,metric,value,unit,confidence,source_id,notes`
+
+NVIDIA's equity securities in US$ B: `non_marketable_equity` (FY2025 and FY2026 from the FY2026 10-K roll-forward;
+Q1/Q2 FY2027 from 10-Q readings), `marketable_equity`, `lockedup_public_equity`, `equity_purchases_half_year`,
+`net_equity_gains_quarter`, `further_equity_commitments`. The ~$99B total is a press aggregation of three balance-sheet lines.
+
+### l13_ai_factory_model.csv (scenario inputs)
+`input,value,unit,basis,confidence,source_id,notes`
+
+Scenario parameters for the 100,000-GPU national AI factory (`13-national-ai-factory-cost`): target GPU count and assumed
+NVIDIA shares of non-GPU rack content and of scale-out networking plus storage (all `speculative`). Rack prices, BOM splits,
+power, PUE, facility $/MW and electricity price are read from `tco_model_inputs.csv` (GB300 NVL72 rows; facility $/MW comes
+from a Morgan Stanley model that was later retracted and is used only as an illustration).
