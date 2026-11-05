@@ -46,44 +46,52 @@ def is_content(path: Path) -> bool:
     return not (r.startswith(META_PREFIXES) or r in GENERATED)
 
 
+FENCE_OPEN_RE = re.compile(r"^\s{0,3}(`{3,}|~{3,})")
+
+
+def fence_mask(lines: list[str]) -> list[bool]:
+    """True for every line that is part of a fenced code block (including the fence lines).
+    Follows CommonMark: a fence closes only with the same character and at least the same length,
+    so ````markdown blocks may contain ``` blocks."""
+    mask = [False] * len(lines)
+    open_fence = None
+    for i, line in enumerate(lines):
+        m = FENCE_OPEN_RE.match(line)
+        if open_fence is None:
+            if m:
+                open_fence = m.group(1)
+                mask[i] = True
+            continue
+        mask[i] = True
+        if m and m.group(1)[0] == open_fence[0] and len(m.group(1)) >= len(open_fence) \
+                and line.strip() == m.group(1):
+            open_fence = None
+    return mask
+
+
 def split_code(text: str):
     """Yield (segment, is_code) pieces of a Markdown document, where code = fenced blocks and
     inline code spans. Used so transformations never touch code or Mermaid sources."""
     lines = text.split("\n")
-    buf: list[str] = []
-    in_fence = False
-    fence = ""
+    mask = fence_mask(lines)
     pieces: list[tuple[str, bool]] = []
-
-    def flush(is_code: bool):
-        if buf:
-            pieces.append(("\n".join(buf), is_code))
-            buf.clear()
-
-    for i, line in enumerate(lines):
-        stripped = line.lstrip()
-        m = re.match(r"^(```+|~~~+)", stripped)
-        if not in_fence and m:
-            flush(False)
-            in_fence, fence = True, m.group(1)[:3]
-            buf.append(line)
-            continue
-        if in_fence:
-            buf.append(line)
-            if stripped.startswith(fence) and stripped.strip() == stripped.strip()[0] * len(stripped.strip()):
-                in_fence = False
-                flush(True)
-            continue
+    buf: list[str] = []
+    cur = None
+    for line, code in zip(lines, mask):
+        if cur is None:
+            cur = code
+        if code != cur:
+            pieces.append(("\n".join(buf), cur))
+            buf, cur = [], code
         buf.append(line)
-    flush(in_fence)
-    # re-join with newlines between pieces
+    if buf:
+        pieces.append(("\n".join(buf), bool(cur)))
     result: list[tuple[str, bool]] = []
     for idx, (seg, code) in enumerate(pieces):
         tail = "\n" if idx < len(pieces) - 1 else ""
         if code:
             result.append((seg + tail, True))
         else:
-            # split inline code spans
             parts = re.split(r"(`+[^`\n]*?`+)", seg + tail)
             for part in parts:
                 if not part:
@@ -93,18 +101,22 @@ def split_code(text: str):
 
 
 def fenced_blocks(text: str, lang: str | None = None):
-    """Return list of (start_line_no, info, body) for fenced code blocks."""
+    """Return list of (start_line_no, info, body) for top-level fenced code blocks."""
     out = []
     lines = text.split("\n")
     i = 0
     while i < len(lines):
-        m = re.match(r"^\s*(```+|~~~+)\s*([\w\-]*)", lines[i])
+        m = FENCE_OPEN_RE.match(lines[i])
         if m:
-            fence, info = m.group(1), m.group(2)
+            fence = m.group(1)
+            info = lines[i].strip()[len(fence):].strip().split(" ")[0]
             start = i
             body = []
             i += 1
-            while i < len(lines) and not lines[i].strip().startswith(fence[:3]):
+            while i < len(lines):
+                c = FENCE_OPEN_RE.match(lines[i])
+                if c and c.group(1)[0] == fence[0] and len(c.group(1)) >= len(fence) and lines[i].strip() == c.group(1):
+                    break
                 body.append(lines[i])
                 i += 1
             if lang is None or info == lang:
@@ -160,11 +172,8 @@ def github_slug(text: str) -> str:
 def anchors_in(text: str) -> set[str]:
     anchors: set[str] = set()
     counts: dict[str, int] = {}
-    in_code = False
-    for line in text.split("\n"):
-        if re.match(r"^\s*(```|~~~)", line):
-            in_code = not in_code
-            continue
+    lines = text.split("\n")
+    for line, in_code in zip(lines, fence_mask(lines)):
         if in_code:
             continue
         m = re.match(r"^(#{1,6})\s+(.*?)\s*#*\s*$", line)

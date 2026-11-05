@@ -7,8 +7,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "build"))
-from common import (ANY_CITE_RE, REPO, SOURCES_HEADING, is_content, load_yaml, md_files,  # noqa: E402,F401
-                    rel, split_code)
+from common import (ANY_CITE_RE, REPO, SOURCES_HEADING, fence_mask, fenced_blocks, is_content,  # noqa: E402,F401
+                    load_yaml, md_files, rel, split_code)
 
 IMG_MD_RE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 IMG_HTML_RE = re.compile(r"<img\s+[^>]*>", re.I)
@@ -38,18 +38,17 @@ def page_stats(path: Path, catalog: dict[str, dict] | None = None) -> dict:
             alt = ATTR_RE("alt").search(tag)
             images.append(((alt.group(1) if alt else "").strip(), src.group(1) if src else "", n))
     # mermaid + tables + words (skip code for words)
-    mermaid = len(re.findall(r"^\s*```mermaid\s*$", body, flags=re.M))
+    mermaid = len(fenced_blocks(body, "mermaid"))
     tables = 0
     lines = body.split("\n")
-    in_code = False
+    mask = fence_mask(lines)
     i = 0
     while i < len(lines):
         ln = lines[i]
-        if re.match(r"^\s*(```|~~~)", ln):
-            in_code = not in_code
+        if mask[i]:
             i += 1
             continue
-        if not in_code and ln.strip().startswith("|") and i + 1 < len(lines) and \
+        if ln.strip().startswith("|") and i + 1 < len(lines) and \
                 re.match(r"^\s*\|?\s*:?-{3,}", lines[i + 1]):
             cols = ln.strip().strip("|").count("|") + 1
             j = i + 2

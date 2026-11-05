@@ -24,16 +24,26 @@ function walk (dir, out = []) {
 function blocks (file) {
   const text = fs.readFileSync(file, 'utf8')
   if (file.endsWith('.mmd')) return [{ line: 1, code: text }]
+  // Top-level fenced blocks only (CommonMark: a fence closes with the same char and >= length),
+  // so examples nested inside ````markdown blocks are not treated as diagrams.
   const lines = text.split('\n')
   const out = []
+  const open = /^\s{0,3}(`{3,}|~{3,})(.*)$/
   for (let i = 0; i < lines.length; i++) {
-    if (/^\s*```mermaid\s*$/.test(lines[i])) {
-      const start = i + 1
-      const body = []
+    const m = lines[i].match(open)
+    if (!m) continue
+    const fence = m[1]
+    const info = m[2].trim().split(/\s+/)[0]
+    const start = i + 1
+    const body = []
+    i++
+    while (i < lines.length) {
+      const c = lines[i].match(open)
+      if (c && c[1][0] === fence[0] && c[1].length >= fence.length && lines[i].trim() === c[1]) break
+      body.push(lines[i])
       i++
-      while (i < lines.length && !/^\s*```\s*$/.test(lines[i])) { body.push(lines[i]); i++ }
-      out.push({ line: start, code: body.join('\n') })
     }
+    if (info === 'mermaid') out.push({ line: start, code: body.join('\n') })
   }
   return out
 }
