@@ -17,7 +17,7 @@ where value pools for a corp dev team.
 
 ![Layer-cake diagram of NVIDIA's AI stack: twelve layers from GPU silicon at the bottom, through memory, CPU, NVLink scale-up, networking, DPUs and systems, up to CUDA, libraries, inference software, cloud services and ecosystem at the top](assets/diagrams/00-stack-layer-cake.svg)
 
-![Bar chart of NVIDIA total revenue by fiscal year: $10.9B in FY2020 rising to $215.9B in FY2026, roughly 20 times higher, with the inflection in FY2024.](assets/charts/00-nvidia-revenue-by-fiscal-year.svg)
+![Bar chart of NVIDIA total revenue by fiscal year: $5.0B in FY2016 rising to $215.9B in FY2026, roughly 43 times higher, with the inflection in FY2024.](assets/charts/00-nvidia-revenue-by-fiscal-year.svg)
 
 ```mermaid
 flowchart LR

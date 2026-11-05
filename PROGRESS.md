@@ -55,7 +55,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 03 | Memory, packaging and supply chain | 3 | drafted | 10,078 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 173 | pending |
 | 04 | CPU (Grace, Vera) | 3 | drafted | 9,995 | 43 | 19 (19) | 1 | 10 | 13 | 44% | 149 | pending |
 | 05 | Scale-up (NVLink, NVSwitch) | 4 | planned | 191 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 06 | Scale-out and scale-across networking | 4 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 06 | Scale-out and scale-across networking | 4 | drafted | 10,046 | 50 | 21 (21) | 1 | 12 | 16 | 42% | 126 | pending |
 | 07 | DPU, SuperNIC, storage, security | 4 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 08 | Systems, racks and AI factories | 5 | planned | 211 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 09 | CUDA and system software | 5 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **56,926** | **278** | | | | | | **551** unique | |
+| **Total** | | | | **66,771** | **328** | | | | | | **643** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **218**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **231**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)

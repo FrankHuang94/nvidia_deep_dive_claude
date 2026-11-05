@@ -287,7 +287,7 @@ current and future architectures [[S407]](sources/bibliography.md#s407).
 FY2025 [[S400]](sources/bibliography.md#s400)[[S416]](sources/bibliography.md#s416), held ~73–78% through the Blackwell ramp, and was ~75% in Q2 FY2027 [[S405]](sources/bibliography.md#s405).
 Analyst estimates put the B200's build cost at ~$6,400 against a $30–40K price [[S35020]](sources/bibliography.md#s35020)[[S35026]](sources/bibliography.md#s35026).
 
-![Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY2026 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.](assets/charts/13-gross-margin-trend.svg)
+![Line chart of NVIDIA quarterly gross margin: GAAP margin bottomed at 43.5% in Q2FY23 (gaming inventory charges), rose above 75% during the Hopper ramp, dropped to 60.5% in Q1 FY26 because of a $4.5B H20 export-control charge (71.3% non-GAAP excluding it), and was about 75% in Q2FY27.](assets/charts/13-gross-margin-trend.svg)
 
 > [!WARNING]
 > **Where loop ② could break.** The same commitments that lock rivals out lock NVIDIA in. When demand
@@ -438,7 +438,7 @@ gains on equity stakes such as Intel [[S403]](sources/bibliography.md#s403) — 
 which flatters earnings in booms and reverses in busts. (4) *Concentration:* four direct customers,
 mostly OEMs and ODMs building for hyperscalers, were 61% of Q3 FY2026 revenue [[S412]](sources/bibliography.md#s412).
 
-![Stacked bar chart of NVIDIA's disclosed direct customers above 10% of revenue: 1 customer at 13% in FY2024, 3 customers at 34% in FY2025, and 4 customers totalling 61% in Q3 FY2026; most are OEMs/ODMs building for hyperscalers.](assets/charts/13-customer-concentration-over-time.svg)
+![Stacked bar chart of NVIDIA's disclosed direct customers above 10% of revenue: 1 customer at 13% in FY2024, 3 customers at 34% in FY2025, and 4 customers totalling 61% in Q3FY26; most are OEMs/ODMs building for hyperscalers.](assets/charts/13-customer-concentration-over-time.svg)
 
 > [!NOTE]
 > **🐂 Bull view.** The pledges total ~$82B against $120B of FY2026 net income [[S1]](sources/bibliography.md#s1) and are spread

@@ -302,7 +302,7 @@ NVIDIA's system software and networking (Layers 07, 09 and 12), and several are 
 Every requirement above lands on a specific layer of the stack. The table is the bridge from this primer to the layer
 deep dives.
 
-![Horizontal bar chart of ideal ring all-reduce time for 140 GB of BF16 gradients (a 70-billion-parameter model) across 64 GPUs, about 276 GB sent per GPU: InfiniBand NDR 400 Gb/s about 5.5 s, PCIe Gen5 x16 about 4.3 s, InfiniBand XDR 800 Gb/s about 2.8 s, NVLink 4 about 0.61 s, NVLink 5 about 0.31 s and NVLink 6 about 0.18 s, roughly 18 times faster on NVLink 5 than on 400G InfiniBand.](../assets/charts/P4-allreduce-time-by-fabric.svg)
+![Horizontal bar chart of ideal ring all-reduce time for 140 GB of BF16 gradients (a 70-billion-parameter model) across 64 GPUs, about 276 GB sent per GPU: InfiniBand NDR 400 Gb/s about 5.5 s, PCIe Gen5 x16 about 4.3 s, InfiniBand XDR 800 Gb/s about 2.8 s, NVLink 4 about 0.61 s, NVLink 5 about 0.31 s and NVLink 6 about 0.18 s, roughly 18 times faster on NVLink 5 than on 400G InfiniBand. A 1.6 Tb/s Rubin-generation NIC takes about 1.4 s.](../assets/charts/P4-allreduce-time-by-fabric.svg)
 
 The gap above is why the largest, most frequent traffic (tensor- and expert-parallel exchanges inside every layer) is kept
 inside an NVLink domain, while once-per-step gradient sync can cross the slower scale-out fabric; [P4](P4-parallelism-explained.md) works through the numbers.

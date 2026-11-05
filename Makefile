@@ -29,6 +29,7 @@ tco:
 build:
 	$(PY) scripts/build/bibliography.py
 	$(PY) scripts/build/glossary.py
+	$(PY) scripts/build/sync_alt.py
 	$(PY) scripts/build/normalize.py
 	$(PY) scripts/validate/stats.py --write
 

@@ -128,38 +128,40 @@ def ib_vs_ethernet():
     df = load(DATA)
     d = df[(df.segment == "ai_backend_network_switch_share") & (df.metric == "share_of_ai_backend_switch_spend")].copy()
     sx = df[(df.segment == "ai_backend_network_switch_share") & (df.metric == "annualized_revenue_run_rate")]
-    years = ["2023", "2024", "2025", "2027E"]
+    years = ["2023", "2024", "2025", "2026-Q1", "2027E"]
     ib = [d[(d.year == y) & (d.entity == "InfiniBand")].value.iloc[0] for y in years]
     eth = [d[(d.year == y) & (d.entity == "Ethernet")].value.iloc[0] for y in years]
+    conf = [d[(d.year == y) & (d.entity == "Ethernet")].confidence.iloc[0] for y in years]
     c = Chart(
         id="06-ib-vs-ethernet-ai-backend-share",
-        title="Ethernet likely overtook InfiniBand in AI back-end networks in 2025 (directional Est.)",
-        subtitle="Share of AI back-end (GPU-to-GPU scale-out) switch spending, %; directional estimates — every bar is an estimate",
-        alt=(f"Stacked 100% bars of AI back-end network switch spending: InfiniBand about {ib[0]:.0f}% in 2023 falling to about "
-             f"{ib[2]:.0f}% in 2025 and {ib[3]:.0f}% in 2027E, with Ethernet rising from {eth[0]:.0f}% to {eth[3]:.0f}%. Values are "
-             "directional estimates consistent with Dell'Oro commentary, not verified figures. NVIDIA itself drives much of the "
-             f"shift: Spectrum-X Ethernet passed a ${sx.value.iloc[0]:.0f}B annualized run-rate in 2025."),
+        title=f"Ethernet passed InfiniBand in AI back-end networks: ~{eth[2]:.0f}% of switch sales in 2025 (Dell'Oro)",
+        subtitle="Share of AI back-end (GPU-to-GPU scale-out) switch sales, %; 2025 and 1Q 2026 per Dell'Oro, other years directional estimates",
+        alt=(f"Stacked 100% bars of AI back-end network switch sales: InfiniBand about {ib[0]:.0f}% in 2023 (directional), "
+             f"Ethernet at least ~{eth[2]:.0f}% in 2025 and about {eth[3]:.0f}% in 1Q 2026 per Dell'Oro (Ethernet more than double "
+             f"InfiniBand), and a directional {eth[4]:.0f}% in 2027E. NVIDIA participates on both sides: Spectrum-X Ethernet passed a "
+             f"${sx.value.iloc[0]:.0f}B annualized run-rate in 2025."),
         data=[DATA], chapters=["06", "15"],
-        source="Dell'Oro commentary (directional); NVIDIA", source_ids=_ids(d, sx),
-        note="Hatched = speculative estimate",
+        source="Dell'Oro Group (2025, 1Q26); directional estimates for other years; NVIDIA", source_ids=_ids(d, sx),
+        note="Hatched = directional estimate (not Dell'Oro data)",
     )
     fig, ax = c.figure(width=11, height=5.8)
     x = np.arange(len(years))
     b1 = ax.bar(x, ib, color=NV, width=0.6, edgecolor="#FFFFFF", label="InfiniBand (NVIDIA Quantum)")
     b2 = ax.bar(x, eth, bottom=ib, color=entity_color("Broadcom"), width=0.6, edgecolor="#FFFFFF",
                 label="Ethernet (Spectrum-X, Broadcom/Arista/Cisco, white box)")
-    hatch_future(b1, [True] * len(years))
-    hatch_future(b2, [True] * len(years))
+    est = [cf != "reported" for cf in conf]
+    hatch_future(b1, est)
+    hatch_future(b2, est)
     for xi, a, b in zip(x, ib, eth):
         ax.text(xi, a / 2, f"~{a:.0f}%", ha="center", va="center", color="#FFFFFF", fontsize=10, fontweight="bold")
         ax.text(xi, a + b / 2, f"~{b:.0f}%", ha="center", va="center", color="#FFFFFF", fontsize=10, fontweight="bold")
     ax.axhline(50, color=INK["text"], lw=0.8, ls=":")
     ax.set_axisbelow(True)
     ax.set_xticks(x)
-    ax.set_xticklabels(["2023", "2024", "2025", "2027E"])
+    ax.set_xticklabels(["2023", "2024", "2025", "1Q 2026", "2027E"])
     ax.set_ylim(0, 100)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.09), ncol=2, fontsize=9, frameon=False)
-    c.save(fig, ax, ylabel="Share of AI back-end switch spend (%)", legend=False, bottom=0.18)
+    c.save(fig, ax, ylabel="Share of AI back-end switch sales (%)", legend=False, bottom=0.18)
 
 
 @register

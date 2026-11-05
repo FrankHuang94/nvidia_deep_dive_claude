@@ -3483,9 +3483,9 @@
   },
   {
     "id": "06-ib-vs-ethernet-ai-backend-share",
-    "title": "Ethernet likely overtook InfiniBand in AI back-end networks in 2025 (directional Est.)",
-    "subtitle": "Share of AI back-end (GPU-to-GPU scale-out) switch spending, %; directional estimates — every bar is an estimate",
-    "alt": "Stacked 100% bars of AI back-end network switch spending: InfiniBand about 80% in 2023 falling to about 33% in 2025 and 30% in 2027E, with Ethernet rising from 20% to 70%. Values are directional estimates consistent with Dell'Oro commentary, not verified figures. NVIDIA itself drives much of the shift: Spectrum-X Ethernet passed a $33B annualized run-rate in 2025.",
+    "title": "Ethernet passed InfiniBand in AI back-end networks: ~67% of switch sales in 2025 (Dell'Oro)",
+    "subtitle": "Share of AI back-end (GPU-to-GPU scale-out) switch sales, %; 2025 and 1Q 2026 per Dell'Oro, other years directional estimates",
+    "alt": "Stacked 100% bars of AI back-end network switch sales: InfiniBand about 80% in 2023 (directional), Ethernet at least ~67% in 2025 and about 67% in 1Q 2026 per Dell'Oro (Ethernet more than double InfiniBand), and a directional 70% in 2027E. NVIDIA participates on both sides: Spectrum-X Ethernet passed a $33B annualized run-rate in 2025.",
     "data": [
       "market_share.csv"
     ],
@@ -3493,7 +3493,7 @@
       "06",
       "15"
     ],
-    "source": "Dell'Oro commentary (directional); NVIDIA",
+    "source": "Dell'Oro Group (2025, 1Q26); directional estimates for other years; NVIDIA",
     "source_ids": [
       "S667",
       "S90053",
@@ -4545,6 +4545,36 @@
     "html": null
   },
   {
+    "id": "08-ai-hardware-profit-pool",
+    "title": "Mid-2026: NVIDIA's quarterly profit was 6–8× that of four system vendors combined",
+    "subtitle": "One fiscal quarter ending Jun–Sep 2026, US$ billions: revenue (light) and profit (dark; gross or operating as labelled)",
+    "alt": "Horizontal paired bars for one quarter in mid-2026. NVIDIA revenue $96.2B with about $72.2B gross profit (about $58B operating profit, repo estimate); Dell ISG revenue $31.8B and $4.8B operating profit; Supermicro revenue $11.1B and about $1.9B gross profit; HPE Cloud and AI revenue $9.0B and $1.5B operating profit; Vertiv revenue $4.3B and $1.1B adjusted operating profit. The four system and infrastructure vendors together earned about $9.3B.",
+    "data": [
+      "l08_system_vendor_financials.csv"
+    ],
+    "chapters": [
+      "08",
+      "13",
+      "18"
+    ],
+    "source": "company results; repo calc",
+    "source_ids": [
+      "S405",
+      "S3",
+      "S90012",
+      "S8500",
+      "S8501",
+      "S8504",
+      "S8505",
+      "S8506",
+      "S8507"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-ai-hardware-profit-pool.svg",
+    "html": null
+  },
+  {
     "id": "08-build-vs-grid-timelines",
     "title": "Cited AI factories went up in 4–24 months; new grid power can take 4–7 years",
     "subtitle": "Months for cited milestones · build = shell, power gear, racks to first compute · grid = utility hookup or new generation queue",
@@ -4558,11 +4588,11 @@
     ],
     "source": "NVIDIA/xAI, Crusoe/DCD, Epoch AI, Bloomberg, LBNL",
     "source_ids": [
+      "S8009",
       "S8010",
-      "S8011",
-      "S8014",
-      "S8015",
       "S8013",
+      "S8014",
+      "S8012",
       "S6000"
     ],
     "kind": "data",
@@ -4777,6 +4807,39 @@
     "html": null
   },
   {
+    "id": "08-infra-deal-values",
+    "title": "Cooling and rack-hardware deals total ~$11.6B since 2024; Aligned ($40B) is the largest",
+    "subtitle": "Disclosed or reported deal value, US$ millions (log scale); AI-system, cooling, rack and datacenter deals announced 2024–2025",
+    "alt": "Log-scale horizontal bar chart of rack-adjacent deals: AIP/GIP/MGX's $40B purchase of Aligned Data Centers (closed July 2026), HPE's $14B Juniper deal, Eaton's $9.5B Boyd Thermal (closed March 2026), AMD's $4.9B ZT Systems and Sanmina's up-to-$3.0B purchase of ZT's factories, Vertiv's ~$1.0B PurgeRite (plus earn-out) and $200M Great Lakes, and Schneider's $850M for 75% of Motivair. Cooling and rack-hardware deals sum to about $11.6B.",
+    "data": [
+      "l08_infra_deals.csv"
+    ],
+    "chapters": [
+      "08",
+      "13"
+    ],
+    "source": "company releases and press",
+    "source_ids": [
+      "S8512",
+      "S8513",
+      "S8514",
+      "S8510",
+      "S8511",
+      "S5527",
+      "S5528",
+      "S8527",
+      "S8508",
+      "S8509",
+      "S6522",
+      "S5523",
+      "S8521"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-infra-deal-values.svg",
+    "html": null
+  },
+  {
     "id": "08-kw-per-rack-by-generation",
     "title": "Power per NVIDIA system rose ~190× in a decade: 3.2 kW (DGX-1) to ~600 kW (Kyber)",
     "subtitle": "Maximum IT power per system or rack, kW · 8/16-GPU DGX servers 2016–2024, NVLink racks from 2024 · hatched = announced/roadmap",
@@ -4849,14 +4912,38 @@
     ],
     "source": "TrendForce press releases 2024-2026",
     "source_ids": [
-      "S8006",
       "S8005",
-      "S8007",
-      "S8004"
+      "S8004",
+      "S8006",
+      "S8528"
     ],
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/08-liquid-cooling-penetration.svg",
+    "html": null
+  },
+  {
+    "id": "08-oem-ai-server-revenue-ramp",
+    "title": "Dell guides AI servers to $74B in FY2027 (2.9×); Supermicro to $65–72B (1.75×)",
+    "subtitle": "US$ billions by fiscal year; Dell = AI-optimized server revenue; Supermicro = total net sales; hatched = guidance",
+    "alt": "Bar chart: Dell AI-server revenue $25.2B in FY2026 (to Jan 2026) and $74B guided for FY2027, with $16.4B in Q2 FY2027 alone and a $95B AI backlog; Supermicro net sales $22.0B (FY2025), $39.1B (FY2026, to June 2026) and $65-72B guided for FY2027. OEM AI revenue is growing 2-3x a year, but on mid-single-digit AI-server operating margins at Dell.",
+    "data": [
+      "l08_system_vendor_financials.csv"
+    ],
+    "chapters": [
+      "08",
+      "13"
+    ],
+    "source": "Dell and Supermicro results as reported",
+    "source_ids": [
+      "S8502",
+      "S8503",
+      "S8500",
+      "S8504"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-oem-ai-server-revenue-ramp.svg",
     "html": null
   },
   {
@@ -4884,6 +4971,156 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/08-rack-bom-waterfall.svg",
+    "html": null
+  },
+  {
+    "id": "08-rack-spec-roadmap",
+    "title": "GB200 → Kyber: ~5× rack power (120 → ~600 kW) buys ~14× dense FP8 and ~10× HBM per rack",
+    "subtitle": "Per rack or rack-equivalent: maximum power (kW), dense FP8 PFLOPS and HBM capacity (TB); hatched = roadmap or estimate",
+    "alt": "Three bar panels comparing rack-scale systems. Power: GB200 NVL72 120 kW, GB300 132 kW, Vera Rubin NVL72 about 190-230 kW, AMD Helios about 225-245 kW (estimate), Kyber about 600 kW (roadmap); AWS and Google do not publish rack power. Dense FP8: GB200 and GB300 360 PF, Vera Rubin 1,260 PF, Helios 1,400 PF, Kyber 5,000 PF, Trn3 144-chip 362 PF, Ironwood 64-chip rack 295 PF. HBM: 13.8, 20.7, 20.7, 31.1 (Helios), about 144 TB (Kyber, as announced), 20.7 (Trn3) and 12.3 TB (Ironwood rack).",
+    "data": [
+      "system_specs.csv"
+    ],
+    "chapters": [
+      "08",
+      "17",
+      "15"
+    ],
+    "source": "vendor specs and estimates in system_specs.csv",
+    "source_ids": [
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S305",
+      "S35041",
+      "S110",
+      "S108",
+      "S307",
+      "S309",
+      "S111",
+      "S344",
+      "S345",
+      "S361",
+      "S144",
+      "S145",
+      "S346",
+      "S353",
+      "S155",
+      "S350",
+      "S151"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-rack-spec-roadmap.svg",
+    "html": null
+  },
+  {
+    "id": "08-rack-system-verdict-heatmap",
+    "title": "AMD's Helios leads Vera Rubin NVL72 on 3 of 7 rack metrics on paper; 3 rivals have bigger scale-up domains",
+    "subtitle": "Repo verdict for each rival rack-scale system vs NVIDIA Vera Rubin NVL72 (2026 basis); cell = verdict letter + key number",
+    "alt": "Heatmap of 7 rival AI systems against NVIDIA Vera Rubin NVL72 on 7 dimensions. AMD Helios leads on compute (1.4 vs 1.26 EF FP8), memory (31.1 vs 20.7 TB HBM4) and openness (OCP double-wide rack), is at parity on power and domain size, and is behind on liquid-cooling maturity and time to deploy (ships end-Q3 2026). Google, AWS and Huawei lead on scale-up domain size (9,216, 144 and 384-8,192 chips vs 72). Google leads on liquid-cooling maturity. Qualcomm's AI200 rack leads only on power (160 kW) and openness. 5 of 7 rivals lead on at least one metric.",
+    "data": [
+      "l08_rack_verdicts.csv"
+    ],
+    "chapters": [
+      "08",
+      "15"
+    ],
+    "source": "repo analysis of vendor specs (l08_rack_verdicts.csv)",
+    "source_ids": [
+      "S344",
+      "S102",
+      "S90021",
+      "S346",
+      "S302",
+      "S303",
+      "S5524",
+      "S90006",
+      "S347",
+      "S538",
+      "S90020",
+      "S500",
+      "S5523",
+      "S350",
+      "S151",
+      "S8528",
+      "S547",
+      "S550",
+      "S552",
+      "S90027",
+      "S353",
+      "S556",
+      "S518",
+      "S340",
+      "S341",
+      "S567",
+      "S90042",
+      "S163",
+      "S158",
+      "S90044",
+      "S90046",
+      "S173",
+      "S90029",
+      "S90060",
+      "S90028",
+      "S90030",
+      "S166",
+      "S2504"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-rack-system-verdict-heatmap.svg",
+    "html": null
+  },
+  {
+    "id": "08-system-layer-margin-ladder",
+    "title": "NVIDIA keeps a 75% gross margin; the ODMs that assemble its racks keep ~2–5%",
+    "subtitle": "Gross or operating margin (%), latest reported period per company; solid = gross, hatched = operating; light = estimate",
+    "alt": "Horizontal bar chart of margins across the AI system value chain: NVIDIA gross margin 75.0% (Q2 FY2027) and operating margin 60.4% (FY2026); Vertiv adjusted operating margin 25.2% (Q3 2026); Supermicro gross margin 17.5% in Q4 FY2026 but 10.8% for FY2026; HPE Cloud and AI operating margin 17.0%; Dell ISG operating margin 15.0%; Quanta and Foxconn gross margins 6.3%; Dell's AI-server operating margin target in the mid single digits (~5%); Quanta GB rack servers ~5% gross (KGI); ODM gross margin on a GB300 NVL72 rack 2.7% and on a Vera Rubin rack 1.9% (Morgan Stanley).",
+    "data": [
+      "l08_system_vendor_financials.csv"
+    ],
+    "chapters": [
+      "08",
+      "13",
+      "03"
+    ],
+    "source": "company results; KGI, MS estimates",
+    "source_ids": [
+      "S332",
+      "S8529",
+      "S8502",
+      "S8503",
+      "S3522",
+      "S8504",
+      "S8500",
+      "S8501",
+      "S8505",
+      "S8506",
+      "S8507",
+      "S1",
+      "S405",
+      "S90012"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-system-layer-margin-ladder.svg",
     "html": null
   },
   {
@@ -5028,6 +5265,117 @@
     "html": null
   },
   {
+    "id": "08-value-capture-by-generation",
+    "title": "Est.: NVIDIA's share of system value rose from ~50–75% (HGX) to ~71–84% (NVL72)",
+    "subtitle": "Left: estimated NVIDIA content as % of system price (range). Right: integrator gross margin (%). Repo estimates from analyst BOMs",
+    "alt": "Two-panel chart. Left: estimated share of system price paid for NVIDIA content - about 50-75% for an HGX H100/H200 8-GPU server, 72-84% for GB200 NVL72, 71-83% for GB300 NVL72 and 62-72% for Vera Rubin NVL72, where memory price inflation shifts value to HBM and LPDDR makers. Right: integrator gross margin falls from 11.1% (Supermicro, server era) to about 5% (Quanta GB racks, KGI), 2.7% (GB300 rack ODM) and 1.9% (Vera Rubin rack ODM, Morgan Stanley).",
+    "data": [
+      "l08_value_capture.csv"
+    ],
+    "chapters": [
+      "08",
+      "13",
+      "03"
+    ],
+    "source": "analyst BOMs; repo calc",
+    "source_ids": [
+      "S356",
+      "S322",
+      "S326",
+      "S324",
+      "S332",
+      "S331",
+      "S330",
+      "S8504",
+      "S8529"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-value-capture-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "08-zt-deal-net-cost",
+    "title": "AMD's net cost for ZT's rack-design teams: ~$1.9–2.35B after selling the factories",
+    "subtitle": "US$ billions; AMD's $4.9B ZT Systems purchase less Sanmina's payment for the ZT manufacturing business (closed 2025-10-27)",
+    "alt": "Waterfall chart: AMD paid $4.9B for ZT Systems (announced August 2024, closed March 2025), then sold ZT's manufacturing business to Sanmina for $2.25B cash plus a $0.30B premium and up to $0.45B of earn-out. AMD's net cost for the design and customer-enablement teams is about $2.35B, or $1.9B if the earn-out is paid - the market price of a proven rack-scale design organisation.",
+    "data": [
+      "l08_infra_deals.csv"
+    ],
+    "chapters": [
+      "08",
+      "13",
+      "15"
+    ],
+    "source": "AMD, Sanmina and Evertiq",
+    "source_ids": [
+      "S5527",
+      "S8527",
+      "S5528"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-zt-deal-net-cost.svg",
+    "html": null
+  },
+  {
+    "id": "09-attention-kernel-efficiency",
+    "title": "Attention kernels need a rewrite per GPU: FA2 hit 73% of A100 peak, 35% of H100's",
+    "subtitle": "Share of dense 16-bit peak reached by FlashAttention kernels, by GPU (%); FA3 restored 75% on H100 and FA4 reaches 71% on B200",
+    "alt": "Bar chart of attention-kernel utilization: FlashAttention-1 reached 25-40% of A100 peak (2022) and FlashAttention-2 50-73% of A100 peak (2023), but the same FA2 code reached only 35% of H100 peak until the Hopper-specific FlashAttention-3 hit 75% (740 TFLOPS FP16); FlashAttention-4, written in CuTe DSL for Blackwell, reaches 71% of B200 BF16 peak (1,613 TFLOPS) and up to 2.7x Triton.",
+    "data": [
+      "l09_kernel_efficiency.csv"
+    ],
+    "chapters": [
+      "09",
+      "10",
+      "02"
+    ],
+    "source": "FlashAttention papers; GPU datasheets",
+    "source_ids": [
+      "S9002",
+      "S9001",
+      "S33009",
+      "S9003",
+      "S33002",
+      "S9004",
+      "S9005",
+      "S33003"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-attention-kernel-efficiency.svg",
+    "html": null
+  },
+  {
+    "id": "09-attention-kernel-port-effort",
+    "title": "Est.: porting one attention kernel to a new chip takes ~1.8-5.5 engineer-years",
+    "subtitle": "Engineer-months per phase (low-high) for experienced kernel engineers; hatched = speculative repo estimate; dark = tuning work",
+    "alt": "Horizontal range chart of estimated engineer-months to port one FlashAttention-class kernel to a new accelerator: functional forward port 1-3, backward pass and numerics 2-6, performance tuning to about 70% of peak 6-18, feature variants 6-18, framework integration and packaging 3-9, plus 3-12 per year to re-tune for each new chip generation - 21-66 engineer-months in total, about 1.8-5.5 engineer-years (speculative repo estimate).",
+    "data": [
+      "l09_port_effort.csv"
+    ],
+    "chapters": [
+      "09",
+      "15",
+      "19"
+    ],
+    "source": "repo estimate; FlashAttention, InferenceX evidence",
+    "source_ids": [
+      "S633",
+      "S631",
+      "S627",
+      "S9000",
+      "S9003",
+      "S9004",
+      "S9006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-attention-kernel-port-effort.svg",
+    "html": null
+  },
+  {
     "id": "09-cuda-developers-over-time",
     "title": "CUDA developers tripled from 2M (2020) to ~6M (2025); NVIDIA still cited 6M in 2026",
     "subtitle": "Registered CUDA / NVIDIA developer-program members as stated by NVIDIA, millions",
@@ -5136,6 +5484,51 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/09-dc-revenue-vs-rd.svg",
+    "html": null
+  },
+  {
+    "id": "09-dsv4-day0-readiness",
+    "title": "DeepSeek-V4-Pro ran on CUDA on day 0; ROCm needed 8 days for FP4, 27 for 50 tok/s/user",
+    "subtitle": "Days after the 2026-04-24 release to each serving milestone (open-source engines on InferenceX; Huawei per its own docs)",
+    "alt": "Timeline dot chart of DeepSeek-V4-Pro (released 2026-04-24) bring-up: on NVIDIA CUDA, vLLM and SGLang supported it natively on day 0, GB200 NVL72 disaggregated serving and MTP ran by day 3, and a TensorRT-LLM output-corruption bug was found on day 9; Huawei documented day-0 Ascend support; on AMD MI355X, first light on day 1 was FP8-only at 1-2 tok/s/user, FP4 worked on day 8, 50 tok/s/user on day 27, MTP around day 28, and multi-node serving still did not work at day 43.",
+    "data": [
+      "l09_dsv4_bringup.csv"
+    ],
+    "chapters": [
+      "09",
+      "11",
+      "15"
+    ],
+    "source": "SemiAnalysis InferenceX articles",
+    "source_ids": [
+      "S633",
+      "S631"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-dsv4-day0-readiness.svg",
+    "html": null
+  },
+  {
+    "id": "09-dsv4-mi355x-bringup",
+    "title": "31 AMD pull requests lifted MI355X DeepSeek-V4-Pro throughput 12x in 19 days",
+    "subtitle": "AMD MI355X, SGLang, 8K in / 1K out, throughput per GPU at 15 tok/s per user (tok/s/GPU), by date of InferenceX run",
+    "alt": "Bar chart of AMD MI355X DeepSeek-V4-Pro throughput at 15 tokens/s per user: unreachable on day 1 (FP8 first light never exceeded 2.5 tok/s/user), then 104 tok/s/GPU on day 8 after FP4 was enabled, 194 on day 10, 775 on day 16 and 1,272 on day 27 after 31 optimization PRs - about 12x in 19 days, yet NVIDIA B200 on CUDA SGLang was still about 5x higher in the 15-30 tok/s/user band.",
+    "data": [
+      "l09_dsv4_bringup.csv"
+    ],
+    "chapters": [
+      "09",
+      "11",
+      "15"
+    ],
+    "source": "SemiAnalysis InferenceX (MI355X DeepSeek-V4-Pro on SGLang)",
+    "source_ids": [
+      "S631"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-dsv4-mi355x-bringup.svg",
     "html": null
   },
   {
@@ -5250,8 +5643,64 @@
     "html": null
   },
   {
+    "id": "09-moat-strength-by-segment",
+    "title": "Est.: CUDA lock-in is strongest in academia (4.75/5), weakest for Chinese labs (2.5)",
+    "subtitle": "Repo scoring of switching cost off CUDA, 1 (can move within months) to 5 (prohibitive), by customer segment and workload - speculative",
+    "alt": "Heatmap scoring CUDA lock-in from 1 to 5 for seven customer segments across four workloads. Averages: academia 4.75, enterprises 4.50, sovereign AI 3.75, startups and neoclouds 3.75, hyperscalers 3.00, frontier labs 2.75, Chinese labs 2.50. Inference on popular models is the weakest column (average 2.7) versus about 3.9 for pre-training and new architectures.",
+    "data": [
+      "l09_moat_by_segment.csv"
+    ],
+    "chapters": [
+      "09",
+      "18",
+      "19"
+    ],
+    "source": "repo judgement; lab and benchmark disclosures",
+    "source_ids": [
+      "S653",
+      "S656",
+      "S546",
+      "S655",
+      "S625",
+      "S628",
+      "S174",
+      "S9000",
+      "S9004",
+      "S561",
+      "S90044",
+      "S9014",
+      "S9028",
+      "S633",
+      "S34007",
+      "S5005",
+      "S164",
+      "S9009",
+      "S9010",
+      "S9011",
+      "S90071",
+      "S590",
+      "S591",
+      "S580",
+      "S582",
+      "S631",
+      "S583",
+      "S637",
+      "S636",
+      "S587",
+      "S585",
+      "S627",
+      "S9027",
+      "S9016",
+      "S579"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-moat-strength-by-segment.svg",
+    "html": "assets/interactive/09-moat-strength-by-segment.html"
+  },
+  {
     "id": "09-software-deal-values",
-    "title": "Qualcomm's ~$3.9B for Modular is 5.6× NVIDIA's largest software buy and 2.4× Modular's valuation nine months earlier",
+    "title": "Qualcomm's ~$3.9B for Modular: 5.6× Run:ai, 2.4× Modular's 2025 valuation",
     "subtitle": "Disclosed or reported prices of AI-software acquisitions, US$ M; gray = Modular funding reference points",
     "alt": "Horizontal bar chart of AI-software deal values: Qualcomm-Modular about $3,900M (2026), NVIDIA-Run:ai about $700M (2024), AMD-Silo AI $665M (2024), NVIDIA-CentML up to about $400M (2025), NVIDIA-Deci about $300M (2024) and NVIDIA-OctoAI about $250M (2024). For reference, Modular was valued at $1,600M in its September 2025 Series C and had raised $380M in total, so Qualcomm paid about 2.4 times the last private valuation and about 10 times the capital invested.",
     "data": [
@@ -5281,8 +5730,8 @@
   {
     "id": "09-software-deals-timeline",
     "title": "Chip vendors made 15 AI-software deals from 2023 to 2026, against 3 tracked in 2008–2022",
-    "subtitle": "Compiler, model-optimization, orchestration and developer-tool acquisitions by acquirer; bubble area = disclosed or reported value",
-    "alt": "Swimlane timeline of AI-software acquisitions. NVIDIA: Ageia (2008), PGI (2013), Bright Computing (2022), then OmniML, Run:ai (~$700M), Deci (~$300M), Brev.dev, OctoAI (~$250M), Gretel, Lepton AI, CentML (~$400M) and SchedMD from 2023 to 2025. AMD: Nod.ai (2023), Silo AI ($665M, 2024), Brium, the Untether AI team and MK1 (2025). Qualcomm: Modular (~$3.9B, announced June 2026, closed July 2026). Red Hat: Neural Magic (2024). 15 chip-vendor software deals since 2023 versus 3 in the prior 15 years tracked here.",
+    "subtitle": "Compiler, model-optimization, orchestration and developer-tool acquisitions, one row per deal; dot area = disclosed or reported value",
+    "alt": "Dot timeline of AI-software acquisitions, one row per deal. NVIDIA: Ageia (2008), PGI (2013), Bright Computing (2022), then OmniML, Run:ai (~$700M), Deci (~$300M), Brev.dev, OctoAI (~$250M), Gretel, Lepton AI, CentML (~$400M) and SchedMD from 2023 to 2025. AMD: Nod.ai (2023), Silo AI ($665M, 2024), Brium, the Untether AI team and MK1 (2025). Qualcomm: Modular (~$3.9B, announced June 2026, closed July 2026). Red Hat: Neural Magic (2024). 15 chip-vendor software deals since 2023 versus 3 in the prior 15 years tracked here.",
     "data": [
       "l09_software_deals.csv"
     ],

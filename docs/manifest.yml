@@ -22,7 +22,7 @@ units:
   - {id: "03", title: "Memory, packaging and supply chain", type: layer, phase: 3, status: drafted, qa: pending, paths: [layers/03-memory-packaging-supply-chain]}
   - {id: "04", title: "CPU (Grace, Vera)", type: layer, phase: 3, status: drafted, qa: pending, paths: [layers/04-cpu-grace-vera]}
   - {id: "05", title: "Scale-up (NVLink, NVSwitch)", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/05-scale-up-nvlink-nvswitch]}
-  - {id: "06", title: "Scale-out and scale-across networking", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/06-scale-out-scale-across-networking]}
+  - {id: "06", title: "Scale-out and scale-across networking", type: layer, phase: 4, status: drafted, qa: pending, paths: [layers/06-scale-out-scale-across-networking]}
   - {id: "07", title: "DPU, SuperNIC, storage, security", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/07-dpu-supernic-storage-security]}
   - {id: "08", title: "Systems, racks and AI factories", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/08-systems-racks-ai-factories]}
   - {id: "09", title: "CUDA and system software", type: layer, phase: 5, status: planned, qa: pending, paths: [layers/09-cuda-and-system-software]}

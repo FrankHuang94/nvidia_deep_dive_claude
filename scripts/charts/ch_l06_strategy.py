@@ -119,10 +119,10 @@ def switch_generation_race():
         alt=(f"Dumbbell timeline of switch ASIC generations. 51.2 Tb/s: NVIDIA announced Spectrum-4 first (March 2022) but "
              "launched it as Spectrum-X in May 2023, while Broadcom shipped Tomahawk 5 in August 2022; Marvell Teralynx 10 "
              "(March 2023) and Cisco G200 (June 2023) followed. 102.4 Tb/s: NVIDIA announced Spectrum-6 photonics in March "
-             f"2025, Broadcom shipped Tomahawk 6 in June 2025, and TrendForce reported limited Spectrum-6 shipments in July "
-             f"2026, about {gap:.0f} months later; Cisco's G300 (announced February 2026) is planned for H2 2026. "
+             f"2025, Broadcom shipped Tomahawk 6 in June 2025, and NVIDIA began shipping Spectrum-6 CPO switches to select "
+             f"partners in June 2026, about {gap:.0f} months later; Cisco's G300 (announced February 2026) is planned for H2 2026. "
              "NVIDIA's 115.2 Tb/s Quantum-X800 InfiniBand switch was announced in March 2024 and shipped in 2025."),
-        data=[GENS], chapters=["06", "15"], source="vendor releases and TrendForce", source_ids=sources_of(df),
+        data=[GENS], chapters=["06", "15"], source="vendor releases, press and TrendForce", source_ids=sources_of(df),
         note="Dashed = planned",
     )
     order = [("51.2 Tb/s Ethernet", df[df.class_tbps.eq(51.2)]), ("102.4 Tb/s Ethernet", df[df.class_tbps.eq(102.4)]),

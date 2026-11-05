@@ -728,3 +728,56 @@ Quarterly or annual revenue of companies that capture scale-up dollars (NVIDIA n
 `announce_date,close_date,buyer_or_lead,target,deal_type,value_usd_m,value_basis,scale_up_relevance,status,confidence,source_id,notes`
 
 Interconnect-related acquisitions, strategic stakes, acquihires and start-up rounds, 2019–2026 (Mellanox, Intel and Marvell stakes, ZT Systems, Celestial AI, Alphawave, Enfabrica, XConn, Ayar Labs, Lightmatter, Upscale AI). `deal_type`: `acquisition` | `strategic-investment` | `acquihire-license` | `funding-round`. XConn's value is the cash portion only.
+
+## Layer 09 strategy — CUDA competition, history and software M&A (`l09_*.csv`, charts in `scripts/charts/ch_l09_strategy.py`; sources S9500–S9538)
+
+### l09_software_deals.csv (one row per AI-software deal or reference point)
+`record_type,announce_date,close_date,acquirer,target,deal_type,category,value_usd_m,value_basis,what_was_bought,status,confidence,source_id,notes`
+
+`record_type = deal`: compiler, model-optimisation, orchestration and developer-tool acquisitions by NVIDIA, AMD,
+Qualcomm and (for comparison) Red Hat, 2008–2026. NVIDIA rows mirror `acquisitions_investments.csv` (several are
+`[recall]`); NVIDIA–Groq (inference-silicon licence) and hardware/systems deals (ZT Systems, Enosemi) are excluded.
+`value_usd_m` blank when undisclosed; `value_basis` = disclosed | reported | undisclosed. `record_type = reference`:
+Modular's Series C valuation and total capital raised, used to benchmark Qualcomm's price. Feeds
+`09-software-deals-timeline` and `09-software-deal-values`.
+
+### l09_dsv4_catchup.csv (long)
+`record_type,date,days_since_first_light,system,vendor,engine,precision,metric,value,unit,confidence,source_id,notes`
+
+DeepSeek-V4-Pro (released 2026-04-24) day-0 software maturity from SemiAnalysis InferenceX: `frontier` = MI355X
+peak tok/s per GPU by date on the AMD SGLang branch; `iso` = throughput at 15 tok/s per user; `spec_ratio` = MI355X ÷
+B200 paper specs; `reference` = B200 vLLM tokens/s per provisioned MW on day 0 and day 42. Feeds `09-mi355x-deepseek-v4-catchup`.
+
+### l09_software_price_per_gpu.csv (one row per price point)
+`item,group,value_usd_per_gpu_year,basis,confidence,source_id,notes`
+
+NVIDIA AI Enterprise price points (list prices as reported, CEO statement) converted to US$ per GPU per year, next to
+B200 owner-TCO and rental references derived from SemiAnalysis $/GPU-hour × 8,760 h (`estimate`). Feeds
+`09-software-price-per-gpu-year`.
+
+## Layer 08 — systems, racks and AI factories, CORE pages (`l08_*` core files; charts in `scripts/charts/ch_l08_core.py`; sources S8000–S8025)
+
+### l08_power_per_gpu.csv (one row per system)
+`system,vendor,inferencex_key,all_in_kw_per_gpu,gpu_tdp_w,basis,confidence,source_id,notes` — SemiAnalysis's
+"all-in utility provisioned power" per GPU (kW) from the InferenceX hardware registry (S622), the denominator InferenceX
+uses for throughput per MW. It includes the GPU's share of host, network and facility overhead; the exact scope is not
+public, so every row is `estimate`. `08-tokens-per-mw-by-system` divides the DeepSeek-R1 1k/1k Pareto frontier in
+`inference_benchmarks.csv` (no speculative decoding), interpolated log-linearly at 50 tok/s/user, by this value.
+
+### l08_liquid_cooling_share.csv (long: forecast vintage × year)
+`forecast_vintage,release_date,year,share_pct,kind,scope,confidence,source_id,notes` — TrendForce liquid-cooling
+penetration estimates by release (Sep 2024, Aug 2025, Nov 2025, Aug 2026). `kind` = `estimate` (year already past at
+release) | `forecast`. Scopes differ slightly between releases (AI chips vs AI data centers); "over 20%" and
+"approach 60%" are plotted at 20 and 60.
+
+### l08_buildout_timelines.csv (one row per cited milestone)
+`case,category,milestone,start,end,months,confidence,source_id,notes` — months for cited AI-factory build milestones
+(`category = build`: xAI Colossus 1, Stargate Abilene) and grid-connection waits (`category = grid`: Dominion large-load
+hookups, LBNL generator interconnection median). Build times are company-reported; the LBNL value is a floor ("over 4
+years"). Used by `08-build-vs-grid-timelines`.
+
+`08-facility-power-100k-gb300` and `08-capex-vs-power-per-gpu-hour` need no new file: they read rack power, prices and
+GPU TDP from `system_specs.csv` / `gpu_product_specs.csv`, and PUE, electricity price, server life and the GB200
+all-in/IT power ratio (145/120 kW, SemiAnalysis) from `tco_model_inputs.csv`. `08-gpu-heat-flux-by-generation` divides
+`tdp_w` by `dies_per_package × die_area_mm2_per_die` in `gpu_product_specs.csv` (die areas for Blackwell and Rubin are
+estimates).

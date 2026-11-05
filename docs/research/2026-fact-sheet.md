@@ -59,7 +59,7 @@ is stated — keep it visible in the text rather than picking silently.
 
 | Fact | Tag | Sources |
 |---|---|---|
-| Co-packaged optics: **Quantum-X Photonics** (InfiniBand, 144 × 800G) slated for H2 2025 and **Spectrum-X Photonics** (Ethernet, up to 400 Tb/s across 2,048 ports in its largest configuration) for H2 2026; built on TSMC COUPE micro-ring modulators with partners TSMC, Coherent, Corning, Foxconn, Lumentum, SENKO. 2026 customer shipments not confirmed in sources found | 🟢 (announced) / 🔴 (shipments) | S90048, S90049 |
+| Co-packaged optics: **Quantum-X Photonics** (InfiniBand, 144 × 800G) slated for H2 2025 and **Spectrum-X Photonics** (Ethernet, up to 400 Tb/s across 2,048 ports in its largest configuration) for H2 2026; built on TSMC COUPE micro-ring modulators with partners TSMC, Coherent, Corning, Foxconn, Lumentum, SENKO. Shipments in 2026 reported by Focus Taiwan (Jun 2026) and StorageReview (Aug 2026, "full production", ~5× lower optics power) — see layer-06 registry S6019/S6020; Quantum-X Photonics timing cited as early 2026 in S515 | 🟢 (announced) / 🟡 (shipments) | S90048, S90049 |
 | **UALink 2.0** ratified 2026-04-07 (in-network compute, chiplet definition, manageability, 200G DL/PL); UALink 1.0 silicon reaching labs H2 2026, products expected 2027 | 🟢 / 🟡 | S90050, S90051 |
 | **ESUN** (Ethernet for Scale-Up Networking) launched as an OCP workstream at OCP Global Summit 2025; Broadcom's **SUE** v1.0 contributed to OCP (2025-09-05); coordination with IEEE 802.3 and UEC | 🟢 | S90052 |
 | **AI back-end networks:** InfiniBand was ~80 % of AI back-end DC switch sales two years before 2025; Ethernet more than doubled InfiniBand in 2025 and was ~two-thirds of AI back-end switch sales in 1Q 2026 (Dell'Oro); vendor ranking 1Q26: Celestica, NVIDIA, Arista (Arista close once deferred revenue counted); Ethernet expanding into scale-up | 🟡 (analyst) | S90053, S90054, S90055 |
@@ -86,3 +86,11 @@ is stated — keep it visible in the text rather than picking silently.
 | **CoreWeave backstop:** Sept 2025 amended agreement — NVIDIA to buy up to $6.3B of CoreWeave's unsold capacity through 2032-04-13 | 🟢 | S90067 |
 | **DGX Cloud pivot:** most DGX Cloud capacity reportedly redirected to NVIDIA's internal research (2025); DGX Cloud **Lepton** positioned as a marketplace routing developers to partner GPU clouds | 🟡 | S90068 |
 | **Anthropic (Nov 2025):** NVIDIA up to $10B and Microsoft up to $5B investment; Anthropic commits $30B to Azure compute and up to 1 GW on Grace Blackwell / Vera Rubin; joint engineering on Claude performance | 🟢 | S90075 |
+
+## Case-study facts (China, DeepSeek, gigawatt factories)
+
+| Fact | Tag | Sources |
+|---|---|---|
+| **China export controls (from NVIDIA filings):** Apr 2025 — H20 (and equivalent-bandwidth chips) required a licence "for the indefinite future"; H20 charge ~$4.5B recorded in Q1 FY2026 (~$5.5B initially warned); Aug 2025 — licences granted for certain H20 shipments; 2025-09-15 — China's antitrust regulator issued a preliminary finding against NVIDIA; Dec 2025 — H200 allowed with 25 % of revenue to the US government; Feb 2026 — licence to ship small amounts of H200; **no H200 revenue recognised to date** and guidance excludes China DC compute | 🟢 | S90081, S90082, S90083, S90032, S90033 |
+| **DeepSeek V4** preview (2026-04-24): V4-Pro ~1.6T parameters and V4-Flash 284B, open weights; Huawei Ascend used for part of Flash training; Ascend SuperNodes adapted for V4 inference; DeepSeek cites high-end compute constraints; V4-Pro priced ~$3.48 per million output tokens (reported) | 🟢 / 🟡 | S90079, S90080 |
+| **xAI Colossus 2:** Musk declared it operational in Jan 2026 as the first gigawatt training cluster (~550k GB200/GB300; 1.5 GW upgrade planned; third building toward ~2 GW) — contested by satellite-imagery analysis showing ~350 MW of cooling capacity in Jan 2026 | 🟡 (company claim) / 🔴 (contested) | S90076, S90077, S90078 |

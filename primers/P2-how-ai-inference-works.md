@@ -72,7 +72,7 @@ picture in BF16, where both sides halve: ~1 FLOP per byte for batch-1 decode aga
 developed in [P3 · The four bottlenecks](P3-the-four-bottlenecks.md) [[S33013]](../sources/bibliography.md#s33013).
 
 
-![Log-log roofline chart in dense BF16. H100: 989 TFLOPS and 3.35 TB/s, ridge point about 295 FLOPs per byte. B200: 2,250 TFLOPS and 8 TB/s, ridge about 281. Rubin: 4,000 TFLOPS and 19.2 TB/s, ridge about 208. Batch-1 decode (about 1 FLOP per byte) sits far left on the bandwidth slope; batch 64 (63) and batch 256 (241) move right; prefill (about 1,365) and training matrix multiplies (about 3,277) sit on the flat compute roof.](../assets/charts/P3-roofline-h100-b200-rubin.svg)
+![Log-log roofline chart in dense BF16. H100: 989 TFLOPS and 3.35 TB/s, ridge point about 295 FLOPs per byte; B200: 2,250 TFLOPS and 8 TB/s, ridge point about 281 FLOPs per byte; Rubin: 4,000 TFLOPS and 19.2 TB/s, ridge point about 208 FLOPs per byte. Batch-1 decode (about 1 FLOP per byte) sits far left on the bandwidth slope; batch 64 (63) and batch 256 (241) move right; prefill (about 1,365) and training matrix multiplies (about 3,277) sit on the flat compute roof.](../assets/charts/P3-roofline-h100-b200-rubin.svg)
 
 </details>
 
