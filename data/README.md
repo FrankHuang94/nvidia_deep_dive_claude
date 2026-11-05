@@ -675,3 +675,56 @@ G3 local SSD, G3.5 BlueField-4 context storage, G4 shared storage) and the model
 ### l07_cc_overhead.csv (one row per model × metric)
 `study,gpu,model,metric,tee_off,tee_on,overhead_pct,confidence,source_id,notes` — H100 confidential-computing overhead from
 Zhu et al. (arXiv 2409.03992). Feeds `07-confidential-computing-overhead`.
+
+## Layer 06 — scale-out networking, strategy pages (`l06_*` strategy files; charts in `scripts/charts/ch_l06_strategy.py`; sources S6500–S6999)
+
+### l06_competitor_verdicts.csv (long)
+`competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes` — repo verdict
+(`leads` | `parity` | `behind` | `different`) for eight scale-out rivals (Broadcom, Arista, Cisco, Marvell, white-box ODMs,
+UEC ecosystem, Google, AWS) against NVIDIA InfiniBand + Spectrum-X on six dimensions (switch radix/bandwidth, congestion
+control/tail latency, NIC co-design, openness, ecosystem/software, share). All rows `speculative` (analyst judgement on cited
+facts). Feeds `06-scale-out-competitor-heatmap`.
+
+### l06_switch_generations.csv (one row per switch ASIC)
+`vendor,product,class_tbps,fabric,announce_date,ship_date,ship_basis,status,confidence,source_id,notes` — announcement and
+first-shipment dates for 51.2T and 102.4T Ethernet switch generations (Broadcom, NVIDIA, Marvell, Cisco) and Quantum-X800.
+`ship_date` is blank when not disclosed; Cisco G300 uses the H2 2026 midpoint (planned). Feeds `06-switch-generation-race`.
+
+### l06_scale_out_per_accelerator.csv (one row per system)
+`vendor,system,accelerator,year,nic,nics_per_accelerator,gbps_per_nic,scale_out_gbps_per_accelerator,status,confidence,source_id,notes`
+— back-end NIC bandwidth per accelerator (Gb/s, one direction) for NVIDIA H100 → Feynman (roadmap), AMD Helios and AWS EFA
+instances (instance bandwidth ÷ accelerators). Feeds `06-scale-out-bandwidth-per-accelerator`.
+
+### l06_networking_vendor_revenue.csv (one row per vendor figure)
+`entity,category,period,metric,value_usd_b,basis,confidence,source_id,notes` — latest annual revenue tied to AI networking:
+NVIDIA networking (FY2026 and Q2 FY2027 × 4; includes NVLink switches), Broadcom AI semiconductors (includes custom XPUs),
+Innolight and Eoptolink (CY2025), Arista's 2026 AI target and Credo (FY2026). Not like-for-like; see `notes`. Feeds
+`06-networking-value-pool-by-vendor`.
+
+### l06_networking_deals.csv (one row per deal)
+`announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_was_bought,status,confidence,source_id,notes`
+— networking, optics and interconnect deals 2019–2026 by NVIDIA and peers (`deal_type` as in `acquisitions_investments.csv`).
+Feeds `06-networking-deal-values`. The `06-networking-attach-per-compute` chart reads `financials.csv` directly
+(networking ÷ compute by quarter).
+
+## Layer 05 strategy — scale-up competition, standards, value chain (`l05_*.csv`, charts in `scripts/charts/ch_l05_strategy.py`; sources S5500–S5528)
+
+### l05_scale_up_verdicts.csv (long, competitor × dimension)
+`competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes`
+
+Repo verdicts of six scale-up rivals (AMD Helios, Google TPU ICI + OCS, AWS Trainium NeuronLink, Huawei UnifiedBus, UALink, Ethernet scale-up) against NVIDIA Vera Rubin NVL72 on five dimensions (bandwidth per accelerator, domain size, latency & semantics, openness, maturity / shipping). `verdict_vs_nvidia` is from the rival's side: `leads` | `parity` | `behind` | `different`. `cell_label` is the short fact printed in the heatmap.
+
+### l05_standards_timeline.csv (one row per milestone)
+`track,owner,model,milestone,milestone_type,date,status,confidence,source_id,notes`
+
+Milestones for NVLink 5/6, NVLink Fusion, UALink, Ethernet scale-up (SUE/ESUN), Ultra Ethernet and PCIe 6.0/7.0. `milestone_type`: `formation` | `announce` | `spec` | `first_silicon` | `first_product`. `status`: `done` | `expected`; expected dates are mid-window placeholders for trade-press or analyst windows (see `notes`).
+
+### l05_value_chain.csv (one row per company metric)
+`company,role_in_scale_up,metric,period,period_end,value_usd_b,basis,confidence,source_id,notes`
+
+Quarterly or annual revenue of companies that capture scale-up dollars (NVIDIA networking, Amphenol, Credo, Astera Labs, Marvell/XConn). `basis`: `disclosed` | `derived` (repo arithmetic on disclosed ratios) | `guidance midpoint` | `company target`. Scopes differ: NVIDIA networking includes InfiniBand, Ethernet and NICs; Amphenol's AI datacom line is derived from management's stated shares.
+
+### l05_deals.csv (one row per deal)
+`announce_date,close_date,buyer_or_lead,target,deal_type,value_usd_m,value_basis,scale_up_relevance,status,confidence,source_id,notes`
+
+Interconnect-related acquisitions, strategic stakes, acquihires and start-up rounds, 2019–2026 (Mellanox, Intel and Marvell stakes, ZT Systems, Celestial AI, Alphawave, Enfabrica, XConn, Ayar Labs, Lightmatter, Upscale AI). `deal_type`: `acquisition` | `strategic-investment` | `acquihire-license` | `funding-round`. XConn's value is the cash portion only.

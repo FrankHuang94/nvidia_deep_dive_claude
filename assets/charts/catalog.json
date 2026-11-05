@@ -3485,7 +3485,7 @@
     "id": "06-ib-vs-ethernet-ai-backend-share",
     "title": "Ethernet likely overtook InfiniBand in AI back-end networks in 2025 (directional Est.)",
     "subtitle": "Share of AI back-end (GPU-to-GPU scale-out) switch spending, %; directional estimates — every bar is an estimate",
-    "alt": "Stacked 100% bars of AI back-end network switch spending: InfiniBand about 80% in 2023 falling to about 45% in 2025 and 30% in 2027E, with Ethernet rising from 20% to 70%. Values are directional estimates consistent with Dell'Oro commentary, not verified figures. NVIDIA itself drives much of the shift: Spectrum-X Ethernet passed a $10B annualized run-rate in 2025.",
+    "alt": "Stacked 100% bars of AI back-end network switch spending: InfiniBand about 80% in 2023 falling to about 33% in 2025 and 30% in 2027E, with Ethernet rising from 20% to 70%. Values are directional estimates consistent with Dell'Oro commentary, not verified figures. NVIDIA itself drives much of the shift: Spectrum-X Ethernet passed a $33B annualized run-rate in 2025.",
     "data": [
       "market_share.csv"
     ],
@@ -3496,7 +3496,8 @@
     "source": "Dell'Oro commentary (directional); NVIDIA",
     "source_ids": [
       "S667",
-      "S445"
+      "S90053",
+      "S90054"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -3833,6 +3834,8 @@
       "S286",
       "S265",
       "S33004",
+      "S287",
+      "S6503",
       "S203",
       "S204",
       "S210",
@@ -3921,6 +3924,7 @@
       "S264",
       "S285",
       "S287",
+      "S6503",
       "S284"
     ],
     "kind": "data",
@@ -4198,7 +4202,7 @@
       "S262",
       "S264",
       "S33004",
-      "S7019",
+      "S7535",
       "S100",
       "S290",
       "S226",
@@ -4541,6 +4545,93 @@
     "html": null
   },
   {
+    "id": "08-build-vs-grid-timelines",
+    "title": "Cited AI factories went up in 4–24 months; new grid power can take 4–7 years",
+    "subtitle": "Months for cited milestones · build = shell, power gear, racks to first compute · grid = utility hookup or new generation queue",
+    "alt": "Horizontal bar chart in months. Build milestones: xAI Colossus 1 first rack to training in 19 days (0.6 months) and facility plus 100,000-GPU cluster in 122 days (4 months); Stargate Abilene first two buildings, 200+ MW, about 15 months from construction start; the full 1.2 GW campus about 24 months (mid-2026 target, later estimates Q4 2026). Grid milestones: median interconnection request to operation for new US generation over 48 months (LBNL), and up to 84 months for a large data-center hookup in Dominion's Northern Virginia territory.",
+    "data": [
+      "l08_buildout_timelines.csv"
+    ],
+    "chapters": [
+      "08",
+      "12"
+    ],
+    "source": "NVIDIA/xAI, Crusoe/DCD, Epoch AI, Bloomberg, LBNL",
+    "source_ids": [
+      "S8010",
+      "S8011",
+      "S8014",
+      "S8015",
+      "S8013",
+      "S6000"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-build-vs-grid-timelines.svg",
+    "html": null
+  },
+  {
+    "id": "08-capex-vs-power-per-gpu-hour",
+    "title": "Electricity is only ~12–19% of hardware-plus-power cost per GPU-hour; capex dominates",
+    "subtitle": "US$/GPU-hour: price ÷ GPUs ÷ 6 yrs, plus kW/GPU × PUE (1.4 air, 1.15 liquid) × $0.081/kWh · building and network excluded",
+    "alt": "Stacked bar chart of cost per GPU-hour by NVIDIA system. Hardware depreciation over 6 years rises from about $0.31 (DGX-1, 2016) to about $0.79 (GB200 NVL72), $1.05 (GB300 NVL72) and $2.06 (Vera Rubin NVL72, estimated price); electricity adds about $0.05 to $0.30 per GPU-hour, only 12-19% of the total, so power limits how many GPUs fit rather than what each GPU-hour costs.",
+    "data": [
+      "system_specs.csv",
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "08",
+      "14"
+    ],
+    "source": "system_specs, tco_model_inputs",
+    "source_ids": [
+      "S310",
+      "S311",
+      "S125",
+      "S313",
+      "S314",
+      "S315",
+      "S316",
+      "S33022",
+      "S322",
+      "S32002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S387",
+      "S388",
+      "S389",
+      "S382",
+      "S383",
+      "S384",
+      "S385",
+      "S386"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-capex-vs-power-per-gpu-hour.svg",
+    "html": null
+  },
+  {
     "id": "08-compute-per-kw-by-rack",
     "title": "Vera Rubin NVL72 targets ~5.5 FP8 PFLOPS/kW, ~10× Huawei's CloudMatrix 384",
     "subtitle": "Peak dense FP8 PFLOPS ÷ max IT power · peak specs, not delivered throughput · hatched = roadmap or estimated power",
@@ -4605,6 +4696,87 @@
     "html": null
   },
   {
+    "id": "08-facility-power-100k-gb300",
+    "title": "100,000 GB300 GPUs need ~255 MW at the meter and ~$181M of power a year",
+    "subtitle": "Power build-up, MW (repo calc) · 1,389 NVL72 racks at ~132 kW · PUE 1.15 · cost at full load, $0.081/kWh",
+    "alt": "Waterfall chart: 100,000 GB300 GPUs at 1,400 W draw about 140 MW; the rest of 1,389 NVL72 racks (Grace CPUs, NVLink switch trays, NICs, pumps, conversion) adds about 43 MW; scale-out networking, storage and management add about 38 MW (IT total 222 MW); cooling and power-conversion overhead at PUE 1.15 adds about 33 MW, for about 255 MW at the meter (346 MW at the industry-average PUE of 1.56). At full load that is 2.2 TWh a year, about $112M-$223M of electricity at 5-10 cents per kWh.",
+    "data": [
+      "system_specs.csv",
+      "gpu_product_specs.csv",
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "08",
+      "14"
+    ],
+    "source": "system_specs, gpu_product_specs, tco_model_inputs",
+    "source_ids": [
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S123",
+      "S387",
+      "S388",
+      "S389",
+      "S390"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-facility-power-100k-gb300.svg",
+    "html": null
+  },
+  {
+    "id": "08-gpu-heat-flux-by-generation",
+    "title": "GPU package power rose ~8× since 2016 (300 → 2,300 W); heat per cm² ~3×",
+    "subtitle": "Left: max power per GPU package, W · Right: W per cm² of compute silicon (TDP ÷ die area, Est.) · color = cooling in NVIDIA's flagship system",
+    "alt": "Two bar charts by NVIDIA GPU. Left: package power rises from 300 W (P100, 2016) through 700 W (H100), 1,000-1,100 W (B200, B300 in air-cooled HGX servers), 1,200 W (GB200) and 1,400 W (GB300) to about 2,300 W for Rubin at its maximum-performance setting, about 8 times. Right: watts per square centimetre of compute die rise from about 49 to about 144 (estimate), about 3 times. Every 1,200 W-plus superchip GPU ships only liquid-cooled.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "08",
+      "02"
+    ],
+    "source": "NVIDIA datasheets, reported TDPs",
+    "source_ids": [
+      "S125",
+      "S33010",
+      "S126",
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S123",
+      "S121",
+      "S32004",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-gpu-heat-flux-by-generation.svg",
+    "html": null
+  },
+  {
     "id": "08-kw-per-rack-by-generation",
     "title": "Power per NVIDIA system rose ~190× in a decade: 3.2 kW (DGX-1) to ~600 kW (Kyber)",
     "subtitle": "Maximum IT power per system or rack, kW · 8/16-GPU DGX servers 2016–2024, NVLink racks from 2024 · hatched = announced/roadmap",
@@ -4662,6 +4834,29 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/08-kw-per-rack-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "08-liquid-cooling-penetration",
+    "title": "TrendForce: liquid cooling on ~53% of high-end AI chips in 2026, ~60% in 2027",
+    "subtitle": "Liquid-cooling penetration, % of AI accelerators / AI data-center deployments · one line per TrendForce forecast vintage",
+    "alt": "Line chart of TrendForce liquid-cooling penetration estimates by forecast vintage. September 2024 vintage: about 10% in 2024 and over 20% in 2025. August 2025 vintage: 14% in 2024 and 33% in 2025. November 2025 vintage: 47% in 2026. August 2026 vintage: 53% in 2026 and about 60% in 2027, each forecast higher than the last.",
+    "data": [
+      "l08_liquid_cooling_share.csv"
+    ],
+    "chapters": [
+      "08"
+    ],
+    "source": "TrendForce press releases 2024-2026",
+    "source_ids": [
+      "S8006",
+      "S8005",
+      "S8007",
+      "S8004"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-liquid-cooling-penetration.svg",
     "html": null
   },
   {
@@ -4809,6 +5004,30 @@
     "html": null
   },
   {
+    "id": "08-tokens-per-mw-by-system",
+    "title": "Per MW, GB300 NVL72 serves ~13× H200's DeepSeek-R1 tokens at 50 tok/s per user",
+    "subtitle": "Total tokens/s per MW of all-in power · DeepSeek-R1 1k in / 1k out, InferenceX frontier interpolated at 50 tok/s/user (repo calc)",
+    "alt": "Log-scale bar chart of DeepSeek-R1 tokens per second per megawatt of all-in power at 50 tokens/s per user (InferenceX frontier divided by SemiAnalysis power per GPU): H100 about 29 thousand, H200 about 225 thousand, B200 about 0.8 million, B300 about 1.6 million, GB200 NVL72 about 2.5 million and GB300 NVL72 about 3.0 million, ~13 times H200; AMD MI300X about 117 thousand and MI355X about 353 thousand.",
+    "data": [
+      "inference_benchmarks.csv",
+      "l08_power_per_gpu.csv"
+    ],
+    "chapters": [
+      "08",
+      "14",
+      "11"
+    ],
+    "source": "SemiAnalysis InferenceX frontier and hardware registry",
+    "source_ids": [
+      "S621",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/08-tokens-per-mw-by-system.svg",
+    "html": null
+  },
+  {
     "id": "09-cuda-developers-over-time",
     "title": "CUDA developers tripled from 2M (2020) to ~6M (2025); NVIDIA still cited 6M in 2026",
     "subtitle": "Registered CUDA / NVIDIA developer-program members as stated by NVIDIA, millions",
@@ -4888,6 +5107,35 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/09-cuda-vs-rocm-release-cadence.svg",
+    "html": null
+  },
+  {
+    "id": "09-dc-revenue-vs-rd",
+    "title": "Data Center revenue first topped NVIDIA's total R&D in FY2018, a decade after CUDA 1.0",
+    "subtitle": "NVIDIA Data Center revenue vs total company R&D, US$ B per fiscal year, FY2016–FY2026 (FY2026: 10× R&D)",
+    "alt": "Log-scale line chart, FY2016 to FY2026. NVIDIA Data Center revenue was $0.34B in FY2016 against $1.33B of total R&D, crossed above R&D in FY2018 ($1.93B vs $1.80B), reached $47.5B in FY2024 and $193.7B in FY2026, about 10 times R&D of $18.5B. CUDA 1.0 shipped in June 2007 (FY2008) and cuDNN in 2014, so the platform ran for about a decade before the data-center business paid for the company's research.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "09",
+      "16",
+      "CS2"
+    ],
+    "source": "NVIDIA 10-Ks (financials.csv)",
+    "source_ids": [
+      "S400",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S401",
+      "S1",
+      "S402"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-dc-revenue-vs-rd.svg",
     "html": null
   },
   {
@@ -4977,6 +5225,115 @@
     "asof": "2026-11-05",
     "svg": "assets/charts/09-framework-support-heatmap.svg",
     "html": "assets/interactive/09-framework-support-heatmap.html"
+  },
+  {
+    "id": "09-mi355x-deepseek-v4-catchup",
+    "title": "ROCm needed 26 days to make DeepSeek-V4 fast on MI355X, hardware with 1.60× B200's memory",
+    "subtitle": "Left: MI355X peak throughput per GPU on DeepSeek-V4-Pro (8k in / 1k out, SGLang), by days since day-0 run; right: MI355X ÷ B200 on paper specs",
+    "alt": "Two panels. Left, log scale: MI355X DeepSeek-V4-Pro peak throughput per GPU rose from 67.4 tok/s (FP8 only, under 1 tok/s per user) on day 0 to 500 after 7 days, 1,503 after 15 days and 2,256 after 26 days and 31 kernel PRs, while CUDA vLLM and SGLang recipes worked on day 0; at a matched 15 tok/s per user throughput rose from 104 to 1,272 tok/s. Right: on paper MI355X has 1.60x B200's HBM capacity, equal 8 TB/s bandwidth, 1.12x dense FP4 and FP8, but 0.64x scale-up bandwidth, so the day-0 gap was software, not silicon.",
+    "data": [
+      "l09_dsv4_catchup.csv"
+    ],
+    "chapters": [
+      "09",
+      "15",
+      "11"
+    ],
+    "source": "SemiAnalysis InferenceX articles",
+    "source_ids": [
+      "S631",
+      "S633"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-mi355x-deepseek-v4-catchup.svg",
+    "html": null
+  },
+  {
+    "id": "09-software-deal-values",
+    "title": "Qualcomm's ~$3.9B for Modular is 5.6× NVIDIA's largest software buy and 2.4× Modular's valuation nine months earlier",
+    "subtitle": "Disclosed or reported prices of AI-software acquisitions, US$ M; gray = Modular funding reference points",
+    "alt": "Horizontal bar chart of AI-software deal values: Qualcomm-Modular about $3,900M (2026), NVIDIA-Run:ai about $700M (2024), AMD-Silo AI $665M (2024), NVIDIA-CentML up to about $400M (2025), NVIDIA-Deci about $300M (2024) and NVIDIA-OctoAI about $250M (2024). For reference, Modular was valued at $1,600M in its September 2025 Series C and had raised $380M in total, so Qualcomm paid about 2.4 times the last private valuation and about 10 times the capital invested.",
+    "data": [
+      "l09_software_deals.csv"
+    ],
+    "chapters": [
+      "09",
+      "19",
+      "13"
+    ],
+    "source": "company announcements and press reports",
+    "source_ids": [
+      "S476",
+      "S479",
+      "S478",
+      "S9506",
+      "S90057",
+      "S9511",
+      "S9514",
+      "S9510"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-software-deal-values.svg",
+    "html": null
+  },
+  {
+    "id": "09-software-deals-timeline",
+    "title": "Chip vendors made 15 AI-software deals from 2023 to 2026, against 3 tracked in 2008–2022",
+    "subtitle": "Compiler, model-optimization, orchestration and developer-tool acquisitions by acquirer; bubble area = disclosed or reported value",
+    "alt": "Swimlane timeline of AI-software acquisitions. NVIDIA: Ageia (2008), PGI (2013), Bright Computing (2022), then OmniML, Run:ai (~$700M), Deci (~$300M), Brev.dev, OctoAI (~$250M), Gretel, Lepton AI, CentML (~$400M) and SchedMD from 2023 to 2025. AMD: Nod.ai (2023), Silo AI ($665M, 2024), Brium, the Untether AI team and MK1 (2025). Qualcomm: Modular (~$3.9B, announced June 2026, closed July 2026). Red Hat: Neural Magic (2024). 15 chip-vendor software deals since 2023 versus 3 in the prior 15 years tracked here.",
+    "data": [
+      "l09_software_deals.csv"
+    ],
+    "chapters": [
+      "09",
+      "13",
+      "19"
+    ],
+    "source": "company announcements and press reports",
+    "source_ids": [
+      "S484",
+      "S478",
+      "S9508",
+      "S476",
+      "S479",
+      "S9506",
+      "S9533",
+      "S9507",
+      "S9509",
+      "S90057",
+      "S9511",
+      "S9514"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-software-deals-timeline.svg",
+    "html": null
+  },
+  {
+    "id": "09-software-price-per-gpu-year",
+    "title": "NVIDIA AI Enterprise lists at $4,500 per GPU-year, ~30% of a B200's yearly owner cost",
+    "subtitle": "US$ per GPU per year: NVIDIA software price points (green) vs B200 hardware cost references (gray, Est.)",
+    "alt": "Horizontal bar chart in US dollars per GPU per year. NVIDIA AI Enterprise: $2,000 (Jensen Huang's October 2026 figure), $3,600 (five-year subscription), $4,500 (one-year list) and up to $8,760 in the cloud at $1 per GPU-hour if billed every hour. For comparison a B200 costs an owner about $15,155 a year all-in (SemiAnalysis TCO estimate) and about $32,412 a year to rent, so list-price software adds roughly 30% and Huang's figure about 13%.",
+    "data": [
+      "l09_software_price_per_gpu.csv"
+    ],
+    "chapters": [
+      "09",
+      "12",
+      "13"
+    ],
+    "source": "NVIDIA licensing guide as reported; SemiAnalysis TCO",
+    "source_ids": [
+      "S9515",
+      "S9517",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/09-software-price-per-gpu-year.svg",
+    "html": null
   },
   {
     "id": "11-inference-engine-release-velocity",
