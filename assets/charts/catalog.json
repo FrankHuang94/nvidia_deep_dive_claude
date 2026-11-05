@@ -2448,6 +2448,231 @@
     "html": null
   },
   {
+    "id": "05-copper-reach-vs-lane-rate",
+    "title": "Passive copper reach shrinks as lanes speed up: ~5 m at 25 Gb/s, ~1 m at 200 Gb/s",
+    "subtitle": "Typical maximum length of a passive copper (twinax) link by per-lane signaling rate, metres; varies with wire gauge",
+    "alt": "Line chart of passive copper reach versus lane rate: about 5 m at 25 Gb/s per lane (NRZ), 3 m at 50 Gb/s, 2 m at 100 Gb/s (IEEE 802.3ck) and about 1 m at 200 Gb/s (IEEE 802.3dj objective), the lane rate NVLink 5 and 6 use. An NVL72 spine averages about 0.6 m per pair (2 miles over 5,184 pairs), which is why the rack, not the row, is the natural copper boundary.",
+    "data": [
+      "l05_copper_vs_optics.csv",
+      "l05_rack_fabric.csv"
+    ],
+    "chapters": [
+      "05",
+      "06",
+      "08"
+    ],
+    "source": "IEEE 802.3, SNIA, Keysight, vendor listings",
+    "source_ids": [
+      "S5013",
+      "S5014",
+      "S5012",
+      "S5010",
+      "S5011",
+      "S5000"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-copper-reach-vs-lane-rate.svg",
+    "html": null
+  },
+  {
+    "id": "05-deepep-nvlink-vs-rdma",
+    "title": "MoE all-to-all measured at 153 GB/s over NVLink vs 43–58 GB/s over InfiniBand",
+    "subtitle": "DeepEP on H800 (NVLink capped ~160 GB/s) + 400G InfiniBand: bandwidth (left), latency for 128 tokens (right)",
+    "alt": "Two-panel chart of DeepSeek's DeepEP measurements. Left: expert-parallel dispatch bandwidth 153 GB/s at EP8 inside one NVLink node versus 43, 58 and 51 GB/s at EP16, EP32 and EP64 across InfiniBand (combine similar). Right: low-latency kernels for a 128-token decode batch take 77 microseconds to dispatch and 114 to combine at EP8, rising to about 194 and 360 microseconds at EP256. H800 is an export variant with NVLink cut to about 160 GB/s, so the gap on H100 or Blackwell is wider.",
+    "data": [
+      "l05_moe_comm.csv"
+    ],
+    "chapters": [
+      "05",
+      "06",
+      "11"
+    ],
+    "source": "DeepSeek DeepEP README v1.2.1 (GitHub)",
+    "source_ids": [
+      "S5005"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-deepep-nvlink-vs-rdma.svg",
+    "html": null
+  },
+  {
+    "id": "05-moe-all-to-all-time-by-system",
+    "title": "Est.: a decode step's MoE all-to-all: ~22 ms on HGX H200, ~1.4 ms on GB300 NVL72",
+    "subtitle": "DeepSeek-V3-class model, 128 tokens per GPU, 64-way expert parallelism, 58 MoE layers; ms per step",
+    "alt": "Horizontal log-scale bar chart of estimated MoE dispatch-plus-combine time per decode step: HGX H200 about 22 ms (87.5% of expert traffic leaves the 8-GPU NVLink domain over a 400G NIC), HGX B300 about 11 ms, HGX Rubin NVL8 about 5.6 ms, GB300 NVL72 about 1.4 ms and Vera Rubin NVL72 about 0.8 ms, where all 64 expert GPUs sit in one NVLink domain. DeepEP's measured kernels on H800 with 400G InfiniBand take about 28 ms, close to the model. A decode step at DeepSeek's ~20 tokens/s per user lasts ~50 ms.",
+    "data": [
+      "l05_moe_comm.csv"
+    ],
+    "chapters": [
+      "05",
+      "11",
+      "P4"
+    ],
+    "source": "DeepSeek-V3 config and DeepEP (GitHub); NVIDIA specs; repo model",
+    "source_ids": [
+      "S5006",
+      "S34007",
+      "S5004",
+      "S32009",
+      "S5005",
+      "S205",
+      "S200",
+      "S266",
+      "S264",
+      "S262",
+      "S201",
+      "S33004",
+      "S101",
+      "S102"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-moe-all-to-all-time-by-system.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvl72-spine-copper-vs-optics",
+    "title": "Est.: optics for an NVL72 spine would add ~19 kW and ~$0.7M; copper adds ~0 W",
+    "subtitle": "Optics power and media cost for 72 GPUs × 1.8 TB/s (648 800G links, 1,296 modules); spine price not public",
+    "alt": "Two-panel chart. Left: power to drive an NVL72 spine of 648 800G links: passive copper about 0 kW beyond the chips' SerDes, co-packaged optics about 5.6 kW, linear pluggables about 11 kW and DSP pluggables about 19 kW, matching NVIDIA's claim of 20 kW saved. Right: media cost per rack about $0.13-0.19M for copper priced like 800G DACs versus $0.65-0.78M for 1,296 DSP optical modules. All estimates.",
+    "data": [
+      "l05_copper_vs_optics.csv",
+      "optics_power_estimates.csv"
+    ],
+    "chapters": [
+      "05",
+      "06",
+      "08"
+    ],
+    "source": "NVIDIA (GTC 2024); vendor prices; repo calc",
+    "source_ids": [
+      "S262",
+      "S33020",
+      "S265",
+      "S295",
+      "S282",
+      "S294",
+      "S5013",
+      "S5014",
+      "S5012",
+      "S5010",
+      "S5011",
+      "S5015",
+      "S5016",
+      "S5000",
+      "S5001",
+      "S200"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvl72-spine-copper-vs-optics.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvl72-vs-nvl8-deepseek-frontier",
+    "title": "9× bigger NVLink domain, same GPU: ~3.5× throughput at 49 tok/s/user, ~0.8× at 90",
+    "subtitle": "DeepSeek-R1 1k/1k, best published configs (SemiAnalysis InferenceX): tokens/s per GPU vs per user",
+    "alt": "Log-scale line chart of throughput per GPU against interactivity for DeepSeek-R1. GB200 NVL72 (72-GPU NVLink domain, FP4) reaches about 6,700-7,100 tokens/s per GPU at 21-45 tokens/s per user and about 3.5 times B200's 8-GPU servers at ~49 tokens/s per user, but the curves cross near 90 tokens/s per user (ratio 0.85) and B200 is ahead at higher interactivity. H200 (FP8) sits far below both. Frontier points come from different dates and software versions.",
+    "data": [
+      "inference_benchmarks.csv"
+    ],
+    "chapters": [
+      "05",
+      "11"
+    ],
+    "source": "SemiAnalysis InferenceX public-API snapshot",
+    "source_ids": [
+      "S621",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvl72-vs-nvl8-deepseek-frontier.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvlink-domain-bandwidth-by-system",
+    "title": "NVLink domain bandwidth rose ~170× in a decade, to 216 TB/s on Vera Rubin NVL72",
+    "subtitle": "Aggregate NVLink bandwidth of one scale-up domain, TB/s bidirectional (GPUs × per-GPU NVLink); labels = GPUs",
+    "alt": "Log-scale bar chart of aggregate NVLink bandwidth per scale-up domain: DGX-1 P100 1.28 TB/s (8 GPUs), DGX-1 V100 2.4, DGX-2 4.8 (16), HGX A100 4.8, HGX H100 7.2, HGX B200 14.4, GB200 and GB300 NVL72 about 130 TB/s (72 GPUs), Vera Rubin NVL72 216 TB/s on the revised production spec (launch spec 259), and Kyber NVL144 about 518 TB/s on the 2027 roadmap (144 GPUs). DGX GH200 reached 230 TB/s across 256 GPUs but saw limited deployment.",
+    "data": [
+      "l05_rack_fabric.csv"
+    ],
+    "chapters": [
+      "05",
+      "08",
+      "17"
+    ],
+    "source": "NVIDIA specs; SemiAnalysis; repo calc",
+    "source_ids": [
+      "S259",
+      "S200",
+      "S310",
+      "S260",
+      "S312",
+      "S206",
+      "S313",
+      "S261",
+      "S205",
+      "S263",
+      "S262",
+      "S207",
+      "S5000",
+      "S5001",
+      "S5007",
+      "S5008",
+      "S32004",
+      "S201",
+      "S202",
+      "S90006",
+      "S210",
+      "S211",
+      "S510",
+      "S507",
+      "S508"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvlink-domain-bandwidth-by-system.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvlink-fusion-partner-timeline",
+    "title": "NVLink Fusion: 8 launch partners, 13 by June 2026, one hyperscale XPU",
+    "subtitle": "Publicly announced NVLink Fusion partners by category and announcement date (filled = company-confirmed, hollow = reported)",
+    "alt": "Timeline dot chart of NVLink Fusion partners. At launch on 19 May 2025: MediaTek, Marvell and Alchip (design services), Synopsys and Cadence (EDA), Astera Labs (connectivity), Qualcomm and Fujitsu (CPUs). Later: Intel x86 CPUs (Sept 2025), Arm Neoverse (Nov 2025), AWS Trainium4 (Dec 2025, the only hyperscaler accelerator) and, as reported but not confirmed, Ayar Labs and Lightmatter for optics (June 2026). AMD, Broadcom and Google are absent.",
+    "data": [
+      "l05_nvlink_fusion_partners.csv"
+    ],
+    "chapters": [
+      "05",
+      "13",
+      "04"
+    ],
+    "source": "NVIDIA; partner and press reports",
+    "source_ids": [
+      "S131",
+      "S216",
+      "S90037",
+      "S4516",
+      "S90031",
+      "S4529",
+      "S130",
+      "S519",
+      "S90036",
+      "S219",
+      "S518",
+      "S156",
+      "S5022"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvlink-fusion-partner-timeline.svg",
+    "html": null
+  },
+  {
     "id": "05-nvlink-generations",
     "title": "NVLink per-GPU bandwidth rose 19× in 5 generations, from 160 GB/s (P100) to 3,000 GB/s (Rubin)",
     "subtitle": "Left: bidirectional GB/s per GPU. Right: NVLink links per GPU × bidirectional GB/s per link",
@@ -2480,6 +2705,47 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/05-nvlink-generations.svg",
+    "html": null
+  },
+  {
+    "id": "05-nvlink-pairs-per-gpu-and-rate",
+    "title": "72 NVLink wire pairs per GPU since Hopper: bandwidth grew 3–4× via faster pairs",
+    "subtitle": "Differential pairs per GPU (left; links × lanes × directions, repo calc) and Gb/s per pair (right); hatched = roadmap",
+    "alt": "Two-panel bar chart. Left: NVLink differential pairs per GPU were 64 (NVLink 1), 96 (NVLink 2 and 3) and then 72 for NVLink 4, 5, 6 and 7. Right: Gb/s per pair rose from 20 and 25 (NRZ) to 50, 100 (PAM4, Hopper), 200 (Blackwell) and about 333 on Rubin's revised spec (400 at launch, with each pair carrying traffic both ways), and 400 on Rubin Ultra (reported). Holding the pair count fixed is what lets the NVL72 copper spine keep its cable count.",
+    "data": [
+      "l05_rack_fabric.csv"
+    ],
+    "chapters": [
+      "05",
+      "17"
+    ],
+    "source": "NVIDIA whitepapers and specs; SemiAnalysis; repo calc",
+    "source_ids": [
+      "S259",
+      "S200",
+      "S310",
+      "S260",
+      "S312",
+      "S261",
+      "S205",
+      "S262",
+      "S207",
+      "S5000",
+      "S5001",
+      "S5007",
+      "S5008",
+      "S201",
+      "S202",
+      "S90006",
+      "S210",
+      "S211",
+      "S510",
+      "S507",
+      "S508"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-nvlink-pairs-per-gpu-and-rate.svg",
     "html": null
   },
   {
@@ -2969,6 +3235,117 @@
     "html": null
   },
   {
+    "id": "05-shard-transfer-time",
+    "title": "A 10 GB shard moves each way in ~11 ms on NVLink 5 vs ~100 ms on an 800G NIC",
+    "subtitle": "Milliseconds to send 10 GB each way at once (full duplex) at peak link rate; protocol overhead adds more",
+    "alt": "Horizontal log-scale bar chart of the time to move 10 GB each way per GPU: NVLink 6 on Vera Rubin about 6.7 ms (1,500 GB/s per direction), NVLink 5 about 11 ms (900 GB/s), NVLink 4 about 22 ms (450 GB/s), a 1.6 Tb/s NIC 50 ms, PCIe 6.0 x16 about 78 ms, an 800 Gb/s NIC 100 ms, PCIe 5.0 x16 about 156 ms and a 400 Gb/s NIC 200 ms: the scale-up link is roughly 9 to 15 times faster than the scale-out port beside it.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05",
+      "06",
+      "P4"
+    ],
+    "source": "NVIDIA NVLink specs, PCI-SIG, IBTA, IEEE 802.3",
+    "source_ids": [
+      "S200",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S262",
+      "S263",
+      "S205",
+      "S256",
+      "S254",
+      "S222",
+      "S264",
+      "S251",
+      "S252",
+      "S253"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-shard-transfer-time.svg",
+    "html": null
+  },
+  {
+    "id": "05-switch-chips-and-copper-pairs",
+    "title": "NVL72 doubled its switch chips (18 → 36) on the same ~5,184 copper pairs",
+    "subtitle": "NVLink switch chips per domain (left) and NVLink copper pairs per rack, repo calc (right); hatched = roadmap",
+    "alt": "Two-panel bar chart. Left: NVSwitch chips per domain were 12 in DGX-2 (16 GPUs), 6 in HGX A100, 4 in HGX H100 and 2 in HGX B200 (8 GPUs each), then 18 in GB200 NVL72, 36 in Vera Rubin NVL72 and a reported 72 in Kyber NVL144 (Lockwood estimates 36). Right: GB200 and GB300 NVL72 carry about 5,184 copper pairs (NVIDIA quoted about 5,000 cables, 2 miles) for 130 TB/s; Vera Rubin NVL72 reuses the same count for 216 TB/s (260 at launch); Kyber NVL144 doubles to 10,368 pairs on a printed-circuit midplane for about 518 TB/s.",
+    "data": [
+      "l05_rack_fabric.csv"
+    ],
+    "chapters": [
+      "05",
+      "08"
+    ],
+    "source": "NVIDIA; SemiAnalysis; KGI; Lockwood; repo calc",
+    "source_ids": [
+      "S206",
+      "S313",
+      "S261",
+      "S200",
+      "S205",
+      "S263",
+      "S262",
+      "S207",
+      "S5000",
+      "S5001",
+      "S5007",
+      "S5008",
+      "S201",
+      "S202",
+      "S90006",
+      "S210",
+      "S211",
+      "S510",
+      "S507",
+      "S508"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-switch-chips-and-copper-pairs.svg",
+    "html": null
+  },
+  {
+    "id": "05-torus-vs-switched-all-to-all",
+    "title": "Est.: all-to-all bandwidth per chip is 900 GB/s in NVL72, ~200 in a 64-chip TPU cube",
+    "subtitle": "Uniform all-to-all GB/s per chip per direction vs chips exchanging; bandwidth-only repo model",
+    "alt": "Log-log line chart of modeled all-to-all bandwidth per chip. A switched GB300-class NVL72 gives 900 GB/s per direction to every GPU up to 72 GPUs, then falls to the 800G NIC's ~100 GB/s (101 GB/s at 9,216 GPUs); an 8-GPU HGX node drops to ~100 GB/s beyond 8 GPUs; Vera Rubin NVL72 starts at 1,500 and settles near 200 with 1.6T NICs. A TPU Ironwood 3D torus (1.2 TB/s over six links) delivers about 200 GB/s in a 64-chip cube, falling with the cube root of chip count to about 38 at 9,216; TPU 8t doubles that. Torus links carry multi-hop traffic, which switched fabrics avoid.",
+    "data": [
+      "interconnect_specs.csv"
+    ],
+    "chapters": [
+      "05",
+      "15",
+      "06"
+    ],
+    "source": "NVIDIA, Google Cloud, IEEE specs; repo model",
+    "source_ids": [
+      "S200",
+      "S262",
+      "S263",
+      "S201",
+      "S202",
+      "S33004",
+      "S203",
+      "S232",
+      "S238",
+      "S239",
+      "S240",
+      "S256",
+      "S255",
+      "S254"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/05-torus-vs-switched-all-to-all.svg",
+    "html": null
+  },
+  {
     "id": "06-ai-cluster-fabrics",
     "title": "Disclosed AI fabrics grew from 14k GPUs on InfiniBand (2023) to 100k+ on Ethernet (2024)",
     "subtitle": "GPUs in one back-end fabric, by fabric; hatched = reported or announced (Oracle targets 800k)",
@@ -3391,7 +3768,7 @@
       "S33004",
       "S257",
       "S288",
-      "S6506",
+      "S6009",
       "S6505",
       "S6502",
       "S6523",
@@ -3553,9 +3930,9 @@
   },
   {
     "id": "06-switch-generation-race",
-    "title": "Broadcom shipped 102.4 Tb/s ~14 months before NVIDIA's Spectrum-6 reached partners",
+    "title": "Broadcom shipped 102.4 Tb/s ~12 months before NVIDIA's Spectrum-6 reached partners",
     "subtitle": "Switch ASIC generations by vendor: announcement (hollow) to first shipments (filled); 51.2T and 102.4T classes",
-    "alt": "Dumbbell timeline of switch ASIC generations. 51.2 Tb/s: NVIDIA announced Spectrum-4 first (March 2022) but launched it as Spectrum-X in May 2023, while Broadcom shipped Tomahawk 5 in August 2022; Marvell Teralynx 10 (March 2023) and Cisco G200 (June 2023) followed. 102.4 Tb/s: NVIDIA announced Spectrum-6 photonics in March 2025, Broadcom shipped Tomahawk 6 in June 2025, and TrendForce reported limited Spectrum-6 shipments in July 2026, about 14 months later; Cisco's G300 (announced February 2026) is planned for H2 2026. NVIDIA's 115.2 Tb/s Quantum-X800 InfiniBand switch was announced in March 2024 and shipped in 2025.",
+    "alt": "Dumbbell timeline of switch ASIC generations. 51.2 Tb/s: NVIDIA announced Spectrum-4 first (March 2022) but launched it as Spectrum-X in May 2023, while Broadcom shipped Tomahawk 5 in August 2022; Marvell Teralynx 10 (March 2023) and Cisco G200 (June 2023) followed. 102.4 Tb/s: NVIDIA announced Spectrum-6 photonics in March 2025, Broadcom shipped Tomahawk 6 in June 2025, and NVIDIA began shipping Spectrum-6 CPO switches to select partners in June 2026, about 12 months later; Cisco's G300 (announced February 2026) is planned for H2 2026. NVIDIA's 115.2 Tb/s Quantum-X800 InfiniBand switch was announced in March 2024 and shipped in 2025.",
     "data": [
       "l06_switch_generations.csv"
     ],
@@ -3563,7 +3940,7 @@
       "06",
       "15"
     ],
-    "source": "vendor releases and TrendForce",
+    "source": "vendor releases, press and TrendForce",
     "source_ids": [
       "S277",
       "S267",
@@ -3573,6 +3950,7 @@
       "S274",
       "S6505",
       "S265",
+      "S6019",
       "S6507",
       "S6503",
       "S264"
@@ -3637,7 +4015,7 @@
   },
   {
     "id": "07-ai-storage-and-dpu-valuations",
-    "title": "VAST Data's $30B mark is ~6× DDN's and ~19× WEKA's; DPU startups exited for $0.2–1.9B",
+    "title": "VAST Data's $30B mark is ~6× DDN's, ~19× WEKA's; DPU exits were $0.2–1.9B",
     "subtitle": "Last disclosed post-money valuation (private) or exit price (acquired), US$ millions (log scale); year of the mark in label",
     "alt": "Log-scale horizontal bar chart: VAST Data valued at $30,000M (2026, up from $9,100M in 2023), DDN $5,000M (2025), Xsight Labs $2,800M (2026), WEKA $1,600M (2024) and Hammerspace more than $500M (2025); for comparison, DPU and NIC start-ups were bought for $1,900M (Pensando by AMD), >$900M (Enfabrica team by NVIDIA) and ~$190M (Fungible by Microsoft).",
     "data": [
@@ -3669,7 +4047,7 @@
   {
     "id": "07-bluefield-generations",
     "title": "BlueField-4 carries 64 Arm cores, 4× BlueField-3, for 2× the bandwidth (800 Gb/s)",
-    "subtitle": "Arm cores per DPU, network Gb/s per direction and cores per 100 Gb/s, BlueField-1 to BlueField-4; hatched = announced (2026)",
+    "subtitle": "Arm cores, network Gb/s per direction and cores per 100 Gb/s, BlueField-1 to -4; hatched = 2026 launch; * = NVIDIA claim",
     "alt": "Three-panel bar chart of NVIDIA BlueField DPUs. Arm cores: BlueField-1 16 (Cortex-A72, 2018), BlueField-2 8 (A72, 2020), BlueField-3 16 (A78, 2022), BlueField-4 64 (Neoverse V2, Grace-class, 2026). Network bandwidth: 100, 200, 400 and 800 Gb/s. Cores per 100 Gb/s: 16, 4, 4 and 8, so BlueField-4 doubles compute per bit, signalling that it runs services such as storage and KV-cache management, not just packet offload. NVIDIA claims BlueField-2 replaced ~30 CPU cores, BlueField-3 up to 300 and BlueField-4 has 6x BlueField-3's compute.",
     "data": [
       "l07_bluefield_generations.csv"
@@ -3695,8 +4073,8 @@
   },
   {
     "id": "07-checkpoint-write-time",
-    "title": "A 405B model's 5.7 TB training checkpoint takes ~57 s at 100 GB/s and 0.8 s at Meta's 7 TB/s",
-    "subtitle": "Seconds to write one full checkpoint (weights + FP32 master + Adam states = 14 bytes/parameter) vs aggregate storage bandwidth",
+    "title": "A 405B model's 5.7 TB checkpoint takes ~57 s at 100 GB/s, 0.8 s at Meta's 7 TB/s",
+    "subtitle": "Seconds to write one full training checkpoint (14 bytes/parameter) vs aggregate storage bandwidth",
     "alt": "Log-log line chart of checkpoint write time against storage bandwidth for four model sizes at 14 bytes per parameter: Llama 3.1 70B (~0.98 TB), Llama 3.1 405B (~5.7 TB), DeepSeek-V3 671B (~9.4 TB) and a 1-trillion-parameter model (14 TB). At 100 GB/s, the line rate of one BlueField-4 port, the 405B checkpoint takes about 57 seconds; at 1 TB/s about 5.7 s; at the ~7 TB/s peak of Meta's Llama 3 storage cluster about 0.8 s.",
     "data": [
       "l07_checkpoint_model.csv",
@@ -3724,7 +4102,7 @@
   },
   {
     "id": "07-confidential-computing-overhead",
-    "title": "Confidential mode cost an H100 6.8% of throughput on an 8B model and ~0% on a 70B model",
+    "title": "Confidential mode cost an H100 6.85% of throughput on an 8B model, ~0% on 70B",
     "subtitle": "Performance overhead of running an LLM inside an H100 TEE vs normal mode, %; one published benchmark (2024)",
     "alt": "Bar chart of H100 confidential-computing overhead from a 2024 benchmark: throughput overhead 6.85% for Llama-3.1-8B, 4.58% for Phi-3-14B and -0.13% (about zero) for Llama-3.1-70B; time-to-first-token overhead 19% for Llama-3.1-8B. The cost comes mainly from encrypting CPU-GPU transfers, so it shrinks as the model, and the compute per byte moved, grows.",
     "data": [
@@ -3744,7 +4122,7 @@
   },
   {
     "id": "07-dpu-nic-deal-values",
-    "title": "DPU and NIC teams sold for $0.13B–$1.9B; NVIDIA paid $6.9B for all of Mellanox (3.6× Pensando)",
+    "title": "NIC/DPU teams sold for $0.13–1.9B; NVIDIA paid $6.9B (3.6× Pensando) for all of Mellanox",
     "subtitle": "Disclosed or reported deal value, US$ millions (log scale), NIC/DPU-related acquisitions 2014–2025, by close year",
     "alt": "Log-scale horizontal bar chart of NIC and DPU deals: NVIDIA's $6,900M Mellanox acquisition (closed 2020), AMD's $1,900M Pensando purchase (2022), NVIDIA's reported >$900M Enfabrica team-and-licence deal (2025), Mellanox's $811M EZchip purchase (2016), Amazon's reported ~$370M Annapurna Labs deal (2015) that became Nitro, Microsoft's reported ~$190M Fungible purchase (2023) and EZchip's up-to-$130M Tilera deal (2014); NVIDIA's Excelero storage software buy (2022) was undisclosed.",
     "data": [
@@ -3776,7 +4154,7 @@
   {
     "id": "07-gds-bandwidth-dgx2",
     "title": "Bypassing the CPU lifted a DGX-2's storage-to-GPU ceiling from ~50 GB/s to 100–215 GB/s",
-    "subtitle": "Aggregate bandwidth into the GPUs of one DGX-2 (16 V100) by data path, GB/s; NVIDIA measurements (2019–20); hatched = theoretical sum",
+    "subtitle": "GB/s into the 16 V100 GPUs of one DGX-2, by data path; NVIDIA measurements (2019–20); hatched = theoretical sum",
     "alt": "Horizontal bar chart of storage-to-GPU bandwidth in an NVIDIA DGX-2: the classic path through a CPU bounce buffer in system memory tops out at about 50 GB/s; with GPUDirect Storage, local NVMe drives deliver 53+ GB/s, remote storage via the NICs 100 GB/s or more, RAID cards in eight PCIe slots 112 GB/s, and all sources together a theoretical ~215 GB/s, about 4x the bounce-buffer path. NVIDIA also reported ~3x better CPU utilization. Vendor figures.",
     "data": [
       "l07_storage_paths.csv"
@@ -3792,6 +4170,52 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/07-gds-bandwidth-dgx2.svg",
+    "html": null
+  },
+  {
+    "id": "07-gpudirect-host-memory-load",
+    "title": "Without GPUDirect, staging NIC data in CPU memory would use 39–150% of its bandwidth",
+    "subtitle": "Inbound NIC data staged in host DRAM (written, then read = 2×) as % of host CPUs' peak memory bandwidth; one direction",
+    "alt": "Bar chart (repo arithmetic): if inbound network data had to be staged in CPU memory before reaching the GPUs, each byte would cross host DRAM twice. That would need 100 GB/s of a DGX-1's 154 GB/s (65%), 400 of a DGX A100's 410 GB/s (98%), 800 of a DGX H100's 614 GB/s (130%), 400 of a GB200 tray's 1,024 GB/s (39%), 800 of a GB300 tray's 1,024 (78%), 1,600 of a Vera Rubin tray's 2,400 (67%) and, for a whole AMD Helios rack, 43,200 of its 18 EPYC Venice CPUs' 28,800 GB/s (150%). GPUDirect RDMA removes this traffic by letting the NIC write straight into GPU memory.",
+    "data": [
+      "l07_nic_per_gpu.csv",
+      "cpu_specs.csv"
+    ],
+    "chapters": [
+      "07",
+      "04",
+      "06"
+    ],
+    "source": "NVIDIA, AMD system specs; CPU datasheets; repo arithmetic",
+    "source_ids": [
+      "S189",
+      "S273",
+      "S315",
+      "S188",
+      "S318",
+      "S266",
+      "S33022",
+      "S262",
+      "S264",
+      "S33004",
+      "S7019",
+      "S100",
+      "S290",
+      "S226",
+      "S228",
+      "S538",
+      "S178",
+      "S177",
+      "S129",
+      "S128",
+      "S144",
+      "S145",
+      "S4028",
+      "S7000"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/07-gpudirect-host-memory-load.svg",
     "html": null
   },
   {
@@ -3818,8 +4242,8 @@
   },
   {
     "id": "07-kv-cache-reload-by-tier",
-    "title": "Reloading a 128K-token 70B context: 1.1 ms from HBM, ~215 ms from BlueField-4 flash, ~5 s to recompute",
-    "subtitle": "Time to move one 21.5 GB FP8 KV cache (Llama 3.1 70B, 131,072 tokens) into a Rubin GPU, by tier (G1–G4); log scale",
+    "title": "128K-token 70B context: 1.1 ms from HBM, 0.2 s from BlueField-4 flash, 4.7 s to recompute",
+    "subtitle": "Time to move a 21.5 GB FP8 KV cache (Llama 3.1 70B, 131,072 tokens) into a Rubin GPU, by tier",
     "alt": "Log-scale horizontal bar chart of the time to restore a 21.5 GB KV cache (Llama 3.1 70B, 128K tokens, FP8): G1 HBM4 at 19.2 TB/s about 1.1 ms; G2 Vera LPDDR5X over NVLink-C2C at ~450 GB/s about 47.7 ms; G3.5 BlueField-4 context-memory storage over an 800 Gb/s link about 215 ms; G3 one local PCIe Gen5 x4 SSD about 1.4 s; recomputing the prefill on a Rubin GPU at 50% of dense FP8 peak about 4.7 s (estimate); and a per-GPU share of Meta's 7 TB/s Llama 3 storage cluster about 50 s. The G3.5 tier is ~22x faster than recomputing.",
     "data": [
       "l07_kv_tiers.csv"
@@ -3924,8 +4348,8 @@
   },
   {
     "id": "07-nic-dpu-content-per-rack",
-    "title": "Est.: SuperNICs and DPUs add ~$108K–$612K per NVL72 rack, only ~3–11% of rack price",
-    "subtitle": "Estimated NIC + DPU silicon per rack, US$ thousands (bar = midpoint, whisker = low–high case); 72 SuperNICs per rack (1 per GPU) and 18–36 DPUs",
+    "title": "Est.: NICs + DPUs are ~$0.1–0.6M per NVL72 rack, ~3–11% of its price",
+    "subtitle": "Est. SuperNIC + DPU silicon per rack, US$ thousands; bar = midpoint, whisker = low–high; 72 SuperNICs + 18–36 DPUs",
     "alt": "Stacked bar chart of estimated SuperNIC and DPU content per NVL72 rack: GB200 about $108K-$324K (3.6-10.8% of a ~$3.0M rack), GB300 $144K-$396K (3.6-9.9% of ~$3.99M) and Vera Rubin $252K-$612K (3.2-7.8% of ~$7.8M). Unit prices are repo assumptions anchored on BlueField-3 retail listings of $1.9K-$6.0K; NIC count is one per GPU.",
     "data": [
       "l07_rack_nic_dpu_content.csv"
@@ -3935,7 +4359,7 @@
       "08",
       "14"
     ],
-    "source": "repo estimate; rack prices HSBC and Morgan Stanley; retail listings",
+    "source": "repo Est.; HSBC, Morgan Stanley, listings",
     "source_ids": [
       "S266",
       "S326",
@@ -3954,7 +4378,7 @@
   },
   {
     "id": "07-nic-dpu-roadmap-by-vendor",
-    "title": "Only NVIDIA and AMD name NIC/DPU parts for 2028; NVIDIA's 1.6T ConnectX-9 is a speed step ahead of 800G rivals",
+    "title": "Only NVIDIA and AMD name NIC/DPU parts for 2028; ConnectX-9 is a speed step ahead",
     "subtitle": "NIC, SuperNIC and DPU availability by vendor, 2024–2028; label = product · Gb/s per device; hollow = announced, sampling or roadmap",
     "alt": "Timeline chart of NIC and DPU products 2024-2028 by vendor lane. NVIDIA: BlueField-3 (400G), ConnectX-8 (800G, 2025), ConnectX-9 (1.6T, 2026), BlueField-4 (800G, 2026), ConnectX-10 and BlueField-5 (2028, no specs). AMD: Pollara and Salina (400G, 2025), Vulcano (800G, 2026), Como/Monza (2027) and Palma/Levanzo (2028), names only. Broadcom Thor Ultra (800G, sampling 2025), AWS Nitro v6 (400G per card), Microsoft Azure Boost DPU (2025), Intel IPU E2100 (200G) and Xsight Labs E1 (800G) have no disclosed successors.",
     "data": [
@@ -4028,7 +4452,7 @@
   },
   {
     "id": "07-offload-value-per-tray",
-    "title": "Est.: freed CPU cores are worth ~$0.4–0.7K a year per Vera Rubin tray; 1–3% more GPU time, $1.7–5.2K",
+    "title": "Est.: 1–3% more GPU time is worth $1.7–5.2K per tray a year; freed CPU cores ~$0.4–0.7K",
     "subtitle": "US$ per compute tray (4 Rubin GPUs, 2 Vera CPUs) per year, by source of DPU value; repo estimate from cited inputs",
     "alt": "Range bar chart (estimates) of the annual value of DPU offload per Vera Rubin compute tray: freed host cores, 33-57 of 176 Vera cores valued at about $57 per core over 5 years, are worth about $375-650 a year; best-case power savings of 247 W are worth about $202; recovering 1-3% of GPU time on four GPUs rented at $4.99 per hour is worth about $1,748-5,245. In AI servers the DPU's value lies in GPU utilization and tenant isolation, not in CPU cycles.",
     "data": [
@@ -4054,40 +4478,6 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/07-offload-value-per-tray.svg",
-    "html": null
-  },
-  {
-    "id": "07-scale-out-bandwidth-per-gpu",
-    "title": "Scale-out bandwidth per GPU rose 32× from DGX-1 (50 Gb/s) to Vera Rubin (1.6 Tb/s); AMD Helios offers 2.4 Tb/s",
-    "subtitle": "NIC bandwidth per accelerator for the back-end (scale-out) fabric, Gb/s per direction, by system and first-volume year",
-    "alt": "Horizontal bar chart of scale-out NIC bandwidth per accelerator: DGX-1 V100 50 Gb/s (4 x 100G EDR for 8 GPUs, 2017), DGX A100 200 (2020), DGX H100 400 (2022), AWS P5 400 (EFAv2, 2023), AWS Trn2 200 per Trainium2 (2024), GB200 NVL72 400 (ConnectX-7, 2024), GB300 NVL72 800 (ConnectX-8, 2025), Vera Rubin NVL72 1,600 (ConnectX-9, 2026) and AMD Helios 2,400 (three 800G Pensando Vulcano NICs per MI455X, 2026). NVIDIA moved to one NIC per GPU with DGX A100 and doubled per-GPU bandwidth with each of the last two generations.",
-    "data": [
-      "l07_nic_per_gpu.csv"
-    ],
-    "chapters": [
-      "07",
-      "06"
-    ],
-    "source": "NVIDIA DGX/NVL72 specs, AWS EFA docs, AMD Helios",
-    "source_ids": [
-      "S189",
-      "S273",
-      "S315",
-      "S188",
-      "S318",
-      "S266",
-      "S292",
-      "S262",
-      "S264",
-      "S33004",
-      "S7019",
-      "S290",
-      "S226",
-      "S228"
-    ],
-    "kind": "data",
-    "asof": "2026-11-05",
-    "svg": "assets/charts/07-scale-out-bandwidth-per-gpu.svg",
     "html": null
   },
   {

@@ -596,3 +596,82 @@ as a multiple of the message size: ring 2(N−1)/N vs SHARP in-network reduction
 clusters with a disclosed back-end fabric. `fabric_family`: `infiniband` | `spectrum-x` | `ethernet-other` | `mixed`.
 `status`: `operating` | `reported` (expansion reported, not verified) | `announced` (target). Rows with no disclosed GPU
 count (e.g. Microsoft Fairwater) are kept for the text and skipped by the chart.
+
+## Layer 07 STRATEGY — NIC/DPU competition, deals, roadmap and value chain (`l07_*` strategy files; charts in `scripts/charts/ch_l07_strategy.py`; sources S7500–S7536)
+
+### l07_competitor_verdicts.csv (long, competitor × dimension)
+`competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes` — repo verdict of
+each rival's best NIC/DPU against NVIDIA's nearest equivalent (SuperNIC vs NIC, DPU vs DPU) on six dimensions (bandwidth
+per device, programmability, AI-transport features, merchant availability, ecosystem/software, deployed scale).
+`verdict_vs_nvidia`: `leads` | `parity` | `behind` | `different`. Judgement rows are `speculative`. Feeds
+`07-nic-dpu-competitor-heatmap`.
+
+### l07_dpu_nic_deals.csv (one row per deal)
+`announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_it_became,status,confidence,source_id,notes`
+— NIC/DPU-related acquisitions 2014–2025 (Tilera, Annapurna, EZchip, Mellanox, Excelero, Pensando, Fungible, Enfabrica).
+`value_basis`: `disclosed` | `reported` | `up-to` | `undisclosed`. Feeds `07-dpu-nic-deal-values`.
+
+### l07_speed_tier_arrival.csv (one row per vendor × speed tier)
+`vendor,speed_tier_gbps,product,category,year,status,confidence,source_id,notes` — the year each vendor's fastest NIC/DPU
+first reached a per-device speed tier (first volume, or sampling where `status` = `sampling`). Feeds
+`07-nic-speed-tier-arrival`.
+
+### l07_nic_dpu_roadmap.csv (one row per product)
+`vendor,product,category,date,status,bandwidth_gbps,confidence,source_id,notes` — NIC/SuperNIC/DPU availability 2024–2028
+by vendor; `date` is an approximate month of availability (parts already in market are pinned to 2024-01); blank
+`bandwidth_gbps` = not disclosed. `status`: `shipping` | `announced` | `sampling` | `roadmap`. Feeds
+`07-nic-dpu-roadmap-by-vendor`.
+
+### l07_rack_nic_dpu_content.csv (one row per rack × component)
+`rack,component,units_low,units_high,unit_price_low_usd,unit_price_high_usd,rack_price_usd_m,confidence,source_id,notes` —
+repo estimate (all `estimate`) of SuperNIC and DPU dollars per NVL72 rack. SuperNIC count = one per GPU (vendor specs);
+DPU count 18–36 (one or two per compute tray, assumption); unit prices are repo assumptions anchored on BlueField-3 retail
+listings ($1.9K–$6.0K, S7531/S7532); rack prices are HSBC (GB200) and Morgan Stanley (GB300, Vera Rubin) estimates. Feeds
+`07-nic-dpu-content-per-rack`.
+
+### l07_private_companies.csv (one row per funding mark or exit)
+`company,segment,date,event,raise_usd_m,valuation_usd_m,valuation_basis,lead_or_buyer,status,confidence,source_id,notes` —
+last disclosed post-money valuations of private storage and data-path companies (VAST Data, DDN, WEKA, Hammerspace,
+Xsight Labs) and exit prices of DPU/NIC start-ups (Pensando, Enfabrica, Fungible). `status`: `private` | `acquired`.
+Feeds `07-ai-storage-and-dpu-valuations`.
+
+## Layer 07 CORE — DPU, SuperNIC, storage and security mechanisms (`l07_*` core files; charts in `scripts/charts/ch_l07_core.py`; sources S7000–S7028)
+
+### l07_bluefield_generations.csv (one row per BlueField generation)
+`generation,product,year,status,arm_cores,core_type,dpu_memory_gb,network_gbps,host_pcie,claimed_cpu_core_equivalent,compute_vs_bluefield3,confidence,source_id,notes`
+— Arm cores, on-board memory, maximum port speed (Gb/s per direction) and host PCIe for BlueField-1 to -4;
+`claimed_cpu_core_equivalent` and `compute_vs_bluefield3` are NVIDIA claims. Feeds `07-bluefield-generations`.
+
+### l07_infra_tax.csv (one row per estimate)
+`estimate,basis,share_low_pct,share_high_pct,cores_freed,cores_total,confidence,source_id,notes` — published estimates of the
+share of host CPU cores/cycles consumed by infrastructure software without offload (three of four are NVIDIA's). Feeds
+`07-infrastructure-tax-estimates`.
+
+### l07_offload_model.csv (one row per model input)
+`input,value,unit,basis,confidence,source_id,notes` — inputs for the repo's estimate of the annual dollar value of DPU offload
+per Vera Rubin compute tray (freed Vera cores at an estimated $5k per CPU over a 5-year life; best-case power saving;
+1–3% GPU-time scenario at $4.99/GPU-hour). Formulas in `offload_values()`. Feeds `07-offload-value-per-tray`.
+
+### l07_nic_per_gpu.csv (one row per system)
+`system,vendor,year,status,accelerator,nic,nics_per_accelerator,nic_port_gbps,scale_out_gbps_per_accelerator,unit,accelerators_per_unit,host_cpu,host_cpus_per_unit,confidence,source_id,notes`
+— scale-out NIC bandwidth per accelerator and the host CPUs per server/tray (names match `cpu_specs.csv`). Feeds
+`07-gpudirect-host-memory-load` (host DRAM traffic needed to stage inbound NIC data = 2 × NIC GB/s, divided by the host
+CPUs' peak memory bandwidth from `cpu_specs.csv`).
+
+### l07_storage_paths.csv (one row per data path)
+`system,path,bandwidth_gbs,basis,confidence,source_id,notes` — NVIDIA's DGX-2 measurements of storage-to-GPU bandwidth with
+and without GPUDirect Storage (2019–20). Feeds `07-gds-bandwidth-dgx2`.
+
+### l07_checkpoint_model.csv (long)
+`record_type,item,value,unit,confidence,source_id,notes` — `model` (parameter counts), `bandwidth` (reference storage
+bandwidths) and `cluster` (Llama 3 failure statistics). Checkpoint size = parameters × 14 bytes (BF16 weights + FP32 master
+weights + Adam momentum + variance, from `P1_memory_per_parameter.csv`). Feeds `07-checkpoint-write-time`.
+
+### l07_kv_tiers.csv (long)
+`tier,label,value,unit,scope,confidence,source_id,notes` — one-way bandwidth of each KV-cache tier (G1 HBM, G2 CPU memory,
+G3 local SSD, G3.5 BlueField-4 context storage, G4 shared storage) and the model inputs (`tier` = `model`) used to size a
+128K-token Llama 3.1 70B FP8 KV cache and the recompute estimate. Feeds `07-kv-cache-reload-by-tier`.
+
+### l07_cc_overhead.csv (one row per model × metric)
+`study,gpu,model,metric,tee_off,tee_on,overhead_pct,confidence,source_id,notes` — H100 confidential-computing overhead from
+Zhu et al. (arXiv 2409.03992). Feeds `07-confidential-computing-overhead`.

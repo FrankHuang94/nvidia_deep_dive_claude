@@ -74,3 +74,15 @@ is stated — keep it visible in the text rather than picking silently.
 | **ROCm 7.0** (Sept 2025): AITER tuned operators, FP4/FP6, Windows support; 7.x point releases through 2026 | 🟢 | S90064 |
 | **Dynamo 1.0** production release (GTC, 2026-03-16/17), open source under Apache 2.0, adopters incl. CoreWeave, Nebius, Together AI, Cursor, Perplexity, PayPal, Pinterest, ByteDance, Meituan, AstraZeneca; up to 7× inference on GB200 NVL (partner claim); relies on NIXL / NVIDIA networking stack | 🟢 / 🟡 (perf) | S90066 |
 | **Qualcomm–Modular** ($3.9B, announced 2026-06-24, close H2 2026): Modular's Mojo language and MAX engine are a hardware-portable AI software stack — directly relevant to the CUDA-moat discussion | 🟡 | S90057 |
+
+## Customers, cloud and capital deployment
+
+| Fact | Tag | Sources |
+|---|---|---|
+| **Customer concentration (Q2 FY2027 10-Q):** one direct customer = 16 % of quarterly revenue; in H1 FY2027 three direct customers = 16 %, 15 %, 13 %; several indirect customers ≥ 10 % (estimated). Q1 FY2027: non-US-headquartered customers 22 % of revenue (42 % a year earlier); one AI research lab contributed meaningfully via cloud providers | 🟢 | S90069, S90070 |
+| **Customer mix:** sovereign AI revenue > ~$30B in FY2026 (+80 % y/y, management commentary); AI clouds/industrial/enterprise (ACIE) ~$37B in Q1 FY2027, roughly matching hyperscale; regional neoclouds +35 % q/q and > 3× y/y in Q2 FY2027 | 🟡 | S90071 |
+| **Equity portfolio (Jul 2026 10-Q, secondary reading):** non-marketable equity ~$51.2B, marketable equity ~$42.8B, ~$5.0B locked-up public equity (≈ $99B combined, a CNBC aggregation); H1 FY2027 purchases of equity securities $42.4B (vs $1.2B a year earlier); Q2 FY2027 net equity gains $7.8B (H1 $23.7B) — much of the portfolio growth is mark-to-market; further equity commitments ~$25B | 🟢 (filing) / 🟡 (reading) | S90069, S90070, S90072, S90073 |
+| **Circular-financing response:** Aug 10, 2026 partnership with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to mobilise > $500B of third-party capital for AI infrastructure (reported) | 🟡 | S90074 |
+| **CoreWeave backstop:** Sept 2025 amended agreement — NVIDIA to buy up to $6.3B of CoreWeave's unsold capacity through 2032-04-13 | 🟢 | S90067 |
+| **DGX Cloud pivot:** most DGX Cloud capacity reportedly redirected to NVIDIA's internal research (2025); DGX Cloud **Lepton** positioned as a marketplace routing developers to partner GPU clouds | 🟡 | S90068 |
+| **Anthropic (Nov 2025):** NVIDIA up to $10B and Microsoft up to $5B investment; Anthropic commits $30B to Azure compute and up to 1 GW on Grace Blackwell / Vera Rubin; joint engineering on Claude performance | 🟢 | S90075 |

@@ -1,0 +1,22 @@
+term,slug,definition,see_also
+DPU (data processing unit),dpu,"A network card with its own processor cores and accelerators that runs networking, storage and security software so the server's main CPU does not have to.",supernic;smartnic;ipu
+SuperNIC,supernic,"NVIDIA's name for a network card dedicated to moving data between GPUs in the back-end network (ConnectX-8/9 and BlueField-3 SuperNIC), typically one per GPU.",dpu;back-end-network
+SmartNIC,smartnic,A network card that offloads some packet processing (for example virtual switching or encryption) from the CPU; a DPU is a SmartNIC with general-purpose cores.,dpu
+RDMA (remote direct memory access),rdma,"A way for one computer to read or write another computer's memory over the network without involving either CPU, cutting latency and CPU load.",roce;infiniband
+RoCE (RDMA over Converged Ethernet),roce,The standard for running RDMA over Ethernet instead of InfiniBand; it traditionally needs a loss-free network to perform well.,rdma;ultra-ethernet
+DOCA,doca,"NVIDIA's software development kit and runtime for BlueField DPUs and SuperNICs, the DPU counterpart of CUDA.",dpu
+Ultra Ethernet (UEC),ultra-ethernet,"An open Ethernet transport for AI and HPC defined by the Ultra Ethernet Consortium (spec 1.0, June 2025), with multipath packet spraying, packet trimming and new congestion control.",roce;packet-spraying
+EFA (Elastic Fabric Adapter),efa,"AWS's network interface for HPC and AI instances, built on Nitro cards and the SRD transport rather than InfiniBand or standard RoCE.",srd;aws-nitro
+SRD (Scalable Reliable Datagram),srd,"AWS's own transport protocol, used by EFA, that sprays packets across many network paths and recovers losses in hardware.",efa;packet-spraying
+AWS Nitro,aws-nitro,"AWS's family of in-house offload cards and hypervisor that run EC2 networking, storage, management and security off the host CPU; it grew out of the 2015 Annapurna Labs acquisition.",dpu;efa
+IPU (infrastructure processing unit),ipu,Intel's (and Google's) term for a DPU: a programmable network device that runs cloud infrastructure functions off the host CPU.,dpu
+P4 (programming language),p4-language,"A language for programming how a network chip parses and forwards packets, used by AMD Pensando and Intel IPU pipelines.",dpu
+Packet spraying,packet-spraying,Sending the packets of one flow over many network paths at once to avoid hot spots; the receiving NIC puts them back in order.,ultra-ethernet;srd
+Falcon (transport),falcon-transport,"Google's hardware-assisted network transport for data-center Ethernet, contributed to the Open Compute Project in 2023; Intel's IPU E2000 was its first hardware platform.",ipu
+Confidential computing,confidential-computing,Running code and data inside a hardware-protected enclave (trusted execution environment) so that even the cloud operator cannot read them; NVIDIA supports it on GPUs from Hopper onwards.,dpu
+Front-end network,front-end-network,"The ordinary data-center network that connects servers to storage, users and the internet, as opposed to the GPU-to-GPU back-end network.",back-end-network
+Back-end network,back-end-network,The dedicated scale-out network that links GPUs across servers for training and inference collectives; typically one NIC per GPU.,front-end-network;supernic
+GPUDirect Storage,gpudirect-storage,"NVIDIA technology that moves data directly between storage (local NVMe or over the network) and GPU memory, bypassing a copy through CPU memory.",rdma
+Context-memory storage,context-memory-storage,A storage tier for AI inference that keeps KV caches (the model's working memory of a conversation) on fast flash near the GPUs so they can be reloaded instead of recomputed; NVIDIA's BlueField-4 STX targets it.,kv-cache;dpu
+Captive silicon,captive-silicon,"Chips a company designs for its own use and does not sell (for example AWS Nitro or Microsoft's Azure Boost DPU), as opposed to merchant silicon.",merchant-silicon
+Hypervisor,hypervisor,The software layer that splits one physical server into many virtual machines; offloading it to a DPU or Nitro card frees host CPU cores and hardens isolation.,aws-nitro;dpu
