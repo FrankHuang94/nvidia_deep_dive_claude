@@ -1,0 +1,28 @@
+period,period_type,period_end,metric,value,unit,confidence,source_id,notes
+FY2007,FY,2007-01-28,revenue_total,3.069,USD_B,reported,S400,[recall] 10-K; not re-read online this session
+FY2007,FY,2007-01-28,gross_margin_gaap_pct,42.4,pct,reported,S400,[recall] 10-K; not re-read online this session
+FY2007,FY,2007-01-28,rd_expense,0.5535,USD_B,confirmed,S22001,FY2009 10-K comparative
+FY2008,FY,2008-01-27,revenue_total,4.098,USD_B,reported,S400,[recall] 10-K; not re-read online this session
+FY2008,FY,2008-01-27,gross_margin_gaap_pct,45.6,pct,confirmed,S22000,FY2010 10-K comparative
+FY2008,FY,2008-01-27,rd_expense,0.6916,USD_B,confirmed,S22001,
+FY2009,FY,2009-01-25,revenue_total,3.425,USD_B,confirmed,S22002,
+FY2009,FY,2009-01-25,gross_margin_gaap_pct,34.3,pct,confirmed,S22000,Includes a $196.0M charge for a weak die/packaging material set
+FY2009,FY,2009-01-25,rd_expense,0.8559,USD_B,confirmed,S22001,
+FY2010,FY,2010-01-31,revenue_total,3.326,USD_B,confirmed,S22002,
+FY2010,FY,2010-01-31,gross_margin_gaap_pct,35.4,pct,confirmed,S22000,
+FY2010,FY,2010-01-31,rd_expense,0.9089,USD_B,confirmed,S22000;S22001,Derived: FY2009 $855.9M + $53.0M increase stated in FY2010 10-K
+FY2011,FY,2011-01-30,revenue_total,3.543,USD_B,reported,S400,[recall] 10-K; not re-read online this session
+FY2011,FY,2011-01-30,gross_margin_gaap_pct,39.8,pct,confirmed,S22003,
+FY2011,FY,2011-01-30,rd_expense,0.8488,USD_B,confirmed,S22003,Derived: FY2012 $1002.6M less the $153.8M increase stated in the FY2013 10-K
+FY2012,FY,2012-01-29,revenue_total,3.998,USD_B,confirmed,S22003,
+FY2012,FY,2012-01-29,gross_margin_gaap_pct,51.4,pct,confirmed,S22003,
+FY2012,FY,2012-01-29,rd_expense,1.0026,USD_B,confirmed,S22003,25.1% of revenue
+FY2013,FY,2013-01-27,revenue_total,4.280,USD_B,confirmed,S22003,
+FY2013,FY,2013-01-27,gross_margin_gaap_pct,52.0,pct,confirmed,S22003;S22004,
+FY2013,FY,2013-01-27,rd_expense,1.1473,USD_B,confirmed,S22003,26.8% of revenue
+FY2014,FY,2014-01-26,revenue_total,4.130,USD_B,reported,S400,[recall] 10-K; not re-read online this session
+FY2014,FY,2014-01-26,gross_margin_gaap_pct,54.9,pct,confirmed,S22004,
+FY2014,FY,2014-01-26,rd_expense,1.3358,USD_B,reported,S400,[recall] 10-K; not re-read online this session
+FY2015,FY,2015-01-25,revenue_total,4.682,USD_B,reported,S400,[recall] 10-K; not re-read online this session
+FY2015,FY,2015-01-25,gross_margin_gaap_pct,55.5,pct,confirmed,S22004,
+FY2015,FY,2015-01-25,rd_expense,1.3597,USD_B,reported,S400,[recall] 10-K; not re-read online this session

@@ -1,0 +1,6 @@
+term,slug,definition,see_also
+IT load,it-load,"The power drawn by the servers, storage and network equipment themselves, excluding cooling and power-conversion losses. Facility power = IT load × PUE.",pue
+SPV financing,spv-financing,"Funding a data center through a special-purpose vehicle or joint venture owned largely by outside investors, so most of the debt sits off the operator's balance sheet (e.g. Meta's Hyperion).",circular-financing
+MTBI (mean time between interruptions),mtbi,"Average GPU-hours a large training job runs before a hardware or software fault interrupts it. Higher MTBI means less work lost to restarts.",hot-spare
+Capital recovery factor,capital-recovery-factor,"The share of an investment that must be earned each year to repay it with interest over its life: r / (1 - (1 + r)^-n). Used to turn capex into an annual cost.",tco
+Hot spare,hot-spare,"A powered, idle GPU or node kept ready to replace a failed one so a training job can continue. Spares raise reliability but lower utilization.",mtbi

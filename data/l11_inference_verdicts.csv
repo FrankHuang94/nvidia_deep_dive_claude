@@ -1,0 +1,41 @@
+competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
+Open-source serving,vLLM / SGLang / llm-d,Tokens/s per user,parity,wide-EP on NVL72 too,vLLM wide expert parallelism lifted GB200 NVL72 to 3.1x B200 on Kimi K2.5; SGLang tops several InferenceX frontiers,reported,S630;S621,engines run on NVIDIA hardware as well; verdict compares engine quality not silicon
+Open-source serving,vLLM / SGLang / llm-d,Throughput per dollar,parity,same GPUs; same cost,Open engines and TensorRT-LLM trade places on the InferenceX frontier on identical B200 pools,reported,S629;S621,analyst judgement
+Open-source serving,vLLM / SGLang / llm-d,Software maturity,parity,~2 stable releases/month,vLLM shipped 30 stable releases in 2026 YTD vs 2 stable (38 RC) for TensorRT-LLM; TGI moved to maintenance mode,confirmed,S522;S11502,release cadence is a proxy for maturity
+Open-source serving,vLLM / SGLang / llm-d,Model coverage,leads,day-0 for open models,Model labs ship vLLM/SGLang support at launch; Dynamo itself uses them as backends,reported,S11001;S580,analyst judgement
+Open-source serving,vLLM / SGLang / llm-d,Deployment flexibility,leads,7 hardware families,vLLM runs on CUDA ROCm Intel TPU Neuron Ascend and Qualcomm AI 100; llm-d 1.0 validated on NVIDIA AMD Intel and TPU,confirmed,S580;S581;S596;S11503,
+AMD,MI355X / MI455X Helios + ROCm,Tokens/s per user,behind,8-GPU domain until Helios,At 150 tok/s/user NVIDIA up to 5x cheaper on GLM 5.3; Pareto 738 vs 6261 tok/s/GPU at 50 tok/s/user (DeepSeek-R1),reported,S636;S621,Helios 72-GPU scale-up not yet benchmarked publicly
+AMD,MI355X / MI455X Helios + ROCm,Throughput per dollar,parity,up to 29.6% cheaper (GLM-5),MI355X up to 29.6% lower cost per million tokens than B200 on single-node FP8 GLM-5; MLPerf Llama 2 70B parity with B200,reported,S637;S602,
+AMD,MI355X / MI455X Helios + ROCm,Software maturity,behind,ROCm 7; no Dynamo twin,ROCm 7 added AITER kernels and FP4; disaggregation via llm-d/SGLang rather than an AMD-owned serving layer,reported,S90064;S11503,analyst judgement
+AMD,MI355X / MI455X Helios + ROCm,Model coverage,parity,vLLM/SGLang first-class,Both engines list ROCm as native; AMD claims day-zero vLLM support,confirmed,S580;S582;S9519,
+AMD,MI355X / MI455X Helios + ROCm,Deployment flexibility,parity,merchant: OpenAI Oracle Meta,Merchant GPUs and Helios racks at OpenAI (6 GW) Oracle (50k MI450) Meta and Anthropic,reported,S90020;S90022;S546;S9538,
+Google TPU,Ironwood / TPU 8i,Tokens/s per user,different,9216-chip ICI pods,Large torus pods with optical switches; few public interactivity frontiers,reported,S151;S625,analyst judgement
+Google TPU,Ironwood / TPU 8i,Throughput per dollar,leads,~18% below B200 per token,Qwen3.5 397B FP8 at 100 tok/s/user: Ironwood $0.181 vs B200 $0.222 vs B300 $0.276 per million tokens,reported,S625,single workload
+Google TPU,Ironwood / TPU 8i,Software maturity,behind,TorchTPU only since Oct 2026,JAX/XLA mature inside Google; native PyTorch stack open-sourced Oct 2026; vLLM via plugin,confirmed,S553;S581,
+Google TPU,Ironwood / TPU 8i,Model coverage,behind,Gemini + Anthropic + plugins,Frontier labs (Google and Anthropic) run on TPU; open models via vLLM JAX and SGLang-JAX,reported,S90026;S581;S582,
+Google TPU,Ironwood / TPU 8i,Deployment flexibility,different,Google Cloud; OCI from 2027,TPUs offered beyond Google Cloud (OCI in 2027; some customer datacenters),confirmed,S552;S90027,
+AWS,Trainium3 / Inferentia2 + Neuron,Tokens/s per user,behind,no public results,No MLPerf or InferenceX submissions,reported,S620;S602,absence of evidence
+AWS,Trainium3 / Inferentia2 + Neuron,Throughput per dollar,different,captive pricing,Priced inside AWS; not benchmarked publicly; Anthropic Project Rainier on ~500k Trainium2,reported,S90034,analyst judgement
+AWS,Trainium3 / Inferentia2 + Neuron,Software maturity,behind,vLLM Neuron plugin beta,AWS recommends vLLM on Neuron but the plugin is labelled beta; SGLang does not list Neuron,confirmed,S581;S582,
+AWS,Trainium3 / Inferentia2 + Neuron,Model coverage,behind,Claude + selected open models,Neuron support level 1 of 3 in vLLM,confirmed,S581,
+AWS,Trainium3 / Inferentia2 + Neuron,Deployment flexibility,different,AWS only,Rented through EC2/Bedrock; never sold,confirmed,S155,
+Microsoft,Maia 200,Tokens/s per user,different,272 MB SRAM + HBM3E,Inference-first ASIC; no public benchmarks,reported,S158,
+Microsoft,Maia 200,Throughput per dollar,different,internal claims only,Microsoft positions Maia 200 on performance per dollar for Copilot/OpenAI serving; unverified,reported,S158;S90044,
+Microsoft,Maia 200,Software maturity,behind,no public serving stack,SDK not generally available to outside developers,speculative,S158,analyst judgement
+Microsoft,Maia 200,Model coverage,behind,Copilot / OpenAI models,Runs Microsoft first-party workloads,reported,S90044,
+Microsoft,Maia 200,Deployment flexibility,different,Azure-internal,Deployed in US Europe and Australia regions; Maia 300 in 2027,reported,S90044;S90046,
+Cerebras,CS-3 (WSE-3),Tokens/s per user,leads,interactivity GPUs can't reach,Serves dense 70B-class models at interactivity no 8-GPU node reaches (SemiAnalysis),reported,S634,
+Cerebras,CS-3 (WSE-3),Throughput per dollar,behind,44 GB SRAM per system,Large models span many ~23 kW systems; absent from MLPerf v6.0,speculative,S166;S613,analyst judgement
+Cerebras,CS-3 (WSE-3),Software maturity,different,own compiler + API cloud,Mostly consumed as an inference API rather than a programmable platform,speculative,S634,analyst judgement
+Cerebras,CS-3 (WSE-3),Model coverage,behind,curated models + OpenAI,Curated open models plus OpenAI capacity (750 MW through 2028),reported,S11523,
+Cerebras,CS-3 (WSE-3),Deployment flexibility,different,cloud + on-prem; IPO 2026,Sold as a cloud service and as CS-3 systems; listed on Nasdaq May 2026,reported,S11523;S2504,
+Groq,GroqCloud LPU (post-licence),Tokens/s per user,leads,SRAM-speed decode,230 MB SRAM at 80 TB/s on-die per LPU v1 chip,confirmed,S167,NVIDIA now ships the licensed design as Groq 3 LPX
+Groq,GroqCloud LPU (post-licence),Throughput per dollar,behind,hundreds of chips/model,0.23 GB per chip means a 70B model spans hundreds of chips,speculative,S167,analyst judgement
+Groq,GroqCloud LPU (post-licence),Software maturity,behind,founders now at NVIDIA,Founder Jonathan Ross and much of the team joined NVIDIA in Dec 2025,reported,S90018;S118,
+Groq,GroqCloud LPU (post-licence),Model coverage,behind,curated open models,API serves a curated catalogue,speculative,S474,analyst judgement
+Groq,GroqCloud LPU (post-licence),Deployment flexibility,different,API cloud; licence non-exclusive,GroqCloud continues independently under CEO Simon Edwards,reported,S90018;S474,
+Qualcomm,AI 100 Ultra / AI200 / AI250,Tokens/s per user,behind,LPDDR ~0.55 TB/s/card,AI 100 Ultra: 128 GB LPDDR4x at 548 GB/s; AI250 promises >10x effective bandwidth,confirmed,S172;S173,public information only
+Qualcomm,AI 100 Ultra / AI200 / AI250,Throughput per dollar,different,768 GB/card capacity bet,AI200 targets TCO with 768 GB LPDDR per card; no public cost-per-token data,reported,S173,public information only
+Qualcomm,AI 100 Ultra / AI200 / AI250,Software maturity,behind,vLLM container; + Modular,Qualcomm-maintained vLLM container; Modular (MAX/Mojo) acquired July 2026,confirmed,S596;S9511,public information only
+Qualcomm,AI 100 Ultra / AI200 / AI250,Model coverage,behind,no MLPerf DC / InferenceX,No datacenter MLPerf or InferenceX results,reported,S602;S620,absence of evidence
+Qualcomm,AI 100 Ultra / AI200 / AI250,Deployment flexibility,parity,merchant cards + racks,PCIe cards and liquid-cooled racks; HUMAIN 200 MW first customer,reported,S173;S90030,public information only

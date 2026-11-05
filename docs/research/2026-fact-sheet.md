@@ -42,6 +42,7 @@ is stated — keep it visible in the text rather than picking silently.
 
 | Fact | Tag | Sources |
 |---|---|---|
+| **AMD–Meta (2026-02-24):** a second 6 GW chips-for-stock agreement mirroring the OpenAI deal — warrant for up to 160M AMD shares; AMD shares later passed the $600 hurdle reported for the final tranche (Sep 2026, single source) | 🟢 / 🟡 | S24004, S24003 |
 | **AMD Helios:** 72 × MI455X + EPYC "Venice"; 1.4 EF FP8 / 2.9 EF FP4 / 31 TB HBM4 per rack; in production, first shipments ~end Q3 2026; OpenAI large-scale deployment from Q4 2026 into 2027 (6 GW deal, Oct 2025); Oracle 50,000 MI450; Azure reported as first major Helios deployment; MI500 in customer engagement | 🟢/🟡 | S90020, S90021, S90022, S90023, S90024 |
 | **Google TPU:** Ironwood (v7) GA; Anthropic up to **1M TPUs** (>1 GW in 2026, tens of $B); Meta multibillion rental of Ironwood capacity (Feb 2026) and talks to buy TPUs for its own datacenters; Google selling TPUs into customer datacenters | 🟢/🟡 | S90025, S90026, S90027 |
 | **AWS:** Trn3 UltraServers GA (re:Invent, Dec 2025; 3 nm); **Trainium4** designed to support NVLink Fusion; AWS claims 6× FP4, 3× FP8, 4× memory bandwidth vs Trn3; Project Rainier ~500k Trainium2 for Anthropic (Oct 2025) | 🟢 | S90034, S90035 |

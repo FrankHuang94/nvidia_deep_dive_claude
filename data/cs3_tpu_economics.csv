@@ -1,0 +1,14 @@
+system,vendor,metric,value,unit,basis,confidence,source_id,notes
+TPU7x Ironwood (Google internal),Google,owner_tco_per_chip_hour,1.03,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,Google's own cost: no design-partner or cloud margin on top
+TPU7x Ironwood,Google,owner_tco_per_chip_hour,1.21,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,External buyer owning or renting long-term (the Anthropic/Meta case)
+H100,NVIDIA,owner_tco_per_chip_hour,1.17,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,
+H200,NVIDIA,owner_tco_per_chip_hour,1.22,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,
+MI355X,AMD,owner_tco_per_chip_hour,1.50,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,
+B200,NVIDIA,owner_tco_per_chip_hour,1.73,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,
+GB200 NVL72,NVIDIA,owner_tco_per_chip_hour,1.86,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,per GPU
+B300,NVIDIA,owner_tco_per_chip_hour,2.26,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,
+GB300 NVL72,NVIDIA,owner_tco_per_chip_hour,2.31,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,per GPU
+Vera Rubin NVL72,NVIDIA,owner_tco_per_chip_hour,3.61,USD,"SemiAnalysis AI Cloud TCO model (InferenceX registry, July 2026)",estimate,S622,VR200 per GPU package; pre-volume estimate
+B200,NVIDIA,rental_per_chip_hour,3.70,USD,SemiAnalysis July 2026 rental survey,estimate,S622,
+GB300 NVL72,NVIDIA,rental_per_chip_hour,5.00,USD,SemiAnalysis July 2026 rental survey,estimate,S622,
+MI355X,AMD,rental_per_chip_hour,2.90,USD,SemiAnalysis July 2026 rental survey,estimate,S622,

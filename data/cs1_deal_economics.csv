@@ -1,0 +1,21 @@
+record_type,period,metric,value,unit,confidence,source_id,notes
+mellanox_actual,CY2018,revenue,1.089,USD_B,confirmed,S21000,"Derived from the filed 2019 figure: $1,330.6M was +22.2% y/y"
+mellanox_actual,CY2018,gross_margin_gaap_pct,64.3,pct,confirmed,S21000,
+mellanox_actual,CY2019,revenue,1.3306,USD_B,confirmed,S21000;S21001,Mellanox 10-K
+mellanox_actual,CY2019,gross_profit,0.8665,USD_B,confirmed,S21000,
+mellanox_actual,CY2019,gross_margin_gaap_pct,65.1,pct,confirmed,S21000;S21001,
+deal_term,2019-03-11,price_equity,6.9,USD_B,confirmed,S464,"$125 per share, all cash; total purchase consideration ~$7.1B incl. assumed equity awards (acquisitions_investments.csv)"
+deal_term,2019-03-11,price_per_share,125,USD,confirmed,S464,
+deal_term,2019-02,nvidia_prior_bid_per_share,115,USD,reported,S6508,NVIDIA's late-February 2019 bid before the final $125
+deal_term,2019-03,intel_reported_bid,6.0,USD_B,reported,S6509,Intel reportedly offered about $6B; Microsoft and Xilinx also reported as suitors
+deal_term,2020-04-16,samr_conditional_approval,1,flag,confirmed,S21002;S21003,China SAMR approval with behavioural conditions (no bundling or unreasonable conditions on China sales)
+deal_term,2020-04-27,days_announce_to_close,413,days,confirmed,S464;S21005,2019-03-11 to 2020-04-27
+nvidia_networking,FY2021,revenue,1.67,USD_B,estimate,S418;S2,"NVIDIA: Mellanox ~10% of FY2021 revenue ($16.675B); consolidated from 2020-04-27, so ~9 months"
+model_assumption,FY2022,networking_revenue_floor,2.2,USD_B,speculative,S21014,"Not disclosed. Floor = FY2021 estimate annualised (1.67 x 12/9); real figure was likely higher, so payback dates are conservative"
+model_assumption,FY2023,networking_revenue_floor,2.2,USD_B,speculative,S21014,"Not disclosed; same floor as FY2022"
+model_assumption,all,gross_margin_low_pct,65.1,pct,speculative,S21000;S21014,Mellanox's own 2019 GAAP gross margin
+model_assumption,all,gross_margin_high_pct,75.0,pct,speculative,S3;S21014,NVIDIA company GAAP gross margin in Q2 FY2027
+model_assumption,all,heritage_share_low_pct,50,pct,speculative,S21014,Share of NVIDIA networking credited to the Mellanox franchise (rest = NVLink switches and later organic work)
+model_assumption,all,heritage_share_mid_pct,70,pct,speculative,S21009;S21014,Calcalist estimates ~70% of NVIDIA's connectivity business relies on Mellanox and Israeli centres
+model_assumption,all,heritage_share_high_pct,100,pct,speculative,S21014,
+model_assumption,all,cost_of_capital_pct,9,pct,speculative,S21014,Hurdle rate used to compound the purchase price

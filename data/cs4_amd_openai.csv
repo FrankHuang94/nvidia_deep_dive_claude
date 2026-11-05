@@ -1,0 +1,14 @@
+record_type,period,entity,metric,value,unit,confidence,source_id,notes
+dc_revenue,2026-Q1,AMD,revenue_data_center,5.78,USD_B,confirmed,S24009,Quarter ended 2026-03-28; +57% y/y; extends the AMD rows in peer_financials.csv (2023-Q1 to 2025-Q4)
+dc_revenue,2026-Q2,AMD,revenue_data_center,6.7,USD_B,confirmed,S543,Quarter ended 2026-06-27; +107% y/y
+dc_revenue,2026-Q3,AMD,revenue_data_center,8.55,USD_B,estimate,S542;S450,Repo calc: AMD reported +97% y/y on Q3 2025's $4.341B; the dollar figure was not in the snippets seen
+share_price,2025-10-03,AMD,close_usd,164.67,USD_per_share,confirmed,S24001,Last close before the OpenAI announcement; market cap $267.23B
+share_price,2025-10-06,AMD,close_usd,203.70,USD_per_share,estimate,S24001;S24002,Repo calc: $164.67 x 1.237 (reported +23.7% close on announcement day)
+share_price,2026-09-21,AMD,close_usd,612.46,USD_per_share,reported,S24005,First close above the $600 hurdle reported; market value above $1T
+warrant_term,2025-10-06,AMD to OpenAI,final_tranche_share_price_hurdle,600,USD_per_share,reported,S13507;S24003,Escalating price targets; the $600 condition is reported for the final tranche (one source attaches it differently)
+warrant_term,2025-10-06,AMD to OpenAI,warrant_shares,160,million_shares,confirmed,S24000;S13506,Exercise price $0.01 per share; five-year term (S24003)
+warrant_term,2025-10-06,AMD to OpenAI,committed_capacity,6,GW,confirmed,S24000,Multi-generation; first 1 GW of MI450 in H2 2026
+warrant_term,2025-10-03,AMD,shares_outstanding,1623,million_shares,estimate,S24001,Repo calc: market cap $267.23B / $164.67; the warrant equals ~9.9% of pre-deal shares
+assumption,2025-10-06,OpenAI,amd_hardware_spend_per_gw_low,10,USD_B_per_GW,speculative,S24004;S24000,Low case: bottom of the $60-100B+ range reported for AMD's identical 6 GW Meta deal ($10B/GW)
+assumption,2025-10-06,OpenAI,amd_hardware_spend_per_gw_base,15,USD_B_per_GW,speculative,S24010;S24004;S24000,Base case: 'as much as $100B over several years' (~$16.7B/GW) rounded down; AMD guided only 'tens of billions'
+assumption,2025-10-06,OpenAI,amd_hardware_spend_per_gw_high,20,USD_B_per_GW,speculative,S24010;S24006,High case: richer rack content (Helios with CPUs and NICs); OpenAI's $1.4T for 30 GW implies ~$47B per GW of total facility cost

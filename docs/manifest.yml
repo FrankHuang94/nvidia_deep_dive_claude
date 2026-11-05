@@ -27,7 +27,7 @@ units:
   - {id: "08", title: "Systems, racks and AI factories", type: layer, phase: 5, status: drafted, qa: pending, paths: [layers/08-systems-racks-ai-factories]}
   - {id: "09", title: "CUDA and system software", type: layer, phase: 5, status: drafted, qa: pending, paths: [layers/09-cuda-and-system-software]}
   - {id: "10", title: "Libraries (CUDA-X)", type: layer, phase: 5, status: drafted, qa: pending, paths: [layers/10-libraries-cuda-x]}
-  - {id: "11", title: "Inference and AI software", type: layer, phase: 6, status: planned, qa: pending, paths: [layers/11-inference-and-ai-software]}
+  - {id: "11", title: "Inference and AI software", type: layer, phase: 6, status: drafted, qa: pending, paths: [layers/11-inference-and-ai-software]}
   - {id: "12", title: "Orchestration and cloud services", type: layer, phase: 6, status: drafted, qa: pending, paths: [layers/12-orchestration-and-cloud-services]}
   - {id: "13", title: "Ecosystem, go-to-market and capital", type: layer, phase: 6, status: drafted, qa: pending, paths: [layers/13-ecosystem-gtm-and-capital]}
   - {id: "14", title: "Training vs. inference economics", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/14-training-vs-inference-economics.md]}
@@ -36,10 +36,10 @@ units:
   - {id: "17", title: "Roadmap 2025–2028", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/17-roadmap-2025-2028.md]}
   - {id: "18", title: "Vulnerabilities and bear case", type: cross-cutting, phase: 7, status: planned, qa: pending, paths: [cross-cutting/18-vulnerabilities-and-bear-case.md]}
   - {id: "19", title: "Implications for Qualcomm", type: cross-cutting, phase: 8, status: planned, qa: pending, paths: [cross-cutting/19-implications-for-qualcomm.md]}
-  - {id: CS1, title: "Mellanox: the best deal", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS1-mellanox-the-best-deal.md]}
-  - {id: CS2, title: "CUDA: the 15-year bet", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS2-cuda-the-15-year-bet.md]}
-  - {id: CS3, title: "Google TPU: the credible alternative", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS3-google-tpu-the-credible-alternative.md]}
-  - {id: CS4, title: "AMD, OpenAI and the second source", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS4-amd-openai-and-the-second-source.md]}
-  - {id: CS5, title: "The DeepSeek moment and the efficiency shock", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS5-deepseek-moment-and-efficiency-shock.md]}
+  - {id: CS1, title: "Mellanox: the best deal", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS1-mellanox-the-best-deal.md]}
+  - {id: CS2, title: "CUDA: the 15-year bet", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS2-cuda-the-15-year-bet.md]}
+  - {id: CS3, title: "Google TPU: the credible alternative", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS3-google-tpu-the-credible-alternative.md]}
+  - {id: CS4, title: "AMD, OpenAI and the second source", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS4-amd-openai-and-the-second-source.md]}
+  - {id: CS5, title: "The DeepSeek moment and the efficiency shock", type: case-study, phase: 7, status: drafted, qa: pending, paths: [case-studies/CS5-deepseek-moment-and-efficiency-shock.md]}
   - {id: CS6, title: "China export controls: H20 and beyond", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS6-china-export-controls-h20-and-beyond.md]}
   - {id: CS7, title: "Gigawatt AI factories: xAI, Stargate and others", type: case-study, phase: 7, status: planned, qa: pending, paths: [case-studies/CS7-gigawatt-ai-factories-xai-stargate-etc.md]}

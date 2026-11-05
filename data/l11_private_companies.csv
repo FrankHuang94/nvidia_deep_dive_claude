@@ -1,0 +1,18 @@
+company,segment,date,event,raise_usd_m,valuation_usd_m,valuation_basis,status,confidence,source_id,notes
+Fireworks AI,inference cloud,2026-05,funding talks,,15000,reported talks,private,reported,S11514,later early-stage talks at $30-40B reported (S11515); not used
+Together AI,inference cloud,2026-07-01,Series C,800,8300,post-money,private,reported,S11516;S11517,Aramco Ventures lead; NVIDIA participated
+Baseten,inference cloud,2026-01-23,Series E,300,5000,post-money,private,reported,S11518,NVIDIA an anchor investor
+Modal Labs,inference cloud,2026-02,funding talks,,2500,reported talks,private,reported,S11519,later uncorroborated higher figure not used
+Inferact (vLLM),serving engine,2026-01-22,Seed,150,800,post-money,private,reported,S11511;S11540,a16z and Lightspeed co-led
+RadixArk (SGLang),serving engine,2026-05-05,Seed,100,400,post-money,private,reported,S11512;S11513,Accel lead; NVIDIA and AMD reported participants
+Cerebras,inference silicon,2026-05-14,Nasdaq IPO (CBRS),5550,40000,IPO pricing (low end of reports),public,reported,S2504;S2505,~$56B fully diluted per other outlets
+Etched,inference silicon,2026-07,Series C,300,10300,post-money (reported),private,reported,S2507,~$1B of Sohu pre-orders reported
+Groq,inference silicon,2025-09,Series E,,6900,post-money (reported),licensed to NVIDIA,reported,S90019,then ~$20B NVIDIA licence and team deal (Dec 2025)
+Positron,inference silicon,2026-09,Series C,875,5000,post-money,private,reported,S11521;S11520,Series B Feb 2026 at >$1B
+Tenstorrent,inference silicon,2024-12-02,Series D,693,2700,post-money (repo arithmetic),private,confirmed,S2509,$2B pre-money + raise
+d-Matrix,inference silicon,2025-11-12,Series C,275,2000,round valuation,private,reported,S2511,
+SambaNova,inference silicon,2025-12,acquisition talks (Intel),,1600,reported offer incl. debt,private,reported,S2512,talks stalled; valued at $5B in 2021
+MatX,inference silicon,2026-02-24,Series B,500,,undisclosed,private,reported,S2508,valuation not disclosed
+FuriosaAI,inference silicon,2025-07-31,Bridge,122,,undisclosed,private,reported,S11522,aggregator data
+Modular,serving engine,2026-06-24,Acquired by Qualcomm,,3900,announced price,acquired,confirmed,S90057;S9511,closed 2026-07-29
+Hugging Face,serving engine,2026-09-03,Acquisition by NVIDIA (pending),,12930,announced price,acquired,reported,S11026;S11500,close expected H1 2027 subject to regulatory review; last private round valued it at $4.5B (2023)

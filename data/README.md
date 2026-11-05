@@ -1183,3 +1183,52 @@ registry, July 2026: capex amortisation, power and hosting per accelerator-hour;
 cost and for an external owner) and `rental_per_chip_hour` (SemiAnalysis July 2026 rental survey). All `estimate`.
 Per-chip values are not per-token values; per-token comparisons live in `inference_benchmarks.csv`. Used by
 `CS3-owner-tco-per-chip-hour`.
+
+## Case study CS6 — China export controls (`cs6_*.csv`, charts in `scripts/charts/ch_cs6.py`)
+
+### cs6_china_revenue.csv (one row per period and reporting basis)
+`period,period_type,period_end,basis,china_revenue_usd_b,total_revenue_usd_b,china_share_pct,confidence,source_id,notes`
+
+NVIDIA revenue from China including Hong Kong. `basis`: `billing` (customer billing location, used in 10-Ks through
+FY2025) or `headquarters` (customer headquarters, adopted in Q3 FY2026; the FY2026 10-K recast FY2024–FY2025). The two
+bases are not comparable: FY2025 is 13.1 % on billing and 19.2 % on headquarters. Quarterly rows cover all platforms
+(gaming, PC, automotive included), not just Data Center. FY2019–FY2023 billing values come from a 10-K compilation
+located by web search and are flagged for re-verification. Used by `CS6-china-revenue-share`.
+
+### cs6_china_parts.csv (one row per accelerator)
+`vendor,product,year,china_status,status_short,tpp_basis,dense_tflops_used,bits_used,tpp,memory_gb,memory_bw_tbs,scale_up_bw_gbs_bidir,confidence,source_id,notes`
+
+TPP (total processing performance, the US control metric) computed as dense TFLOPS × bit width at the precision named in
+`tpp_basis` (equivalent to 2 × MAC rate × bits). H20 specs are leaked (no NVIDIA datasheet); Huawei figures are from
+its roadmap and are on-paper values. Used by `CS6-china-parts-tpp`.
+
+### cs6_scenarios.csv (one row per policy regime)
+`scenario,order,china_revenue_usd_b,gross_margin_pct,levy_pct,capacity_resold,confidence,source_id,notes`
+
+Repo scenarios (all `estimate`) for a ~$17.5B/yr China data-center market at 75 % gross margin. Gross profit =
+revenue × (margin − levy); `capacity_resold = yes` means the capacity is sold to other buyers at the same margin
+(supply-constrained case). Used by `CS6-levy-vs-ban-gross-profit`.
+
+## Case study CS7 — gigawatt AI factories (`cs7_*.csv`, charts in `scripts/charts/ch_cs7.py`)
+
+### cs7_gigawatt_projects.csv (one row per site or programme)
+`project,operator,location,silicon,first_power,mw_operating,mw_operating_basis,mw_claimed,mw_planned,accelerators,status,confidence,source_id,notes`
+
+`mw_operating` is the best public evidence of power in use (basis stated per row: company figure, Epoch AI estimate,
+satellite cooling count or repo estimate); blank = in use but undisclosed, 0 = not yet in use. `mw_claimed` holds a
+company claim that independent evidence contradicts (Colossus 2). Used by `CS7-site-scale-mw`.
+
+### cs7_cost_per_gw.csv (long: one row per estimate and cost component)
+`estimate,estimator,date,component,value_usd_b,low_usd_b,high_usd_b,confidence,source_id,notes`
+
+`component`: `nvidia_or_gpu` · `other_it` · `facility` · `unallocated` (the part a source does not split). Bernstein's
+component split comes from secondary summaries of the Reuters article. Used by `CS7-cost-per-gw-estimates`, which adds
+the repo bottom-up row computed from `cs7_gw_build_inputs.csv`.
+
+### cs7_gw_build_inputs.csv (one row per model input)
+`input,value,unit,basis,confidence,source_id,notes`
+
+Inputs of the repo's 1 GW Vera Rubin NVL72 site model and break-even calculation (PUE, rack kW, non-rack IT overhead,
+rack price, NVIDIA content shares, facility capex per GW, power price, useful lives, cost of capital, idle power
+floor). Formulas are documented in the module docstring of `ch_cs7.py`. Used by `CS7-cost-per-gw-estimates` and
+`CS7-breakeven-vs-utilization`.

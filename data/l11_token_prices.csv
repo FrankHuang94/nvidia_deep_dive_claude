@@ -1,0 +1,13 @@
+date,model,provider,tier,input_usd_per_m,output_usd_per_m,blended_3to1_usd_per_m,basis,confidence,source_id,notes
+2022-11,GPT-3.5-level (MMLU 64.8) cheapest available,various,capability floor,,,20.0,AI Index price per million tokens at a fixed capability,reported,S11526,input/output weighting not stated by the source
+2023-03-01,gpt-3.5-turbo,OpenAI,small,2.00,2.00,2.00,launch list price,confirmed,S11528,
+2023-03-14,GPT-4 (8K),OpenAI,flagship,30.00,60.00,37.50,launch list price,confirmed,S11529,
+2023-11-06,GPT-4 Turbo,OpenAI,flagship,10.00,30.00,15.00,launch list price,confirmed,S11530,
+2024-01-25,gpt-3.5-turbo-0125,OpenAI,small,0.50,1.50,0.75,list price cut,confirmed,S11541,
+2024-05-13,GPT-4o,OpenAI,flagship,5.00,15.00,7.50,launch list price,confirmed,S11531,half GPT-4 Turbo's price
+2024-07-18,GPT-4o mini,OpenAI,small,0.15,0.60,0.2625,launch list price,confirmed,S11532,
+2024-08-06,GPT-4o (2024-08-06),OpenAI,flagship,2.50,10.00,4.375,list price cut,confirmed,S11533,
+2024-10,Gemini-1.5-Flash-8B (GPT-3.5-level),Google,capability floor,,,0.07,AI Index price per million tokens at a fixed capability,reported,S11526,>280x below Nov 2022
+2025-08-07,GPT-5,OpenAI,flagship,1.25,10.00,3.4375,launch list price,confirmed,S11534,
+2025-08-07,GPT-5 nano,OpenAI,small,0.05,0.40,0.1375,launch list price,confirmed,S11534,
+2026-04-23,GPT-5.5,OpenAI,flagship,5.00,30.00,11.25,launch list price (reported),reported,S11535;S11536,2x GPT-5.4 ($2.50/$15); OpenAI pricing page not fetched

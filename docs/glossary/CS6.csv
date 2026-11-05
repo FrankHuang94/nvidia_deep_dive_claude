@@ -1,0 +1,9 @@
+term,slug,definition,see_also
+TPP (total processing performance),tpp,"The US export-control measure of an AI chip's compute: roughly dense TFLOPS (or TOPS) times the bit width of the operation. Chips at or above 4,800 TPP need a licence to ship to China.",performance-density
+Performance density,performance-density,"TPP divided by die area in mm². Added by the October 2023 rule so a vendor cannot dodge the TPP line by spreading the same compute over more silicon.",tpp
+BIS (Bureau of Industry and Security),bis,"The US Commerce Department agency that writes and licenses export controls, including the AI-chip rules aimed at China.",export-controls
+China-compliant SKU,compliant-sku,"A product variant cut down to sit just below an export-control threshold (for example A800, H800, H20), so it can ship without a licence until the rule changes.",tpp
+Export revenue share,export-revenue-share,"A licence condition under which the exporter pays part of its sales revenue to the US government: 15% on H20 (Aug 2025) and 25% on H200 (Dec 2025) China sales.",export-controls
+Revenue by customer headquarters,revenue-by-customer-hq,"Geographic revenue assigned to the country where the customer is headquartered rather than where it is billed. NVIDIA switched to this basis in Q3 FY2026, which raised China's reported share.",export-controls
+Huawei Ascend,huawei-ascend,"Huawei's family of AI accelerators (910B/910C, 950PR/950DT, 960, 970), sold mainly in China with the CANN software stack and SuperPoD rack-scale systems.",cann
+Supply-constrained,supply-constrained,"A market where a vendor can sell everything it can make. A lost customer then costs little in the short run, because the capacity is resold to others.",gross-margin

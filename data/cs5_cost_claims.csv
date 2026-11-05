@@ -1,0 +1,6 @@
+item,date,entity,category,value_usd_m,basis,confidence,source_id,notes
+R1 reinforcement-learning run,2025-09-17,DeepSeek,company claim,0.294,512 H800 GPUs for ~80 hours (Nature paper),reported,S25007,Excludes the V3 base model and preparatory work on A100s
+V3 final pre-training run,2024-12-27,DeepSeek,company claim,5.576,2.788M H800 GPU-hours x $2 per GPU-hour rental,confirmed,S34007;S31013,DeepSeek's own arithmetic; excludes research and ablations and owned-cluster capex
+GPU investment (fleet),2025-02,DeepSeek / High-Flyer,analyst estimate,500,more than $500M on GPUs,estimate,S25006,SemiAnalysis estimate reported by Tom's Hardware; lower bound
+Server capex (fleet),2025-02,DeepSeek / High-Flyer,analyst estimate,1600,~$1.6B total server capex for ~50k Hopper GPUs,estimate,S25006,SemiAnalysis estimate; fleet shared with the High-Flyer hedge fund
+NVIDIA one-day market-value loss,2025-01-27,NVIDIA,market reaction,589000,-17% close-to-close on 2025-01-27,reported,S25000;S25001,Largest one-day loss for any company; estimates range $560B-$594B

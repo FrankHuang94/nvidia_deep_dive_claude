@@ -1,0 +1,15 @@
+announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_it_brought,status,confidence,source_id,notes
+2023-10,2023-10,AMD,Nod.ai,acquisition,,undisclosed,open-source AI compiler team (SHARK; Torch-MLIR),closed,confirmed,S9508,terms undisclosed
+2024-04,2024-05,NVIDIA,Deci,acquisition,300,reported,neural-architecture search and inference-efficient models,closed,reported,S478;S479,"~$300M press-reported; row in acquisitions_investments.csv flagged [recall]"
+2024-04-24,2024-12-30,NVIDIA,Run:ai,acquisition,700,reported,GPU scheduling and orchestration (open-sourced after EU review),closed,reported,S476,~$700M reported; NVIDIA did not disclose terms
+2024-07-10,2024-08,AMD,Silo AI,acquisition,665,disclosed,AI lab and model-porting team for AMD hardware,closed,confirmed,S9506;S11510,~$665M all-cash
+2024-09,2024-10,NVIDIA,OctoAI,acquisition,250,reported,serving and model-optimisation stack (Apache TVM founders),closed,reported,S11510;S478,single secondary source for price
+2024-11-12,2025-01,Red Hat (IBM),Neural Magic,acquisition,,undisclosed,leading vLLM contributor; sparsity and quantisation tooling,closed,confirmed,S9533,terms undisclosed
+2025-06,2025-06,NVIDIA,CentML,acquisition,400,up-to,ML compiler and inference optimisation,closed,reported,S11509,"'well over $300M', >$400M with earn-outs (The Logic); one tracker lists ~$165M"
+2025-06,2025-06,AMD,Brium,acquisition,,undisclosed,inference compiler and optimisation team,closed,confirmed,S9507,terms undisclosed
+2025-06,2025-06,AMD,Untether AI (team),acquihire,,undisclosed,inference compiler and kernel engineers from a shut-down chip start-up,closed,confirmed,S9507,team only; company wound down
+2025-11,2025-11,AMD,MK1,acquisition,,undisclosed,inference and reasoning software,closed,reported,S9509,terms undisclosed
+2025-12,,Intel,SambaNova (talks),acquisition-talks,1600,reported,dataflow inference chips and cloud,not completed,reported,S2512,"~$1.6B including debt reported; talks stalled (Jan 2026)"
+2025-12-24,2025-12,NVIDIA,Groq (licence + team),acquihire-license,20000,reported,non-exclusive LPU licence; founder and team join NVIDIA,closed,reported,S90018;S90019;S474,"terms undisclosed; ~$20B reported (CNBC); Groq's Sep 2025 round valued it at ~$6.9B"
+2026-06-24,2026-07-29,Qualcomm,Modular,acquisition,3900,disclosed,hardware-portable AI software (Mojo language; MAX engine),closed,confirmed,S90057;S9511;S9514,announced at $3.9B; reportedly recorded at ~$3.1B in Qualcomm's quarterly report (S9514)
+2026-09-03,,NVIDIA,Hugging Face,acquisition,12930,disclosed,model hub; transformers; TGI; ggml/llama.cpp team (joined Feb 2026),pending,reported,S11025;S11026;S11500;S11027;S11028,"announced at ~$12.93B (~$11.9B to investors + ~$1B retention); close expected H1 2027 subject to regulatory review; DOJ interest reported"

@@ -1,0 +1,6 @@
+generation,announce_year,first_deployment,role,precision_basis,peak_tflops_per_chip,bf16_tflops_dense,memory_type,memory_capacity_gb,memory_bandwidth_gbs,max_pod_chips,status,confidence,source_id,notes
+TPU v1,2016,2015,inference,INT8,92,,DDR3,8,34,,eol,confirmed,S23000;S23001;S23002,"65,536 8-bit MACs and 28 MiB on-chip memory; PCIe card for inference; 15-30x faster than K80/Haswell on production inference. DDR3 capacity/bandwidth per the ISCA paper as recalled."
+TPU v2,2017,2017,training,BF16,45,45,HBM,,,256,eol,confirmed,S23003,"180 TFLOPS per four-chip Cloud TPU device; pod of 64 devices = 256 chips at 11.5 PFLOPS. First TPU to train."
+TPU v3,2018,2018,training,BF16,123,123,HBM2,32,900,1024,eol,confirmed,S23004,Pod ~126 PFLOPS BF16
+TPU 8t,2026,2026-Q4,training,FP4,12600,,HBM,,,9600,announced,confirmed,S238;S239;S550;S552,"Up to 12.6 PFLOPS native FP4 per chip (~2.8x Ironwood); 121 EF FP4 per 9,600-chip pod; GA 'later in 2026'"
+TPU 8i,2026,2026-Q4,inference,FP4,,,HBM,,,1152,announced,reported,S239;S550,"~3x Ironwood on-chip SRAM for KV cache; 1,152 chips per pod (reported); per-chip FLOPS not in the repo's sources"

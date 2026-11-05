@@ -28,8 +28,8 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ✅ complete — 3 layers drafted, ~30k words, 163 visuals (44–52 % data charts) | `phase-3-complete` (local tag) |
 | 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ✅ complete — 3 layers drafted, ~30k words, ~146 visuals (42–46 % data charts) | `phase-4-complete` (local tag) |
 | 5 | Layers 08 systems, 09 CUDA, 10 libraries | ✅ complete — 3 layers drafted, ~31k words, ~140 visuals (43–50 % data charts) | `phase-5-complete` (local tag) |
-| 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ⬜ planned | |
-| 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ⬜ planned | |
+| 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ✅ complete — 3 layers drafted, ~30.5k words, ~140 visuals (45–54 % data charts) | `phase-6-complete` (local tag) |
+| 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ⏳ in progress — CS1–CS5 drafted; CS6–CS7 and chapters 14–18 running | |
 | 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ⬜ planned | |
 | 9 | Independent QA, fixes, MkDocs site, v1.0 | ⬜ planned | |
 
@@ -60,7 +60,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 08 | Systems, racks and AI factories | 5 | drafted | 10,376 | 46 | 23 (23) | 2 | 10 | 11 | 50% | 172 | pending |
 | 09 | CUDA and system software | 5 | drafted | 9,996 | 42 | 18 (18) | 1 | 10 | 13 | 43% | 139 | pending |
 | 10 | Libraries (CUDA-X) | 5 | drafted | 10,531 | 50 | 22 (22) | 0 | 11 | 17 | 44% | 156 | pending |
-| 11 | Inference and AI software | 6 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 11 | Inference and AI software | 6 | drafted | 10,128 | 47 | 26 (26) | 0 | 9 | 12 | 55% | 197 | pending |
 | 12 | Orchestration and cloud services | 6 | drafted | 10,354 | 48 | 22 (22) | 0 | 13 | 13 | 46% | 125 | pending |
 | 13 | Ecosystem, go-to-market and capital | 6 | drafted | 10,001 | 52 | 25 (25) | 0 | 12 | 15 | 48% | 180 | pending |
 | 14 | Training vs. inference economics | 7 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -69,14 +69,14 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 17 | Roadmap 2025–2028 | 7 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 18 | Vulnerabilities and bear case | 7 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 19 | Implications for Qualcomm | 8 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| CS1 | Mellanox: the best deal | 7 | planned | 35 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| CS2 | CUDA: the 15-year bet | 7 | planned | 35 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| CS3 | Google TPU: the credible alternative | 7 | planned | 36 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| CS4 | AMD, OpenAI and the second source | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| CS1 | Mellanox: the best deal | 7 | drafted | 2,135 | 12 | 5 (5) | 0 | 3 | 4 | 42% | 48 | pending |
+| CS2 | CUDA: the 15-year bet | 7 | drafted | 2,180 | 12 | 7 (7) | 0 | 2 | 3 | 58% | 52 | pending |
+| CS3 | Google TPU: the credible alternative | 7 | drafted | 2,189 | 10 | 6 (6) | 0 | 2 | 2 | 60% | 49 | pending |
+| CS4 | AMD, OpenAI and the second source | 7 | drafted | 2,615 | 10 | 4 (4) | 0 | 3 | 3 | 40% | 65 | pending |
+| CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **136,816** | **662** | | | | | | **1206** unique | |
+| **Total** | | | | **158,045** | **762** | | | | | | **1361** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **299**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
@@ -147,7 +147,12 @@ Charts in library (`assets/charts/catalog.json`): **299**. Visual = chart/diagra
 | 4 | layer 05 CORE / STRATEGY | 10 pages, ~10,170 words, 56 visuals; 05-nvlink-switch-tray-anatomy.d2, 05-nvl72-all-to-all-topology.dot, 05-nvl72-vs-tpu-pod-topology.d2 | S5000–S5022, S5500–S5528 | done |
 | 4 | layer 06 CORE / STRATEGY | 10 pages, 10,046 words, 50 visuals; 06-rail-optimized-fat-tree.dot | S6000–S6031, S6500–S6527 | done |
 | 4 | layer 07 CORE / STRATEGY | 9 pages, 10,006 words, 40 visuals; 07-dpu-offload.d2 | S7000–S7028, S7500–S7536 | done |
-| 7 | case studies CS1–CS3, CS4–CS5, CS6–CS7 | 3 agents | S21000–S27999 | running |
+| 6 | layer 11 CORE / STRATEGY | 9 pages, ~10,120 words, ~47 visuals | S11000–S11035, S11500–S11541 | done |
+| 6 | layer 12 CORE / STRATEGY | 9 pages, 10,354 words, 48 visuals | S12000–S12022, S12500–S12536 | done |
+| 6 | layer 13 CORE / STRATEGY | 9 pages, 10,001 words, 52 visuals | S13000–S13043, S13500–S13536 | done |
+| 7 | case studies CS1–CS3 | 3 pages, ~6,500 words, 34 visuals | S21000–S23010 | done |
+| 7 | case studies CS4–CS5 | 2 pages, ~4,950 words, 19 visuals | S24000–S25012 | done |
+| 7 | case studies CS6–CS7 | 1 agent | S26000–S27999 | running |
 | 5 | layer 08 CORE / STRATEGY | 9 pages, 10,376 words, 46 visuals; 08-nvl72-rack-anatomy.d2, 08-compute-tray-anatomy.d2 | S8000–S8025, S8500–S8530 | done |
 | 5 | layer 09 CORE / STRATEGY | 9 pages, 9,996 words, 42 visuals; 09-cuda-software-stack.d2 | S9000–S9030, S9500–S9538 | done |
 | 5 | layer 10 CORE / STRATEGY | 8 pages, ~11k words, ~50 visuals (STRATEGY agent's shell was blocked; orchestrator ran build/validation and fixed charts) | S10000–S10048, S10501–S10570 | done |
