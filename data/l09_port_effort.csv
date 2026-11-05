@@ -1,0 +1,7 @@
+phase,order,low_engineer_months,high_engineer_months,evidence,confidence,source_id,notes
+Functional port of the forward kernel,1,1,3,"AMD's DeepSeek-V4-Pro first light ran on day 1 but with PyTorch fallbacks on hot paths",speculative,S633;S631,"Repo estimate (speculative) for one FlashAttention-class kernel on a new accelerator family by experienced kernel engineers"
+Backward pass and numerics/test coverage,2,2,6,"FP8 encodings differ by platform (e4m3fn vs e4m3fnuz) and broke correctness on day 0 of MiniMax-M3",speculative,S627;S9000,"Includes FP16/BF16/FP8 parity tests, determinism, edge shapes"
+Performance tuning to ~70% of peak,3,6,18,"FA2 sat at 35% of H100 peak until FA3 was written; FA4 first shipped (PyPI beta, paper) in March 2026, ~15 months after B200 volume shipments began",speculative,S9003;S9004;S9006,"Tuning, not translation, dominates"
+"Feature variants (GQA, MLA, paged KV, sparse)",4,6,18,"FlashAttention ships many variants; DeepSeek-V4 needed new sparse-MLA and indexer kernels on AMD",speculative,S9000;S631,"Each new model architecture adds variants"
+Framework integration and packaging,5,3,9,"LMCache, Mooncake and other components lacked ROCm wheels or CUDA-only dependencies until 2026",speculative,S627;S631,"PyTorch op, vLLM/SGLang backend, prebuilt wheels, CI"
+Re-tune for the next chip generation (per year),6,3,12,"Each NVIDIA generation itself needed a new attention kernel (FA3 for Hopper, FA4 for Blackwell)",speculative,S9003;S9000;S9006,"Recurring, not one-off"

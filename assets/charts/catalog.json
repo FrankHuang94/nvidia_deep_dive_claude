@@ -9461,6 +9461,217 @@
     "html": null
   },
   {
+    "id": "CS1-networking-before-after",
+    "title": "Networking revenue rose ~24× from Mellanox's $1.33B (2019) to ~$31.4B in FY2026",
+    "subtitle": "Annual revenue, US$ B: Mellanox as a standalone company (CY2018–19) vs NVIDIA's networking line after the deal",
+    "alt": "Bar chart of networking revenue. Mellanox alone earned $1.09B in 2018 and $1.33B in 2019. After the April 2020 close NVIDIA's networking line was about $1.67B in FY2021 (estimate: ~10% of revenue for ~9 months), was not disclosed for FY2022-FY2023, then reached about $8.6B in FY2024 (estimate), $13.0B in FY2025 and about $31.4B in FY2026, roughly 24 times Mellanox's 2019 revenue; the first half of FY2027 alone brought about $32.3B. The line now also includes NVLink switches, which Mellanox never sold.",
+    "data": [
+      "cs1_deal_economics.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "CS1",
+      "06",
+      "13"
+    ],
+    "source": "Mellanox 10-K; NVIDIA filings",
+    "source_ids": [
+      "S21000",
+      "S21001",
+      "S418",
+      "S2",
+      "S416",
+      "S443",
+      "S402",
+      "S1",
+      "S403",
+      "S409",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS1-networking-before-after.svg",
+    "html": null
+  },
+  {
+    "id": "CS1-payback-scenarios",
+    "title": "At half of networking and a 65% margin, Mellanox's $6.9B was repaid by FY2025",
+    "subtitle": "Cumulative networking gross profit credited to the deal, US$ B, by fiscal year-end, three scenarios (repo model)",
+    "alt": "Line chart of cumulative networking gross profit attributed to the Mellanox deal from FY2021 to the first half of FY2027 under three repo scenarios, against the $6.9B price and the price compounded at 9% a year. Bull (100% of networking at 75% gross margin) passes the price in FY2024 and reaches about $68B; base (70% at 65%) reaches about $42B; bear (50% at 65%) passes the price in FY2025, clears the compounded hurdle in FY2026 and reaches about $30B, 4.3 times the price. FY2022-FY2023 networking revenue is not disclosed and is set to a conservative floor of $2.2B a year; gross profit is not cash flow, since networking R&D and SG&A are excluded.",
+    "data": [
+      "cs1_deal_economics.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "CS1",
+      "06",
+      "13"
+    ],
+    "source": "NVIDIA and Mellanox filings; repo model",
+    "source_ids": [
+      "S21000",
+      "S21001",
+      "S464",
+      "S6508",
+      "S6509",
+      "S21002",
+      "S21003",
+      "S21005",
+      "S418",
+      "S2",
+      "S21014",
+      "S3",
+      "S21009",
+      "S416",
+      "S443",
+      "S402",
+      "S1",
+      "S403",
+      "S409",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS1-payback-scenarios.svg",
+    "html": null
+  },
+  {
+    "id": "CS2-dc-revenue-per-cuda-developer",
+    "title": "Each CUDA developer now 'carries' ~$32K of Data Center revenue, ~10× FY2021",
+    "subtitle": "NVIDIA Data Center revenue in fiscal year N+1 ÷ CUDA registered developers stated in calendar year N, US$ thousands",
+    "alt": "Bar chart of NVIDIA Data Center revenue per registered CUDA developer: about $3.3K in FY2021 (2M developers, $6.7B), rising each year to about $32K in FY2026 (6M developers, $193.7B), roughly 10 times higher. Revenue grew far faster than the developer count, which plateaued at about 6M; the ratio is an indicator of how much spending rides on the ecosystem, not a causal measure.",
+    "data": [
+      "software_ecosystem.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "CS2",
+      "09",
+      "13"
+    ],
+    "source": "NVIDIA developer counts and 10-Ks; repo calc.",
+    "source_ids": [
+      "S529",
+      "S530",
+      "S531",
+      "S532",
+      "S533",
+      "S534",
+      "S535",
+      "S536",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S1",
+      "S402",
+      "S22009"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS2-dc-revenue-per-cuda-developer.svg",
+    "html": null
+  },
+  {
+    "id": "CS2-margin-and-rd-through-cuda-years",
+    "title": "Gross margin fell from 45.6% to 34.3% after CUDA 1.0 and took until FY2012 to recover",
+    "subtitle": "NVIDIA GAAP gross margin and R&D as % of revenue by fiscal year, FY2007–FY2026, with CUDA milestones",
+    "alt": "Two-panel line chart, FY2007 to FY2026. Top: NVIDIA's GAAP gross margin was 42.4% in FY2007 and 45.6% in FY2008, the year CUDA 1.0 shipped, then fell to 34.3% in FY2009 (including a $196M packaging-defect charge and the recession) and 35.4% in FY2010, regained the FY2008 level only in FY2012 (51.4%), and reached 75.0% in FY2025. Bottom: R&D rose from 17% of revenue in FY2008 to 27% in FY2010 and a peak of 32% in FY2014, then fell to 9% in FY2026 as revenue outgrew spending. Milestones marked: CUDA 1.0 (FY2008), AlexNet (FY2013), cuDNN (FY2015), DGX-1 (FY2017).",
+    "data": [
+      "cs2_cuda_trough.csv",
+      "financials.csv"
+    ],
+    "chapters": [
+      "CS2",
+      "09",
+      "16"
+    ],
+    "source": "NVIDIA 10-Ks",
+    "source_ids": [
+      "S400",
+      "S22001",
+      "S22000",
+      "S22002",
+      "S22003",
+      "S22004",
+      "S400",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S1",
+      "S402",
+      "S401",
+      "S525",
+      "S9530",
+      "S9531",
+      "S310"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS2-margin-and-rd-through-cuda-years.svg",
+    "html": null
+  },
+  {
+    "id": "CS3-owner-tco-per-chip-hour",
+    "title": "Est.: an owned Ironwood chip-hour costs ~$1.21 ($1.03 inside Google), about half a GB300's $2.31",
+    "subtitle": "All-in owner cost per accelerator-hour (capex amortisation, power, hosting), US$, SemiAnalysis model, July 2026",
+    "alt": "Horizontal bar chart of estimated owner TCO per accelerator-hour: TPU7x Ironwood $1.03 for Google itself and $1.21 for an external owner, H100 $1.17, H200 $1.22, AMD MI355X $1.50, B200 $1.73, GB200 NVL72 $1.86, B300 $2.26, GB300 NVL72 $2.31 and Vera Rubin NVL72 $3.61. These are per chip, not per unit of work: a GB300 delivers more tokens per chip than an Ironwood, so the per-token gap is smaller (about 18% versus B200 on one SemiAnalysis workload).",
+    "data": [
+      "cs3_tpu_economics.csv"
+    ],
+    "chapters": [
+      "CS3",
+      "14",
+      "15"
+    ],
+    "source": "SemiAnalysis InferenceX TCO registry",
+    "source_ids": [
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS3-owner-tco-per-chip-hour.svg",
+    "html": null
+  },
+  {
+    "id": "CS3-tpu-generations",
+    "title": "TPU compute per chip rose ~51× from v2 (2017) to Ironwood (2025); pods grew 36× to 9,216 chips",
+    "subtitle": "Google TPU by generation: dense BF16 TFLOPS per chip (left, log scale) and max chips per pod (right)",
+    "alt": "Two-panel chart of Google TPU generations. Left, log scale: dense BF16 TFLOPS per chip rose from 45 (TPU v2, 2017) to 123 (v3, 2018), 275 (v4, 2021), 459 (v5p, 2023), 918 (v6e Trillium, 2024) and about 2,307 (v7 Ironwood, 2025; BF16 reported as half its 4,614 FP8), about 51 times in eight years; the cost-optimised v5e has 197. Right: maximum chips per pod grew from 256 (v2) to 1,024 (v3), 4,096 (v4), 8,960 (v5p) and 9,216 (Ironwood), with 9,600 announced for TPU 8t in 2026; the v5e and Trillium efficiency parts stay at 256-chip pods. TPU v1 (2015) was an INT8 inference card with 92 TOPS and no pod.",
+    "data": [
+      "cs3_tpu_generations.csv",
+      "competitor_accelerators.csv"
+    ],
+    "chapters": [
+      "CS3",
+      "15",
+      "05"
+    ],
+    "source": "Google Cloud docs and blogs; ISCA papers",
+    "source_ids": [
+      "S23000",
+      "S23001",
+      "S23002",
+      "S23003",
+      "S23004",
+      "S238",
+      "S239",
+      "S550",
+      "S552",
+      "S146",
+      "S147",
+      "S148",
+      "S149",
+      "S150",
+      "S151"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS3-tpu-generations.svg",
+    "html": null
+  },
+  {
     "id": "CS4-amd-vs-nvidia-dc-revenue",
     "title": "AMD's data-center revenue rose ~6.6× since 2023, but NVIDIA's lead widened from 3.3× to 13×",
     "subtitle": "Quarterly data-center revenue (US$ B) and NVIDIA ÷ AMD; AMD's segment includes EPYC CPUs; calendar quarters",
@@ -9545,6 +9756,197 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/CS4-warrant-value-vs-hardware-spend.svg",
+    "html": null
+  },
+  {
+    "id": "CS5-deepseek-cost-headline-vs-fleet",
+    "title": "DeepSeek's $5.6M run was ~1/287 of a ~$1.6B fleet; NVIDIA lost $589B in a day",
+    "subtitle": "US$ M (log scale): DeepSeek's own cost claims, SemiAnalysis fleet estimates, NVIDIA's 2025-01-27 market-value loss",
+    "alt": "Log-scale horizontal bar chart: DeepSeek's R1 reinforcement-learning run cost about $0.29M (Nature, 512 H800s for ~80 hours) and the V3 final pre-training run $5.58M (2.788M H800 GPU-hours at $2), both company claims; SemiAnalysis estimated more than $500M of GPU investment and about $1.6B of server capex for a ~50,000-GPU Hopper fleet, so the headline was about 0.35% of the fleet; NVIDIA lost about $589B of market value on 2025-01-27, roughly 100,000 times the headline training cost.",
+    "data": [
+      "cs5_cost_claims.csv"
+    ],
+    "chapters": [
+      "CS5",
+      "P1"
+    ],
+    "source": "DeepSeek, SemiAnalysis, Bloomberg",
+    "source_ids": [
+      "S25007",
+      "S34007",
+      "S31013",
+      "S25006",
+      "S25000",
+      "S25001"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS5-deepseek-cost-headline-vs-fleet.svg",
+    "html": null
+  },
+  {
+    "id": "CS5-nvidia-dc-revenue-around-deepseek",
+    "title": "NVIDIA's Data Center revenue rose 2.5× in 6 quarters after the DeepSeek sell-off",
+    "subtitle": "NVIDIA Data Center revenue per fiscal quarter, US$ B; dashed line = 2025-01-27, when NVIDIA fell ~17% in a day",
+    "alt": "Bar chart of NVIDIA Data Center revenue by fiscal quarter from Q1FY24 to Q2FY27. Before the DeepSeek sell-off of 2025-01-27 revenue had climbed from $4.3B to $35.6B (Q4FY25); in the 6 quarters after it, revenue kept rising to $89.0B (Q2FY27), 2.5 times the pre-shock quarter. The efficiency shock did not dent reported demand.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "CS5",
+      "00",
+      "18"
+    ],
+    "source": "NVIDIA quarterly results",
+    "source_ids": [
+      "S436",
+      "S422",
+      "S437",
+      "S423",
+      "S438",
+      "S424",
+      "S439",
+      "S417",
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S1",
+      "S402",
+      "S403",
+      "S405"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS5-nvidia-dc-revenue-around-deepseek.svg",
+    "html": null
+  },
+  {
+    "id": "CS5-spend-multiple-vs-elasticity",
+    "title": "10× cheaper tokens raise compute spend only if demand elasticity exceeds 1 (ε 1.5 → 3.2×)",
+    "subtitle": "Spend after the price drop ÷ spend before, by price elasticity of token demand (constant-elasticity model, log scale)",
+    "alt": "Log-scale line chart of the spend multiple against demand elasticity for price drops of 3, 10 and 30 times. All three lines cross 1.0 at an elasticity of 1: below it, cheaper tokens shrink total spend; above it, spend grows. For a 10 times price drop, elasticity 0.5 leaves spend at 0.32 times the old level, elasticity 1.5 lifts it to 3.2 times and elasticity 2 to 10 times; spend doubles at an elasticity of about 1.30. Bigger price drops amplify both outcomes.",
+    "data": [
+      "cs5_elasticity_grid.csv"
+    ],
+    "chapters": [
+      "CS5",
+      "14"
+    ],
+    "source": "repo model (Jevons-paradox arithmetic)",
+    "source_ids": [
+      "S25012",
+      "S11525"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS5-spend-multiple-vs-elasticity.svg",
+    "html": null
+  },
+  {
+    "id": "CS6-china-parts-tpp",
+    "title": "H20 was cut to ~2,400 TPP, half the 4,800 control line and 1/7 of H200, yet kept 4 TB/s of HBM",
+    "subtitle": "Total processing performance (TPP = dense TFLOPS × bit width) per package; labels = HBM bandwidth and scale-up link",
+    "alt": "Horizontal bar chart of TPP, the US export-control metric, per accelerator with a dashed line at the 4,800 licence threshold. NVIDIA B200 36,000; H200 15,832; H800 15,832 (NVLink cut to 400 GB/s); H100 15,832; A800 4,992 (NVLink 400 GB/s); A100 4,992; H20 2,368 with 96 GB and 4.0 TB/s of HBM; Huawei Ascend 910C about 12,800 on paper (FP16) and Ascend 950PR about 8,000 (FP8). The H20 sits far below the line on compute while keeping more memory bandwidth than an H100.",
+    "data": [
+      "cs6_china_parts.csv"
+    ],
+    "chapters": [
+      "CS6",
+      "02",
+      "15"
+    ],
+    "source": "NVIDIA datasheets, SemiAnalysis (H20 leak), Huawei roadmap, BIS rules",
+    "source_ids": [
+      "S33009",
+      "S26002",
+      "S26001",
+      "S33002",
+      "S34007",
+      "S26003",
+      "S90081",
+      "S32002",
+      "S90032",
+      "S33003",
+      "S101",
+      "S163",
+      "S164",
+      "S90042"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS6-china-parts-tpp.svg",
+    "html": null
+  },
+  {
+    "id": "CS6-china-revenue-share",
+    "title": "China fell from ~26% of NVIDIA revenue (FY2022) to ~9% (FY2026) and 6–8% in FY2027",
+    "subtitle": "China incl. Hong Kong as % of total revenue; left: fiscal years (two reporting bases); right: quarters, customer-HQ basis",
+    "alt": "Two-panel chart of China's share of NVIDIA revenue. Left, by fiscal year on the old billing basis: 23.9% FY2019, 25.0% FY2020, 23.3% FY2021, 26.4% FY2022, 21.4% FY2023, 16.9% FY2024, 13.1% FY2025; on the new customer-headquarters basis: 20.2% FY2024, 19.2% FY2025 ($25.0B, the dollar peak) and 9.1% FY2026 ($19.7B). Right, by quarter on the headquarters basis: 21.9% in Q1 FY2026, 8.6% in Q2 FY2026 after the H20 licence requirement, 5.6% in Q1 FY2027 and 8.2% in Q2 FY2027 (all platforms, including gaming).",
+    "data": [
+      "cs6_china_revenue.csv"
+    ],
+    "chapters": [
+      "CS6",
+      "13",
+      "18"
+    ],
+    "source": "NVIDIA 10-K and 10-Q geographic revenue notes",
+    "source_ids": [
+      "S400",
+      "S2",
+      "S418",
+      "S417",
+      "S416",
+      "S26013",
+      "S401",
+      "S90070",
+      "S90069",
+      "S26014"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS6-china-revenue-share.svg",
+    "html": null
+  },
+  {
+    "id": "CS6-levy-vs-ban-gross-profit",
+    "title": "Est.: a 25% levy costs ~$4.4B of gross profit a year on $17.5B of China sales; a ban costs up to ~$13B",
+    "subtitle": "Annual NVIDIA gross profit from a ~$17.5B/yr China data-center market at 75% gross margin, by policy regime ($B, repo scenarios)",
+    "alt": "Horizontal bar chart of repo estimates of NVIDIA's annual gross profit from a $17.5B China data-center market at a 75% gross margin: unrestricted sales $13.1B; an H20-style 15% revenue share $10.5B; the H200 deal with 25% of revenue to the US government $8.75B; a ban where the capacity is resold to other buyers about $13.1B (no short-run loss when supply is constrained); and a ban with idle capacity $0. The levy falls one-for-one on gross profit.",
+    "data": [
+      "cs6_scenarios.csv"
+    ],
+    "chapters": [
+      "CS6",
+      "13",
+      "18"
+    ],
+    "source": "repo scenarios on NVIDIA filings and policy terms",
+    "source_ids": [
+      "S416",
+      "S401",
+      "S90011",
+      "S26004",
+      "S90032",
+      "S90083",
+      "S90012",
+      "S26012",
+      "S90082"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/CS6-levy-vs-ban-gross-profit.svg",
     "html": null
   },
   {

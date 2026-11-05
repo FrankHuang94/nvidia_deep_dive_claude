@@ -1,0 +1,18 @@
+term,slug,definition,see_also
+ROCm,rocm,"AMD's open-source GPU software platform (driver, compiler, runtime and libraries such as rocBLAS, MIOpen and RCCL), the counterpart to CUDA for Instinct GPUs. ROCm 7.0 shipped in September 2025.",hip;cuda
+HIP,hip,"AMD's C++ GPU programming interface, deliberately close to CUDA so that code can be translated ('hipified') with modest changes; most ROCm libraries expose hip* versions of CUDA library APIs.",rocm;software-port
+oneAPI,oneapi,"Intel's cross-architecture programming model and library set (oneMKL, oneDNN, oneCCL, oneDAL) built on SYCL; its open specification is now governed by the UXL Foundation.",sycl;uxl-foundation
+SYCL,sycl,"A Khronos-standard C++ programming model for accelerators. Intel's oneAPI compilers implement it; it competes with CUDA and HIP as a way to write GPU code.",oneapi
+UXL Foundation,uxl-foundation,"A Linux Foundation consortium formed in 2023 that stewards the oneAPI specification and libraries as a vendor-neutral alternative to CUDA; founding members included Intel, Arm, Google Cloud and Qualcomm, and AMD reportedly joined in 2026.",oneapi
+XLA,xla,"Google's open-source machine-learning compiler (OpenXLA). Instead of calling hand-written libraries, it compiles whole model graphs, fusing operations and inserting collectives; it is the main route onto TPUs.",pallas
+Pallas,pallas,"JAX's kernel language for writing custom TPU (and GPU) kernels when the XLA compiler's output is not fast enough; Google's counterpart to Triton or CUTLASS.",xla;cutlass
+Neuron Kernel Interface (NKI),nki,"AWS's Python-based language for writing custom kernels for Trainium and Inferentia chips; AWS also ships a library of pre-built NKI kernels.",xla
+CANN,cann,"Huawei's Compute Architecture for Neural Networks: the driver, compiler and operator libraries (including the HCCL collectives library) for Ascend accelerators; Huawei announced it would open-source CANN in August 2025.",rocm
+Composable Kernel,composable-kernel,"AMD's C++ template library for writing fused GPU kernels on ROCm; AMD's closest analogue to CUTLASS.",cutlass;rocm
+AITER,aiter,"AI Tensor Engine for ROCm: AMD's library of tuned LLM operators (attention, MoE, GEMM) written in Triton, Composable Kernel and assembly; the default attention backend for vLLM on ROCm.",rocm;composable-kernel
+Software port,software-port,"A re-implementation of another vendor's library behind a compatible interface (e.g. RCCL for NCCL, hipDF for cuDF). Ports cut adoption friction but trail the original by the time it takes to copy each release.",hip;rccl
+Hardware pull-through,pull-through,"Hardware revenue that a free software asset creates: a library that makes a workload run on GPUs pulls GPU sales into that market even though the library itself earns nothing.",cuda-x
+NVIDIA AI Enterprise,nvidia-ai-enterprise,"NVIDIA's paid software subscription (enterprise support, security patches and certified versions of CUDA-X libraries, NIM and frameworks), priced at about $4,500 per GPU per year in 2024.",cuda-x
+NVQLink,nvqlink,"NVIDIA's 2025 interconnect architecture linking quantum processors and their control systems to GPU supercomputers for real-time error correction; launched with 17 quantum hardware builders.",cuda-q
+Engineer-year,engineer-year,"One engineer working for one year; a standard unit for sizing software efforts. Multiplying engineer-years by a loaded cost per engineer gives a dollar estimate.",software-port
+Disaggregated serving,disaggregated-serving,"Running the prefill (prompt-reading) and decode (token-generating) phases of LLM inference on separate GPU pools and moving the KV cache between them; NVIDIA's Dynamo orchestrates this.",kv-cache

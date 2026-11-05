@@ -1,0 +1,13 @@
+term,slug,definition,see_also
+nvcc,nvcc,"NVIDIA's CUDA compiler driver. It splits a program into CPU code (passed to the host compiler) and GPU code, which it compiles to PTX and then to SASS machine code.",ptx;sass
+SASS,sass,"The real machine code of one NVIDIA GPU family (for example sm_90 for Hopper). The ptxas assembler turns PTX into SASS; unlike PTX, SASS for one generation generally does not run on the next.",ptx;nvcc
+Fatbinary,fatbinary,"The bundle a CUDA application ships: SASS machine code for each GPU generation it was built for, plus PTX that a newer driver can compile for GPUs that did not exist at build time.",ptx;jit-compilation
+JIT compilation,jit-compilation,"Just-in-time compilation: turning code into machine instructions when a program loads or runs instead of ahead of time. The CUDA driver JIT-compiles PTX for new GPUs; Triton and DeepGEMM JIT-compile kernels for the exact shapes in use.",ptx;fatbinary
+Thread block,thread-block,"A group of up to 1,024 GPU threads that run on the same SM, share fast on-chip memory and can synchronise with each other. A kernel launch is a grid of thread blocks.",cuda-grid;warp;shared-memory
+Grid (CUDA),cuda-grid,"All the thread blocks created by one kernel launch. The hardware hands blocks to SMs as they free up, which lets the same code scale across GPUs of different sizes.",thread-block;gpu-kernel
+CUDA stream,cuda-stream,"An ordered queue of GPU work (copies and kernel launches). Work in one stream runs in order; separate streams can overlap, which hides data transfers behind computation.",cuda-graphs
+CUDA Graphs,cuda-graphs,"A CUDA feature that records a sequence of kernel launches once and replays it with a single launch, cutting CPU launch overhead - important for small, frequent inference steps.",cuda-stream;gpu-kernel
+Autotuning,autotuning,"Automatically benchmarking many versions of a kernel (tile sizes, pipeline depths, thread counts) on the actual hardware and shapes, then keeping the fastest. Used by cuBLAS heuristics, Triton and TorchInductor.",gpu-kernel;triton
+FlashAttention,flashattention,"A family of attention kernels (v1 2022 to v4 2026) that compute attention in tiles held in on-chip memory instead of writing the full attention matrix to HBM. Each version was written first for NVIDIA GPUs.",attention;gpu-kernel
+TorchInductor,torchinductor,"The default compiler back end of PyTorch 2's torch.compile. It fuses operations and generates Triton kernels for GPUs and C++ for CPUs.",torch-compile;triton
+TileLang,tilelang,"An open-source Python kernel language from the tile-ai project, used for DeepSeek's attention kernels. It targets NVIDIA CUDA, AMD ROCm and Apple Metal and, since September 2026, Huawei Ascend 950.",triton;mlir

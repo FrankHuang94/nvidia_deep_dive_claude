@@ -1,0 +1,44 @@
+term,slug,definition,see_also
+cuBLAS,cublas,"NVIDIA's GPU library of basic linear-algebra routines, above all matrix multiplication (GEMM). Most AI frameworks send their big matrix multiplies to it.",gemm;cutlass
+CUTLASS,cutlass,"NVIDIA's open-source collection of CUDA C++ templates for building custom high-performance matrix-multiply and related kernels, used when the stock cuBLAS routine does not fit (new number formats, fused operations).",cublas;cute
+CuTe,cute,"The layout-and-tensor abstraction at the core of CUTLASS 3 and 4. It describes how data is tiled across threads and memory, and since CUTLASS 4 it is also available as a Python DSL.",cutlass;dsl
+DSL (domain-specific language),dsl,"A small programming language designed for one job. CuTe DSL, Triton and Mojo are DSLs for writing GPU kernels without full C++.",cute;triton
+cuSPARSE,cusparse,"NVIDIA's library for linear algebra on sparse matrices (mostly zeros), used in simulation, graph analytics and recommendation models.",cublas
+cuFFT,cufft,"NVIDIA's fast Fourier transform library, used in signal processing, imaging, seismic analysis and physics codes.",cublas
+cuRAND,curand,"NVIDIA's random-number-generation library, used for Monte Carlo simulation, risk models and the random initialisation of neural networks.",cublas
+TensorRT,tensorrt,"NVIDIA's inference optimizer and runtime: it takes a trained model, fuses and quantizes its operations and produces an engine tuned for a specific NVIDIA GPU. TensorRT-LLM is its large-language-model branch.",cudnn;gpu-kernel
+RAPIDS,rapids,"NVIDIA's open-source suite of GPU data-science libraries launched in 2018 (cuDF, cuML, cuGraph, cuVS and others) that mirror popular Python tools such as pandas and scikit-learn.",cudf;cuml
+cuDF,cudf,"The RAPIDS GPU dataframe library: a pandas-like table engine that also powers GPU back ends for Spark, Polars and Dask.",rapids;dataframe
+cudf.pandas,cudf-pandas,"A cuDF mode that accelerates unchanged pandas code: operations the GPU supports run there, everything else falls back to normal pandas on the CPU.",cudf;zero-code-change
+cuML,cuml,"The RAPIDS GPU machine-learning library (random forests, clustering, UMAP and similar). Its cuml.accel mode runs unchanged scikit-learn code on the GPU.",rapids;zero-code-change
+cuGraph,cugraph,"The RAPIDS GPU graph-analytics library (PageRank, shortest paths, community detection) for networks with billions of edges.",rapids
+cuVS,cuvs,"NVIDIA's GPU library for vector search (finding the nearest embeddings) and clustering, built into Faiss, Milvus and other vector databases.",vector-search;rapids
+cuOpt,cuopt,"NVIDIA's GPU optimization engine for linear programming and vehicle routing, open-sourced under Apache 2.0 in 2025.",linear-programming
+cuQuantum,cuquantum,"NVIDIA's libraries for simulating quantum computers on GPUs (state-vector and tensor-network methods), used to develop and test quantum algorithms.",cuda-q
+CUDA-Q,cuda-q,"NVIDIA's open platform and compiler for hybrid quantum-classical programs that run across quantum processors, GPUs and CPUs.",cuquantum
+cuLitho,culitho,"NVIDIA's library for computational lithography: the heavy calculations that shape photomask patterns so chips print correctly. TSMC put it into production with Synopsys in 2024.",computational-lithography
+Computational lithography,computational-lithography,"Software that pre-distorts chip-design patterns on a photomask (optical proximity correction) so they print accurately on the wafer; one of the largest compute workloads in chip manufacturing.",culitho;photomask
+NVIDIA Warp,nvidia-warp,"An open-source Python framework from NVIDIA that compiles ordinary Python functions into GPU kernels for physics simulation, robotics and differentiable programming. Not to be confused with a GPU warp of 32 threads.",physx;warp
+PhysX,physx,"The physics engine NVIDIA gained with Ageia in 2008, used in games, robotics simulation and Omniverse; now open source.",omniverse;nvidia-warp
+Omniverse,omniverse,"NVIDIA's platform for building 3D simulations and digital twins of factories, robots and data centers, built on OpenUSD and PhysX.",physx
+Parabricks,parabricks,"NVIDIA's GPU-accelerated genomics software, which runs standard DNA-sequencing pipelines (alignment, variant calling) many times faster than CPU tools.",variant-calling
+Variant calling,variant-calling,"The step in genome analysis that finds where a person's DNA differs from the reference genome; the compute-heavy core of clinical sequencing pipelines.",parabricks
+BioNeMo,bionemo,"NVIDIA's framework and model collection for training and serving biology and chemistry foundation models (proteins, molecules, DNA).",parabricks
+Earth-2,earth-2,"NVIDIA's platform for AI weather and climate models and digital twins of the Earth; Earth2Studio is its open-source Python package.",omniverse
+Vector search,vector-search,"Finding the stored items whose embeddings (lists of numbers that encode meaning) are closest to a query; the retrieval step in RAG and recommendation systems.",cuvs
+Linear programming,linear-programming,"Finding the best value of a linear objective (cost, profit) subject to linear constraints; the workhorse of logistics, scheduling and supply-chain planning.",cuopt
+Dataframe,dataframe,"A table of rows and named columns held in memory, the basic data structure of pandas, Polars and Spark.",cudf;etl
+"ETL (extract, transform, load)",etl,"The data-preparation work of pulling raw data from sources, cleaning and joining it, and loading it into a warehouse or training set; often the largest analytics bill in an enterprise.",apache-spark;dataframe
+Apache Spark,apache-spark,"The most widely used open-source engine for large-scale data processing and SQL across clusters of servers.",etl;cudf
+TPC-DS,tpc-ds,"A standard decision-support benchmark of about 100 SQL queries over retail-style data. Vendor tests 'derived from' it are not official, audited TPC results.",apache-spark
+Zero-code-change acceleration,zero-code-change,"Running existing code (pandas, scikit-learn, Polars, Spark) on GPUs by swapping the engine underneath, with no rewrite and automatic CPU fallback for unsupported operations.",cudf-pandas;cuml
+NVLink SHARP (NVLS),nvlink-sharp,"In-network reduction inside NVLink switches: the switch adds up data from all GPUs and multicasts the result, so an all-reduce sends each GPU's data about once instead of about twice.",sharp;nccl;nvswitch
+Tree all-reduce,tree-all-reduce,"An all-reduce that sums data up a tree of nodes and broadcasts it back down. It needs about 2·log2(N) hops instead of a ring's 2(N−1), so it has far lower latency at scale.",ring-all-reduce;nccl
+PAT (Parallel Aggregated Trees),pat-algorithm,"An NCCL algorithm (2024) for all-gather and reduce-scatter at very large scale that uses a logarithmic number of steps, cutting latency when each GPU sends little data.",tree-all-reduce;nccl
+Bus bandwidth,bus-bandwidth,"The metric NCCL's benchmark reports: the data rate each GPU's links actually sustain during a collective, normalised so it can be compared with the hardware link speed.",nccl;all-reduce
+GPU-initiated networking,gpu-initiated-networking,"Letting a GPU kernel post network transfers itself instead of waiting for the CPU to do it; NCCL 2.28 added this (GIN) to cut latency for MoE and inference traffic.",nccl;rdma
+RCCL,rccl,"AMD's ROCm Communication Collectives Library, derived from NCCL's code and API, which runs collectives on Instinct GPUs over Infinity Fabric and networks.",nccl;rocm
+MSCCL++,msccl,"Microsoft's open-source GPU communication stack that lets developers write custom collective algorithms with one-sided GPU-driven primitives; it runs on NVIDIA and AMD GPUs.",nccl;rccl
+Gloo,gloo,"Meta's open-source collective-communication library, a PyTorch back end mainly used for CPU tensors and as a fallback when NCCL is unavailable.",nccl
+MPI (Message Passing Interface),mpi,"The decades-old standard for communication between processes in supercomputing; NCCL can run inside MPI applications, and MPI libraries can call NCCL for GPU data.",nccl;ucc
+UCC (Unified Collective Communication),ucc,"An open-source collective library from the Unified Communication Framework consortium that targets HPC and AI and treats hardware-offloaded collectives as first-class.",mpi;nccl

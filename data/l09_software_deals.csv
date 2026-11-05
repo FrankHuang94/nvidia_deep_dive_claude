@@ -1,0 +1,22 @@
+record_type,announce_date,close_date,acquirer,target,deal_type,category,value_usd_m,value_basis,what_was_bought,status,confidence,source_id,notes
+deal,2008-02-04,2008-02,NVIDIA,Ageia Technologies,acquisition,developer library,,undisclosed,PhysX physics engine ported to CUDA: an early GPU-compute library and developer hook,closed,reported,S484,[recall] mirrors acquisitions_investments.csv
+deal,2013-07-29,2013-07,NVIDIA,The Portland Group (PGI),acquisition,compiler,,undisclosed,"HPC compilers (OpenACC, CUDA Fortran); now inside the NVIDIA HPC SDK",closed,reported,S484,[recall] mirrors acquisitions_investments.csv
+deal,2022-01-10,2022-01,NVIDIA,Bright Computing,acquisition,cluster software,,undisclosed,"HPC cluster-management software, now Base Command Manager",closed,reported,S478,[recall] mirrors acquisitions_investments.csv
+deal,2023-02,2023-02,NVIDIA,OmniML,acquisition,model optimization,,undisclosed,Model compression and quantization for inference (TensorRT Model Optimizer),closed,reported,S478,[recall] mirrors acquisitions_investments.csv
+deal,2023-10-10,2023-10,AMD,Nod.ai,acquisition,ML compiler,,undisclosed,"Open-source compiler team (SHARK, Torch-MLIR, IREE)",closed,reported,S9508,
+deal,2024-04-24,2024-12-30,NVIDIA,Run:ai,acquisition,orchestration software,700,reported,Kubernetes GPU orchestration and scheduling; open-sourced after EU review,closed,reported,S476;S479,~US$700M reported; terms not disclosed by NVIDIA
+deal,2024-04,2024-05,NVIDIA,Deci,acquisition,model optimization,300,reported,Neural-architecture search and inference-efficient models,closed,reported,S478;S479,[recall] mirrors acquisitions_investments.csv
+deal,2024-07,2024-07,NVIDIA,Brev.dev,acquisition,developer tools,,undisclosed,One-click developer access to GPU cloud instances,closed,reported,S478,[recall] mirrors acquisitions_investments.csv
+deal,2024-07-10,2024-08,AMD,Silo AI,acquisition,AI lab and model services,665,disclosed,"Europe's largest private AI lab (Poro and Viking open models built on AMD)",closed,confirmed,S9506,All-cash
+deal,2024-09,2024-10,NVIDIA,OctoAI,acquisition,inference compiler and serving,250,reported,Inference serving and model-optimization stack (Apache TVM founders),closed,reported,S478;S479,[recall] mirrors acquisitions_investments.csv
+deal,2024-11-12,2025-01,Red Hat (IBM),Neural Magic,acquisition,inference optimization,,undisclosed,"Leading vLLM contributor; sparsity/quantization tooling",closed,reported,S9533,Not a chip vendor; included as the main non-chip software deal
+deal,2025-03,2025-03,NVIDIA,Gretel,acquisition,synthetic data,,undisclosed,Synthetic-data generation for training,closed,reported,S478;S479,"[recall] reported 'nine figures'"
+deal,2025-03,2025-04,NVIDIA,Lepton AI,acquisition,GPU cloud software,,undisclosed,"GPU-cloud aggregation software, became DGX Cloud Lepton",closed,reported,S478;S479,"[recall] reported 'several hundred million dollars'"
+deal,2025-06-04,2025-06,AMD,Brium,acquisition,ML compiler,,undisclosed,ML compiler and inference optimization team,closed,reported,S9507,
+deal,2025-06,2025-06,AMD,Untether AI (team),acquihire,AI hardware and software team,,undisclosed,Engineering team of a shut-down inference-chip start-up,closed,reported,S9507,Company itself not acquired
+deal,2025-06,2025-06,NVIDIA,CentML,acquisition,ML compiler,400,reported,ML compiler and inference optimization for GPUs,closed,reported,S478;S479,[recall] up to ~US$400M including earn-outs reported
+deal,2025-11,2025-11,AMD,MK1,acquisition,inference software,,undisclosed,Inference and reasoning software start-up,closed,reported,S9509,
+deal,2025-12,2025-12,NVIDIA,SchedMD (Slurm),acquisition,cluster scheduler,,undisclosed,"Developer of Slurm, the main HPC/AI cluster scheduler",closed,reported,S478,[recall] mirrors acquisitions_investments.csv
+deal,2026-06-24,2026-07-29,Qualcomm,Modular,acquisition,AI language and compiler,3900,reported,"Mojo language, MAX inference framework and kernels, Modular Cloud; ~$380M raised before the deal",closed,reported,S90057;S9511;S9514,"Announced value ~$3.9B; a secondary source says it was recorded at ~$3.1B; stock consideration reported"
+reference,2025-09-24,,Modular (Series C),Modular,funding round,valuation reference,1600,post-money valuation,$250M Series C,closed,reported,S9510,Reference point for the Qualcomm price (not a deal)
+reference,2025-09-24,,Modular (all rounds),Modular,funding total,capital raised,380,total raised,"Three rounds since 2022 ($30M, $100M, $250M)",closed,reported,S9510,Reference point for the Qualcomm price (not a deal)

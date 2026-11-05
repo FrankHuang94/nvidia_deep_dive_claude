@@ -58,7 +58,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 06 | Scale-out and scale-across networking | 4 | drafted | 10,046 | 50 | 21 (21) | 1 | 12 | 16 | 42% | 126 | pending |
 | 07 | DPU, SuperNIC, storage, security | 4 | drafted | 10,006 | 40 | 17 (17) | 1 | 9 | 13 | 42% | 127 | pending |
 | 08 | Systems, racks and AI factories | 5 | drafted | 10,376 | 46 | 23 (23) | 2 | 10 | 11 | 50% | 172 | pending |
-| 09 | CUDA and system software | 5 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 09 | CUDA and system software | 5 | drafted | 9,996 | 42 | 18 (18) | 1 | 10 | 13 | 43% | 139 | pending |
 | 10 | Libraries (CUDA-X) | 5 | planned | 181 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 11 | Inference and AI software | 6 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 12 | Orchestration and cloud services | 6 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **96,718** | **470** | | | | | | **887** unique | |
+| **Total** | | | | **106,513** | **512** | | | | | | **971** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **284**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **296**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)

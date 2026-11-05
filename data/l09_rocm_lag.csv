@@ -1,0 +1,4 @@
+capability,cuda_milestone,cuda_date,rocm_milestone,rocm_date,lag_days,confidence,source_id,notes
+Platform 1.0,CUDA 1.0,2007-06,ROCm 1.0,2016-04,3227,reported,S525;S586,"Month-level dates (both re-verify flags in software_ecosystem.csv); lag computed from mid-month"
+FP4 data type in the toolkit,CUDA 12.8,2025-01-23,ROCm 7.0,2025-09-16,236,confirmed,S524;S90064,"Hardware-driven: tracks B200 vs MI355X launch timing as much as software"
+Usable DeepSeek-V4-Pro serving (new model),CUDA day-0 recipes,2026-04-25,"MI355X at 2,256 tok/s/GPU",2026-05-21,26,reported,S633;S631,"Measured from the day-0 run; FP4 path first worked on 2026-05-02 (day 7)"

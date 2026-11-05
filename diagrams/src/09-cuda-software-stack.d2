@@ -1,0 +1,89 @@
+# Layer 09: the CUDA software stack, from a PyTorch call down to the GPU.
+# Original drawing from public documentation (CUDA Toolkit, CUDA Python, CUTLASS, Triton, PyTorch); not traced from vendor art.
+
+title: "The CUDA stack: what sits between torch.matmul and the silicon" {
+  near: top-center
+  shape: text
+  style.font-size: 28
+  style.bold: true
+}
+
+grid-columns: 2
+grid-gap: 40
+
+stack: "" {
+  style.opacity: 0
+  grid-columns: 1
+  grid-gap: 14
+
+  fw: "1 · FRAMEWORKS AND ENGINES (you write Python here)\nPyTorch eager and torch.compile · JAX · vLLM · SGLang · TensorRT-LLM · Dynamo" {
+    width: 1000
+    style.fill: "#FFFFFF"
+    style.stroke: "#898781"
+    style.font-size: 16
+  }
+  dsl: "2 · KERNEL LANGUAGES (how new kernels get written)\nCUDA C++ · CUTLASS / CuTe DSL · cuTile Python · OpenAI Triton · third-party: FlashAttention, DeepGEMM, TileLang" {
+    width: 1000
+    style.fill: "#EEF5E3"
+    style.stroke: "#5F9E00"
+    style.font-size: 16
+  }
+  libs: "3 · CUDA-X LIBRARIES (pre-tuned kernels, see Layer 10)\ncuBLAS / cuBLASLt (matmul) · cuDNN · NCCL (multi-GPU) · TensorRT · thousands of tuned kernel variants" {
+    width: 1000
+    style.fill: "#EEF5E3"
+    style.stroke: "#5F9E00"
+    style.font-size: 16
+  }
+  rt: "4 · CUDA RUNTIME AND DRIVER APIs (user space)\ncudart: memory, streams, CUDA Graphs, kernel launch · libcuda: module loading, PTX JIT, contexts" {
+    width: 1000
+    style.fill: "#A9CC73"
+    style.stroke: "#3F6B00"
+    style.font-size: 16
+  }
+  cc: "5 · COMPILER TOOLCHAIN (build time)\nnvcc → NVVM (LLVM) → PTX virtual ISA → ptxas → SASS machine code → fatbinary (SASS per GPU + PTX)" {
+    width: 1000
+    style.fill: "#A9CC73"
+    style.stroke: "#3F6B00"
+    style.font-size: 16
+  }
+  kmd: "6 · KERNEL-MODE DRIVER AND FIRMWARE\nGPU kernel module · GSP firmware · page tables, scheduling, error handling" {
+    width: 1000
+    style.fill: "#5F9E00"
+    style.stroke: "#3F6B00"
+    style.font-color: "#FFFFFF"
+    style.font-size: 16
+  }
+  hw: "7 · GPU HARDWARE (Layer 02)\nSMs run warps of 32 threads · Tensor Cores · HBM · NVLink" {
+    width: 1000
+    style.fill: "#3F6B00"
+    style.stroke: "#3F6B00"
+    style.font-color: "#FFFFFF"
+    style.font-size: 16
+  }
+}
+
+side: "" {
+  style.opacity: 0
+  grid-columns: 1
+  grid-gap: 40
+
+  tools: "DEVELOPER TOOLS\n(span every layer)\n\nNsight Systems: timeline\nNsight Compute: per-kernel\ncuda-gdb · compute-sanitizer\nCUPTI profiling API" {
+    width: 300
+    style.fill: "#F3F3F1"
+    style.stroke: "#898781"
+    style.font-size: 16
+  }
+  compat: "COMPATIBILITY PROMISE\n\nPTX shipped inside an app can be\nJIT-compiled by a newer driver\nfor a GPU that did not exist\nwhen the app was built\n\nException: 'a' targets\n(sm_90a, sm_100a) are not\nforward-compatible" {
+    width: 300
+    style.fill: "#FFFFFF"
+    style.stroke: "#5F9E00"
+    style.font-size: 15
+  }
+  rival: "WHERE RIVALS PLUG IN\n\nAMD ROCm: HIP · hipcc · rocBLAS\nGoogle: JAX → XLA → TPU\nAWS: Neuron compiler · NKI\nTriton / Mojo / TileLang:\nsame kernel, several back ends" {
+    width: 300
+    style.fill: "#FFFFFF"
+    style.stroke: "#C4314B"
+    style.font-size: 15
+  }
+}
+

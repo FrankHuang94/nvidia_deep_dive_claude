@@ -875,7 +875,7 @@ Publicly announced NVLink Fusion partners with announcement date and category (`
 `Connectivity and optics`, `CPUs`, `Accelerators`). Ayar Labs and Lightmatter rest on a single low-authority report
 (`reported`). Qualcomm rows use public information only.
 
-## Layer 12 CORE — orchestration and utilization mechanisms (`l12_utilization_scenarios.csv`, `l12_gpu_cloud_capacity.csv`; charts in `scripts/charts/ch_l12_core.py`; sources S12000–S12022)
+## Layer 12 CORE — orchestration and utilization mechanisms (`l12_utilization_scenarios.csv`, `l12_gpu_cloud_capacity.csv`; charts in `scripts/charts/ch_l12_core.py`, which also reads `financials.csv` for `12-nvidia-cloud-service-commitments`; sources S12000–S12022)
 
 ### l12_utilization_scenarios.csv (long)
 `record_type,scenario,item,value,unit,basis,confidence,source_id,notes`
@@ -885,7 +885,7 @@ Inputs for the GPU utilization-economics charts. `record_type`: `utilization_lev
 ### l12_gpu_cloud_capacity.csv (long)
 `record_type,provider,provider_type,period,metric,value,unit,confidence,source_id,notes`
 
-`record_type`: `gpu_purchases` (Omdia's estimate of Hopper GPUs bought in calendar 2024, via the FT) · `installed_gpus` (company-disclosed installed base) · `power` (active vs contracted data-center power in GW, company disclosures and guidance; secondary figures marked `estimate`, targets `speculative`). `provider_type`: `hyperscaler` · `neocloud` · `self-build platform` · `AI lab self-build` · `China platform`. Purchases (a flow) and installed GPUs (a stock) are different metrics and are drawn differently. The power rows back the page text; the layer-12 STRATEGY chart `12-neocloud-contracted-vs-active-power` plots neocloud power from its own file.
+`record_type`: `gpu_purchases` (Omdia's estimate of Hopper GPUs bought in calendar 2024, via the FT) · `installed_gpus` (company-disclosed installed base) · `power` (active vs contracted data-center power in GW, company disclosures and guidance; secondary figures marked `estimate`, targets `speculative`). `provider_type`: `hyperscaler` · `neocloud` · `self-build platform` · `AI lab self-build` · `China platform`. Purchases (a flow) and installed GPUs (a stock) are different metrics and are drawn differently (`12-gpu-purchases-by-buyer-2024`). The power rows feed `12-neocloud-power-active-vs-contracted`; contracted and active power are different stages and are never summed.
 
 ## Layer 09 CORE — CUDA and system software (`l09_*.csv` below; charts in `scripts/charts/ch_l09_core.py`; sources S9000–S9030)
 

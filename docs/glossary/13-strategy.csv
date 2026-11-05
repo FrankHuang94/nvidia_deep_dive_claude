@@ -1,0 +1,12 @@
+term,slug,definition,see_also
+Warrant,warrant,"A right to buy a company's shares at a fixed price (AMD's OpenAI warrant: $0.01 per share), usually vesting only when conditions are met. It costs the issuer no cash but dilutes existing shareholders.",dilution
+Dilution,dilution,"The fall in existing owners' percentage stake when a company issues new shares, for example to pay for an acquisition or to settle a warrant.",warrant
+Capital-for-capacity deal,capital-for-capacity,"A deal in which a chip vendor gives a customer money or equity (cash stakes, warrants, backstops) in exchange for a commitment to deploy a stated amount of its compute, often measured in gigawatts.","circular-financing, warrant"
+Letter of intent (LOI),letter-of-intent,"A non-binding document stating that parties intend to agree a deal on outlined terms; it can be dropped or rewritten before a definitive agreement, as NVIDIA's 2025 OpenAI LOI was.",capital-for-capacity
+Licence plus acquihire,licence-plus-acquihire,"A deal structure in which a buyer pays for a non-exclusive licence to a start-up's technology and hires its founders and engineers, while the start-up survives as a separate company; it can avoid formal merger review.","acquihire, merger-review"
+Merger review,merger-review,"Antitrust screening of acquisitions by agencies such as the US FTC/DOJ (Hart-Scott-Rodino filings), the European Commission, the UK CMA and China's SAMR; reviews can take a year or more and can block deals, as with NVIDIA-Arm.",licence-plus-acquihire
+Corporate venture capital,corporate-venture-capital,"Minority investments by a company in start-ups, made for strategic as well as financial reasons; NVIDIA invests directly and through its NVentures arm.",capital-for-capacity
+Free cash flow,free-cash-flow,"Operating cash flow minus capital expenditure: the cash a company generates that it can return to shareholders, use for acquisitions or invest in other companies.",
+Cloud credits,cloud-credits,"Prepaid usage that a cloud provider grants to start-ups (for example up to $350,000 at Google Cloud for AI-first start-ups) to win their workloads early.",
+Frontier lab,frontier-lab,"A company training the largest general-purpose AI models (for example OpenAI, Anthropic, xAI, Google DeepMind); each buys compute at gigawatt scale.",
+Global systems integrator (GSI),global-systems-integrator,"A large IT services firm (Accenture, Deloitte, Infosys and others) that designs and deploys technology for enterprises and so acts as a sales channel for platforms like NVIDIA's.",

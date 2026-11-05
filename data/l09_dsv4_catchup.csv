@@ -1,0 +1,18 @@
+record_type,date,days_since_first_light,system,vendor,engine,precision,metric,value,unit,confidence,source_id,notes
+frontier,2026-04-25,0,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP8,peak_throughput_per_gpu,67.4,tok/s/GPU,reported,S631,"Day-0 FP8 baseline (native FP4 checkpoint unusable); peak at conc 64 and only 0.93 tok/s/user; headline first-light point 20.4 tok/s/GPU at 2.43 tok/s/user"
+frontier,2026-05-02,7,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,peak_throughput_per_gpu,500.2,tok/s/GPU,reported,S631,FP4 first light + TileLang attention (conc 128; 3.6 tok/s/user)
+frontier,2026-05-04,9,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,peak_throughput_per_gpu,614.6,tok/s/GPU,reported,S631,Fused compress-decode; Torch fallback dropped (conc 128)
+frontier,2026-05-10,15,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,peak_throughput_per_gpu,1503.2,tok/s/GPU,reported,S631,AITER mHC kernels; FlyDSL MoE preview (conc 256)
+frontier,2026-05-21,26,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,peak_throughput_per_gpu,2256.1,tok/s/GPU,reported,S631,"SGLang v0.5.12 + Triton attention + FlyDSL MoE (conc 256, 9.37 tok/s/user); 110.5x the 20.4 first-light point after 31 PRs"
+iso,2026-05-02,7,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,throughput_at_15_tok_s_user,104,tok/s/GPU,reported,S631,Interpolated on the Pareto frontier; 2026-04-25 could not reach 15 tok/s/user
+iso,2026-05-04,9,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,throughput_at_15_tok_s_user,194,tok/s/GPU,reported,S631,
+iso,2026-05-10,15,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,throughput_at_15_tok_s_user,775,tok/s/GPU,reported,S631,
+iso,2026-05-21,26,MI355X,AMD,SGLang (amd/deepseek_v4 branch),FP4,throughput_at_15_tok_s_user,1272,tok/s/GPU,reported,S631,12.2x from 2026-05-02
+spec_ratio,2026-05-26,,MI355X vs B200,AMD,,,hbm_capacity,1.60,ratio,reported,S631,288 GB vs 180 GB
+spec_ratio,2026-05-26,,MI355X vs B200,AMD,,,hbm_bandwidth,1.00,ratio,reported,S631,8 TB/s each
+spec_ratio,2026-05-26,,MI355X vs B200,AMD,,,dense_fp4,1.12,ratio,reported,S631,"10,066 vs 9,000 TFLOPS"
+spec_ratio,2026-05-26,,MI355X vs B200,AMD,,,dense_fp8,1.12,ratio,reported,S631,"5,033 vs 4,500 TFLOPS"
+spec_ratio,2026-05-26,,MI355X vs B200,AMD,,,scale_up_bandwidth,0.64,ratio,reported,S631,576 GB/s Infinity Fabric vs 900 GB/s NVLink 5 (unidirectional)
+reference,2026-04-24,0,B200,NVIDIA,vLLM,FP4,tokens_per_s_per_mw_at_50_tok_s_user,300000,tok/s/MW,reported,S633,"Day 0: CUDA vLLM/SGLang recipes worked out of the box; ~300k tok/s per provisioned MW"
+reference,2026-06-05,42,B200,NVIDIA,vLLM,FP4,tokens_per_s_per_mw_at_50_tok_s_user,500000,tok/s/MW,reported,S633,"'Nearly 500,000' by June 5 (~1.7x, software only)"
+tco,2026-07,,MI355X,AMD,,,owner_tco_usd_per_gpu_hour,1.50,USD per GPU-hour,estimate,S622,"SemiAnalysis hyperscaler-owner TCO (July 2026 survey); used to convert throughput into cost per million tokens (Est.)"

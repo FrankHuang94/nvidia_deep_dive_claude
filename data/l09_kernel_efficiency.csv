@@ -1,0 +1,7 @@
+kernel,hardware,architecture,kernel_year,precision,achieved_tflops,peak_dense_tflops,utilization_low_pct,utilization_high_pct,kernel_matches_gpu,confidence,source_id,notes
+FlashAttention (v1),A100 SXM,Ampere,2022,FP16/BF16,,312,25,40,yes,reported,S9002;S9001;S33009,"Range quoted in the FlashAttention-2 abstract for FA1 (share of theoretical max FLOPs/s on A100); peak = A100 dense BF16 312 TFLOPS"
+FlashAttention-2,A100 SXM,Ampere,2023,FP16/BF16,225,312,50,73,yes,reported,S9002;S33009,"FA2 abstract: 50-73% of A100 theoretical max; up to 225 TFLOPs/s per A100 in end-to-end GPT training (72% MFU)"
+FlashAttention-2,H100 SXM,Hopper,2024,FP16/BF16,,989.4,35,35,no,reported,S9003;S33002,"FA3 paper: FA2 achieves only 35% utilization on H100 because it does not use Hopper's asynchronous TMA/WGMMA features"
+FlashAttention-3,H100 SXM,Hopper,2024,FP16,740,989.4,75,75,yes,reported,S9003;S33002,"FA3: up to 740 TFLOPs/s FP16 (75% utilization), 1.5-2.0x FA2 on H100"
+FlashAttention-3 (FP8),H100 SXM,Hopper,2024,FP8,1200,1978.9,61,61,yes,estimate,S9003;S33002,"FA3 FP8 'close to 1.2 PFLOPs/s'; utilization = 1,200 / 1,978.9 dense FP8 peak (repo arithmetic, Est.); not plotted"
+FlashAttention-4,B200,Blackwell,2026,BF16,1613,2250,71,71,yes,reported,S9004;S9005;S33003,"FA4 (CuTe DSL): up to 1,613 TFLOPs/s BF16 (71% utilization), up to 1.3x cuDNN 9.13 and 2.7x Triton on B200; figures via search results and a mirror of the arXiv paper"

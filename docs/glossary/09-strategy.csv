@@ -1,0 +1,28 @@
+term,slug,definition,see_also
+GPGPU (general-purpose GPU computing),gpgpu,"Using a graphics chip for non-graphics maths such as physics, finance or neural networks. Before CUDA it meant disguising calculations as pixel-shading jobs.",cuda;brook
+Brook,brook,"A C-like stream-programming language for GPUs from Stanford (2004), led by Ian Buck. It proved general code could be compiled to graphics hardware and was the research precursor of CUDA.",gpgpu;cuda
+GPU kernel,gpu-kernel,"A small function that runs on thousands of GPU threads at once, such as one matrix multiply or one attention step. Frameworks stitch thousands of kernels into a model; their speed decides how fast the model runs.",cuda;cudnn
+PTX (Parallel Thread Execution),ptx,"NVIDIA's virtual instruction set. CUDA code is compiled to PTX, and the driver translates PTX into each GPU generation's native code, which is why old CUDA programs run on new GPUs.",cuda;gpu-kernel
+cuDNN,cudnn,"NVIDIA's library of tuned deep-learning kernels (convolutions, attention, normalisation), first released in 2014. Frameworks call it instead of writing their own GPU code.",cuda-x;gpu-kernel
+ROCm,rocm,"AMD's open-source GPU software stack (drivers, compilers, libraries, HIP), first released in 2016. It is AMD's answer to CUDA.",hip;cuda
+HIP,hip,"AMD's C++ GPU programming interface, deliberately designed to mirror CUDA's API so code can be ported by renaming calls. HIP code can also be compiled for NVIDIA GPUs.",rocm;hipify
+HIPIFY,hipify,"AMD tools that automatically translate CUDA source code into HIP source code. They handle the bulk of a port; hand-tuned kernels and inline PTX still need manual work.",hip;translation-layer
+Translation layer,translation-layer,"Software that lets programs built for one platform run on another without recompiling, for example ZLUDA running unmodified CUDA binaries on non-NVIDIA GPUs. NVIDIA's CUDA licence restricts this use.",hipify;cuda
+SYCL,sycl,"An open Khronos standard for writing C++ code that runs on CPUs, GPUs and accelerators from different vendors. Intel's oneAPI is built on it.",oneapi
+oneAPI,oneapi,"Intel's cross-vendor programming model and libraries built on SYCL, now governed by the Linux Foundation's UXL Foundation (founding members include Intel, Arm, Google Cloud and Qualcomm).",sycl
+OpenCL,opencl,"An open, royalty-free standard for programming GPUs and other processors, backed by Apple, AMD and Intel from the late 2000s. It lost developer mindshare to CUDA in AI because NVIDIA's libraries and tools were better.",cuda;sycl
+Triton (OpenAI),triton,"An open-source Python-like language and compiler for writing GPU kernels, started at OpenAI. PyTorch's compiler generates Triton code, and Triton has backends for NVIDIA, AMD and others, so kernels need not be written in CUDA.",torch-compile;gpu-kernel
+torch.compile,torch-compile,"PyTorch 2's compiler: it captures a model's operations and generates fused kernels (by default via Triton) instead of calling pre-written ones, which makes hardware back-ends easier to swap.",triton
+JAX,jax,"Google's numerical-computing library for machine learning, compiled through XLA. It runs natively on TPUs and NVIDIA GPUs and is the main way frontier labs train on TPUs.",xla
+XLA,xla,"Accelerated Linear Algebra: a compiler that turns a whole model graph into optimised code for TPUs, GPUs or CPUs. Used by JAX and, formerly, PyTorch on TPU.",jax;mlir
+MLIR,mlir,"Multi-Level Intermediate Representation: open compiler infrastructure (from the LLVM project) used to build AI compilers such as Mojo, IREE, Triton and NKI.",xla;mojo
+CANN,cann,"Huawei's Compute Architecture for Neural Networks: the driver, compiler and kernel layer for Ascend NPUs, Huawei's CUDA equivalent; open-sourced in 2025.",cuda
+Neuron SDK,neuron-sdk,"AWS's software stack for its Trainium and Inferentia chips: compiler, runtime, PyTorch integration (TorchNeuron) and the NKI kernel language.",nki
+NKI (Neuron Kernel Interface),nki,"AWS's Python-based language for writing custom kernels for Trainium, with an open-source MLIR-based compiler.",neuron-sdk;triton
+Mojo,mojo,"A Python-superset programming language from Modular (now part of Qualcomm) designed to write high-performance kernels that run on CPUs and GPUs from several vendors; open-sourced under Apache 2.0 in 2026.",modular-max;mlir
+MAX (Modular),modular-max,"Modular's inference framework and kernel library written in Mojo, offering an OpenAI-compatible serving endpoint on NVIDIA and AMD GPUs.",mojo
+vLLM,vllm,"The most widely used open-source LLM inference engine (PagedAttention, continuous batching). It runs in-tree on NVIDIA and AMD GPUs and via plugins on TPU, Gaudi, Ascend, Trainium and Qualcomm Cloud AI.",sglang;inference
+SGLang,sglang,"An open-source LLM serving engine competing with vLLM, strong on structured generation and large mixture-of-experts models; supports NVIDIA, AMD, TPU and Ascend hardware.",vllm
+Day-0 support,day-zero-support,"Whether a new model runs well on a given chip and software stack on the day the model is released. It is where software maturity gaps between vendors show up most clearly.",vllm;gpu-kernel
+Hardware pull-through,pull-through,"Monetising free software indirectly: the software is given away so that customers buy more of the hardware it runs best on. CUDA is NVIDIA's main example.",cuda;switching-cost
+Switching cost,switching-cost,"The money, time and risk a customer bears to move to a rival product, here porting and re-validating kernels, tools and team skills from CUDA to another stack.",pull-through;translation-layer

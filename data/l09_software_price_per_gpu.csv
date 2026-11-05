@@ -1,0 +1,7 @@
+item,group,value_usd_per_gpu_year,basis,confidence,source_id,notes
+NVIDIA AI Enterprise in the cloud ($1 per GPU-hour x 8760 h),nvidia_software,8760,derived from list price,reported,S9515,Upper bound: assumes 100% of hours are billed; plus the cloud instance cost
+NVIDIA AI Enterprise 1-year subscription (self-managed),nvidia_software,4500,list price,reported,S9515,Includes Business Standard Support; per NVIDIA licensing guide as reported
+NVIDIA AI Enterprise 5-year subscription ($18000 / 5),nvidia_software,3600,list price,reported,S9515,
+Huang's figure for software licensing (Oct 2026),nvidia_software,2000,CEO statement,reported,S9517,'About $2000 per GPU a year' as reported
+B200 owner TCO ($1.73 per GPU-hour x 8760 h),hardware_reference,15155,derived estimate,estimate,S622,"SemiAnalysis hyperscaler-owner TCO (capex amortisation, power, hosting); Est."
+B200 cloud rental ($3.70 per GPU-hour x 8760 h),hardware_reference,32412,derived estimate,estimate,S622,SemiAnalysis July 2026 rental survey; Est.
