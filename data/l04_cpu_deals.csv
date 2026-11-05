@@ -1,0 +1,9 @@
+announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_was_bought,status,confidence,source_id,notes
+2015-01-22,2015-01,Amazon,Annapurna Labs,acquisition,370,reported,Arm SoC team that became Nitro and Graviton (Graviton1 at re:Invent 2018),closed,reported,S4540;S4541,Calcalist reported up to $370M; other reports $350M. Undisclosed by Amazon.
+2020-09-13,2022-02-08,NVIDIA,Arm Ltd (from SoftBank),failed-acquisition,40000,disclosed,The CPU instruction-set owner licensed to every rival,terminated,confirmed,S465;S466,Blocked by regulators; NVIDIA expensed a $1.36B prepayment and kept a 20-year Arm licence.
+2021-01-13,2021-03-16,Qualcomm,NUVIA,acquisition,1400,disclosed,~3-year-old team of ex-Apple CPU architects (became Oryon),closed,confirmed,S4538;S4539,Before working capital and other adjustments.
+2025-03-19,2025-11-25,SoftBank Group,Ampere Computing,acquisition,6500,disclosed,Merchant Arm server CPU vendor (AmpereOne) founded 2017,closed,confirmed,S186;S4530,All-cash; Ampere now a SoftBank subsidiary.
+2025-06-09,2025-12-18,Qualcomm,Alphawave Semi,acquisition,2400,disclosed,High-speed SerDes/chiplet connectivity for datacenter CPUs and NPUs,closed,confirmed,S4514;S4513,Adjacent to CPU (I/O IP rather than cores); closed a quarter ahead of schedule.
+2025-09-18,2025-12,NVIDIA,Intel (equity stake),equity-investment,5000,disclosed,Custom x86 CPUs with NVLink for NVIDIA platforms plus x86 RTX SoCs,closed,confirmed,S468,$23.28 per share.
+2025-09-30,2025,Meta,Rivos,acquisition,,undisclosed,RISC-V CPU/accelerator team founded 2021,closed (reported),reported,S4518,Terms undisclosed; Rivos had reportedly sought $500M at a ~$2B valuation in Aug 2025.
+2025-12-10,2025-12,Qualcomm,Ventana Micro Systems,acquisition,,undisclosed,RISC-V datacenter CPU team (Veyron V2 chiplet),closed,confirmed,S4512,Qualcomm to develop Ventana designs alongside Arm-based Oryon.

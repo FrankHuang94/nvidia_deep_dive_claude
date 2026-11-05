@@ -1,0 +1,5 @@
+calendar_quarter,company,fiscal_period,metric,value,unit,basis,confidence,source_id,notes
+2026-Q2,Broadcom,Q2FY2026,ai_semiconductor_revenue,10.8,USD_B,derived,estimate,S2516,"Repo derivation: Q3 FY26 $16.7B / 1.54 (reported +54% q/q)"
+2026-Q3,Broadcom,Q3FY2026,ai_semiconductor_revenue,16.7,USD_B,reported,confirmed,S2516,"Quarter ended 2026-08-02; +221% y/y"
+2026-Q4,Broadcom,Q4FY2026,ai_semiconductor_revenue,21.7,USD_B,guidance,reported,S2516,"Company guidance for the quarter ending ~2026-11-01"
+2026,MediaTek,CY2026,ai_asic_revenue_target,2.0,USD_B,company target (reported),reported,S2518,"Raised from $1B (Feb 2026) to $2B (Apr 2026), per press reports"

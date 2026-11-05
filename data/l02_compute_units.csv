@@ -1,0 +1,11 @@
+unit,category,scope,precision,flops_per_clock,basis,confidence,source_id,notes
+Intel Xeon core (AVX-512 only),CPU,one core or SM or array,BF16,64,vendor,confirmed,S2015,"Intel Architecture Day 2021: 64 BF16 operations per cycle per core without AMX"
+Intel Xeon core with AMX,CPU,one core or SM or array,BF16,1024,vendor,confirmed,S2015;S2014,"AMX tile unit: 1,024 BF16 (2,048 INT8) operations per cycle per core"
+NVIDIA V100 SM (8 tensor cores),GPU,one core or SM or array,FP16,1024,vendor,confirmed,S126,"8 tensor cores x 64 FMA x 2 FLOPs"
+NVIDIA A100 SM (4 tensor cores),GPU,one core or SM or array,BF16,2048,vendor,confirmed,S127,"4 tensor cores x 256 FMA x 2 FLOPs"
+NVIDIA H100 SM (4 tensor cores),GPU,one core or SM or array,BF16,4096,vendor,confirmed,S33024;S2023,"2x A100 per SM per clock; FP8 doubles it again to 8,192"
+Google TPU v4 MXU (128x128 systolic array),ASIC,one core or SM or array,BF16,32768,derived,confirmed,S147;S2016,"16,384 multiply-accumulates per clock"
+Google Ironwood MXU (256x256 systolic array),ASIC,one core or SM or array,BF16,131072,derived,reported,S2016;S2017,"65,536 multiply-accumulates per clock, only when both matrix dimensions are multiples of 256"
+Intel Xeon 6980P (128 cores with AMX),CPU,whole chip,BF16,131072,derived,estimate,S179;S2015,"128 cores x 1,024; assumes Granite Rapids AMX matches Sapphire Rapids per-core rate; AMX clocks usually fall under load"
+Google TPU v4 chip (2 TensorCores x 4 MXUs),ASIC,whole chip,BF16,262144,derived,confirmed,S147;S146,"x 1.05 GHz = 275 TFLOPS BF16"
+NVIDIA H100 SXM (132 SMs),GPU,whole chip,BF16,540672,derived,confirmed,S33024;S33002,"132 x 4,096; x 1.83 GHz = 989 TFLOPS dense BF16"

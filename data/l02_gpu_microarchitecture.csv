@@ -1,0 +1,7 @@
+product,architecture,year,sms,tensor_cores,tensor_cores_per_sm,dense_16bit_flops_per_clk_per_sm,register_file_kb_per_sm,l1_smem_kb_per_sm,l2_mb,tmem_kb_per_sm,new_tensor_formats,confidence,source_id,notes
+V100 SXM2 32GB,Volta,2017,80,640,8,1024,256,128,6,,FP16,confirmed,S126;S2022,"First-generation tensor cores: each does 64 FP16 multiply-adds per clock, 8 per SM; full GV100 die has 84 SMs"
+A100 SXM 80GB,Ampere,2020,108,432,4,2048,256,192,40,,TF32;BF16;INT8;2:4 sparsity,confirmed,S127;S2022,"Each tensor core does 256 FP16 multiply-adds per clock; full GA100 die has 128 SMs"
+H100 SXM,Hopper,2022,132,528,4,4096,256,256,50,,FP8 (Transformer Engine),confirmed,S33024;S2023;S2022,"Twice A100's dense per-SM matrix rate clock for clock, FP8 twice again; up to 228 KB of the 256 KB L1 usable as shared memory; full GH100 die has 144 SMs"
+B200,Blackwell,2024,148,592,4,,256,256,126,256,FP6;FP4;MXFP8/6/4;NVFP4,reported,S2004;S2006;S2022,"74 of 80 SMs enabled per die on two dies; L2 measured at 126 MB in two partitions; Tensor Memory (TMEM) 256 KB per SM is new; NVIDIA does not publish per-SM FLOPs per clock"
+GB300 (Blackwell Ultra),Blackwell Ultra,2025,160,640,4,,,,,,NVFP4 at 1.5x Blackwell,confirmed,S2003,"NVIDIA: 160 SMs and 640 fifth-generation tensor cores for 15 PFLOPS dense NVFP4"
+Rubin (VR200),Rubin,2026,224,896,4,,,,,,NVFP4 with adaptive compression,reported,S2000;S2001;S2002,"NVIDIA architecture blog (Jul 2026) as reported: 8 GPCs, 224 SMs, 896 tensor cores, third-generation Transformer Engine; cache sizes not disclosed"

@@ -365,6 +365,53 @@
     "html": null
   },
   {
+    "id": "02-decode-throughput-by-precision",
+    "title": "Est.: NVFP4 lets one B200 serve ~2.7× its BF16 tokens/s on a 70B model (~4.7K vs ~1.7K)",
+    "subtitle": "Modelled decode tokens/s per GPU, Llama 3.1 70B, 64 concurrent streams × 4,096-token context, 75% of peak HBM bandwidth; FP8 KV cache for FP8/NVFP4",
+    "alt": "Grouped bar chart of modelled decode throughput per GPU for Llama 3.1 70B with 64 concurrent users. H100: about 712 tokens/s at BF16 and 1,424 at FP8 (no FP4). B200: 1,700 at BF16, 3,400 at FP8 and 4,664 at NVFP4. Rubin: 4,080, 8,159 and 11,195. Every case is limited by memory bandwidth, so fewer bytes per weight translate almost directly into more tokens per GPU and per dollar; Rubin at NVFP4 serves about 16 times H100 at BF16. Estimates from a roofline model.",
+    "data": [
+      "P2_model_and_gpu_inputs.csv",
+      "gpu_product_specs.csv",
+      "l02_number_formats.csv"
+    ],
+    "chapters": [
+      "02",
+      "11",
+      "14",
+      "P2"
+    ],
+    "source": "repo roofline model; model config and GPU specs",
+    "source_ids": [
+      "S2021",
+      "S32006",
+      "S32025",
+      "S33013",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015",
+      "S127",
+      "S2013",
+      "S33024",
+      "S32017",
+      "S2008"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-decode-throughput-by-precision.svg",
+    "html": null
+  },
+  {
     "id": "02-die-area-vs-reticle-limit",
     "title": "Dies hit ~95% of the 858 mm² reticle by Volta; NVIDIA now scales by adding dies",
     "subtitle": "Area per compute die, mm², vs the ~858 mm² lithography reticle limit; dies per package and total silicon labeled",
@@ -457,6 +504,38 @@
     "asof": "2026-11-05",
     "svg": "assets/charts/02-flops-by-precision-log.svg",
     "html": "assets/interactive/02-flops-by-precision-log.html"
+  },
+  {
+    "id": "02-flops-per-clock-cpu-gpu-asic",
+    "title": "Per clock, one H100 does ~541K 16-bit FLOPs: ~4× a 128-core AMX Xeon and ~8,448× a plain CPU core",
+    "subtitle": "Peak dense matrix FLOPs per clock cycle (BF16/FP16) by compute unit and by whole chip; vendor figures and repo arithmetic",
+    "alt": "Log-scale horizontal bar chart of peak 16-bit matrix FLOPs per clock. One CPU core without AMX does 64, with AMX 1,024; an NVIDIA V100 SM 1,024, A100 SM 2,048 and H100 SM 4,096; a Google TPU v4 128x128 systolic array 32,768 and an Ironwood 256x256 array 131,072. Whole chips: a 128-core Xeon with AMX about 131,072, a TPU v4 chip 262,144 and an H100 540,672, about 4 times the Xeon. GPUs win by replicating many mid-sized matrix engines, ASICs by building a few very large ones.",
+    "data": [
+      "l02_compute_units.csv"
+    ],
+    "chapters": [
+      "02",
+      "15"
+    ],
+    "source": "NVIDIA whitepapers, Intel, Google TPU papers; repo arithmetic",
+    "source_ids": [
+      "S2015",
+      "S2014",
+      "S126",
+      "S127",
+      "S33024",
+      "S2023",
+      "S147",
+      "S2016",
+      "S2017",
+      "S179",
+      "S146",
+      "S33002"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-flops-per-clock-cpu-gpu-asic.svg",
+    "html": null
   },
   {
     "id": "02-fp64-per-gpu-by-generation",
@@ -603,6 +682,66 @@
     "html": null
   },
   {
+    "id": "02-memory-hierarchy-capacity-vs-bandwidth",
+    "title": "H100's registers are ~111× faster than its HBM but hold ~2,424× less: every level trades speed for size",
+    "subtitle": "Total capacity vs aggregate bandwidth per GPU at each memory level, H100 SXM, B200 and Rubin (both axes log scale)",
+    "alt": "Log-log chart of capacity against bandwidth for each GPU memory level. H100: registers about 33 MB at an estimated 371 TB/s, L1/shared memory 33 MB at about 31 TB/s, L2 50 MB at over 5.5 TB/s, HBM3 80 GB at 3.35 TB/s and the 8-GPU NVLink domain 640 GB at 0.9 TB/s per GPU. B200: L2 126 MB at about 21 TB/s, HBM3E 180 GB at 8 TB/s and the NVL72 domain 13.4 TB at 1.8 TB/s. Rubin: HBM4 288 GB at 19.2 TB/s and the NVL72 domain 20.7 TB at 3.0 TB/s. Each step outward gives roughly 100 to 1,000 times more capacity for less bandwidth.",
+    "data": [
+      "l02_memory_hierarchy.csv"
+    ],
+    "chapters": [
+      "02",
+      "03",
+      "P3"
+    ],
+    "source": "NVIDIA specs, Chips and Cheese measurements, repo estimates",
+    "source_ids": [
+      "S33024",
+      "S2022",
+      "S2021",
+      "S2005",
+      "S33002",
+      "S2004",
+      "S33003",
+      "S121",
+      "S263",
+      "S33005",
+      "S33007",
+      "S102",
+      "S103"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-memory-hierarchy-capacity-vs-bandwidth.svg",
+    "html": null
+  },
+  {
+    "id": "02-multi-die-silicon-cost",
+    "title": "Est.: splitting 1,600 mm² of GPU logic into two dies cuts silicon cost per good GPU ~62%; eight chiplets ~83%",
+    "subtitle": "Modelled cost of defect-free logic silicon for one GPU, $17K wafer, 0.1 defects/cm², Poisson yield, US$ (silicon only)",
+    "alt": "Bar chart of modelled silicon cost for 1,600 mm2 of GPU logic split into 1, 2, 4, 8 or 16 dies on a $17,000 wafer at 0.1 defects per cm2. One 1,600 mm2 die (impossible: the reticle limit is 858 mm2) would yield 20% and cost about $3,119; two 800 mm2 dies like Blackwell or Rubin yield 45% each and cost about $1,182; four 400 mm2 dies about $709; eight 200 mm2 chiplets about $543; sixteen 100 mm2 about $470. Savings flatten while packaging cost, die-to-die power and assembly risk rise with every extra die.",
+    "data": [
+      "P5_wafer_economics.csv"
+    ],
+    "chapters": [
+      "02",
+      "03",
+      "P5"
+    ],
+    "source": "repo yield model; wafer and defect assumptions from Epoch AI and TSMC disclosures",
+    "source_ids": [
+      "S2021",
+      "S35020",
+      "S35010",
+      "S35008",
+      "S35009"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-multi-die-silicon-cost.svg",
+    "html": null
+  },
+  {
     "id": "02-perf-per-watt-by-generation",
     "title": "Compute/W rose 37× V100→Rubin, but just 2.7× over H100 at like-for-like FP8",
     "subtitle": "Dense TFLOPS per watt of package power: bars = best low-precision format (labeled); diamonds = FP8",
@@ -679,6 +818,56 @@
     "html": null
   },
   {
+    "id": "02-sms-and-throughput-per-sm",
+    "title": "Since H100, 16-bit throughput per SM rose 2.4× but low-precision per SM 10×, while SM count grew 1.7×",
+    "subtitle": "Left: streaming multiprocessors (SMs) per GPU package. Right: dense peak TFLOPS per SM by format (log scale)",
+    "alt": "Two-panel chart. SMs per GPU: V100 80, A100 108, H100 132, B200 148, Blackwell Ultra 160 and Rubin 224. Dense TFLOPS per SM: 16-bit rose from 1.6 on V100 to 7.5 on H100, then only to 17.9 on Rubin; FP8 per SM went from 15 on H100 to 78 on Rubin and FP4 per SM from 61 on B200 to 156 on Rubin, so most new tensor-core silicon serves narrow formats.",
+    "data": [
+      "l02_gpu_microarchitecture.csv",
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "17"
+    ],
+    "source": "NVIDIA whitepapers and blogs, Chips and Cheese; repo arithmetic",
+    "source_ids": [
+      "S126",
+      "S2022",
+      "S127",
+      "S33024",
+      "S2023",
+      "S2004",
+      "S2006",
+      "S2003",
+      "S2000",
+      "S2001",
+      "S2002",
+      "S33010",
+      "S33009",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S32004",
+      "S123",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-sms-and-throughput-per-sm.svg",
+    "html": null
+  },
+  {
     "id": "02-tdp-by-generation",
     "title": "Power per GPU rose ~7.7× from V100 (300 W) to Rubin (~2,300 W, Max-P)",
     "subtitle": "Maximum power per GPU package, watts (superchip rows exclude the CPU share; Rubin is press-reported)",
@@ -720,6 +909,45 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/02-tdp-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "02-throughput-multiple-vs-bf16",
+    "title": "Rubin runs FP4 8.75× and FP8 4.4× faster than BF16; on H100 FP8 was 2×",
+    "subtitle": "Dense peak throughput in each format divided by the same GPU's dense BF16 throughput (BF16 = 1.0)",
+    "alt": "Grouped bar chart of throughput relative to BF16. TF32 runs at 0.5x on A100, H100, B200 and GB300. FP8 is 2x BF16 on H100, B200 and GB300 but 4.4x on Rubin. FP6 matches FP8. FP4 is 4x on B200, 6x on Blackwell Ultra (GB300) and 8.75x on Rubin. A100 has no FP8 or FP4. Each new generation spends more tensor-core silicon on narrow formats than on BF16.",
+    "data": [
+      "gpu_product_specs.csv"
+    ],
+    "chapters": [
+      "02",
+      "11",
+      "14"
+    ],
+    "source": "NVIDIA datasheets (dense = sparse figures halved)",
+    "source_ids": [
+      "S33009",
+      "S127",
+      "S33002",
+      "S35011",
+      "S35013",
+      "S33003",
+      "S35014",
+      "S101",
+      "S32004",
+      "S123",
+      "S100",
+      "S33005",
+      "S33004",
+      "S103",
+      "S33007",
+      "S104",
+      "S106",
+      "S35015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/02-throughput-multiple-vs-bf16.svg",
     "html": null
   },
   {
@@ -1178,8 +1406,8 @@
   },
   {
     "id": "04-amd-x86-server-share-units-vs-revenue",
-    "title": "AMD took 34.5% of x86 server CPU units by Q2 2026 (from 27.2%) and ~46% of x86 server value",
-    "subtitle": "AMD share of x86 server CPUs (%), Mercury Research as reported: units vs revenue (Q1 2026) or like-for-like EPYC-vs-Xeon (Q2 2026)",
+    "title": "AMD rose to 34.5% of x86 server CPU units by Q2 2026, ~46% by value",
+    "subtitle": "AMD share of x86 server CPUs (%), Mercury Research as reported; light bar = revenue or like-for-like value share",
     "alt": "Grouped bar chart of AMD's share of x86 server CPUs per Mercury Research: units 27.2% in Q1 2025, 33.2% in Q1 2026 and 34.5% in Q2 2026; by revenue 46.2% in Q1 2026 and on a normalised EPYC-versus-Xeon basis 46.4% in Q2 2026 - x86 incumbency is now a two-vendor fight, with Intel still ahead on units.",
     "data": [
       "l04_cpu_market_share.csv"
@@ -1223,7 +1451,7 @@
   },
   {
     "id": "04-arm-server-cpu-share-trackers",
-    "title": "Arm is 13–18% of server CPU units but ~48% of server revenue, because Grace rides inside GPU racks",
+    "title": "Arm holds 13–18% of server CPU units but ~48% of server revenue",
     "subtitle": "Arm share of server CPU shipments (%) by tracker, 2025–2030; dashed/hollow = forecast; diamond = share of server system revenue",
     "alt": "Line chart of Arm's share of server CPU units: Mercury Research 12.5% (Q4 2025) and 13.2% (Q1 2026); UBS 11.5% (Q1 2025) and 17.7% (Q1 2026) with a 40-45% forecast for 2030; TrendForce about 10% in 2025, over 20% forecast for 2026 and about 30% for 2027. IDC puts non-x86 (mostly Arm) at 47.9% of Q1 2026 server revenue, inflated by NVIDIA Grace-based GPU racks where the CPU is a small part of the cost.",
     "data": [
@@ -1330,7 +1558,7 @@
   },
   {
     "id": "04-cpu-deal-values",
-    "title": "Proven CPU teams sold for $1.4B–$6.5B; NVIDIA's failed $40B Arm bid was 6× the next-largest deal",
+    "title": "CPU teams sold for $1.4B–$6.5B; NVIDIA's failed Arm bid was $40B (6× more)",
     "subtitle": "Disclosed or reported deal value, US$ millions (log scale), server-CPU and CPU-adjacent transactions 2015–2025",
     "alt": "Log-scale horizontal bar chart of CPU-related deals: NVIDIA's terminated $40,000M bid for Arm (2020), SoftBank's $6,500M purchase of Ampere (2025), NVIDIA's $5,000M Intel stake (2025), Qualcomm's $2,400M Alphawave and $1,400M NUVIA deals, and Amazon's reported ~$370M Annapurna Labs purchase (2015) that seeded Graviton; Meta-Rivos and Qualcomm-Ventana (2025) were undisclosed.",
     "data": [
@@ -1427,8 +1655,8 @@
   },
   {
     "id": "04-cpus-per-8-gpus-by-system",
-    "title": "Host CPUs per 8 GPUs doubled from 2 (DGX H100) to 4 (Grace and Vera racks); agentic forecasts say 4–8",
-    "subtitle": "CPU sockets per 8 accelerators, by system (one bar per system); shaded band = 2026 analyst/vendor projection for agentic AI servers",
+    "title": "Grace and Vera racks pair 4 CPUs with every 8 GPUs, double DGX H100's 2",
+    "subtitle": "CPU sockets per 8 accelerators by system; hatched = announced; band = reported agentic-era projection (4–8)",
     "alt": "Horizontal bar chart of host CPU sockets per 8 GPUs: DGX-1, DGX A100, DGX H100 and DGX B200 have 2; DGX-2 has 1 (2 CPUs for 16 GPUs); GH200 has 8 (one Grace per GPU); GB200, GB300 and Vera Rubin NVL72 have 4 (36 CPUs for 72 GPUs), as does Huawei CloudMatrix 384 (192 CPUs for 384 NPUs); AMD Helios has 2 (18 EPYC Venice for 72 GPUs). A shaded band at 4-8 marks Intel's and TrendForce's 2026 view that agentic AI pushes ratios toward 1:2 to 1:1.",
     "data": [
       "system_specs.csv",
@@ -1490,7 +1718,7 @@
   },
   {
     "id": "04-dgx2-data-loading-bottleneck",
-    "title": "CPU-bound data loading left DGX-2's 16 GPUs 44% idle; GPU-side decoding recovered 93% of peak",
+    "title": "CPU-bound data loading left DGX-2's 16 GPUs 44% idle; GPU decoding got 93%",
     "subtitle": "ResNet-50 training throughput on one DGX-2 (16× V100, 48 host CPU cores), images per second",
     "alt": "Bar chart of ResNet-50 training throughput on a DGX-2: 22,656 images per second when fed synthetic data (the GPUs' ceiling), 12,586 with the standard CPU preprocessing pipeline on 48 host cores (56% of the ceiling, so the GPUs sat idle 44% of the time) and 21,034 with NVIDIA DALI moving JPEG decoding and augmentation onto the GPUs (93%).",
     "data": [
@@ -1513,8 +1741,8 @@
   },
   {
     "id": "04-host-link-bandwidth-per-gpu",
-    "title": "Host bandwidth per GPU jumped 7× to 900 GB/s with GH200, halved on GB200, and is back to 900 on Vera Rubin",
-    "subtitle": "CPU↔GPU link bandwidth available to each GPU, GB/s, both directions combined (a shared C2C link is divided by the GPUs on it)",
+    "title": "Host link per GPU: 7× jump with GH200, halved on GB200, restored on Vera Rubin",
+    "subtitle": "CPU↔GPU bandwidth per GPU, GB/s, both directions; a shared C2C link is split across its GPUs; hatched = announced",
     "alt": "Bar chart of CPU-to-GPU bandwidth per GPU: DGX-1 V100 32 GB/s (PCIe Gen3), DGX A100 64 (Gen4), DGX H100 and DGX B200 128 (Gen5); GH200 900 GB/s over NVLink-C2C with one Grace per GPU; GB200 and GB300 NVL72 about 450 because two GPUs share one 900 GB/s Grace link; Vera Rubin NVL72 about 900 (1.8 TB/s per Vera shared by two GPUs); AMD Helios about 256 if its EPYC Venice host uses a PCIe Gen6 x16 link.",
     "data": [
       "l04_host_attach.csv"
@@ -1555,8 +1783,8 @@
   },
   {
     "id": "04-host-memory-per-accelerator",
-    "title": "Vera Rubin attaches ~750 GB of CPU memory to each GPU, 3.1× GB200 and 2.6× its own HBM4",
-    "subtitle": "GB per accelerator: CPU-attached memory (DDR / LPDDR5X) vs on-package HBM; x86 DGX memory is reachable only over PCIe",
+    "title": "Vera Rubin attaches ~750 GB of CPU memory per GPU, 3.1× GB200, 2.6× its HBM",
+    "subtitle": "GB per accelerator: CPU-attached memory (DDR or LPDDR5X) vs on-package HBM; hatched = announced",
     "alt": "Grouped bar chart of memory per accelerator. CPU-attached memory: DGX-1 V100 64 GB, DGX A100 128, DGX H100 and DGX B200 256, GH200 480, GB200 and GB300 NVL72 240, Vera Rubin NVL72 about 750 GB; HBM per GPU: 16, 40, 80, 180, 144, 186, 288 and 288 GB. AWS Trn2 has 128 GB of host memory per Trainium2 (96 GB HBM) and Trn3 192 GB (144 GB HBM). Grace and Vera memory is reachable by the GPU over coherent NVLink-C2C.",
     "data": [
       "l04_host_attach.csv"
@@ -1596,8 +1824,8 @@
   },
   {
     "id": "04-host-threads-per-accelerator",
-    "title": "Vera Rubin gives each GPU 88 host CPU threads, 3× DGX H100's 28; AWS gives each Trainium3 16",
-    "subtitle": "Host CPU hardware threads (vCPUs) per accelerator; label shows physical cores per accelerator where known",
+    "title": "Vera Rubin gives each GPU 88 host threads, 3× DGX H100; a Trainium3 gets 16",
+    "subtitle": "Host CPU hardware threads (vCPUs) per accelerator; labels add physical cores where known; hatched = announced",
     "alt": "Bar chart of host CPU threads per accelerator: DGX-1 V100 10, DGX-2 6, DGX A100 32, DGX H100 28, DGX B200 28, GH200 72 (72 Grace cores, no SMT), GB200 and GB300 NVL72 36, Vera Rubin NVL72 88 (44 Olympus cores with two threads each); AWS Trn2 instances have 12 host vCPUs per Trainium2 and Trn3 Gen2 UltraServers 16 per Trainium3, so NVIDIA's rack designs carry several times more host compute per accelerator.",
     "data": [
       "l04_host_attach.csv"
@@ -1639,8 +1867,8 @@
   },
   {
     "id": "04-kv-cache-reload-time",
-    "title": "Reloading a 32k-token Llama 70B conversation (5.4 GB of KV cache) takes 84 ms over PCIe Gen5, 12 ms over NVLink-C2C, ~6 s to recompute",
-    "subtitle": "Milliseconds to bring one parked conversation's FP8 KV cache back to the GPU; peak link rates, one direction",
+    "title": "KV-cache reload: 84 ms over PCIe Gen5, 12 ms over NVLink-C2C, ~6 s to recompute",
+    "subtitle": "Time to restore one 32k-token Llama 3.1 70B conversation (5.4 GB, FP8) to the GPU; peak one-way link rates",
     "alt": "Log-scale horizontal bar chart. A 32,768-token Llama 3.1 70B conversation has a 5.4 GB FP8 KV cache. Recomputing it on one H100-class GPU at 50% of dense FP8 peak takes about 6.1 seconds (estimate); copying it back from CPU memory takes about 168 ms over PCIe Gen4 x16, 84 ms over Gen5, 42 ms over Gen6, 24 ms over GB200's shared NVLink-C2C and 12 ms over a full GH200 or Vera Rubin per-GPU C2C share, versus about 1.1 ms to read it from HBM3E.",
     "data": [
       "P2_model_and_gpu_inputs.csv",
@@ -1727,8 +1955,8 @@
   },
   {
     "id": "04-server-cpu-memory-bandwidth-roadmap",
-    "title": "Vera's 1.2 TB/s (2.3× Grace) is matched within a year: Venice 1.6 TB/s (2026), Diamond Rapids ~1.7 TB/s reported (2027)",
-    "subtitle": "Peak memory bandwidth per socket, GB/s, by launch year 2022–2028 (vendor claims; Diamond Rapids derived from Intel's '2x Granite Rapids')",
+    "title": "Vera's 1.2 TB/s (2.3× Grace) is matched by x86 within a year: Venice 1.6 TB/s",
+    "subtitle": "Peak memory bandwidth per socket, GB/s, by launch year (vendor claims; Diamond Rapids = Intel's '2x Granite Rapids', reported)",
     "alt": "Line chart of peak memory bandwidth per CPU socket: NVIDIA Grace 512 GB/s (2023) to Vera 1,200 GB/s (2026); AMD EPYC 461, 576 and 1,600 GB/s (Venice, 2026, AMD claim); Intel Xeon 307, 845 and about 1,690 GB/s reported for Diamond Rapids (2027); AWS Graviton 307 and 538 GB/s; AmpereOne 333 GB/s. NVIDIA's LPDDR5X lead over x86 is a 2025-26 window rather than a permanent gap.",
     "data": [
       "l04_cpu_roadmap_specs.csv"
@@ -1763,8 +1991,8 @@
   },
   {
     "id": "04-vera-rubin-rack-cpu-share",
-    "title": "Est.: Vera CPUs are ~2% of a $7.8M Vera Rubin NVL72 rack; with their LPDDR5X memory the CPU complex is ~16%",
-    "subtitle": "Estimated cost build-up of one Vera Rubin NVL72 rack (ODM price to cloud), US$ millions; Morgan Stanley figures plus a repo split of memory",
+    "title": "Est.: Vera CPUs are ~2% of a $7.8M Vera Rubin rack; with LPDDR5X, ~16%",
+    "subtitle": "Estimated cost build-up of one Vera Rubin NVL72 rack (ODM price to cloud), US$ M; Morgan Stanley plus a repo split of memory",
     "alt": "Horizontal bar chart of an estimated $7.80M Vera Rubin NVL72 rack: 72 Rubin GPUs $3.96M, other content (NVSwitch trays, NICs, PCB, power, chassis) about $1.46M, LPDDR5X SOCAMM memory for the Vera CPUs about $1.10M (implied), HBM4 about $0.90M, 36 Vera CPUs $0.18M (about $5k each, 4.5 cents per GPU dollar), ODM margin $0.15M and cooling $0.06M.",
     "data": [
       "l04_cpu_value_chain.csv"

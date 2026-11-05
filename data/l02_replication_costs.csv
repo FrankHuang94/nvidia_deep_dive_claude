@@ -1,0 +1,13 @@
+item,entity,category,year,value_usd_b,basis,confidence,source_id,notes
+Design one large 5 nm chip,Industry (IBS model),design_cost,2022,0.479,estimate,estimate,S2501,"IBS-based NRE series as published by Silicon Analysts; insiders consider IBS figures 50-66% high (same source)"
+Design one large 3 nm chip,Industry (IBS model),design_cost,2024,0.585,estimate,estimate,S2501,"IBS-based NRE series as published by Silicon Analysts; other reports of the same IBS data give ~$581M"
+Design one large 2 nm chip,Industry (IBS model),design_cost,2026,0.725,estimate,estimate,S2500;S2501,"IBS: 'fairly large' 2 nm chip; excludes AI-assisted EDA and IP reuse (Tom's Hardware caveat)"
+MatX Series B,MatX,startup_capital,2026,0.5,disclosed,reported,S2508,"Raise to tape out and produce first LLM chips at TSMC; shipments planned 2027"
+Tenstorrent Series D,Tenstorrent,startup_capital,2024,0.693,disclosed,confirmed,S2509,"Largest single round of a RISC-V AI-chip start-up at the time"
+Intel buys Habana Labs,Intel,acquisition,2019,2.0,disclosed,confirmed,S2514,"Gaudi line; Intel later missed its 2024 Gaudi revenue goal and cancelled Falcon Shores"
+Cerebras IPO proceeds,Cerebras,startup_capital,2026,5.55,disclosed,reported,S2504;S2505,"Nasdaq IPO priced 2026-05-14 at $185/share"
+AMD total R&D (CY2024),AMD,annual_rd,2024,6.456,disclosed,confirmed,S450,"All products (CPU, GPU, FPGA, embedded); from peer_financials.csv"
+NVIDIA Blackwell development,NVIDIA,program_cost,2024,10.0,estimate,reported,S35028,"CEO estimate of R&D spent on the Blackwell generation (chips, systems, software)"
+Intel total R&D (CY2024),Intel,annual_rd,2024,16.546,disclosed,confirmed,S452,"All products incl. process technology; from peer_financials.csv"
+NVIDIA total R&D (FY2026),NVIDIA,annual_rd,2026,18.497,disclosed,confirmed,S401,"FY2026 (Feb 2025-Jan 2026); ~31,000 of ~42,000 employees in R&D"
+NVIDIA-Groq licence and team hire,NVIDIA,acquisition,2025,20.0,reported,reported,S474;S113,"Non-exclusive licence of LPU technology plus hiring of founder and team; terms undisclosed, ~$20B per CNBC"

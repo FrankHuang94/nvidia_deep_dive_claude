@@ -1,0 +1,84 @@
+# Layer 04: how the host CPU attaches to GPUs - an x86 PCIe host (DGX H100) vs a Grace superchip (GB200).
+# Original drawing from public specifications (NVIDIA DGX H100, GH200/GB200 product pages); not traced from vendor art.
+
+title: "Two ways to attach a host CPU: PCIe (x86 DGX H100) vs coherent NVLink-C2C (GB200 superchip)" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+grid-columns: 2
+grid-gap: 90
+
+pcie: "A · x86 host over PCIe (DGX H100, per 4 GPUs)" {
+  style.fill: "#F3F3F1"
+  style.stroke: "#898781"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 46
+
+  cpuside: "" {
+    style.opacity: 0
+    grid-columns: 2
+    grid-gap: 30
+    ddr: "DDR5 system memory\n~1 TB per socket\n~307 GB/s" {width: 230; style.fill: "#FFFFFF"; style.stroke: "#898781"; style.font-size: 16}
+    xeon: "Intel Xeon 8480C\n56 cores" {width: 230; style.fill: "#A9CC73"; style.stroke: "#3F6B00"; style.font-size: 17; style.bold: true}
+  }
+  sw: "PCIe Gen5 switches\n(shared with NICs and SSDs)" {width: 490; style.fill: "#FFFFFF"; style.stroke: "#898781"; style.font-size: 16}
+  gpus: "" {
+    style.opacity: 0
+    grid-columns: 4
+    grid-gap: 18
+    g1: "H100\n80 GB HBM3" {width: 110; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 14}
+    g2: "H100\n80 GB HBM3" {width: 110; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 14}
+    g3: "H100\n80 GB HBM3" {width: 110; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 14}
+    g4: "H100\n80 GB HBM3" {width: 110; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 14}
+  }
+  note: "GPU sees host memory as a separate pool:\ncopies via DMA at <=128 GB/s per x16 link;\nno shared page tables, no cache coherence" {
+    shape: text
+    style.font-size: 15
+    style.italic: true
+  }
+}
+
+c2c: "B · Grace superchip (GB200: 1 Grace + 2 Blackwell)" {
+  style.fill: "#EEF5E3"
+  style.stroke: "#5F9E00"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 46
+
+  cpuside: "" {
+    style.opacity: 0
+    grid-columns: 2
+    grid-gap: 30
+    lp: "LPDDR5X\n480 GB, ~512 GB/s\n(on the module)" {width: 230; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 16}
+    grace: "Grace\n72 Arm Neoverse V2 cores" {width: 230; style.fill: "#5F9E00"; style.stroke: "#3F6B00"; style.font-size: 17; style.bold: true; style.font-color: "#FFFFFF"}
+  }
+  c2clink: "NVLink-C2C · 900 GB/s · cache-coherent\n(~450 GB/s per GPU when both GPUs pull)" {width: 490; style.fill: "#FFFFFF"; style.stroke: "#3F6B00"; style.stroke-width: 3; style.font-size: 16; style.bold: true}
+  gpus: "" {
+    style.opacity: 0
+    grid-columns: 2
+    grid-gap: 40
+    b1: "B200\n186 GB HBM3E\n8 TB/s" {width: 200; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 14}
+    b2: "B200\n186 GB HBM3E\n8 TB/s" {width: 200; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-size: 14}
+  }
+  note: "One address space: a GPU kernel can load and store\nGrace memory directly, so LPDDR5X becomes a\nslower, larger second memory tier (KV cache, embeddings)" {
+    shape: text
+    style.font-size: 15
+    style.italic: true
+  }
+}
+
+pcie.cpuside.xeon -> pcie.cpuside.ddr {style.stroke: "#898781"}
+pcie.cpuside.xeon -> pcie.sw: "PCIe Gen5" {style.stroke: "#898781"}
+pcie.sw -> pcie.gpus.g1: "x16 · 128 GB/s" {style.stroke: "#898781"}
+pcie.sw -> pcie.gpus.g2 {style.stroke: "#898781"}
+pcie.sw -> pcie.gpus.g3 {style.stroke: "#898781"}
+pcie.sw -> pcie.gpus.g4 {style.stroke: "#898781"}
+
+c2c.cpuside.grace -> c2c.cpuside.lp {style.stroke: "#3F6B00"}
+c2c.cpuside.grace -> c2c.c2clink {style.stroke: "#3F6B00"; style.stroke-width: 3}
+c2c.c2clink -> c2c.gpus.b1 {style.stroke: "#3F6B00"; style.stroke-width: 3}
+c2c.c2clink -> c2c.gpus.b2 {style.stroke: "#3F6B00"; style.stroke-width: 3}

@@ -1,0 +1,9 @@
+company,architecture,latest_event,event_date,amount_usd_b,value_usd_b,value_basis,status,confidence,source_id,notes
+Cerebras,wafer-scale engine,Nasdaq IPO (CBRS),2026-05-14,5.55,40.0,IPO pricing (low end of reports),public,reported,S2504;S2505,"Reports put the IPO valuation at ~$40B (basic) to ~$56B (fully diluted); private rounds valued it at $8.1B (Sep 2025) and ~$23B (Feb 2026)"
+Groq,SRAM-based LPU,NVIDIA licence + team hire,2025-12-24,,20.0,reported deal value,licensed to NVIDIA,reported,S474;S113;S118,"Non-exclusive licence; founder and much of the team joined NVIDIA; GroqCloud continues independently; former employees sued the board (2026)"
+Etched,transformer-only ASIC (Sohu),Series C,2026-07,0.3,10.3,post-money (reported),private,reported,S2507;S2506,"Series B $500M at >$5B (Jan 2026); a ~$20B+ Series D appears only in aggregators and is not used"
+Lightmatter,photonic interconnect,Series D,2024-10-16,0.4,4.4,round valuation,private,confirmed,S2510,"Total raised ~$850M"
+Celestial AI,photonic memory fabric,Acquired by Marvell,2026-02-02,,3.25,upfront consideration,acquired,confirmed,S2513,"$1B cash plus ~27.2M Marvell shares upfront, plus revenue earn-outs"
+Tenstorrent,RISC-V AI processors,Series D,2024-12-02,0.693,2.7,post-money (repo arithmetic: $2B pre-money + raise),private,confirmed,S2509,"Led by Samsung Securities and AFW Partners"
+d-Matrix,digital in-memory compute,Series C,2025-11-12,0.275,2.0,round valuation,private,reported,S2511,"Total raised ~$450M"
+SambaNova,reconfigurable dataflow (RDU),Intel acquisition talks,2025-12,,1.6,reported offer incl. debt (talks stalled),private,reported,S2512,"Valued at $5B in 2021; no completed deal found by 2026-11-05"

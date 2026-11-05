@@ -1,0 +1,12 @@
+record_type,item,metric,value,unit,confidence,source_id,notes
+data_loading,DGX-2 ResNet-50 training,synthetic_data_ceiling,22656,images_per_s,reported,S4017,"GPU-only throughput with synthetic data (no loading or decoding): what the 16 GPUs can absorb"
+data_loading,DGX-2 ResNet-50 training,cpu_preprocessing_pipeline,12586,images_per_s,reported,S4017,"Standard framework data loader: JPEG decode and augmentation on the host CPUs"
+data_loading,DGX-2 ResNet-50 training,dali_gpu_preprocessing,21034,images_per_s,reported,S4017,"NVIDIA DALI moves decode and augmentation onto the GPUs"
+data_loading,DGX-2 ResNet-50 training,host_cpu_cores,48,cores,reported,S313,"2 x Xeon Platinum 8168 (24 cores each) [recall; re-verify]"
+data_loading,DGX-2 ResNet-50 training,gpus,16,count,confirmed,S313,
+data_loading,DGX-2 ResNet-50 training,system_list_price,0.399,USD_M,confirmed,S313;S314,Launch list price
+kv_offload,Llama 3.1 70B multi-turn conversation,context_tokens,32768,tokens,estimate,S32006,"Illustrative long conversation parked between turns"
+kv_offload,Llama 3.1 70B multi-turn conversation,kv_bytes_per_element,1,bytes,estimate,S32025;S32027,"FP8 KV cache (BF16 doubles every size and time)"
+kv_offload,Llama 3.1 70B multi-turn conversation,recompute_gpu,1,count,estimate,S128,"Recompute (prefill) on one H100-class GPU, as in a GH200"
+ratio_projection,AI server CPU:GPU ratio (agentic era),cpus_per_gpu_low,0.5,ratio,reported,S4013,"TrendForce: ratio shifting toward 1:2 to 1:1"
+ratio_projection,AI server CPU:GPU ratio (agentic era),cpus_per_gpu_high,1.0,ratio,reported,S4012;S4013,"Intel (Q1 2026 call) and TrendForce: up to 1:1 in agentic scenarios"

@@ -1,0 +1,15 @@
+record_type,item,component,metric,value,unit,confidence,source_id,notes
+rack_bom,Vera Rubin NVL72,Rubin GPUs (72),cost,3.96,USD_M,estimate,S332;S331,Morgan Stanley (May 2026) via press; ~51% of rack.
+rack_bom,Vera Rubin NVL72,HBM4 (implied),cost,0.90,USD_M,estimate,S330;S332,Repo split: MS total memory $2.00M minus implied SOCAMM LPDDR5X value; ~$43/GB on 20.7 TB.
+rack_bom,Vera Rubin NVL72,LPDDR5X SOCAMM for Vera (implied),cost,1.10,USD_M,estimate,S332;S362,Repo inference: MS rack $7.8M vs $6.7M if the CSP buys SOCAMM directly; 54 TB LPDDR5X per rack.
+rack_bom,Vera Rubin NVL72,Vera CPUs (36),cost,0.18,USD_M,estimate,S331,Morgan Stanley via press; ~$5k per Vera.
+rack_bom,Vera Rubin NVL72,Liquid cooling,cost,0.056,USD_M,estimate,S334,Compute + switch tray cold plates.
+rack_bom,Vera Rubin NVL72,ODM gross margin,cost,0.148,USD_M,estimate,S332,1.9% of $7.8M.
+rack_bom,Vera Rubin NVL72,"Other (NVSwitch trays, NICs, DPUs, PCB, power, chassis)",cost,1.459,USD_M,estimate,S330;S332,Remainder to the $7.803M Morgan Stanley rack price.
+rack_bom,Vera Rubin NVL72,Total,cost,7.803,USD_M,estimate,S330,"Morgan Stanley: $7,803,148 per rack."
+royalty_rate,Armv8 cores,Royalty rate,low_pct_of_chip_asp,1.0,pct,estimate,S4508,TIKR analysis range 1-2%.
+royalty_rate,Armv8 cores,Royalty rate,high_pct_of_chip_asp,3.0,pct,estimate,S4509,Kavout analysis 2.5-3%.
+royalty_rate,Armv9 cores,Royalty rate,low_pct_of_chip_asp,2.0,pct,estimate,S4508,TIKR 2-4.5%.
+royalty_rate,Armv9 cores,Royalty rate,high_pct_of_chip_asp,5.0,pct,estimate,S4509,Kavout ~5% (roughly double v8).
+royalty_rate,Compute Subsystem (CSS),Royalty rate,low_pct_of_chip_asp,8.0,pct,estimate,S4508,TIKR 8-10%.
+royalty_rate,Compute Subsystem (CSS),Royalty rate,high_pct_of_chip_asp,10.0,pct,estimate,S4509,Kavout '10% or more'; Arm says CSS roughly doubles v9 royalty per chip.

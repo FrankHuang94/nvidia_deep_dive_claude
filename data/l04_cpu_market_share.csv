@@ -1,0 +1,17 @@
+period,period_date,tracker,metric,scope,entity,value,unit,basis,confidence,source_id,notes
+2025-Q1,2025-02-15,UBS,unit_share,server CPU units (all ISAs),Arm,11.5,pct,actual,reported,S4503,UBS estimate as reported by Analytics Insight; year-ago comparison for Q1 2026.
+2025-Q4,2025-11-15,Mercury Research,unit_share,server CPU units (all ISAs),Arm,12.5,pct,actual,reported,S4502,Revised figure quoted alongside Q1 2026; Mercury attributes growth to Grace in NVL72 racks.
+2026-Q1,2026-02-15,Mercury Research,unit_share,server CPU units (all ISAs),Arm,13.2,pct,actual,reported,S4502,Arm server chip shipments nearly doubled year on year (Mercury via Techzine).
+2026-Q1,2026-02-15,UBS,unit_share,server CPU units (all ISAs),Arm,17.7,pct,actual,reported,S4503,Up 370 bp; same UBS split puts Intel at 54.9% and AMD at 27.4%.
+2026-Q1,2026-02-15,UBS,unit_share,server CPU units (all ISAs),Intel,54.9,pct,actual,reported,S4503,
+2026-Q1,2026-02-15,UBS,unit_share,server CPU units (all ISAs),AMD,27.4,pct,actual,reported,S4503,
+2030,2030-07-01,UBS,unit_share,server CPU units (all ISAs),Arm,42.5,pct,forecast,speculative,S4503,UBS projects 40-45% by 2030; midpoint plotted.
+2025,2025-07-01,TrendForce,unit_share,server CPU units (all ISAs),Arm,10,pct,actual,reported,S4500,'Only recently surpassed 10%' in 2025; x86 nearly 90%.
+2026,2026-07-01,TrendForce,unit_share,server CPU units (all ISAs),Arm,20,pct,forecast,estimate,S4500,TrendForce expects Arm above 20% in 2026 (forecast issued Oct 2026).
+2027,2027-07-01,TrendForce,unit_share,server CPU units (all ISAs),Arm,30,pct,forecast,estimate,S4500,TrendForce: approximately 30% in 2027; server CPU shipments to grow over 40% in 2027.
+2026-Q1,2026-02-15,IDC,revenue_share,server system revenue (all ISAs),Non-x86 (mostly Arm),47.9,pct,actual,reported,S4501,Non-x86 server revenue $58.7B (+107.6% y/y); Arm systems >95% of it. Measures whole-server revenue (GPU racks dominate) not CPU revenue.
+2025-Q1,2025-02-15,Mercury Research,x86_unit_share,x86 server CPU units,AMD,27.2,pct,actual,reported,S4504,AMD share of x86 server CPU units.
+2026-Q1,2026-02-15,Mercury Research,x86_unit_share,x86 server CPU units,AMD,33.2,pct,actual,reported,S4503,Record at the time.
+2026-Q2,2026-05-15,Mercury Research,x86_unit_share,x86 server CPU units,AMD,34.5,pct,actual,reported,S4505,Mercury conventional published number.
+2026-Q1,2026-02-15,Mercury Research,x86_revenue_share,x86 server CPU revenue,AMD,46.2,pct,actual,reported,S4503,Record AMD x86 server CPU revenue share.
+2026-Q2,2026-05-15,Mercury Research,x86_normalized_share,EPYC vs Xeon like-for-like,AMD,46.4,pct,actual,reported,S4505,Mercury's normalised Xeon-vs-EPYC comparison (Intel 53.6%).

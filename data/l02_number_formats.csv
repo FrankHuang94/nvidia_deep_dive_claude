@@ -1,0 +1,11 @@
+format,total_bits,exponent_bits,mantissa_bits,block_size,scale_format,effective_bits_per_value,max_normal_value,first_nvidia_tensor_support,confidence,source_id,notes
+FP32,32,8,23,,,32,3.4e38,Volta (CUDA cores only),confirmed,S127,"IEEE single precision; the training default before mixed precision"
+TF32,19,8,10,,,32,3.4e38,Ampere,confirmed,S127,"FP32 range with FP16-like precision; stored in 32-bit registers, so no memory saving"
+FP16,16,5,10,,,16,65504,Volta,confirmed,S126,"Narrow range needs loss scaling in training"
+BF16,16,8,7,,,16,3.4e38,Ampere,confirmed,S127,"FP32 range with less precision; today's training default"
+FP8 E4M3,8,4,3,whole tensor,FP32 per tensor,8,448,Hopper,confirmed,S2013;S33024,"Used for weights and activations"
+FP8 E5M2,8,5,2,whole tensor,FP32 per tensor,8,57344,Hopper,confirmed,S2013;S33024,"Wider range; used for gradients"
+MXFP8 (E4M3),8,4,3,32,E8M0 (power of two),8.25,448,Blackwell,confirmed,S2007,"OCP microscaling: one shared 8-bit power-of-two scale per 32 values"
+MXFP6 (E2M3),6,2,3,32,E8M0 (power of two),6.25,7.5,Blackwell,confirmed,S2007,"OCP microscaling"
+MXFP4 (E2M1),4,2,1,32,E8M0 (power of two),4.25,6,Blackwell,confirmed,S2007;S2008,"OCP microscaling; representable magnitudes 0 0.5 1 1.5 2 3 4 6"
+NVFP4 (E2M1),4,2,1,16,FP8 E4M3 per block + FP32 per tensor,4.5,6,Blackwell,confirmed,S32017;S2008,"NVIDIA format: smaller blocks and fractional (non power-of-two) scales"

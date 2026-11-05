@@ -1,0 +1,26 @@
+vendor,product,isa,core_type,year,status,max_cores,memory_bw_gbs,cpu_gpu_link,confidence,source_id,notes
+NVIDIA,Grace,Arm,Arm Neoverse V2,2023,shipping,72,512,NVLink-C2C 900 GB/s,confirmed,S129,LPDDR5X; some NVIDIA docs say 546 GB/s.
+NVIDIA,Vera,Arm,NVIDIA Olympus (custom),2026,shipping,88,1200,NVLink-C2C 1.8 TB/s,confirmed,S100;S33004;S209,176 threads via spatial multithreading; production shipments with Vera Rubin from Aug 2026.
+NVIDIA,Rosa,Arm (presumed),NVIDIA custom,2028,roadmap,,,NVLink-C2C (presumed),reported,S90004;S109;S502,Reported at GTC 2026 as the Feynman-generation CPU; no specs.
+AMD,EPYC 9004 Genoa,x86-64,Zen 4,2022,shipping,96,460.8,PCIe Gen5,confirmed,S175,12 x DDR5-4800.
+AMD,EPYC 9005 Turin,x86-64,Zen 5 / Zen 5c,2024,shipping,192,576,PCIe Gen5,confirmed,S176,12 x DDR5-6000 (614 GB/s at 6400 on qualified platforms).
+AMD,EPYC Venice,x86-64,Zen 6 / Zen 6c,2026,shipping,256,1600,PCIe Gen6,confirmed,S144;S538;S542,TSMC N2; 1.6 TB/s is AMD's claim; 18 per Helios rack; volume scaling Q4 2026.
+AMD,EPYC Verano,x86-64,Zen 6-based low-power variant (reported),2027,roadmap,,,,confirmed,S538;S540,Pairs with MI500 in Helios 500.
+AMD,EPYC Ferrara,x86-64,not disclosed,2028,roadmap,,,,confirmed,S538,Pairs with MI600 in Helios 600.
+Intel,Xeon 4th Gen Sapphire Rapids,x86-64,Golden Cove (P-core),2023,shipping,60,307.2,PCIe Gen5,confirmed,S33022,Top SKU 8490H has 60 cores; DGX H100 used the 56-core 8480C.
+Intel,Xeon 6 Granite Rapids-AP,x86-64,Redwood Cove (P-core),2024,shipping,128,844.8,PCIe Gen5,confirmed,S179,MRDIMM-8800; 614 GB/s with DDR5-6400.
+Intel,Xeon 6+ Clearwater Forest,x86-64,Darkmont (E-core),2026,shipping,288,768,PCIe Gen5,reported,S180;S4525,Intel 18A; launched at Computex 2026 after a slip from 2025.
+Intel,Xeon 7 Diamond Rapids,x86-64,Panther Cove (P-core),2027,roadmap,192,1690,PCIe Gen6,reported,S4524;S4525,"Intel said +50% cores vs Xeon 6 and 2x Granite Rapids memory bandwidth (16 channels); cores and bandwidth derived (128 x 1.5; 844.8 x 2). Reported mid-2027, slipped from 2026."
+Intel,Xeon Coral Rapids,x86-64,P-core with SMT (reported),2028,rumored,,,,speculative,S4524,Leak places it in mid-2028.
+AWS,Graviton3,Arm,Neoverse V1,2022,shipping,64,307.2,PCIe Gen5,confirmed,S181,8 x DDR5-4800.
+AWS,Graviton4,Arm,Neoverse V2,2024,shipping,96,537.6,PCIe Gen5,confirmed,S181,12 x DDR5-5600.
+AWS,Graviton5,Arm,Neoverse (V3-class reported),2026,shipping,192,,PCIe Gen6,confirmed,S156;S4526,EC2 M9g GA 2026-06-10; DDR5-8800; ~5x larger cache; channel count not verified so bandwidth left blank.
+Microsoft,Cobalt 100,Arm,Neoverse N2 (CSS),2024,shipping,128,,PCIe Gen5,confirmed,S183,12-channel DDR5.
+Microsoft,Cobalt 200,Arm,Neoverse V3 (CSS),2026,announced,132,,,reported,S184;S4526,Still in preview as of June 2026 per press.
+Google,Axion (C4A),Arm,Neoverse V2,2024,shipping,72,,,reported,S182,72 = max vCPUs per C4A VM; physical cores undisclosed.
+Ampere,AmpereOne A192-32X,Arm,Ampere custom,2023,shipping,192,332.8,PCIe Gen5,confirmed,S185,8 x DDR5-5200; SoftBank-owned since 2025-11-25.
+Arm,Arm AGI CPU,Arm,Neoverse (Arm's own silicon),2026,announced,136,,,reported,S4510,Arm's first in-house chip (2026-03-24); TSMC 3 nm; up to 3.7 GHz; Meta first customer.
+Huawei,Kunpeng 950,Arm,Huawei custom (TaiShan),2026,announced,192,,,reported,S4528,96/192-core variants; Q4 2026 per Huawei Connect 2025 roadmap (sources differ: Q1 vs Q4 2026).
+Huawei,Kunpeng 960,Arm,Huawei custom,2028,roadmap,256,,,reported,S4528,Over 256 cores; Q1 2028.
+Fujitsu,MONAKA,Arm,Fujitsu custom (Armv9-A),2027,roadmap,144,,PCIe Gen6 (NVLink Fusion planned),reported,S187;S4529,2 nm compute dies on 5 nm SRAM/IO; FY2027 target.
+Qualcomm,Datacenter CPU (Oryon-based),Arm,Qualcomm Oryon (custom),2027,rumored,80,,NVLink Fusion (planned),speculative,S131;S4515,Core count is a DigiTimes report via 3DNews; Qualcomm has disclosed no specs or date. Year is a placeholder.

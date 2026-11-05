@@ -1,0 +1,13 @@
+product,level,level_order,capacity_mb,bandwidth_tbs,basis,confidence,source_id,notes
+H100 SXM,Registers,1,33,371,derived,estimate,S33024;S2022;S2021,"132 SMs x 256 KB; bandwidth Est. = 132 SMs x 1,536 B/clock (4 sub-partitions x 3 operands x 32 lanes x 4 B) x 1.83 GHz (clock implied by 989 TFLOPS dense BF16 at 4,096 FLOPs/clock/SM)"
+H100 SXM,L1 / shared memory,2,33,30.9,derived,estimate,S33024;S2022;S2021,"132 SMs x 256 KB; bandwidth Est. = 32 banks x 4 B = 128 B/clock/SM x 132 x 1.83 GHz"
+H100 SXM,L2 cache,3,50,5.5,measured,reported,S33024;S2005,"50 MB; >5.5 TB/s read bandwidth measured by Chips and Cheese on the lower-clocked H100 PCIe (a floor for SXM)"
+H100 SXM,HBM3,4,80000,3.35,spec,confirmed,S33002,"80 GB at 3.35 TB/s"
+H100 SXM,NVLink domain (HGX 8-GPU),5,640000,0.9,spec,confirmed,S33002,"8 x 80 GB reachable over NVLink 4 at 900 GB/s bidirectional per GPU"
+B200,Registers,1,37,423,derived,estimate,S2004;S2022;S2021,"148 SMs x 256 KB; bandwidth Est. = 148 x 1,536 B/clock x ~1.86 GHz (clock implied by 2.25 PFLOPS dense BF16 if each SM does 8,192 FLOPs/clock, itself an Est.)"
+B200,L1 / shared memory,2,37,35.2,derived,estimate,S2004;S2022;S2021,"148 SMs x 256 KB; 128 B/clock/SM x 148 x ~1.86 GHz; Tensor Memory (another 256 KB per SM) not shown"
+B200,L2 cache,3,126,21,measured,reported,S2004,"126 MB in two partitions; 21 TB/s measured within a partition (16.8 TB/s across partitions)"
+B200,HBM3E,4,180000,8,spec,confirmed,S33003,"180 GB usable (192 GB physical) at 8 TB/s"
+B200,NVLink domain (NVL72),5,13400000,1.8,spec,confirmed,S121;S263,"GB200 NVL72: 13.4 TB HBM3E across 72 GPUs; NVLink 5 at 1.8 TB/s bidirectional per GPU"
+Rubin,HBM4,4,288000,19.2,spec,confirmed,S33005;S33007,"288 GB at 19.2 TB/s (launched as 22 TB/s, revised Sep-Oct 2026); on-chip register, L1 and L2 sizes not disclosed"
+Rubin,NVLink domain (NVL72),5,20700000,3.0,spec,confirmed,S102;S103,"Vera Rubin NVL72: 20.7 TB HBM4; NVLink 6 at 3.0 TB/s per GPU (launched as 3.6 TB/s)"
