@@ -791,24 +791,26 @@ L 803.16 213.474875
      </g>
      <g id="line2d_12"/>
      <g id="text_9">
-      <!-- 1,000 -->
-      <g style="fill: #52514e" transform="translate(35.543281 217.083762) scale(0.095 -0.095)">
+      <!-- 1k -->
+      <g style="fill: #52514e" transform="translate(51.194531 217.084133) scale(0.095 -0.095)">
        <defs>
-        <path id="DejaVuSans-f" d="M 750 794 
-L 1409 794 
-L 1409 256 
-L 897 -744 
-L 494 -744 
-L 750 256 
-L 750 794 
+        <path id="DejaVuSans-4e" d="M 581 4863 
+L 1159 4863 
+L 1159 1991 
+L 2875 3500 
+L 3609 3500 
+L 1753 1863 
+L 3688 0 
+L 2938 0 
+L 1159 1709 
+L 1159 0 
+L 581 0 
+L 581 4863 
 z
 " transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#DejaVuSans-14"/>
-       <use xlink:href="#DejaVuSans-f" transform="translate(63.625 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(95.40625 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(159.03125 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(222.65625 0)"/>
+       <use xlink:href="#DejaVuSans-4e" transform="translate(63.625 0)"/>
       </g>
      </g>
     </g>
@@ -820,14 +822,11 @@ L 803.16 132.292313
      </g>
      <g id="line2d_14"/>
      <g id="text_10">
-      <!-- 10,000 -->
-      <g style="fill: #52514e" transform="translate(29.498906 135.901199) scale(0.095 -0.095)">
+      <!-- 10k -->
+      <g style="fill: #52514e" transform="translate(45.150156 135.90157) scale(0.095 -0.095)">
        <use xlink:href="#DejaVuSans-14"/>
        <use xlink:href="#DejaVuSans-13" transform="translate(63.625 0)"/>
-       <use xlink:href="#DejaVuSans-f" transform="translate(127.25 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(159.03125 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(222.65625 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(286.28125 0)"/>
+       <use xlink:href="#DejaVuSans-4e" transform="translate(127.25 0)"/>
       </g>
      </g>
     </g>
@@ -1041,7 +1040,7 @@ L -2 0
     </g>
     <g id="text_11">
      <!-- GB/s per GPU, bidirectional (log scale) -->
-     <g style="fill: #52514e" transform="translate(23.096562 317.79875) rotate(-90) scale(0.1 -0.1)">
+     <g style="fill: #52514e" transform="translate(38.204531 317.79875) rotate(-90) scale(0.1 -0.1)">
       <defs>
        <path id="DejaVuSans-12" d="M 1625 4666 
 L 2156 4666 
@@ -1143,6 +1142,15 @@ Q 3225 -91 2344 -91
 Q 1459 -91 1007 375 
 Q 556 841 556 1753 
 L 556 4666 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-f" d="M 750 794 
+L 1409 794 
+L 1409 256 
+L 897 -744 
+L 494 -744 
+L 750 256 
+L 750 794 
 z
 " transform="scale(0.015625)"/>
        <path id="DejaVuSans-47" d="M 2906 2969 
@@ -1890,20 +1898,6 @@ L 3531 531
 L 3531 0 
 L 628 0 
 L 628 4666 
-z
-" transform="scale(0.015625)"/>
-      <path id="DejaVuSans-4e" d="M 581 4863 
-L 1159 4863 
-L 1159 1991 
-L 2875 3500 
-L 3609 3500 
-L 1753 1863 
-L 3688 0 
-L 2938 0 
-L 1159 1709 
-L 1159 0 
-L 581 0 
-L 581 4863 
 z
 " transform="scale(0.015625)"/>
       <path id="DejaVuSans-b9" d="M 2297 3547 

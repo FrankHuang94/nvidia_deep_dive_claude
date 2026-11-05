@@ -195,9 +195,9 @@ def rack_price_estimates_range():
     rng = {s: (d[d.system == s].value.min(), d[d.system == s].value.max()) for s in systems}
     c = Chart(
         id="14-rack-price-estimates-range",
-        title=(f"NVL72 rack price estimates: ~${rng['GB200 NVL72'][0]:.1f}–{rng['GB200 NVL72'][1]:.1f}M (GB200), "
-               f"${rng['GB300 NVL72'][0]:.1f}–{rng['GB300 NVL72'][1]:.1f}M (GB300), ${rng['Vera Rubin NVL72'][0]:.0f}–"
-               f"{rng['Vera Rubin NVL72'][1]:.1f}M (Vera Rubin)"),
+        title=(f"NVL72 rack estimates: ${rng['GB200 NVL72'][0]:.1f}–{rng['GB200 NVL72'][1]:.1f}M GB200, "
+               f"${rng['GB300 NVL72'][0]:.0f}–{rng['GB300 NVL72'][1]:.1f}M GB300, ${rng['Vera Rubin NVL72'][0]:.0f}–"
+               f"{rng['Vera Rubin NVL72'][1]:.1f}M Vera Rubin"),
         subtitle="Each published estimate of price per rack, US$ M · ◆ = analyst/BOM estimate, ○ = end of a quoted media range · all Est.",
         alt=(f"Dot plot of NVL72 rack price estimates. GB200 NVL72: ${rng['GB200 NVL72'][0]:.1f}M to ${rng['GB200 NVL72'][1]:.1f}M "
              f"including networking and storage (HSBC $3.0M, SemiAnalysis $3.1M). GB300 NVL72: Morgan Stanley $3.99M, Wolfe $4.3M, "
@@ -215,7 +215,9 @@ def rack_price_estimates_range():
         dd = d[d.system == s].sort_values("value", ascending=False)
         for _, r in dd.iterrows():
             who = r.basis.split(", ", 1)[1] if ", " in r.basis else r.basis
-            if r.input == "capex_per_rack_all_in":
+            if "SOCAMM" in r.basis:
+                who = "Morgan Stanley, if CSP buys memory directly"
+            elif r.input == "capex_per_rack_all_in":
                 who = "SemiAnalysis, incl. network + storage"
             elif r.input.endswith("_low"):
                 who = who + " (low)"
@@ -270,7 +272,7 @@ def capex_vs_power_cost_per_gpu_year():
     used = pd.concat([d, pd.DataFrame([life, price_kwh, lo_kwh, hi_kwh, pue_air, pue_liq])])
     c = Chart(
         id="14-capex-vs-power-cost-per-gpu-year",
-        title=(f"Depreciation dominates: electricity is only ~{d.share.min() * 100:.0f}–{d.share.max() * 100:.0f}% "
+        title=(f"Depreciation dominates: power is only ~{d.share.min() * 100:.0f}–{d.share.max() * 100:.0f}% "
                f"of a GPU's yearly cost at ${price_kwh.value:.3f}/kWh"),
         subtitle=(f"US$ K per GPU-year: capex ÷ {life.value:g}-yr life + max IT power × PUE ({pue_air.value:g} air / "
                   f"{pue_liq.value:g} liquid) × 8,760 h · whiskers = ${lo_kwh.value:.2f}–{hi_kwh.value:.2f}/kWh"),

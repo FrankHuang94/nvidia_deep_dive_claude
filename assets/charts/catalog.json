@@ -701,7 +701,7 @@
   },
   {
     "id": "03-hbm-market-share-by-supplier",
-    "title": "SK hynix held 50–70% of HBM revenue in 2022–25; Samsung and Micron reached ~21–22% each",
+    "title": "SK hynix held 50–70% of HBM revenue in 2022–25; Samsung, Micron ~21–22% each",
     "subtitle": "Share of HBM revenue by supplier, % (TrendForce for 2022–2023; Counterpoint for 2025 quarters) · hatched = estimate",
     "alt": "Stacked 100% bar chart of HBM revenue share: 2022 SK hynix 50%, Samsung 40%, Micron 10%; 2023 estimate 53/38/9; Q1 2025 SK hynix about 70%; Q2 2025 SK hynix 62%, Micron 21%, Samsung 17%; Q3 2025 SK hynix 57%, Samsung 22%, Micron 21%.",
     "data": [
@@ -1346,6 +1346,28 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/06-fat-tree-max-gpus-by-radix.svg",
+    "html": null
+  },
+  {
+    "id": "06-ib-vs-ethernet-ai-backend-share",
+    "title": "Ethernet likely overtook InfiniBand in AI back-end networks in 2025 (directional Est.)",
+    "subtitle": "Share of AI back-end (GPU-to-GPU scale-out) switch spending, %; directional estimates — every bar is an estimate",
+    "alt": "Stacked 100% bars of AI back-end network switch spending: InfiniBand about 80% in 2023 falling to about 45% in 2025 and 30% in 2027E, with Ethernet rising from 20% to 70%. Values are directional estimates consistent with Dell'Oro commentary, not verified figures. NVIDIA itself drives much of the shift: Spectrum-X Ethernet passed a $10B annualized run-rate in 2025.",
+    "data": [
+      "market_share.csv"
+    ],
+    "chapters": [
+      "06",
+      "15"
+    ],
+    "source": "Dell'Oro commentary (directional); NVIDIA",
+    "source_ids": [
+      "S667",
+      "S445"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-ib-vs-ethernet-ai-backend-share.svg",
     "html": null
   },
   {
@@ -2614,7 +2636,7 @@
   },
   {
     "id": "14-capex-vs-power-cost-per-gpu-year",
-    "title": "Depreciation dominates: electricity is only ~12–19% of a GPU's yearly cost at $0.081/kWh",
+    "title": "Depreciation dominates: power is only ~12–19% of a GPU's yearly cost at $0.081/kWh",
     "subtitle": "US$ K per GPU-year: capex ÷ 6-yr life + max IT power × PUE (1.4 air / 1.15 liquid) × 8,760 h · whiskers = $0.05–0.10/kWh",
     "alt": "Stacked horizontal bars of yearly cost per GPU: straight-line depreciation of the system price over six years plus electricity at full power. Electricity is about 12-19% of the total: DGX H200 about $9.7K capex plus $1.3K power; GB300 NVL72 about $9.2K plus $1.5K; Vera Rubin NVL72 about $18.1K plus $2.6K (estimates).",
     "data": [
@@ -2716,7 +2738,7 @@
   },
   {
     "id": "14-rack-price-estimates-range",
-    "title": "NVL72 rack price estimates: ~$2.8–3.9M (GB200), $4.0–6.5M (GB300), $5–9.1M (Vera Rubin)",
+    "title": "NVL72 rack estimates: $2.8–3.9M GB200, $4–6.5M GB300, $5–9.1M Vera Rubin",
     "subtitle": "Each published estimate of price per rack, US$ M · ◆ = analyst/BOM estimate, ○ = end of a quoted media range · all Est.",
     "alt": "Dot plot of NVL72 rack price estimates. GB200 NVL72: $2.8M to $3.9M including networking and storage (HSBC $3.0M, SemiAnalysis $3.1M). GB300 NVL72: Morgan Stanley $3.99M, Wolfe $4.3M, Data Gravity $5.0M, media $6.0-6.5M. Vera Rubin NVL72: quotes from $5.0M, Morgan Stanley $7.8M ($6.7M if CSPs buy memory directly), up to $8.8M reported and Bernstein $9.1M.",
     "data": [
@@ -2791,6 +2813,52 @@
     "asof": "2026-11-05",
     "svg": "assets/charts/15-accelerator-landscape-bubble.svg",
     "html": "assets/interactive/15-accelerator-landscape-bubble.html"
+  },
+  {
+    "id": "15-ai-accelerator-market-share",
+    "title": "NVIDIA kept ~87% of AI silicon revenue in 2025 while the pool grew 4.2x from 2023",
+    "subtitle": "Share of vendor-reported AI data-center revenue (NVIDIA DC, AMD Instinct, Broadcom AI, Marvell AI), %; labels = pool US$ B",
+    "alt": "Stacked 100% bars of AI data-center silicon revenue share by vendor. NVIDIA 90% in 2023 and 87% in 2025; custom ASIC partners (Broadcom and Marvell) about 10% in 2025; AMD 1-4%. The pool grew from about $53B in 2023 to $224B in 2025 and an estimated $436B in 2026 (hatched).",
+    "data": [
+      "market_share.csv"
+    ],
+    "chapters": [
+      "15",
+      "00",
+      "13",
+      "18"
+    ],
+    "source": "vendor filings; repo calculation",
+    "source_ids": [
+      "S416",
+      "S417",
+      "S1",
+      "S403",
+      "S405",
+      "S660",
+      "S661",
+      "S662",
+      "S663",
+      "S668",
+      "S418",
+      "S2",
+      "S402",
+      "S450",
+      "S543",
+      "S542",
+      "S538",
+      "S451",
+      "S655",
+      "S174",
+      "S453",
+      "S218",
+      "S113",
+      "S173"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-ai-accelerator-market-share.svg",
+    "html": null
   },
   {
     "id": "15-competitor-breadth-vs-depth",
@@ -3001,6 +3069,35 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/15-competitor-radar-small-multiples-2.svg",
+    "html": null
+  },
+  {
+    "id": "15-custom-asic-revenue-trend",
+    "title": "Broadcom's AI revenue rose 2.8x in two years to $6.5B a quarter; Marvell's is ~1/8 the size",
+    "subtitle": "Left: Broadcom AI semiconductor revenue by fiscal quarter (US$ B). Right: annual AI revenue, Broadcom vs Marvell (US$ B)",
+    "alt": "Two panels. Left: Broadcom quarterly AI semiconductor revenue climbs from $2.3B in fiscal Q1 2024 to $6.5B in fiscal Q4 2025, with Q1 2026 guidance of $8.2B hatched. Right: annual AI revenue, Broadcom about $3.8B (2023), $12.2B (2024), $20.2B (2025), ~$45B (2026E scenario) vs Marvell $0.55B, $1.5B, $2.5B, ~$3.5B (2026E). Broadcom's figure includes AI Ethernet networking as well as custom XPUs such as Google's TPU.",
+    "data": [
+      "market_share.csv"
+    ],
+    "chapters": [
+      "15",
+      "13",
+      "19"
+    ],
+    "source": "Broadcom, Marvell earnings releases",
+    "source_ids": [
+      "S660",
+      "S661",
+      "S451",
+      "S655",
+      "S174",
+      "S662",
+      "S453",
+      "S218"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-custom-asic-revenue-trend.svg",
     "html": null
   },
   {
@@ -3216,6 +3313,36 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/15-memory-capacity-by-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "15-merchant-vs-custom-asic-share",
+    "title": "Custom ASICs reach only ~11% of AI silicon revenue by 2026E, but perhaps ~28% of units",
+    "subtitle": "Merchant (NVIDIA, AMD, Intel) vs custom ASIC (Broadcom, Marvell) share, %, 2023 vs 2026E; revenue basis vs unit basis",
+    "alt": "Slope chart: merchant GPUs and accelerators fall from 92% to about 89% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 11%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 28% of 2026 AI server shipments, because custom chips are far cheaper per unit.",
+    "data": [
+      "market_share.csv"
+    ],
+    "chapters": [
+      "15",
+      "13",
+      "19"
+    ],
+    "source": "vendor filings; TrendForce (as recalled)",
+    "source_ids": [
+      "S416",
+      "S1",
+      "S403",
+      "S405",
+      "S663",
+      "S660",
+      "S661",
+      "S662",
+      "S666"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-merchant-vs-custom-asic-share.svg",
     "html": null
   },
   {

@@ -177,24 +177,26 @@ L 594.7413 62.208
      </g>
      <g id="line2d_8"/>
      <g id="text_4">
-      <!-- 1,000 -->
-      <g style="fill: #52514e" transform="translate(581.142941 348.973773) scale(0.095 -0.095)">
+      <!-- 1k -->
+      <g style="fill: #52514e" transform="translate(588.968566 348.974516) scale(0.095 -0.095)">
        <defs>
-        <path id="DejaVuSans-f" d="M 750 794 
-L 1409 794 
-L 1409 256 
-L 897 -744 
-L 494 -744 
-L 750 256 
-L 750 794 
+        <path id="DejaVuSans-4e" d="M 581 4863 
+L 1159 4863 
+L 1159 1991 
+L 2875 3500 
+L 3609 3500 
+L 1753 1863 
+L 3688 0 
+L 2938 0 
+L 1159 1709 
+L 1159 0 
+L 581 0 
+L 581 4863 
 z
 " transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#DejaVuSans-14"/>
-       <use xlink:href="#DejaVuSans-f" transform="translate(63.625 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(95.40625 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(159.03125 0)"/>
-       <use xlink:href="#DejaVuSans-13" transform="translate(222.65625 0)"/>
+       <use xlink:href="#DejaVuSans-4e" transform="translate(63.625 0)"/>
       </g>
      </g>
     </g>
@@ -408,7 +410,7 @@ L 0 2
     </g>
     <g id="text_5">
      <!-- Training tokens per parameter (log scale) -->
-     <g style="fill: #52514e" transform="translate(293.528906 362.854438) scale(0.1 -0.1)">
+     <g style="fill: #52514e" transform="translate(293.528906 362.85518) scale(0.1 -0.1)">
       <defs>
        <path id="DejaVuSans-37" d="M -19 4666 
 L 3928 4666 
@@ -578,20 +580,6 @@ Q 1206 -91 779 398
 Q 353 888 353 1747 
 Q 353 2609 779 3096 
 Q 1206 3584 1959 3584 
-z
-" transform="scale(0.015625)"/>
-       <path id="DejaVuSans-4e" d="M 581 4863 
-L 1159 4863 
-L 1159 1991 
-L 2875 3500 
-L 3609 3500 
-L 1753 1863 
-L 3688 0 
-L 2938 0 
-L 1159 1709 
-L 1159 0 
-L 581 0 
-L 581 4863 
 z
 " transform="scale(0.015625)"/>
        <path id="DejaVuSans-48" d="M 3597 1894 
@@ -1766,6 +1754,15 @@ z
     <!-- 1,875 -->
     <g style="fill: #0b0b0b" transform="translate(649.311645 99.051891) scale(0.09 -0.09)">
      <defs>
+      <path id="DejaVuSans-f" d="M 750 794 
+L 1409 794 
+L 1409 256 
+L 897 -744 
+L 494 -744 
+L 750 256 
+L 750 794 
+z
+" transform="scale(0.015625)"/>
       <path id="DejaVuSans-1b" d="M 2034 2216 
 Q 1584 2216 1326 1975 
 Q 1069 1734 1069 1313 

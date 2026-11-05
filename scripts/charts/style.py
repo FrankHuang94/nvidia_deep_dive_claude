@@ -148,6 +148,32 @@ def _setup_mpl() -> None:
 
 _setup_mpl()
 
+_SUP = str.maketrans("-0123456789", "⁻⁰¹²³⁴⁵⁶⁷⁸⁹")
+
+
+def _plain_log(value, _pos=None) -> str:
+    """Format log-axis ticks as plain numbers: 0.01, 0.1, 1, 10, 100, 1k, 10k, 1M, 1B, 1T; values
+    beyond 10^15 or below 10^-3 as powers of ten with superscripts (e.g. 10²⁶)."""
+    import math
+    if value <= 0:
+        return ""
+    exp = math.floor(math.log10(value) + 1e-9)
+    if exp >= 15 or exp < -3:
+        mant = value / 10 ** exp
+        base = f"10{str(exp).translate(_SUP)}"
+        return base if abs(mant - 1) < 1e-6 else f"{mant:g}×{base}"
+    for div, suf in ((1e12, "T"), (1e9, "B"), (1e6, "M"), (1e3, "k")):
+        if value >= div:
+            return f"{value / div:g}{suf}"
+    return f"{value:g}"
+
+
+from matplotlib.ticker import FuncFormatter, NullFormatter  # noqa: E402
+
+PLAIN_LOG = FuncFormatter(_plain_log)
+NULL_FMT = NullFormatter()
+
+
 # --------------------------------------------------------------------------------------
 # Data loading
 # --------------------------------------------------------------------------------------
@@ -232,11 +258,13 @@ class Chart:
             if ylabel is not None:
                 main.set_ylabel(ylabel)
             if logy:
-                main.set_yscale("log")
+                if main.get_yscale() != "log":
+                    main.set_yscale("log")
                 if ylabel and "log" not in ylabel.lower():
                     main.set_ylabel(f"{ylabel} (log scale)")
             if logx:
-                main.set_xscale("log")
+                if main.get_xscale() != "log":
+                    main.set_xscale("log")
                 if xlabel and "log" not in xlabel.lower():
                     main.set_xlabel(f"{xlabel} (log scale)")
             if legend == "auto":
@@ -246,6 +274,17 @@ class Chart:
             for a in axes:
                 if a.name == "rectilinear":
                     a.tick_params(length=0)
+        # Plain tick labels on every log axis (mathtext is disabled, so matplotlib's default
+        # LogFormatterSciNotation would print raw '$\\mathdefault{10^{2}}$' strings).
+        for a in fig.get_axes():
+            if a.name != "rectilinear":
+                continue
+            if a.get_yscale() == "log":
+                a.yaxis.set_major_formatter(PLAIN_LOG)
+                a.yaxis.set_minor_formatter(NULL_FMT)
+            if a.get_xscale() == "log":
+                a.xaxis.set_major_formatter(PLAIN_LOG)
+                a.xaxis.set_minor_formatter(NULL_FMT)
         # Title block
         fig.text(0.012, 0.985, self.title, ha="left", va="top", fontsize=14.5, fontweight="bold",
                  color=INK["title"], wrap=True)
