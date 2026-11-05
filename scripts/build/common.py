@@ -11,7 +11,7 @@ REPO = Path(__file__).resolve().parents[2]
 EXCLUDE_DIRS = {"node_modules", ".git", ".site_src", "site", "__pycache__", ".venv", "venv"}
 # Markdown files that are meta/specification documents rather than content pages. They are
 # link-checked but not citation-normalised and not counted toward visual quotas.
-META_PREFIXES = ("docs/", "assets/", ".github/", "sources/", "scripts/", "diagrams/", "data/")
+META_PREFIXES = ("docs/", "assets/", ".github/", "sources/", "scripts/", "diagrams/", "data/", "zh-CN/")
 GENERATED = {"sources/bibliography.md", "glossary.md"}
 
 CITE_RE = re.compile(r"(?<!\[)\[S(\d{1,6})\](?!\(|\])")
