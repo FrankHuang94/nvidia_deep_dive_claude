@@ -373,3 +373,26 @@ published data points). `cost_usd_per_m_tokens` = InferenceX owner TCO ($/GPU-hr
 (tokens/s × 3,600), i.e. per million total tokens unless `notes` say output tokens; it is an
 estimate even when the throughput is measured. `accelerators` = GPUs in the serving instance
 (aggregated: tensor-parallel size; disaggregated: prefill + decode GPUs).
+
+### network_topology_estimates.csv (long; agent A2, connectivity)
+`scenario,cluster_gpus,gbps_per_gpu,switch_example,switch_radix_ports,port_gbps,planes,tiers,metric,value,unit,confidence,source_id,notes`
+
+Repo calculations (`confidence` = `estimate`) for non-blocking (1:1) rail-optimized fat trees,
+back-end compute fabric only (front-end, storage and out-of-band networks excluded; one NIC port per
+GPU per plane). Three record groups, told apart by `scenario`/`metric`:
+- `fat-tree capacity, radix R` · `max_gpus_nonblocking`: 2 tiers = R²/2, 3 tiers = R³/4.
+- `400G|800G per GPU, 2-tier|3-tier` · `optics_nic_side`, `optics_leaf_downlink`, `optics_leaf_spine`,
+  `optics_spine_core`, `optics_total_pluggable` (modules per GPU, all links optical, twin-port
+  2×400G / 2×800G modules on switches), `optical_port_ends` (2 per link per tier = module count if
+  every module were single-port) and `optics_total_cpo_switches` (switch-side pluggables removed).
+- `100k GPUs: …` · `switches_leaf|spine|core|total`, `transceivers_total`, `switch_hops_max`:
+  leaf = N/(R/2), spine = N/(R/2) (3 tiers) or N/R (2 tiers), core = N/R, per plane, rounded up.
+Rail optimization changes which leaf a NIC lands on, not the counts.
+
+### optics_power_estimates.csv (wide; agent A2, connectivity)
+`technology,example,port_gbps,year,watts_per_port,watts_per_800g,pj_per_bit,basis,confidence,source_id,notes`
+
+Optical-I/O power per port: DSP pluggables, linear pluggables (LPO), co-packaged optics (CPO) and a
+copper reference. `pj_per_bit` = W ÷ (Gb/s) × 1000. Vendor CPO claims (NVIDIA "3.5×", Broadcom
+"~70% lower") are converted to watts against the stated pluggable baseline and marked `estimate`;
+`basis` says which.

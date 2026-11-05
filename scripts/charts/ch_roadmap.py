@@ -216,6 +216,35 @@ def roadmap_gantt_nvidia():
     ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.45, -0.06), ncol=6, fontsize=7.8,
               frameon=False, handlelength=1.6, columnspacing=1.1)
     c.save(fig, ax, legend=False)
+    _gantt_plotly(c, rows, x_end)
+
+
+def _gantt_plotly(c, rows, x_end):
+    """Interactive twin: same bars, hover shows specs, confidence and notes."""
+    import plotly.graph_objects as go
+    fig = go.Figure()
+    seen = set()
+    for label, seq, recs in rows:
+        starts = [when(r.window_start) for r, _ in recs]
+        for j, (rec, short) in enumerate(recs):
+            x0, x1 = _bar_extent(rec, starts, j, seq, x_end)
+            st = STATUS_STYLE.get(rec.status, STATUS_STYLE["announced"])
+            hover = (f"<b>{rec['product']}</b><br>Status: {rec.status} · Confidence: {rec.confidence}<br>"
+                     f"Window: {rec.window_start} – {rec.window_end}<br>{rec.key_specs}<br>"
+                     f"<i>{str(rec.notes)[:300]}</i><br>Sources: {rec.source_id}")
+            fig.add_trace(go.Bar(
+                y=[label], x=[x1 - x0], base=[x0], orientation="h", name=st["label"],
+                legendgroup=rec.status, showlegend=rec.status not in seen,
+                marker=dict(color=st["fc"], line=dict(color=st["ec"], width=1),
+                            pattern=dict(shape="/" if rec.status == "roadmap" else
+                                         ("x" if rec.status == "delayed" else ""))),
+                text=short, textposition="inside", insidetextanchor="start",
+                hovertext=hover, hoverinfo="text"))
+            seen.add(rec.status)
+    fig.update_layout(barmode="overlay", xaxis=dict(range=[2024, 2029], dtick=1, title="Year"),
+                      yaxis=dict(autorange="reversed"), legend=dict(orientation="h", y=-0.15))
+    fig.add_vline(x=when("2026-11-05"), line_dash="dash", line_color=INK["text"])
+    c.save_plotly(fig, height=640)
 
 
 # --------------------------------------------------------------------------------------
@@ -253,15 +282,19 @@ def roadmap_by_layer_small_multiples():
     per_group = {g: df[df.layer.isin(ls)] for g, ls in GROUPS}
     nv_future = df[(df.vkey == "NVIDIA") & (df.x >= 2027)]
     comp_future = df[(df.vkey != "NVIDIA") & (df.x >= 2027)]
+    hw = [g for g, ls in GROUPS if not set(ls) & {"09", "10", "11", "12"}]
+    hw_groups = sum(1 for g in hw if ((per_group[g].vkey == "NVIDIA") & (per_group[g].x >= 2027)).any())
+    chip_share = 100 * comp_future.layer.isin(["02", "08"]).mean()
     c = Chart(
         id="17-roadmap-by-layer-small-multiples",
-        title=(f"NVIDIA has {len(nv_future)} dated items for 2027–28 in every layer; rivals' {len(comp_future)} "
-               f"cluster in chips and racks"),
+        title=(f"NVIDIA has 2027–28 items in all {hw_groups} hardware layers; {chip_share:.0f}% of rivals' "
+               f"are chips or racks"),
         subtitle="Roadmap items by layer group and vendor, plotted at the start of the availability window, 2024–2028",
         alt=(f"Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) "
-             f"show NVIDIA items in every layer through 2028 ({len(nv_future)} items dated 2027 or later) while "
-             f"AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies "
-             f"have {len(comp_future)} such items, mostly accelerators and racks."),
+             f"show NVIDIA with {len(nv_future)} items dated 2027 or later spread across all {hw_groups} hardware "
+             f"layers, while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the "
+             f"standards bodies have {len(comp_future)} such items, {chip_share:.0f}% of them accelerators or racks. "
+             f"Software and cloud items are mostly near-term (dated 2025–2026)."),
         data=["roadmap.csv"], chapters=["17"],
         source="Company announcements and trade press", source_ids=sources_of(df),
     )

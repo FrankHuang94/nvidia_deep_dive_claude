@@ -156,6 +156,25 @@ def framework_support_heatmap():
     ax.text(len(VENDORS), -0.62, "? = speculative (not verified in vendor docs this session)", ha="right",
             va="center", fontsize=7.6, color=INK["muted"], clip_on=False)
     c.save(fig, ax, legend=False)
+    # interactive twin with the evidence for each cell on hover
+    import plotly.graph_objects as go
+    z, txt, hov = [], [], []
+    for fw in frameworks:
+        zr, tr, hr = [], [], []
+        for key, lab, _ in VENDORS:
+            row = d[(d.entity == fw) & (d.vendor == key)].iloc[0]
+            zr.append(int(row.value))
+            tr.append(LEVEL_TEXT[int(row.value)])
+            hr.append(f"<b>{fw} × {lab.replace(chr(10), ' ')}</b><br>{row.notes}<br>"
+                      f"Confidence: {row.confidence} · Sources: {row.source_id}")
+        z.append(zr), txt.append(tr), hov.append(hr)
+    scale = [[0, LEVEL_COLOR[0]], [0.33, LEVEL_COLOR[1]], [0.66, LEVEL_COLOR[2]], [1, LEVEL_COLOR[3]]]
+    pfig = go.Figure(go.Heatmap(z=z, x=[lab.replace("\n", " ") for _, lab, _ in VENDORS], y=frameworks,
+                                text=txt, texttemplate="%{text}", hovertext=hov, hoverinfo="text",
+                                colorscale=scale, zmin=0, zmax=3, showscale=False, xgap=3, ygap=3))
+    pfig.update_yaxes(autorange="reversed")
+    pfig.update_xaxes(side="top")
+    c.save_plotly(pfig, height=640)
 
 
 # --------------------------------------------------------------------------------------

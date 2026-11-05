@@ -1322,7 +1322,7 @@
   },
   {
     "id": "06-fat-tree-max-gpus-by-radix",
-    "title": "Switch radix sets cluster size: two tiers top out at 2,048 GPUs with 64-port switches but 131,072 with 512-port 102.4T switches",
+    "title": "Two network tiers reach 2,048 GPUs with 64-port switches but 131,072 with 512-port 102.4T switches",
     "subtitle": "Maximum GPUs (one NIC port each) in a non-blocking fat tree: 2 tiers = R²/2, 3 tiers = R³/4, for switch radix R",
     "alt": "Grouped log-scale bar chart: a two-tier non-blocking fat tree supports 800 GPUs with 40-port HDR switches, 2,048 with 64-port Quantum-2, 8,192 with 128-port 51.2T, 10,368 with 144-port Quantum-X800 and 131,072 with 512-port 102.4T switches; three tiers reach 65,536, 524,288 and 746,496; a 100,000-GPU cluster therefore needs three tiers unless switches have 512-port radix (or multiple planes).",
     "data": [
@@ -1400,7 +1400,7 @@
   },
   {
     "id": "06-optics-per-gpu",
-    "title": "Est.: each GPU needs ~2.5 pluggable optics in a 2-tier fat tree, ~3.5 in 3 tiers; CPO switches cut that to 1",
+    "title": "Est.: each GPU needs 2.5 pluggable optics (2 tiers) or 3.5 (3 tiers); CPO switches cut that to 1",
     "subtitle": "Estimated optical modules per GPU, non-blocking rail-optimized fat tree (back-end fabric only), by NIC speed and tiers",
     "alt": "Stacked bar chart (estimates): with all-optical links a GPU needs 2.5 pluggable modules in a two-tier fat tree and 3.5 in three tiers (one NIC-side module, half a twin-port leaf module, one module per upper tier), the same count at 400G and 800G; counted as optical port-ends it is 4 and 6, matching NVIDIA's '6 transceivers per GPU'; co-packaged-optics switches leave only the NIC-side module, 1 per GPU.",
     "data": [
@@ -1480,7 +1480,7 @@
   },
   {
     "id": "06-switch-aggregate-bandwidth",
-    "title": "Switch ASIC bandwidth doubled every ~2.2 years: Broadcom went from 3.2 Tb/s (2014) to 102.4 Tb/s (2025)",
+    "title": "Switch ASIC bandwidth doubled every ~2.2 years: 3.2 Tb/s (2014) to 102.4 Tb/s (2025) at Broadcom",
     "subtitle": "Switching capacity per switch (ports × port speed, one direction), Tb/s. NVIDIA's Spectrum-6 reaches 102.4 Tb/s in 2026",
     "alt": "Log-scale line chart of switch capacity by year: Broadcom Tomahawk from 3.2 Tb/s (2014) to 102.4 Tb/s (Tomahawk 6, 2025), doubling about every 2.2 years; NVIDIA Spectrum Ethernet from 3.2 Tb/s (2015) to 51.2 Tb/s (Spectrum-4) and 102.4 Tb/s (Spectrum-6, 2026); NVIDIA Quantum InfiniBand from 3.6 to 115.2 Tb/s (Quantum-X800 system); Cisco Silicon One and Marvell Teralynx track the same cadence.",
     "data": [
@@ -1539,7 +1539,7 @@
   },
   {
     "id": "06-switches-for-100k-gpu-cluster",
-    "title": "Est.: a non-blocking 100k-GPU fabric needs ~3,473–3,908 switches in 3 tiers, or ~2,348 with 102.4T multi-plane 2-tier designs",
+    "title": "Est.: 100k GPUs need ~3,500–3,900 switches in 3 tiers, or ~2,350 in a 2-tier multi-plane fabric",
     "subtitle": "Estimated back-end switches by tier for 100,000 GPUs (one NIC per GPU, 1:1 fat tree), with optical modules and worst-case hops",
     "alt": "Stacked horizontal bar chart (estimates) of switches needed for 100,000 GPUs: 3-tier designs need 3,473 to 3,908 switches and about 350k optical modules with 5 switch hops worst case; a 4-plane 2-tier design on 512-port 102.4T switches needs 2,348 switches, 250k modules (29% fewer) and 3 hops.",
     "data": [
@@ -2094,7 +2094,7 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/09-framework-support-heatmap.svg",
-    "html": null
+    "html": "assets/interactive/09-framework-support-heatmap.html"
   },
   {
     "id": "11-inference-engine-release-velocity",
@@ -2550,6 +2550,201 @@
     "html": null
   },
   {
+    "id": "14-capex-per-accelerator-by-system",
+    "title": "Est. capex per GPU roughly doubles from GB300 NVL72 (~$55K) to Vera Rubin NVL72 (~$108K)",
+    "subtitle": "System/rack price ÷ GPUs, US$ K (bar = central estimate; dots = other estimates; hatched = analyst Est.) · AMD/Google/AWS prices not public",
+    "alt": "Bar chart of capex per GPU: DGX-1 P100 about $16K (2016), DGX-1 V100 $19K, DGX-2 $25K, DGX A100 $25K, HGX H200 OEM about $40K, DGX H200 about $58K, DGX B200 about $46K, GB200 NVL72 about $42K, GB300 NVL72 about $55K and Vera Rubin NVL72 about $108K per GPU, with alternative analyst estimates from about $39K to $126K shown as dots. No public system prices exist for AMD, Google or AWS racks.",
+    "data": [
+      "system_specs.csv",
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "14",
+      "08",
+      "13"
+    ],
+    "source": "resellers, HSBC, SemiAnalysis, Morgan Stanley, Bernstein",
+    "source_ids": [
+      "S310",
+      "S311",
+      "S125",
+      "S312",
+      "S126",
+      "S313",
+      "S314",
+      "S315",
+      "S316",
+      "S322",
+      "S323",
+      "S33022",
+      "S32002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S324",
+      "S325",
+      "S327",
+      "S328",
+      "S333",
+      "S329"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/14-capex-per-accelerator-by-system.svg",
+    "html": null
+  },
+  {
+    "id": "14-capex-vs-power-cost-per-gpu-year",
+    "title": "Depreciation dominates: electricity is only ~12–19% of a GPU's yearly cost at $0.081/kWh",
+    "subtitle": "US$ K per GPU-year: capex ÷ 6-yr life + max IT power × PUE (1.4 air / 1.15 liquid) × 8,760 h · whiskers = $0.05–0.10/kWh",
+    "alt": "Stacked horizontal bars of yearly cost per GPU: straight-line depreciation of the system price over six years plus electricity at full power. Electricity is about 12-19% of the total: DGX H200 about $9.7K capex plus $1.3K power; GB300 NVL72 about $9.2K plus $1.5K; Vera Rubin NVL72 about $18.1K plus $2.6K (estimates).",
+    "data": [
+      "system_specs.csv",
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "14",
+      "08"
+    ],
+    "source": "repo system data; EIA; Uptime; 10-Ks (repo calc)",
+    "source_ids": [
+      "S33022",
+      "S322",
+      "S32002",
+      "S319",
+      "S320",
+      "S33003",
+      "S121",
+      "S396",
+      "S336",
+      "S340",
+      "S335",
+      "S326",
+      "S32004",
+      "S338",
+      "S339",
+      "S337",
+      "S332",
+      "S102",
+      "S101",
+      "S33006",
+      "S301",
+      "S302",
+      "S303",
+      "S330",
+      "S103",
+      "S382",
+      "S389",
+      "S390",
+      "S387",
+      "S388"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/14-capex-vs-power-cost-per-gpu-year.svg",
+    "html": null
+  },
+  {
+    "id": "14-depreciation-life-assumptions",
+    "title": "Hyperscalers stretched server lives to 5.5–6 years, but Amazon cut some back to 5 in 2025",
+    "subtitle": "Useful life used to depreciate servers (and network gear where combined), years, by effective date of each 10-K change",
+    "alt": "Step chart of server useful lives: Microsoft 3 to 4 years (July 2020) and 6 years (July 2022); Alphabet 3 to 4 years (2021) and 6 years (2023); Amazon 3 to 4 (2020), 5 (2022), 6 (2024) and back to 5 years for part of its servers in 2025; Meta 4 to 4.5 years (2022) and 5.5 years (2025); CoreWeave 6 years for GPU servers since 2023.",
+    "data": [
+      "depreciation_useful_lives.csv"
+    ],
+    "chapters": [
+      "14",
+      "18",
+      "12"
+    ],
+    "source": "10-K and S-1 filings via SEC EDGAR",
+    "source_ids": [
+      "S382",
+      "S383",
+      "S385",
+      "S384",
+      "S386"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/14-depreciation-life-assumptions.svg",
+    "html": null
+  },
+  {
+    "id": "14-gpu-rental-price-trend",
+    "title": "H100 rentals fell ~75% from ~$8/GPU-hr (2023) to ~$2–3 on neoclouds; AWS list −44%",
+    "subtitle": "On-demand list/observed prices, US$ per GPU-hour (instance ÷ GPUs) · marker = provider type · contract rates are lower",
+    "alt": "Scatter chart of GPU rental prices over time. H100: AWS p5 on-demand $12.29 per GPU-hour at launch in July 2023 and $6.88 after the June 2025 cut; neocloud H100 about $8 in 2023, marketplaces under $2 by late 2024, Lambda $2.99 and CoreWeave $6.16 list in 2025. Blackwell list prices in 2025: B200 $4.99 (Lambda) to $8.60 (CoreWeave), GB200 $10.50 (CoreWeave).",
+    "data": [
+      "gpu_rental_prices.csv"
+    ],
+    "chapters": [
+      "14",
+      "12"
+    ],
+    "source": "AWS, CoreWeave, Lambda, Latent Space",
+    "source_ids": [
+      "S391",
+      "S393",
+      "S395",
+      "S394",
+      "S392"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/14-gpu-rental-price-trend.svg",
+    "html": null
+  },
+  {
+    "id": "14-rack-price-estimates-range",
+    "title": "NVL72 rack price estimates: ~$2.8–3.9M (GB200), $4.0–6.5M (GB300), $5–9.1M (Vera Rubin)",
+    "subtitle": "Each published estimate of price per rack, US$ M · ◆ = analyst/BOM estimate, ○ = end of a quoted media range · all Est.",
+    "alt": "Dot plot of NVL72 rack price estimates. GB200 NVL72: $2.8M to $3.9M including networking and storage (HSBC $3.0M, SemiAnalysis $3.1M). GB300 NVL72: Morgan Stanley $3.99M, Wolfe $4.3M, Data Gravity $5.0M, media $6.0-6.5M. Vera Rubin NVL72: quotes from $5.0M, Morgan Stanley $7.8M ($6.7M if CSPs buy memory directly), up to $8.8M reported and Bernstein $9.1M.",
+    "data": [
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "14",
+      "08",
+      "18"
+    ],
+    "source": "HSBC, SemiAnalysis, Wolfe, Morgan Stanley, Bernstein, press",
+    "source_ids": [
+      "S326",
+      "S324",
+      "S325",
+      "S327",
+      "S332",
+      "S328",
+      "S330",
+      "S333",
+      "S329"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/14-rack-price-estimates-range.svg",
+    "html": null
+  },
+  {
     "id": "15-accelerator-landscape-bubble",
     "title": "Rubin and MI455X claim 17.5–20 PFLOPS FP8; shipping custom ASICs sit at 2.5–5",
     "subtitle": "Dense FP8 PFLOPS (x) vs memory bandwidth TB/s (y) per accelerator; bubble area = memory GB (log–log)",
@@ -2599,9 +2794,9 @@
   },
   {
     "id": "15-competitor-breadth-vs-depth",
-    "title": "NVIDIA scores 3+ in 12 of 12 layers; the broadest rival, Google TPU, in 12, and most rivals compete in only a few",
+    "title": "Only Google's in-house TPU stack rivals NVIDIA's breadth; AMD covers 8 of 12 layers",
     "subtitle": "Breadth = layers (02-13) scored 3 or more of 5; depth = average layer score; repo analyst judgement",
-    "alt": "Scatter of stack breadth against average depth. NVIDIA scores 3 or more in 12 of 12 layers with an average of 4.7; Google TPU is the broadest rival at 12 layers (average 4.0). Custom-ASIC partners and start-ups cluster at low breadth, showing they compete on one or two layers.",
+    "alt": "Scatter of stack breadth against average depth. NVIDIA scores 3 or more in 12 of 12 layers with an average of 4.7; Google TPU also covers 12 layers (average 4.0) but only inside Google; AMD covers 8 (average 2.9); 7 of 12 rivals cover six layers or fewer, i.e. point solutions.",
     "data": [
       "competitor_matrix.csv"
     ],
@@ -3123,9 +3318,9 @@
   },
   {
     "id": "17-roadmap-by-layer-small-multiples",
-    "title": "NVIDIA has 15 dated items for 2027–28 in every layer; rivals' 20 cluster in chips and racks",
+    "title": "NVIDIA has 2027–28 items in all 6 hardware layers; 70% of rivals' are chips or racks",
     "subtitle": "Roadmap items by layer group and vendor, plotted at the start of the availability window, 2024–2028",
-    "alt": "Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) show NVIDIA items in every layer through 2028 (15 items dated 2027 or later) while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies have 20 such items, mostly accelerators and racks.",
+    "alt": "Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) show NVIDIA with 15 items dated 2027 or later spread across all 6 hardware layers, while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies have 20 such items, 70% of them accelerators or racks. Software and cloud items are mostly near-term (dated 2025–2026).",
     "data": [
       "roadmap.csv"
     ],
@@ -3320,7 +3515,7 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/17-roadmap-gantt-nvidia.svg",
-    "html": null
+    "html": "assets/interactive/17-roadmap-gantt-nvidia.html"
   },
   {
     "id": "17-roadmap-slips-and-pull-ins",

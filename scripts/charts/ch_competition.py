@@ -180,22 +180,23 @@ def breadth_vs_depth():
     nvr = g[g.competitor == "NVIDIA"].iloc[0]
     rivals = g[g.competitor != "NVIDIA"].sort_values("breadth", ascending=False)
     top = rivals.iloc[0]
+    amd = g[g.competitor == "AMD"].iloc[0]
+    narrow = int((rivals.breadth <= 6).sum())
     c = Chart(
         id="15-competitor-breadth-vs-depth",
-        title=(f"NVIDIA scores 3+ in {nvr.breadth} of 12 layers; the broadest rival, {top.competitor}, in {top.breadth}, "
-               "and most rivals compete in only a few"),
+        title=(f"Only Google's in-house TPU stack rivals NVIDIA's breadth; AMD covers {amd.breadth} of 12 layers"),
         subtitle="Breadth = layers (02-13) scored 3 or more of 5; depth = average layer score; repo analyst judgement",
         alt=(f"Scatter of stack breadth against average depth. NVIDIA scores 3 or more in {nvr.breadth} of 12 layers with an average "
-             f"of {nvr.depth:.1f}; {top.competitor} is the broadest rival at {top.breadth} layers (average {top.depth:.1f}). "
-             "Custom-ASIC partners and start-ups cluster at low breadth, showing they compete on one or two layers."),
+             f"of {nvr.depth:.1f}; {top.competitor} also covers {top.breadth} layers (average {top.depth:.1f}) but only inside Google; "
+             f"AMD covers {amd.breadth} (average {amd.depth:.1f}); {narrow} of 12 rivals cover six layers or fewer, i.e. point solutions."),
         data=[DATA], chapters=["15", "19"],
         source="repo analysis (competitor_matrix.csv)", source_ids=sources_of(d),
         note="Analyst judgement (speculative)",
     )
-    fig, ax = c.figure(width=10, height=6.2)
-    offsets = {"Marvell": (6, -10), "Groq": (6, -10), "Qualcomm": (6, 6), "Cerebras": (6, 6), "Microsoft Maia": (6, -11),
-               "AWS Trainium": (6, 6), "Meta MTIA": (6, -10), "Intel": (6, 6), "Broadcom": (6, 6), "Huawei": (6, -11),
-               "Google TPU": (6, 6), "AMD": (6, -11)}
+    fig, ax = c.figure(width=11, height=6.2)
+    offsets = {"NVIDIA": (-50, -4), "Google TPU": (-74, -4), "Marvell": (6, -10), "Groq": (6, -10), "Qualcomm": (6, 6), "Cerebras": (-58, 6), "Microsoft Maia": (6, -11),
+               "AWS Trainium": (6, 6), "Meta MTIA": (6, -10), "Intel": (6, 6), "Broadcom": (-62, 6), "Huawei": (6, -11),
+               "AMD": (6, -11)}
     for _, r in g.iterrows():
         col = NV if r.competitor == "NVIDIA" else _color(r.competitor)
         ax.scatter(r.breadth, r.depth, s=140 if r.competitor == "NVIDIA" else 90, color=col, edgecolor="#FFFFFF", zorder=3)
@@ -206,7 +207,7 @@ def breadth_vs_depth():
     ax.axvline(6, color=INK["base"], lw=0.8, ls=":")
     ax.axhline(2.5, color=INK["base"], lw=0.8, ls=":")
     ax.text(11.9, 0.55, "Broad but shallow", ha="right", fontsize=8.5, color=INK["muted"])
-    ax.text(11.9, 4.75, "Full-stack", ha="right", fontsize=8.5, color=INK["muted"])
+    ax.text(6.2, 4.75, "Full-stack", ha="left", fontsize=8.5, color=INK["muted"])
     ax.text(0.1, 4.75, "Point solutions (deep, narrow)", ha="left", fontsize=8.5, color=INK["muted"])
     ax.text(0.1, 0.55, "Niche", ha="left", fontsize=8.5, color=INK["muted"])
     ax.set_xlim(0, 12.5)

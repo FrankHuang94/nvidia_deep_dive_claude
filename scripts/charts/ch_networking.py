@@ -64,8 +64,8 @@ def switch_aggregate_bandwidth():
     used = pd.concat(parts.values())
     c = Chart(
         id="06-switch-aggregate-bandwidth",
-        title=(f"Switch ASIC bandwidth doubled every ~{dbl:.1f} years: Broadcom went from {a.aggregate_tbps:.1f} Tb/s "
-               f"({int(a.year)}) to {b.aggregate_tbps:.1f} Tb/s ({int(b.year)})"),
+        title=(f"Switch ASIC bandwidth doubled every ~{dbl:.1f} years: {a.aggregate_tbps:.1f} Tb/s ({int(a.year)}) to "
+               f"{b.aggregate_tbps:.1f} Tb/s ({int(b.year)}) at Broadcom"),
         subtitle=(f"Switching capacity per switch (ports × port speed, one direction), Tb/s. NVIDIA's Spectrum-6 reaches "
                   f"{sp6.aggregate_tbps:.1f} Tb/s in {int(sp6.year)}"),
         alt=(f"Log-scale line chart of switch capacity by year: Broadcom Tomahawk from {a.aggregate_tbps:.1f} Tb/s ({int(a.year)}) to "
@@ -75,7 +75,7 @@ def switch_aggregate_bandwidth():
         data=[NP_FILE], chapters=["06", "16"],
         source="Broadcom, NVIDIA, Cisco, Marvell announcements", source_ids=sources_of(used),
     )
-    fig, ax = c.figure(width=12, height=6.4)
+    fig, ax = c.figure(width=12.2, height=6.4)
     for name, vendor, mk, _ in SWITCH_SERIES:
         d = parts[name]
         col = _vendor_color(vendor)
@@ -90,15 +90,16 @@ def switch_aggregate_bandwidth():
         fut = d[d.status == "announced"]
         if not fut.empty:
             ax.plot(fut.year, fut.aggregate_tbps, ls="none", marker=mk, ms=9, mfc="white", mec=col, mew=2)
-    lab = {"Tomahawk 6": ("TH6 102.4", (6, -12)), "Tomahawk (BCM56960)": ("TH1 3.2", (-4, 8)),
-           "Spectrum-4 (SN5600)": ("Spectrum-4 51.2", (-10, 8)), "Spectrum-6 / Spectrum-X Photonics SN6810": ("Spectrum-6 102.4 (CPO)", (8, 6)),
-           "Quantum-X800 (Q3400)": ("Quantum-X800 115.2\n(144-port system)", (-8, 8)), "Quantum-2 (QM9700)": ("Quantum-2 25.6", (-8, 8)),
-           "Silicon One G300": ("Cisco G300 (unverified)", (8, -10)), "Teralynx 10": ("Teralynx 10", (8, -12))}
+    lab = {"Tomahawk 6": ("TH6 102.4", (-8, 6)), "Tomahawk (BCM56960)": ("TH1 3.2", (-6, 6)),
+           "Spectrum-6 / Spectrum-X Photonics SN6810": ("Spectrum-6 102.4 (CPO)", (10, 6)),
+           "Quantum-X800 (Q3400)": ("Quantum-X800 115.2\n(144-port system)", (-8, 8)),
+           "Silicon One G300": ("Cisco G300 (unverified)", (10, -10)), "Teralynx 10": ("51.2 Tb/s class (2022-23):\nTH5, Spectrum-4, G200, Teralynx 10", (10, -26))}
     for _, r in used.iterrows():
         if r["product"] in lab:
             t, off = lab[r["product"]]
+            col = INK["text"] if r["product"] == "Teralynx 10" else (_vendor_color(r.vendor) if r.vendor != "NVIDIA" else NV_DARK)
             ax.annotate(t, (r.year, r.aggregate_tbps), xytext=off, textcoords="offset points", fontsize=8,
-                        ha="right" if off[0] < 0 else "left", color=_vendor_color(r.vendor) if r.vendor != "NVIDIA" else NV_DARK)
+                        ha="right" if off[0] < 0 else "left", color=col)
     ax.set_xlim(2013, 2028)
     ax.set_ylim(2, 300)
     log_axis(fig, ax)
@@ -153,7 +154,8 @@ def serdes_lane_rate_progression():
                     fontsize=8.4, color=INK["text"])
     ax.annotate("Next: 400G lanes (3.2T Ethernet,\n1.6T IB GDR) - not yet scheduled", (2027.5, 400), ha="center", va="center",
                 fontsize=8.4, color=INK["muted"], bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=INK["grid"], ls="--"))
-    ax.set_xlim(2010.5, 2029.5)
+    ax.set_xlim(2012.5, 2029.5)
+    ax.set_xticks(range(2013, 2030, 2))
     ax.set_ylim(8, 900)
     log_axis(fig, ax)
     h, l = ax.get_legend_handles_labels()
@@ -165,8 +167,9 @@ def serdes_lane_rate_progression():
 # ---------------------------------------------------------------------------------------------- 07-nic-bandwidth-by-generation
 CX = ["ConnectX-3", "ConnectX-4", "ConnectX-5", "ConnectX-6", "ConnectX-7", "ConnectX-8 SuperNIC", "ConnectX-9 SuperNIC"]
 BF = ["BlueField", "BlueField-2", "BlueField-3 DPU", "BlueField-4"]
-RIVALS = [("Thor Ultra", "Broadcom", "o"), ("Pensando Pollara 400", "AMD", "o"), ("Pensando Vulcano", "AMD", "o"),
-          ("Pensando Salina 400", "AMD", "s"), ("IPU E2100 (Mount Evans)", "Intel", "s")]
+RIVALS = [("Thor Ultra", "Broadcom", "o", "Broadcom Thor Ultra NIC"), ("Pensando Pollara 400", "AMD", "o", "AMD Pensando Pollara 400 NIC"),
+          ("Pensando Vulcano", "AMD", "D", "AMD Pensando Vulcano NIC"), ("Pensando Salina 400", "AMD", "s", "AMD Pensando Salina DPU"),
+          ("IPU E2100 (Mount Evans)", "Intel", "s", "Intel IPU E2100")]
 
 
 @register
@@ -202,20 +205,15 @@ def nic_bandwidth_by_generation():
     for _, r in bf.iterrows():
         ax.annotate(r["product"].replace(" DPU", "").replace("BlueField", "BF"), (r.year, r.port_speed_gbps), xytext=(6, -12),
                     textcoords="offset points", ha="left", fontsize=8.3, color=INK["text"])
-    for prod, vendor, mk in RIVALS:
+    for prod, vendor, mk, name in RIVALS:
         r = rv[rv["product"] == prod].iloc[0]
-        ax.plot(r.year + (0.12 if vendor == "AMD" and "Salina" in prod else 0), r.port_speed_gbps, ls="none", marker=mk, ms=9,
-                color=entity_color(vendor), mec="white", mew=0.8, zorder=5)
-        name = {"Thor Ultra": "Broadcom Thor Ultra", "Pensando Pollara 400": "AMD Pollara", "Pensando Vulcano": "AMD Vulcano",
-                "Pensando Salina 400": "AMD Salina DPU", "IPU E2100 (Mount Evans)": "Intel IPU E2100"}[prod]
-        off = {"Broadcom Thor Ultra": (-8, 9), "AMD Vulcano": (8, -4), "AMD Pollara": (8, -10), "AMD Salina DPU": (8, 4),
-               "Intel IPU E2100": (8, -10)}[name]
-        ax.annotate(name, (r.year, r.port_speed_gbps), xytext=off, textcoords="offset points", fontsize=8,
-                    ha="right" if off[0] < 0 else "left", color=entity_color(vendor) if vendor != "Intel" else "#2F7DB8")
+        dx = {"Pensando Salina 400": 0.16, "Pensando Pollara 400": -0.16, "Pensando Vulcano": 0.18, "Thor Ultra": 0.0}.get(prod, 0)
+        ax.plot(r.year + dx, r.port_speed_gbps, ls="none", marker=mk, ms=9, color=entity_color(vendor), mec="white", mew=0.8,
+                zorder=5, label=f"{name} ({int(r.year)})")
     ax.set_xlim(2010, 2028)
     ax.set_ylim(30, 4000)
     log_axis(fig, ax)
-    ax.legend(loc="upper left")
+    ax.legend(loc="upper left", fontsize=8.4)
     c.save(fig, ax, xlabel="Year of launch / first availability", ylabel="Gb/s per direction (log scale)", legend=False)
 
 
@@ -264,7 +262,7 @@ def cpo_vs_pluggable_power():
         ax.annotate(f"{r.pj_per_bit:.1f} pJ/bit · {r.watts_per_800g:.1f} W per 800G", (r.pj_per_bit, b.get_y() + b.get_height() / 2),
                     xytext=(4, 0), textcoords="offset points", va="center", fontsize=8.4, color=INK["text"])
     ax.set_yticks(y, labels, fontsize=8.8)
-    ax.set_xlim(0, 34)
+    ax.set_xlim(0, 40)
     ax.grid(axis="x", color=INK["grid"], lw=0.7)
     ax.grid(axis="y", visible=False)
     ax.set_xlabel("pJ per bit (optical I/O)")
@@ -298,8 +296,8 @@ def optics_per_gpu():
     two, three = piv.loc["800G per GPU, 2-tier"], piv.loc["800G per GPU, 3-tier"]
     c = Chart(
         id="06-optics-per-gpu",
-        title=(f"Est.: each GPU needs ~{two.optics_total_pluggable:.1f} pluggable optics in a 2-tier fat tree, "
-               f"~{three.optics_total_pluggable:.1f} in 3 tiers; CPO switches cut that to {three.optics_total_cpo_switches:.0f}"),
+        title=(f"Est.: each GPU needs {two.optics_total_pluggable:.1f} pluggable optics (2 tiers) or "
+               f"{three.optics_total_pluggable:.1f} (3 tiers); CPO switches cut that to {three.optics_total_cpo_switches:.0f}"),
         subtitle="Estimated optical modules per GPU, non-blocking rail-optimized fat tree (back-end fabric only), by NIC speed and tiers",
         alt=(f"Stacked bar chart (estimates): with all-optical links a GPU needs {two.optics_total_pluggable:.1f} pluggable modules in a "
              f"two-tier fat tree and {three.optics_total_pluggable:.1f} in three tiers (one NIC-side module, half a twin-port leaf module, "
@@ -309,7 +307,7 @@ def optics_per_gpu():
         data=[TOPO_FILE], chapters=["06", "08"],
         source="repo estimate (method in data/network_topology_estimates.csv); NVIDIA; SemiAnalysis", source_ids=sources_of(t),
     )
-    fig, ax = c.figure(width=12, height=6.3)
+    fig, ax = c.figure(width=12.5, height=6.3)
     groups = np.arange(len(scen)) * 2.6
     w = 0.9
     for gi, s in zip(groups, scen):
@@ -330,16 +328,16 @@ def optics_per_gpu():
         ax.annotate(f"{cp:.0f}", (gi + w + 0.05, cp), xytext=(0, 3), textcoords="offset points", ha="center", fontsize=10,
                     fontweight="bold", color=INK["title"])
     ax.bar(0, 0, 0, color=style.SEQ_BLUE[7], hatch="///", edgecolor="white", label="With CPO switches (NIC module only)")
-    mods = {"400G": "400G NIC module + 800G (2×400G) switch modules", "800G": "800G NIC module + 1.6T (2×800G) switch modules"}
-    ax.set_xticks(groups + (w + 0.05) / 2, [f"{s.replace(' per GPU, ', ' NIC, ')}\n{mods[s[:4]]}" for s in scen], fontsize=8.4)
-    ax.set_ylim(0, 4.9)
+    mods = {"400G": "400G NIC module +\n800G (2×400G) switch modules", "800G": "800G NIC module +\n1.6T (2×800G) switch modules"}
+    ax.set_xticks(groups + (w + 0.05) / 2, [f"{s[:4]} NIC · {s[-6:].replace('-tier', ' tiers')}\n{mods[s[:4]]}" for s in scen], fontsize=8.4)
+    ax.set_ylim(0, 5.3)
     ax.set_ylabel("Optical modules per GPU (Est.)")
     h, l = ax.get_legend_handles_labels()
     ax.legend(h, l, loc="upper left", fontsize=8.6)
     ax.text(0.99, 0.985, "Assumes every link is optical (end-of-row leaves). Port-ends = 2 per link per tier,\n"
             "i.e. the module count if every module were single-port. Front-end/storage networks excluded.",
             transform=ax.transAxes, ha="right", va="top", fontsize=8, color=INK["muted"])
-    c.save(fig, ax, legend=False, bottom=0.16)
+    c.save(fig, ax, legend=False, bottom=0.18)
 
 
 # ---------------------------------------------------------------------------------------------- 06-switches-for-100k-gpu-cluster
@@ -354,8 +352,8 @@ def switches_for_100k_gpu_cluster():
     fewer_optics = 1 - twot.transceivers_total / three.transceivers_total.max()
     c = Chart(
         id="06-switches-for-100k-gpu-cluster",
-        title=(f"Est.: a non-blocking 100k-GPU fabric needs ~{three.switches_total.min():,.0f}–{three.switches_total.max():,.0f} switches "
-               f"in 3 tiers, or ~{twot.switches_total:,.0f} with 102.4T multi-plane 2-tier designs"),
+        title=(f"Est.: 100k GPUs need ~{round(three.switches_total.min(), -2):,.0f}–{round(three.switches_total.max(), -2):,.0f} "
+               f"switches in 3 tiers, or ~{round(twot.switches_total / 50) * 50:,.0f} in a 2-tier multi-plane fabric"),
         subtitle="Estimated back-end switches by tier for 100,000 GPUs (one NIC per GPU, 1:1 fat tree), with optical modules and worst-case hops",
         alt=(f"Stacked horizontal bar chart (estimates) of switches needed for 100,000 GPUs: 3-tier designs need "
              f"{three.switches_total.min():,.0f} to {three.switches_total.max():,.0f} switches and about {three.transceivers_total.max() / 1000:.0f}k "
@@ -364,7 +362,7 @@ def switches_for_100k_gpu_cluster():
         data=[TOPO_FILE], chapters=["06", "08", "CS7"],
         source="repo estimate (method in data/network_topology_estimates.csv); Broadcom; NVIDIA; SemiAnalysis", source_ids=sources_of(t),
     )
-    fig, ax = fixed_axes(c, 12.5, 6.2, (0.30, 0.13, 0.55, 0.70))
+    fig, ax = fixed_axes(c, 12.5, 6.2, (0.27, 0.13, 0.62, 0.70))
     y = np.arange(len(scen))[::-1]
     left = np.zeros(len(scen))
     for m, lab, col in [("switches_leaf", "Leaf", style.SEQ_BLUE[7]), ("switches_spine", "Spine", style.SEQ_BLUE[4]),
@@ -399,8 +397,8 @@ def fat_tree_max_gpus_by_radix():
     names = t.drop_duplicates("switch_radix_ports").set_index("switch_radix_ports").switch_example
     c = Chart(
         id="06-fat-tree-max-gpus-by-radix",
-        title=(f"Switch radix sets cluster size: two tiers top out at {two[64]:,.0f} GPUs with 64-port switches "
-               f"but {two[512]:,.0f} with 512-port 102.4T switches"),
+        title=(f"Two network tiers reach {two[64]:,.0f} GPUs with 64-port switches but {two[512]:,.0f} with "
+               f"512-port 102.4T switches"),
         subtitle="Maximum GPUs (one NIC port each) in a non-blocking fat tree: 2 tiers = R²/2, 3 tiers = R³/4, for switch radix R",
         alt=(f"Grouped log-scale bar chart: a two-tier non-blocking fat tree supports {two[40]:,.0f} GPUs with 40-port HDR switches, "
              f"{two[64]:,.0f} with 64-port Quantum-2, {two[128]:,.0f} with 128-port 51.2T, {two[144]:,.0f} with 144-port Quantum-X800 and "
@@ -409,7 +407,7 @@ def fat_tree_max_gpus_by_radix():
         data=[TOPO_FILE], chapters=["06", "P4"],
         source="repo calculation; NVIDIA and Broadcom switch specs", source_ids=sources_of(t),
     )
-    fig, ax = c.figure(width=12, height=6.2)
+    fig, ax = fixed_axes(c, 12.5, 6.4, (0.10, 0.18, 0.87, 0.65))
     x = np.arange(len(radii))
     w = 0.38
     b2 = ax.bar(x - w / 2, [two[r] for r in radii], w, color=style.SEQ_BLUE[4], label="2-tier (leaf-spine)")
@@ -420,10 +418,12 @@ def fat_tree_max_gpus_by_radix():
             ax.annotate(f"{v:,.0f}" if v < 1e6 else f"{v / 1e6:.0f}M", (b.get_x() + b.get_width() / 2, v), xytext=(0, 2),
                         textcoords="offset points", ha="center", fontsize=8.4, color=INK["text"])
     ax.axhline(100_000, color=NV, lw=1.6, ls="--")
-    ax.annotate("100,000-GPU cluster", (x[-1] + 0.45, 100_000), xytext=(0, 4), textcoords="offset points", ha="right",
+    ax.annotate("100,000-GPU cluster", (x[0] - 0.45, 100_000), xytext=(0, 4), textcoords="offset points", ha="left",
                 fontsize=8.8, color=NV_DARK, fontweight="bold")
-    ax.set_xticks(x, [f"R = {int(r)}\n{names[r]}" for r in radii], fontsize=8.2)
+    short = {40: "Quantum (HDR)\n40 × 200G", 64: "Quantum-2 (NDR)\n64 × 400G", 128: "51.2T switch\n128 × 400G",
+             144: "Quantum-X800\n144 × 800G", 512: "102.4T switch\n512 × 200G"}
+    ax.set_xticks(x, [f"R = {int(r)}\n{short.get(int(r), names[r])}" for r in radii], fontsize=8.6)
     ax.set_ylim(300, 3e8)
     log_axis(fig, ax)
     ax.legend(loc="upper left")
-    c.save(fig, ax, ylabel="Max GPUs, non-blocking (log scale)", legend=False, bottom=0.17)
+    c.save(fig, ax, ylabel="Max GPUs, non-blocking (log scale)", legend=False)

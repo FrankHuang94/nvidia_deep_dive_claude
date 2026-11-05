@@ -37,17 +37,17 @@ def _row(t, system, inp, basis=None):
 @register
 def gpu_rental_price_trend():
     r = load(RENT)
-    r["dt"] = pd.to_datetime(r["date"] + "-15")
+    r["when"] = pd.to_datetime(r["date"] + "-15")
     h = r[r.gpu == "H100"]
     peak = h[h.provider_type == "neocloud"].usd_per_gpu_hour.max()
     low = h[h.provider_type == "marketplace"].usd_per_gpu_hour.min()
-    aws = h[h.provider.str.startswith("AWS")].sort_values("dt")
+    aws = h[h.provider.str.startswith("AWS")].sort_values("when")
     aws_cut = 1 - aws.usd_per_gpu_hour.iloc[-1] / aws.usd_per_gpu_hour.iloc[0]
     c = Chart(
         id="14-gpu-rental-price-trend",
-        title=(f"H100 rentals fell ~{(1 - low / peak) * 100:.0f}% from ~${peak:.0f}/GPU-hour (2023) to ~${low:.0f}–3 on neoclouds; "
-               f"AWS list price fell {aws_cut * 100:.0f}%"),
-        subtitle="Observed on-demand prices, US$ per GPU-hour (instance price ÷ GPUs) · marker = provider type · Blackwell points for comparison",
+        title=(f"H100 rentals fell ~{(1 - low / peak) * 100:.0f}% from ~${peak:.0f}/GPU-hr (2023) to ~${low:.0f}–3 on neoclouds; "
+               f"AWS list −{aws_cut * 100:.0f}%"),
+        subtitle="On-demand list/observed prices, US$ per GPU-hour (instance ÷ GPUs) · marker = provider type · contract rates are lower",
         alt=(f"Scatter chart of GPU rental prices over time. H100: AWS p5 on-demand ${aws.usd_per_gpu_hour.iloc[0]:.2f} per GPU-hour at "
              f"launch in July 2023 and ${aws.usd_per_gpu_hour.iloc[-1]:.2f} after the June 2025 cut; neocloud H100 about ${peak:.0f} "
              f"in 2023, marketplaces under ${low:.0f} by late 2024, Lambda $2.99 and CoreWeave $6.16 list in 2025. Blackwell list "
@@ -55,25 +55,24 @@ def gpu_rental_price_trend():
         data=[RENT], chapters=["14", "12"],
         source="AWS, CoreWeave, Lambda, Latent Space",
         source_ids=sources_of(r),
-        note="List prices; contract/reserved rates are lower",
     )
     fig, ax = c.figure(width=10.5, height=6.0)
     markers = {"hyperscaler": "s", "neocloud": "o", "marketplace": "^"}
     gcol = {"H100": GEN_PAST, "B200": NV, "GB200": NV_DARK}
-    ax.plot(aws.dt, aws.usd_per_gpu_hour, color=INK["muted"], lw=1.4, ls="--", zorder=1)
-    trend = h[h.provider_type.isin(["neocloud", "marketplace"]) & ~h.provider.str.startswith("CoreWeave")].sort_values("dt")
-    ax.plot(trend.dt, trend.usd_per_gpu_hour, color=GEN_PAST, lw=2, zorder=1)
+    ax.plot(aws.when, aws.usd_per_gpu_hour, color=INK["muted"], lw=1.4, ls="--", zorder=1)
+    trend = h[h.provider_type.isin(["neocloud", "marketplace"]) & ~h.provider.str.startswith("CoreWeave")].sort_values("when")
+    ax.plot(trend.when, trend.usd_per_gpu_hour, color=GEN_PAST, lw=2, zorder=1)
     for _, row in r.iterrows():
-        ax.scatter(row.dt, row.usd_per_gpu_hour, marker=markers[row.provider_type], s=85, color=gcol[row.gpu],
+        ax.scatter(row.when, row.usd_per_gpu_hour, marker=markers[row.provider_type], s=85, color=gcol[row.gpu],
                    edgecolor=INK["title"], linewidth=0.8, zorder=3)
         lab = f"{row.gpu} · {row.provider.split(' (')[0]} ${row.usd_per_gpu_hour:.2f}"
         dx, ha = (8, "left")
-        if row.dt >= pd.Timestamp("2025-05-01"):
+        if row.when >= pd.Timestamp("2025-05-01"):
             dx, ha = (-8, "right")
         dy = 0
         if row.gpu == "B200" and row.provider.startswith("Lambda"):
             dy = -8
-        ax.annotate(lab, (row.dt, row.usd_per_gpu_hour), xytext=(dx, dy), textcoords="offset points", ha=ha,
+        ax.annotate(lab, (row.when, row.usd_per_gpu_hour), xytext=(dx, dy), textcoords="offset points", ha=ha,
                     va="center", fontsize=8.2, color=INK["title"] if row.gpu == "H100" else NV_DARK)
     ax.set_ylim(0, 14)
     ax.set_xlim(pd.Timestamp("2023-04-01"), pd.Timestamp("2025-12-31"))
@@ -107,7 +106,7 @@ def capex_per_accelerator_by_system():
     c = Chart(
         id="14-capex-per-accelerator-by-system",
         title=f"Est. capex per GPU roughly doubles from GB300 NVL72 (~${gb3:.0f}K) to Vera Rubin NVL72 (~${vr:.0f}K)",
-        subtitle="System or rack price ÷ GPUs, US$ K per GPU (bar = central estimate; dots = other published estimates) · hatched = rack-scale analyst Est.",
+        subtitle="System/rack price ÷ GPUs, US$ K (bar = central estimate; dots = other estimates; hatched = analyst Est.) · AMD/Google/AWS prices not public",
         alt=(f"Bar chart of capex per GPU: DGX-1 P100 about $16K (2016), DGX-1 V100 $19K, DGX-2 $25K, DGX A100 $25K, HGX H200 OEM about "
              f"$40K, DGX H200 about $58K, DGX B200 about $46K, GB200 NVL72 about $42K, GB300 NVL72 about ${gb3:.0f}K and Vera Rubin "
              f"NVL72 about ${vr:.0f}K per GPU, with alternative analyst estimates from about $39K to $126K shown as dots. "
@@ -115,7 +114,6 @@ def capex_per_accelerator_by_system():
         data=[SYS, TCO], chapters=["14", "08", "13"],
         source="resellers, HSBC, SemiAnalysis, Morgan Stanley, Bernstein",
         source_ids=sources_of(pd.concat([d, alts])),
-        note="AMD/Google/AWS rack prices not public",
     )
     fig, ax = c.figure(width=11, height=6.0)
     x = np.arange(len(d))
@@ -152,7 +150,7 @@ def depreciation_life_assumptions():
     offs = {"Microsoft": 0.06, "Alphabet": -0.06, "Amazon": 0.0, "Meta": 0.0, "CoreWeave": 0.12}
     c = Chart(
         id="14-depreciation-life-assumptions",
-        title="Hyperscalers stretched server lives from 3–4 to 5.5–6 years; Amazon cut part of its fleet back to 5 in 2025",
+        title="Hyperscalers stretched server lives to 5.5–6 years, but Amazon cut some back to 5 in 2025",
         subtitle="Useful life used to depreciate servers (and network gear where combined), years, by effective date of each 10-K change",
         alt=("Step chart of server useful lives: Microsoft 3 to 4 years (July 2020) and 6 years (July 2022); Alphabet 3 to 4 years "
              "(2021) and 6 years (2023); Amazon 3 to 4 (2020), 5 (2022), 6 (2024) and back to 5 years for part of its servers in "
@@ -169,19 +167,21 @@ def depreciation_life_assumptions():
         if keep[co]:
             dd = dd[dd.asset_class == keep[co]]
         dd = dd.sort_values("effective_date")
-        dts = [start] + list(pd.to_datetime(dd.effective_date)) + [end]
+        st = pd.Timestamp("2021-01-01") if co == "CoreWeave" else start
+        dts = [st] + list(pd.to_datetime(dd.effective_date)) + [end]
         vals = [dd.prior_life_years.iloc[0]] + list(dd.useful_life_years) + [dd.useful_life_years.iloc[-1]]
         vals = np.array(vals, dtype=float) + offs[co]
         ax.step(dts, vals, where="post", color=colors[co], lw=2.2, zorder=2)
         ax.scatter(pd.to_datetime(dd.effective_date), dd.useful_life_years + offs[co], marker=marks[co], s=60,
                    color=colors[co], edgecolor="white", zorder=3)
-        ax.annotate(f"{co} {dd.useful_life_years.iloc[-1]:g}y", (end, vals[-1]), xytext=(5, 0), textcoords="offset points",
-                    va="center", fontsize=9, color=colors[co], fontweight="bold")
+        ly = {"CoreWeave": 6.42, "Microsoft": 6.2, "Alphabet": 5.94}.get(co, vals[-1])
+        ax.annotate(f"{co} {dd.useful_life_years.iloc[-1]:g}y", (end, vals[-1]), xytext=(pd.Timestamp("2027-01-20"), ly),
+                    textcoords="data", va="center", fontsize=9, color=colors[co], fontweight="bold")
     ax.annotate("Amazon: 6 → 5 years for part of\nservers & networking (AI pace)", (pd.Timestamp("2025-01-01"), 5.0),
                 xytext=(pd.Timestamp("2023-03-01"), 4.25), fontsize=8.6, color=INK["text"],
                 arrowprops=dict(arrowstyle="->", color=INK["muted"]))
     ax.set_xlim(start, pd.Timestamp("2027-10-01"))
-    ax.set_ylim(2.5, 6.6)
+    ax.set_ylim(2.5, 6.7)
     ax.set_yticks([3, 4, 4.5, 5, 5.5, 6])
     c.save(fig, ax, ylabel="Useful life (years)", xlabel="Effective date", legend=False)
 
@@ -198,7 +198,7 @@ def rack_price_estimates_range():
         title=(f"NVL72 rack price estimates: ~${rng['GB200 NVL72'][0]:.1f}–{rng['GB200 NVL72'][1]:.1f}M (GB200), "
                f"${rng['GB300 NVL72'][0]:.1f}–{rng['GB300 NVL72'][1]:.1f}M (GB300), ${rng['Vera Rubin NVL72'][0]:.0f}–"
                f"{rng['Vera Rubin NVL72'][1]:.1f}M (Vera Rubin)"),
-        subtitle="Published analyst/media estimates of price per rack, US$ M · ◆ = bottom-up BOM / analyst estimate, ○ = media range end-points",
+        subtitle="Each published estimate of price per rack, US$ M · ◆ = analyst/BOM estimate, ○ = end of a quoted media range · all Est.",
         alt=(f"Dot plot of NVL72 rack price estimates. GB200 NVL72: ${rng['GB200 NVL72'][0]:.1f}M to ${rng['GB200 NVL72'][1]:.1f}M "
              f"including networking and storage (HSBC $3.0M, SemiAnalysis $3.1M). GB300 NVL72: Morgan Stanley $3.99M, Wolfe $4.3M, "
              f"Data Gravity $5.0M, media $6.0-6.5M. Vera Rubin NVL72: quotes from $5.0M, Morgan Stanley $7.8M ($6.7M if CSPs buy "
@@ -207,32 +207,38 @@ def rack_price_estimates_range():
         source="HSBC, SemiAnalysis, Wolfe, Morgan Stanley, Bernstein, press",
         source_ids=sources_of(d),
     )
-    fig, _ = c.figure(width=11, height=5.8)
-    ax = manual_axes(fig, [[0.16, 0.14, 0.80, 0.68]])[0]
-    ys = {s: i for i, s in enumerate(systems[::-1])}
-    for s in systems:
-        dd = d[d.system == s].sort_values("value")
-        y = ys[s]
-        lo, hi = rng[s]
-        col = GEN_PAST if s.startswith("GB200") else NV
-        ax.plot([lo, hi], [y, y], color=col, lw=8, alpha=0.45, solid_capstyle="round", zorder=1)
-        used_pos = []
-        for k, (_, r) in enumerate(dd.iterrows()):
-            media = r.input.endswith(("_low", "_high"))
-            ax.scatter(r.value, y, marker="o" if media else "D", s=70, color="white" if media else NV_DARK,
-                       edgecolor=NV_DARK, linewidth=1.3, zorder=3)
+    fig, _ = c.figure(width=10.5, height=6.6)
+    ax = manual_axes(fig, [[0.37, 0.12, 0.59, 0.72]])[0]
+    rows, ylabels, y = [], [], 0
+    gap_rows = []
+    for s in systems[::-1]:
+        dd = d[d.system == s].sort_values("value", ascending=False)
+        for _, r in dd.iterrows():
             who = r.basis.split(", ", 1)[1] if ", " in r.basis else r.basis
-            who = who.replace("(", "").replace(")", "")
             if r.input == "capex_per_rack_all_in":
-                who = "incl. network + storage (SemiAnalysis)"
-            if len(who) > 34:
-                who = who[:32] + "…"
-            up = (k % 2 == 0)
-            ax.annotate(f"${r.value:g}M {who}", (r.value, y), xytext=(0, 12 if up else -13), textcoords="offset points",
-                        ha="center", va="bottom" if up else "top", fontsize=7.6, color=INK["text"], rotation=0)
-    ax.set_yticks(list(ys.values()), list(ys.keys()), fontsize=10)
-    ax.set_ylim(-0.6, 2.6)
-    ax.set_xlim(2, 10)
+                who = "SemiAnalysis, incl. network + storage"
+            elif r.input.endswith("_low"):
+                who = who + " (low)"
+            elif r.input.endswith("_high"):
+                who = who + " (high)"
+            who = who.replace("ODM price to CSP, ", "").replace("per rack if CSP buys SOCAMM memory directly, ",
+                                                                   "if CSP buys memory directly, ")
+            ylabels.append(f"{s.replace(' NVL72', '')} · {who}")
+            rows.append((y, r, s))
+            y += 1
+        gap_rows.append(y)
+        y += 0.6
+    for yi, r, s in rows:
+        media = r.input.endswith(("_low", "_high"))
+        col = GEN_PAST if s.startswith("GB200") else (NV if s.startswith("GB300") else NV_DARK)
+        ax.plot([0, r.value], [yi, yi], color=INK["grid"], lw=1, zorder=1)
+        ax.scatter(r.value, yi, marker="o" if media else "D", s=62, color="white" if media else col,
+                   edgecolor=NV_DARK, linewidth=1.3, zorder=3)
+        ax.annotate(f"${r.value:g}M", (r.value, yi), xytext=(7, 0), textcoords="offset points", va="center",
+                    fontsize=8.6, color=INK["title"])
+    ax.set_yticks([yi for yi, _, _ in rows], ylabels, fontsize=8.4)
+    ax.set_xlim(0, 10.5)
+    ax.set_ylim(-0.8, y - 0.4)
     ax.grid(axis="x", color=INK["grid"], lw=0.7)
     ax.grid(axis="y", visible=False)
     c.save(fig, ax, xlabel="US$ M per rack", legend=False)
@@ -243,7 +249,7 @@ def rack_price_estimates_range():
 def capex_vs_power_cost_per_gpu_year():
     s = load(SYS)
     t = load(TCO)
-    life = _row(t, "All", "server_useful_life_years")  # Microsoft 6 years (first row)
+    life = _row(t, "All", "server_useful_life_years", "since FY2023")  # Microsoft: 6 years
     price_kwh = _row(t, "All", "electricity_price_us_industrial")
     lo_kwh = _row(t, "All", "electricity_price_low")
     hi_kwh = _row(t, "All", "electricity_price_high")
@@ -264,19 +270,18 @@ def capex_vs_power_cost_per_gpu_year():
     used = pd.concat([d, pd.DataFrame([life, price_kwh, lo_kwh, hi_kwh, pue_air, pue_liq])])
     c = Chart(
         id="14-capex-vs-power-cost-per-gpu-year",
-        title=(f"Depreciation, not electricity, dominates: power is only ~{d.share.min() * 100:.0f}–{d.share.max() * 100:.0f}% "
+        title=(f"Depreciation dominates: electricity is only ~{d.share.min() * 100:.0f}–{d.share.max() * 100:.0f}% "
                f"of a GPU's yearly cost at ${price_kwh.value:.3f}/kWh"),
-        subtitle=(f"US$ K per GPU per year: capex ÷ {life.value:g}-year life (Microsoft/Alphabet policy) + max IT power × PUE "
-                  f"({pue_air.value:g} air / {pue_liq.value:g} liquid) × 8,760 h · whiskers = ${lo_kwh.value:.2f}–{hi_kwh.value:.2f}/kWh"),
+        subtitle=(f"US$ K per GPU-year: capex ÷ {life.value:g}-yr life + max IT power × PUE ({pue_air.value:g} air / "
+                  f"{pue_liq.value:g} liquid) × 8,760 h · whiskers = ${lo_kwh.value:.2f}–{hi_kwh.value:.2f}/kWh"),
         alt=("Stacked horizontal bars of yearly cost per GPU: straight-line depreciation of the system price over six years plus "
              f"electricity at full power. Electricity is about {d.share.min() * 100:.0f}-{d.share.max() * 100:.0f}% of the total: "
              f"DGX H200 about ${d.capex_yr.iloc[0] / 1e3:.1f}K capex plus ${d.power_yr.iloc[0] / 1e3:.1f}K power; GB300 NVL72 about "
              f"${d.capex_yr.iloc[3] / 1e3:.1f}K plus ${d.power_yr.iloc[3] / 1e3:.1f}K; Vera Rubin NVL72 about "
              f"${d.capex_yr.iloc[4] / 1e3:.1f}K plus ${d.power_yr.iloc[4] / 1e3:.1f}K (estimates)."),
         data=[SYS, TCO], chapters=["14", "08"],
-        source="system prices/power in repo data; EIA; Uptime; 10-Ks (repo calc)",
+        source="repo system data; EIA; Uptime; 10-Ks (repo calc)",
         source_ids=sources_of(used),
-        note="Excludes facility capex, networking, staff",
     )
     fig, _ = c.figure(width=10.5, height=5.8)
     ax = manual_axes(fig, [[0.2, 0.14, 0.76, 0.68]])[0]
@@ -295,5 +300,7 @@ def capex_vs_power_cost_per_gpu_year():
     ax.set_xlim(0, (d.capex_yr + d.power_hi).max() / 1e3 * 1.35)
     ax.grid(axis="x", color=INK["grid"], lw=0.7)
     ax.grid(axis="y", visible=False)
-    ax.legend(loc="lower right", frameon=False, fontsize=9)
+    ax.legend(loc="upper right", frameon=False, fontsize=9)
+    ax.text(0.99, 0.02, "Excludes facility capex, networking, staff and financing", transform=ax.transAxes, ha="right",
+            va="bottom", fontsize=8.4, color=INK["muted"], style="italic")
     c.save(fig, ax, xlabel="US$ K per GPU per year", legend=False)
