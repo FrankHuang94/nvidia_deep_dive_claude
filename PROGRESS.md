@@ -67,7 +67,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 15 | Competitive landscape | 7 | planned | 32 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 16 | How NVIDIA built it (timeline) | 7 | planned | 35 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 17 | Roadmap 2025–2028 | 7 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 18 | Vulnerabilities and bear case | 7 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 18 | Vulnerabilities and bear case | 7 | drafted | 7,315 | 29 | 21 (21) | 0 | 4 | 4 | 72% | 179 | pending |
 | 19 | Implications for Qualcomm | 8 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS1 | Mellanox: the best deal | 7 | drafted | 2,135 | 12 | 5 (5) | 0 | 3 | 4 | 42% | 48 | pending |
 | CS2 | CUDA: the 15-year bet | 7 | drafted | 2,180 | 12 | 7 (7) | 0 | 2 | 3 | 58% | 52 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **162,594** | **782** | | | | | | **1397** unique | |
+| **Total** | | | | **169,875** | **811** | | | | | | **1430** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **299**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **346**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)

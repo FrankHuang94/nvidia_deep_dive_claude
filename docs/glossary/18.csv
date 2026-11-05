@@ -1,0 +1,11 @@
+term,slug,definition,see_also
+Steelman,steelman,"The strongest honest version of an argument you may disagree with, built from the best available evidence, as opposed to a 'straw man' that is easy to knock down.",risk-heatmap
+Risk heatmap,risk-heatmap,"A grid that places each risk by its likelihood (x-axis) and impact (y-axis), usually scored 1-5 each; the product of the two ranks which risks deserve attention first.",leading-indicator
+Leading indicator,leading-indicator,"A measurable signal that tends to move before the outcome you care about, such as hyperscaler capex guidance moving before NVIDIA's orders do.",risk-heatmap
+Double ordering,double-ordering,"Buyers placing the same order with several suppliers, or ordering more than they need, during a shortage to secure allocation; the excess vanishes when supply catches up and can make demand look stronger than it is.",supply-constrained
+Capacity market,capacity-market,"An electricity market in which a grid operator pays generators (in $ per MW-day) to be available years ahead; PJM's auction price is a public gauge of how scarce firm power is in the largest US data-center region.",interconnection-queue
+Tying (antitrust),tying,"Making the sale of one product conditional on buying another, for example GPUs only with the vendor's own networking; it can breach competition law when the seller has market power in the first product.",behavioural-remedy
+Forward P/E,forward-pe,"Share price divided by the next twelve months' or next fiscal year's expected earnings per share (equivalently market value divided by expected net income).",reverse-dcf
+Reverse DCF,reverse-dcf,"Working backwards from today's market value to the growth or margins it implies, instead of forecasting cash flows and deriving a value; in its simplest form P/E = 1 / (cost of equity - growth).",forward-pe
+KernelBench,kernelbench,"A public benchmark of PyTorch operations, grouped in three difficulty levels, used to test whether AI models can write GPU kernels that are correct and faster than PyTorch's own.",triton
+Useful life (depreciation),useful-life,"The number of years over which a company spreads the cost of an asset such as a GPU server; a longer life lowers annual depreciation and raises reported profit.",gpu-hour

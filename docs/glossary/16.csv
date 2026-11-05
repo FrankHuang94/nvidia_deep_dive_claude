@@ -1,0 +1,9 @@
+term,slug,definition,see_also
+fabless,fabless,"A chip company that designs semiconductors but pays a foundry such as TSMC to manufacture them; NVIDIA has been fabless since its founding.",foundry
+quadratic surfaces,quadratic-surfaces,"A way of drawing 3D shapes from curved patches described by second-order equations, used by NVIDIA's first chip (NV1) instead of the flat triangles the industry standardised on.",direct3d
+Direct3D,direct3d,"Microsoft's 3D graphics programming interface for Windows (part of DirectX); it standardised on triangles, which made chips built around other primitives incompatible with most games.",fixed-function-pipeline
+transform and lighting,transform-and-lighting,"The steps that position each 3D vertex on screen and compute how light falls on it; GeForce 256 (1999) moved them from the CPU into graphics hardware.",fixed-function-pipeline
+fixed-function pipeline,fixed-function-pipeline,"An early graphics-chip design in which each rendering stage is hard-wired circuitry with a few settings, rather than a processor that runs programs.",programmable-shader
+programmable shader,programmable-shader,"A small program that a GPU runs once per vertex or per pixel; once shaders became programmable (GeForce 3, 2001) the GPU became a general parallel processor, the precursor to CUDA.",gpgpu
+system-on-chip,system-on-chip,"A single chip that integrates CPU cores, graphics, memory controllers and other functions, as used in phones and tablets (for example NVIDIA's Tegra).",baseband-modem
+baseband modem,baseband-modem,"The chip (or block) that handles a phone's cellular radio protocols; NVIDIA bought Icera in 2011 to supply one and wound the business down in 2015.",system-on-chip

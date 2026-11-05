@@ -1,0 +1,5 @@
+period,period_type,period_end,customer,pct_revenue,scope,confidence,source_id,notes
+H1FY27,H,2026-07-26,Direct customer A,16,direct customer (half-year),confirmed,S90069,"Q2 FY2027 10-Q: three direct customers each >=10% of first-half revenue (16%, 15%, 13%); letters re-assigned each period"
+H1FY27,H,2026-07-26,Direct customer B,15,direct customer (half-year),confirmed,S90069,"Q2 FY2027 10-Q, first half of FY2027"
+H1FY27,H,2026-07-26,Direct customer C,13,direct customer (half-year),confirmed,S90069,"Q2 FY2027 10-Q, first half of FY2027"
+Q2FY27,Q,2026-07-26,Direct customer A,16,direct customer (quarter),confirmed,S90069,"Only one direct customer >=10% of Q2 FY2027 revenue; several indirect customers estimated >=10% (not quantified in the sources used)"

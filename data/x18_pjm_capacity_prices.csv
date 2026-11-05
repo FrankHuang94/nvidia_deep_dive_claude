@@ -1,0 +1,6 @@
+market,delivery_year,clearing_price_usd_per_mw_day,basis,confidence,source_id,notes
+PJM,2024/2025,28.92,RTO base residual auction clearing price,reported,S18018,
+PJM,2025/2026,269.92,RTO base residual auction clearing price,reported,S18018,
+PJM,2026/2027,329.17,RTO clearing price (at the negotiated cap),reported,S18018;S18016,
+PJM,2027/2028,333.44,RTO clearing price (at the negotiated cap),reported,S18016;S18017,"Held at a cap negotiated with Pennsylvania's governor; ~5,100 MW of the ~5,250 MW forecast-load increase tied to data centers; ~6,600 MW short of the reliability requirement"
+PJM,2027/2028 (no cap),530,PJM estimate of the price without the cap,estimate,S18017;S18019,Approximate (~60% above the capped price)

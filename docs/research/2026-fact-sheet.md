@@ -12,7 +12,8 @@ is stated — keep it visible in the text rather than picking silently.
 | FY2026 revenue $215.9B (+65 %); Q4 FY2026 revenue $68.1B | 🟢 | S1 |
 | Q1 FY2027 (reported May 2026): revenue $81.6B; networking a record $14.8B; NVIDIA began reporting **Data Center** (hyperscale vs. AI clouds/industrial/enterprise) and **Edge Computing** platforms | 🟢/🟡 | S90014 |
 | Q2 FY2027 (reported 2026-08-26): revenue $96.2B (+106 % y/y); Data Center ~$89.0B (+18 % q/q); hyperscale ~$48.7–49B (+13 % q/q); networking record, +18 % q/q (≈ $17.5B implied); Spectrum-X Ethernet 2.6× y/y; GAAP gross margin 75.0 % | 🟢/🟡 | S3, S90011, S90012, S90013 |
-| Q3 FY2027 guidance $108B ± 2 %, excluding any China Data Center compute revenue; CFO called the FY2028 outlook "supply-constrained" | 🟢 | S3, S90012 |
+| Q3 FY2027 guidance $108B ± 2 % and GAAP gross margin 74 % ± 50 bp, excluding any China Data Center compute revenue | 🟢 | S3, S90012, S90085 |
+| **FY2028 preliminary outlook (Q2 FY2027 call):** revenue growth ~70 % y/y, explicitly **supply-constrained**; gross margin to bottom at **71–72 % in Q4 FY2027** (memory costs above plan) and run **72–73 % in FY2028** as price increases take effect | 🟢 (management guidance) | S90085, S90086 |
 | Hopper shipments to China < 1 % of Q2 FY2027 Data Center revenue | 🟡 | S90011 |
 | GTC 2026 (2026-03-16): Huang sized Blackwell + Vera Rubin demand at **$1 trillion through 2027**, up from the **$500B through 2026** cited in Feb 2026; outlets differ on "orders" vs "revenue opportunity" | 🟢 (statement) / 🟡 (wording) | S90001, S90002 |
 

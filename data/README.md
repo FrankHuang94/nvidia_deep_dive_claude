@@ -1232,3 +1232,103 @@ Inputs of the repo's 1 GW Vera Rubin NVL72 site model and break-even calculation
 rack price, NVIDIA content shares, facility capex per GW, power price, useful lives, cost of capital, idle power
 floor). Formulas are documented in the module docstring of `ch_cs7.py`. Used by `CS7-cost-per-gw-estimates` and
 `CS7-breakeven-vs-utilization`.
+
+## Chapter 15A — competitive landscape: AMD and hyperscaler silicon (`x15a_*.csv`, charts in `scripts/charts/ch_x15a.py`)
+
+### x15a_accelerator_generations.csv (one row per accelerator)
+`vendor,product,year,status,memory_type,memory_capacity_gb,memory_bandwidth_tbs,fp8_tflops_dense,fp4_tflops_dense,tdp_w,max_scale_up_domain,confidence,source_id,notes`
+
+Newer hyperscaler chips not yet in `competitor_accelerators.csv` (same column meanings): Google TPU 8t and 8i
+(April 2026), Microsoft Maia 300 (October 2026; `max_scale_up_domain` holds accelerators per rack) and Meta MTIA
+300/400/450/500 (March 2026; `fp4_tflops_dense` holds Meta's MX4 figure). Most values come from press spec tables
+because vendor pages were blocked in this session, hence `reported`. Used by `15-tpu-memory-vs-nvidia`,
+`15-maia-generations`, `15-mtia-generations` and `15-challenger-gap-to-nvidia`.
+
+### x15a_competitor_metrics.csv (long: one row per entity × metric)
+`entity,period,metric,value,unit,confidence,source_id,notes`
+
+Metrics: `capex_guidance_mid` (2026 capex guidance midpoints of the four largest hyperscalers),
+`dc_hyperscale_revenue_annualized` (NVIDIA, H1 FY2027 × 2), `ai_semiconductor_revenue_annualized` (Broadcom,
+Q3 FY2026 × 4), `custom_silicon_run_rate` (Amazon), `dc_segment_revenue_annualized` (AMD, Q3 2026 × 4),
+`amd_gw_commitment` and `trainium_gw_commitment` (GW maximums by customer), `trainium_revenue_commitments`.
+Annualized rows are repo estimates whose scopes differ (stated per row). Used by `15-hyperscaler-capex-vs-silicon-2026`
+and `15-amd-gigawatt-commitments` (which also reads the per-GW spend scenarios in `cs4_amd_openai.csv`).
+
+The module's "NVIDIA same-year flagship" mapping (2021 A100 80GB, 2022–23 H100, 2024 H200, 2025 GB300, 2026 Rubin)
+and the gap ratios are documented in the module docstring (repo analysis, source S15014).
+
+## Chapter 18 — vulnerabilities and bear case (`x18_*.csv`, charts in `scripts/charts/ch_x18.py`; sources S18000–S18027)
+
+### x18_risks.csv (one row per risk)
+`risk_id,risk,short_label,category,likelihood,impact,score,horizon,channel,rationale,key_evidence,leading_indicators,confidence,source_id,notes`
+
+The ten risks of the chapter scored by the repo (all `speculative`). `likelihood` 1–5 = probability the risk materially
+bites within `horizon` (1 < 10 %, 2 = 10–30 %, 3 = 30–50 %, 4 = 50–70 %, 5 > 70 %); `impact` 1–5 = effect on NVIDIA's
+FY2028–FY2030 gross profit if it does (1 < 2 %, 2 = 2–5 %, 3 = 5–15 %, 4 = 15–30 %, 5 > 30 % or a multi-year revenue
+decline); `score` = likelihood × impact. `source_id` lists the evidence behind each score plus S18027 (repo analysis).
+Used by `18-risk-heatmap`.
+
+### x18_customer_concentration.csv (one row per disclosed ≥ 10 % direct customer)
+`period,period_type,period_end,customer,pct_revenue,scope,confidence,source_id,notes`
+
+FY2027 disclosures only (H1 FY2027 and Q2 FY2027 from the Q2 FY2027 10-Q); earlier periods come from the
+`customer_*_pct_revenue` rows of `financials.csv`. Used by `18-direct-customer-concentration`.
+
+### x18_financing_comparison.csv (one row per financing measure)
+`entity,measure,period,numerator_usd_b,denominator_usd_b,denominator_basis,ratio_pct,group,confidence,source_id,notes`
+
+Customer financing or stakes as % of revenue: Lucent's 1999–2000 vendor-financing commitments vs NVIDIA's H1 FY2027
+equity purchases, equity stakes held and all customer-support ties at July 2026. LTM revenue = Q3 FY2026 to Q2 FY2027
+($57.0B + $68.1B + $81.6B + $96.2B = $302.9B). Used by `18-financing-vs-lucent`.
+
+### x18_pjm_capacity_prices.csv (one row per auction)
+`market,delivery_year,clearing_price_usd_per_mw_day,basis,confidence,source_id,notes`
+
+PJM base residual auction clearing prices; the last row is PJM's estimate of the 2027/28 price without the negotiated
+cap (`estimate`). Used by `18-pjm-capacity-price`.
+
+### x18_valuation_scenarios.csv (one row per scenario, plus one reference row)
+`scenario,order,kind,fy2028_revenue_usd_b,gross_margin_pct,net_margin_pct,net_income_usd_b,market_cap_usd_t,pe,implied_perpetual_growth_pct,confidence,source_id,notes`
+
+Repo arithmetic (`speculative`): FY2027E revenue $410B (Q1 + Q2 reported, Q3 guide, Q4E $124B); FY2028 revenue under
+four paths; net income = revenue × net margin; P/E = market cap ($5.5T, midpoint of late-August and early-October 2026
+reports) ÷ net income; implied perpetual growth = 9 % cost of equity − 1/(P/E). `kind = reference` holds the S&P 500
+forward P/E (April 2026). Used by `18-implied-pe-scenarios`.
+
+## Chapter 15 part B — custom-ASIC houses, Intel, Qualcomm, inference start-ups, China (`x15_*.csv` below; charts in `scripts/charts/ch_x15b.py`; sources S15500–S15550)
+
+### x15_custom_silicon_scale.csv (long)
+`chart_group,company,period,metric,value_usd_b,basis,confidence,source_id,notes` — `broadcom_trajectory`: Broadcom AI
+semiconductor revenue FY2023–FY2028 (reported, management estimate, target and "line of sight", per `basis`) and NVIDIA
+data-center revenue FY2024–FY2026 plus H1 FY2027 for scale; `field_scale`: the latest annual (or annualised) revenue figure for
+each custom-silicon house (Broadcom, Marvell, MediaTek, GUC, Alchip, Qualcomm's custom-silicon floor). Bases differ (AI-only,
+data-center, total revenue, target) and are stated per row; annualisations and FX conversions are repo estimates.
+
+### x15_asic_breakeven.csv (one row per model input)
+`parameter,value,unit,confidence,source_id,notes` — inputs to the repo's merchant-GPU vs custom-ASIC break-even model
+(`15-asic-breakeven-volume`): merchant GPU price, custom unit cost, relative throughput cases, design NRE and software/system team
+cost. Most inputs are `speculative` repo assumptions anchored on cited estimates.
+
+### x15_china_vendors.csv (one row per company × period)
+`company,period,metric,value,unit,yoy_growth_pct,basis,confidence,source_id,notes` — Huawei AI-chip revenue (US$ B, FT report)
+and H1 2026 / FY2025 revenue of China's listed AI-chip makers (CNY B). Hygon includes CPUs; MetaX figures conflict across reports.
+
+### x15_smic_capacity.csv (one row per estimate)
+`estimator,year,metric,value_k_wpm,scope,confidence,source_id,notes` — estimates of China's 7 nm-class wafer capacity or output
+(thousand wafers per month) by estimator; `metric` = `capacity` | `output` | `target` | `ai_chip_wafers` | `ascend_requirement`.
+Scopes differ and are not additive.
+
+### x15_dc_revenue_benchmarks.csv (long)
+`chart_group,entity,period,metric,value_usd_b,basis,confidence,source_id,notes` — `annual_scale`: NVIDIA, Broadcom and AMD annual
+data-center / AI revenue vs Qualcomm's public datacenter revenue targets; `latest_quarter`: each vendor's latest reported
+quarter of data-center (or AI) revenue, with the period end in `period`.
+
+### x15_startup_marks.csv (one row per valuation mark)
+`company,date,value_usd_b,mark_type,technical_bet,acquirer,confidence,source_id,notes` — disclosed or reported valuation marks of
+AI-chip start-ups over time. `mark_type`: `private round` | `IPO` | `licence + acquihire` | `acquisition` |
+`acquisition offer (stalled)`. Marks are not like-for-like; `speculative` rows carry conflicting reports.
+
+### x15_qualcomm_dc_timeline.csv (one row per public event; public information only)
+`date,lane,label,status,label_dy,confidence,source_id,notes` — Qualcomm's public datacenter moves by lane (`Server CPUs`,
+`AI accelerators`, `Connectivity & software`, `Customers & partners`). `status`: `shipped` | `closed` | `signed` | `announced` |
+`roadmap` | `exited`. `label` is the chart label (`\n` = line break) and `label_dy` its vertical offset in points (presentation only).

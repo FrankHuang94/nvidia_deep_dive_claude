@@ -1,0 +1,18 @@
+term,slug,definition,see_also
+Full-stack merchant,full-stack-merchant,"A vendor that sells the whole AI system (chips, interconnect, racks and software) to any buyer. NVIDIA is the archetype; AMD is building toward it with Helios and ROCm.",merchant-silicon;vertical-integration
+National champion,national-champion,"A domestic chip supplier that a government backs to replace foreign technology, usually behind export controls or procurement rules; Huawei's Ascend in China is the main example.",export-controls;huawei-ascend
+Stack breadth,stack-breadth,"In this repo, the number of NVIDIA's twelve stack layers (02-13) in which a competitor scores at least 3 of 5. Depth is how strong it is in its best layers.",vertical-integration
+CDNA,cdna,"AMD's data-center GPU architecture family (Compute DNA), separate from its RDNA gaming line. CDNA 3 powers MI300X/MI325X, CDNA 4 the MI350 series; MI500 is reported as CDNA 6.",rocm;amd-helios
+UltraServer,ultraserver,"AWS's name for a group of Trainium chips joined by its NeuronLink scale-up fabric into one domain: 64 Trainium2 or up to 144 Trainium3 chips.",neuronlink;scale-up
+Annapurna Labs,annapurna-labs,"Israeli chip-design start-up Amazon bought in 2015 for a reported ~$350-370M; it designs AWS's Nitro, Graviton, Inferentia and Trainium chips.",aws-nitro;trainium
+Trainium,trainium,"AWS's in-house AI accelerator for training and inference, sold only as AWS cloud capacity; generations Trn1 (2022), Trn2 (2024), Trn3 (2025) and Trainium4 (announced).",ultraserver;neuron-sdk
+Ironwood,ironwood,"Google's seventh-generation TPU (TPU v7, 2025): 4.6 PFLOPS dense FP8 and 192 GB of HBM3E per chip in pods of up to 9,216 chips; Google's first TPU built mainly for inference.",tpu;ici
+Maia,maia,"Microsoft's in-house AI accelerator line for Azure: Maia 100 (2024), Maia 200 (2026, inference, runs Copilot) and Maia 300 (announced for 2027).",azure-cobalt;captive-silicon
+MTIA,mtia,"Meta Training and Inference Accelerator: Meta's in-house chip line, first for ranking and recommendation models, now extended to generative-AI inference (MTIA 300-500).",recommendation-model;captive-silicon
+Graviton,graviton,"AWS's in-house Arm server CPU line (Annapurna Labs), first launched in 2018; Graviton5 (2026) has 192 cores.",annapurna-labs;neoverse
+Azure Cobalt,azure-cobalt,"Microsoft's in-house Arm server CPU for Azure: Cobalt 100 (128 Neoverse N2 cores) and Cobalt 200 (132 Neoverse V3 cores, 2025).",maia;neoverse
+Recommendation model,recommendation-model,"A model that ranks ads, posts or products for each user (e.g. DLRM). It is dominated by huge embedding-table lookups rather than the dense matrix maths of LLMs, so it rewards different chip designs.",mtia
+Performance per dollar,perf-per-dollar,"Useful work (e.g. tokens per second) per dollar of owner cost or rental price; the metric custom ASICs compete on when they trail on peak performance.",tco;perf-per-watt
+Same-year flagship,same-year-flagship,"Repo convention for gap charts: the NVIDIA data-center GPU shipping in volume in a given calendar year (2023 H100, 2024 H200, 2025 GB300, 2026 Rubin), used as the 100% reference.",
+ZT Systems,zt-systems,"US rack-scale server designer AMD bought for $4.9B (closed March 2025); AMD kept the design teams that built Helios and sold the factories to Sanmina.",amd-helios;odm
+Chip-hour,chip-hour,"One accelerator used for one hour: the unit in which cloud rentals and owner TCO are quoted. Comparing chip-hours across vendors misleads unless throughput per chip is also compared.",gpu-hour;tco
