@@ -66,7 +66,7 @@ registered developers took 13 years [[S529]](../../sources/bibliography.md#s529)
 
 Think of Formula 1: a rival can copy last season's car, but the winner ships a better one every season. In 2026
 the rival's car is faster on paper (MI455X: 432 vs 288
-GB, 19.6 vs 19.2 TB/s [[S144]](../../sources/bibliography.md#s144)[[S90006]](../../sources/bibliography.md#s90006)); NVIDIA's lead sits elsewhere.
+GB, 23.3 vs 19.2 TB/s [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093)[[S90006]](../../sources/bibliography.md#s90006)); NVIDIA's lead sits elsewhere.
 
 | Candidate source | Evidence | Still unique to NVIDIA? |
 |---|---|---|
@@ -192,3 +192,4 @@ All analysis below is the repo's (🔴 Speculative).
 - [**S90018**](../../sources/bibliography.md#s90018) Constellation Research, *Nvidia's Groq deal: acquisition, acquihire or creative licensing deal?*, 2025-12. [Link](https://www.constellationr.com/insights/news/nvidias-groq-deal-acquisition-acquihire-or-creative-licensing-deal)
 - [**S90019**](../../sources/bibliography.md#s90019) TechSpot, *Nvidia's $20 billion Groq deal looks a lot like an acquisition*, 2025-12. [Link](https://www.techspot.com/news/110723-nvidia-20-billion-groq-deal-looks-lot-like.html)
 - [**S90046**](../../sources/bibliography.md#s90046) IT Brief UK, *Microsoft unveils Maia 300 for 2027 AI deployments*, 2026-10. [Link](https://itbrief.co.uk/story/microsoft-unveils-maia-300-for-2027-ai-deployments)
+- [**S90093**](../../sources/bibliography.md#s90093) Tom's Hardware, *AMD takes the wraps off its Instinct MI455X AI accelerator: CDNA 5 and Helios rack-scale architecture*, 2026. [Link](https://www.tomshardware.com/pc-components/gpus/amd-takes-the-wraps-off-its-instinct-mi455x-ai-accelerator-cdna-5-and-helios-rack-scale-architecture-combine-to-take-the-fight-to-nvidia-in-the-data-center)

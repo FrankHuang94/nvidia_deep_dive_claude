@@ -62,7 +62,7 @@ January 2025 reports said the first GB200 NVL72 racks overheated and had chip-to
 2. **Supply-chain orchestration.** NVIDIA held $279B of supply and capacity commitments in mid-2026 [[S407]](../../sources/bibliography.md#s407). It allocates scarce [CoWoS](../../glossary.md#cowos)-built GPUs across ODMs such as Foxconn (~40% of AI servers) [[S3014]](../../sources/bibliography.md#s3014). ~20 partners built 800 V DC parts to its roadmap [[S90061]](../../sources/bibliography.md#s90061).
 3. **Co-designed networking.** Owning NVLink, NICs and switches lets NVIDIA tune rack and cluster together. Networking revenue reached a record $14.8B in Q1 FY2027 [[S90014]](../../sources/bibliography.md#s90014)[[S464]](../../sources/bibliography.md#s464).
 
-Raw technology is *not* the moat: Helios matches Vera Rubin NVL72 on paper [[S344]](../../sources/bibliography.md#s344). Speed of execution is: NVIDIA ships a new rack generation roughly every year [[S500]](../../sources/bibliography.md#s500).
+Raw technology is *not* the moat: Helios matches or beats Vera Rubin NVL72 on paper [[S344]](../../sources/bibliography.md#s344). Speed of execution is: NVIDIA ships a new rack generation roughly every year [[S500]](../../sources/bibliography.md#s500).
 
 > [!TIP]
 > **Worked example — one throat to choke.** A 40-rack Vera Rubin POD of ~60 EF is built from seven NVIDIA chip types [[S511]](../../sources/bibliography.md#s511). The alternative is five vendors and five firmware stacks to debug. When a 1 GW site costs $50–60B [[S398]](../../sources/bibliography.md#s398), a month of delay is worth ~$4–5B of idle capital (🔴 repo arithmetic). Buyers pay for one accountable integrator.

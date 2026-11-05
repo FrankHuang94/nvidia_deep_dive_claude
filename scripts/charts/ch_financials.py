@@ -691,16 +691,26 @@ def hyperscaler_capex_trend():
     trio = ["Alphabet", "Amazon", "Meta"]
     t22 = d[(d.year == 2022) & d.company.isin(trio)].value.sum()
     t26 = d[(d.year == 2026) & d.company.isin(trio)].value.sum()
+    # QA 2026-11-05: the 2026 points are the FIRST (Jan–Feb 2026) guides; say so and show the latest guide
+    # midpoint from the layer-12 guidance tracker so the chart is not read as the current outlook.
+    gd = load("l12_hyperscaler_capex_guidance.csv")
+    gd = gd[gd.company.isin(trio) & (gd.period == "CY2026")].copy()
+    gd["mid"] = (gd.capex_low_usd_b + gd.capex_high_usd_b) / 2
+    latest = gd.sort_values("guidance_date").groupby("company").mid.last()
+    t26_latest = latest.sum()
     c = Chart(
         id="18-hyperscaler-capex-trend",
-        title=f"Alphabet, Amazon and Meta plan ~${t26:.0f}B of 2026 capex, {t26 / t22:.1f}× their ${t22:.0f}B in 2022",
-        subtitle="Capex, US$ B per fiscal year; dashed/hollow = outlook or unverified; MSFT FY ends Jun (ex-leases), Oracle May",
+        title=(f"Alphabet, Amazon and Meta first guided ~${t26:.0f}B of 2026 capex, {t26 / t22:.1f}× their ${t22:.0f}B "
+               f"in 2022; guides have since risen to ~${t26_latest:.0f}B"),
+        subtitle=("Capex, US$ B per fiscal year; 2026 = first guidance (Jan–Feb 2026); dashed/hollow = outlook or unverified; "
+                  "MSFT FY ends Jun (ex-leases), Oracle May"),
         alt=(f"Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from "
-             f"${t22:.0f}B in 2022 to about ${t26:.0f}B guided for 2026 (Amazon ~$200B, Alphabet ~$180B midpoint, "
-             f"Meta ~$125B midpoint); Microsoft reached ${d[(d.company == 'Microsoft')].value.max():.0f}B in FY2025 and "
-             f"Oracle guided about $50B for FY2026."),
-        data=[PEER], chapters=["18", "13", "08"],
-        source="company 10-Ks and outlooks", source_ids=sources_of(d),
+             f"${t22:.0f}B in 2022 to about ${t26:.0f}B in their first 2026 guides (Amazon ~$200B, Alphabet ~$180B midpoint, "
+             f"Meta ~$125B midpoint), since raised to about ${t26_latest:.0f}B by October 2026; Microsoft reached "
+             f"${d[(d.company == 'Microsoft')].value.max():.0f}B in FY2025 and Oracle guided about $50B for FY2026."),
+        data=[PEER, "l12_hyperscaler_capex_guidance.csv"], chapters=["18", "13", "08"],
+        source="company 10-Ks and outlooks", source_ids=sources_of(d) + [x for x in sources_of(gd) if x not in sources_of(d)],
+        note=f"Latest 2026 guide midpoints (Jul–Oct 2026): Big 3 ~${t26_latest:.0f}B",
     )
     fig, ax = c.figure(width=10, height=5.8)
     color = {"Oracle": "#B5B5B5"}

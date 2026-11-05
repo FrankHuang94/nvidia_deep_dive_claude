@@ -99,13 +99,14 @@ quote an NVIDIA statement tying the figures to quality volume production [[S104]
 HBM4 pin speeds of ~9.4 instead of ~10.7 Gb/s (🔴 unresolved) [[S90006]](../../sources/bibliography.md#s90006). NVIDIA had pushed suppliers for HBM4 above
 10–11 Gb/s [[S90040]](../../sources/bibliography.md#s90040).
 
-![Four-panel bar chart. HBM bandwidth per GPU: Rubin launch 22 TB/s, revised 19.2, MI455X 19.6. Scale-up bandwidth: Rubin launch 3.6 TB/s, revised 3.0, MI455X 3.6. HBM capacity: Rubin 288 GB unchanged, MI455X 432 GB. Dense FP8: Rubin 17.5 PFLOPS unchanged, MI455X 20 PFLOPS (AMD did not state dense or sparse). Press reports quote NVIDIA tying the new figures to volume production; the cause is unresolved.](../../assets/charts/02-rubin-spec-revision.svg)
+![Four-panel bar chart. HBM bandwidth per GPU: Rubin launch 22 TB/s, revised 19.2, MI455X 23.3. Scale-up bandwidth: Rubin launch 3.6 TB/s, revised 3.0, MI455X 3.6. HBM capacity: Rubin 288 GB unchanged, MI455X 432 GB. Dense FP8: Rubin 17.5 PFLOPS unchanged, MI455X 20 PFLOPS (AMD did not state dense or sparse). Press reports quote NVIDIA tying the new figures to volume production; the cause is unresolved.](../../assets/charts/02-rubin-spec-revision.svg)
 
 > [!TIP]
 > **Worked example — what a 13% bandwidth cut does to decode.** One token for one user of a 70B-parameter model at
 > FP8 means reading ~70 GB of weights. At 22 TB/s the ceiling is ≈ 314 tokens/s; at 19.2 TB/s ≈ 274, the same
 > ~13% loss. [Decode](../../glossary.md#decode) is [memory-bound](../../glossary.md#memory-bound), so the cut hits interactive
-> serving, while training and [prefill](../../glossary.md#prefill) are untouched. MI455X's 19.6 TB/s gives ≈ 280.
+> serving, while training and [prefill](../../glossary.md#prefill) are untouched. MI455X's 23.3 TB/s gives ≈ 333 [[S90093]](../../sources/bibliography.md#s90093),
+> above even Rubin's launch spec.
 
 ![Dumbbell chart of schedule changes (Huawei's is a pull-in): Ascend 960 -9 months, Rubin CPX +3 months, Quantum-X Photonics InfiniBand +3 months, Vera Rubin NVL144 CPX rack +3 months, Kyber NVL144 +12 months. The Kyber NVL144 slip is SemiAnalysis-reported and disputed by NVIDIA; the Rubin CPX return is an analyst claim.](../../assets/charts/17-roadmap-slips-and-pull-ins.svg)
 
@@ -218,3 +219,4 @@ Feynman), plus LPUs for decode [[S109]](../../sources/bibliography.md#s109)[[S11
 - [**S90043**](../../sources/bibliography.md#s90043) Tom's Hardware, *Huawei Ascend NPU roadmap examined: targets 4 zettaflops FP4 by 2028 amid manufacturing constraints*, 2025-09. [Link](https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-ascend-npu-roadmap-examined-company-targets-4-zettaflops-fp4-performance-by-2028-amid-manufacturing-constraints)
 - [**S90044**](../../sources/bibliography.md#s90044) eWeek, *Microsoft introduces Maia 200, its most powerful AI chip yet*, 2026-01-27. [Link](https://www.eweek.com/news/microsoft-maia-200-ai-chip/)
 - [**S90046**](../../sources/bibliography.md#s90046) IT Brief UK, *Microsoft unveils Maia 300 for 2027 AI deployments*, 2026-10. [Link](https://itbrief.co.uk/story/microsoft-unveils-maia-300-for-2027-ai-deployments)
+- [**S90093**](../../sources/bibliography.md#s90093) Tom's Hardware, *AMD takes the wraps off its Instinct MI455X AI accelerator: CDNA 5 and Helios rack-scale architecture*, 2026. [Link](https://www.tomshardware.com/pc-components/gpus/amd-takes-the-wraps-off-its-instinct-mi455x-ai-accelerator-cdna-5-and-helios-rack-scale-architecture-combine-to-take-the-fight-to-nvidia-in-the-data-center)

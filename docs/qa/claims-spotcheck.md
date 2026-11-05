@@ -21,11 +21,11 @@ Verdicts: ✅ matches · ⚠️ minor mismatch, rounding or missing caveat/label
 | Area | Claims | ✅ | ⚠️ | ❌ | ❓ |
 |---|---:|---:|---:|---:|---:|
 | Synthesis (README, 00, cheat sheet) | 8 | 7 | 1 | 0 | 0 |
-| Layers 02–13 | 46 | 40 | 4 | 1 | 1 |
+| Layers 02–13 | 46 | 40 | 4 | 2 | 0 |
 | Cross-cutting 14–19 | 21 | 19 | 1 | 1 | 0 |
 | Case studies CS1–CS7 | 8 | 7 | 1 | 0 | 0 |
 | Primers P1–P5 | 6 | 4 | 2 | 0 | 0 |
-| **Total** | **89** | **77** | **9** | **2** | **1** |
+| **Total** | **89** | **77** | **9** | **3** | **0** |
 
 | Claim type (approx.) | Count |
 |---|---:|
@@ -53,11 +53,16 @@ Verdicts: ✅ matches · ⚠️ minor mismatch, rounding or missing caveat/label
    - Five confidence tags were missing.
 
    All fixed.
-4. ❓ **MI455X HBM4 bandwidth (material).** The repo uses 19.6 TB/s, AMD's June 2025 figure (S144, flagged
+4. ❓ → ❌ **MI455X HBM4 bandwidth (material) — resolved 2026-11-05.** The repo used 19.6 TB/s, AMD's June 2025 figure (S144, flagged
    "re-verify in QA" in the registry). WS (2026-11-05) finds AMD's MI455X product page, Chips and Cheese and Tom's
    Hardware listing **23.3 TB/s** (12 × 36 GB HBM4 at ~7.6 GT/s). No registry or fact-sheet source carries 23.3, so
    nothing was changed. The item is logged **Open** in QA_LOG: about 19 pages and 10 CSVs would need updating, and
    the change would widen AMD's bandwidth lead over Rubin (19.2 TB/s) from ~2% to ~21%.
+   **Resolved (QA-FIX):** the orchestrator registered S90093 (Tom's Hardware), S90094 (ServeTheHome) and S90095
+   (Chips and Cheese) and added the corrected row to the fact sheet. 23.3 TB/s per GPU and ~1,678 TB/s per Helios
+   rack (72 × 23.3) now replace 19.6 and ~1,411 in 11 CSVs, 6 chart modules (11 affected charts; all charts regenerated) and 20 pages;
+   "parity" verdicts now read "AMD leads" (~1.21× per GPU, ~1.20× per rack). The summary counts above treat
+   the item as ❌ (fixed).
 
 **Labels.** Every sampled estimate was labelled "Est." (or 🔴 for repo models). Five forward-looking or reported
 claims had no tag and now do. One tag was stale (🟡 "close expected"); the deal had closed.
@@ -89,13 +94,13 @@ sheet · **calc** = arithmetic re-done here · **WS** = WebSearch 2026-11-05.
 | L02-3 | layers/02-gpu-silicon/index.md:11 | Rubin HBM4 22 → 19.2, NVLink 6 3.6 → 3.0 TB/s 🟢; production shipments early Aug 2026 | S90006 S500 S90009 | reg; FS | ✅ | — |
 | L02-4 | layers/02-gpu-silicon/competition.md:88 | Per MW: ~435 Rubin ≈ 7.6 EF FP8; ~714 MI355X ≈ 3.6 EF; ~1,333 Maia 200 ≈ 6.7 EF | S106 S143 S158 | reg (2.3 kW Max-P is analyst-reported; 1,400 W; 750 W); data `competitor_accelerators.csv` | ✅ | — |
 | L02-5 | layers/02-gpu-silicon/value-chain-and-corp-dev.md:126 | Groq ~$20B ≈ 2.9× its $6.9B mark ≈ 3 weeks of Q2 FY2027 DC revenue | S90019 S405 | reg; calc 89.0/13 = $6.85B/week | ⚠️ price undisclosed and only reported (FS 🟡), but untagged | Added "(🟡 reported)" |
-| L02-6 | layers/02-gpu-silicon/roadmap.md:105 | 70B FP8 decode ceiling 314 → 274 tok/s (~13%); MI455X ≈ 280 | — | calc | ✅ | — |
+| L02-6 | layers/02-gpu-silicon/roadmap.md:105 | 70B FP8 decode ceiling 314 → 274 tok/s (~13%); MI455X ≈ 280 | — | calc | ✅ | MI455X now ≈ 333 (23.3 TB/s, S90093; QA-FIX 2026-11-05) |
 | L03-1 | layers/03-memory-packaging-supply-chain/index.md:7 | Since V100: compute ~280×, HBM BW ~21×; 70B FP8 stream ~48 tok/s on H100, ~274 on Rubin | S33010 S33005 S33007 S33002 | calc 0.9 → 19.2; 3.35/70; 19.2/70 | ✅ | — |
 | L03-2 | layers/03-memory-packaging-supply-chain/index.md:8 | Memory ~9% → ~26% of NVL72 rack cost, GB300 → Vera Rubin (Est.) | S330 S332 | reg S330 ($2.0M of $7.80M = 25.6%), S331 ($0.374M of ~$3.99M = 9.4%) | ✅ | — |
 | L03-3 | layers/03-memory-packaging-supply-chain/index.md:10 | 🟡 CoWoS ~15k → ~115k wafers/month end-2023 → end-2026 (Est.); NVIDIA ~60% of 2026 wafers | S379 | data `hbm_and_packaging.csv` (15 / 115); reg S379 (~595k wafers, ~60%); FS (105–130k) | ✅ (`l03_cowos_outlook.csv` uses a 120k midpoint; both are inside the range) | — |
 | L03-4 | layers/03-memory-packaging-supply-chain/supply-chain-as-a-weapon.md:20 | $279B ≈ 11.6 quarters (~2.9 years) of COGS; mid-2022 $9.2B ≈ 1.4× revenue | S405 S407 S420 S433 | reg S407; calc 96.2 × 0.25 = $24B | ✅ | — |
 | L03-5 | layers/03-memory-packaging-supply-chain/roadmap.md:72 | CoWoS "~2.2× from ~120k (end-2026) to ~260k (2028)" | S3002 | reg S3002 says ~130k → ~260k (≈2×); 120k is the repo midpoint | ⚠️ multiple and base do not match the cited source | Now "roughly double, from ~120–130k"; "twice the wafers" |
-| L03-6 | layers/03-memory-packaging-supply-chain/index.md:12 | MI455X 432 GB at 19.6 TB/s vs Rubin 288 GB at 19.2 | S144 S33007 | reg S144 ("re-verify in QA"); FS (Helios 31 TB ✓); **WS: AMD MI455X page, Chips and Cheese and Tom's Hardware list 23.3 TB/s** | ❓ 432 GB ✓; 19.6 TB/s not confirmed and likely superseded | Not changed (no in-repo source for 23.3). Logged Open in QA_LOG (High) |
+| L03-6 | layers/03-memory-packaging-supply-chain/index.md:12 | MI455X 432 GB at 19.6 TB/s vs Rubin 288 GB at 19.2 | S144 S33007 | reg S144 ("re-verify in QA"); FS (Helios 31 TB ✓); **WS: AMD MI455X page, Chips and Cheese and Tom's Hardware list 23.3 TB/s** | ❌ 432 GB ✓; 19.6 TB/s superseded by AMD's 23.3 TB/s | Fixed 2026-11-05 (QA-FIX): now 23.3 TB/s, ~1.2× Rubin (S90093); see QA_LOG |
 | L04-1 | layers/04-cpu-grace-vera/index.md:7 | DGX-2 delivered 56% of its ResNet-50 throughput when CPUs prepared the data | S4017 | reg; calc 12,586 / 22,656 = 55.6% | ✅ | — |
 | L04-2 | layers/04-cpu-grace-vera/index.md:8 | 900 GB/s NVLink-C2C ≈ 7× PCIe Gen5 x16 | S129 S222 | calc 900 / 128 | ✅ | — |
 | L04-3 | layers/04-cpu-grace-vera/index.md:10 | Vera: 88 cores / 176 threads, up to 1.5 TB LPDDR5X at ~1.2 TB/s; 256-CPU rack | S4000 S4002 | reg; data `cpu_specs.csv` | ✅ | — |

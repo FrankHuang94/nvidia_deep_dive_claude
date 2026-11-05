@@ -23,7 +23,7 @@ The thesis in five bullets ([full argument](00-executive-summary.md)):
   above ~$30B in FY2026 [[S90071]](sources/bibliography.md#s90071) and non-hyperscale buyers at 45% of Data Center revenue [[S406]](sources/bibliography.md#s406) spread demand beyond
   the largest clouds. Critics call the loop [circular financing](glossary.md#circular-financing) [[S18007]](sources/bibliography.md#s18007).
 - **5 · Indispensable today, contestable at the margin.** NVIDIA kept ~87% of AI data-center silicon revenue in 2025
-  while the pool grew ~4.2× (Est.) [[S416]](sources/bibliography.md#s416)[[S1]](sources/bibliography.md#s1)[[S660]](sources/bibliography.md#s660)[[S661]](sources/bibliography.md#s661)[[S663]](sources/bibliography.md#s663). But AMD matches Rubin on paper [[S144]](sources/bibliography.md#s144), Anthropic has access to
+  while the pool grew ~4.2× (Est.) [[S416]](sources/bibliography.md#s416)[[S1]](sources/bibliography.md#s1)[[S660]](sources/bibliography.md#s660)[[S661]](sources/bibliography.md#s661)[[S663]](sources/bibliography.md#s663). But AMD matches or beats Rubin on paper [[S144]](sources/bibliography.md#s144)[[S90093]](sources/bibliography.md#s90093), Anthropic has access to
   up to 1M Google TPUs [[S653]](sources/bibliography.md#s653), and Broadcom's AI revenue reached ~19% of NVIDIA's Data Center revenue [[S2516]](sources/bibliography.md#s2516). 🔴 Rivals
   cap NVIDIA's [pricing power](glossary.md#pricing-power) at the largest buyers before they dent its volume [[S15014]](sources/bibliography.md#s15014).
 
@@ -253,3 +253,4 @@ Conventions: [style guide](docs/STYLE_GUIDE.md) · [contributor brief](docs/AGEN
 - [**S90073**](sources/bibliography.md#s90073) FourWeekMBA, *NVIDIA's $99 billion investment portfolio and the circular financing loop at the center of AI*, 2026-08. [Link](https://fourweekmba.com/ai-nvidia-99-billion-investment-portfolio-circular-financing-ai/)
 - [**S90085**](sources/bibliography.md#s90085) Shacknews, *NVIDIA (NVDA) expects gross margin decrease over next two quarters*, 2026-08-26. [Link](https://www.shacknews.com/article/150499/nvidia-nvda-gross-margin-decrease-fy27)
 - [**S90086**](sources/bibliography.md#s90086) Implicator.ai, *Nvidia's 70 percent growth forecast and margin outlook*, 2026-08-27. [Link](https://www.implicator.ai/nvidia-70-percent-growth-forecast-margin-outlook.md)
+- [**S90093**](sources/bibliography.md#s90093) Tom's Hardware, *AMD takes the wraps off its Instinct MI455X AI accelerator: CDNA 5 and Helios rack-scale architecture*, 2026. [Link](https://www.tomshardware.com/pc-components/gpus/amd-takes-the-wraps-off-its-instinct-mi455x-ai-accelerator-cdna-5-and-helios-rack-scale-architecture-combine-to-take-the-fight-to-nvidia-in-the-data-center)

@@ -14,7 +14,7 @@
 
 **[Q7 · Roadmap & what changes the picture]** HBM4E pin speed and yield, Samsung's share, whether CoWoS supply overtakes demand, memory prices and China's domestic HBM decide whether NVIDIA's supply moat widens or erodes.
 
-![Two line charts of memory per accelerator, 2024-2028. Capacity: NVIDIA B200 180 GB, B300 288, Rubin 288, Rubin Ultra 1,024 GB announced for 2027 (a report says 768 GB); AMD MI325X 256, MI355X 288, MI455X 432; Google Trillium 32 and Ironwood 192; AWS Trainium2 96, Trainium3 144, Trainium4 about 288 (estimate); Huawei 910C 128, 950DT 144, 960 and 970 288. Bandwidth: Rubin 19.2 TB/s (launch target 22), MI455X 19.6, Trainium4 about 19.6 (estimate), Ironwood 7.37, Huawei 950DT 4.0 rising to 14.4 in 2028, Rubin Ultra about 32 TB/s.](../../assets/charts/03-memory-roadmap-by-vendor.svg)
+![Two line charts of memory per accelerator, 2024-2028. Capacity: NVIDIA B200 180 GB, B300 288, Rubin 288, Rubin Ultra 1,024 GB announced for 2027 (a report says 768 GB); AMD MI325X 256, MI355X 288, MI455X 432; Google Trillium 32 and Ironwood 192; AWS Trainium2 96, Trainium3 144, Trainium4 about 288 (estimate); Huawei 910C 128, 950DT 144, 960 and 970 288. Bandwidth: Rubin 19.2 TB/s (launch target 22), MI455X 23.3, Trainium4 about 19.6 (estimate), Ironwood 7.37, Huawei 950DT 4.0 rising to 14.4 in 2028, Rubin Ultra about 32 TB/s.](../../assets/charts/03-memory-roadmap-by-vendor.svg)
 
 ## The roadmap at a glance
 

@@ -5,7 +5,7 @@
 ## ⚡ The Executive Take
 
 - **On paper, the chip-level gap has closed.** AMD's MI455X claims 20 PFLOPS FP8, 432 GB of [HBM](../../glossary.md#hbm)
-  and 19.6 TB/s [[S144]](../../sources/bibliography.md#s144)[[S538]](../../sources/bibliography.md#s538); NVIDIA's Rubin lists 17.5 PFLOPS dense FP8, 288 GB and, after a 2026 revision,
+  and 23.3 TB/s [[S144]](../../sources/bibliography.md#s144)[[S538]](../../sources/bibliography.md#s538)[[S90093]](../../sources/bibliography.md#s90093); NVIDIA's Rubin lists 17.5 PFLOPS dense FP8, 288 GB and, after a 2026 revision,
   19.2 TB/s [[S33005]](../../sources/bibliography.md#s33005)[[S90006]](../../sources/bibliography.md#s90006). Both ship from late Q3 2026 [[S90009]](../../sources/bibliography.md#s90009)[[S90020]](../../sources/bibliography.md#s90020).
 - **AMD is the strongest challenger at the chip level; Google's TPU is the strongest overall.** SemiAnalysis
   measured Ironwood at $0.181 per million tokens vs $0.222 for B200 [[S625]](../../sources/bibliography.md#s625); Anthropic has signed for up to 1M
@@ -21,7 +21,7 @@
 - **China is a separate market:** Huawei's Ascend 950 (1 PFLOPS FP8) is ~17× behind Rubin per chip but ships into
   8,192-chip SuperPoD designs [[S163]](../../sources/bibliography.md#s163)[[S90042]](../../sources/bibliography.md#s90042).
 
-![Log-log bubble chart of AI accelerators: NVIDIA Rubin (17.5 PFLOPS dense FP8, 19.2 TB/s, 288 GB) and AMD's announced MI455X (20 PFLOPS, 19.6 TB/s, 432 GB) sit far up and to the right; shipping custom ASICs - Google Ironwood, AWS Trainium3 and Microsoft Maia 200 - cluster at 2.5-5 PFLOPS and 4.9-7.4 TB/s, level with GB300 and MI355X; Huawei's Ascend 950DT and Intel Gaudi 3 trail.](../../assets/charts/15-accelerator-landscape-bubble.svg)
+![Log-log bubble chart of AI accelerators: NVIDIA Rubin (17.5 PFLOPS dense FP8, 19.2 TB/s, 288 GB) and AMD's announced MI455X (20 PFLOPS, 23.3 TB/s, 432 GB) sit far up and to the right; shipping custom ASICs - Google Ironwood, AWS Trainium3 and Microsoft Maia 200 - cluster at 2.5-5 PFLOPS and 4.9-7.4 TB/s, level with GB300 and MI355X; Huawei's Ascend 950DT and Intel Gaudi 3 trail.](../../assets/charts/15-accelerator-landscape-bubble.svg)
 
 ## The scorecard: five metrics, nine challengers
 
@@ -30,7 +30,7 @@ credit).
 
 | Challenger (flagship) | Dense FP8 / FP4 per chip | Memory capacity / bandwidth | Perf/W | Software maturity | Availability |
 |---|---|---|---|---|---|
-| AMD MI455X | 🟨 20 / 40 PF, basis unstated [[S144]](../../sources/bibliography.md#s144) | 🟩 432 GB, 19.6 TB/s [[S144]](../../sources/bibliography.md#s144) | 🟥 MI355X ~3.6 TFLOPS/W [[S143]](../../sources/bibliography.md#s143) | 🟥 ROCm 26/36 [[S586]](../../sources/bibliography.md#s586) | 🟨 merchant; ships end-Q3 2026 [[S90020]](../../sources/bibliography.md#s90020) |
+| AMD MI455X | 🟨 20 / 40 PF, basis unstated [[S144]](../../sources/bibliography.md#s144) | 🟩 432 GB, 23.3 TB/s [[S144]](../../sources/bibliography.md#s144)[[S90093]](../../sources/bibliography.md#s90093) | 🟥 MI355X ~3.6 TFLOPS/W [[S143]](../../sources/bibliography.md#s143) | 🟥 ROCm 26/36 [[S586]](../../sources/bibliography.md#s586) | 🟨 merchant; ships end-Q3 2026 [[S90020]](../../sources/bibliography.md#s90020) |
 | Google Ironwood / TPU 8t | 🟥 4.6 PF FP8; 8t 12.6 PF FP4 [[S151]](../../sources/bibliography.md#s151)[[S552]](../../sources/bibliography.md#s552) | 🟥 192 GB, 7.4 TB/s [[S151]](../../sources/bibliography.md#s151) | 🟦 no TDP; ~2× per generation [[S552]](../../sources/bibliography.md#s552) | 🟨 JAX/XLA; TorchTPU new [[S553]](../../sources/bibliography.md#s553) | 🟦 Google Cloud, Anthropic, Meta [[S90025]](../../sources/bibliography.md#s90025) |
 | AWS Trainium3 / 4 | 🟥 2.5 PF FP8 [[S155]](../../sources/bibliography.md#s155) | 🟥 144 GB, 4.9 TB/s [[S155]](../../sources/bibliography.md#s155) | 🟦 undisclosed | 🟥 Neuron 7/36 [[S594]](../../sources/bibliography.md#s594) | 🟦 AWS only |
 | Microsoft Maia 200 | 🟥 >5 / >10 PF [[S158]](../../sources/bibliography.md#s158) | 🟥 216 GB, ~7 TB/s [[S158]](../../sources/bibliography.md#s158) | 🟨 ~6.7 at 750 W [[S158]](../../sources/bibliography.md#s158) | 🟦 internal (Copilot) [[S90044]](../../sources/bibliography.md#s90044) | 🟦 internal |
@@ -210,3 +210,4 @@ and parity or better in more stack layers than any rival [[S625]](../../sources/
 - [**S90042**](../../sources/bibliography.md#s90042) TrendForce, *Huawei unveils Ascend 950 with in-house HBM in 2026, touts SuperPoD to rival NVIDIA*, 2025-09-18. [Link](https://www.trendforce.com/news/2025/09/18/news-huawei-unveils-ascend-950-with-in-house-hbm-in-2026-touts-superpod-to-rival-nvidia/)
 - [**S90044**](../../sources/bibliography.md#s90044) eWeek, *Microsoft introduces Maia 200, its most powerful AI chip yet*, 2026-01-27. [Link](https://www.eweek.com/news/microsoft-maia-200-ai-chip/)
 - [**S90046**](../../sources/bibliography.md#s90046) IT Brief UK, *Microsoft unveils Maia 300 for 2027 AI deployments*, 2026-10. [Link](https://itbrief.co.uk/story/microsoft-unveils-maia-300-for-2027-ai-deployments)
+- [**S90093**](../../sources/bibliography.md#s90093) Tom's Hardware, *AMD takes the wraps off its Instinct MI455X AI accelerator: CDNA 5 and Helios rack-scale architecture*, 2026. [Link](https://www.tomshardware.com/pc-components/gpus/amd-takes-the-wraps-off-its-instinct-mi455x-ai-accelerator-cdna-5-and-helios-rack-scale-architecture-combine-to-take-the-fight-to-nvidia-in-the-data-center)

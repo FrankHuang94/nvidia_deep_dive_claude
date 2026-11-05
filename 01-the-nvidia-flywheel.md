@@ -456,7 +456,7 @@ mostly OEMs and ODMs building for hyperscalers, were 61% of Q3 FY2026 revenue [[
 > 65.5% to 43.5% [[S432]](sources/bibliography.md#s432)[[S433]](sources/bibliography.md#s433). See [18 — Vulnerabilities and bear case](cross-cutting/18-vulnerabilities-and-bear-case.md)
 > and [Layer 13 — Ecosystem, GTM and capital](layers/13-ecosystem-gtm-and-capital/index.md).
 
-![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B guided for 2026 (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint); Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](assets/charts/18-hyperscaler-capex-trend.svg)
+![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B in their first 2026 guides (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint), since raised to about $558B by October 2026; Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](assets/charts/18-hyperscaler-capex-trend.svg)
 
 <details>
 <summary>🔧 Under the hood: how stakes and backstops show up in NVIDIA's accounts</summary>

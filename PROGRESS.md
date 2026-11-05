@@ -44,39 +44,39 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 <!-- STATS:START -->
 | Unit | Title | Phase | Status | Words | Visuals | Charts (data) | Diagrams | Mermaid | Tables | Data-chart share | Sources | QA |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| SYN | README + Executive Summary + Cheat Sheet | 8 | drafted | 8,197 | 46 | 28 (28) | 2 | 5 | 11 | 61% | 194 | pending |
+| SYN | README + Executive Summary + Cheat Sheet | 8 | drafted | 8,210 | 46 | 28 (28) | 2 | 5 | 11 | 61% | 195 | pending |
 | 01 | The NVIDIA flywheel | 2 | drafted | 4,597 | 23 | 10 (10) | 1 | 7 | 5 | 43% | 114 | pending |
 | P1 | How AI training works | 2 | drafted | 3,449 | 18 | 7 (7) | 0 | 6 | 5 | 39% | 26 | pending |
 | P2 | How AI inference works | 2 | drafted | 3,602 | 15 | 7 (7) | 0 | 3 | 5 | 47% | 32 | pending |
 | P3 | The four bottlenecks | 2 | drafted | 4,264 | 16 | 9 (9) | 0 | 3 | 4 | 56% | 40 | pending |
 | P4 | Parallelism explained | 2 | drafted | 4,031 | 20 | 6 (6) | 0 | 8 | 6 | 30% | 28 | pending |
 | P5 | Chip economics 101 | 2 | drafted | 4,461 | 19 | 10 (10) | 0 | 2 | 7 | 53% | 65 | pending |
-| 02 | GPU silicon | 3 | drafted | 9,916 | 63 | 33 (33) | 1 | 11 | 18 | 52% | 191 | pending |
+| 02 | GPU silicon | 3 | drafted | 9,921 | 63 | 33 (33) | 1 | 11 | 18 | 52% | 192 | pending |
 | 03 | Memory, packaging and supply chain | 3 | drafted | 10,243 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 180 | pending |
 | 04 | CPU (Grace, Vera) | 3 | drafted | 10,038 | 43 | 19 (19) | 1 | 10 | 13 | 44% | 151 | pending |
 | 05 | Scale-up (NVLink, NVSwitch) | 4 | drafted | 10,181 | 56 | 26 (26) | 3 | 12 | 15 | 46% | 183 | pending |
 | 06 | Scale-out and scale-across networking | 4 | drafted | 10,071 | 50 | 21 (21) | 1 | 12 | 16 | 42% | 126 | pending |
 | 07 | DPU, SuperNIC, storage, security | 4 | drafted | 10,014 | 40 | 17 (17) | 1 | 9 | 13 | 42% | 127 | pending |
-| 08 | Systems, racks and AI factories | 5 | drafted | 10,376 | 46 | 23 (23) | 2 | 10 | 11 | 50% | 172 | pending |
+| 08 | Systems, racks and AI factories | 5 | drafted | 10,378 | 46 | 23 (23) | 2 | 10 | 11 | 50% | 172 | pending |
 | 09 | CUDA and system software | 5 | drafted | 10,033 | 42 | 18 (18) | 1 | 10 | 13 | 43% | 140 | pending |
 | 10 | Libraries (CUDA-X) | 5 | drafted | 10,588 | 50 | 22 (22) | 0 | 11 | 17 | 44% | 159 | pending |
-| 11 | Inference and AI software | 6 | drafted | 10,166 | 47 | 26 (26) | 0 | 9 | 12 | 55% | 198 | pending |
+| 11 | Inference and AI software | 6 | drafted | 10,174 | 47 | 26 (26) | 0 | 9 | 12 | 55% | 198 | pending |
 | 12 | Orchestration and cloud services | 6 | drafted | 10,370 | 48 | 22 (22) | 0 | 13 | 13 | 46% | 126 | pending |
 | 13 | Ecosystem, go-to-market and capital | 6 | drafted | 10,046 | 52 | 25 (25) | 0 | 12 | 15 | 48% | 180 | pending |
-| 14 | Training vs. inference economics | 7 | drafted | 6,321 | 31 | 20 (20) | 0 | 4 | 7 | 65% | 78 | pending |
-| 15 | Competitive landscape | 7 | drafted | 21,775 | 120 | 68 (68) | 0 | 15 | 37 | 57% | 371 | pending |
-| 16 | How NVIDIA built it (timeline) | 7 | drafted | 4,614 | 24 | 12 (12) | 0 | 7 | 5 | 50% | 107 | pending |
-| 17 | Roadmap 2025–2028 | 7 | drafted | 4,696 | 25 | 14 (14) | 0 | 5 | 6 | 56% | 111 | pending |
+| 14 | Training vs. inference economics | 7 | drafted | 6,322 | 31 | 20 (20) | 0 | 4 | 7 | 65% | 79 | pending |
+| 15 | Competitive landscape | 7 | drafted | 21,791 | 120 | 68 (68) | 0 | 15 | 37 | 57% | 372 | pending |
+| 16 | How NVIDIA built it (timeline) | 7 | drafted | 4,613 | 24 | 12 (12) | 0 | 7 | 5 | 50% | 108 | pending |
+| 17 | Roadmap 2025–2028 | 7 | drafted | 4,719 | 25 | 14 (14) | 0 | 5 | 6 | 56% | 112 | pending |
 | 18 | Vulnerabilities and bear case | 7 | drafted | 7,328 | 29 | 21 (21) | 0 | 4 | 4 | 72% | 180 | pending |
 | 19 | Implications for Qualcomm | 8 | drafted | 5,793 | 29 | 19 (19) | 0 | 4 | 6 | 66% | 138 | pending |
 | CS1 | Mellanox: the best deal | 7 | drafted | 2,135 | 12 | 5 (5) | 0 | 3 | 4 | 42% | 48 | pending |
 | CS2 | CUDA: the 15-year bet | 7 | drafted | 2,182 | 12 | 7 (7) | 0 | 2 | 3 | 58% | 53 | pending |
 | CS3 | Google TPU: the credible alternative | 7 | drafted | 2,203 | 10 | 6 (6) | 0 | 2 | 2 | 60% | 49 | pending |
-| CS4 | AMD, OpenAI and the second source | 7 | drafted | 2,617 | 10 | 4 (4) | 0 | 3 | 3 | 40% | 66 | pending |
+| CS4 | AMD, OpenAI and the second source | 7 | drafted | 2,626 | 10 | 4 (4) | 0 | 3 | 3 | 40% | 67 | pending |
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **221,295** | **1082** | | | | | | **1572** unique | |
+| **Total** | | | | **221,371** | **1082** | | | | | | **1572** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->

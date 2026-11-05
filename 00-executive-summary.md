@@ -20,7 +20,7 @@
   against a $30–40K price (Est.) [[S35020]](sources/bibliography.md#s35020)[[S35026]](sources/bibliography.md#s35026). CUDA and the [CUDA-X](glossary.md#cuda-x) libraries, the deepest moats, are free and
   earn their keep by protecting that margin [[S1509]](sources/bibliography.md#s1509)[[S1510]](sources/bibliography.md#s1510).
 - **Challengers are real, and they win first on price at the largest buyers.** AMD's MI455X matches or beats Rubin
-  on paper (432 vs 288 GB of [HBM](glossary.md#hbm)) [[S144]](sources/bibliography.md#s144)[[S33005]](sources/bibliography.md#s33005); Anthropic has access to up to 1M Google
+  on paper (432 vs 288 GB of [HBM](glossary.md#hbm), 23.3 vs 19.2 TB/s) [[S144]](sources/bibliography.md#s144)[[S90093]](sources/bibliography.md#s90093)[[S33005]](sources/bibliography.md#s33005); Anthropic has access to up to 1M Google
   [TPUs](glossary.md#tpu) [[S653]](sources/bibliography.md#s653); Broadcom's AI revenue rose from ~12% to ~19% of NVIDIA's Data Center revenue
   [[S2516]](sources/bibliography.md#s2516)[[S1500]](sources/bibliography.md#s1500). OpenAI, Anthropic and Meta now run multi-vendor portfolios [[S24000]](sources/bibliography.md#s24000)[[S174]](sources/bibliography.md#s174)[[S24004]](sources/bibliography.md#s24004).
 - **The bear case is concentration, financing and substitution, not weak demand.** One direct customer was 16%
@@ -217,8 +217,8 @@ one table.
 **[Layer 02 · GPU silicon](layers/02-gpu-silicon/index.md) — contested, 3.0 ↘.** Rubin delivers 35 [PFLOPS](glossary.md#flops) of dense
 [NVFP4](glossary.md#nvfp4), ~280× V100's 16-bit peak, though only ~32× at 16-bit, so most of the gain came from smaller number formats
 [[S33005]](sources/bibliography.md#s33005)[[S33010]](sources/bibliography.md#s33010)[[S100]](sources/bibliography.md#s100). The September–October 2026 revision cut Rubin's HBM4 bandwidth from 22 to 19.2 TB/s and
-NVLink 6 from 3.6 to 3.0 TB/s per GPU [[S90006]](sources/bibliography.md#s90006)[[S90007]](sources/bibliography.md#s90007). On paper AMD's MI455X now leads on memory (432 GB, 19.6
-TB/s) [[S144]](sources/bibliography.md#s144). 🔴 The silicon lead is months, not generations [[S1502]](sources/bibliography.md#s1502). The layer is still the profit engine.
+NVLink 6 from 3.6 to 3.0 TB/s per GPU [[S90006]](sources/bibliography.md#s90006)[[S90007]](sources/bibliography.md#s90007). On paper AMD's MI455X now leads on memory (432 GB, 23.3
+TB/s, ~21% more bandwidth) [[S144]](sources/bibliography.md#s144)[[S90093]](sources/bibliography.md#s90093). 🔴 The silicon lead is months, not generations [[S1502]](sources/bibliography.md#s1502). The layer is still the profit engine.
 
 **[Layer 03 · Memory, packaging and supply chain](layers/03-memory-packaging-supply-chain/index.md) — deep, 4.0 ↗.**
 For inference, memory binds before compute; HBM is ~45% of a B200's build cost (Est.) [[S35020]](sources/bibliography.md#s35020). NVIDIA buys from the
@@ -309,7 +309,7 @@ coalition, went from ~11–14% to ~19% of NVIDIA's Data Center revenue in about 
 | 4 | [08 Systems](layers/08-systems-racks-ai-factories/index.md) | 4.0 | ↘ | Annual rack design, ODM ecosystem [[S3014]](sources/bibliography.md#s3014) | Helios ships from end-Q3 2026 [[S90020]](sources/bibliography.md#s90020) |
 | 5 | [13 Ecosystem & capital](layers/13-ecosystem-gtm-and-capital/index.md) | 4.0 | ↘ | ~$99B of stakes; channel reach [[S90073]](sources/bibliography.md#s90073) | Broadcom coalition at ~19% of NVIDIA DC [[S2516]](sources/bibliography.md#s2516) |
 | 6 | [09 CUDA](layers/09-cuda-and-system-software/index.md) | 3.5 | ↘ | Long tail, day-0 support [[S633]](sources/bibliography.md#s633) | Frontier labs port; ROCm lag 26 days [[S631]](sources/bibliography.md#s631) |
-| 7 | [02 GPU silicon](layers/02-gpu-silicon/index.md) | 3.0 | ↘ | Cadence, NVFP4, two-die packaging [[S100]](sources/bibliography.md#s100) | MI455X matches on paper [[S144]](sources/bibliography.md#s144) |
+| 7 | [02 GPU silicon](layers/02-gpu-silicon/index.md) | 3.0 | ↘ | Cadence, NVFP4, two-die packaging [[S100]](sources/bibliography.md#s100) | MI455X matches or beats on paper [[S144]](sources/bibliography.md#s144)[[S90093]](sources/bibliography.md#s90093) |
 | 8 | [06 Scale-out](layers/06-scale-out-scale-across-networking/index.md) | 3.0 | → | NIC–switch–NCCL bundle [[S464]](sources/bibliography.md#s464) | Merchant Ethernet, Ultra Ethernet [[S274]](sources/bibliography.md#s274)[[S575]](sources/bibliography.md#s575) |
 | 9 | [07 DPU & SuperNIC](layers/07-dpu-supernic-storage-security/index.md) | 3.0 | ↘ | ConnectX lead at 1.6 Tb/s [[S33004]](sources/bibliography.md#s33004) | Captive offload; Pensando [[S292]](sources/bibliography.md#s292)[[S228]](sources/bibliography.md#s228) |
 | 10 | [11 Inference software](layers/11-inference-and-ai-software/index.md) | 3.0 | → | Rack co-design, per-model tuning [[S621]](sources/bibliography.md#s621) | Open engines; TPU cost per token [[S625]](sources/bibliography.md#s625) |
@@ -463,7 +463,7 @@ Modular purchase [[S9511]](sources/bibliography.md#s9511) and a custom-silicon a
 
 1. **Underwrite against the system, not the chip.** Every challenger claim should be translated into
    [cost per million tokens](glossary.md#cost-per-million-tokens) at a named interactivity, on measured throughput
-   [[S14000]](sources/bibliography.md#s14000)[[S621]](sources/bibliography.md#s621). Chip-level parity (AMD's MI455X) did not translate into revenue parity: NVIDIA's data-center revenue
+   [[S14000]](sources/bibliography.md#s14000)[[S621]](sources/bibliography.md#s621). Chip-level parity or better (AMD's MI455X) did not translate into revenue parity: NVIDIA's data-center revenue
    lead over AMD widened from 3.3× to 13× between early 2023 and mid-2026 [[S450]](sources/bibliography.md#s450)[[S543]](sources/bibliography.md#s543)[[S405]](sources/bibliography.md#s405).
 2. **Follow the margin, not the share.** Share of AI silicon revenue moved only from ~90% to ~87% in two years
    [[S416]](sources/bibliography.md#s416)[[S660]](sources/bibliography.md#s660)[[S663]](sources/bibliography.md#s663). The more sensitive signal is the gross-margin path from 75% to the guided 71–72% trough, and
@@ -648,3 +648,4 @@ Modular purchase [[S9511]](sources/bibliography.md#s9511) and a custom-silicon a
 - [**S90085**](sources/bibliography.md#s90085) Shacknews, *NVIDIA (NVDA) expects gross margin decrease over next two quarters*, 2026-08-26. [Link](https://www.shacknews.com/article/150499/nvidia-nvda-gross-margin-decrease-fy27)
 - [**S90086**](sources/bibliography.md#s90086) Implicator.ai, *Nvidia's 70 percent growth forecast and margin outlook*, 2026-08-27. [Link](https://www.implicator.ai/nvidia-70-percent-growth-forecast-margin-outlook.md)
 - [**S90087**](sources/bibliography.md#s90087) HotHardware, *Qualcomm strikes major Amazon AWS deal for custom AI data center chips*, 2026-09-08. [Link](https://hothardware.com/news/qualcomm-strikes-deal-amazon-custom-ai-data-center-chips)
+- [**S90093**](sources/bibliography.md#s90093) Tom's Hardware, *AMD takes the wraps off its Instinct MI455X AI accelerator: CDNA 5 and Helios rack-scale architecture*, 2026. [Link](https://www.tomshardware.com/pc-components/gpus/amd-takes-the-wraps-off-its-instinct-mi455x-ai-accelerator-cdna-5-and-helios-rack-scale-architecture-combine-to-take-the-fight-to-nvidia-in-the-data-center)

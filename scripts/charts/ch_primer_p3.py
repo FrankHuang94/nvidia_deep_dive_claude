@@ -234,7 +234,7 @@ def rack_power_by_system():
     axes[0].yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:,.0f}"))
     axes[0].yaxis.set_minor_formatter(NullFormatter())
     axes[1].set_ylim(0, max(d.kw_per_gpu) * 1.25)
-    axes[0].set_ylabel("kW")
+    axes[0].set_ylabel("kW (log scale)")  # QA 2026-11-05: log axis label must say so (STYLE_GUIDE §6.5)
     handles = [mpatches.Patch(color=GEN_PAST, label="8-GPU server"), mpatches.Patch(color=NV, label="rack-scale NVLink domain"),
                mpatches.Patch(facecolor=NV, hatch="///", edgecolor="white", label="announced / roadmap")]
     axes[1].legend(handles=handles, loc="upper left", fontsize=8.4)

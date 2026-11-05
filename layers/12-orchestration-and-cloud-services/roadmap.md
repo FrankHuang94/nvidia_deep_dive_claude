@@ -68,7 +68,7 @@ gantt
 
 ## Capacity and backlog progression
 
-![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B guided for 2026 (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint); Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
+![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B in their first 2026 guides (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint), since raised to about $558B by October 2026; Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
 
 These February guides (~$505B for the big three) have since risen; Alphabet moved to $195–205B in July and expects 2027 capex to rise again 🟡 [[S12518]](../../sources/bibliography.md#s12518).
 

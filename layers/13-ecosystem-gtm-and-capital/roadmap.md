@@ -81,7 +81,7 @@ Private stakes appear as non-marketable equity securities, measured at cost and 
 > [!TIP]
 > **Worked example — how much a hyperscaler pause would remove.** Hyperscale customers bought ~$48.7B of NVIDIA's $89.0B Q2 FY2027 Data Center revenue [[S90011]](../../sources/bibliography.md#s90011)[[S405]](../../sources/bibliography.md#s405). A 20% cut in their NVIDIA spend removes ~$9.7B a quarter, close to the entire ~$11.8B step-up NVIDIA guided from Q2 ($96.2B) to Q3 ($108B) [[S405]](../../sources/bibliography.md#s405)[[S3]](../../sources/bibliography.md#s3). Neocloud and sovereign buyers cushion that, but NVIDIA has financed many of them.
 
-![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B guided for 2026 (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint); Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
+![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B in their first 2026 guides (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint), since raised to about $558B by October 2026; Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
 
 **3. Mark-to-market losses.** H1 FY2027's $23.7B of net equity gains flattered other income; a reversal would hit earnings just as customers' funding tightens [[S90072]](../../sources/bibliography.md#s90072).
 

@@ -86,7 +86,7 @@ flowchart LR
 | Arm | First customer for Arm's own AGI CPU | 🟢 | [[S4510]](../../sources/bibliography.md#s4510) |
 | Qualcomm (public information) | First named customer for the Dragonfly C1000 server CPU, production from H2 2028 | 🟢 | [[S90058]](../../sources/bibliography.md#s90058) |
 
-![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B guided for 2026 (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint); Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
+![Line chart of hyperscaler capital expenditure 2022–2026: Alphabet, Amazon and Meta together rise from $127B in 2022 to about $505B in their first 2026 guides (Amazon ~$200B, Alphabet ~$180B midpoint, Meta ~$125B midpoint), since raised to about $558B by October 2026; Microsoft reached $65B in FY2025 and Oracle guided about $50B for FY2026.](../../assets/charts/18-hyperscaler-capex-trend.svg)
 
 ![Line chart of 2026 capex guidance midpoints: Alphabet rose from $180B (Feb 2026) to $185B (Apr) and $200B (Jul); Amazon from about $200B to about $220B; Meta from $125B (Jan) to about $137.5B (Jul); Microsoft's calendar-2026 figure was about $175B in July and about $170B in October. Combined, the big three rose from about $505B to $558B and the big four total about $728B; other tallies on different bases reach $803-828B.](../../assets/charts/12-hyperscaler-capex-guidance-drift.svg)
 
