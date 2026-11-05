@@ -23,9 +23,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | Phase | Scope | Status | Commit / tag |
 |---|---|---|---|
 | 0 | Setup and foundation: scaffold, style guide, helpers, validators, CI | ✅ complete | `phase-0-complete` (local tag; see note) |
-| 1 | Data foundation (14 CSVs) + ≥ 60 core charts | ⏳ next | |
-| 2 | Primers P1–P5 + 01 flywheel | ⬜ planned | |
-| 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ⬜ planned | |
+| 1 | Data foundation (14 CSVs) + ≥ 60 core charts | ✅ complete — 37 CSVs, 2,830 rows, 126 charts | `phase-1-complete` (local tag) |
+| 2 | Primers P1–P5 + 01 flywheel | ✅ complete — 6 units drafted, ~24k words, 111 visuals | `phase-2-complete` (local tag) |
+| 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ⏳ in progress (02 + 04 drafting) | |
 | 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ⬜ planned | |
 | 5 | Layers 08 systems, 09 CUDA, 10 libraries | ⬜ planned | |
 | 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ⬜ planned | |
@@ -45,12 +45,12 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | Unit | Title | Phase | Status | Words | Visuals | Charts (data) | Diagrams | Mermaid | Tables | Data-chart share | Sources | QA |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | SYN | README + Executive Summary + Cheat Sheet | 8 | planned | 361 | 4 | 1 (1) | 1 | 1 | 1 | 25% | 2 | pending |
-| 01 | The NVIDIA flywheel | 2 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P1 | How AI training works | 2 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P2 | How AI inference works | 2 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P3 | The four bottlenecks | 2 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P4 | Parallelism explained | 2 | planned | 32 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| P5 | Chip economics 101 | 2 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 01 | The NVIDIA flywheel | 2 | drafted | 4,555 | 23 | 10 (10) | 1 | 7 | 5 | 43% | 113 | pending |
+| P1 | How AI training works | 2 | drafted | 3,448 | 18 | 7 (7) | 0 | 6 | 5 | 39% | 26 | pending |
+| P2 | How AI inference works | 2 | drafted | 3,595 | 15 | 7 (7) | 0 | 3 | 5 | 47% | 32 | pending |
+| P3 | The four bottlenecks | 2 | drafted | 4,248 | 16 | 9 (9) | 0 | 3 | 4 | 56% | 38 | pending |
+| P4 | Parallelism explained | 2 | drafted | 4,030 | 20 | 6 (6) | 0 | 8 | 6 | 30% | 28 | pending |
+| P5 | Chip economics 101 | 2 | drafted | 4,455 | 19 | 10 (10) | 0 | 2 | 7 | 53% | 64 | pending |
 | 02 | GPU silicon | 3 | planned | 181 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 03 | Memory, packaging and supply chain | 3 | planned | 211 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 04 | CPU (Grace, Vera) | 3 | planned | 191 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **3,389** | **4** | | | | | | **2** unique | |
+| **Total** | | | | **27,521** | **115** | | | | | | **236** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **1**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **126**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)
@@ -104,16 +104,48 @@ Charts in library (`assets/charts/catalog.json`): **1**. Visual = chart/diagram 
 
 ## Open questions / blockers
 
+- **Research constraint (affects verification, not progress).** This cloud session's network policy blocks
+  direct page fetches to nearly all primary sources (sec.gov, nvidia.com, investor.nvidia.com, amd.com,
+  aws.amazon.com, mlcommons.org, wikipedia, semianalysis.com, nextplatform.com, servethehome.com, trendforce.com,
+  epoch.ai, arxiv.org, huggingface.co); only cloud.google.com and public GitHub raw files are reachable.
+  Web search works but subagents share a capped pool (~200 calls) that was exhausted during Phase 1.
+  Consequence: **746 of 2,830 data rows (26 %) and 132 sources are flagged as entered from memory** — see
+  [`docs/VERIFY_QUEUE.md`](docs/VERIFY_QUEUE.md) (regenerate with `python3 scripts/validate/verify_queue.py`).
+  Fix: broaden the environment's network access (or allow the domains above) and run a verification pass.
+- MLPerf data (292 rows) is primary: parsed from the MLCommons GitHub results repos.
 - Tag pushes are blocked by the session proxy (see note). Not blocking content work.
 - GitHub Pages for a private repo requires a paid plan; decide at Phase 9 (deployment skipped if unsupported).
+- Duplicate sources across registries (e.g. S35020/S355, S35024/S356, S35040/S381, S35019/S305, S35041/S306) —
+  harmless; dedupe in Phase 9.
 
 ## Next steps
 
-- Phase 1: launch parallel data agents (assignments below), integrate their CSVs, registries and
-  chart modules, run `make charts build validate`, commit and push.
+- Phase 3: integrate layers 02 and 04 (CORE + STRATEGY agents running), then launch layer 03 (needs the
+  HBM/packaging data, now complete). Layer agents work in pairs: CORE = index + subtopic pages (S<NN>000–S<NN>499),
+  STRATEGY = competition/history/roadmap/value-chain (S<NN>500–S<NN>999). Briefs: see "Agent briefs" below.
+- Orchestrator keeps a small set of web searches for the most volatile 2026 facts and records them in
+  `docs/research/` for chapter agents.
 
 ## Agent assignment log
 
 | Phase | Agent | Scope | Source ids | Status |
 |---|---|---|---|---|
 | 0 | orchestrator | scaffold + seed data | S1–S99 | done |
+| 1 | A1 compute silicon | gpu_product_specs, competitor_accelerators, cpu_specs; ch_gpu/accelerators/cpu (17 charts) | S100–S189 | done |
+| 1 | A2 connectivity | interconnect_specs, networking_products, network_topology_estimates, optics_power_estimates; ch_interconnect/networking (14) | S200–S296 | done |
+| 1 | A3 systems/memory | system_specs, hbm_and_packaging, tco_model_inputs, gpu_rental_prices, depreciation_useful_lives; ch_systems/memory/tco_inputs (18) | S301–S399 | done |
+| 1 | A4 financials/deals | financials, peer_financials, acquisitions_investments, investments_in_customers; ch_financials/deals (+ch_core) (19) | S400–S484 | done |
+| 1 | A5 roadmap/software | roadmap, software_ecosystem, gpu_architecture_cadence; ch_roadmap/software (11) | S500–S598 | done |
+| 1 | A6 competition/benchmarks | competitor_matrix, mlperf_results, market_share, inference_benchmarks; ch_competition/market/mlperf (18) | S600–S668 | done |
+| 2 | B1 primers P1+P2 | 2 pages, 33 visuals; ch_primer_p1/p2 | S31002–S32027 | done |
+| 2 | B2 primers P3+P4 | 2 pages, 36 visuals; ch_primer_p3/p4 | S33001–S34024 | done |
+| 2 | B3 P5 + 01 flywheel | 2 pages, 42 visuals; ch_primer_p5, ch_flywheel, diagrams/src/01-flywheel.d2 | S35001–S35042 | done |
+| 3 | layer 02 CORE / STRATEGY, layer 04 CORE / STRATEGY | 4 agents | S2000–S2999, S4000–S4999 | running |
+
+## Agent briefs (for resuming)
+
+Chapter agents were briefed with (1) a chapter preamble — role, today's date, live-research rules, files to
+read (AGENT_BRIEF, STYLE_GUIDE, TEMPLATES, MASTER_PROMPT), what to produce, quality bar, validation commands,
+constraints, report format — and (2) for layers, the CORE/STRATEGY split addendum (ownership, id ranges, word
+and visual targets per agent, research-budget guidance). Both are reproduced in `docs/AGENT_BRIEF.md` §0–7 and
+`docs/TEMPLATES.md`; a resuming session can re-create them from those files.
