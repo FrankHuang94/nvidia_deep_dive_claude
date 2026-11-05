@@ -47,7 +47,7 @@ validate-final: validate
 
 site:
 	$(PY) scripts/build/site.py
-	mkdocs build -f mkdocs.yml --strict || mkdocs build -f mkdocs.yml
+	NO_MKDOCS_2_WARNING=1 mkdocs build -f mkdocs.yml --strict
 
 all: charts diagrams build validate
 

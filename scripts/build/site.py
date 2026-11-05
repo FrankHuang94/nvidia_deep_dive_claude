@@ -28,6 +28,10 @@ def main():
     for d in ("assets", "data"):
         if (REPO / d).exists():
             shutil.copytree(REPO / d, DST / d, dirs_exist_ok=True)
+    for extra in ("docs/manifest.yml",):
+        if (REPO / extra).exists():
+            (DST / extra).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(REPO / extra, DST / extra)
     print(f"site: assembled {DST.relative_to(REPO)}")
 
 

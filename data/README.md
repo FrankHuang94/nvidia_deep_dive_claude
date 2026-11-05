@@ -1379,3 +1379,62 @@ disclosed or reported price where one exists (the CUDA figure is CS2's repo esti
 are placed at mid-year (`YYYY-07`); `status` follows `roadmap.csv`. Used for the pre-announcement-horizon chart (months between
 the two dates). For rivals the first mention is usually the launch event recorded in `roadmap.csv`, so their horizons may be
 understated where earlier informal hints exist.
+
+## Synthesis — README, executive summary, cheat sheet (`x00_*.csv`, charts in `scripts/charts/ch_syn.py`; sources S1500–S1513)
+
+### x00_layer_verdicts.csv (one row per layer 02–13)
+`layer_id,layer,moat_score_1_5,gap_trend,value_capture_1_5,moat_basis,strongest_challenger,trend_evidence,value_capture_basis,confidence,source_id,notes`
+— the synthesis verdict per layer, condensed from each layer's index Executive Take, eight-question table and competition
+page (cited as S1502–S1513, one per layer, plus the primary sources behind the verdict). `moat_score_1_5`: 1 = NVIDIA trails or
+the layer is commoditised, 3 = rivals at parity on some dimensions while NVIDIA leads on integration, 5 = no rival close and
+switching takes years (half points allowed). `gap_trend`: `widening` | `stable` | `narrowing` (NVIDIA's lead over the strongest
+challenger over the last ~12 months, as described on the layer page). `value_capture_1_5`: how much of the layer's spend NVIDIA
+books directly as gross profit (1 = pass-through or partners keep it, 5 = primary profit pool). All rows are repo judgement
+(`speculative`); the chapter-15 rival counts per layer are read live from `competitor_matrix.csv` by the chart module.
+
+### x00_thesis_metrics.csv (one row per thesis point)
+`thesis_no,thesis,metric,unit,before_label,before_value,after_label,after_value,confidence,source_id,notes` — one "then vs
+now" pair of numbers per point of the five-point thesis, copied from the layer, chapter and case-study data so the synthesis
+cannot drift from them (InferenceX throughput, TensorRT-LLM release gains, 10-Q supply commitments, equity stakes, and the
+Broadcom-to-NVIDIA revenue ratio computed as in chart `02-broadcom-ai-vs-nvidia-dc`).
+
+### x00_guidance.csv (one row per guided or outlook item)
+`period,period_type,metric,low,high,unit,kind,confidence,source_id,notes` — management guidance from the Q2 FY2027 report and
+call: Q3 FY2027 revenue and gross margin (`guidance`), the Q4 FY2027 gross-margin trough and FY2028 gross margin and revenue
+growth (`outlook`, as reported). `low`/`high` bound the stated range; a point outlook has `low = high`. GAAP and non-GAAP gross
+margin differ by about 0.1 point since Q1 FY2027, so `gross_margin_pct` rows are comparable with GAAP history.
+
+## Chapter 19 — implications for Qualcomm (`x19_*.csv`, charts in `scripts/charts/ch_x19.py`; sources S19001–S19005 plus reused ids; public information only)
+
+### x19_layer_map.csv (one row per Qualcomm public effort × NVIDIA layer × relationship)
+`layer_id,layer,relationship,primary,qualcomm_public_effort,cell_label,stage,stage_label,verdict_vs_nvidia,confidence,source_id,notes`
+— `relationship` is `partner` | `compete` | `complement` | `absent` (relative to NVIDIA); `primary` = `yes` marks the one
+relationship per layer used for counts (the repo's judgement of where Qualcomm's public plans put the most revenue at stake);
+`stage` 0 none, 1 announced/roadmap, 2 signed/acquired/initial deployment, 3 shipping; `verdict_vs_nvidia` repeats
+`competitor_matrix.csv`. Only public announcements, filings and press coverage are used.
+
+### x19_win_matrix.csv (one row per segment)
+`segment,short_label,group,attractiveness_1_5,nvidia_defensibility_1_5,qualcomm_public_asset,rationale,evidence_page,confidence,source_id,notes`
+— repo judgements (all `speculative`) scoring each inference/CPU segment on attractiveness to a challenger (pool size, growth,
+fit with public assets) and NVIDIA's defensibility (tokens per MW, NVLink domain, CUDA, cadence, supply). `evidence_page` names
+the repo page holding the supporting analysis; `source_id` lists the evidence cited in the rationale.
+
+### x19_rack_memory.csv (one row per rack)
+`system,vendor,accelerators,accelerator_memory_type,accelerator_memory_tb,cpu_attached_lpddr_tb,rack_power_kw,power_basis,accelerator_bandwidth_tbs,status,confidence,source_id,notes`
+— accelerator-attached memory and CPU-attached LPDDR5X per rack (TB) with rack power (kW). The AI200 row uses a reported
+56-card MWC 2026 configuration (low-tier sources) × 768 GB; host DRAM for AI200 and Helios is not counted (blank = not disclosed).
+
+### x19_edge_base.csv (long)
+`panel,entity,segment,period,period_end,revenue_usd_b,basis,confidence,source_id,notes` — quarterly revenue for the edge
+comparison (Qualcomm QCT handsets, IoT and automotive in Q3 FY2026; NVIDIA Edge Computing in Q2 FY2027) and the datacenter
+comparison (NVIDIA Data Center vs Qualcomm's $5B FY2027 target ÷ 4, a target, not revenue).
+
+### x19_warrant_terms.csv (one row per equity-for-purchases warrant)
+`deal,issuer,holder,announced,warrant_shares_m,strike_usd,reference_price_usd,reference_basis,purchase_basis_usd_b,purchase_basis,initial_vested_m,confidence,source_id,notes`
+— terms used to compute warrant intrinsic value as a share of the purchases that vest it. AMD's purchase basis (~$90B for
+6 GW) is the CS4 repo scenario; Qualcomm's is AWS's $60B ceiling, not a commitment.
+
+### x19_capability_price_points.csv (one row per deal)
+`deal,acquirer,capability,layer_id,year,value_usd_b,value_basis,structure,confidence,source_id,notes` — announced or reported
+prices for datacenter capabilities (CPU teams, SerDes, NICs/DPUs, rack teams, software, inference silicon), reusing source ids
+from the layer value-chain pages. Values are not like-for-like (licences, gross vs net, upfront vs earn-outs).

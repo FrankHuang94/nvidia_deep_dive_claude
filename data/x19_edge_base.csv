@@ -1,0 +1,7 @@
+panel,entity,segment,period,period_end,revenue_usd_b,basis,confidence,source_id,notes
+edge,Qualcomm,QCT Handsets,Q3 FY2026,2026-06-28,5.086,reported,confirmed,S19002,"-20% y/y; management cited a difficult memory and supply environment"
+edge,Qualcomm,QCT IoT,Q3 FY2026,2026-06-28,1.830,reported,confirmed,S19002,"+9% y/y"
+edge,Qualcomm,QCT Automotive,Q3 FY2026,2026-06-28,1.588,reported,confirmed,S19002,"+61% y/y; record"
+edge,NVIDIA,Edge Computing platform,Q2 FY2027,2026-07-26,7.2,reported,confirmed,S405,"Former Gaming + ProViz + Automotive + OEM and other; +27% y/y"
+datacenter,NVIDIA,Data Center,Q2 FY2027,2026-07-26,89.0,reported,confirmed,S405;S90011,"Hyperscale ~$48.7-49B"
+datacenter,Qualcomm,Data Center (FY2027 target / 4),FY2027 target,,1.25,company target divided by four,reported,S15512;S15513,"Repo calc: $5B FY2027 target (reiterated 2026-11-04) / 4 quarters; QCT does not yet report a data-center line"

@@ -1,0 +1,59 @@
+# Synthesis: NVIDIA's stack coloured by the repo's moat verdict per layer (data/x00_layer_verdicts.csv).
+# Green = moat score >= 4 · amber = 3-3.5 · red = <= 2. Arrows give the gap trend over ~12 months.
+direction: down
+
+title: "Where NVIDIA's moat is deep, contested or thin (repo verdicts, Nov 2026)" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+legend: "Green = deep moat (4-5)   ·   Amber = contested (3-3.5)   ·   Red = thin (1-2)\n↗ gap widening   → stable   ↘ narrowing   ·   \$ = where NVIDIA books gross profit directly" {
+  shape: text
+  style.font-size: 15
+}
+
+software: "SOFTWARE & SERVICES — defends the margin, earns little directly" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#5F9E00"
+  style.font-size: 18
+  grid-columns: 1
+  grid-gap: 10
+  l13: "13 · Ecosystem, GTM & capital — 4.0 ↘\n~\$99B of stakes; Broadcom AI revenue ~12% → ~19% of NVIDIA DC" {width: 820; style.fill: "#B7E1A1"; style.stroke: "#3F6B00"}
+  l12: "12 · Orchestration & cloud — 2.0 →\nhyperscalers own the customer, control plane and their own chips" {width: 820; style.fill: "#F4C7C3"; style.stroke: "#C4314B"}
+  l11: "11 · Inference software — 3.0 →\nopen engines (vLLM, SGLang) run on rivals; rack-scale serving still leads" {width: 820; style.fill: "#FBE6A2"; style.stroke: "#9A7400"}
+  l10: "10 · Libraries (CUDA-X) — 4.5 →   deepest moat\nno rival leads in any of 15 library domains" {width: 820; style.fill: "#B7E1A1"; style.stroke: "#3F6B00"}
+  l09: "09 · CUDA — 3.5 ↘\nlock-in 4.5/5 for enterprises, 2.75/5 for frontier labs" {width: 820; style.fill: "#FBE6A2"; style.stroke: "#9A7400"}
+}
+systems: "SYSTEMS — the unit of sale" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#5F9E00"
+  style.font-size: 18
+  grid-columns: 1
+  l08: "08 · Systems, racks & AI factories — 4.0 ↘   \$\n~\$35B of a \$50-60B gigawatt; AMD Helios ships from end Q3 2026" {width: 820; style.fill: "#B7E1A1"; style.stroke: "#3F6B00"}
+}
+connect: "CONNECTIVITY — the second profit pool" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#5F9E00"
+  style.font-size: 18
+  grid-columns: 1
+  grid-gap: 10
+  l07: "07 · DPU, SuperNIC & storage — 3.0 ↘\ncaptive offload (Nitro, Titanium); storage software goes to partners" {width: 820; style.fill: "#FBE6A2"; style.stroke: "#9A7400"}
+  l06: "06 · Scale-out networking — 3.0 →   \$\n~\$17.5B a quarter (Est.); Broadcom leads switch silicon" {width: 820; style.fill: "#FBE6A2"; style.stroke: "#9A7400"}
+  l05: "05 · Scale-up (NVLink) — 4.0 ↘   \$\n72-GPU domain in volume; Helios and UALink (2027) close in" {width: 820; style.fill: "#B7E1A1"; style.stroke: "#3F6B00"}
+}
+silicon: "SILICON & SUPPLY — the profit engine and its gatekeeper" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#5F9E00"
+  style.font-size: 18
+  grid-columns: 1
+  grid-gap: 10
+  l04: "04 · CPU (Grace, Vera) — 2.0 →\n~2% of a Vera Rubin rack; rivals out-core Vera" {width: 820; style.fill: "#F4C7C3"; style.stroke: "#C4314B"}
+  l03: "03 · Memory, packaging & supply — 4.0 ↗   only widening gap\n\$279B of commitments; ~60% of 2026 CoWoS (Est.)" {width: 820; style.fill: "#B7E1A1"; style.stroke: "#3F6B00"}
+  l02: "02 · GPU silicon — 3.0 ↘   \$\$\$\nprofit engine; AMD MI455X matches Rubin on paper" {width: 820; style.fill: "#FBE6A2"; style.stroke: "#9A7400"}
+}
+legend -> software: "" {style.opacity: 0}
+software -> systems: "runs on" {style.stroke: "#898781"}
+systems -> connect: "integrates" {style.stroke: "#898781"}
+connect -> silicon: "links" {style.stroke: "#898781"}

@@ -68,7 +68,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 16 | How NVIDIA built it (timeline) | 7 | drafted | 4,614 | 24 | 12 (12) | 0 | 7 | 5 | 50% | 107 | pending |
 | 17 | Roadmap 2025–2028 | 7 | drafted | 4,637 | 25 | 14 (14) | 0 | 5 | 6 | 56% | 110 | pending |
 | 18 | Vulnerabilities and bear case | 7 | drafted | 7,315 | 29 | 21 (21) | 0 | 4 | 4 | 72% | 179 | pending |
-| 19 | Implications for Qualcomm | 8 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 19 | Implications for Qualcomm | 8 | drafted | 5,793 | 29 | 19 (19) | 0 | 4 | 6 | 66% | 138 | pending |
 | CS1 | Mellanox: the best deal | 7 | drafted | 2,135 | 12 | 5 (5) | 0 | 3 | 4 | 42% | 48 | pending |
 | CS2 | CUDA: the 15-year bet | 7 | drafted | 2,180 | 12 | 7 (7) | 0 | 2 | 3 | 58% | 52 | pending |
 | CS3 | Google TPU: the credible alternative | 7 | drafted | 2,189 | 10 | 6 (6) | 0 | 2 | 2 | 60% | 49 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **207,087** | **1011** | | | | | | **1552** unique | |
+| **Total** | | | | **212,847** | **1040** | | | | | | **1558** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **346**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)
@@ -157,6 +157,7 @@ Charts in library (`assets/charts/catalog.json`): **346**. Visual = chart/diagra
 | 7 | chapter 15 part A / part B | 11 pages, ~21.8k words, 125 visuals | S15000–S15014, S15500–S15552 | done |
 | 7 | chapters 16 + 17 | 9.3k words, 49 visuals | S16000–S17008 | done |
 | 7 | chapter 18 | 7,315 words, 29 visuals | S18000–S18027 | done |
+| 8 | chapter 19 Implications for Qualcomm | 5,793 words, 29 visuals (public info only; questions not recommendations) | S19001–S19005 | done |
 | 5 | layer 08 CORE / STRATEGY | 9 pages, 10,376 words, 46 visuals; 08-nvl72-rack-anatomy.d2, 08-compute-tray-anatomy.d2 | S8000–S8025, S8500–S8530 | done |
 | 5 | layer 09 CORE / STRATEGY | 9 pages, 9,996 words, 42 visuals; 09-cuda-software-stack.d2 | S9000–S9030, S9500–S9538 | done |
 | 5 | layer 10 CORE / STRATEGY | 8 pages, ~11k words, ~50 visuals (STRATEGY agent's shell was blocked; orchestrator ran build/validation and fixed charts) | S10000–S10048, S10501–S10570 | done |

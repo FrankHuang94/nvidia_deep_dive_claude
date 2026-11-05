@@ -33,6 +33,114 @@
     "html": null
   },
   {
+    "id": "00-gross-margin-path-and-guide",
+    "title": "Gross margin is guided from 75% to a 71–72% trough in Q4 FY2027, then 72–73% in FY2028",
+    "subtitle": "NVIDIA GAAP gross margin by fiscal quarter, % of revenue (Q1 FY2025–Q2 FY2027), with management's guidance range for Q3 FY2027 and outlook for Q4 FY2027 and FY2028",
+    "alt": "Line chart of NVIDIA's quarterly GAAP gross margin from Q1 FY2025 (78.4%) through the H20-charge quarter Q1 FY2026 (60.5%) back to 75.0% in Q2 FY2027, followed by management guidance: 74% plus or minus 0.5 points for Q3 FY2027, a 71-72% trough in Q4 FY2027 because memory costs run above plan, and 72-73% for FY2028 as price increases take effect. A dashed reference line at 65% marks chapter 18's most probable bear outcome, a drift toward the mid-60s.",
+    "data": [
+      "financials.csv",
+      "x00_guidance.csv"
+    ],
+    "chapters": [
+      "00",
+      "18"
+    ],
+    "source": "NVIDIA 8-Ks; Q2 FY2027 call as reported",
+    "source_ids": [
+      "S440",
+      "S425",
+      "S441",
+      "S426",
+      "S442",
+      "S427",
+      "S443",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S1",
+      "S402",
+      "S403",
+      "S405",
+      "S90085",
+      "S18000",
+      "S18027"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-gross-margin-path-and-guide.svg",
+    "html": null
+  },
+  {
+    "id": "00-moat-strength-by-layer",
+    "title": "NVIDIA's moat is deepest in libraries (4.5/5) and shallowest in CPUs and cloud (2/5); it is narrowing in 6 of 12 layers",
+    "subtitle": "Repo moat score per stack layer, 1 = commoditised or behind, 5 = no rival close; colour = gap trend over ~12 months; right column = rivals scored 'behind' NVIDIA (of 12, chapter-15 matrix)",
+    "alt": "Horizontal bar chart of the repo's moat score for each of NVIDIA's twelve stack layers, coloured by gap trend. Libraries (CUDA-X) 4.5, stable; memory and supply 4.0, widening; scale-up NVLink 4.0, systems and racks 4.0 and ecosystem and capital 4.0, all narrowing; CUDA 3.5, narrowing; GPU silicon 3.0 and DPU/SuperNIC 3.0 narrowing; scale-out networking 3.0 and inference software 3.0 stable; CPU 2.0 and orchestration and cloud 2.0 stable. The gap is narrowing in 6 of 12 layers and widening only in supply. Rivals scored behind NVIDIA range from 4 of 12 (GPU silicon, cloud) to 11 of 12 (ecosystem).",
+    "data": [
+      "x00_layer_verdicts.csv",
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "00"
+    ],
+    "source": "repo synthesis (x00_layer_verdicts.csv) and ch. 15 matrix",
+    "source_ids": [
+      "S1500",
+      "S15014",
+      "S1502",
+      "S1503",
+      "S1504",
+      "S1505",
+      "S1506",
+      "S1507",
+      "S1508",
+      "S1509",
+      "S1510",
+      "S1511",
+      "S1512",
+      "S1513"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-moat-strength-by-layer.svg",
+    "html": null
+  },
+  {
+    "id": "00-moat-vs-value-capture",
+    "title": "The GPU (moat 3.0) is NVIDIA's profit engine; its deepest moats, libraries (4.5) and supply (4.0), earn little directly",
+    "subtitle": "Repo moat score (x) vs how much of the layer's spend NVIDIA books directly as gross profit (y), both 1–5; colour = gap trend over ~12 months",
+    "alt": "Scatter chart placing NVIDIA's twelve stack layers by moat score (x, 1 to 5) and direct value capture (y, 1 to 5). Top: GPU silicon (moat 3.0, capture 5) is the profit engine; scale-up NVLink and systems (4.0, 4) and scale-out networking (3.0, 4) also earn well. Bottom right: libraries (4.5, 2), CUDA (3.5, 2) and memory and supply (4.0, 1) are deep moats that earn little directly and protect the GPU margin. Bottom left: CPU (2.0, 2) and orchestration and cloud (2.0, 1) are thin on both. Ecosystem and capital sits at 4.0, 3. All scores are repo judgement.",
+    "data": [
+      "x00_layer_verdicts.csv"
+    ],
+    "chapters": [
+      "00"
+    ],
+    "source": "repo synthesis (data/x00_layer_verdicts.csv)",
+    "source_ids": [
+      "S1500",
+      "S1502",
+      "S1503",
+      "S1504",
+      "S1505",
+      "S1506",
+      "S1507",
+      "S1508",
+      "S1509",
+      "S1510",
+      "S1511",
+      "S1512",
+      "S1513"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-moat-vs-value-capture.svg",
+    "html": null
+  },
+  {
     "id": "00-nvidia-revenue-by-fiscal-year",
     "title": "NVIDIA revenue grew ~43× in ten fiscal years, from $5.0B to $216B",
     "subtitle": "Total revenue by fiscal year, US$ billions (NVIDIA's fiscal year ends in late January)",
@@ -110,6 +218,77 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/00-quarterly-revenue-and-guidance.svg",
+    "html": null
+  },
+  {
+    "id": "00-rival-verdicts-by-layer",
+    "title": "87 of 144 rival-by-layer cells score 'behind' NVIDIA; rivals lead in only 7, three of them in cloud services",
+    "subtitle": "Chapter-15 verdicts for 12 rivals (AMD, Google TPU, AWS, Microsoft, Meta, Broadcom, Marvell, Intel, Huawei, Qualcomm, Cerebras, Groq) in each NVIDIA stack layer; count of rivals per verdict",
+    "alt": "Stacked horizontal bar chart counting, for each of NVIDIA's twelve stack layers, how many of 12 rivals score behind, different approach, parity or leads in the chapter-15 matrix. 87 of 144 cells are behind, 43 different, 7 parity and 7 leads. Libraries (10 behind) and ecosystem and capital (11 behind) are the most one-sided layers; GPU silicon (4 behind, 2 parity) and orchestration and cloud (4 behind, 3 leads) are the most contested. Rivals lead in CPUs (AMD), scale-out switching (Broadcom), inference cost (Google TPU, Cerebras) and cloud services (Google, AWS, Microsoft).",
+    "data": [
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "00",
+      "15"
+    ],
+    "source": "ch. 15 competitor matrix (competitor_matrix.csv)",
+    "source_ids": [
+      "S15014",
+      "S602",
+      "S143",
+      "S361",
+      "S379",
+      "S144",
+      "S624",
+      "S538",
+      "S289",
+      "S290",
+      "S257",
+      "S627",
+      "S637",
+      "S636",
+      "S603",
+      "S546",
+      "S151",
+      "S650",
+      "S552",
+      "S655",
+      "S547"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-rival-verdicts-by-layer.svg",
+    "html": null
+  },
+  {
+    "id": "00-thesis-in-five-numbers",
+    "title": "The thesis in five numbers: 20× rack throughput, 2.3× from software alone, $279B of supply, 15× more stakes, and rivals still gaining",
+    "subtitle": "One then-vs-now pair per thesis point; each panel has its own units and scale",
+    "alt": "Five small bar-chart panels, one per thesis point. 1: DeepSeek-R1 tokens per second per GPU at 50 tokens/s per user rise from about 308 on H200 to about 6,261 on a GB300 NVL72 rack, about 20 times. 2: software alone lifted a B200 from about 2,000 to 4,600 tokens/s per GPU between February and May 2025, 2.3 times. 3: supply and capacity commitments rose from $119B to $279B in one quarter. 4: NVIDIA's private equity stakes rose from $3.4B (January 2025) to $51.2B (July 2026), about 15 times. 5: Broadcom's AI revenue rose from about 12% of NVIDIA's data-center revenue (2024-25 average) to about 19% in calendar Q3 2026.",
+    "data": [
+      "x00_thesis_metrics.csv"
+    ],
+    "chapters": [
+      "00"
+    ],
+    "source": "layer and chapter data (x00_thesis_metrics.csv)",
+    "source_ids": [
+      "S621",
+      "S646",
+      "S404",
+      "S407",
+      "S13043",
+      "S90072",
+      "S660",
+      "S661",
+      "S451",
+      "S2516",
+      "S405"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/00-thesis-in-five-numbers.svg",
     "html": null
   },
   {
@@ -11786,6 +11965,240 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/18-risk-heatmap.svg",
+    "html": null
+  },
+  {
+    "id": "19-capability-price-points",
+    "title": "Qualcomm's three priced datacenter buys total $7.7B; the gaps it has not filled (NIC, DPU, rack teams) traded at $0.2-4.9B elsewhere",
+    "subtitle": "Announced or reported deal value, US$ B (log scale), by capability bought and stack layer, 2015-2026",
+    "alt": "Log-scale horizontal bar chart of datacenter capability deals. Qualcomm (indigo): NUVIA CPU cores $1.4B (2021), Alphawave SerDes and connectivity IP ~$2.4B (2025) and Modular portable AI software $3.9B (2026), $7.7B in total; Ventana (RISC-V) was undisclosed. For comparison: NVIDIA's Groq licence and team ~$20B, Mellanox $6.9B, Enfabrica >$0.9B and Run:ai ~$0.7B; SoftBank-Ampere $6.5B; AMD's ZT Systems $4.9B (~$2B net), Pensando ~$1.9B and Silo AI $0.665B; Marvell-Celestial AI $3.25B upfront; Intel-Habana ~$2B; Amazon-Annapurna ~$0.36B; Microsoft-Fungible ~$0.19B. Capabilities Qualcomm has not publicly bought, such as NIC, DPU and rack-design teams, changed hands for $0.19-4.9B (layers 07 and 08).",
+    "data": [
+      "x19_capability_price_points.csv"
+    ],
+    "chapters": [
+      "19",
+      "13",
+      "07",
+      "08"
+    ],
+    "source": "company announcements and press reports",
+    "source_ids": [
+      "S7504",
+      "S4540",
+      "S9506",
+      "S476",
+      "S475",
+      "S4538",
+      "S7527",
+      "S2514",
+      "S4513",
+      "S4514",
+      "S2513",
+      "S90057",
+      "S9511",
+      "S5527",
+      "S5528",
+      "S4530",
+      "S464",
+      "S90019",
+      "S90018"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/19-capability-price-points.svg",
+    "html": null
+  },
+  {
+    "id": "19-challenger-win-matrix",
+    "title": "Repo view: custom silicon and agentic CPUs look most open to a challenger; MoE tokens per MW is NVIDIA's fortress",
+    "subtitle": "Eleven inference and CPU segments scored 1-5 on attractiveness to a challenger and on NVIDIA's defensibility (repo judgement, speculative)",
+    "alt": "Scatter of eleven segments by attractiveness to a challenger (x, 1-5) and NVIDIA's defensibility (y, 1-5), all repo judgements. Most open (attractive, weakly defended): hyperscaler custom silicon (4.5, 1.5) and agentic head-node CPUs (4.0, 2.5). NVIDIA's fortress: chat-speed MoE serving per megawatt (5.0, 5.0) and the fast-decode tier (3.5, 4.0); frontier training (2.5, 5.0) is shown for reference. Middle ground: LPDDR capacity-bound serving (3.5, 3.0) and sovereign programmes (3.5, 3.5). Niches with low defensibility but smaller, captive or unproven pools: small and medium dense models (3.25, 2.0), power-capped sites (2.75, 2.5), recommendation (2.5, 2.5) and edge-to-cloud continuity (2.5, 2.0).",
+    "data": [
+      "x19_win_matrix.csv"
+    ],
+    "chapters": [
+      "19",
+      "14",
+      "15"
+    ],
+    "source": "repo analysis of layer pages and chapters 14-15",
+    "source_ids": [
+      "S14000",
+      "S621",
+      "S622",
+      "S173",
+      "S333",
+      "S332",
+      "S362",
+      "S90003",
+      "S114",
+      "S172",
+      "S162",
+      "S8009",
+      "S4522",
+      "S90058",
+      "S4503",
+      "S4510",
+      "S159",
+      "S160",
+      "S15003",
+      "S623",
+      "S12516",
+      "S11526",
+      "S90071",
+      "S13003",
+      "S13517",
+      "S90030",
+      "S19002",
+      "S405",
+      "S579",
+      "S9023",
+      "S2516",
+      "S15501",
+      "S90087",
+      "S90034",
+      "S31007"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/19-challenger-win-matrix.svg",
+    "html": null
+  },
+  {
+    "id": "19-edge-vs-datacenter-revenue",
+    "title": "Qualcomm out-sells NVIDIA at the edge ($8.5B vs $7.2B a quarter), but NVIDIA's datacenter quarter is ~71x Qualcomm's goal",
+    "subtitle": "Quarterly revenue, US$ B: Qualcomm QCT Q3 FY2026 vs NVIDIA Q2 FY2027 (quarters ending June-July 2026)",
+    "alt": "Two-panel horizontal bar chart of quarterly revenue. Edge: Qualcomm's QCT chip revenue for the quarter to 2026-06-28 was about $8.5B (handsets $5.09B, IoT $1.83B, automotive $1.59B), against NVIDIA's Edge Computing platform at $7.2B for the quarter to 2026-07-26 (former gaming, professional visualization, automotive and OEM). Datacenter: NVIDIA's Data Center platform $89.0B in the same quarter versus $1.25B a quarter implied by Qualcomm's $5B FY2027 data-center target (hatched), a ratio of about 71 to 1.",
+    "data": [
+      "x19_edge_base.csv"
+    ],
+    "chapters": [
+      "19",
+      "13"
+    ],
+    "source": "Qualcomm and NVIDIA quarterly results",
+    "source_ids": [
+      "S19002",
+      "S405",
+      "S90011",
+      "S15512",
+      "S15513"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/19-edge-vs-datacenter-revenue.svg",
+    "html": null
+  },
+  {
+    "id": "19-layer-relationship-heatmap",
+    "title": "Qualcomm competes with NVIDIA in 6 of 12 layers, partners in 1, complements 2 and is absent from 3; it ships in 4",
+    "subtitle": "Qualcomm public efforts by NVIDIA stack layer; shade = evidence stage; bold outline = primary role; last column = chapter 15 score (0-5)",
+    "alt": "Heatmap of Qualcomm's public datacenter efforts against NVIDIA's 12 stack layers, by relationship (partner, compete, complement, absent) and evidence stage. Primary roles: compete in 6 layers (accelerators, memory approach, scale-up, racks, inference software, ecosystem), partner in 1 (CPU via NVLink Fusion), complement in 2 (Alphawave connectivity IP and 1.6T optics; Mojo, which also runs on NVIDIA GPUs) and absent from 3 (DPUs and NICs, domain libraries, cloud capacity). Only 4 layers have a shipping product (Cloud AI 100, LPDDR cards, Cloud AI SDK and Mojo, MAX and vLLM); AI200 racks, C1000 and AI300 are announced, signed or in initial deployment. A fifth column repeats chapter 15's layer scores: 1.7 of 5 on average, behind in 9 layers and different in 3.",
+    "data": [
+      "x19_layer_map.csv",
+      "competitor_matrix.csv"
+    ],
+    "chapters": [
+      "19",
+      "15"
+    ],
+    "source": "Qualcomm, NVIDIA and press announcements; scores are repo judgement",
+    "source_ids": [
+      "S172",
+      "S173",
+      "S90060",
+      "S4030",
+      "S90087",
+      "S15510",
+      "S15511",
+      "S90031",
+      "S131",
+      "S4516",
+      "S90056",
+      "S90058",
+      "S4512",
+      "S90051",
+      "S4513",
+      "S4514",
+      "S15509",
+      "S90029",
+      "S19001",
+      "S19003",
+      "S9511",
+      "S9512",
+      "S9023",
+      "S596",
+      "S9513",
+      "S580",
+      "S90030",
+      "S90059",
+      "S15512",
+      "S602",
+      "S620"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/19-layer-relationship-heatmap.svg",
+    "html": null
+  },
+  {
+    "id": "19-rack-memory-capacity",
+    "title": "A reported AI200 rack holds ~43 TB on its cards, 2x Rubin's HBM4, but Vera Rubin adds 54 TB of LPDDR5X behind its CPUs",
+    "subtitle": "Memory per rack in TB (accelerator-attached vs CPU-attached LPDDR5X) and accelerator memory per kW of rack power",
+    "alt": "Two-panel bar chart. Left: memory per rack. A Qualcomm AI200 rack in a reported 56-card MWC 2026 configuration holds about 43 TB of LPDDR on its accelerators; AMD Helios 31.1 TB of HBM4; GB300 NVL72 20.7 TB of HBM3E plus about 17 TB of CPU-attached LPDDR5X; Vera Rubin NVL72 20.7 TB of HBM4 plus 54 TB of LPDDR5X on its Vera CPUs, about 75 TB in all. Right: accelerator-attached memory per kW of rack power: AI200 about 0.27 TB/kW at 160 kW, GB300 0.16, Helios 0.13 and Vera Rubin 0.09. Capacity per watt favours the LPDDR design; bandwidth, which Qualcomm has not disclosed for AI200, favours HBM (Vera Rubin 1,400 TB/s per rack).",
+    "data": [
+      "x19_rack_memory.csv"
+    ],
+    "chapters": [
+      "19",
+      "03",
+      "08"
+    ],
+    "source": "Qualcomm, NVIDIA, AMD specifications and press reports",
+    "source_ids": [
+      "S173",
+      "S19003",
+      "S19005",
+      "S344",
+      "S144",
+      "S90021",
+      "S32004",
+      "S332",
+      "S338",
+      "S102",
+      "S362",
+      "S90006"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/19-rack-memory-capacity.svg",
+    "html": null
+  },
+  {
+    "id": "19-warrant-rebate-curves",
+    "title": "Per purchase dollar, AMD's penny warrant gave OpenAI ~29% at signing; Qualcomm's AWS warrant pays only if its stock rises",
+    "subtitle": "Intrinsic value of the fully vested warrant as % of the purchases that vest it, vs issuer share price as a multiple of the reference price",
+    "alt": "Line chart of warrant intrinsic value as a share of the purchases that vest it. AMD's warrant to OpenAI (160M shares at a $0.01 strike, against a repo base case of ~$90B of AMD hardware for 6 GW) is worth ~29% of purchases at the pre-deal price of $164.67 and ~109% at the $612.46 close of 2026-09-21. Qualcomm's warrant to Amazon (25M shares at a $161.26 strike, vesting on up to $60B of purchases through 2036) is worth 0% at the strike, ~1.7% if the stock is 25% higher and ~6.7% if it doubles. The AMD structure is a large equity rebate; the Qualcomm structure is an at-the-money option that pays only if Qualcomm's shares appreciate.",
+    "data": [
+      "x19_warrant_terms.csv"
+    ],
+    "chapters": [
+      "19",
+      "13"
+    ],
+    "source": "AMD and Qualcomm warrant terms as reported; CS4 spend scenario",
+    "source_ids": [
+      "S24000",
+      "S13506",
+      "S24001",
+      "S24010",
+      "S15510",
+      "S90087",
+      "S90088"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/19-warrant-rebate-curves.svg",
     "html": null
   },
   {
