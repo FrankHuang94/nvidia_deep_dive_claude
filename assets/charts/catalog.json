@@ -2140,6 +2140,113 @@
     "html": null
   },
   {
+    "id": "11-inferencex-same-hardware-history",
+    "title": "Software alone: B200 DeepSeek-R1 throughput +34% and MI355X +29% in six months",
+    "subtitle": "InferenceX, DeepSeek-R1-0528 1k/1k, same GPU, engine, concurrency and parallelism; total tokens/s per GPU, first run = 1.0",
+    "alt": "Line chart of InferenceX nightly runs with unchanged hardware and settings, Dec 2025 to Jun 2026. B200 · SGLang FP4 (conc 128) +34%; B200 · TensorRT-LLM FP4 (conc 256) +17%; H200 · SGLang FP8 (conc 64) +7%; MI355X · SGLang FP4 (conc 64) +29%; MI300X · SGLang FP8 (conc 64) +1%. Open-source engine updates (SGLang, TensorRT-LLM, ROCm/AITER) deliver double-digit gains on fixed silicon for both vendors, while older CDNA 3 parts saw regressions before recovering.",
+    "data": [
+      "inference_benchmarks.csv"
+    ],
+    "chapters": [
+      "11",
+      "09",
+      "15"
+    ],
+    "source": "SemiAnalysis InferenceX public-API history snapshot",
+    "source_ids": [
+      "S621",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-inferencex-same-hardware-history.svg",
+    "html": null
+  },
+  {
+    "id": "11-mlperf-same-hardware-software-gains",
+    "title": "Software alone lifted GB300 NVL72 DeepSeek-R1 MLPerf throughput 2.9x in a year",
+    "subtitle": "Per-GPU throughput of the same NVIDIA-submitted system across MLPerf Inference rounds, indexed to first round = 1.0",
+    "alt": "Line chart of MLPerf Inference per-GPU throughput for unchanged NVIDIA hardware across rounds. GB300 NVL72 on DeepSeek-R1 Server rose from 2,907 to 8,291 tokens/s per GPU (2.9x, Sep 2025 to Sep 2026); GB200 NVL72 2.4x; GB300 on Llama 3.1 405B 1.5x; H100 on Llama 2 70B 1.44x and H200 1.26x over a year. Gains come from TensorRT-LLM, Dynamo and newer serving recipes, not new silicon.",
+    "data": [
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "11",
+      "09",
+      "15",
+      "01"
+    ],
+    "source": "MLCommons MLPerf Inference v4.0-v6.1 results",
+    "source_ids": [
+      "S601",
+      "S602",
+      "S603",
+      "S604",
+      "S605",
+      "S600"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-mlperf-same-hardware-software-gains.svg",
+    "html": null
+  },
+  {
+    "id": "11-software-gains-same-gpu",
+    "title": "Same B200, new software: DeepSeek-R1 speed up 5.5x in four months; dense Llama 70B flat",
+    "subtitle": "NVIDIA-published per-GPU performance on unchanged hardware across software releases, indexed to first point = 1.0",
+    "alt": "Line chart of NVIDIA-published performance on the same GPUs over time. B200 DeepSeek-R1 minimum-latency speed rose from 67 to 368 tokens/s per user (5.5x, Jan-May 2025); B200 DeepSeek-R1 max throughput from 2,000 to 4,600 tokens/s per GPU (2.3x); GB300 NVL72 MLPerf DeepSeek-R1 Server 2.9x in a year; while B200 Llama 3.3 70B max throughput stayed within 8% across four TensorRT-LLM releases. MoE models gain most from software.",
+    "data": [
+      "inference_benchmarks.csv",
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "11",
+      "09",
+      "10",
+      "01"
+    ],
+    "source": "NVIDIA TensorRT-LLM docs and blogs; MLCommons",
+    "source_ids": [
+      "S645",
+      "S646",
+      "S643",
+      "S644",
+      "S641",
+      "S642",
+      "S601",
+      "S602",
+      "S603"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-software-gains-same-gpu.svg",
+    "html": null
+  },
+  {
+    "id": "11-throughput-vs-interactivity-pareto",
+    "title": "At 50 tok/s/user, GB300 NVL72 delivers ~20x H200 and ~8x MI355X throughput per GPU",
+    "subtitle": "InferenceX Pareto frontiers, DeepSeek-R1-0528, 1k in/1k out, FP4 (FP8 on Hopper/CDNA 3), no speculative decoding",
+    "alt": "Log-scale Pareto chart of total tokens per second per GPU against tokens per second per user for eight systems on DeepSeek-R1. Interpolated at 50 tok/s/user: GB300 NVL72 about 6,261, GB200 NVL72 about 4,625, B300 about 2,982, B200 about 1,387, MI355X about 738, H200 about 308 tokens/s per GPU. Rack-scale NVL72 systems dominate the low-to-mid interactivity range; all curves fall steeply as interactivity rises.",
+    "data": [
+      "inference_benchmarks.csv"
+    ],
+    "chapters": [
+      "11",
+      "14",
+      "15",
+      "P2"
+    ],
+    "source": "SemiAnalysis InferenceX public-API snapshot (Oct 2026)",
+    "source_ids": [
+      "S621",
+      "S622"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/11-throughput-vs-interactivity-pareto.svg",
+    "html": null
+  },
+  {
     "id": "12-investments-in-customers-bubble",
     "title": "NVIDIA pledged up to ~$45B to five customers planning ~19 GW of compute",
     "subtitle": "x: NVIDIA equity committed (US$ B, log); y: customer's announced compute plan (GW); bubble area ∝ NVIDIA US$ B per GW",
@@ -2683,6 +2790,30 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/14-capex-vs-power-cost-per-gpu-year.svg",
+    "html": null
+  },
+  {
+    "id": "14-cost-per-million-tokens-by-system",
+    "title": "GB300 NVL72 serves DeepSeek-R1 for ~$0.10/M tokens at 50 tok/s/user, 11x below H200 (Est.)",
+    "subtitle": "Est. US$ per million total tokens = owner TCO $/GPU-hr ÷ measured throughput (InferenceX); two workloads",
+    "alt": "Two bar panels of estimated cost per million total tokens. Left, DeepSeek-R1 at 50 tokens/s per user: GB300 NVL72 $0.10, GB200 NVL72 $0.11, B300 $0.21, B200 $0.35, MI355X $0.56, H200 $1.10, MI300X $1.62, H100 $8.31. Right, Qwen3.5 397B FP8 at 100 tokens/s per user: TPU7x Ironwood $0.181, B200 $0.222, B300 $0.276, showing Google's TPU about 18% cheaper than B200 on that workload.",
+    "data": [
+      "inference_benchmarks.csv"
+    ],
+    "chapters": [
+      "14",
+      "11",
+      "15"
+    ],
+    "source": "SemiAnalysis InferenceX (throughput; TCO $/GPU-hr); repo interpolation",
+    "source_ids": [
+      "S621",
+      "S622",
+      "S625"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/14-cost-per-million-tokens-by-system.svg",
     "html": null
   },
   {
@@ -3343,6 +3474,127 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/15-merchant-vs-custom-asic-share.svg",
+    "html": null
+  },
+  {
+    "id": "15-mlperf-gpt-oss-per-accelerator",
+    "title": "MLPerf gpt-oss-120b: MI355X beats B300 per GPU (15,227 vs 14,321 tok/s); GB300 leads",
+    "subtitle": "MLPerf Inference v6.1 (Sep 2026), gpt-oss-120b Offline, best closed result per accelerator, tokens/s per accelerator",
+    "alt": "Horizontal bar chart of the best closed MLPerf Inference v6.1 gpt-oss-120b Offline result per accelerator, tokens/s per accelerator: GB300 16,635, GB200 15,301, MI355X 15,227, B300 14,321, MI350X 12,128, B200 11,436, MI300X 3,775, RTX PRO 6000 and Intel Arc Pro B70 far below. A small-active-parameter MoE favours AMD's memory bandwidth.",
+    "data": [
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "15",
+      "11"
+    ],
+    "source": "MLCommons MLPerf Inference v6.1 results (closed division)",
+    "source_ids": [
+      "S603"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-mlperf-gpt-oss-per-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "15-mlperf-llm-inference-per-accelerator",
+    "title": "On MLPerf Llama 2 70B, AMD's MI355X (12,935 tok/s) matches B200 but trails GB300 by 17%",
+    "subtitle": "MLPerf Inference v6.0 (Apr 2026), Llama 2 70B Offline, best closed result per accelerator, tokens/s per accelerator",
+    "alt": "Horizontal bar chart of the best closed-division MLPerf Inference v6.0 Llama 2 70B Offline result per accelerator, in tokens/s per accelerator: GB300 15,651, B300 14,466, B200 12,994, MI355X 12,935, GB200 12,334, MI350X 10,060, MI325X 4,235, H200 NVL 4,000, MI300X 3,450; Intel Arc Pro cards below 1,000.",
+    "data": [
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "15",
+      "02",
+      "11"
+    ],
+    "source": "MLCommons MLPerf Inference v6.0 results (closed division)",
+    "source_ids": [
+      "S602"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-mlperf-llm-inference-per-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "15-mlperf-participation-by-vendor",
+    "title": "AMD's share of closed MLPerf inference results rose from 2% to 20% in 18 months; NVIDIA still 67%",
+    "subtitle": "Closed-division performance results by accelerator vendor per round (count); labels = submitting organisations",
+    "alt": "Two stacked bar panels. Inference rounds v5.0 to v6.1: AMD-based results rose from 2% to 20% of closed performance results while NVIDIA-based results fell to 67%; Google submitted TPUs only in v5.0 and Intel added Arc Pro cards. Training rounds v4.1 to v6.0: NVIDIA accounts for 87-93% of results, AMD rose from 1 to 30 results and Google TPU results disappeared after v5.0.",
+    "data": [
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "15",
+      "09"
+    ],
+    "source": "MLCommons results repositories (repo count)",
+    "source_ids": [
+      "S600",
+      "S601",
+      "S602",
+      "S603",
+      "S606",
+      "S607",
+      "S608",
+      "S609"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-mlperf-participation-by-vendor.svg",
+    "html": null
+  },
+  {
+    "id": "15-mlperf-training-single-node",
+    "title": "MI355X fine-tunes Llama 2 70B on 8 GPUs in 8.3 min, 1.5x GB300's 5.6 min and close to B200",
+    "subtitle": "MLPerf Training, Llama 2 70B LoRA, best 8-accelerator closed result per accelerator and round (minutes, lower is better)",
+    "alt": "Dot plot of 8-GPU MLPerf Training LoRA fine-tuning times. In v6.0: GB300 5.6 min, B300 6.6, B200 7.9, MI355X 8.3, GB200 9.6, MI350X 10.1. AMD's MI325X needed about 21-22 minutes in 2025 and MI300X about 28-29, so AMD closed most of the single-node gap with CDNA 4 while NVIDIA's lead persists at rack scale.",
+    "data": [
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "15",
+      "02"
+    ],
+    "source": "MLCommons MLPerf Training v5.0-v6.0 (repo-computed scores)",
+    "source_ids": [
+      "S607",
+      "S611",
+      "S608",
+      "S609"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-mlperf-training-single-node.svg",
+    "html": null
+  },
+  {
+    "id": "15-mlperf-training-time-at-scale",
+    "title": "MLPerf Llama 3.1 405B training: 27 min on 2,496 GB200s (2025) → 7 min on 8,192 (2026)",
+    "subtitle": "MLPerf Training time-to-train vs cluster size, Llama 3.1 405B, closed division (minutes; both axes log scale)",
+    "alt": "Log-log chart of MLPerf Training time-to-train against GPU count for Llama 3.1 405B. In v5.0 (June 2025) 2,496 GB200 GPUs took 27.3 minutes and 8,192 H100s 20.8; in v5.1 5,120 GB200s took 10.0 minutes; in v6.0 8,192 GB200s (Azure) took 7.1 minutes and 4,096 GB300s 9.8 minutes. No non-NVIDIA accelerator has submitted this benchmark.",
+    "data": [
+      "mlperf_results.csv"
+    ],
+    "chapters": [
+      "15",
+      "08",
+      "06",
+      "P1"
+    ],
+    "source": "MLCommons MLPerf Training v5.0-v6.0 (repo-computed scores)",
+    "source_ids": [
+      "S607",
+      "S611",
+      "S608",
+      "S609"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/15-mlperf-training-time-at-scale.svg",
     "html": null
   },
   {

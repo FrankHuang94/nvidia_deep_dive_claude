@@ -73,6 +73,7 @@ def ai_accelerator_market_share():
     ax.set_xticklabels(["2023", "2024", "2025", "2026E\n(scenario)"])
     ax.set_ylim(0, 110)
     ax.set_yticks([0, 20, 40, 60, 80, 100])
+    ax.set_axisbelow(True)
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.11), ncol=4, fontsize=8.8, frameon=False)
     c.save(fig, ax, ylabel="Share of AI data-center silicon revenue (%)", legend=False, bottom=0.2)
 
@@ -153,6 +154,7 @@ def ib_vs_ethernet():
         ax.text(xi, a / 2, f"~{a:.0f}%", ha="center", va="center", color="#FFFFFF", fontsize=10, fontweight="bold")
         ax.text(xi, a + b / 2, f"~{b:.0f}%", ha="center", va="center", color="#FFFFFF", fontsize=10, fontweight="bold")
     ax.axhline(50, color=INK["text"], lw=0.8, ls=":")
+    ax.set_axisbelow(True)
     ax.set_xticks(x)
     ax.set_xticklabels(["2023", "2024", "2025", "2027E"])
     ax.set_ylim(0, 100)
@@ -207,5 +209,7 @@ def custom_asic_revenue_trend():
     ax2.set_xticklabels(["2023", "2024", "2025", "2026E"])
     ax2.set_ylabel("Annual AI revenue (US$ B)")
     ax2.legend(loc="upper left", fontsize=9, frameon=False)
+    ax1.set_axisbelow(True)
+    ax2.set_axisbelow(True)
     _margins(fig, left=0.07, right=0.98, wspace=0.25)
     c.save(fig, [ax1, ax2], legend=False, bottom=0.15)
