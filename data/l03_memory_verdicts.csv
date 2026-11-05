@@ -1,7 +1,7 @@
 competitor,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
 AMD (MI455X / Helios),Memory per accelerator,leads,432 vs 288 GB,MI455X carries 432 GB HBM4 vs Rubin's 288 GB (1.5x),confirmed,S144;S100,Verdict is the challenger's position vs NVIDIA's current flagship.
-AMD (MI455X / Helios),Bandwidth per accelerator,parity,19.6 vs 19.2 TB/s,AMD's 19.6 TB/s vs Rubin's revised 19.2 TB/s (launch target 22),confirmed,S144;S103;S104,
-AMD (MI455X / Helios),Rack HBM bandwidth,parity,"1,411 vs 1,400 TB/s",Helios 72 x 19.6 TB/s (repo calc) vs Vera Rubin NVL72 revised 1.4 PB/s,reported,S144;S102;S90006,
+AMD (MI455X / Helios),Bandwidth per accelerator,leads,23.3 vs 19.2 TB/s,AMD's 23.3 TB/s vs Rubin's revised 19.2 TB/s (~1.21x; launch target 22),confirmed,S144;S103;S104;S90093,Corrected 2026-11-05 from 19.6 TB/s (AMD June 2025 figure) and verdict parity (S90093)
+AMD (MI455X / Helios),Rack HBM bandwidth,leads,"1,678 vs 1,400 TB/s",Helios 72 x 23.3 TB/s (repo calc; ~1.20x) vs Vera Rubin NVL72 revised 1.4 PB/s,reported,S144;S102;S90006;S90093,"Corrected 2026-11-05 from 1,411 TB/s (72 x 19.6) and verdict parity (S90093)"
 AMD (MI455X / Helios),CoWoS / HBM allocation,behind,~105k vs ~595k wafers,Est. 2026 CoWoS bookings ~10% vs NVIDIA ~60% (Morgan Stanley via press),estimate,S379,
 AMD (MI455X / Helios),Supplier relationships,parity,Samsung priority,Samsung named primary HBM4 supplier for MI455X (MOU Mar 2026); SK hynix also supports AMD,reported,S3511;S3512,
 AMD (MI455X / Helios),Independence from CoWoS+HBM,parity,same dependency,Same TSMC CoWoS + HBM4 dependency as NVIDIA,speculative,S379,Repo judgement.

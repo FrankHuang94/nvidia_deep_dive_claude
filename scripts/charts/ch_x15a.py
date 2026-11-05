@@ -110,7 +110,8 @@ def amd_instinct_vs_nvidia():
         alt=("Three grouped-bar panels comparing AMD Instinct GPUs with NVIDIA's same-year flagship. Dense FP8: MI300X 2.6 vs "
              "H100 2.0 PFLOPS (2023), MI325X 2.6 vs H200 2.0 (2024), MI355X 5.0 vs GB300 5.0 (2025), MI455X 20 vs Rubin 17.5 "
              "(2026, AMD basis unstated). HBM capacity: 192 vs 80 GB, 256 vs 141, 288 vs 288 and 432 vs 288. HBM bandwidth: "
-             "5.3 vs 3.35 TB/s, 6.0 vs 4.8, 8.0 vs 8.0 and 19.6 vs 19.2 after NVIDIA's 2026 Rubin revision. AMD's gap to "
+             f"5.3 vs 3.35 TB/s, 6.0 vs 4.8, 8.0 vs 8.0 and {last.a_bw:g} vs {last.n_bw:g} after NVIDIA's 2026 Rubin revision. "
+             "AMD's gap to "
              "NVIDIA is therefore not on the spec sheet but in software, racks and revenue."),
         data=[ACC, GPU], chapters=["15", "02", "03"],
         source="AMD and NVIDIA specifications", source_ids=list(dict.fromkeys(srcs)),
@@ -444,7 +445,7 @@ def challenger_gap_to_nvidia():
     c = Chart(
         id="15-challenger-gap-to-nvidia",
         title=(f"Rubin reset the gap: 2026 hyperscaler chips have {hs.bw.min():.0f}–{hs.bw.max():.0f}% of its "
-               f"bandwidth; only AMD keeps pace"),
+               f"bandwidth; only AMD is ahead ({amd26.bw:.0f}%)"),  # QA 2026-11-05: MI455X 23.3 TB/s (S90093)
         subtitle=("Challenger chip as % of the NVIDIA flagship shipping the same year (100% = parity); left: HBM/DRAM "
                   "bandwidth per chip; right: dense FP8 per chip; vendor peak figures"),
         alt=(f"Two line panels of challenger chips as a percentage of NVIDIA's same-year flagship. Memory bandwidth: AMD at "

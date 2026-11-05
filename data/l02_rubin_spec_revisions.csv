@@ -11,7 +11,7 @@ NVIDIA Vera Rubin NVL72,rack_hbm_bandwidth,launch,1580,TB/s,2026-01-05,confirmed
 NVIDIA Vera Rubin NVL72,rack_hbm_bandwidth,revised,1400,TB/s,2026-09,confirmed,S102;S105,"Page edited ~2026-09-11"
 NVIDIA HGX Rubin NVL8,board_hbm_bandwidth,launch,176,TB/s,2026-01-05,confirmed,S101;S105,"8-GPU board aggregate"
 NVIDIA HGX Rubin NVL8,board_hbm_bandwidth,revised,130,TB/s,2026-10,confirmed,S101;S105,"~26% cut; inconsistent with 8 x 19.2 TB/s"
-AMD MI455X,hbm_bandwidth_per_gpu,launch,19.6,TB/s,2025-06-12,confirmed,S144;S538,"AMD figure; unchanged at AAI 2026 launch"
+AMD MI455X,hbm_bandwidth_per_gpu,launch,23.3,TB/s,2025-06-12,confirmed,S144;S538;S90093,"AMD peak figure; corrected 2026-11-05 from 19.6 (AMD June 2025 figure) to 23.3 TB/s (S90093)"
 AMD MI455X,scale_up_bandwidth_per_gpu,launch,3.6,TB/s,2025-06-12,reported,S144;S226,"260 TB/s Helios scale-up / 72 GPUs (UALink over Ethernet)"
 AMD MI455X,hbm_capacity_per_gpu,launch,432,GB,2025-06-12,confirmed,S144,"HBM4"
 AMD MI455X,fp8_dense_per_gpu,launch,20.0,PFLOPS,2025-06-12,reported,S144,"AMD did not state dense vs sparse for MI400-series figures"

@@ -52,7 +52,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | P4 | Parallelism explained | 2 | drafted | 4,031 | 20 | 6 (6) | 0 | 8 | 6 | 30% | 28 | pending |
 | P5 | Chip economics 101 | 2 | drafted | 4,461 | 19 | 10 (10) | 0 | 2 | 7 | 53% | 65 | pending |
 | 02 | GPU silicon | 3 | drafted | 9,916 | 63 | 33 (33) | 1 | 11 | 18 | 52% | 191 | pending |
-| 03 | Memory, packaging and supply chain | 3 | drafted | 10,158 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 178 | pending |
+| 03 | Memory, packaging and supply chain | 3 | drafted | 10,243 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 180 | pending |
 | 04 | CPU (Grace, Vera) | 3 | drafted | 10,038 | 43 | 19 (19) | 1 | 10 | 13 | 44% | 151 | pending |
 | 05 | Scale-up (NVLink, NVSwitch) | 4 | drafted | 10,181 | 56 | 26 (26) | 3 | 12 | 15 | 46% | 183 | pending |
 | 06 | Scale-out and scale-across networking | 4 | drafted | 10,071 | 50 | 21 (21) | 1 | 12 | 16 | 42% | 126 | pending |
@@ -60,7 +60,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 08 | Systems, racks and AI factories | 5 | drafted | 10,376 | 46 | 23 (23) | 2 | 10 | 11 | 50% | 172 | pending |
 | 09 | CUDA and system software | 5 | drafted | 10,033 | 42 | 18 (18) | 1 | 10 | 13 | 43% | 140 | pending |
 | 10 | Libraries (CUDA-X) | 5 | drafted | 10,588 | 50 | 22 (22) | 0 | 11 | 17 | 44% | 159 | pending |
-| 11 | Inference and AI software | 6 | drafted | 10,155 | 47 | 26 (26) | 0 | 9 | 12 | 55% | 197 | pending |
+| 11 | Inference and AI software | 6 | drafted | 10,166 | 47 | 26 (26) | 0 | 9 | 12 | 55% | 198 | pending |
 | 12 | Orchestration and cloud services | 6 | drafted | 10,370 | 48 | 22 (22) | 0 | 13 | 13 | 46% | 126 | pending |
 | 13 | Ecosystem, go-to-market and capital | 6 | drafted | 10,046 | 52 | 25 (25) | 0 | 12 | 15 | 48% | 180 | pending |
 | 14 | Training vs. inference economics | 7 | drafted | 6,321 | 31 | 20 (20) | 0 | 4 | 7 | 65% | 78 | pending |
@@ -76,7 +76,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **221,199** | **1082** | | | | | | **1570** unique | |
+| **Total** | | | | **221,295** | **1082** | | | | | | **1572** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **357**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->

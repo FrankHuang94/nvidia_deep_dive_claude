@@ -335,12 +335,13 @@ def rubin_spec_revision():
         return float(s.value.iloc[0])
     hb_l, hb_r = val("NVIDIA Rubin", metrics[0][0], "launch"), val("NVIDIA Rubin", metrics[0][0], "revised")
     nl_l, nl_r = val("NVIDIA Rubin", metrics[1][0], "launch"), val("NVIDIA Rubin", metrics[1][0], "revised")
+    hb_a = val("AMD MI455X", metrics[0][0], "launch")  # QA 2026-11-05: 23.3 TB/s (S90093), was hard-coded 19.6
     c = Chart(
         id="02-rubin-spec-revision",
         title=(f"Rubin's 2026 revision cut HBM bandwidth {100 * (1 - hb_r / hb_l):.0f}% and NVLink "
                f"{100 * (1 - nl_r / nl_l):.0f}%; MI455X now leads on paper"),
         subtitle="Per-GPU specs: Rubin at CES 2026 launch (hatched, superseded) vs revised pages (Sep–Oct 2026) vs AMD MI455X",
-        alt=(f"Four-panel bar chart. HBM bandwidth per GPU: Rubin launch {hb_l:.0f} TB/s, revised {hb_r:.1f}, MI455X 19.6. "
+        alt=(f"Four-panel bar chart. HBM bandwidth per GPU: Rubin launch {hb_l:.0f} TB/s, revised {hb_r:.1f}, MI455X {hb_a:g}. "
              f"Scale-up bandwidth: Rubin launch {nl_l:.1f} TB/s, revised {nl_r:.1f}, MI455X 3.6. HBM capacity: Rubin 288 GB "
              "unchanged, MI455X 432 GB. Dense FP8: Rubin 17.5 PFLOPS unchanged, MI455X 20 PFLOPS (AMD did not state dense "
              "or sparse). Press reports quote NVIDIA tying the new figures to volume production; the cause is unresolved."),

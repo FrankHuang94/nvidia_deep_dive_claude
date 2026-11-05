@@ -107,7 +107,7 @@ hbm_per_gpu,AMD MI355X,2025,capacity,288,GB,,confirmed,S143,HBM3E. 8 x 36 GB 12-
 hbm_per_gpu,AMD MI355X,2025,bandwidth,8.0,TB/s,,confirmed,S143,HBM3E. 8 x 36 GB 12-high.
 hbm_per_gpu,AMD MI455X,2026,stacks,12,stacks,,reported,S144;S361,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc).
 hbm_per_gpu,AMD MI455X,2026,capacity,432,GB,,reported,S144;S361,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc).
-hbm_per_gpu,AMD MI455X,2026,bandwidth,19.6,TB/s,,reported,S144;S361,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc).
+hbm_per_gpu,AMD MI455X,2026,bandwidth,23.3,TB/s,,reported,S144;S361;S90093,HBM4. 12 stacks implied by 432 GB / 36 GB (repo calc). Bandwidth corrected 2026-11-05 from 19.6 (AMD June 2025 figure) to 23.3 TB/s (S90093).
 hbm_per_gpu,Google TPU v5p,2023,capacity,95,GB,,confirmed,S149,HBM2E. 95 GB usable (96 GB physical).
 hbm_per_gpu,Google TPU v5p,2023,bandwidth,2.765,TB/s,,confirmed,S149,HBM2E. 95 GB usable (96 GB physical).
 hbm_per_gpu,Google TPU7x Ironwood,2025,capacity,192,GB,,confirmed,S151;S350,HBM3E.

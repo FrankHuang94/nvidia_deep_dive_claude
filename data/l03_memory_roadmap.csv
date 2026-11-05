@@ -7,7 +7,7 @@ NVIDIA,Rubin Ultra,2027,roadmap,1024,32.0,base,reported,S35018;S110;S107,"1 TB H
 NVIDIA,Rubin Ultra (768 GB report),2027,roadmap,768,,alt-report,speculative,S111;S509,Low-tier report of a 768 GB (12-high) configuration; two-die variant also reported.
 AMD,MI325X,2024,shipping,256,6.0,base,confirmed,S142,HBM3E.
 AMD,MI355X,2025,shipping,288,8.0,base,confirmed,S143,HBM3E.
-AMD,MI455X,2026,shipping,432,19.6,base,confirmed,S144;S538,HBM4.
+AMD,MI455X,2026,shipping,432,23.3,base,confirmed,S144;S538;S90093,HBM4. Bandwidth corrected 2026-11-05 from 19.6 (AMD June 2025 figure) to 23.3 TB/s (S90093).
 Huawei,Ascend 910C,2025,shipping,128,3.2,base,reported,S163,HBM2E.
 Huawei,Ascend 950DT,2026,announced,144,4.0,base,reported,S163,In-house HiZQ 2.0 HBM.
 Huawei,Ascend 960,2027,roadmap,288,9.6,base,reported,S163,In-house HBM.

@@ -1485,14 +1485,14 @@ z
    </g>
    <g id="legend_1">
     <g id="line2d_47">
-     <path d="M 76.68 80.122687 
-L 85.08 80.122687 
-L 93.48 80.122687 
+     <path d="M 261.926466 299.959406 
+L 270.326466 299.959406 
+L 278.726466 299.959406 
 " style="fill: none; stroke: #3f6b00; stroke-width: 2.1; stroke-linecap: square"/>
     </g>
     <g id="text_15">
      <!-- GB300 NVL72 -->
-     <g transform="translate(100.2 83.062687) scale(0.084 -0.084)">
+     <g transform="translate(285.446466 302.899406) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-2a" d="M 3809 666 
 L 3809 1919 
@@ -1627,14 +1627,14 @@ z
      </g>
     </g>
     <g id="line2d_48">
-     <path d="M 76.68 92.723344 
-L 85.08 92.723344 
-L 93.48 92.723344 
+     <path d="M 261.926466 312.560062 
+L 270.326466 312.560062 
+L 278.726466 312.560062 
 " style="fill: none; stroke-dasharray: 7.77,3.36; stroke-dashoffset: 0; stroke: #5f9e00; stroke-width: 2.1"/>
     </g>
     <g id="text_16">
      <!-- B200 HGX -->
-     <g transform="translate(100.2 95.663344) scale(0.084 -0.084)">
+     <g transform="translate(285.446466 315.500062) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-2b" d="M 628 4666 
 L 1259 4666 
@@ -1678,14 +1678,14 @@ z
      </g>
     </g>
     <g id="line2d_49">
-     <path d="M 76.68 105.324 
-L 85.08 105.324 
-L 93.48 105.324 
+     <path d="M 261.926466 325.160719 
+L 270.326466 325.160719 
+L 278.726466 325.160719 
 " style="fill: none; stroke: #a9cc73; stroke-width: 2.1; stroke-linecap: square"/>
     </g>
     <g id="text_17">
      <!-- H200 HGX -->
-     <g transform="translate(100.2 108.264) scale(0.084 -0.084)">
+     <g transform="translate(285.446466 328.100719) scale(0.084 -0.084)">
       <use xlink:href="#DejaVuSans-2b"/>
       <use xlink:href="#DejaVuSans-15" transform="translate(75.203125 0)"/>
       <use xlink:href="#DejaVuSans-13" transform="translate(138.828125 0)"/>
@@ -1697,14 +1697,14 @@ L 93.48 105.324
      </g>
     </g>
     <g id="line2d_50">
-     <path d="M 76.68 117.924656 
-L 85.08 117.924656 
-L 93.48 117.924656 
+     <path d="M 261.926466 337.761375 
+L 270.326466 337.761375 
+L 278.726466 337.761375 
 " style="fill: none; stroke: #c4314b; stroke-width: 2.1; stroke-linecap: square"/>
     </g>
     <g id="text_18">
      <!-- MI355X (8-GPU) -->
-     <g transform="translate(100.2 120.864656) scale(0.084 -0.084)">
+     <g transform="translate(285.446466 340.701375) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-30" d="M 628 4666 
 L 1569 4666 
@@ -1800,14 +1800,14 @@ z
      </g>
     </g>
     <g id="line2d_51">
-     <path d="M 76.68 130.525312 
-L 85.08 130.525312 
-L 93.48 130.525312 
+     <path d="M 261.926466 350.362031 
+L 270.326466 350.362031 
+L 278.726466 350.362031 
 " style="fill: none; stroke-dasharray: 2.1,3.465; stroke-dashoffset: 0; stroke: #2a78d6; stroke-width: 2.1"/>
     </g>
     <g id="text_19">
      <!-- TPU v7 (external owner) (modelled) -->
-     <g transform="translate(100.2 133.465312) scale(0.084 -0.084)">
+     <g transform="translate(285.446466 353.302031) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-5b" d="M 3513 3500 
 L 2247 1797 

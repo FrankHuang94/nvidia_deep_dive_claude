@@ -148,6 +148,7 @@ def inference_memory_tradeoff():
     rb = d[d.label.eq("Rubin")].iloc[0]
     qc = d[d.label.eq("Qualcomm AI200")].iloc[0]
     au = d[d.label.eq("Qualcomm AI 100 Ultra")].iloc[0]
+    mx = d[d.label.eq("MI455X")].iloc[0]  # QA 2026-11-05: 23.3 TB/s (S90093), was hard-coded 19.6
     c = Chart(
         id="11-inference-memory-tradeoff",
         title=(f"An LPU re-reads its {lp.memory_capacity_gb:g} GB of SRAM ~{lp.sweeps:,.0f}×/s; "
@@ -157,9 +158,9 @@ def inference_memory_tradeoff():
         alt=(f"Log-log scatter of inference chips by memory capacity and bandwidth. SRAM designs sit top-left: NVIDIA's "
              f"Groq 3 LPU holds {lp.memory_capacity_gb:g} GB at {lp.memory_bandwidth_tbs:.0f} TB/s (~{lp.sweeps:,.0f} full "
              "reads per second), Groq LPU v1 0.23 GB at 80 TB/s, d-Matrix Corsair 2 GB at 150 TB/s and Cerebras WSE-3 "
-             "44 GB at 21,000 TB/s. HBM GPUs and cloud ASICs cluster in the middle at 80-432 GB and 3-20 TB/s (25-70 reads "
+             "44 GB at 21,000 TB/s. HBM GPUs and cloud ASICs cluster in the middle at 80-432 GB and 3-23 TB/s (25-70 reads "
              f"per second): Rubin {rb.memory_capacity_gb:.0f} GB at {rb.memory_bandwidth_tbs:g} TB/s, MI455X 432 GB at "
-             "19.6 TB/s, Ironwood 192 GB at 7.4 TB/s, Maia 200 216 GB at 7 TB/s. LPDDR cards sit bottom-right: Qualcomm "
+             f"{mx.memory_bandwidth_tbs:g} TB/s, Ironwood 192 GB at 7.4 TB/s, Maia 200 216 GB at 7 TB/s. LPDDR cards sit bottom-right: Qualcomm "
              f"AI 100 Ultra {au.memory_capacity_gb:.0f} GB at {au.memory_bandwidth_tbs:g} TB/s (~{au.sweeps:.0f} reads per "
              f"second) and the AI200 with {qc.memory_capacity_gb:.0f} GB per card (bandwidth not disclosed)."),
         data=[GPU, COMP], chapters=["11", "15", "03", "02"], source="vendor specifications",
@@ -268,7 +269,9 @@ def decode_bandwidth_by_vendor():
     asic = d[d.vendor.isin(["Google", "Microsoft"]) & ~d.future].bw.max()
     c = Chart(
         id="11-decode-bandwidth-by-vendor",
-        title=(f"MI455X matches Rubin's memory bandwidth ({mi:g} vs {rub:g} TB/s); cloud ASICs trail ~{rub / asic:.1f}×"),
+        # QA 2026-11-05: MI455X corrected 19.6 -> 23.3 TB/s (S90093); it now leads Rubin rather than matching it
+        title=(f"MI455X leads Rubin on memory bandwidth ({mi:g} vs {rub:g} TB/s); cloud ASICs trail Rubin "
+               f"~{rub / asic:.1f}×"),
         subtitle="Peak memory (HBM or LPDDR) bandwidth per accelerator, TB/s (log scale), by first shipment year, 2021–2028",
         alt=(f"Log-scale line chart of memory bandwidth per accelerator by vendor. NVIDIA rises from A100 (2.0 TB/s, 2021) "
              f"and H100 (3.35) to B200/B300 (8.0) and Rubin ({rub:g} TB/s after the 2026 spec revision), with Rubin Ultra "

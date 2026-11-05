@@ -52,11 +52,12 @@ def rack_hbm_after_rubin_revision():
     vr = rows[(rows.vendor == "NVIDIA") & (rows.system == "Vera Rubin NVL72")].iloc[0]
     c = Chart(
         id="03-rack-hbm-after-rubin-revision",
-        title=(f"After the Rubin cut, Helios leads rack HBM bandwidth ({helios.hbm_bandwidth_tbs:,.0f} vs "
-               f"{vr.hbm_bandwidth_tbs:,.0f} TB/s) and capacity (1.5x)"),
+        # QA 2026-11-05: MI455X bandwidth corrected 19.6 -> 23.3 TB/s (S90093); Helios led even the 1,580 launch target
+        title=(f"Helios leads Vera Rubin NVL72 on rack HBM bandwidth ({helios.hbm_bandwidth_tbs:,.0f} vs "
+               f"{vr.hbm_bandwidth_tbs:,.0f} TB/s, ~{helios.hbm_bandwidth_tbs / vr.hbm_bandwidth_tbs:.1f}x) and capacity (1.5x)"),
         subtitle="HBM bandwidth (TB/s) and capacity (TB) per rack-scale system; outline = Vera Rubin launch target (CES 2026)",
         alt=(f"Two horizontal bar charts of HBM per rack-scale system. Bandwidth: AMD Helios {helios.hbm_bandwidth_tbs:,.0f} TB/s "
-             f"(72 x 19.6 TB/s), Vera Rubin NVL72 {vr.hbm_bandwidth_tbs:,.0f} TB/s after the Sep-Oct 2026 revision (launch target "
+             f"(72 x {helios.hbm_bandwidth_tbs / 72:.1f} TB/s), Vera Rubin NVL72 {vr.hbm_bandwidth_tbs:,.0f} TB/s after the Sep-Oct 2026 revision (launch target "
              f"{launch.hbm_bandwidth_tbs:,.0f}), Huawei CloudMatrix 384 about 1,229 TB/s across 16 racks, AWS Trn3 UltraServer 706, "
              "GB300 NVL72 576 and a Google Ironwood 64-chip cube 472 TB/s. Capacity: CloudMatrix 49.2 TB, Helios 31.1 TB, "
              "Vera Rubin, Trn3 and GB300 20.7 TB each, Ironwood cube 12.3 TB."),
@@ -119,8 +120,8 @@ def memory_supply_verdict_heatmap():
         id="03-memory-supply-verdict-heatmap",
         title=f"AMD and Qualcomm out-pack Rubin per chip; all {beh_alloc} HBM-based rivals trail NVIDIA on supply access",
         subtitle="Challenger's position vs NVIDIA's 2026 flagship (Rubin / Vera Rubin NVL72) on six memory-system dimensions",
-        alt=("Heatmap of six challengers against six memory-system dimensions. AMD leads on memory per accelerator (432 vs 288 GB), "
-             "is at parity on per-GPU and rack bandwidth (19.6 vs 19.2 TB/s; 1,411 vs 1,400 TB/s) but is behind on CoWoS and HBM "
+        alt=("Heatmap of six challengers against six memory-system dimensions. AMD leads on memory per accelerator (432 vs 288 GB) "
+             "and on per-GPU and rack bandwidth (23.3 vs 19.2 TB/s; 1,678 vs 1,400 TB/s) but is behind on CoWoS and HBM "
              "allocation (about 105k vs 595k wafers). Google TPU, AWS Trainium and Huawei are behind on per-chip memory and allocation; "
              "Qualcomm's LPDDR design leads on capacity (768 GB) and independence from CoWoS and HBM but is behind on bandwidth; "
              "SRAM start-ups lead on on-chip bandwidth and independence but trail on capacity."),
@@ -277,15 +278,19 @@ def memory_roadmap_by_vendor():
     ru = base[base["product"] == "Rubin Ultra"].iloc[0]
     alt = d[d.variant == "alt-report"].iloc[0]
     lt = d[d.variant == "launch-target"].iloc[0]
+    mi = base[base["product"] == "MI455X"].iloc[0]
+    rb = base[base["product"] == "Rubin"].iloc[0]
     c = Chart(
         id="03-memory-roadmap-by-vendor",
-        title=("2026 flagships converge at ~19-20 TB/s; Rubin Ultra (1 TB HBM4E) targets the capacity lead "
-               "in 2027"),
+        # QA 2026-11-05: MI455X bandwidth corrected 19.6 -> 23.3 TB/s (S90093), so 2026 flagships no longer converge
+        title=(f"MI455X leads 2026 on bandwidth ({mi.bandwidth_tbs:g} vs Rubin's {rb.bandwidth_tbs:g} TB/s); Rubin Ultra "
+               "(1 TB HBM4E) targets the capacity lead in 2027"),
         subtitle="Memory per accelerator package by year: capacity (GB, left) and bandwidth (TB/s, right); hollow = roadmap or estimate",
         alt=("Two line charts of memory per accelerator, 2024-2028. Capacity: NVIDIA B200 180 GB, B300 288, Rubin 288, Rubin Ultra "
              f"{ru.capacity_gb:,.0f} GB announced for 2027 (a report says {alt.capacity_gb:.0f} GB); AMD MI325X 256, MI355X 288, MI455X 432; "
              "Google Trillium 32 and Ironwood 192; AWS Trainium2 96, Trainium3 144, Trainium4 about 288 (estimate); Huawei 910C 128, "
-             "950DT 144, 960 and 970 288. Bandwidth: Rubin 19.2 TB/s (launch target 22), MI455X 19.6, Trainium4 about 19.6 (estimate), "
+             f"950DT 144, 960 and 970 288. Bandwidth: Rubin {rb.bandwidth_tbs:g} TB/s (launch target 22), MI455X {mi.bandwidth_tbs:g}, "
+             "Trainium4 about 19.6 (estimate), "
              "Ironwood 7.37, Huawei 950DT 4.0 rising to 14.4 in 2028, Rubin Ultra about 32 TB/s."),
         data=["l03_memory_roadmap.csv"], chapters=["03", "15", "17"],
         source="vendor roadmaps; Trainium4 = repo Est.",

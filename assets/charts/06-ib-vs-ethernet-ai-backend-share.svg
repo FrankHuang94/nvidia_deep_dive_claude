@@ -1016,7 +1016,7 @@ L 178.982609 119.4336
 L 178.982609 66.816 
 L 95.4 66.816 
 z
-" clip-path="url(#p027d1993f9)" style="fill: url(#h943189c5b8); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p027d1993f9)" style="fill: url(#h63d956705e); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 234.704348 158.8968 
@@ -1024,7 +1024,7 @@ L 318.286957 158.8968
 L 318.286957 66.816 
 L 234.704348 66.816 
 z
-" clip-path="url(#p027d1993f9)" style="fill: url(#h943189c5b8); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p027d1993f9)" style="fill: url(#h63d956705e); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 374.008696 243.08496 
@@ -1032,7 +1032,7 @@ L 457.591304 243.08496
 L 457.591304 66.816 
 L 374.008696 66.816 
 z
-" clip-path="url(#p027d1993f9)" style="fill: #e0609a; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p027d1993f9)" style="fill: #b5b5b5; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 513.313043 243.08496 
@@ -1040,7 +1040,7 @@ L 596.895652 243.08496
 L 596.895652 66.816 
 L 513.313043 66.816 
 z
-" clip-path="url(#p027d1993f9)" style="fill: #e0609a; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p027d1993f9)" style="fill: #b5b5b5; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 652.617391 250.9776 
@@ -1048,7 +1048,7 @@ L 736.2 250.9776
 L 736.2 66.816 
 L 652.617391 66.816 
 z
-" clip-path="url(#p027d1993f9)" style="fill: url(#h943189c5b8); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p027d1993f9)" style="fill: url(#h63d956705e); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_18">
     <path d="M 63.36 198.36 
@@ -1206,7 +1206,7 @@ z
    </g>
    <g id="text_14">
     <!-- ~20% -->
-    <g style="fill: #ffffff" transform="translate(121.033492 95.722456) scale(0.1 -0.1)">
+    <g style="fill: #0b0b0b" transform="translate(121.033492 95.722456) scale(0.1 -0.1)">
      <defs>
       <path id="DejaVuSans-Bold-15" d="M 1844 884 
 L 3897 884 
@@ -1305,7 +1305,7 @@ z
    </g>
    <g id="text_16">
     <!-- ~35% -->
-    <g style="fill: #ffffff" transform="translate(260.33784 115.454056) scale(0.1 -0.1)">
+    <g style="fill: #0b0b0b" transform="translate(260.33784 115.454056) scale(0.1 -0.1)">
      <defs>
       <path id="DejaVuSans-Bold-16" d="M 2981 2516 
 Q 3453 2394 3698 2092 
@@ -1357,7 +1357,7 @@ z
    </g>
    <g id="text_18">
     <!-- ~67% -->
-    <g style="fill: #ffffff" transform="translate(399.642188 157.548136) scale(0.1 -0.1)">
+    <g style="fill: #0b0b0b" transform="translate(399.642188 157.548136) scale(0.1 -0.1)">
      <defs>
       <path id="DejaVuSans-Bold-1a" d="M 428 4666 
 L 3944 4666 
@@ -1387,7 +1387,7 @@ z
    </g>
    <g id="text_20">
     <!-- ~67% -->
-    <g style="fill: #ffffff" transform="translate(538.946535 157.548136) scale(0.1 -0.1)">
+    <g style="fill: #0b0b0b" transform="translate(538.946535 157.548136) scale(0.1 -0.1)">
      <use xlink:href="#DejaVuSans-Bold-61"/>
      <use xlink:href="#DejaVuSans-Bold-19" transform="translate(83.796875 0)"/>
      <use xlink:href="#DejaVuSans-Bold-1a" transform="translate(153.375 0)"/>
@@ -1405,7 +1405,7 @@ z
    </g>
    <g id="text_22">
     <!-- ~70% -->
-    <g style="fill: #ffffff" transform="translate(678.250883 161.494456) scale(0.1 -0.1)">
+    <g style="fill: #0b0b0b" transform="translate(678.250883 161.494456) scale(0.1 -0.1)">
      <use xlink:href="#DejaVuSans-Bold-61"/>
      <use xlink:href="#DejaVuSans-Bold-1a" transform="translate(83.796875 0)"/>
      <use xlink:href="#DejaVuSans-Bold-13" transform="translate(153.375 0)"/>
@@ -1615,7 +1615,7 @@ L 379.414688 368.520514
 L 379.414688 362.220514 
 L 361.414688 362.220514 
 z
-" style="fill: url(#h943189c5b8); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
+" style="fill: url(#h63d956705e); opacity: 0.75; stroke: #ffffff; stroke-linejoin: miter"/>
     </g>
     <g id="text_24">
      <!-- Ethernet (Spectrum-X, Broadcom/Arista/Cisco, white box) -->
@@ -3461,8 +3461,8 @@ M 36 108
 L 108 36 
 " style="fill: #ffffff; stroke: #ffffff; stroke-width: 1.0; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 0.75"/>
   </pattern>
-  <pattern id="h943189c5b8" patternUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
-   <rect x="0" y="0" width="73" height="73" fill="#e0609a"/>
+  <pattern id="h63d956705e" patternUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
+   <rect x="0" y="0" width="73" height="73" fill="#b5b5b5"/>
    <path d="M -36 36 
 L 36 -36 
 M -32 40 

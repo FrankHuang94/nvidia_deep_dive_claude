@@ -337,6 +337,7 @@ def l03_memory_tiers():
     rub = pts[0]
     groq = pts[3]
     vera = pts[4]
+    mi = pts[6]  # AMD MI455X (QA 2026-11-05: 23.3 TB/s per S90093; was hard-coded 19.6 in the alt text)
     c = Chart(
         id="03-memory-tiers-bandwidth-vs-capacity",
         title=(f"HBM4 is {rub[2] / vera[2]:.0f}× faster than LPDDR5X but holds 1/{vera[1] / rub[1]:.0f} as much; "
@@ -345,7 +346,7 @@ def l03_memory_tiers():
         alt=(f"Log-log scatter of memory capacity versus bandwidth per chip. SRAM designs sit top-left: NVIDIA's Groq 3 LPU "
              f"{groq[1]:g} GB at about {groq[2]:,.0f} TB/s, d-Matrix Corsair 2 GB at 150 TB/s and Cerebras WSE-3 44 GB at "
              f"21,000 TB/s. HBM sits in the middle: H100 80 GB at 3.35 TB/s, B300 288 GB at 8 TB/s, Rubin {rub[1]:,.0f} GB at "
-             f"{rub[2]:g} TB/s and AMD MI455X 432 GB at 19.6 TB/s. LPDDR sits bottom-right: Grace 480 GB at 0.5 TB/s, Vera "
+             f"{rub[2]:g} TB/s and AMD MI455X {mi[1]:,.0f} GB at {mi[2]:g} TB/s. LPDDR sits bottom-right: Grace 480 GB at 0.5 TB/s, Vera "
              f"{vera[1]:,.0f} GB at {vera[2]:g} TB/s and Qualcomm AI 100 Ultra 128 GB at 0.55 TB/s; Qualcomm AI200 (768 GB) and "
              f"Rubin CPX (128 GB GDDR7) have no disclosed bandwidth. A BlueField-4 link to NVMe context storage moves "
              f"~{bf4_tbs:g} TB/s."),

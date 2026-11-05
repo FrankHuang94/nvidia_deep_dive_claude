@@ -78,7 +78,7 @@ All three are DRAM; the difference is packaging and signalling. HBM uses thousan
 
 | Product | Memory approach | Key numbers | Verdict vs Rubin (memory only) |
 |---|---|---|---|
-| AMD MI455X | 12 HBM4 stacks | 432 GB, 19.6 TB/s [[S144]](../../sources/bibliography.md#s144)[[S361]](../../sources/bibliography.md#s361) | 🟩 Leads on capacity; 🟨 parity on bandwidth |
+| AMD MI455X | 12 HBM4 stacks | 432 GB, 23.3 TB/s [[S144]](../../sources/bibliography.md#s144)[[S361]](../../sources/bibliography.md#s361)[[S90093]](../../sources/bibliography.md#s90093) | 🟩 Leads on capacity (1.5×) and bandwidth (~1.2×) |
 | Qualcomm AI200 | LPDDR per card | 768 GB; bandwidth not disclosed [[S173]](../../sources/bibliography.md#s173) | 🟦 GB per dollar over speed |
 | Qualcomm AI250 / AI300 | Near-memory compute | >10× AI200 effective bandwidth (2027); 54× (2028), vendor claims [[S173]](../../sources/bibliography.md#s173)[[S90060]](../../sources/bibliography.md#s90060) | 🟦 Unproven |
 | Cerebras WSE-3 | Wafer-scale SRAM | 44 GB at 21 PB/s [[S166]](../../sources/bibliography.md#s166) | 🟦 Extreme bandwidth, little capacity |
@@ -130,3 +130,4 @@ All three are DRAM; the difference is packaging and signalling. HBM uses thousan
 - [**S90018**](../../sources/bibliography.md#s90018) Constellation Research, *Nvidia's Groq deal: acquisition, acquihire or creative licensing deal?*, 2025-12. [Link](https://www.constellationr.com/insights/news/nvidias-groq-deal-acquisition-acquihire-or-creative-licensing-deal)
 - [**S90060**](../../sources/bibliography.md#s90060) Qualcomm, *Qualcomm Dragonfly AI300 (product page)*, 2026-06. [Link](https://www.qualcomm.com/data-center/products/qualcomm-dragonfly-ai300)
 - [**S90066**](../../sources/bibliography.md#s90066) HPCwire (NVIDIA press release), *NVIDIA enters production with Dynamo, the broadly adopted inference operating system for AI factories*, 2026-03-17. [Link](https://www.hpcwire.com/aiwire/tag/dynamo-1-0/)
+- [**S90093**](../../sources/bibliography.md#s90093) Tom's Hardware, *AMD takes the wraps off its Instinct MI455X AI accelerator: CDNA 5 and Helios rack-scale architecture*, 2026. [Link](https://www.tomshardware.com/pc-components/gpus/amd-takes-the-wraps-off-its-instinct-mi455x-ai-accelerator-cdna-5-and-helios-rack-scale-architecture-combine-to-take-the-fight-to-nvidia-in-the-data-center)

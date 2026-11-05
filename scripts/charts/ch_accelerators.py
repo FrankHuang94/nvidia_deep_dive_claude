@@ -256,8 +256,9 @@ def memory_bandwidth_by_accelerator():
     asic = d[d.vendor.isin(["Google", "AWS", "Microsoft"])].sort_values("bw_tbs").iloc[-1]
     c = Chart(
         id="15-memory-bandwidth-by-accelerator",
-        title=(f"MI455X and Rubin reach ~{rub.bw_tbs:.0f} TB/s per chip, {rub.bw_tbs/asic.bw_tbs:.1f}× the best "
-               f"custom ASIC"),
+        # QA 2026-11-05: MI455X corrected 19.6 -> 23.3 TB/s (S90093), so the two no longer "reach ~19 TB/s" together
+        title=(f"MI455X leads at {mi.bw_tbs:.1f} TB/s per chip (~{mi.bw_tbs / rub.bw_tbs:.1f}× Rubin); Rubin is "
+               f"{rub.bw_tbs/asic.bw_tbs:.1f}× the best custom ASIC"),
         subtitle="Peak memory bandwidth per accelerator, TB/s; current-generation flagship per vendor (Rubin at revised 19.2 TB/s)",
         alt=(f"Horizontal bar chart of memory bandwidth: AMD MI455X {mi.bw_tbs:.1f} TB/s (announced) and NVIDIA Rubin "
              f"{rub.bw_tbs:.1f} TB/s lead; Google Ironwood {asic.bw_tbs:.2f} TB/s is the best custom ASIC, about "

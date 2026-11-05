@@ -2283,14 +2283,14 @@ z
    </g>
    <g id="legend_1">
     <g id="line2d_61">
-     <path d="M 70.92 185.397047 
-L 79.32 185.397047 
-L 87.72 185.397047 
+     <path d="M 481.6974 97.063568 
+L 490.0974 97.063568 
+L 498.4974 97.063568 
 " style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #5f9e00; stroke-width: 2"/>
     </g>
     <g id="text_12">
      <!-- Vera Rubin NVL72 + 1.6T NIC (switched) -->
-     <g transform="translate(94.44 188.337047) scale(0.084 -0.084)">
+     <g transform="translate(505.2174 100.003568) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-35" d="M 2841 2188 
 Q 3044 2119 3236 1894 
@@ -2377,14 +2377,14 @@ z
      </g>
     </g>
     <g id="line2d_62">
-     <path d="M 70.92 197.997703 
-L 79.32 197.997703 
-L 87.72 197.997703 
+     <path d="M 481.6974 109.664224 
+L 490.0974 109.664224 
+L 498.4974 109.664224 
 " style="fill: none; stroke: #5f9e00; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_13">
      <!-- GB300 NVL72 + 800G NIC (switched) -->
-     <g transform="translate(94.44 200.937703) scale(0.084 -0.084)">
+     <g transform="translate(505.2174 112.604224) scale(0.084 -0.084)">
       <use xlink:href="#DejaVuSans-2a"/>
       <use xlink:href="#DejaVuSans-25" transform="translate(77.484375 0)"/>
       <use xlink:href="#DejaVuSans-16" transform="translate(146.09375 0)"/>
@@ -2421,14 +2421,14 @@ L 87.72 197.997703
      </g>
     </g>
     <g id="line2d_63">
-     <path d="M 70.92 210.598359 
-L 79.32 210.598359 
-L 87.72 210.598359 
+     <path d="M 481.6974 122.26488 
+L 490.0974 122.26488 
+L 498.4974 122.26488 
 " style="fill: none; stroke: #a9cc73; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_14">
      <!-- HGX B300 8-GPU + 800G NIC (switched) -->
-     <g transform="translate(94.44 213.538359) scale(0.084 -0.084)">
+     <g transform="translate(505.2174 125.20488) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-2b" d="M 628 4666 
 L 1259 4666 
@@ -2538,14 +2538,14 @@ z
      </g>
     </g>
     <g id="line2d_64">
-     <path d="M 70.92 223.199016 
-L 79.32 223.199016 
-L 87.72 223.199016 
+     <path d="M 481.6974 134.865536 
+L 490.0974 134.865536 
+L 498.4974 134.865536 
 " style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #2a78d6; stroke-width: 2"/>
     </g>
     <g id="text_15">
      <!-- TPU 8t 3D torus (2.4 TB/s ICI) -->
-     <g transform="translate(94.44 226.139016) scale(0.084 -0.084)">
+     <g transform="translate(505.2174 137.805536) scale(0.084 -0.084)">
       <defs>
        <path id="DejaVuSans-27" d="M 1259 4147 
 L 1259 519 
@@ -2619,14 +2619,14 @@ z
      </g>
     </g>
     <g id="line2d_65">
-     <path d="M 70.92 235.799672 
-L 79.32 235.799672 
-L 87.72 235.799672 
+     <path d="M 481.6974 147.466193 
+L 490.0974 147.466193 
+L 498.4974 147.466193 
 " style="fill: none; stroke: #2a78d6; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_16">
      <!-- TPU Ironwood 3D torus (1.2 TB/s ICI) -->
-     <g transform="translate(94.44 238.739672) scale(0.084 -0.084)">
+     <g transform="translate(505.2174 150.406193) scale(0.084 -0.084)">
       <use xlink:href="#DejaVuSans-37"/>
       <use xlink:href="#DejaVuSans-33" transform="translate(61.078125 0)"/>
       <use xlink:href="#DejaVuSans-38" transform="translate(121.375 0)"/>
