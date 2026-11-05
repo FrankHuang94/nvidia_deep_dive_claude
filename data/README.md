@@ -571,3 +571,28 @@ Used by `03-hbm-needed-vs-per-gpu-hbm`; `03-decode-ceiling-vs-batch-32k` uses th
 repo assumptions of each package's interposer area as a multiple of the 858 mm² reticle (NVIDIA does not publish interposer
 sizes), bounded by TSMC's CoWoS-S/-L limits in `hbm_and_packaging.csv`. `03-packages-per-cowos-wafer` counts how many
 rectangles (aspect 1.25, 0.2 mm spacing) fit inside a 300-mm wafer with 3 mm edge exclusion, before yield loss.
+
+## Layer 06 CORE — scale-out networking mechanisms (`l06_*` core files; charts in `scripts/charts/ch_l06_core.py`; sources S6000–S6031)
+
+### l06_core_inputs.csv (long)
+`record_type,item,metric,value,unit,confidence,source_id,notes` — inputs for the layer-06 CORE charts:
+- `tail_latency_model`: illustrative parameters for `06-step-time-vs-tail-latency` (exposed-communication share of a step,
+  slow-flow delay factor, slow-flow fractions, flows per collective, a $/GPU-hour value). Expected step time =
+  (1−m) + m·[1 + (k−1)·(1−(1−p)^F)] for exposed-communication share m, delay factor k, slow-flow fraction p and F flows.
+  All `estimate` (repo model).
+- `cpo_scenario`: three counting bases (repo twin-port module count with NVIDIA's 3.5× and 2026 5× claims; Jensen Huang's
+  "six 30 W transceivers per GPU" framing) as modules and watts per GPU plus the CPO power factor; the chart multiplies by
+  100,000 GPUs. NIC-side modules stay pluggable.
+- `network_cost_share`: published or derived estimates of the network's share of AI spend, each with its scope in `item`
+  (whole data center vs cluster hardware vs vendor revenue mix vs optics only).
+- `spectrum_x_claim`: NVIDIA's effective-throughput claims for Spectrum-X vs standard Ethernet (vendor claims, `reported`).
+
+### l06_allreduce_traffic.csv (generated grid)
+`algorithm,n_gpus,bytes_sent_per_gpu_x_message,formula,confidence,source_id,notes` — bytes each GPU sends per all-reduce
+as a multiple of the message size: ring 2(N−1)/N vs SHARP in-network reduction 1 (bandwidth term only; latency ignored).
+
+### l06_cluster_examples.csv (one row per disclosed cluster)
+`cluster,operator,year,gpus,gpu_type,fabric,fabric_family,gbps_per_gpu,status,confidence,source_id,notes` — large AI
+clusters with a disclosed back-end fabric. `fabric_family`: `infiniband` | `spectrum-x` | `ethernet-other` | `mixed`.
+`status`: `operating` | `reported` (expansion reported, not verified) | `announced` (target). Rows with no disclosed GPU
+count (e.g. Microsoft Fairwater) are kept for the text and skipped by the chart.

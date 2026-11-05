@@ -19,7 +19,7 @@ units:
   - {id: P4, title: "Parallelism explained", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P4-parallelism-explained.md]}
   - {id: P5, title: "Chip economics 101", type: primer, phase: 2, status: drafted, qa: pending, paths: [primers/P5-chip-economics-101.md]}
   - {id: "02", title: "GPU silicon", type: layer, phase: 3, status: drafted, qa: pending, paths: [layers/02-gpu-silicon]}
-  - {id: "03", title: "Memory, packaging and supply chain", type: layer, phase: 3, status: planned, qa: pending, paths: [layers/03-memory-packaging-supply-chain]}
+  - {id: "03", title: "Memory, packaging and supply chain", type: layer, phase: 3, status: drafted, qa: pending, paths: [layers/03-memory-packaging-supply-chain]}
   - {id: "04", title: "CPU (Grace, Vera)", type: layer, phase: 3, status: drafted, qa: pending, paths: [layers/04-cpu-grace-vera]}
   - {id: "05", title: "Scale-up (NVLink, NVSwitch)", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/05-scale-up-nvlink-nvswitch]}
   - {id: "06", title: "Scale-out and scale-across networking", type: layer, phase: 4, status: planned, qa: pending, paths: [layers/06-scale-out-scale-across-networking]}

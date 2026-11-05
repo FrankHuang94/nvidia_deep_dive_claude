@@ -1,0 +1,113 @@
+# Layer 05: two ways to build a scale-up domain - NVIDIA NVL72 (switched, one hop, copper) vs a Google TPU pod
+# (3D torus of neighbour links, closed by optical circuit switches). Original drawing from public specifications
+# (NVIDIA GB200/Vera Rubin NVL72 and NVLink pages; Google Cloud TPU docs and the TPU v4 ISCA 2023 paper); not traced from vendor art.
+
+title: "Two scale-up topologies: NVL72 switches every GPU to every other in one hop;\na TPU pod wires neighbours in a torus and re-routes cubes optically" {
+  near: top-center
+  shape: text
+  style.font-size: 24
+  style.bold: true
+}
+
+grid-columns: 2
+grid-gap: 80
+
+nvl: "A · NVIDIA NVL72 rack: switched all-to-all" {
+  style.fill: "#EEF5E3"
+  style.stroke: "#5F9E00"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 60
+
+  trays: "18 compute trays × 4 GPUs = 72 GPUs" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#5F9E00"
+    style.font-size: 16
+    grid-columns: 4
+    grid-gap: 14
+    t1: "Tray 1\n4 GPUs" {width: 100; style.fill: "#5F9E00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 14}
+    t2: "Tray 2\n4 GPUs" {width: 100; style.fill: "#5F9E00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 14}
+    t3: "…" {width: 100; style.fill: "#FFFFFF"; style.stroke: "#A9CC73"; style.font-size: 18}
+    t18: "Tray 18\n4 GPUs" {width: 100; style.fill: "#5F9E00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 14}
+  }
+
+  spine: "Copper NVLink spine (blind-mate backplane)\n~5,184 cables · no optics · ~1–2 m reach" {
+    width: 470
+    style.fill: "#FFFFFF"
+    style.stroke: "#3F6B00"
+    style.stroke-width: 3
+    style.font-size: 15
+    style.bold: true
+  }
+
+  switches: "9 NVLink switch trays" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#5F9E00"
+    style.font-size: 16
+    grid-columns: 3
+    grid-gap: 14
+    s1: "Switch tray 1\nNVSwitch chips" {width: 140; style.fill: "#A9CC73"; style.stroke: "#3F6B00"; style.font-size: 13}
+    s2: "…" {width: 140; style.fill: "#FFFFFF"; style.stroke: "#A9CC73"; style.font-size: 18}
+    s9: "Switch tray 9\nNVSwitch chips" {width: 140; style.fill: "#A9CC73"; style.stroke: "#3F6B00"; style.font-size: 13}
+  }
+
+  note: "Every GPU has a link to every switch chip (18 on GB200, 36 on Vera Rubin),\nso any GPU reaches any other through exactly one switch hop.\nUniform bandwidth: 1.8 TB/s (NVLink 5) or 3.0 TB/s (NVLink 6) per GPU.\nLimit: copper reach caps the domain at about one rack (72; 144 with Kyber)." {
+    shape: text
+    style.font-size: 14
+    style.italic: true
+  }
+}
+
+tpu: "B · Google TPU pod: 3D torus + optical switches" {
+  style.fill: "#E6F0FB"
+  style.stroke: "#2A78D6"
+  style.font-size: 20
+  grid-columns: 1
+  grid-gap: 60
+
+  cubes: "64-chip cubes (4×4×4); Ironwood: 144 cubes = 9,216" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#2A78D6"
+    style.font-size: 16
+    grid-columns: 4
+    grid-gap: 14
+    c1: "Cube 1\n64 TPUs" {width: 100; style.fill: "#2A78D6"; style.font-color: "#FFFFFF"; style.stroke: "#104281"; style.font-size: 14}
+    c2: "Cube 2\n64 TPUs" {width: 100; style.fill: "#2A78D6"; style.font-color: "#FFFFFF"; style.stroke: "#104281"; style.font-size: 14}
+    c3: "…" {width: 100; style.fill: "#FFFFFF"; style.stroke: "#86B6EF"; style.font-size: 18}
+    c144: "Cube 144\n64 TPUs" {width: 100; style.fill: "#2A78D6"; style.font-color: "#FFFFFF"; style.stroke: "#104281"; style.font-size: 14}
+  }
+
+  fiber: "Optical fibre from each cube face\n(inside a cube: short copper ICI links to 6 neighbours)" {
+    width: 470
+    style.fill: "#FFFFFF"
+    style.stroke: "#104281"
+    style.stroke-width: 3
+    style.font-size: 15
+    style.bold: true
+  }
+
+  ocs: "Optical circuit switches (MEMS mirrors)" {
+    style.fill: "#FFFFFF"
+    style.stroke: "#2A78D6"
+    style.font-size: 16
+    grid-columns: 3
+    grid-gap: 14
+    o1: "OCS\nre-points light" {width: 140; style.fill: "#86B6EF"; style.stroke: "#104281"; style.font-size: 13}
+    o2: "…" {width: 140; style.fill: "#FFFFFF"; style.stroke: "#86B6EF"; style.font-size: 18}
+    o3: "OCS\nre-points light" {width: 140; style.fill: "#86B6EF"; style.stroke: "#104281"; style.font-size: 13}
+  }
+
+  note: "Each chip talks directly only to its 6 torus neighbours (1.2 TB/s on Ironwood).\nOCSes close the torus across cubes and swap out failed cubes; they do not\nswitch packets, so a far chip is many hops away. Huge domain, cheap per chip,\nbut bandwidth to a distant chip is shared along the path." {
+    shape: text
+    style.font-size: 14
+    style.italic: true
+  }
+}
+
+nvl.trays -> nvl.spine: "18 or 36 NVLink links per GPU" {style.stroke: "#3F6B00"; style.stroke-width: 2}
+nvl.spine -> nvl.switches: "" {style.stroke: "#3F6B00"; style.stroke-width: 2}
+nvl.switches -> nvl.note: "" {style.opacity: 0}
+
+tpu.cubes -> tpu.fiber: "faces of each cube" {style.stroke: "#104281"; style.stroke-width: 2}
+tpu.fiber -> tpu.ocs: "" {style.stroke: "#104281"; style.stroke-width: 2}
+tpu.ocs -> tpu.note: "" {style.opacity: 0}

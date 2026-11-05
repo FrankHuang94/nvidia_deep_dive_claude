@@ -44,7 +44,7 @@ flowchart LR
 <details>
 <summary>🔧 Under the hood: why CoWoS-L, and why warpage matters</summary>
 
-A silicon interposer is printed like a chip, so exceeding one reticle means stitching exposures into one large, fragile slab. CoWoS-L keeps silicon only under the die edges that need dense wiring [[S380]](../../sources/bibliography.md#s380). The cost is mechanical: silicon, organic layers and substrate expand differently when heated, so a 5–10× reticle package can warp during bonding. Warpage is the main risk TSMC cites for panel packaging [[S3004]](../../sources/bibliography.md#s3004), and reports that NVIDIA reworked the four-die Rubin Ultra amid packaging constraints show the limit is real [[S509]](../../sources/bibliography.md#s509).
+Exceeding one reticle with a silicon interposer means stitching exposures into one large, fragile slab, so CoWoS-L keeps silicon only under die edges [[S380]](../../sources/bibliography.md#s380). The cost is mechanical: materials expand differently when heated, so 5–10× reticle packages warp, the main risk TSMC cites for panels [[S3004]](../../sources/bibliography.md#s3004). The reported Rubin Ultra rework shows the limit is real [[S509]](../../sources/bibliography.md#s509).
 
 </details>
 
@@ -79,7 +79,7 @@ Each GPU package uses one interposer, so **packages per wafer** falls as interpo
 🟡 Morgan Stanley (via press) splits ~1.0M 2026 wafers as NVIDIA ~595k, Broadcom ~150k, AMD ~105k, others ~150k [[S379]](../../sources/bibliography.md#s379); later reports say NVIDIA reserved ~800–850k [[S3003]](../../sources/bibliography.md#s3003), and KGI sees NVIDIA and Broadcom each gaining ~100k in 2027 [[S3001]](../../sources/bibliography.md#s3001).
 
 > [!WARNING]
-> **Myth vs. reality:** "CoWoS doubles, so GPU supply doubles." Package area grows too: from ~16 per wafer (B300-class) to ~12 (Rubin-class) and ~4–6 (four-die Rubin Ultra-class) (Est.) [[S3000]](../../sources/bibliography.md#s3000). HBM supply must also keep pace.
+> **Myth vs. reality:** "CoWoS doubles, so GPU supply doubles." Packages grow too: ~16 per wafer (B300-class) to ~12 (Rubin) and ~4–6 (four-die Rubin Ultra) (Est.) [[S3000]](../../sources/bibliography.md#s3000).
 
 ## Alternatives: EMIB, OSATs and panel-level packaging
 

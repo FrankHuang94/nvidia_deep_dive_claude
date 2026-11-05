@@ -1,0 +1,49 @@
+record_type,item,metric,value,unit,confidence,source_id,notes
+model_config,DeepSeek-V3,hidden_size,7168,values,confirmed,S5006;S34007,Width of the token activation sent to each expert.
+model_config,DeepSeek-V3,total_layers,61,layers,confirmed,S5006,
+model_config,DeepSeek-V3,moe_layers,58,layers,confirmed,S5006,61 layers minus 3 dense layers.
+model_config,DeepSeek-V3,routed_experts,256,experts,confirmed,S5006,Plus 1 shared expert per layer.
+model_config,DeepSeek-V3,activated_experts,8,experts,confirmed,S5006,Routed experts per token per MoE layer.
+model_config,DeepSeek-V3,dispatch_bytes_per_value,1,bytes,confirmed,S5004,FP8 dispatch in DeepSeek's production service.
+model_config,DeepSeek-V3,combine_bytes_per_value,2,bytes,confirmed,S5004,BF16 combine in DeepSeek's production service.
+model_config,DeepSeek-V3,mla_kv_values_per_layer_token,576,values,confirmed,S32009,Multi-head latent attention caches 512 + 64 values per layer per token.
+serving,DeepSeek production prefill,ep_degree,32,GPUs,confirmed,S5004,4 nodes of 8 H800; 9 routed experts per GPU.
+serving,DeepSeek production decode,ep_degree,144,GPUs,confirmed,S5004,18 nodes of 8 H800; 2 routed experts per GPU; 32 redundant experts.
+serving,DeepSeek production decode,output_tokens_per_s_per_node,14800,tok/s,reported,S5004,Average over 24 hours (Feb 2025).
+deepep_normal,EP8 intranode (NVLink),dispatch_bw,153,GB/s,confirmed,S5005,"H800, 4,096 tokens, FP8 dispatch; H800 NVLink max ~160 GB/s."
+deepep_normal,EP8 intranode (NVLink),combine_bw,158,GB/s,confirmed,S5005,BF16 combine.
+deepep_normal,EP16 internode (RDMA),dispatch_bw,43,GB/s,confirmed,S5005,CX7 400 Gb/s InfiniBand (~50 GB/s max).
+deepep_normal,EP16 internode (RDMA),combine_bw,43,GB/s,confirmed,S5005,
+deepep_normal,EP32 internode (RDMA),dispatch_bw,58,GB/s,confirmed,S5005,"Bottleneck bandwidth exceeds 50 GB/s because NVLink forwarding aggregates traffic before it leaves the node."
+deepep_normal,EP32 internode (RDMA),combine_bw,57,GB/s,confirmed,S5005,
+deepep_normal,EP64 internode (RDMA),dispatch_bw,51,GB/s,confirmed,S5005,
+deepep_normal,EP64 internode (RDMA),combine_bw,50,GB/s,confirmed,S5005,
+deepep_low_latency,EP8,dispatch_latency,77,us,confirmed,S5005,"128 tokens per batch, top-8, pure RDMA kernels."
+deepep_low_latency,EP8,combine_latency,114,us,confirmed,S5005,
+deepep_low_latency,EP16,dispatch_latency,118,us,confirmed,S5005,
+deepep_low_latency,EP16,combine_latency,195,us,confirmed,S5005,
+deepep_low_latency,EP32,dispatch_latency,155,us,confirmed,S5005,
+deepep_low_latency,EP32,combine_latency,273,us,confirmed,S5005,
+deepep_low_latency,EP64,dispatch_latency,173,us,confirmed,S5005,
+deepep_low_latency,EP64,combine_latency,314,us,confirmed,S5005,
+deepep_low_latency,EP128,dispatch_latency,192,us,confirmed,S5005,
+deepep_low_latency,EP128,combine_latency,369,us,confirmed,S5005,
+deepep_low_latency,EP256,dispatch_latency,194,us,confirmed,S5005,
+deepep_low_latency,EP256,combine_latency,360,us,confirmed,S5005,
+system_link,HGX H200 (8-GPU NVLink + 400G NIC),nvlink_gbs_per_dir,450,GB/s,confirmed,S205;S200,NVLink 4: 900 GB/s bidirectional.
+system_link,HGX H200 (8-GPU NVLink + 400G NIC),nic_gbs_per_dir,50,GB/s,confirmed,S266,One ConnectX-7 400 Gb/s per GPU.
+system_link,HGX H200 (8-GPU NVLink + 400G NIC),domain_gpus,8,GPUs,confirmed,S205,
+system_link,HGX B300 (8-GPU NVLink + 800G NIC),nvlink_gbs_per_dir,900,GB/s,confirmed,S200,NVLink 5: 1.8 TB/s bidirectional.
+system_link,HGX B300 (8-GPU NVLink + 800G NIC),nic_gbs_per_dir,100,GB/s,confirmed,S264,One ConnectX-8 800 Gb/s per GPU.
+system_link,HGX B300 (8-GPU NVLink + 800G NIC),domain_gpus,8,GPUs,confirmed,S200,
+system_link,GB300 NVL72,nvlink_gbs_per_dir,900,GB/s,confirmed,S200;S262,
+system_link,GB300 NVL72,nic_gbs_per_dir,100,GB/s,confirmed,S264,
+system_link,GB300 NVL72,domain_gpus,72,GPUs,confirmed,S262,
+system_link,HGX Rubin NVL8 (8-GPU NVLink + 1.6T NIC),nvlink_gbs_per_dir,1500,GB/s,confirmed,S200;S201,NVLink 6 production spec 3.0 TB/s bidirectional.
+system_link,HGX Rubin NVL8 (8-GPU NVLink + 1.6T NIC),nic_gbs_per_dir,200,GB/s,confirmed,S33004,One ConnectX-9 1.6 Tb/s per GPU.
+system_link,HGX Rubin NVL8 (8-GPU NVLink + 1.6T NIC),domain_gpus,8,GPUs,confirmed,S101,
+system_link,Vera Rubin NVL72,nvlink_gbs_per_dir,1500,GB/s,confirmed,S200;S201,
+system_link,Vera Rubin NVL72,nic_gbs_per_dir,200,GB/s,confirmed,S33004,
+system_link,Vera Rubin NVL72,domain_gpus,72,GPUs,confirmed,S102,
+scenario,repo all-to-all model,tokens_per_gpu_per_step,128,tokens,estimate,S5005,Matches DeepEP's 'typical production' decode batch per GPU.
+scenario,repo all-to-all model,ep_degree,64,GPUs,estimate,S34007,DeepSeek-V3 trained with EP64; 4 routed experts per GPU.

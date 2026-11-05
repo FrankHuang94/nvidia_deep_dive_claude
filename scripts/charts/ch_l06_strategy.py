@@ -123,7 +123,7 @@ def switch_generation_race():
              f"2026, about {gap:.0f} months later; Cisco's G300 (announced February 2026) is planned for H2 2026. "
              "NVIDIA's 115.2 Tb/s Quantum-X800 InfiniBand switch was announced in March 2024 and shipped in 2025."),
         data=[GENS], chapters=["06", "15"], source="vendor releases and TrendForce", source_ids=sources_of(df),
-        note="Hollow = announced; filled = shipping; dashed = planned",
+        note="Dashed = planned",
     )
     order = [("51.2 Tb/s Ethernet", df[df.class_tbps.eq(51.2)]), ("102.4 Tb/s Ethernet", df[df.class_tbps.eq(102.4)]),
              ("InfiniBand", df[df.fabric.eq("InfiniBand")])]
@@ -136,10 +136,13 @@ def switch_generation_race():
         for r in g.sort_values("ann").itertuples():
             col = _vcolor(r.vendor) if r.vendor != "Cisco" else "#52514E"
             planned = r.status == "announced"
+            same = pd.notna(r.ship) and r.ship == r.ann
+            if not same:
+                ax.scatter([r.ann], [y], s=95, facecolor="white", edgecolor=col, linewidth=2, zorder=4)
             if pd.notna(r.ship):
-                ax.plot([r.ann, r.ship], [y, y], color=col, lw=2.2, ls="--" if planned else "-", zorder=2)
-                ax.scatter([r.ship], [y], s=95, color="white" if planned else col, edgecolor=col, linewidth=2, zorder=3)
-            ax.scatter([r.ann], [y], s=95, facecolor="white", edgecolor=col, linewidth=2, zorder=4)
+                if not same:
+                    ax.plot([r.ann, r.ship], [y, y], color=col, lw=2.2, ls="--" if planned else "-", zorder=2)
+                ax.scatter([r.ship], [y], s=95, color="white" if planned else col, edgecolor=col, linewidth=2, zorder=5)
             end = r.ship if pd.notna(r.ship) else r.ann
             lab = r.ship_basis if pd.notna(r.ship) else "ship date not disclosed"
             ax.annotate(lab, (end, y), xytext=(8, 0), textcoords="offset points", va="center", fontsize=8.2,
@@ -150,7 +153,7 @@ def switch_generation_race():
         y += 0.35
     ax.set_yticks(yticks, ylabels, fontsize=8.8)
     ax.set_ylim(y - 0.4, -0.7)
-    ax.set_xlim(pd.Timestamp("2021-10-01"), pd.Timestamp("2028-06-30"))
+    ax.set_xlim(pd.Timestamp("2021-10-01"), pd.Timestamp("2028-03-31"))
     ax.axvline(pd.Timestamp("2026-11-05"), color=INK["base"], lw=1, ls=":")
     ax.text(pd.Timestamp("2026-11-20"), -0.45, "as of\n2026-11-05", fontsize=8, color=INK["muted"], va="top")
     ax.grid(axis="x")
@@ -160,7 +163,7 @@ def switch_generation_race():
                Line2D([], [], marker="o", ls="", color=INK["text"], markersize=8, label="first shipments"),
                Patch(color=NV, label="NVIDIA"), Patch(color=entity_color("broadcom"), label="Broadcom"),
                Patch(color=entity_color("marvell"), label="Marvell"), Patch(color="#52514E", label="Cisco")]
-    ax.legend(handles=handles, loc="lower right", fontsize=8.6, ncol=2)
+    ax.legend(handles=handles, loc="upper right", bbox_to_anchor=(1.0, 0.86), fontsize=8.6, ncol=2)
     _margins(fig, left=0.30, right=0.98)
     c.save(fig, ax, xlabel="Date", legend=False)
 
@@ -183,9 +186,8 @@ def networking_attach_per_compute():
     first = w.iloc[0]
     c = Chart(
         id="06-networking-attach-per-compute",
-        title=(f"NVIDIA now sells ~${last.attach:.2f} of networking per $1 of compute, up from ${lo.attach:.2f} at the "
-               f"Blackwell switchover"),
-        subtitle="Data Center networking revenue ÷ Data Center compute revenue, by fiscal quarter (US$ per US$); hatched = estimate",
+        title=(f"NVIDIA sells ~${last.attach:.2f} of networking per $1 of compute, up from ${lo.attach:.2f} in {lo.period}"),
+        subtitle="Data Center networking ÷ compute revenue by fiscal quarter (US$ per US$; networking incl. NVLink switches); hatched = estimate",
         alt=(f"Bar chart of NVIDIA networking revenue per dollar of compute revenue by quarter: about ${first.attach:.2f} in "
              f"{first.period} (estimate), falling to ${lo.attach:.2f} in {lo.period} as Blackwell compute ramped ahead of its "
              f"networking, then recovering to ${last.attach:.2f} in {last.period} (estimate: $17.5B networking vs $71.5B "
@@ -194,7 +196,6 @@ def networking_attach_per_compute():
         data=[FIN], chapters=["06", "13"], source="NVIDIA CFO commentary and filings; repo calculation",
         source_ids=sources_of(fin[fin.period.isin(w.period) & fin.metric.isin(["revenue_dc_networking",
                                                                              "revenue_dc_compute"])]),
-        note="Networking includes NVLink switches",
     )
     fig, ax = c.figure(width=11, height=5.8)
     x = np.arange(len(w))
@@ -252,14 +253,20 @@ def scale_out_bandwidth_per_accelerator():
             lab += f"\n({r.nics_per_accelerator:.0f}×{r.gbps_per_nic:.0f}G)"
         ax.annotate(lab, (b.get_x() + b.get_width() / 2, r.scale_out_gbps_per_accelerator), xytext=(0, 3),
                     textcoords="offset points", ha="center", fontsize=8.6, color=INK["title"])
-    ax.set_xticks(x, [f"{r.system}\n{r.nic}\n{r.year}" for r in d.itertuples()], fontsize=7.9)
+    short = {"ConnectX-7": "CX-7", "ConnectX-8 SuperNIC": "CX-8", "ConnectX-9 SuperNIC": "CX-9",
+             "ConnectX-10 SuperNIC": "CX-10", "Pensando Vulcano (UEC)": "Vulcano (UEC)"}
+    sysname = {"HGX H100": "HGX H100", "GB200 NVL72": "GB200 NVL72", "GB300 NVL72": "GB300 NVL72",
+               "Vera Rubin NVL72": "Vera Rubin", "Feynman (roadmap)": "Feynman", "Helios": "AMD Helios",
+               "Trn2 instance (16 chips)": "AWS Trn2", "P6-B200 instance (8 GPUs)": "AWS P6-B200"}
+    ax.set_xticks(x, [f"{sysname.get(r.system, r.system)}\n{short.get(r.nic, r.nic)}\n{r.year}" for r in d.itertuples()],
+                  fontsize=8.6)
     ax.set_ylim(0, 2900)
     handles = [Patch(color=NV, label="NVIDIA"), Patch(color=entity_color("amd"), label="AMD (UEC)"),
                Patch(color=entity_color("aws"), label="AWS (EFA)")]
     ax.legend(handles=handles, loc="upper left", fontsize=9)
-    _margins(fig, bottom=0.25)
+    _margins(fig, bottom=0.2)
     c.save(fig, ax, xlabel="System, NIC and year", ylabel="Gb/s per accelerator (one direction)", legend=False,
-           bottom=0.25)
+           bottom=0.2)
 
 
 # --------------------------------------------------------------------------------------
@@ -273,8 +280,8 @@ def networking_value_pool_by_vendor():
     ari = df[df.entity.eq("Arista")].iloc[0]
     c = Chart(
         id="06-networking-value-pool-by-vendor",
-        title=(f"NVIDIA's ~${nv.value_usd_b:.0f}B networking line is ~{nv.value_usd_b/inno.value_usd_b:.0f}× the largest "
-               f"optics maker and ~{nv.value_usd_b/ari.value_usd_b:.0f}× Arista's 2026 AI target"),
+        title=(f"NVIDIA's ~${nv.value_usd_b:.0f}B networking line is ~{nv.value_usd_b/inno.value_usd_b:.0f}× Innolight's "
+               f"revenue and ~{nv.value_usd_b/ari.value_usd_b:.0f}× Arista's AI target"),
         subtitle="Latest annual revenue tied to AI networking, US$ B (period in label); hatched = annualized or includes non-networking",
         alt=(f"Horizontal bar chart of AI-networking-related revenue: NVIDIA networking ${nv.value_usd_b}B in FY2026 and a "
              "~$70B annualized run-rate in Q2 FY2027 (both include NVLink switches); Broadcom AI semiconductors $20.2B in "
@@ -286,7 +293,10 @@ def networking_value_pool_by_vendor():
         note="Not like-for-like: see labels",
     )
     d = df.copy()
-    d["label"] = d.apply(lambda r: f"{r.entity}: {r.category}\n({r.period})", axis=1)
+    short = {"networking_revenue": "networking", "networking_annualized_run_rate": "networking run-rate",
+             "ai_semiconductor_revenue": "AI semiconductors", "ai_revenue_target": "AI networking target"}
+    d["label"] = d.apply(lambda r: f"{r.entity} {short.get(r.metric, 'revenue')}\n{r.period}"
+                         + ("" if r.entity in ("NVIDIA", "Broadcom", "Arista") else f" · {r.category}"), axis=1)
     d = d.iloc[::-1].reset_index(drop=True)
     fig, ax = c.figure(width=11, height=6.2)
     y = np.arange(len(d))
@@ -302,13 +312,13 @@ def networking_value_pool_by_vendor():
         elif r.metric == "ai_revenue_target":
             note = "  target (at least)"
         elif r.metric == "networking_annualized_run_rate":
-            note = "  Q2 FY2027 × 4"
+            note = "  (Q2 × 4)"
         ax.text(r.value_usd_b + 0.8, yi, f"${r.value_usd_b:,.1f}B{note}", va="center", fontsize=9, color=INK["title"])
     ax.set_yticks(y, d.label, fontsize=8.4)
-    ax.set_xlim(0, 88)
+    ax.set_xlim(0, 92)
     ax.grid(axis="x")
     ax.grid(axis="y", visible=False)
-    _margins(fig, left=0.36, right=0.97)
+    _margins(fig, left=0.34, right=0.97)
     c.save(fig, ax, xlabel="US$ B per year", legend=False)
 
 
@@ -348,7 +358,9 @@ def networking_deal_values():
         bar = ax.barh(yi, r.value_usd_m, color=col, height=0.62, alpha=0.5 if stake else 1.0)
         if r.value_basis == "reported":
             bar.patches[0].set_hatch("///")
-        txt = f"${r.value_usd_m/1000:.1f}B" if r.value_usd_m >= 1000 else f"~${r.value_usd_m:,.0f}M"
+        v = r.value_usd_m / 1000
+        txt = (f"${v:.0f}B" if r.value_usd_m % 1000 == 0 else f"${v:.1f}B" if r.value_usd_m % 100 == 0 else f"${v:.2f}B") \
+            if r.value_usd_m >= 1000 else f"~${r.value_usd_m:,.0f}M"
         if stake:
             txt += " stake"
         ax.text(r.value_usd_m * 1.12, yi, txt, va="center", fontsize=9, color=INK["title"])

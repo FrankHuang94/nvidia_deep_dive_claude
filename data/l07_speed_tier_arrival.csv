@@ -1,0 +1,10 @@
+vendor,speed_tier_gbps,product,category,year,status,confidence,source_id,notes
+NVIDIA,400,ConnectX-7,supernic,2022,shipping,confirmed,S266,Introduced with Quantum-2 (Nov 2021); one per GPU in HGX H100
+NVIDIA,800,ConnectX-8 SuperNIC,supernic,2025,shipping,confirmed,S264;S34015,Volume with GB300 NVL72
+NVIDIA,1600,ConnectX-9 SuperNIC,supernic,2026,shipping,confirmed,S33004;S501;S7535,In full production at GTC 2026
+AMD,400,Pensando Pollara 400,nic,2025,shipping,confirmed,S289;S7501,Shipping 1H 2025
+AMD,800,Pensando Vulcano 800,supernic,2026,shipping,confirmed,S7500;S538,Ships with Helios from end-Q3 2026
+Broadcom,800,Thor Ultra,nic,2025,sampling,confirmed,S7529,Sampling from 2025-10-14; volume date not disclosed
+AWS,400,Nitro v6 (per card),cloud-offload,2025,shipping,reported,S7503,Up to 400 Gb/s per Nitro network card; captive
+Xsight Labs,800,E1 DPU,dpu,2026,sampling,reported,S7517,Early operator selections
+Intel,200,IPU E2100,ipu,2022,shipping,reported,S291,Highest-speed Intel IPU in this dataset; no 400G part verified

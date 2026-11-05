@@ -1,0 +1,14 @@
+partner,role,category,announce_date,status,confidence,source_id,notes
+MediaTek,Custom-silicon design partner,Design services and IP,2025-05-19,announced,confirmed,S131;S216,Launch partner (Computex 2025).
+Marvell,Custom XPU design partner and NVLink Fusion networking,Design services and IP,2025-05-19,announced,confirmed,S131;S216;S90037,Launch partner; NVIDIA's reported $2B investment in Marvell (Mar 2026) deepened the tie.
+Alchip,Custom-silicon design partner,Design services and IP,2025-05-19,announced,confirmed,S131;S216,Launch partner (Taiwan ASIC design house).
+Astera Labs,Connectivity silicon (retimers / switches),Connectivity and optics,2025-05-19,announced,confirmed,S131;S216,Launch partner.
+Synopsys,EDA and interface IP,EDA tools,2025-05-19,announced,confirmed,S131;S216,Launch partner.
+Cadence,EDA and interface IP,EDA tools,2025-05-19,announced,confirmed,S131;S216,Launch partner.
+Qualcomm,Custom server CPU attached to NVIDIA GPUs,CPUs,2025-05-19,announced,confirmed,S131;S4516;S90031,Launch CPU partner (public information only).
+Fujitsu,MONAKA Arm CPU attached to NVIDIA GPUs,CPUs,2025-05-19,announced,confirmed,S131;S4529,Launch CPU partner; integration timing unclear (S4529).
+Intel,NVIDIA-custom x86 CPUs on NVLink,CPUs,2025-09-18,announced,confirmed,S130;S519,Part of the Sept 2025 NVIDIA-Intel deal ($5B equity); Reuters lists Intel among Fusion adopters.
+Arm,Neoverse compute-subsystem support,CPUs,2025-11-15,announced,confirmed,S90036;S219,Date approximate (November 2025).
+AWS (Trainium4),Hyperscaler accelerator using NVLink 6 and MGX racks,Accelerators,2025-12-02,announced,confirmed,S518;S519;S156,First hyperscale XPU committed to NVLink Fusion; no product date.
+Ayar Labs,Co-packaged optical I/O,Connectivity and optics,2026-06-02,announced,reported,S5022,Single low-authority report; verify.
+Lightmatter,Photonic interconnect,Connectivity and optics,2026-06-03,announced,reported,S5022,Single low-authority report; verify.

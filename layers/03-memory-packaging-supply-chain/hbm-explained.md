@@ -23,7 +23,7 @@
 Bandwidth per stack = [pin speed](../../glossary.md#pin-speed) × bus width ÷ 8.
 
 > [!TIP]
-> **Worked example — one HBM4 stack vs DDR5 channels.** A DDR5-6400 channel moves 6.4 Gb/s × 64 ÷ 8 = 51.2 GB/s [[S179]](../../sources/bibliography.md#s179). Rubin's stacks deliver 19.2 TB/s ÷ 8 = 2,400 GB/s each, implying ~9.4 Gb/s per pin on 2,048 wires; the 22 TB/s launch spec implied ~10.7 Gb/s [[S33006]](../../sources/bibliography.md#s33006)[[S33007]](../../sources/bibliography.md#s33007)[[S90006]](../../sources/bibliography.md#s90006). One Rubin stack equals ~47 DDR5 channels. **Business reading:** the wider bus, not faster pins, delivered most of HBM4's gain; NVIDIA's push for 10–11 Gb/s bins [[S90040]](../../sources/bibliography.md#s90040) ran into what suppliers ship in volume.
+> **Worked example — one HBM4 stack vs DDR5 channels.** A DDR5-6400 channel moves 6.4 Gb/s × 64 ÷ 8 = 51.2 GB/s [[S179]](../../sources/bibliography.md#s179). Each Rubin stack moves 19.2 TB/s ÷ 8 = 2,400 GB/s, or ~47 DDR5 channels, implying ~9.4 Gb/s per pin on 2,048 wires (the 22 TB/s launch spec implied ~10.7) [[S33006]](../../sources/bibliography.md#s33006)[[S33007]](../../sources/bibliography.md#s33007)[[S90006]](../../sources/bibliography.md#s90006). **Business reading:** the wider bus, not faster pins, delivered HBM4's gain; 🔴 per one analyst, NVIDIA's push for 10–11 Gb/s bins [[S90040]](../../sources/bibliography.md#s90040) ran into what suppliers ship in volume [[S90006]](../../sources/bibliography.md#s90006).
 
 ## Generations: HBM2E → HBM4E
 
@@ -39,23 +39,23 @@ Bandwidth per stack = [pin speed](../../glossary.md#pin-speed) × bus width ÷ 8
 
 ![Bar chart of maximum HBM capacity per stack: HBM 1 GB (4-high), HBM2 8 GB, HBM2E 16 GB, HBM3 24 GB, 12-high HBM3E 36 GB, 16-high HBM3E 48 GB (sampling), HBM4 as used in Rubin 36 GB and HBM4E planned for Rubin Ultra about 64 GB per stack (1 TB in 16 stacks); JEDEC's HBM3 and HBM4 standards allow up to 64 GB.](../../assets/charts/03-hbm-stack-capacity-by-generation.svg)
 
-GPU-level gains multiply three things: faster pins, wider buses and more stacks. NVIDIA went from 4 stacks (P100) to 8 (B200, Rubin), with 16 planned; AMD's MI455X uses 12 for 432 GB [[S35041]](../../sources/bibliography.md#s35041)[[S144]](../../sources/bibliography.md#s144)[[S361]](../../sources/bibliography.md#s361).
+GPU-level gains multiply pin speed, bus width and stack count: 4 stacks on P100, 8 on B200 and Rubin, 16 planned; AMD's MI455X uses 12 [[S35041]](../../sources/bibliography.md#s35041)[[S144]](../../sources/bibliography.md#s144)[[S361]](../../sources/bibliography.md#s361).
 
 ![Bar chart of HBM stacks per package: NVIDIA P100 4, V100 4, A100 5, H100 5, H200 6, B200 8, B300 8, Rubin 8 and Rubin Ultra 16 (roadmap, 1 TB); AMD MI300X 8, MI355X 8 and MI455X 12 (432 GB). NVIDIA moved from CoWoS-S silicon interposers to CoWoS-L bridges with the two-die B200; TSMC targets about 5.5x reticle interposers in 2026 and 9.5x in 2027.](../../assets/charts/03-hbm-stacks-per-package.svg)
 
 ## Why HBM costs several times DDR per GB, and why yields are hard
 
-1. **Silicon per bit.** TSVs and the wide interface take area from memory cells: ~3× DDR5's wafer area per GB, a gap Micron says is not narrowing [[S3006]](../../sources/bibliography.md#s3006). Each GB of HBM displaces ~3 GB of DDR5.
-2. **Compounding yield.** A stack is good only if every die and bond is good; [known-good-die](../../glossary.md#known-good-die) testing limits the damage at a cost.
-3. **Packaging.** Every stack must then be co-packaged on scarce CoWoS.
+1. **Silicon per bit:** ~3× DDR5's wafer area per GB, a gap Micron says is not narrowing [[S3006]](../../sources/bibliography.md#s3006).
+2. **Compounding yield:** one bad die or bond scraps the stack; [known-good-die](../../glossary.md#known-good-die) testing limits the damage at a cost.
+3. **Packaging:** every stack then needs scarce CoWoS.
 
 > [!TIP]
-> **Worked example — stack yield and the HBM bill.** 🔴 If each die-and-bond step yields 99%, a 12-high stack yields 0.99¹² ≈ 89% and a 16-high ≈ 85%; at 98%, 78% and 72%. On price, HBM3E at ~$15/GB puts a B200's 192 GB at ~$2,900, ~45% of its ~$6,400 build cost (Est., Epoch AI) [[S35020]](../../sources/bibliography.md#s35020). 🟡 At Bernstein's ~$53/GB forecast for 2027 HBM4 [[S333]](../../sources/bibliography.md#s333), Rubin's 288 GB would cost over $15,000. **Business reading:** memory makers now set the largest single cost line of a GPU.
+> **Worked example — stack yield and the HBM bill.** 🔴 At 99% yield per die-and-bond step, a 12-high stack yields ~89% and a 16-high ~85%. HBM3E at ~$15/GB puts a B200's 192 GB at ~$2,900, ~45% of its ~$6,400 build cost (Est., Epoch AI) [[S35020]](../../sources/bibliography.md#s35020); 🟡 at Bernstein's ~$53/GB 2027 HBM4 forecast [[S333]](../../sources/bibliography.md#s333), Rubin's 288 GB would top $15,000. **Business reading:** memory makers now set a GPU's largest cost line.
 
 ![Two bar panels: HBM share of unit cost rose from about 14% for the A100 to about 33% for the H100 and about 45% for the B200; across all AI accelerators memory's share of component spend rose from 52% in Q1 2024 to 63% in Q4 2025.](../../assets/charts/P5-hbm-cost-share.svg)
 
 > [!WARNING]
-> **Myth vs. reality:** "HBM gets cheaper every year." In 2025–26 rising DDR5 profitability competed with HBM3E for wafers [[S3016]](../../sources/bibliography.md#s3016), and memory's share of a Rubin rack roughly tripled from GB300 levels (Est.) [[S330]](../../sources/bibliography.md#s330)[[S332]](../../sources/bibliography.md#s332). Supply returns slowly: 🟡 Micron reportedly targets ~100k HBM wafers a month by end-2026 [[S3017]](../../sources/bibliography.md#s3017).
+> **Myth vs. reality:** "HBM gets cheaper every year." In 2025–26 DDR5 profitability competed for wafers [[S3016]](../../sources/bibliography.md#s3016) and memory's share of a Rubin rack roughly tripled (Est.) [[S330]](../../sources/bibliography.md#s330)[[S332]](../../sources/bibliography.md#s332); 🟡 Micron targets ~100k HBM wafers a month by end-2026 [[S3017]](../../sources/bibliography.md#s3017).
 
 ## HBM4's custom base die: logic moves into the memory stack
 
@@ -70,7 +70,7 @@ To drive 2,048 wires, the HBM4 base die moves from a DRAM process to a logic pro
 <summary>🔧 Under the hood: channels, bonding and the height limit</summary>
 
 - **Channels.** HBM3 splits 1,024 bits into 16 independent channels; HBM4 has 32 [[S368]](../../sources/bibliography.md#s368)[[S369]](../../sources/bibliography.md#s369). More channels keep more requests in flight, which helps scattered KV-cache reads.
-- **Bonding and height.** Stacks must fit a fixed package height so the cold plate sits flat, so taller stacks need thinner, more fragile dies. This is one reason 16-high stacks lag 12-high ones [[S375]](../../sources/bibliography.md#s375)[[S369]](../../sources/bibliography.md#s369).
+- **Height.** Stacks must fit a fixed package height, so taller stacks need thinner, more fragile dies, one reason 16-high lags 12-high [[S375]](../../sources/bibliography.md#s375)[[S369]](../../sources/bibliography.md#s369).
 
 </details>
 

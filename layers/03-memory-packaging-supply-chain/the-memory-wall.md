@@ -59,10 +59,10 @@
 The [memory wall](../../glossary.md#memory-wall) is a growth-rate gap: industry-wide, peak FLOPS grew ~3.0× every two years vs ~1.6× for DRAM bandwidth [[S33011]](../../sources/bibliography.md#s33011).
 
 > [!TIP]
-> **Worked example — H100 to Rubin, like for like.** Dense FP8 rose 8.8× (1,979 → 17,500 TFLOPS); bandwidth 5.7× (3.35 → 19.2 TB/s) [[S33002]](../../sources/bibliography.md#s33002)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007). A workload at 600 FLOPs per byte kept an H100 busy but leaves a third of Rubin's FP8 units idle. **Business reading:** ask vendors for tokens per second at a stated interactivity, not peak FLOPS.
+> **Worked example — H100 to Rubin, like for like.** Dense FP8 rose 8.8× (1,979 → 17,500 TFLOPS), bandwidth 5.7× (3.35 → 19.2 TB/s) [[S33002]](../../sources/bibliography.md#s33002)[[S33005]](../../sources/bibliography.md#s33005)[[S33007]](../../sources/bibliography.md#s33007). Work at 600 FLOPs per byte kept an H100 busy but idles a third of Rubin's FP8 units. **Business reading:** ask for tokens per second at a stated latency, not peak FLOPS.
 
 > [!WARNING]
-> **Myth vs. reality:** "Rubin's 50 PFLOPS NVFP4 makes chat ~10× faster than Blackwell." Interactive decode is capped by bandwidth, which is 2.4× B300's (19.2 vs 8 TB/s) [[S33007]](../../sources/bibliography.md#s33007)[[S32004]](../../sources/bibliography.md#s32004). Lower precision still helps, because FP4 also halves bytes per token.
+> **Myth vs. reality:** "Rubin's 50 PFLOPS NVFP4 makes chat ~10× faster." Decode is capped by bandwidth, 2.4× B300's (19.2 vs 8 TB/s) [[S33007]](../../sources/bibliography.md#s33007)[[S32004]](../../sources/bibliography.md#s32004); FP4 helps mainly by halving bytes per token.
 
 ## Capacity: the second wall
 
@@ -80,10 +80,10 @@ NVIDIA's answer is more capacity per GPU (1 TB planned for Rubin Ultra; reports 
 ![Bar chart of HBM capacity per NVIDIA GPU: P100 16 GB, V100 32, A100 and H100 80, H200 141, B200 180, GB200 186, B300 and Rubin 288 GB, and Rubin Ultra 1,024 GB as announced for 2027 (2026 reports suggest 768 GB); 18 times more from P100 to Rubin.](../../assets/charts/03-hbm-capacity-per-gpu.svg)
 
 > [!NOTE]
-> **🐂 Bull view:** NVIDIA is early onto each HBM generation and pushed suppliers to faster HBM4 bins [[S90040]](../../sources/bibliography.md#s90040). Its software turns each TB/s into more tokens than rivals manage.
+> **🐂 Bull view:** NVIDIA is early onto each HBM generation and pushed suppliers to faster HBM4 bins [[S90040]](../../sources/bibliography.md#s90040); its software turns each TB/s into more tokens.
 
 > [!WARNING]
-> **🐻 Bear view:** The binding resource is a commodity bought from three suppliers [[S90039]](../../sources/bibliography.md#s90039). MI455X already matches Rubin's bandwidth and beats its capacity [[S144]](../../sources/bibliography.md#s144), and the spec cut shows HBM4 speed is set by memory makers [[S90006]](../../sources/bibliography.md#s90006).
+> **🐻 Bear view:** The binding resource is a commodity bought from three suppliers [[S90039]](../../sources/bibliography.md#s90039). MI455X already matches Rubin's bandwidth and beats its capacity [[S144]](../../sources/bibliography.md#s144), and the spec cut, which an analyst ties to slower HBM4 pins (🔴 cause unconfirmed), shows how little NVIDIA controls memory speed [[S90006]](../../sources/bibliography.md#s90006).
 
 ## 🎯 Corp Dev Lens
 

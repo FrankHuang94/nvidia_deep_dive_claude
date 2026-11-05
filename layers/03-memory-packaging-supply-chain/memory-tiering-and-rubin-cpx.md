@@ -17,7 +17,7 @@
 **Mechanism.** Prefill reads the whole prompt at once, reusing each weight across thousands of tokens: a 2,048-token prompt runs at ~1,365 FLOPs per byte, so FLOPS bind [[S33025]](../../sources/bibliography.md#s33025). Decode then re-reads weights and [KV cache](../../glossary.md#kv-cache) for every token, so bandwidth binds (see [the memory wall](the-memory-wall.md)). **Analogy:** a big press for the first print run, a fast courier for each follow-up page.
 
 > [!TIP]
-> **Worked example — a 128k-token prompt on a 70B model.** Prefill ≈ 2 × 70B × 131,072 ≈ 1.8 × 10¹⁶ FLOPs, plus attention. At 50% of Rubin's 17.5 PFLOPS dense FP8 that is ~2.1 s; at 50% of Rubin CPX's announced 30 PFLOPS NVFP4, ~1.2 s, with no HBM [[S33005]](../../sources/bibliography.md#s33005)[[S33023]](../../sources/bibliography.md#s33023)[[S32025]](../../sources/bibliography.md#s32025). It leaves ~21.5 GB of FP8 KV cache for the decode GPU: ~7 ms over NVLink 6 at 3.0 TB/s, ~0.2 s over an 800 Gb/s link [[S33007]](../../sources/bibliography.md#s33007)[[S272]](../../sources/bibliography.md#s272). **Business reading:** disaggregation pays only if the hand-off is fast, which favours NVLink racks.
+> **Worked example — a 128k-token prompt on a 70B model.** Prefill ≈ 2 × 70B × 131,072 ≈ 1.8 × 10¹⁶ FLOPs plus attention: ~2.1 s at 50% of Rubin's 17.5 PFLOPS FP8, ~1.2 s at 50% of CPX's announced 30 PFLOPS NVFP4, with no HBM [[S33005]](../../sources/bibliography.md#s33005)[[S33023]](../../sources/bibliography.md#s33023)[[S32025]](../../sources/bibliography.md#s32025). The ~21.5 GB of FP8 KV cache it leaves moves to a decode GPU in ~7 ms over 3.0 TB/s NVLink 6 but ~0.2 s over 800 Gb/s [[S33007]](../../sources/bibliography.md#s33007)[[S272]](../../sources/bibliography.md#s272). **Business reading:** disaggregation pays only with a fast hand-off, which favours NVLink racks.
 
 ## The tiers: HBM, LPDDR, GDDR7 and NVMe
 
@@ -53,7 +53,7 @@ sequenceDiagram
 ```
 
 > [!TIP]
-> **Worked example — reload beats recompute.** 🔴 An agent returns to a 60k-token conversation on a 70B FP8 model: ~9.8 GB of KV cache [[S32006]](../../sources/bibliography.md#s32006). Reloading over Vera's 1.8 TB/s link takes ~5.5 ms [[S100]](../../sources/bibliography.md#s100); from flash over 800 Gb/s, ~0.1 s [[S272]](../../sources/bibliography.md#s272); recomputing (8.4 × 10¹⁵ FLOPs) ~1 s at 50% of Rubin's FP8 peak [[S33005]](../../sources/bibliography.md#s33005). **Business reading:** cheap tiers turn repeated context into a memory cost 10–175× smaller than recompute, raising tokens per GPU without more HBM.
+> **Worked example — reload beats recompute.** 🔴 A 60k-token agent conversation on a 70B FP8 model holds ~9.8 GB of KV cache [[S32006]](../../sources/bibliography.md#s32006). Reload takes ~5.5 ms over Vera's 1.8 TB/s link [[S100]](../../sources/bibliography.md#s100) or ~0.1 s from flash at 800 Gb/s [[S272]](../../sources/bibliography.md#s272); recompute (8.4 × 10¹⁵ FLOPs) takes ~1 s at 50% of Rubin's FP8 peak [[S33005]](../../sources/bibliography.md#s33005). **Business reading:** cheap tiers make repeated context 10–175× cheaper than recompute, raising tokens per GPU without more HBM.
 
 <details>
 <summary>🔧 Under the hood: why LPDDR5X and GDDR7 are not just slow HBM</summary>
@@ -82,13 +82,12 @@ All three are DRAM; the difference is packaging and signalling. HBM uses thousan
 | Qualcomm AI200 | LPDDR per card | 768 GB; bandwidth not disclosed [[S173]](../../sources/bibliography.md#s173) | 🟦 GB per dollar over speed |
 | Qualcomm AI250 / AI300 | Near-memory compute | >10× AI200 effective bandwidth (2027); 54× (2028), vendor claims [[S173]](../../sources/bibliography.md#s173)[[S90060]](../../sources/bibliography.md#s90060) | 🟦 Unproven |
 | Cerebras WSE-3 | Wafer-scale SRAM | 44 GB at 21 PB/s [[S166]](../../sources/bibliography.md#s166) | 🟦 Extreme bandwidth, little capacity |
-| Intel Crescent Island | LPDDR5X GPU | 160 GB [[S162]](../../sources/bibliography.md#s162) | 🟦 Different |
 
 > [!TIP]
-> **Worked example — capacity-first vs bandwidth-first for a big MoE model.** DeepSeek-V3 at FP8 for 64 users at 32k context needs ~745 GB (Est.) [[S3000]](../../sources/bibliography.md#s3000): one 768 GB AI200 card or three Rubins [[S173]](../../sources/bibliography.md#s173). But decode reads ~37 GB of active parameters per token [[S34007]](../../sources/bibliography.md#s34007). 🔴 At an assumed ~1.2 TB/s (Vera-class LPDDR5X; Qualcomm has not disclosed bandwidth), one stream tops out near ~30 tokens/s vs ~500 on Rubin's 19.2 TB/s. **Business reading:** capacity-first designs fit whole models cheaply and suit batch and background agent work more than interactive chat.
+> **Worked example — capacity-first vs bandwidth-first for a big MoE model.** DeepSeek-V3 at FP8 for 64 users at 32k needs ~745 GB (Est.) [[S3000]](../../sources/bibliography.md#s3000): one 768 GB AI200 card or three Rubins [[S173]](../../sources/bibliography.md#s173). Decode reads ~37 GB of active parameters per token [[S34007]](../../sources/bibliography.md#s34007); 🔴 at an assumed ~1.2 TB/s (Vera-class LPDDR5X; Qualcomm has not disclosed bandwidth) one stream tops out near ~30 tokens/s vs ~500 at 19.2 TB/s. **Business reading:** capacity-first suits batch and background agents more than interactive chat.
 
 > [!NOTE]
-> **🐂 Bull view:** NVIDIA has stitched every tier — HBM GPUs, Vera LPDDR5X, BlueField-4 flash, Groq SRAM — into one Dynamo-scheduled system [[S3012]](../../sources/bibliography.md#s3012)[[S520]](../../sources/bibliography.md#s520). Most rivals offer one tier.
+> **🐂 Bull view:** NVIDIA stitches every tier (HBM, Vera LPDDR5X, BlueField-4 flash, Groq SRAM) into one Dynamo-scheduled system [[S3012]](../../sources/bibliography.md#s3012)[[S520]](../../sources/bibliography.md#s520); most rivals offer one.
 
 > [!WARNING]
 > **🐻 Bear view:** Dynamo is open source [[S90066]](../../sources/bibliography.md#s90066), and smart tiering plus compact attention cut HBM needed per user, eroding the premium on HBM-heavy GPUs. The CPX zig-zag shows NVIDIA's inference roadmap is still moving [[S115]](../../sources/bibliography.md#s115)[[S117]](../../sources/bibliography.md#s117).
@@ -109,7 +108,6 @@ All three are DRAM; the difference is packaging and signalling. HBM uses thousan
 - [**S116**](../../sources/bibliography.md#s116) Wccftech, *NVIDIA's Rubin CPX Is Off the Roadmap, Replaced by Groq LPUs for Inference, But May Return With Feynman in 2028*, 2026-03. [Link](https://wccftech.com/nvidia-rubin-cpx-is-off-the-roadmap-but-may-return-with-feynman-in-2028/)
 - [**S117**](../../sources/bibliography.md#s117) TechNews (Taiwan), *Nvidia Rubin CPX re-enters roadmap with HBM4 for AI prefill*, 2026-09-02. [Link](https://technews.tw/2026/09/02/nvidia-rubin-cpx-reenters-roadmap-hbm4-ai-prefill/)
 - [**S144**](../../sources/bibliography.md#s144) AMD Newsroom, *AMD Unveils Vision for an Open AI Ecosystem, Detailing New Silicon, Software and Systems at Advancing AI 2025*, 2025-06-12. [Link](https://www.amd.com/en/newsroom/press-releases/2025-6-12-amd-unveils-vision-for-an-open-ai-ecosystem-detai.html)
-- [**S162**](../../sources/bibliography.md#s162) Intel Newsroom, *Intel to Expand AI Accelerator Portfolio with New GPU (Crescent Island)*, 2025-10-14. [Link](https://newsroom.intel.com/artificial-intelligence/intel-to-expand-ai-accelerator-portfolio-with-new-gpu)
 - [**S166**](../../sources/bibliography.md#s166) Cerebras, *Cerebras Systems Unveils World's Fastest AI Chip with 4 Trillion Transistors (WSE-3)*, 2024-03-13. [Link](https://www.cerebras.ai/press-release/cerebras-announces-third-generation-wafer-scale-engine)
 - [**S173**](../../sources/bibliography.md#s173) Qualcomm, *Qualcomm Unveils AI200 and AI250 - Redefining Rack-Scale Data Center Inference*, 2025-10-27. [Link](https://www.qualcomm.com/news/releases/2025/10/qualcomm-unveils-ai200-and-ai250-redefining-rack-scale-data-cent)
 - [**S272**](../../sources/bibliography.md#s272) NVIDIA, *NVIDIA BlueField Networking Platform / DPU product page (BlueField-4)*, 2025-10. [Link](https://www.nvidia.com/en-us/networking/products/data-processing-unit/)

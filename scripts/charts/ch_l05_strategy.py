@@ -54,8 +54,8 @@ def scale_up_competitor_heatmap():
     lead = {d: int(df[df.dimension.eq(d)].verdict_vs_nvidia.eq("leads").sum()) for d in dims}
     c = Chart(
         id="05-scale-up-competitor-heatmap",
-        title=(f"Rivals out-scale NVLink on domain size ({lead['Domain size']} of {n}) and openness "
-               f"({lead['Openness']} of {n}); only AMD beats it on per-GPU bandwidth"),
+        title=(f"{lead['Domain size']} of {n} rivals out-scale NVLink's 72-GPU domain; only AMD beats its "
+               "3.0 TB/s per GPU"),
         subtitle="Repo verdict for each scale-up rival vs NVIDIA Vera Rubin NVL72 (NVLink 6) on five dimensions; cell = verdict letter + key fact",
         alt=(f"Heatmap of six scale-up rivals against NVIDIA's Vera Rubin NVL72 on five dimensions. On domain size "
              f"{lead['Domain size']} of {n} lead (Google TPU pods 9,216-9,600 chips, Huawei 384 to 8,192, AWS 144, UALink spec "
@@ -139,8 +139,8 @@ def scale_up_domain_vs_bandwidth():
     tpu = d[d.label.eq("Ironwood pod")].iloc[0]
     c = Chart(
         id="05-scale-up-domain-vs-bandwidth",
-        title=(f"No one leads on both axes: TPU pods are {tpu.domain / vr.domain:.0f}× larger, "
-               f"but NVIDIA and AMD give each GPU {vr.bw:.1f}–3.6 TB/s"),
+        title=(f"TPU pods are {tpu.domain / vr.domain:.0f}× larger than NVL72; NVIDIA and AMD give each GPU "
+               f"{vr.bw:.1f}–3.6 TB/s"),
         subtitle="Scale-up domain size (accelerators, log scale) vs scale-up bandwidth per accelerator (TB/s, bidirectional); marker = topology",
         alt=(f"Scatter plot of scale-up domains. Switched all-to-all designs sit at 72-384 accelerators: NVIDIA GB200 NVL72 "
              f"(1.8 TB/s), Vera Rubin NVL72 ({vr.bw:.1f} TB/s), AMD Helios (3.6 TB/s), AWS Trn3 (144 chips, 2.0 TB/s), Huawei "
@@ -203,8 +203,8 @@ def open_standards_time_to_silicon():
     m6 = (nv6[nv6.milestone_type.eq("first_product")].t.max() - nv6[nv6.milestone_type.eq("announce")].t.min()).days / 30.44
     c = Chart(
         id="05-open-standards-time-to-silicon",
-        title=(f"UALink needs ~{yrs:.0f} years from founding to products; NVIDIA ships NVLink "
-               f"{m5:.0f}–{m6:.0f} months after announcing it"),
+        title=(f"UALink needs ~{yrs:.0f} years from founding to products; NVLink ships "
+               f"{m5:.0f}–{m6:.0f} months after launch"),
         subtitle="Milestones per scale-up and related interconnect track, 2022–2027; hollow markers = expected (trade-press or analyst window)",
         alt=(f"Timeline chart. NVIDIA's GB200 NVL72 went from announcement (March 2024) to first volume shipments in about "
              f"{m5:.0f} months and NVLink 6 Vera Rubin from roadmap (March 2025) to production shipments (August 2026) in about "
@@ -212,8 +212,8 @@ def open_standards_time_to_silicon():
              f"2026, with silicon expected in labs in H2 2026 and products in 2027, about {yrs:.0f} years after founding. "
              "Broadcom shipped Tomahawk Ultra in July 2025 before the SUE and ESUN specs (2025-26); NVLink Fusion's first "
              "third-party accelerator (Trainium4) is estimated for 2027; PCIe 6.0 took about three years from spec to GPU platforms."),
-        data=[STD], chapters=["05", "06"], source="consortium releases, vendor announcements and trade press (l05_standards_timeline.csv)",
-        source_ids=sources_of(df), note="Expected dates are mid-window placeholders",
+        data=[STD], chapters=["05", "06"], source="consortium and vendor releases, trade press",
+        source_ids=sources_of(df), note="Expected = mid-window placeholder",
     )
     fig, ax = c.figure(width=12, height=6.6)
     style = {
@@ -241,6 +241,13 @@ def open_standards_time_to_silicon():
             ax.scatter([r.t], [i], marker=mk, s=95, facecolor="white" if hollow else col, edgecolor=col,
                        linewidth=2, zorder=3)
         # duration label
+        asof = pd.Timestamp("2026-11-05")
+        if len(sub) == 1:
+            ax.plot([sub.t.iloc[0], asof], [i, i], color=INK["base"], lw=2, ls=(0, (1, 2)), zorder=1)
+            span = (asof - sub.t.iloc[0]).days / 30.44
+            ax.annotate(f"{span:.0f} mo, no GPU product yet", (asof, i), xytext=(9, 0), textcoords="offset points",
+                        va="center", fontsize=8.6, color=INK["text"])
+            continue
         span = (sub.t.max() - sub.t.min()).days / 30.44
         ax.annotate(f"{span:.0f} mo", (sub.t.max(), i), xytext=(9, 0), textcoords="offset points", va="center",
                     fontsize=8.6, color=NV if is_nv else INK["text"], fontweight="bold" if is_nv else "normal")
@@ -256,7 +263,7 @@ def open_standards_time_to_silicon():
                       label=v[2]) for v in style.values()]
     handles.append(Line2D([0], [0], marker="s", color="none", markerfacecolor="white", markeredgecolor=INK["title"],
                           markersize=8, label="Expected (hollow)"))
-    ax.legend(handles=handles, loc="lower left", fontsize=8.5, ncol=3, frameon=True)
+    ax.legend(handles=handles, loc="upper left", fontsize=8.5, ncol=1, frameon=True)
     _margins(fig, left=0.205, right=0.975)
     c.save(fig, ax, xlabel="Date", legend=False)
 
@@ -312,7 +319,7 @@ def scale_up_roadmap_progression():
     src = pd.DataFrame(used)
     c = Chart(
         id="05-scale-up-roadmap-progression",
-        title="Rivals caught NVLink's per-GPU bandwidth by 2026 (AMD 3.6, Google 2.4 TB/s); domain sizes diverge from 72 to 9,600",
+        title="By 2026 AMD (3.6 TB/s) out-specs NVLink 6 (3.0) per GPU; domain sizes span 72 to 9,600",
         subtitle="Left: scale-up bandwidth per accelerator (TB/s, bidirectional). Right: largest scale-up domain (accelerators, log scale). Hollow = roadmap",
         alt=("Two-panel line chart by vendor and year. Bandwidth per accelerator: NVIDIA NVLink 0.16 TB/s (2016), 0.6 (2020), "
              "0.9 (2022), 1.8 (2024), 3.0 (Vera Rubin, 2026, cut from 3.6) and a reported 3.6 for Rubin Ultra (2027); AMD 0.9 "
@@ -340,7 +347,8 @@ def scale_up_roadmap_progression():
         last = b.iloc[-1]
         dy = {"NVIDIA": -0.22, "AMD": 0.16, "Google": -0.05, "AWS": -0.12, "Huawei": 0.08}[vendor]
         a1.annotate(f"{vendor} {last.bw:.1f}", (last.year, last.bw), xytext=(6, dy * 40), textcoords="offset points",
-                    fontsize=8.8, color=col, fontweight="bold", va="center")
+                    fontsize=8.8, color=col, fontweight="bold", va="center",
+                    bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.9), zorder=6)
         # domain panel (non-NVIDIA)
         if vendor != "NVIDIA":
             dd = d.dropna(subset=["dom"])
@@ -370,8 +378,9 @@ def scale_up_roadmap_progression():
     seg = pd.concat([act.tail(1), rd])
     a2.plot(seg.year, seg.dom, color=NV, lw=2, ls="--", zorder=3)
     a2.scatter(rd.year, rd.dom, s=60, facecolor="white", edgecolor=NV, linewidth=2, zorder=5)
-    a2.annotate("NVIDIA 72 → 144 (Kyber)\n→ 1,152 (Feynman, 🔴)", (2028, 1152), xytext=(-8, 0), textcoords="offset points",
-                fontsize=8.6, color=NV, fontweight="bold", ha="right", va="center")
+    a2.annotate("NVIDIA 72 → 144 (Kyber, 2027)\n→ 1,152 (Feynman, speculative)", (2028, 1152), xytext=(2016.2, 1500),
+                textcoords="data", fontsize=8.6, color=NV, fontweight="bold", ha="left", va="center",
+                arrowprops=dict(arrowstyle="-", color=NV, lw=0.8, ls=":"))
     a1.set_xlim(2015.5, 2028.6)
     a2.set_xlim(2015.5, 2029.3)
     a1.set_ylim(0, 4.0)
@@ -412,8 +421,7 @@ def scale_up_supplier_revenue():
     nv_hist = df[df.company.eq("NVIDIA")]
     c = Chart(
         id="05-scale-up-supplier-revenue",
-        title=(f"NVIDIA's networking line books ~${nv:.1f}B a quarter, ~{nv / others:.0f}× the AI-connectivity sales "
-               "of Amphenol, Credo and Astera combined"),
+        title=(f"NVIDIA networking books ~${nv:.1f}B a quarter, ~{nv / others:.0f}× three connectivity suppliers combined"),
         subtitle="Latest reported quarterly revenue (US$ B); hatched = repo-derived estimate; scopes differ (see labels)",
         alt=(f"Horizontal bar chart of quarterly revenue: NVIDIA networking about ${nv:.1f}B in Q2 FY2027 (estimate from the "
              f"CFO's +18% q/q on $14.8B; growth in Q4 FY2026 was driven primarily by NVLink scale-up switches), Amphenol "
@@ -462,12 +470,10 @@ def scale_up_deal_values():
         return "#7A7A7A"
     df["color"] = df.buyer_or_lead.map(buyer_color)
     mell = df[df.target.eq("Mellanox")].iloc[0]
-    cel = df[df.target.eq("Celestial AI")].iloc[0]
-    alpha = df[df.target.eq("Alphawave Semi")].iloc[0]
     c = Chart(
         id="05-scale-up-deal-values",
-        title=(f"Mellanox (${mell.value_usd_m / 1000:.1f}B) is still the largest scale-up deal; 2025–26 money went to "
-               f"optics (Celestial AI ${cel.value_usd_m / 1000:.2f}B) and SerDes (Alphawave ${alpha.value_usd_m / 1000:.1f}B)"),
+        title=(f"Mellanox (${mell.value_usd_m / 1000:.1f}B) is still the top scale-up deal; 2025–26 money went to "
+               "optics and SerDes"),
         subtitle="Disclosed or reported deal value (US$ M) for interconnect-related acquisitions, stakes and rounds, 2019–2026; colour = buyer",
         alt=("Horizontal bar chart of interconnect-related deals: NVIDIA-Mellanox $6.9B (2019), NVIDIA's $5B Intel stake for NVLink "
              "x86 CPUs (2025), AMD-ZT Systems $4.9B (2024, rack design team), Marvell-Celestial AI $3.25B upfront (closed 2026), "
@@ -500,7 +506,7 @@ def scale_up_deal_values():
     ent = [("NVIDIA", NV), ("AMD", entity_color("AMD")), ("Marvell", entity_color("Marvell")),
            ("Qualcomm", entity_color("Qualcomm")), ("Investors / start-up round", "#7A7A7A")]
     h1 = [Patch(facecolor=cl, label=nm) for nm, cl in ent]
-    h2 = [Patch(facecolor="#FFFFFF", edgecolor=INK["text"], hatch=TYPE_HATCH[k], label=v) for k, v in TYPE_LABEL.items()]
+    h2 = [Patch(facecolor="#9A9A9A", edgecolor="#FFFFFF", hatch=TYPE_HATCH[k], label=v) for k, v in TYPE_LABEL.items()]
     ax.legend(handles=h1 + h2, loc="lower right", fontsize=8.4, ncol=2, frameon=True)
     _margins(fig, left=0.30, right=0.97)
     c.save(fig, ax, xlabel="Deal value (US$ M)", legend=False)

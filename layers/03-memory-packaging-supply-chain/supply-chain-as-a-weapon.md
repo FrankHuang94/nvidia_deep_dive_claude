@@ -24,7 +24,7 @@ Prepaid supply agreements were $3.1–3.5B through FY2023 [[S420]](../../sources
 <details>
 <summary>🔧 Under the hood: what is inside "commitments", and how losses appear</summary>
 
-The line covers inventory purchase obligations and long-term capacity reservations, relabelled "manufacturing, supply and capacity commitments" from Q3 FY2026 [[S412]](../../sources/bibliography.md#s412); cloud agreements are disclosed separately [[S407]](../../sources/bibliography.md#s407). If demand falls short, NVIDIA books charges, such as ~$348M for excess obligations in Q3 FY2023 [[S421]](../../sources/bibliography.md#s421) and $4.5B for H20 in Q1 FY2026 [[S414]](../../sources/bibliography.md#s414). Commitments nearly tripled from $95B in six months, a jump bears flagged [[S431]](../../sources/bibliography.md#s431), while inventory rose to $31.6B [[S407]](../../sources/bibliography.md#s407).
+The line covers inventory purchase obligations and capacity reservations ("manufacturing, supply and capacity commitments" from Q3 FY2026) [[S412]](../../sources/bibliography.md#s412). Shortfalls become charges: ~$348M in Q3 FY2023 [[S421]](../../sources/bibliography.md#s421), $4.5B for H20 in Q1 FY2026 [[S414]](../../sources/bibliography.md#s414). Commitments nearly tripled from $95B in six months, a jump bears flagged [[S431]](../../sources/bibliography.md#s431).
 
 </details>
 
@@ -75,13 +75,13 @@ flowchart LR
   class A nvidia
 ```
 
-A supplier in shortage serves the buyer that is largest, most certain, prepaid and committed to future generations. Each round makes NVIDIA's delivery dates more credible, pulling in orders and cash for the next round.
+A supplier in shortage serves the largest, most certain, prepaid buyer; each round makes NVIDIA's delivery dates more credible, pulling in the orders and cash for the next.
 
 > [!TIP]
 > **Worked example — who absorbs a 20% shortfall?** 🔴 Stylized: ~1.0M wafers of 2026 demand, NVIDIA ~595k [[S379]](../../sources/bibliography.md#s379), ~20% short [[S3003]](../../sources/bibliography.md#s3003), so ~800k available. If NVIDIA is served in full, everyone else shares ~205k against ~405k of demand: a ~51% fill rate versus NVIDIA's 100%. **Business reading:** a shortage widens share gaps, not just lead times.
 
 > [!NOTE]
-> **🐂 Bull view:** Few rivals can pledge ~$279B or prepay at that scale for first claim on HBM4 and CoWoS-L, and an annual cadence ties supplier roadmaps to NVIDIA's.
+> **🐂 Bull view:** Few rivals can pledge ~$279B or prepay at that scale, and an annual cadence ties supplier roadmaps to NVIDIA's.
 
 > [!WARNING]
 > **🐻 Bear view:** Commitments are fixed; demand is not. A capex pause, an export shock or a faster shift to ASICs would leave NVIDIA holding obligations, and memory is ~26% of a Vera Rubin rack's cost (Est.) [[S330]](../../sources/bibliography.md#s330)[[S332]](../../sources/bibliography.md#s332). CoWoS doubling by 2028 [[S3002]](../../sources/bibliography.md#s3002) will erode allocation as a weapon.

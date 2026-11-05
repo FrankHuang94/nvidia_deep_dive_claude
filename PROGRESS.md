@@ -25,9 +25,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 0 | Setup and foundation: scaffold, style guide, helpers, validators, CI | ✅ complete | `phase-0-complete` (local tag; see note) |
 | 1 | Data foundation (14 CSVs) + ≥ 60 core charts | ✅ complete — 37 CSVs, 2,830 rows, 126 charts | `phase-1-complete` (local tag) |
 | 2 | Primers P1–P5 + 01 flywheel | ✅ complete — 6 units drafted, ~24k words, 111 visuals | `phase-2-complete` (local tag) |
-| 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ⏳ in progress (02 + 04 drafting) | |
-| 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ⬜ planned | |
-| 5 | Layers 08 systems, 09 CUDA, 10 libraries | ⬜ planned | |
+| 3 | Layers 02 GPU, 03 memory/packaging/supply chain, 04 CPU | ✅ complete — 3 layers drafted, ~30k words, 163 visuals (44–52 % data charts) | `phase-3-complete` (local tag) |
+| 4 | Layers 05 scale-up, 06 scale-out/across, 07 DPU/SuperNIC | ⏳ in progress (6 agents) | |
+| 5 | Layers 08 systems, 09 CUDA, 10 libraries | ⏳ in progress (6 agents, launched early) | |
 | 6 | Layers 11 inference, 12 orchestration/cloud, 13 ecosystem/capital | ⬜ planned | |
 | 7 | Cross-cutting 14–18 (incl. TCO model) + case studies CS1–CS7 | ⬜ planned | |
 | 8 | Synthesis: 19 Qualcomm implications, 00 exec summary, README, cheat sheet | ⬜ planned | |
@@ -52,7 +52,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | P4 | Parallelism explained | 2 | drafted | 4,030 | 20 | 6 (6) | 0 | 8 | 6 | 30% | 28 | pending |
 | P5 | Chip economics 101 | 2 | drafted | 4,455 | 19 | 10 (10) | 0 | 2 | 7 | 53% | 64 | pending |
 | 02 | GPU silicon | 3 | drafted | 9,915 | 63 | 33 (33) | 1 | 11 | 18 | 52% | 191 | pending |
-| 03 | Memory, packaging and supply chain | 3 | planned | 10,273 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 174 | pending |
+| 03 | Memory, packaging and supply chain | 3 | drafted | 10,078 | 57 | 27 (27) | 1 | 10 | 19 | 47% | 173 | pending |
 | 04 | CPU (Grace, Vera) | 3 | drafted | 9,995 | 43 | 19 (19) | 1 | 10 | 13 | 44% | 149 | pending |
 | 05 | Scale-up (NVLink, NVSwitch) | 4 | planned | 191 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 06 | Scale-out and scale-across networking | 4 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,9 +76,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **57,121** | **278** | | | | | | **551** unique | |
+| **Total** | | | | **56,926** | **278** | | | | | | **551** unique | |
 
-Charts in library (`assets/charts/catalog.json`): **176**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
+Charts in library (`assets/charts/catalog.json`): **196**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
 
 ## Toolchain (verified in Phase 0)
@@ -120,9 +120,9 @@ Charts in library (`assets/charts/catalog.json`): **176**. Visual = chart/diagra
 
 ## Next steps
 
-- Phase 3: integrate layers 02 and 04 (CORE + STRATEGY agents running), then launch layer 03 (needs the
-  HBM/packaging data, now complete). Layer agents work in pairs: CORE = index + subtopic pages (S<NN>000–S<NN>499),
-  STRATEGY = competition/history/roadmap/value-chain (S<NN>500–S<NN>999). Briefs: see "Agent briefs" below.
+- Phases 4 and 5 running (layers 05–10). Then Phase 6 (layers 11–13), Phase 7 (14–18 + case studies),
+  Phase 8 (19, 00, README, cheat sheet), Phase 9 (QA). Layer agents work in pairs: CORE = index + subtopic pages
+  (S<NN>000–S<NN>499), STRATEGY = competition/history/roadmap/value-chain (S<NN>500–S<NN>999).
 - Orchestrator keeps a small set of web searches for the most volatile 2026 facts and records them in
   `docs/research/` for chapter agents.
 
@@ -140,7 +140,12 @@ Charts in library (`assets/charts/catalog.json`): **176**. Visual = chart/diagra
 | 2 | B1 primers P1+P2 | 2 pages, 33 visuals; ch_primer_p1/p2 | S31002–S32027 | done |
 | 2 | B2 primers P3+P4 | 2 pages, 36 visuals; ch_primer_p3/p4 | S33001–S34024 | done |
 | 2 | B3 P5 + 01 flywheel | 2 pages, 42 visuals; ch_primer_p5, ch_flywheel, diagrams/src/01-flywheel.d2 | S35001–S35042 | done |
-| 3 | layer 02 CORE / STRATEGY, layer 04 CORE / STRATEGY | 4 agents | S2000–S2999, S4000–S4999 | running |
+| 3 | layer 02 CORE / STRATEGY | 11 pages, 9,915 words, 63 visuals; ch_l02_core/strategy; 02-gpu-package-anatomy.d2 | S2000–S2025, S2500–S2524 | done |
+| 3 | layer 03 CORE / STRATEGY | 10 pages, 10,078 words, 57 visuals; ch_l03_core/strategy; 03-hbm-stack-cross-section.d2 | S3000–S3018, S3500–S3538 | done |
+| 3 | layer 04 CORE / STRATEGY | 9 pages, 9,995 words, 43 visuals; ch_l04_core/strategy; 04-host-attach-pcie-vs-superchip.d2 | S4000–S4033, S4500–S4547 | done |
+| 3 | orchestrator research | docs/research/2026-fact-sheet.md (verified 2026 facts) | S90001–S90066 | done |
+| 4 | layers 05, 06, 07 CORE / STRATEGY | 6 agents | S5000–S7999 | running |
+| 5 | layers 08, 09, 10 CORE / STRATEGY | 6 agents | S8000–S10999 | running |
 
 ## Agent briefs (for resuming)
 
