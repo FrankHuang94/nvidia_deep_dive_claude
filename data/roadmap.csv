@@ -121,3 +121,5 @@ layer,vendor,product,category,announced_date,window_start,window_end,status,key_
 13,AMD,Anthropic deployment (up to 2 GW MI450/Helios),customer commitment,2026-07-23,2027-Q1,2027,roadmap,first 1 GW in 2027-Q1,confirmed,S538,
 13,Google,Anthropic access to up to 1 million TPUs,customer commitment,2025-10,2026,2026,announced,up to 1 million TPUs incl. Ironwood,confirmed,S547,
 13,Qualcomm,HUMAIN 200 MW AI200/AI250 deployment,customer commitment,2025-10-27,2026,2027,announced,200 MW of AI200 and AI250 racks starting 2026,confirmed,S173;S569,
+04,Qualcomm,Dragonfly C1000 CPU,CPU,2026-06-24,2028-07,2028-12,announced,">250 Oryon cores, >5 GHz, PCIe Gen 7, CXL; Meta first customer",confirmed,S90056;S90058,Production deployments H2 2028
+02,Qualcomm,Dragonfly AI300,Accelerator,2026-06-24,2028,2028,announced,HBC Gen 2 memory; vendor-claimed 54x memory bandwidth vs AI200; UALink + ESUN scale-up,confirmed,S90060;S90056,Sampling/availability timing reported as 2028

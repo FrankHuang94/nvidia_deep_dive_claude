@@ -991,8 +991,8 @@
   },
   {
     "id": "03-commitments-vs-cowos-and-revenue",
-    "title": "Since end-2023 NVIDIA's supply commitments grew 17x, outpacing revenue (4.4x) and CoWoS capacity (~8x, Est.)",
-    "subtitle": "Index, end of calendar 2023 = 1: supply/capacity commitments and quarterly revenue (NVIDIA filings); TSMC CoWoS year-end capacity (analyst Est.)",
+    "title": "NVIDIA's supply commitments grew 17x since end-2023, vs 4.4x for revenue and ~8x for CoWoS",
+    "subtitle": "Index, end-2023 = 1: NVIDIA commitments and quarterly revenue (filings); CoWoS year-end capacity (dashed, Est.)",
     "alt": "Log-scale index chart from end-2023 = 1. NVIDIA's purchase and supply commitments rose from $16.1B (January 2024) to $279B (July 2026), 17 times; quarterly revenue rose from $22.1B to $96.2B, 4.4 times; estimated TSMC CoWoS capacity rose from about 15k to 115k wafers per month by end-2026, about 8 times. Commitments outgrew physical packaging capacity because they now include multi-year memory and capacity contracts at much higher memory prices.",
     "data": [
       "financials.csv",
@@ -1003,7 +1003,7 @@
       "13",
       "18"
     ],
-    "source": "NVIDIA 10-Q/10-K and CFO commentary; TSMC capacity as estimated by analysts",
+    "source": "NVIDIA filings; analyst CoWoS estimates",
     "source_ids": [
       "S417",
       "S425",
@@ -1111,8 +1111,8 @@
   },
   {
     "id": "03-cowos-capacity-outlook-2028",
-    "title": "Reported plans would lift CoWoS to ~260k wafers/month by end-2028, ~17x end-2023 (Est.)",
-    "subtitle": "TSMC CoWoS capacity, k wafers per month at year end: midpoint of press-reported estimates with range; 2027-28 = projections",
+    "title": "Reported plans would take CoWoS to ~260k wafers/month by 2028, ~17x end-2023",
+    "subtitle": "TSMC CoWoS capacity at year end, k wafers/month: midpoint and range of press-reported estimates (all Est.)",
     "alt": "Bar chart with ranges of estimated TSMC CoWoS capacity at year end: 2023 about 15k wafers per month (13-15k), 2024 about 35k (32-40k), 2025 about 75k (65-80k), 2026 about 120k (105-130k), 2027 projected 170-200k and 2028 projected about 260k, roughly 17 times end-2023. All figures are analyst or press estimates; TSMC does not disclose CoWoS capacity in wafers.",
     "data": [
       "l03_cowos_outlook.csv"
@@ -1121,13 +1121,14 @@
       "03",
       "18"
     ],
-    "source": "analyst and press estimates (TrendForce, JPMorgan, Economic Daily News, Commercial Times)",
+    "source": "analyst and press estimates",
     "source_ids": [
       "S379",
       "S378",
       "S90039",
-      "S3506",
-      "S3510"
+      "S3002",
+      "S3510",
+      "S3001"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -1316,7 +1317,7 @@
   },
   {
     "id": "03-hbm-share-shift-2025-2026",
-    "title": "Samsung's HBM share nearly doubled in a year (17% to 33%) after NVIDIA qualification; SK hynix fell from 62% to 50%",
+    "title": "Samsung's HBM share nearly doubled to 33% in a year; SK hynix fell from 62% to 50%",
     "subtitle": "Share of HBM revenue by supplier, % (Counterpoint Research); hatched bar = forecast for Samsung in Q4 2026",
     "alt": "Stacked 100% bar chart of HBM revenue share. Q2 2025: SK hynix 62%, Micron 21%, Samsung 17%. Q3 2025: 57/21/22. Q1 2026: SK hynix 58%, Samsung 21%, Micron 21%. Q2 2026: SK hynix 50%, Samsung 33%, Micron 18%. A hatched bar shows the forecast of about 40% for Samsung in Q4 2026 (KB Securities, echoed by Samsung).",
     "data": [
@@ -1327,7 +1328,7 @@
       "03",
       "18"
     ],
-    "source": "Counterpoint Research (via Counterpoint Korea and Edaily); KB Securities forecast",
+    "source": "Counterpoint Research; KB Securities forecast",
     "source_ids": [
       "S377",
       "S3500",
@@ -1447,7 +1448,7 @@
   },
   {
     "id": "03-memory-roadmap-by-vendor",
-    "title": "2026 flagships converge near 19-20 TB/s; Rubin Ultra's announced 1 TB of HBM4E would retake the capacity lead in 2027",
+    "title": "2026 flagships converge at ~19-20 TB/s; Rubin Ultra (1 TB HBM4E) targets the capacity lead in 2027",
     "subtitle": "Memory per accelerator package by year: capacity (GB, left) and bandwidth (TB/s, right); hollow = roadmap or estimate",
     "alt": "Two line charts of memory per accelerator, 2024-2028. Capacity: NVIDIA B200 180 GB, B300 288, Rubin 288, Rubin Ultra 1,024 GB announced for 2027 (a report says 768 GB); AMD MI325X 256, MI355X 288, MI455X 432; Google Trillium 32 and Ironwood 192; AWS Trainium2 96, Trainium3 144, Trainium4 about 288 (estimate); Huawei 910C 128, 950DT 144, 960 and 970 288. Bandwidth: Rubin 19.2 TB/s (launch target 22), MI455X 19.6, Trainium4 about 19.6 (estimate), Ironwood 7.37, Huawei 950DT 4.0 rising to 14.4 in 2028, Rubin Ultra about 32 TB/s.",
     "data": [
@@ -1458,7 +1459,7 @@
       "15",
       "17"
     ],
-    "source": "vendor announcements and roadmaps; Trainium4 = repo Est. from AWS multipliers",
+    "source": "vendor roadmaps; Trainium4 = repo Est.",
     "source_ids": [
       "S33003",
       "S101",
@@ -1517,7 +1518,7 @@
   },
   {
     "id": "03-memory-supply-verdict-heatmap",
-    "title": "Rivals match or beat NVIDIA on memory specs, but 4 of 6 trail it on CoWoS/HBM allocation",
+    "title": "AMD and Qualcomm out-pack Rubin per chip; all 4 HBM-based rivals trail NVIDIA on supply access",
     "subtitle": "Challenger's position vs NVIDIA's 2026 flagship (Rubin / Vera Rubin NVL72) on six memory-system dimensions",
     "alt": "Heatmap of six challengers against six memory-system dimensions. AMD leads on memory per accelerator (432 vs 288 GB), is at parity on per-GPU and rack bandwidth (19.6 vs 19.2 TB/s; 1,411 vs 1,400 TB/s) but is behind on CoWoS and HBM allocation (about 105k vs 595k wafers). Google TPU, AWS Trainium and Huawei are behind on per-chip memory and allocation; Qualcomm's LPDDR design leads on capacity (768 GB) and independence from CoWoS and HBM but is behind on bandwidth; SRAM start-ups lead on on-chip bandwidth and independence but trail on capacity.",
     "data": [
@@ -1527,7 +1528,7 @@
       "03",
       "15"
     ],
-    "source": "repo analysis of vendor specs and press reports (l03_memory_verdicts.csv)",
+    "source": "repo analysis (analyst judgement)",
     "source_ids": [
       "S144",
       "S100",
@@ -1702,7 +1703,7 @@
   },
   {
     "id": "03-rack-hbm-after-rubin-revision",
-    "title": "After Rubin's spec cut, AMD Helios edges Vera Rubin NVL72 on rack HBM bandwidth (1,411 vs 1,400 TB/s) and has 1.5x the capacity",
+    "title": "After the Rubin cut, Helios leads rack HBM bandwidth (1,411 vs 1,400 TB/s) and capacity (1.5x)",
     "subtitle": "HBM bandwidth (TB/s) and capacity (TB) per rack-scale system; outline = Vera Rubin launch target (CES 2026)",
     "alt": "Two horizontal bar charts of HBM per rack-scale system. Bandwidth: AMD Helios 1,411 TB/s (72 x 19.6 TB/s), Vera Rubin NVL72 1,400 TB/s after the Sep-Oct 2026 revision (launch target 1,580), Huawei CloudMatrix 384 about 1,229 TB/s across 16 racks, AWS Trn3 UltraServer 706, GB300 NVL72 576 and a Google Ironwood 64-chip cube 472 TB/s. Capacity: CloudMatrix 49.2 TB, Helios 31.1 TB, Vera Rubin, Trn3 and GB300 20.7 TB each, Ironwood cube 12.3 TB.",
     "data": [
@@ -1770,8 +1771,8 @@
   },
   {
     "id": "03-value-chain-margins",
-    "title": "Memory makers now out-earn NVIDIA on margin: Micron 86.8% gross vs NVIDIA 75.0%; rack ODMs keep ~2%",
-    "subtitle": "Latest reported margin by company in the AI-rack supply chain, %; hatched = operating margin (gross margin is higher)",
+    "title": "Memory makers now out-earn NVIDIA: Micron's gross margin 86.8% vs NVIDIA's 75.0%; ODMs ~2%",
+    "subtitle": "Latest margin by company in the AI-rack supply chain, %; hatched = operating margin (gross is higher) or estimate",
     "alt": "Horizontal bar chart of margins: Micron 86.8% GAAP gross margin (fiscal Q4 2026), SK hynix about 80% operating margin (Q3 2026), NVIDIA 75.0% gross (Q2 FY2027), Astera Labs about 72% gross (guidance), TSMC 66.4% gross (Q3 2026), Advantest 51.9% operating (FY2026 forecast), Foxconn about 6.3% gross (Q2 2025) and rack ODMs an estimated 2.7% (GB300 NVL72) and 1.9% (Vera Rubin NVL72) gross margin on the rack.",
     "data": [
       "l03_value_chain_margins.csv"
@@ -1781,7 +1782,7 @@
       "13",
       "18"
     ],
-    "source": "company results and guidance; ODM margins = Morgan Stanley Est.",
+    "source": "company results; ODM = Morgan Stanley Est.",
     "source_ids": [
       "S332",
       "S3522",
@@ -1939,9 +1940,13 @@
       "S176",
       "S144",
       "S145",
+      "S4028",
       "S179",
       "S180",
       "S181",
+      "S156",
+      "S4022",
+      "S4023",
       "S185",
       "S186"
     ],
@@ -2004,6 +2009,7 @@
       "S33022",
       "S144",
       "S145",
+      "S4028",
       "S129",
       "S128",
       "S100",
@@ -2031,11 +2037,15 @@
       "S186",
       "S180",
       "S176",
+      "S156",
+      "S4022",
+      "S4023",
       "S175",
       "S181",
       "S33022",
       "S144",
       "S145",
+      "S4028",
       "S179",
       "S129",
       "S128",
@@ -5089,9 +5099,9 @@
   },
   {
     "id": "17-roadmap-by-layer-small-multiples",
-    "title": "NVIDIA has 2027–28 items in all 6 hardware layers; 70% of rivals' are chips or racks",
+    "title": "NVIDIA has 2027–28 items in all 6 hardware layers; 68% of rivals' are chips or racks",
     "subtitle": "Roadmap items by layer group and vendor, plotted at the start of the availability window, 2024–2028",
-    "alt": "Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) show NVIDIA with 15 items dated 2027 or later spread across all 6 hardware layers, while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies have 20 such items, 70% of them accelerators or racks. Software and cloud items are mostly near-term (dated 2025–2026).",
+    "alt": "Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) show NVIDIA with 15 items dated 2027 or later spread across all 6 hardware layers, while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies have 22 such items, 68% of them accelerators or racks. Software and cloud items are mostly near-term (dated 2025–2026).",
     "data": [
       "roadmap.csv"
     ],
@@ -5212,7 +5222,10 @@
       "S520",
       "S521",
       "S581",
-      "S598"
+      "S598",
+      "S90056",
+      "S90058",
+      "S90060"
     ],
     "kind": "data",
     "asof": "2026-11-05",

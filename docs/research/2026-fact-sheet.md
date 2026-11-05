@@ -45,6 +45,7 @@ is stated — keep it visible in the text rather than picking silently.
 | **AWS:** Trn3 UltraServers GA (re:Invent, Dec 2025; 3 nm); **Trainium4** designed to support NVLink Fusion; AWS claims 6× FP4, 3× FP8, 4× memory bandwidth vs Trn3; Project Rainier ~500k Trainium2 for Anthropic (Oct 2025) | 🟢 | S90034, S90035 |
 | **Microsoft:** Maia 200 announced 2026-01-27, deployed in US/Europe/Australia and running Copilot; **Maia 300** production deployments 2027; multi-gigawatt Maia expansion from 2027 (Oct 2026 reports) | 🟢/🟡 | S90044, S90045, S90046 |
 | **Huawei:** Ascend 950PR (Q1 2026; mass production reportedly Apr 2026), 950DT (Q4 2026); Atlas 950 SuperPoD 8,192 chips, 8 EF FP8 / 16 EF FP4 (Q4 2026); Ascend 960 (2027), 970 (2028) — shipments of the SuperPoD not yet confirmed | 🟢 (roadmap) / 🔴 (shipments) | S90042, S90043 |
+| **Qualcomm Investor Day (2026-06-24), public information only:** **Dragonfly C1000** server CPU (custom Oryon, > 250 cores, chiplets, > 5 GHz target, PCIe Gen 7, CXL) for agentic orchestration / AI head nodes — **Meta** first named customer (multi-generation agreement), production deployments from **H2 2028**; **Dragonfly AI300** inference accelerator with High Bandwidth Compute (HBC) Gen 2, vendor-claimed 54× memory bandwidth vs AI200, UALink and ESUN scale-up, 2028 timing; agreement to **acquire Modular (Mojo/MAX AI software) for $3.9B**, expected to close H2 2026; target of **$15B data-center revenue by FY2029** | 🟢 (announced) / 🟡 (Modular price, timing details) | S90056, S90057, S90058, S90059, S90060 |
 | **Qualcomm (public information only):** AI200 (2026) and AI250 (2027) rack-scale inference systems, 768 GB LPDDR per card, direct liquid cooling, annual cadence; HUMAIN plans 200 MW from 2026; NVLink Fusion partner for its server CPUs (May 2025). No 2026 shipment confirmation found as of 2026-11-05 | 🟢 (announcements) / 🔴 (status) | S90028, S90029, S90030, S90031 |
 
 ## Memory and packaging
@@ -53,3 +54,13 @@ is stated — keep it visible in the text rather than picking silently.
 |---|---|---|
 | Samsung and SK hynix on NVIDIA's Rubin HBM4 supplier list (Mar 2026); SK hynix expected to supply > 50 % of NVIDIA's total 2026 HBM; NVIDIA pushed HBM4 pin speeds above 10–11 Gb/s | 🟡 | S90039, S90040, S90041 |
 | TSMC CoWoS capacity estimates: ~65–80k wafers/month end-2025; ~105k (JPMorgan) to ~110–130k end-2026; NVIDIA reported at ~60 % of allocation; 2026 capacity fully booked | 🟡 (estimates vary widely) | S90039 + data/hbm_and_packaging.csv |
+
+## Networking and interconnect standards
+
+| Fact | Tag | Sources |
+|---|---|---|
+| Co-packaged optics: **Quantum-X Photonics** (InfiniBand, 144 × 800G) slated for H2 2025 and **Spectrum-X Photonics** (Ethernet, up to 400 Tb/s across 2,048 ports in its largest configuration) for H2 2026; built on TSMC COUPE micro-ring modulators with partners TSMC, Coherent, Corning, Foxconn, Lumentum, SENKO. 2026 customer shipments not confirmed in sources found | 🟢 (announced) / 🔴 (shipments) | S90048, S90049 |
+| **UALink 2.0** ratified 2026-04-07 (in-network compute, chiplet definition, manageability, 200G DL/PL); UALink 1.0 silicon reaching labs H2 2026, products expected 2027 | 🟢 / 🟡 | S90050, S90051 |
+| **ESUN** (Ethernet for Scale-Up Networking) launched as an OCP workstream at OCP Global Summit 2025; Broadcom's **SUE** v1.0 contributed to OCP (2025-09-05); coordination with IEEE 802.3 and UEC | 🟢 | S90052 |
+| **AI back-end networks:** InfiniBand was ~80 % of AI back-end DC switch sales two years before 2025; Ethernet more than doubled InfiniBand in 2025 and was ~two-thirds of AI back-end switch sales in 1Q 2026 (Dell'Oro); vendor ranking 1Q26: Celestica, NVIDIA, Arista (Arista close once deferred revenue counted); Ethernet expanding into scale-up | 🟡 (analyst) | S90053, S90054, S90055 |
+| NVIDIA networking: Q1 FY2027 $14.8B record; Q2 FY2027 +18 % q/q; Spectrum-X Ethernet 2.6× y/y (Q2 FY2027) | 🟢/🟡 | S90012, S90014 |

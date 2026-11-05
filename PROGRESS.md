@@ -51,9 +51,9 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | P3 | The four bottlenecks | 2 | drafted | 4,248 | 16 | 9 (9) | 0 | 3 | 4 | 56% | 38 | pending |
 | P4 | Parallelism explained | 2 | drafted | 4,030 | 20 | 6 (6) | 0 | 8 | 6 | 30% | 28 | pending |
 | P5 | Chip economics 101 | 2 | drafted | 4,455 | 19 | 10 (10) | 0 | 2 | 7 | 53% | 64 | pending |
-| 02 | GPU silicon | 3 | planned | 181 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 02 | GPU silicon | 3 | drafted | 9,915 | 63 | 33 (33) | 1 | 11 | 18 | 52% | 191 | pending |
 | 03 | Memory, packaging and supply chain | 3 | planned | 211 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 04 | CPU (Grace, Vera) | 3 | planned | 4,532 | 22 | 10 (10) | 0 | 5 | 7 | 45% | 92 | pending |
+| 04 | CPU (Grace, Vera) | 3 | drafted | 9,995 | 43 | 19 (19) | 1 | 10 | 13 | 44% | 149 | pending |
 | 05 | Scale-up (NVLink, NVSwitch) | 4 | planned | 191 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 06 | Scale-out and scale-across networking | 4 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 07 | DPU, SuperNIC, storage, security | 4 | planned | 201 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
@@ -76,7 +76,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | planned | 37 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | planned | 38 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| **Total** | | | | **31,862** | **137** | | | | | | **314** unique | |
+| **Total** | | | | **47,059** | **221** | | | | | | **468** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **164**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->

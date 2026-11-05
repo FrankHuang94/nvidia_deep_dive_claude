@@ -388,3 +388,59 @@ def l04_dgx2_data_loading_bottleneck():
     ax.set_xticks(range(3), labs)
     ax.set_ylim(0, ceil * 1.25)
     c.save(fig, ax, ylabel="Training throughput (images/s)", legend=False)
+
+
+# --------------------------------------------------------------------------------------
+# 7. Grace -> Vera generational gains (Q3)
+# --------------------------------------------------------------------------------------
+@register
+def l04_grace_to_vera_gains():
+    cpu = load("cpu_specs.csv").set_index("product")
+    g, v = cpu.loc["Grace"], cpu.loc["Vera"]
+    att = _attach().set_index("system")
+    tg = att.loc["GH200 Grace Hopper", "threads_per_core"]
+    tv = att.loc["Vera Rubin NVL72", "threads_per_core"]
+    rows = [
+        ("Cores", g.cores, v.cores, "{:.0f}"),
+        ("Hardware threads", g.cores * tg, v.cores * tv, "{:.0f}"),
+        ("Memory bandwidth (GB/s)", g.memory_bw_gbs, v.memory_bw_gbs, "{:,.0f}"),
+        ("Bandwidth per core (GB/s)", g.memory_bw_gbs / g.cores, v.memory_bw_gbs / v.cores, "{:.1f}"),
+        ("Max memory (GB)", g.max_memory_gb, v.max_memory_gb, "{:,.0f}"),
+        ("NVLink-C2C to GPUs (GB/s)", g.cpu_gpu_bw_gbs_bidir, v.cpu_gpu_bw_gbs_bidir, "{:,.0f}"),
+    ]
+    d = pd.DataFrame(rows, columns=["metric", "grace", "vera", "fmt"])
+    d["x"] = d.vera / d.grace
+    d = d.sort_values("x").reset_index(drop=True)
+    src = sources_of(pd.concat([cpu.loc[["Grace", "Vera"]].reset_index()[["source_id"]],
+                                att.loc[["GH200 Grace Hopper", "Vera Rubin NVL72"]].reset_index()[["source_id"]]]))
+    xs = dict(zip(d.metric, d.x))
+    c = Chart(
+        id="04-grace-to-vera-generational-gains",
+        title=(f"Vera vs Grace: {xs['Max memory (GB)']:.1f}× memory, {xs['Memory bandwidth (GB/s)']:.1f}× bandwidth, "
+               f"2× C2C, only {xs['Cores']:.2f}× cores"),
+        subtitle="Vera (2026) ÷ Grace (2023) per CPU socket, × (1.0 = no change); labels show Grace → Vera values; Vera hatched (shipping H2 2026)",
+        alt=(f"Horizontal bar chart of Vera-to-Grace ratios per CPU: cores 72 to 88 ({xs['Cores']:.2f} times), hardware threads "
+             f"72 to 176 ({xs['Hardware threads']:.1f} times, via Spatial Multithreading), memory bandwidth 512 to 1,200 GB/s "
+             f"({xs['Memory bandwidth (GB/s)']:.1f} times), bandwidth per core 7.1 to 13.6 GB/s "
+             f"({xs['Bandwidth per core (GB/s)']:.1f} times), memory capacity 480 to 1,536 GB "
+             f"({xs['Max memory (GB)']:.1f} times) and NVLink-C2C 900 to 1,800 GB/s (2 times): NVIDIA spent its new "
+             f"transistors on feeding data rather than on core count."),
+        data=["cpu_specs.csv", ATTACH], chapters=["04", "17"], source="NVIDIA Grace and Vera specifications", source_ids=src,
+    )
+    fig, ax = c.figure(width=10, height=5.0)
+    y = np.arange(len(d))
+    bars = ax.barh(y, d.x, color=NV, height=0.6)
+    for b in bars.patches:
+        b.set_hatch("///")
+    ax.axvline(1, color=INK["text"], lw=1.2, ls="--")
+    ax.text(1.02, len(d) - 0.45, "Grace = 1.0", fontsize=8.6, color=INK["text"], va="bottom")
+    for yi, r in d.iterrows():
+        lab = f"{r.x:.2f}×   ({r.fmt.format(r.grace)} → {r.fmt.format(r.vera)})"
+        ax.text(r.x + 0.05, yi, lab, va="center", fontsize=9, color=INK["title"])
+    ax.set_yticks(y, d.metric)
+    ax.set_xlim(0, 4.4)
+    ax.set_ylim(-0.6, len(d) - 0.1)
+    ax.grid(axis="x")
+    ax.grid(axis="y", visible=False)
+    _left_margin(fig, 0.25)
+    c.save(fig, ax, xlabel="Vera ÷ Grace (×)", legend=False)

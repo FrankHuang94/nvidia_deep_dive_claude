@@ -246,7 +246,7 @@ ROADMAP_POINTS = [
 LABEL_OFF = {"Trn2": (0, -11), "Gaudi 3": (0, -11), "Ascend 950": (0, -11), "960": (0, -11),
              "Ironwood": (-8, -4), "MI355X": (8, -9), "GB300": (0, 10), "Rubin": (9, -6), "MI455X": (-9, 4),
              "MI300X": (0, 10), "H100": (0, 10), "B200": (0, 10)}
-TRN4_FP8_MULT = 3.0  # AWS/press: Trainium4 >= 3x Trainium3 FP8 (S557); repo estimate
+TRN4_FP8_MULT = 3.0  # AWS claim: Trainium4 3x Trainium3 FP8 (S90034, S557); repo applies it to the Trn3 figure
 
 
 @register
@@ -281,7 +281,7 @@ def fp8_roadmap_by_vendor():
              f"{asc:.0f}, 960 2 and 970 4 PFLOPS by 2028."),
         data=["gpu_product_specs.csv", "competitor_accelerators.csv"], chapters=["02", "15", "17"],
         source="vendor specs and roadmaps; repo Est. for Rubin Ultra, Trn4",
-        source_ids=_ids(gsub[gsub["product"].isin(used_g)], ksub[ksub["product"].isin(used_k)]) + ["S557"],
+        source_ids=_ids(gsub[gsub["product"].isin(used_g)], ksub[ksub["product"].isin(used_k)]) + ["S90034"],
     )
     fig, ax = c.figure(width=10.5, height=6.2)
     order = ["Huawei", "Intel", "AWS", "Google", "Microsoft", "AMD", "NVIDIA"]
@@ -342,7 +342,7 @@ def rubin_spec_revision():
         alt=(f"Four-panel bar chart. HBM bandwidth per GPU: Rubin launch {hb_l:.0f} TB/s, revised {hb_r:.1f}, MI455X 19.6. "
              f"Scale-up bandwidth: Rubin launch {nl_l:.1f} TB/s, revised {nl_r:.1f}, MI455X 3.6. HBM capacity: Rubin 288 GB "
              "unchanged, MI455X 432 GB. Dense FP8: Rubin 17.5 PFLOPS unchanged, MI455X 20 PFLOPS (AMD did not state dense "
-             "or sparse). NVIDIA says the revised figures reflect quality volume production."),
+             "or sparse). Press reports quote NVIDIA tying the new figures to volume production; the cause is unresolved."),
         data=["l02_rubin_spec_revisions.csv"], chapters=["02", "03", "05", "17"],
         source="NVIDIA product pages and statements; AMD; press coverage of the revision",
         source_ids=sources_of(d),

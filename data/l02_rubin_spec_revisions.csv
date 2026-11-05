@@ -4,7 +4,7 @@ NVIDIA Rubin,hbm_bandwidth_per_gpu,revised,19.2,TB/s,2026-10,confirmed,S33005;S1
 NVIDIA Rubin,scale_up_bandwidth_per_gpu,launch,3.6,TB/s,2026-01-05,confirmed,S33004,"NVLink 6 at launch"
 NVIDIA Rubin,scale_up_bandwidth_per_gpu,revised,3.0,TB/s,2026-10,confirmed,S103;S104,"NVLink 6 on revised product pages"
 NVIDIA Rubin,hbm_capacity_per_gpu,launch,288,GB,2026-01-05,confirmed,S100,"8 HBM4 stacks"
-NVIDIA Rubin,hbm_capacity_per_gpu,revised,288,GB,2026-10,confirmed,S2522,"Unchanged"
+NVIDIA Rubin,hbm_capacity_per_gpu,revised,288,GB,2026-10,confirmed,S90006,"Unchanged"
 NVIDIA Rubin,fp8_dense_per_gpu,launch,17.5,PFLOPS,2026-01-05,confirmed,S33005;S101,"Dense FP8/FP6 training"
 NVIDIA Rubin,fp8_dense_per_gpu,revised,17.5,PFLOPS,2026-10,confirmed,S33005,"Unchanged"
 NVIDIA Vera Rubin NVL72,rack_hbm_bandwidth,launch,1580,TB/s,2026-01-05,confirmed,S102,"Rack aggregate"

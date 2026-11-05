@@ -66,7 +66,7 @@ L 307.249231 191.269403
 L 307.249231 164.38161 
 L 259.2 164.38161 
 z
-" clip-path="url(#p92a64d6141)" style="fill: url(#h8d298ab25b); opacity: 0.75"/>
+" clip-path="url(#p92a64d6141)" style="fill: #c4314b"/>
    </g>
    <g id="patch_7">
     <path d="M 259.2 146.456416 
@@ -3496,49 +3496,5 @@ z
   <clipPath id="p92a64d6141">
    <rect x="259.2" y="62.208" width="439.2" height="276.048"/>
   </clipPath>
- </defs>
- <defs>
-  <pattern id="h8d298ab25b" patternUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
-   <rect x="0" y="0" width="73" height="73" fill="#c4314b"/>
-   <path d="M -36 36 
-L 36 -36 
-M -32 40 
-L 40 -32 
-M -28 44 
-L 44 -28 
-M -24 48 
-L 48 -24 
-M -20 52 
-L 52 -20 
-M -16 56 
-L 56 -16 
-M -12 60 
-L 60 -12 
-M -8 64 
-L 64 -8 
-M -4 68 
-L 68 -4 
-M 0 72 
-L 72 0 
-M 4 76 
-L 76 4 
-M 8 80 
-L 80 8 
-M 12 84 
-L 84 12 
-M 16 88 
-L 88 16 
-M 20 92 
-L 92 20 
-M 24 96 
-L 96 24 
-M 28 100 
-L 100 28 
-M 32 104 
-L 104 32 
-M 36 108 
-L 108 36 
-" style="fill: #ffffff; stroke: #ffffff; stroke-width: 1.0; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 0.75"/>
-  </pattern>
  </defs>
 </svg>

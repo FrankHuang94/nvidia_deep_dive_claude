@@ -1,0 +1,106 @@
+# Layer 02: anatomy of a two-die NVIDIA GPU package (Blackwell / Rubin class).
+# Original schematic drawn from public specifications (NVIDIA Blackwell and Rubin disclosures, TSMC CoWoS
+# overview); not to scale and not traced from any vendor image.
+direction: down
+
+title: "Anatomy of a two-die GPU package (schematic)" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+topview: "① TOP VIEW - what sits on the package" {
+  style.fill: "#F7F7F4"
+  style.stroke: "#52514E"
+  style.font-size: 20
+  grid-rows: 3
+  grid-gap: 18
+
+  hbm_top: "" {
+    style.opacity: 0
+    grid-columns: 4
+    grid-gap: 14
+    h1: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+    h2: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+    h3: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+    h4: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+  }
+
+  dies: "" {
+    style.opacity: 0
+    grid-columns: 3
+    grid-gap: 0
+    die_a: "Compute die A\n~800 mm² (Est.) of a 858 mm² reticle\nhalf the SMs, L2 and HBM controllers\nB200: 74 SMs enabled · Rubin: ~112" {
+      width: 330
+      height: 170
+      style.fill: "#5F9E00"
+      style.font-color: "#FFFFFF"
+      style.stroke: "#3F6B00"
+      style.font-size: 15
+    }
+    hbi: "NV-HBI\n10 TB/s\ndie-to-die" {
+      width: 110
+      height: 170
+      style.fill: "#3F6B00"
+      style.font-color: "#FFFFFF"
+      style.stroke: "#3F6B00"
+      style.font-size: 15
+      style.bold: true
+    }
+    die_b: "Compute die B\n~800 mm² (Est.)\nsoftware sees ONE GPU:\none address space, one CUDA device" {
+      width: 330
+      height: 170
+      style.fill: "#5F9E00"
+      style.font-color: "#FFFFFF"
+      style.stroke: "#3F6B00"
+      style.font-size: 15
+    }
+  }
+
+  hbm_bot: "" {
+    style.opacity: 0
+    grid-columns: 4
+    grid-gap: 14
+    h5: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+    h6: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+    h7: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+    h8: "HBM stack\n24-36 GB" {width: 170; height: 70; style.fill: "#E3EEF9"; style.stroke: "#256ABF"}
+  }
+}
+
+notes: "Key numbers (per GPU package)" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#C3C2B7"
+  style.font-size: 18
+  grid-columns: 1
+  grid-gap: 8
+  n1: "8 HBM stacks · B200: 192 GB HBM3E at 8 TB/s (~1 TB/s per stack)\nRubin: 288 GB HBM4 at 19.2 TB/s (~2.4 TB/s per stack, 2,048-bit bus)" {width: 900; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 15}
+  n2: "Transistors: B200 208B · Rubin 336B, both on two dies\nRubin Ultra (2027 roadmap): four compute dies, 16 HBM4E stacks, ~1 TB (two-die version reported)" {width: 900; style.fill: "#EEF5E3"; style.stroke: "#5F9E00"; style.font-size: 15}
+  n3: "Off-package links: NVLink SerDes (NVLink 5: 1.8 TB/s · NVLink 6: 3.0 TB/s per GPU)\nand NVLink-C2C to the Grace / Vera CPU" {width: 900; style.fill: "#F1EEFB"; style.stroke: "#6250D6"; style.font-size: 15}
+}
+
+xsection: "② CROSS-SECTION - how the pieces are stacked (bottom to top = board to chips)" {
+  style.fill: "#F7F7F4"
+  style.stroke: "#52514E"
+  style.font-size: 20
+  grid-rows: 6
+  grid-gap: 6
+
+  chips: "" {
+    style.opacity: 0
+    grid-columns: 3
+    grid-gap: 10
+    hbm: "HBM stack: 8-16 DRAM dies + base logic die\njoined by through-silicon vias (TSVs)" {width: 330; height: 90; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 14}
+    gpu: "Compute die (TSMC 4NP / 3 nm-class)\nflipped, transistors facing down" {width: 330; height: 90; style.fill: "#5F9E00"; style.font-color: "#FFFFFF"; style.stroke: "#3F6B00"; style.font-size: 14}
+    hbm2: "HBM stack\n1,024-2,048 data wires each" {width: 260; height: 90; style.fill: "#E3EEF9"; style.stroke: "#256ABF"; style.font-size: 14}
+  }
+  ubump: "Micro-bumps: tens of thousands of tiny solder joints" {width: 920; height: 40; style.fill: "#FBE6A2"; style.stroke: "#C98500"; style.font-size: 14}
+  interposer: "CoWoS-L interposer: redistribution layers + embedded local silicon bridges (LSI) carry die-to-HBM and NV-HBI wires\n(B200 moved from CoWoS-S's single silicon interposer to CoWoS-L to span more than two reticles of silicon)" {width: 920; height: 70; style.fill: "#FBF1E1"; style.stroke: "#C98500"; style.font-size: 14}
+  c4: "C4 bumps (larger solder balls)" {width: 920; height: 36; style.fill: "#FBE6A2"; style.stroke: "#C98500"; style.font-size: 14}
+  substrate: "Organic package substrate (ABF build-up layers): fans power and I/O out to coarse pins" {width: 920; height: 50; style.fill: "#E8E7E2"; style.stroke: "#898781"; style.font-size: 14}
+  board: "Board: HGX baseboard or Grace/Vera Superchip board; cold plate sits on top of the dies" {width: 920; height: 46; style.fill: "#D9D8D2"; style.stroke: "#52514E"; style.font-size: 14}
+}
+
+topview -> notes: "" {style.stroke: "#C3C2B7"; style.stroke-dash: 3}
+notes -> xsection: "" {style.stroke: "#C3C2B7"; style.stroke-dash: 3}

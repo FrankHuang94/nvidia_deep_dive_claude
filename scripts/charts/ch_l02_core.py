@@ -71,8 +71,7 @@ def flops_per_clock_cpu_gpu_asic():
     mxu = df.loc[df.unit.str.startswith("Google Ironwood MXU")].flops_per_clock.item()
     c = Chart(
         id="02-flops-per-clock-cpu-gpu-asic",
-        title=(f"Per clock, one H100 does ~{h100/1000:,.0f}K 16-bit FLOPs: ~{h100/xeon:.0f}× a 128-core AMX Xeon "
-               f"and ~{h100/core:,.0f}× a plain CPU core"),
+        title=f"One H100 does ~{h100/1000:,.0f}K 16-bit FLOPs per clock, ~{h100/xeon:.0f}× a 128-core AMX Xeon",
         subtitle="Peak dense matrix FLOPs per clock cycle (BF16/FP16) by compute unit and by whole chip; vendor figures and repo arithmetic",
         alt=(f"Log-scale horizontal bar chart of peak 16-bit matrix FLOPs per clock. One CPU core without AMX does {core:.0f}, "
              f"with AMX 1,024; an NVIDIA V100 SM 1,024, A100 SM 2,048 and H100 SM {sm:,.0f}; a Google TPU v4 128x128 "
@@ -80,8 +79,7 @@ def flops_per_clock_cpu_gpu_asic():
              f"about {xeon:,.0f}, a TPU v4 chip 262,144 and an H100 {h100:,.0f}, about {h100/xeon:.0f} times the Xeon. "
              f"GPUs win by replicating many mid-sized matrix engines, ASICs by building a few very large ones."),
         data=[UNITS], chapters=CH + ["15"],
-        source="NVIDIA whitepapers, Intel, Google TPU papers; repo arithmetic", source_ids=sources_of(df),
-        note="Hatched = repo Est.",
+        source="NVIDIA, Intel, Google papers", source_ids=sources_of(df), note="Hatched = Est.",
     )
     fig, ax = c.figure(width=10.5, height=6.4)
     df = df.copy()
@@ -96,7 +94,7 @@ def flops_per_clock_cpu_gpu_asic():
         y += 1
         prev = g
     colors = {"CPU": entity_color("Intel"), "GPU": NV, "ASIC": entity_color("Google")}
-    bars = ax.barh(ys, df.flops_per_clock, color=[colors[k] for k in df.category], height=0.7, zorder=2)
+    bars = ax.barh(ys, df.flops_per_clock, color=[colors[k] for k in df.category], height=0.46, zorder=2)
     for b, conf in zip(bars, df.confidence):
         if conf == "estimate":
             b.set_hatch("///")
@@ -104,7 +102,10 @@ def flops_per_clock_cpu_gpu_asic():
     for yy, v in zip(ys, df.flops_per_clock):
         ax.annotate(f"{v:,.0f}", (v, yy), xytext=(4, 0), textcoords="offset points", va="center", fontsize=8.8,
                     color=INK["title"])
-    ax.set_yticks(ys, df.unit, fontsize=8.8)
+    for yy, name in zip(ys, df.unit):
+        ax.text(34, yy + 0.27, name, ha="left", va="bottom", fontsize=8.6, color=INK["title"])
+    ax.set_yticks([])
+    ax.set_ylim(-0.6, ys[-1] + 0.9)
     ax.set_xscale("log")
     ax.set_xlim(30, 6e6)
     _plain_log(ax.xaxis)
@@ -112,9 +113,9 @@ def flops_per_clock_cpu_gpu_asic():
     ax.grid(axis="y", visible=False)
     split = (ys[int((df.grp == 0).sum()) - 1] + ys[int((df.grp == 0).sum())]) / 2
     ax.axhline(split, color=INK["base"], lw=1, ls="--")
-    ax.text(5.5e6, split - 0.5, "one core / SM / matrix array", ha="right", va="center", fontsize=8.5,
+    ax.text(5.5e6, split - 0.45, "one core / SM / matrix array", ha="right", va="center", fontsize=8.5,
             color=INK["muted"], style="italic")
-    ax.text(5.5e6, split + 0.5, "whole chip", ha="right", va="center", fontsize=8.5, color=INK["muted"],
+    ax.text(5.5e6, split + 0.35, "whole chip", ha="right", va="center", fontsize=8.5, color=INK["muted"],
             style="italic")
     handles = [Patch(color=colors[k], label=k) for k in ("CPU", "GPU", "ASIC")]
     ax.legend(handles=handles, loc="lower right", bbox_to_anchor=(1.0, 0.12), fontsize=9)
@@ -133,8 +134,7 @@ def memory_hierarchy_capacity_vs_bandwidth():
     b = df[df["product"] == "B200"].set_index("level")
     c = Chart(
         id="02-memory-hierarchy-capacity-vs-bandwidth",
-        title=(f"H100's registers are ~{reg_bw/hbm_bw:.0f}× faster than its HBM but hold ~{hbm_cap/reg_cap:,.0f}× less: "
-               f"every level trades speed for size"),
+        title=f"H100 registers are ~{reg_bw/hbm_bw:.0f}× faster than its HBM but hold ~{round(hbm_cap/reg_cap, -2):,.0f}× less data",
         subtitle="Total capacity vs aggregate bandwidth per GPU at each memory level, H100 SXM, B200 and Rubin (both axes log scale)",
         alt=(f"Log-log chart of capacity against bandwidth for each GPU memory level. H100: registers about {reg_cap:.0f} MB "
              f"at an estimated {reg_bw:.0f} TB/s, L1/shared memory {h.loc['L1 / shared memory','capacity_mb']:.0f} MB at "
@@ -143,8 +143,7 @@ def memory_hierarchy_capacity_vs_bandwidth():
              f"180 GB at 8 TB/s and the NVL72 domain 13.4 TB at 1.8 TB/s. Rubin: HBM4 288 GB at 19.2 TB/s and the NVL72 "
              f"domain 20.7 TB at 3.0 TB/s. Each step outward gives roughly 100 to 1,000 times more capacity for less bandwidth."),
         data=[MEMH], chapters=CH + ["03", "P3"],
-        source="NVIDIA specs, Chips and Cheese measurements, repo estimates", source_ids=sources_of(df),
-        note="Hollow markers = repo Est. (register/L1 bandwidth)",
+        source="NVIDIA, Chips and Cheese, repo Est.", source_ids=sources_of(df), note="Hollow = Est.",
     )
     fig, ax = c.figure(width=10.5, height=6.2)
     styles = {"H100 SXM": ("#8DB85A", "o"), "B200": (NV, "s"), "Rubin": (NV_DARK, "D")}
@@ -156,9 +155,9 @@ def memory_hierarchy_capacity_vs_bandwidth():
             ax.plot(r.capacity_mb, r.bandwidth_tbs, marker=mk, ms=9, color=col, mfc="white" if est else col,
                     mew=2, zorder=3, ls="none")
     # level labels (placed near the H100 / B200 points)
-    lab = [("Registers", "H100 SXM", (8, 6)), ("L1 / shared memory", "H100 SXM", (8, -12)),
+    lab = [("Registers", "H100 SXM", (-10, -3)), ("L1 / shared memory", "H100 SXM", (-10, -3)),
            ("L2 cache", "H100 SXM", (8, -10)), ("HBM3", "H100 SXM", (-10, -16)),
-           ("NVLink domain (HGX 8-GPU)", "H100 SXM", (-30, -16)), ("L2 cache", "B200", (8, 6)),
+           ("NVLink domain (HGX 8-GPU)", "H100 SXM", (-30, -16)), ("L2 cache", "B200", (8, 4)),
            ("HBM3E", "B200", (8, 6)), ("NVLink domain (NVL72)", "B200", (-40, 10)),
            ("HBM4", "Rubin", (8, 6)), ("NVLink domain (NVL72)", "Rubin", (8, 6))]
     names = {"Registers": "registers", "L1 / shared memory": "L1 / shared mem", "L2 cache": "L2",
@@ -166,21 +165,22 @@ def memory_hierarchy_capacity_vs_bandwidth():
              "NVLink domain (NVL72)": "NVL72 domain"}
     for level, prod, off in lab:
         r = df[(df["product"] == prod) & (df.level == level)].iloc[0]
+        left = level in ("Registers", "L1 / shared memory")
         ax.annotate(names[level], (r.capacity_mb, r.bandwidth_tbs), xytext=off, textcoords="offset points",
-                    fontsize=8.6, color=INK["text"])
+                    fontsize=8.6, color=INK["text"], ha="right" if left else "left")
     ax.set_xscale("log")
     ax.set_yscale("log")
-    ax.set_xlim(10, 1e8)
+    ax.set_xlim(1, 1e8)
     ax.set_ylim(0.3, 1500)
     ax.xaxis.set_major_locator(LogLocator(base=10))
     ax.xaxis.set_major_formatter(FuncFormatter(
-        lambda v, _p: {10: "10 MB", 100: "100 MB", 1e3: "1 GB", 1e4: "10 GB", 1e5: "100 GB", 1e6: "1 TB",
+        lambda v, _p: {1: "1 MB", 10: "10 MB", 100: "100 MB", 1e3: "1 GB", 1e4: "10 GB", 1e5: "100 GB", 1e6: "1 TB",
                        1e7: "10 TB", 1e8: "100 TB"}.get(v, "")))
     ax.xaxis.set_minor_formatter(NullFormatter())
     _plain_log(ax.yaxis)
     ax.grid(axis="x", color=INK["grid"], lw=0.7)
     ax.legend(loc="upper right", fontsize=9)
-    ax.text(12, 0.42, f"B200 L2: {b.loc['L2 cache','capacity_mb']:.0f} MB at ~{b.loc['L2 cache','bandwidth_tbs']:.0f} TB/s "
+    ax.text(1.3, 0.42, f"B200 L2: {b.loc['L2 cache','capacity_mb']:.0f} MB at ~{b.loc['L2 cache','bandwidth_tbs']:.0f} TB/s "
             "(measured); Rubin on-chip sizes not disclosed", fontsize=8.4, color=INK["muted"])
     _log_badge(fig)
     c.save(fig, ax, xlabel="Total capacity per GPU (log scale)", ylabel="Aggregate bandwidth, TB/s (log scale)",
@@ -209,8 +209,7 @@ def sms_and_throughput_per_sm():
     used_g = g[g["product"].isin([p[2] for p in pairs])]
     c = Chart(
         id="02-sms-and-throughput-per-sm",
-        title=(f"Since H100, 16-bit throughput per SM rose {r.b16/h.b16:.1f}× but low-precision per SM "
-               f"{r.fp4/h.fp8:.0f}×, while SM count grew {r.sms/h.sms:.1f}×"),
+        title=f"Since H100, 16-bit FLOPS per SM rose {r.b16/h.b16:.1f}× but low-precision FLOPS per SM {r.fp4/h.fp8:.0f}×",
         subtitle="Left: streaming multiprocessors (SMs) per GPU package. Right: dense peak TFLOPS per SM by format (log scale)",
         alt=(f"Two-panel chart. SMs per GPU: V100 80, A100 108, H100 132, B200 148, Blackwell Ultra 160 and Rubin 224. "
              f"Dense TFLOPS per SM: 16-bit rose from {d.b16.iloc[0]:.1f} on V100 to {h.b16:.1f} on H100, then only to "
@@ -248,7 +247,7 @@ def sms_and_throughput_per_sm():
     a2.set_ylabel("Dense TFLOPS per SM (log scale)")
     a2.set_title("Dense TFLOPS per SM", fontsize=10.5, color=INK["text"], loc="left")
     a2.legend(loc="upper left", fontsize=8.5)
-    a2.text(0.0, 1.1, "no FP8/FP4\nbefore Hopper", fontsize=8, color=INK["muted"])
+    a2.text(0.5, 40, "no FP8/FP4\nbefore Hopper", fontsize=8, color=INK["muted"], ha="center")
     _log_badge(fig)
     fig.subplots_adjust(wspace=0.28)
     c.save(fig, [a1, a2], legend=False, bottom=0.16)
@@ -293,10 +292,13 @@ def throughput_multiple_vs_bf16():
             if np.isnan(v):
                 ax.text(p, 0.12, "n/a", ha="center", va="bottom", fontsize=7.5, color=INK["muted"], rotation=90)
             else:
-                ax.annotate(f"{v:g}×" if v != int(v) or v < 1 else f"{v:.0f}×", (p, v), xytext=(0, 2),
-                            textcoords="offset points", ha="center", fontsize=8, color=INK["title"])
+                lab = f"{v:.2f}".rstrip("0").rstrip(".")
+                if len(lab) > 3 and v < 5:
+                    lab = f"{v:.1f}"
+                ax.annotate(f"{lab}×", (p, v), xytext=(0, 2), textcoords="offset points", ha="center", fontsize=8,
+                            color=INK["title"])
     ax.axhline(1.0, color=INK["text"], lw=1.2, ls="--", zorder=3)
-    ax.text(len(d) - 0.55, 1.12, "BF16 = 1.0", fontsize=8.5, color=INK["text"], ha="right")
+    ax.text(-0.45, 1.12, "BF16 = 1.0", fontsize=8.5, color=INK["text"], ha="left")
     ax.set_xticks(x, d.index)
     ax.set_ylim(0, 10)
     ax.legend(loc="upper left", ncol=4, fontsize=9)
@@ -352,10 +354,9 @@ def decode_throughput_by_precision():
     used_f = used_f[used_f.format.isin(["BF16", "FP8 E4M3", "NVFP4 (E2M1)"])]
     c = Chart(
         id="02-decode-throughput-by-precision",
-        title=(f"Est.: NVFP4 lets one B200 serve ~{b_fp4/b_bf:.1f}× its BF16 tokens/s on a 70B model "
-               f"(~{b_fp4/1000:.1f}K vs ~{b_bf/1000:.1f}K)"),
-        subtitle=(f"Modelled decode tokens/s per GPU, Llama 3.1 70B, {batch} concurrent streams × {ctx:,.0f}-token context, "
-                  f"{bw_eff:.0%} of peak HBM bandwidth; FP8 KV cache for FP8/NVFP4"),
+        title=f"Est.: NVFP4 lets a B200 serve ~{b_fp4/b_bf:.1f}× its BF16 tokens/s on a 70B model",
+        subtitle=(f"Modelled decode tokens/s per GPU: Llama 3.1 70B, {batch} streams × {ctx:,.0f}-token context, "
+                  f"{bw_eff:.0%} of peak HBM bandwidth"),
         alt=(f"Grouped bar chart of modelled decode throughput per GPU for Llama 3.1 70B with 64 concurrent users. "
              f"H100: about {res[('H100','BF16')][0]:,.0f} tokens/s at BF16 and {res[('H100','FP8')][0]:,.0f} at FP8 (no FP4). "
              f"B200: {b_bf:,.0f} at BF16, {res[('B200','FP8')][0]:,.0f} at FP8 and {b_fp4:,.0f} at NVFP4. Rubin: "
@@ -363,8 +364,7 @@ def decode_throughput_by_precision():
              f"memory bandwidth, so fewer bytes per weight translate almost directly into more tokens per GPU and per "
              f"dollar; Rubin at NVFP4 serves about {r_fp4/h_bf:.0f} times H100 at BF16. Estimates from a roofline model."),
         data=[P2, GPU, FORMATS], chapters=CH + ["11", "14", "P2"],
-        source="repo roofline model; model config and GPU specs", source_ids=[REPO_MODEL] + _ids(used_p2, used_g, used_f),
-        note="Est. upper bound; labels under bars = GPUs needed to hold weights + KV",
+        source="repo roofline model", source_ids=[REPO_MODEL] + _ids(used_p2, used_g, used_f), note="Est.",
     )
     fig, ax = c.figure(width=10.5, height=5.9)
     x = np.arange(len(gpus))
@@ -382,14 +382,14 @@ def decode_throughput_by_precision():
                 continue
             ax.annotate(f"{v:,.0f}", (p, v), xytext=(0, 2), textcoords="offset points", ha="center", fontsize=8.4,
                         color=INK["title"])
-            ax.text(p, -650, f"×{res[(s, name)][1]}", ha="center", va="top", fontsize=7.8, color=INK["text"])
+            ax.text(p, 120, f"×{res[(s, name)][1]}", ha="center", va="bottom", fontsize=8, color="#FFFFFF",
+                    fontweight="bold")
     ax.set_xticks(x, [s for s, _ in gpus])
-    ax.tick_params(axis="x", pad=16)
     ax.set_ylim(0, max(v for v, _ in res.values() if not np.isnan(v)) * 1.15)
     ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _p: f"{v:,.0f}"))
     ax.legend(loc="upper left", fontsize=9)
-    c.save(fig, ax, xlabel="GPU (×n under bars = GPUs needed to hold weights + KV cache)",
-           ylabel="Decode tokens/s per GPU (Est.)", legend=False, bottom=0.16)
+    c.save(fig, ax, xlabel="GPU (×n inside bars = GPUs needed to hold weights + KV cache; FP8 KV cache for FP8/NVFP4)",
+           ylabel="Decode tokens/s per GPU (Est.)", legend=False)
 
 
 # --------------------------------------------------------------------------------------
@@ -417,10 +417,9 @@ def multi_die_silicon_cost():
     c1, c2, c8 = d.cost.iloc[0], d.cost.iloc[1], d.cost.iloc[3]
     c = Chart(
         id="02-multi-die-silicon-cost",
-        title=(f"Est.: splitting 1,600 mm² of GPU logic into two dies cuts silicon cost per good GPU ~{1 - c2/c1:.0%}; "
-               f"eight chiplets ~{1 - c8/c1:.0%}"),
-        subtitle=(f"Modelled cost of defect-free logic silicon for one GPU, ${wafer/1e3:.0f}K wafer, {d0:.1f} defects/cm², "
-                  f"Poisson yield, US$ (silicon only)"),
+        title=f"Est.: two dies instead of one cut silicon cost per GPU ~{1 - c2/c1:.0%}; eight chiplets ~{1 - c8/c1:.0%}",
+        subtitle=(f"Good logic silicon for one GPU (1,600 mm²), ${wafer/1e3:.0f}K wafer, {d0:.1f} defects/cm², Poisson "
+                  f"yield; excludes D2D area, packaging, assembly yield"),
         alt=(f"Bar chart of modelled silicon cost for 1,600 mm2 of GPU logic split into 1, 2, 4, 8 or 16 dies on a "
              f"${wafer:,.0f} wafer at {d0} defects per cm2. One 1,600 mm2 die (impossible: the reticle limit is {reticle:.0f} mm2) "
              f"would yield {d.y.iloc[0]:.0%} and cost about ${c1:,.0f}; two 800 mm2 dies like Blackwell or Rubin yield "
@@ -428,13 +427,11 @@ def multi_die_silicon_cost():
              f"200 mm2 chiplets about ${c8:,.0f}; sixteen 100 mm2 about ${d.cost.iloc[4]:,.0f}. Savings flatten while "
              f"packaging cost, die-to-die power and assembly risk rise with every extra die."),
         data=[P5], chapters=CH + ["03", "P5"],
-        source="repo yield model; wafer and defect assumptions from Epoch AI and TSMC disclosures",
-        source_ids=[REPO_MODEL] + sources_of(used),
-        note="Excludes die-to-die PHY area, packaging and assembly yield",
+        source="repo yield model, Epoch AI", source_ids=[REPO_MODEL] + sources_of(used), note="Est.",
     )
     fig, ax = c.figure(width=10.5, height=5.8)
     x = np.arange(len(d))
-    cols = [INK["base"], NV, SEQ_BLUE[4], entity_color("AMD"), SEQ_BLUE[2]]
+    cols = [INK["base"], NV, SEQ_BLUE[3], SEQ_BLUE[5], SEQ_BLUE[2]]
     bars = ax.bar(x, d.cost, color=cols, width=0.62, zorder=2)
     bars[0].set_hatch("///")
     for i, r in d.iterrows():
@@ -443,7 +440,7 @@ def multi_die_silicon_cost():
     labels = [f"{int(r.n)} × {r.area:,.0f} mm²\nyield {r.y:.0%} each" for _, r in d.iterrows()]
     labels[0] += "\n(over reticle:\nnot buildable)"
     labels[1] += "\nBlackwell / Rubin"
-    labels[3] += "\nchiplet style\n(AMD-like)"
+    labels[3] += "\nchiplet style\n(AMD MI300/MI355-like)"
     ax.set_xticks(x, labels, fontsize=8.6)
     ax.set_ylim(0, c1 * 1.15)
     ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _p: f"${v:,.0f}"))

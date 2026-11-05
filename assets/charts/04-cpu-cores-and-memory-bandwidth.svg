@@ -1116,21 +1116,8 @@ z
     </g>
    </g>
    <g id="PathCollection_11">
-    <defs>
-     <path id="m756c496863" d="M 0 4.330127 
-C 1.148363 4.330127 2.249847 3.873878 3.061862 3.061862 
-C 3.873878 2.249847 4.330127 1.148363 4.330127 0 
-C 4.330127 -1.148363 3.873878 -2.249847 3.061862 -3.061862 
-C 2.249847 -3.873878 1.148363 -4.330127 0 -4.330127 
-C -1.148363 -4.330127 -2.249847 -3.873878 -3.061862 -3.061862 
-C -3.873878 -2.249847 -4.330127 -1.148363 -4.330127 0 
-C -4.330127 1.148363 -3.873878 2.249847 -3.061862 3.061862 
-C -2.249847 3.873878 -1.148363 4.330127 0 4.330127 
-z
-" style="stroke: #c4314b; stroke-width: 2.2"/>
-    </defs>
     <g clip-path="url(#pf9228a87d4)">
-     <use xlink:href="#m756c496863" x="586.776774" y="103.2" style="fill: #ffffff; stroke: #c4314b; stroke-width: 2.2"/>
+     <use xlink:href="#mba7d07ae93" x="586.776774" y="103.2" style="fill: #c4314b; stroke: #c4314b; stroke-width: 2.2"/>
     </g>
    </g>
    <g id="PathCollection_12">
@@ -1139,21 +1126,8 @@ z
     </g>
    </g>
    <g id="PathCollection_13">
-    <defs>
-     <path id="m1a35fea1dc" d="M 0 4.330127 
-C 1.148363 4.330127 2.249847 3.873878 3.061862 3.061862 
-C 3.873878 2.249847 4.330127 1.148363 4.330127 0 
-C 4.330127 -1.148363 3.873878 -2.249847 3.061862 -3.061862 
-C 2.249847 -3.873878 1.148363 -4.330127 0 -4.330127 
-C -1.148363 -4.330127 -2.249847 -3.873878 -3.061862 -3.061862 
-C -3.873878 -2.249847 -4.330127 -1.148363 -4.330127 0 
-C -4.330127 1.148363 -3.873878 2.249847 -3.061862 3.061862 
-C -2.249847 3.873878 -1.148363 4.330127 0 4.330127 
-z
-" style="stroke: #4fa3e0; stroke-width: 2.2"/>
-    </defs>
     <g clip-path="url(#pf9228a87d4)">
-     <use xlink:href="#m1a35fea1dc" x="652.923871" y="244.9728" style="fill: #ffffff; stroke: #4fa3e0; stroke-width: 2.2"/>
+     <use xlink:href="#mda5d7b3cd4" x="652.923871" y="244.9728" style="fill: #4fa3e0; stroke: #4fa3e0; stroke-width: 2.2"/>
     </g>
    </g>
    <g id="PathCollection_14">
@@ -1180,6 +1154,11 @@ z
     </g>
    </g>
    <g id="PathCollection_16">
+    <g clip-path="url(#pf9228a87d4)">
+     <use xlink:href="#maee619b31e" x="454.482581" y="231.852" style="fill: #c98500; stroke: #c98500; stroke-width: 2.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_17">
     <defs>
      <path id="m5af017d1af" d="M 0 4.330127 
 C 1.148363 4.330127 2.249847 3.873878 3.061862 3.061862 
@@ -1580,6 +1559,20 @@ z
     </g>
    </g>
    <g id="text_30">
+    <!-- Graviton5 -->
+    <g style="fill: #0b0b0b" transform="translate(462.482581 230.138281) scale(0.088 -0.088)">
+     <use xlink:href="#DejaVuSans-2a"/>
+     <use xlink:href="#DejaVuSans-55" transform="translate(77.484375 0)"/>
+     <use xlink:href="#DejaVuSans-44" transform="translate(118.59375 0)"/>
+     <use xlink:href="#DejaVuSans-59" transform="translate(179.875 0)"/>
+     <use xlink:href="#DejaVuSans-4c" transform="translate(239.0625 0)"/>
+     <use xlink:href="#DejaVuSans-57" transform="translate(266.84375 0)"/>
+     <use xlink:href="#DejaVuSans-52" transform="translate(306.046875 0)"/>
+     <use xlink:href="#DejaVuSans-51" transform="translate(367.234375 0)"/>
+     <use xlink:href="#DejaVuSans-18" transform="translate(430.609375 0)"/>
+    </g>
+   </g>
+   <g id="text_31">
     <!-- AmpereOne -->
     <g style="fill: #0b0b0b" transform="translate(462.482581 331.416817) scale(0.088 -0.088)">
      <defs>
@@ -1632,7 +1625,7 @@ z
      <use xlink:href="#DejaVuSans-48" transform="translate(533.359375 0)"/>
     </g>
    </g>
-   <g id="PathCollection_17">
+   <g id="PathCollection_18">
     <defs>
      <path id="mcf5371a6c4" d="M 0 5.244044 
 C 1.390737 5.244044 2.7247 4.691499 3.708099 3.708099 
@@ -1650,7 +1643,7 @@ z
      <use xlink:href="#mcf5371a6c4" x="206.430968" y="288.5952" style="fill: #5f9e00; stroke: #5f9e00; stroke-width: 2.2"/>
     </g>
    </g>
-   <g id="text_31">
+   <g id="text_32">
     <!-- Grace -->
     <g style="fill: #0b0b0b" transform="translate(216.430968 294.881138) scale(0.088 -0.088)">
      <defs>
@@ -1783,12 +1776,12 @@ z
      <use xlink:href="#DejaVuSans-Bold-48" transform="translate(258.15625 0)"/>
     </g>
    </g>
-   <g id="PathCollection_18">
+   <g id="PathCollection_19">
     <g clip-path="url(#pf9228a87d4)">
      <use xlink:href="#mcf5371a6c4" x="239.504516" y="171.36" style="fill: #5f9e00; stroke: #5f9e00; stroke-width: 2.2"/>
     </g>
    </g>
-   <g id="text_32">
+   <g id="text_33">
     <!-- Vera -->
     <g style="fill: #0b0b0b" transform="translate(249.504516 167.645938) scale(0.088 -0.088)">
      <defs>
@@ -1810,7 +1803,7 @@ z
     </g>
    </g>
    <g id="legend_1">
-    <g id="PathCollection_19">
+    <g id="PathCollection_20">
      <defs>
       <path id="mc1fe5a8608" d="M 0 3.872983 
 C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
@@ -1828,7 +1821,7 @@ z
       <use xlink:href="#mc1fe5a8608" x="74.7" y="81.696094" style="fill: #5f9e00; stroke: #5f9e00"/>
      </g>
     </g>
-    <g id="text_33">
+    <g id="text_34">
      <!-- NVIDIA -->
      <g transform="translate(90.9 84.058594) scale(0.09 -0.09)">
       <defs>
@@ -1867,7 +1860,7 @@ z
       <use xlink:href="#DejaVuSans-24" transform="translate(279.21875 0)"/>
      </g>
     </g>
-    <g id="PathCollection_20">
+    <g id="PathCollection_21">
      <defs>
       <path id="m247b662a4d" d="M 0 3.872983 
 C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
@@ -1885,7 +1878,7 @@ z
       <use xlink:href="#m247b662a4d" x="74.7" y="95.196797" style="fill: #c4314b; stroke: #c4314b"/>
      </g>
     </g>
-    <g id="text_34">
+    <g id="text_35">
      <!-- AMD -->
      <g transform="translate(90.9 97.559297) scale(0.09 -0.09)">
       <defs>
@@ -1911,7 +1904,7 @@ z
       <use xlink:href="#DejaVuSans-27" transform="translate(154.6875 0)"/>
      </g>
     </g>
-    <g id="PathCollection_21">
+    <g id="PathCollection_22">
      <defs>
       <path id="mf016ae9fb0" d="M 0 3.872983 
 C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
@@ -1929,7 +1922,7 @@ z
       <use xlink:href="#mf016ae9fb0" x="74.7" y="108.6975" style="fill: #4fa3e0; stroke: #4fa3e0"/>
      </g>
     </g>
-    <g id="text_35">
+    <g id="text_36">
      <!-- Intel -->
      <g transform="translate(90.9 111.06) scale(0.09 -0.09)">
       <defs>
@@ -1948,7 +1941,7 @@ z
       <use xlink:href="#DejaVuSans-4f" transform="translate(193.609375 0)"/>
      </g>
     </g>
-    <g id="PathCollection_22">
+    <g id="PathCollection_23">
      <defs>
       <path id="mc868ae3dba" d="M 0 3.872983 
 C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
@@ -1966,7 +1959,7 @@ z
       <use xlink:href="#mc868ae3dba" x="74.7" y="122.198203" style="fill: #c98500; stroke: #c98500"/>
      </g>
     </g>
-    <g id="text_36">
+    <g id="text_37">
      <!-- AWS -->
      <g transform="translate(90.9 124.560703) scale(0.09 -0.09)">
       <use xlink:href="#DejaVuSans-24"/>
@@ -1974,7 +1967,7 @@ z
       <use xlink:href="#DejaVuSans-36" transform="translate(161.8125 0)"/>
      </g>
     </g>
-    <g id="PathCollection_23">
+    <g id="PathCollection_24">
      <defs>
       <path id="mb269f47faf" d="M 0 3.872983 
 C 1.027127 3.872983 2.012324 3.464901 2.738613 2.738613 
@@ -1992,7 +1985,7 @@ z
       <use xlink:href="#mb269f47faf" x="74.7" y="135.698906" style="fill: #b5b5b5; stroke: #b5b5b5"/>
      </g>
     </g>
-    <g id="text_37">
+    <g id="text_38">
      <!-- Ampere (other) -->
      <g transform="translate(90.9 138.061406) scale(0.09 -0.09)">
       <use xlink:href="#DejaVuSans-24"/>
@@ -2013,7 +2006,7 @@ z
     </g>
    </g>
   </g>
-  <g id="text_38">
+  <g id="text_39">
    <!-- Vera's 1.2 TB/s memory bandwidth beats every shipping server CPU (88 cores) -->
    <g style="fill: #0b0b0b" transform="translate(8.64 17.497734) scale(0.145 -0.145)">
     <defs>
@@ -2637,7 +2630,7 @@ z
     <use xlink:href="#DejaVuSans-Bold-c" transform="translate(4396.84375 0)"/>
    </g>
   </g>
-  <g id="text_39">
+  <g id="text_40">
    <!-- Cores per socket (x) vs peak memory bandwidth per socket, GB/s (y); hollow = announced, not yet shipping -->
    <g style="fill: #52514e" transform="translate(8.64 40.378359) scale(0.105 -0.105)">
     <defs>
@@ -2834,7 +2827,7 @@ z
     <use xlink:href="#DejaVuSans-4a" transform="translate(5354.8125 0)"/>
    </g>
   </g>
-  <g id="text_40">
+  <g id="text_41">
    <!-- Source: data from vendor specs [S129] [S128] [S100] [S33004] [S178] [S189] …; chart by repo · As of 2026-11-05 -->
    <g style="fill: #898781" transform="translate(8.64 424.846078) scale(0.082 -0.082)">
     <defs>
@@ -3080,7 +3073,7 @@ z
     <use xlink:href="#DejaVuSans-18" transform="translate(5670.453125 0)"/>
    </g>
   </g>
-  <g id="text_41">
+  <g id="text_42">
    <!-- Hollow = announced -->
    <g style="fill: #898781" transform="translate(626.2235 424.846078) scale(0.082 -0.082)">
     <defs>
