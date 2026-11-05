@@ -1,0 +1,60 @@
+// Layer 06: a rail-optimized, two-tier (leaf-spine) fat tree for GPU servers.
+// Original drawing from public descriptions (NVIDIA DGX SuperPOD reference architectures, Meta SIGCOMM 2024);
+// simplified to 4 servers x 4 rails (real HGX servers have 8 GPUs, 8 NICs and 8 rails).
+digraph rail_fat_tree {
+  graph [rankdir=BT, bgcolor="white", fontname="DejaVu Sans", fontsize=20, labelloc=t, nodesep=0.25, ranksep=1.1, pad=0.3,
+         label=<<b>Rail-optimized fat tree: NIC k of every server plugs into the rail-k leaf; every leaf reaches every spine</b><br/><font point-size="14" color="#52514E">Simplified: 4 servers × 4 rails shown (HGX servers have 8 GPUs, 8 NICs, 8 rails). One switch hop joins same-rail GPUs; three hops join any two GPUs.</font>>];
+  node [fontname="DejaVu Sans", fontsize=12, shape=box, style="rounded,filled", fillcolor="#FFFFFF", color="#898781", penwidth=1.2];
+  edge [arrowhead=none, penwidth=1.6];
+
+  // ---- Spine tier
+  subgraph cluster_spine {
+    label=<<b>Tier 2 · spine switches</b> (each leaf has one uplink to every spine)>; fontsize=14; color="#C3C2B7"; style="rounded,dashed";
+    rank=same;
+    S1 [label="Spine 1", fillcolor="#5F9E00", fontcolor="#FFFFFF", color="#3F6B00"];
+    S2 [label="Spine 2", fillcolor="#5F9E00", fontcolor="#FFFFFF", color="#3F6B00"];
+    S3 [label="Spine 3", fillcolor="#5F9E00", fontcolor="#FFFFFF", color="#3F6B00"];
+    S4 [label="Spine 4", fillcolor="#5F9E00", fontcolor="#FFFFFF", color="#3F6B00"];
+  }
+
+  // ---- Leaf tier: one leaf per rail
+  subgraph cluster_leaf {
+    label=<<b>Tier 1 · rail leaf switches</b> (half the ports down to NICs, half up to spines = 1:1 non-blocking)>; fontsize=14; color="#C3C2B7"; style="rounded,dashed";
+    rank=same;
+    L1 [label="Leaf · rail 1", color="#3F6B00", penwidth=2.4];
+    L2 [label="Leaf · rail 2", color="#256ABF", penwidth=2.4];
+    L3 [label="Leaf · rail 3", color="#C98500", penwidth=2.4];
+    L4 [label="Leaf · rail 4", color="#6250D6", penwidth=2.4];
+  }
+
+  // ---- Servers: GPUs joined by NVLink inside, each GPU with its own NIC
+  subgraph cluster_srv1 {
+    label="Server 1 · NVLink domain"; fontsize=13; color="#5F9E00"; style="rounded"; bgcolor="#F3F8EC";
+    A1 [label="GPU 1\nNIC 1"]; A2 [label="GPU 2\nNIC 2"]; A3 [label="GPU 3\nNIC 3"]; A4 [label="GPU 4\nNIC 4"];
+  }
+  subgraph cluster_srv2 {
+    label="Server 2 · NVLink domain"; fontsize=13; color="#5F9E00"; style="rounded"; bgcolor="#F3F8EC";
+    B1 [label="GPU 1\nNIC 1"]; B2 [label="GPU 2\nNIC 2"]; B3 [label="GPU 3\nNIC 3"]; B4 [label="GPU 4\nNIC 4"];
+  }
+  subgraph cluster_srv3 {
+    label="Server 3 · NVLink domain"; fontsize=13; color="#5F9E00"; style="rounded"; bgcolor="#F3F8EC";
+    C1 [label="GPU 1\nNIC 1"]; C2 [label="GPU 2\nNIC 2"]; C3 [label="GPU 3\nNIC 3"]; C4 [label="GPU 4\nNIC 4"];
+  }
+  subgraph cluster_srv4 {
+    label="Server 4 · NVLink domain"; fontsize=13; color="#5F9E00"; style="rounded"; bgcolor="#F3F8EC";
+    D1 [label="GPU 1\nNIC 1"]; D2 [label="GPU 2\nNIC 2"]; D3 [label="GPU 3\nNIC 3"]; D4 [label="GPU 4\nNIC 4"];
+  }
+
+  // ---- NIC -> rail leaf (colored by rail)
+  edge [color="#3F6B00"]; A1 -> L1; B1 -> L1; C1 -> L1; D1 -> L1;
+  edge [color="#256ABF"]; A2 -> L2; B2 -> L2; C2 -> L2; D2 -> L2;
+  edge [color="#C98500"]; A3 -> L3; B3 -> L3; C3 -> L3; D3 -> L3;
+  edge [color="#6250D6"]; A4 -> L4; B4 -> L4; C4 -> L4; D4 -> L4;
+
+  // ---- Leaf -> spine (full mesh between tiers)
+  edge [color="#B5B5B5", penwidth=1.2];
+  L1 -> S1; L1 -> S2; L1 -> S3; L1 -> S4;
+  L2 -> S1; L2 -> S2; L2 -> S3; L2 -> S4;
+  L3 -> S1; L3 -> S2; L3 -> S3; L3 -> S4;
+  L4 -> S1; L4 -> S2; L4 -> S3; L4 -> S4;
+}

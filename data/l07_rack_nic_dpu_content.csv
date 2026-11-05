@@ -1,0 +1,7 @@
+rack,component,units_low,units_high,unit_price_low_usd,unit_price_high_usd,rack_price_usd_m,confidence,source_id,notes
+GB200 NVL72,ConnectX-7 SuperNIC,72,72,1000,2000,3.0,estimate,S266;S326,One per GPU; unit price is a repo assumption (speculative) below retail listings; rack price HSBC Est.
+GB200 NVL72,BlueField-3 DPU,18,36,2000,5000,3.0,estimate,S7531;S7532;S326,1-2 per compute tray assumed; BlueField-3 retail listings $1.9k-$6.0k
+GB300 NVL72,ConnectX-8 SuperNIC,72,72,1500,3000,3.99,estimate,S264;S332,One per GPU; unit price repo assumption; rack price Morgan Stanley Est.
+GB300 NVL72,BlueField-3 DPU,18,36,2000,5000,3.99,estimate,S7531;S7532;S332,1-2 per compute tray assumed
+Vera Rubin NVL72,ConnectX-9 SuperNIC,72,72,2500,4500,7.8,estimate,S33004;S330,One per GPU (1.6 Tb/s per GPU); unit price repo assumption; rack price Morgan Stanley Est.
+Vera Rubin NVL72,BlueField-4 DPU,18,36,4000,8000,7.8,estimate,S512;S330,1-2 per compute tray assumed; adds a 64-core Grace so priced above BlueField-3

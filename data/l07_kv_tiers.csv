@@ -1,0 +1,10 @@
+tier,label,bandwidth_gbs_one_way,scope,confidence,source_id,notes
+G1,GPU HBM4 (Rubin),19200,per GPU,confirmed,S100;S90006,Listed 19.2 TB/s after the 2026 spec revision.
+G2,Vera LPDDR5X over NVLink-C2C,450,per GPU (1.8 TB/s bidirectional per Vera shared by two GPUs),confirmed,S100;S4000,~900 GB/s bidirectional per GPU -> ~450 GB/s each way.
+G3.5,BlueField-4 context-memory storage (800 Gb/s link),100,per DPU link (shared by the GPUs it serves),confirmed,S7001;S3012,NVIDIA CMX / inference context memory tier (G3.5).
+G3,Local NVMe SSD (PCIe Gen5 x4),15.75,per drive,confirmed,S222,PCIe 5.0 x16 = ~63 GB/s per direction; x4 drive = one quarter.
+G4,Shared storage at Llama 3 scale (per-GPU share),0.43,per GPU (7 TB/s peak / 16k GPUs),reported,S34006,Illustrative: per-GPU share if every GPU pulled at once.
+model,Llama 3.1 70B KV cache per token (FP8),163840,bytes per token,confirmed,S32006,2 x 80 layers x 8 KV heads x 128 dims x 1 byte.
+model,Context length,131072,tokens,confirmed,S32006,128K-token context window.
+model,Rubin dense FP8,17500,TFLOPS,confirmed,S100,Used for the recompute estimate at 50% utilization.
+model,Llama 3.1 70B parameters,70,billion,confirmed,S32006,80 layers; hidden 8192.

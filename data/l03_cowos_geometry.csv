@@ -1,0 +1,5 @@
+product,package_tech,compute_dies,hbm_stacks,interposer_reticles_low,interposer_reticles_high,confidence,source_id,notes
+H100,CoWoS-S,1,6,2.0,2.5,estimate,S3000;S380;S33002,"Repo assumption: one ~814 mm2 die plus six HBM sites (five active); inside CoWoS-S's ~3.3x-reticle maximum. NVIDIA does not publish interposer area."
+B200 / B300,CoWoS-L,2,8,3.0,3.5,estimate,S3000;S380;S358,"Repo assumption: two reticle-size dies plus eight HBM3E stacks on CoWoS-L (local silicon bridges); sized near CoWoS-S's ~3.3x limit."
+Rubin,CoWoS-L,2,8,3.5,4.5,estimate,S3000;S380;S360,"Repo assumption: two reticle-size dies plus eight HBM4 stacks; assumed somewhat larger than B200 (wider 2,048-bit HBM4 interface). Below TSMC's ~5.5x CoWoS-L target for 2026."
+Rubin Ultra (4-die as announced),CoWoS-L,4,16,8.0,9.5,speculative,S3000;S380;S35041;S509,"Repo assumption for the four-die, 16-stack package announced in 2025; TSMC's ~9.5x-reticle CoWoS-L target for 2027 is the upper bound. A two-die version was reported in 2026 (S509)."

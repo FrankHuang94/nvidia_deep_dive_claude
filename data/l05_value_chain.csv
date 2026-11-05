@@ -1,0 +1,12 @@
+company,role_in_scale_up,metric,period,period_end,value_usd_b,basis,confidence,source_id,notes
+NVIDIA,"NVLink switch silicon and trays (plus InfiniBand, Spectrum-X, NICs)",networking_revenue_quarter,Q4FY26,2026-01-25,11.0,disclosed,confirmed,S402;S5514,CFO: growth driven primarily by NVLink scale-up switches
+NVIDIA,"NVLink switch silicon and trays (plus InfiniBand, Spectrum-X, NICs)",networking_revenue_quarter,Q1FY27,2026-04-26,14.8,disclosed,confirmed,S403;S90014,
+NVIDIA,"NVLink switch silicon and trays (plus InfiniBand, Spectrum-X, NICs)",networking_revenue_quarter,Q2FY27,2026-07-26,17.5,derived,estimate,S408;S90012,Q1FY27 x 1.18 (CFO: +18% q/q)
+Amphenol,"High-speed copper cables, backplane connectors, optics",total_sales_quarter,Q3 2026,2026-09-30,10.2,disclosed,confirmed,S5503;S5502,+65% y/y
+Amphenol,"High-speed copper cables, backplane connectors, optics",it_datacom_sales_quarter,Q3 2026,2026-09-30,4.9,derived,estimate,S5503,48% of $10.2B
+Amphenol,"High-speed copper cables, backplane connectors, optics",ai_datacom_sales_quarter,Q3 2026,2026-09-30,3.7,derived,estimate,S5503,About three-quarters of IT datacom per management; repo arithmetic
+Credo,Active electrical cables (AECs) and SerDes,revenue_quarter,Q1FY27,2026-08-01,0.479,disclosed,confirmed,S5505,+114.7% y/y
+Credo,Active electrical cables (AECs) and SerDes,revenue_year,FY2026,2026-05-02,1.335,disclosed,confirmed,S5504,+206% y/y on AEC volumes
+Astera Labs,"PCIe/CXL retimers, Scorpio fabric switches",revenue_quarter,Q2 2026,2026-06-30,0.392,disclosed,confirmed,S3524,+104% y/y
+Astera Labs,"PCIe/CXL retimers, Scorpio fabric switches",revenue_guidance_quarter,Q3 2026,2026-09-30,0.55,guidance midpoint,reported,S3525,Guidance $540-560M; ~72% GAAP gross margin
+Marvell,"Custom XPUs, NVLink Fusion partner, XConn switches",xconn_revenue_target_year,FY2028,2028-01-31,0.1,company target,reported,S5508,Expected XConn contribution

@@ -1,0 +1,14 @@
+input,value,unit,basis,confidence,source_id,notes
+vera_cores_per_cpu,88,cores,Vera CPU core count,confirmed,S100;S33004,88 Olympus cores per Vera.
+vera_cpus_per_tray,2,CPUs,Vera Rubin NVL72 compute tray (2 Vera + 4 Rubin),confirmed,S100,36 Vera and 72 Rubin per NVL72 rack across 18 compute trays.
+gpus_per_tray,4,GPUs,Vera Rubin NVL72 compute tray,confirmed,S100,
+vera_price,5000,USD per CPU,Morgan Stanley rack BOM via press (Est.),estimate,S331,~$180k for 36 Vera CPUs in a ~$7.8M rack.
+infra_share_low,18.75,pct of host cores,NVIDIA Redis test (12 of 64),reported,S7005;S7006,Low case for cores absorbed by infrastructure software without a DPU.
+infra_share_high,32.5,pct of host cores,NVIDIA cluster model (26 of 80),reported,S7005;S7006,High case.
+server_life,5,years,Amazon 2025 server useful life (shortened from 6),reported,S385,Used to annualize the hardware value of freed cores.
+dpu_power_saving_max,247,W per server,NVIDIA white paper 'up to' (IPsec offload),reported,S7005,Best case from BlueField-2 testing; net of the DPU's own ~65 W per NVIDIA.
+electricity_price,0.081,USD per kWh,EIA US industrial average 2024,reported,S389,
+pue,1.15,ratio,repo assumption for a liquid-cooled AI hall,estimate,S387;S388,
+gpu_rental_price,4.99,USD per GPU-hour,Lambda B200 on-demand list (proxy for a Blackwell/Rubin-class GPU-hour),reported,S395,Conservative vs CoreWeave GB200 $10.50.
+gpu_time_gain_low,1,pct of GPU time,repo scenario,speculative,S7000,Illustrative: share of GPU time recovered by removing host-side I/O stalls and jitter.
+gpu_time_gain_high,3,pct of GPU time,repo scenario,speculative,S7000,Illustrative upper scenario.

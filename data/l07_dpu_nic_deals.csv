@@ -1,0 +1,9 @@
+announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_it_became,status,confidence,source_id,notes
+2014-07,2014-07,EZchip,Tilera,acquisition,130,up-to,Many-core Arm/Tile processors later folded into BlueField,closed,reported,S7510,$50M at closing plus up to $80M on milestones
+2015-01-22,2015-01,Amazon,Annapurna Labs,acquisition,370,reported,"Nitro offload cards, then Graviton and Trainium",closed,reported,S4540;S4541,Calcalist reported up to $370M; other reports $350M; undisclosed by Amazon
+2016-02-23,2016-02-23,Mellanox,EZchip,acquisition,811,disclosed,BlueField DPU line (first shown 2016),closed,confirmed,S7507;S7508,~$606M net of cash; date is completion (announced 2015)
+2019-03-11,2020-04-27,NVIDIA,Mellanox Technologies,acquisition,6900,disclosed,"ConnectX, BlueField, InfiniBand and Spectrum: NVIDIA Networking",closed,confirmed,S464,$125/share all-cash
+2022-03,2022-03,NVIDIA,Excelero,acquisition,,undisclosed,NVMesh software-defined block storage for GPU clusters,closed,reported,S478,Terms undisclosed
+2022-04,2022-05-26,AMD,Pensando Systems,acquisition,1900,disclosed,"Salina DPU, Pollara and Vulcano AI NICs",closed,confirmed,S7527,Announced April 2022
+2023-01,2023-01,Microsoft,Fungible,acquisition,190,reported,Azure Boost DPU (announced Nov 2024),closed,reported,S7504;S7506,~$190M reported; terms undisclosed by Microsoft
+2025-09-18,2025-09,NVIDIA,Enfabrica (team + licence),acquihire-license,900,reported,ACF SuperNIC / memory-fabric technology and team,closed,reported,S475,>$900M cash and stock per CNBC

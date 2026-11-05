@@ -1,0 +1,12 @@
+platform,vendor,accelerator,year,status,nic,nics_per_accelerator,gbps_per_accelerator,confidence,source_id,notes
+AWS p4d (8x A100),AWS,A100,2020,shipping,EFA v1 (4 x 100 Gb/s per instance),0.5,50,reported,S292,400 Gb/s per 8-GPU instance
+NVIDIA DGX A100,NVIDIA,A100,2020,shipping,ConnectX-6 200G,1,200,reported,S273,Compute-fabric NICs only (storage NICs excluded); per NVIDIA docs hub as recalled
+NVIDIA HGX H100,NVIDIA,H100,2022,shipping,ConnectX-7 400G,1,400,confirmed,S266,One ConnectX-7 per GPU
+AWS p5 (8x H100),AWS,H100,2023,shipping,EFA v2 (3.2 Tb/s per instance),,400,reported,S292,3.2 Tb/s per 8-GPU instance
+Intel Gaudi 3 node,Intel,Gaudi 3,2024,shipping,integrated 200GbE scale-out ports,3,600,reported,S296,3 of 24 on-die 200GbE ports per card used for scale-out
+AWS Trn2 (16x Trainium2),AWS,Trainium2,2024,shipping,EFA v3 (3.2 Tb/s per instance),,200,reported,S292,3.2 Tb/s per 16-chip instance
+NVIDIA GB200 NVL72,NVIDIA,B200,2024,shipping,ConnectX-7 400G,1,400,confirmed,S266,One ConnectX-7 per GPU
+AWS p6-b200 (8x B200),AWS,B200,2025,shipping,EFA v4 (3.2 Tb/s per instance),,400,reported,S292,3.2 Tb/s per 8-GPU instance
+NVIDIA GB300 NVL72,NVIDIA,B300,2025,shipping,ConnectX-8 800G,1,800,confirmed,S264,One ConnectX-8 per GPU
+NVIDIA Vera Rubin NVL72,NVIDIA,Rubin,2026,shipping,ConnectX-9 1.6T,1,1600,confirmed,S33004;S501,1.6 Tb/s per GPU
+AMD Helios,AMD,MI455X,2026,shipping,3 x Pensando Vulcano 800G,3,2400,reported,S228;S226;S7500,Three 800G NICs per GPU; 43 TB/s rack scale-out (bidirectional) per AMD

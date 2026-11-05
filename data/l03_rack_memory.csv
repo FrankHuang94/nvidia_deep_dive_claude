@@ -1,0 +1,8 @@
+system,vendor,accelerator,accelerators,spec_version,status,hbm_capacity_tb,hbm_bandwidth_tbs,basis,confidence,source_id,notes
+GB300 NVL72,NVIDIA,Blackwell Ultra (B300),72,as shipped,shipping,20.7,576,"72 x 288 GB HBM3E; 72 x 8 TB/s (repo calc)",confirmed,S32004;S123,Per-GPU figures from NVIDIA product page and spec compilation.
+Vera Rubin NVL72,NVIDIA,Rubin,72,launch (CES 2026),shipping,20.7,1580,NVIDIA rack specification at launch,confirmed,S102;S33006,"Launch target; 22 TB/s per GPU."
+Vera Rubin NVL72,NVIDIA,Rubin,72,revised (Sep-Oct 2026),shipping,20.7,1400,NVIDIA rack specification after product-page revision,confirmed,S102;S90006;S104,"NVIDIA: revised figures reflect quality volume production; capacity unchanged."
+AMD Helios,AMD,Instinct MI455X,72,as announced,shipping,31.1,1411,"31 TB HBM4 per AMD; 72 x 19.6 TB/s = 1,411 TB/s (repo calc)",reported,S344;S144;S90021,"AMD per-GPU bandwidth unchanged at the July 2026 launch; TweakTown reports Helios now leads Vera Rubin NVL72 on memory bandwidth (S90006)."
+Trn3 UltraServer,AWS,Trainium3,144,as announced,shipping,20.7,706,AWS UltraServer specification,confirmed,S353,144 chips x 144 GB HBM3E.
+Ironwood 64-chip cube,Google,TPU7x Ironwood,64,as announced,shipping,12.3,472,"64 x 192 GB; 64 x 7.37 TB/s (repo calc)",confirmed,S151;S350,"One 64-chip cube (rack-sized unit); the ICI domain extends to 9,216 chips with 1.77 PB of shared HBM."
+CloudMatrix 384 (16 racks),Huawei,Ascend 910C,384,as reported,shipping,49.2,1229,"384 x 128 GB; 384 x 3.2 TB/s (repo calc)",reported,S340;S163,Spans 16 racks (12 compute + 4 network); brute-force scale rather than per-chip memory.

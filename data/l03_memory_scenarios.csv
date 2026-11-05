@@ -1,0 +1,5 @@
+scenario,model,weight_bytes_per_param,kv_bytes_per_element,users,context_tokens,confidence,source_id,notes
+Chat: Llama 3.1 70B · 32 users × 32k,Llama 3.1 70B,1,1,32,32768,estimate,S3000;S32006;S32027,"Repo scenario: FP8 weights and FP8 KV cache; grouped-query attention (8 KV heads, 80 layers, head dim 128) from P2_model_and_gpu_inputs.csv"
+Long context: Llama 3.1 70B · 16 users × 128k,Llama 3.1 70B,1,1,16,131072,estimate,S3000;S32006;S32027,"Repo scenario: same model at its 128k maximum context"
+Frontier dense: Llama 3.1 405B · 16 users × 32k,Llama 3.1 405B,1,1,16,32768,estimate,S3000;S32008;S32027,"Repo scenario: FP8 weights and KV cache; 126 layers, 8 KV heads"
+MoE: DeepSeek-V3 671B · 64 users × 32k,DeepSeek-V3 (MLA),1,1,64,32768,estimate,S3000;S34007;S32009;S32026,"Repo scenario: all 671B parameters resident (37B active per token); multi-head latent attention caches 576 values per layer per token"

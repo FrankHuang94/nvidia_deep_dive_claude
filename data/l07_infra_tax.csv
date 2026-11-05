@@ -1,0 +1,5 @@
+estimate,basis,share_low_pct,share_high_pct,cores_freed,cores_total,confidence,source_id,notes
+NVIDIA Redis test (BlueField-2),measured by vendor,18.75,18.75,12,64,reported,S7005;S7006,"Server ran 3.5% faster after offload while using 12 fewer of 64 previously busy cores; vendor test."
+NVIDIA cluster power model,vendor model,32.5,32.5,26,80,reported,S7005;S7006,"DPU frees 26 of 80 cores per server in NVIDIA's 10,000-node model; vendor model."
+NVIDIA white paper headline,vendor 'up to' claim,,30,,,reported,S7005,"Virtualization, networking, storage, security and management can consume up to 30% of host CPU cycles."
+Academic survey of 'datacenter tax',cited prior research,25,30,,,reported,S7007,"Share of data-center CPU cycles spent on common low-level functions (RPC, serialization, compression, encryption, memory movement)."

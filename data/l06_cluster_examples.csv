@@ -1,0 +1,8 @@
+cluster,operator,year,gpus,gpu_type,fabric,fabric_family,gbps_per_gpu,status,confidence,source_id,notes
+Azure Eagle (TOP500 run),Microsoft,2023,14400,H100,NVIDIA Quantum-2 InfiniBand (NDR),infiniband,400,operating,reported,S6006;S6007,"561 PFLOPS HPL, #3 on the Nov 2023 TOP500; Microsoft said the run used a fraction of the full system."
+Meta GenAI cluster (InfiniBand),Meta,2024,24576,H100,NVIDIA Quantum-2 InfiniBand,infiniband,400,operating,confirmed,S6002,One of two identical-size clusters built to compare fabrics.
+Meta GenAI cluster (RoCE),Meta,2024,24576,H100,RoCE on Arista 7800 switches,ethernet-other,400,operating,confirmed,S6002;S34022,"Llama 3 trained on this cluster (largest job 16,384 GPUs per S34006)."
+xAI Colossus (phase 1),xAI,2024,100000,H100,NVIDIA Spectrum-X Ethernet (SN5600 + BlueField-3),spectrum-x,400,operating,confirmed,S6000,Three-tier Spectrum-X fabric; NVIDIA claims 95% effective throughput.
+xAI Colossus (expansion),xAI,2025,200000,Hopper,NVIDIA Spectrum-X Ethernet,spectrum-x,400,reported,reported,S6001,Doubling reported as in progress in late 2024; completion not verified here.
+Microsoft Fairwater (Wisconsin / Atlanta),Microsoft,2025,,GB200 / GB300,InfiniBand and Ethernet (Sep 2025); two-tier Ethernet back-end with SONiC (Nov 2025),mixed,800,operating,reported,S6004;S6005,"GPU count not disclosed (""hundreds of thousands"" across sites); sites joined by an AI WAN. Excluded from GPU-count chart."
+OCI Zettascale10 (initial target),Oracle / OpenAI (Stargate Abilene),2026,800000,NVIDIA GPUs,Oracle Acceleron RoCE (multiplanar),ethernet-other,,announced,confirmed,S6008,"Up to 800,000 GPUs is a target for initial deployments; available H2 2026."

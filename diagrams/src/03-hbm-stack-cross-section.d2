@@ -1,0 +1,73 @@
+# HBM stack cross-section: HBM3E vs HBM4. Original schematic drawn from public JEDEC and vendor
+# specifications (JESD238, JESD270-4, SK hynix / Samsung / Micron announcements). Not to scale.
+direction: down
+
+title: "Inside an HBM stack: HBM3E vs HBM4 (schematic, not to scale)" {
+  near: top-center
+  shape: text
+  style.font-size: 26
+  style.bold: true
+}
+
+stacks: "" {
+  style.fill: "#FFFFFF"
+  style.stroke: "#FFFFFF"
+  grid-columns: 2
+  grid-gap: 40
+
+  hbm3e: "HBM3E stack · e.g. 12-high, 36 GB\n(B200, B300, MI355X)" {
+    style.fill: "#F7F7F5"
+    style.stroke: "#3987E5"
+    style.font-size: 17
+    grid-columns: 1
+    grid-gap: 6
+    mold: "Mold compound\nheat must escape up through every layer" {width: 540; style.fill: "#E1E0D9"; style.stroke: "#898781"}
+    d12: "DRAM core die 12 · 24 Gb (3 GB)" {width: 540; style.fill: "#CDE2FB"; style.stroke: "#3987E5"}
+    dmid: "DRAM core dies 2-11\nthinned wafers, each pierced by thousands\nof TSVs (vertical copper wires)" {width: 540; style.fill: "#CDE2FB"; style.stroke: "#3987E5"}
+    d1: "DRAM core die 1 · 24 Gb (3 GB)" {width: 540; style.fill: "#CDE2FB"; style.stroke: "#3987E5"}
+    bond: "Die-to-die joints\nmicro-bumps + underfill between every layer" {width: 540; style.fill: "#FBE6A2"; style.stroke: "#C98500"}
+    base: "BASE DIE\nmade in the DRAM maker's own process\nI/O PHY + test logic\n1,024 data wires (16 channels)" {width: 540; style.fill: "#86B6EF"; style.stroke: "#256ABF"; style.bold: true}
+    rate: "~9.2-9.8 Gb/s per pin × 1,024 wires\n= ~1.2 TB/s per stack" {width: 540; style.fill: "#FFFFFF"; style.stroke: "#3987E5"; style.font-color: "#104281"}
+  }
+
+  hbm4: "HBM4 stack · 12-high, 36 GB in Rubin\n(JEDEC allows up to 16-high, 64 GB)" {
+    style.fill: "#F2F7EA"
+    style.stroke: "#5F9E00"
+    style.font-size: 17
+    grid-columns: 1
+    grid-gap: 6
+    mold: "Mold compound\ntaller stacks press the package height limit" {width: 540; style.fill: "#E1E0D9"; style.stroke: "#898781"}
+    d12: "DRAM core die 12 · 24 Gb (3 GB)\n32 Gb dies → 64 GB at 16-high" {width: 540; style.fill: "#CDE2FB"; style.stroke: "#3987E5"}
+    dmid: "DRAM core dies 2-11\nroughly twice the TSV and bump count\nto feed twice the data wires" {width: 540; style.fill: "#CDE2FB"; style.stroke: "#3987E5"}
+    d1: "DRAM core die 1" {width: 540; style.fill: "#CDE2FB"; style.stroke: "#3987E5"}
+    bond: "Micro-bumps today\nhybrid (bumpless copper-to-copper) bonding\nexplored for 16-high HBM4E and beyond" {width: 540; style.fill: "#FBE6A2"; style.stroke: "#C98500"}
+    base: "BASE DIE moves to a LOGIC process\n(e.g. TSMC 12 nm; 3 nm-class for custom HBM4E)\nPHY + controller logic · 2,048 data wires (32 channels)\nfrom HBM4E: optional CUSTOM base die with buyer's logic" {width: 540; style.fill: "#5F9E00"; style.stroke: "#3F6B00"; style.font-color: "#FFFFFF"; style.bold: true}
+    rate: "~9.4 Gb/s per pin (Rubin, revised spec) × 2,048 wires\n= ~2.4 TB/s per stack" {width: 540; style.fill: "#FFFFFF"; style.stroke: "#5F9E00"; style.font-color: "#3F6B00"}
+  }
+}
+
+interposer: "SILICON INTERPOSER or CoWoS-L SILICON BRIDGE\nstack and GPU sit ~1-2 mm apart, joined by thousands of short, fine wires per stack\na DIMM slot on a motherboard cannot carry 1,024-2,048 parallel wires: HBM must be co-packaged" {
+  width: 1120
+  style.fill: "#FBF1E1"
+  style.stroke: "#C98500"
+  style.font-size: 15
+}
+
+gpu: "GPU COMPUTE DIE · HBM PHYs and memory controllers line the die edge\nB200/B300: 8 stacks × ~1 TB/s = 8 TB/s   ·   Rubin: 8 stacks × ~2.4 TB/s = 19.2 TB/s" {
+  width: 1120
+  style.fill: "#3F6B00"
+  style.stroke: "#3F6B00"
+  style.font-color: "#FFFFFF"
+  style.font-size: 15
+}
+
+why: "WHY HBM IS EXPENSIVE\n~3× the wafer area per GB of DDR5 (Micron, for HBM3E)  ·  one bad die among 12-16 scraps the whole stack\nevery die is tested before stacking (known-good die)  ·  heat must cross 12-16 bonded layers" {
+  width: 1120
+  style.fill: "#FCEBEA"
+  style.stroke: "#C4314B"
+  style.font-size: 14
+}
+
+stacks -> interposer: "1,024 (HBM3E) or 2,048 (HBM4) data wires per stack" {style.stroke: "#52514E"}
+interposer -> gpu: "short reach = low energy per bit" {style.stroke: "#52514E"}
+gpu -> why: "cost and yield" {style.stroke: "#C4314B"; style.stroke-dash: 4}

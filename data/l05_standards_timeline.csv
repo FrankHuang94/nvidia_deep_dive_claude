@@ -1,0 +1,22 @@
+track,owner,model,milestone,milestone_type,date,status,confidence,source_id,notes
+NVLink 5 / NVL72,NVIDIA,proprietary,GB200 NVL72 announced (GTC 2024),announce,2024-03-18,done,confirmed,S396,
+NVLink 5 / NVL72,NVIDIA,proprietary,First volume shipments,first_product,2024-12-01,done,confirmed,S121;S1,Window 2024-Q4 to 2025-Q1 per data/roadmap.csv; ramp problems reported Jan 2025 (S5500)
+NVLink 6 / Vera Rubin,NVIDIA,proprietary,Vera Rubin roadmap shown (GTC 2025),announce,2025-03-18,done,confirmed,S33020,
+NVLink 6 / Vera Rubin,NVIDIA,proprietary,Production shipments begin,first_product,2026-08-01,done,confirmed,S500;S90009,Early August 2026; volume ramp Q4 2026
+NVLink Fusion,NVIDIA (licensed),licensed,NVLink Fusion launched (Computex 2025),announce,2025-05-19,done,confirmed,S217,
+NVLink Fusion,NVIDIA (licensed),licensed,First third-party accelerator (AWS Trainium4),first_product,2027-07-01,expected,estimate,S518;S519,AWS gave no date; 2027 is an analyst estimate (data/roadmap.csv); mid-year placeholder
+UALink,Consortium,open standard,Promoter group formed,formation,2024-05-30,done,confirmed,S5519,
+UALink,Consortium,open standard,UALink 200G 1.0 specification,spec,2025-04-08,done,confirmed,S573,
+UALink,Consortium,open standard,UALink 2.0 specification suite,spec,2026-04-07,done,confirmed,S574,
+UALink,Consortium,open standard,Silicon reaching labs,first_silicon,2026-10-01,expected,reported,S90051,"Trade press: H2 2026; placeholder date inside the window"
+UALink,Consortium,open standard,Products in systems,first_product,2027-07-01,expected,reported,S90051;S5506,"Trade press: 2027; Upscale AI targets switch sales from Q4 2026"
+Ethernet scale-up (SUE / ESUN),Broadcom + OCP,open standard,Tomahawk Ultra ships (scale-up Ethernet switch),first_product,2025-07-15,done,confirmed,S275,Vendor product arrived before the open spec
+Ethernet scale-up (SUE / ESUN),Broadcom + OCP,open standard,SUE v1.0 contributed to OCP,spec,2025-09-05,done,confirmed,S90052,
+Ethernet scale-up (SUE / ESUN),Broadcom + OCP,open standard,ESUN workstream launched (OCP Summit),formation,2025-10-13,done,confirmed,S258;S576,
+Ethernet scale-up (SUE / ESUN),Broadcom + OCP,open standard,ESUN 1.0 specification,spec,2026-03-01,done,confirmed,S576,Month only
+Ultra Ethernet (scale-out),UEC,open standard,UEC 1.0 specification,spec,2025-06-11,done,confirmed,S257,
+Ultra Ethernet (scale-out),UEC,open standard,First UEC-ready 800G NIC (Broadcom Thor Ultra),first_product,2025-10-14,done,confirmed,S280,
+Ultra Ethernet (scale-out),UEC,open standard,UE 1.1 adds scale-up extensions,spec,2026-10-12,done,confirmed,S575,
+PCIe 6.0,PCI-SIG,open standard,PCIe 6.0 specification,spec,2022-01-11,done,confirmed,S222,
+PCIe 6.0,PCI-SIG,open standard,First GPU-platform adoption (ConnectX-8 PCIe Gen6 switch),first_product,2025-06-01,done,reported,S222;S264,Year from data/interconnect_specs.csv; month is a placeholder
+PCIe 7.0,PCI-SIG,open standard,PCIe 7.0 specification,spec,2025-06-11,done,confirmed,S220,No GPU platform shipping as of 2026-11

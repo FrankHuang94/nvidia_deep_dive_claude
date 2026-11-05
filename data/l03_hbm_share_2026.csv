@@ -1,0 +1,8 @@
+period,supplier,share_pct,kind,confidence,source_id,notes
+2026-Q1,SK hynix,58,actual,reported,S3500;S3501,Counterpoint HBM revenue share (prior-quarter figure in the Q2 2026 release).
+2026-Q1,Samsung,21,actual,reported,S3500;S3501,Counterpoint HBM revenue share.
+2026-Q1,Micron,21,actual,reported,S3500;S3501,Counterpoint HBM revenue share.
+2026-Q2,SK hynix,50,actual,reported,S3500;S3501,Counterpoint HBM revenue share; down 8 points q/q.
+2026-Q2,Samsung,33,actual,reported,S3500;S3501,Counterpoint HBM revenue share; up 12 points q/q; only major supplier to gain share.
+2026-Q2,Micron,18,actual,reported,S3500;S3501,Counterpoint HBM revenue share (shares sum to 101% from rounding).
+2026-Q4,Samsung,40,forecast,speculative,S3501,"KB Securities forecast (~40%), echoed by Samsung; not a measured share."

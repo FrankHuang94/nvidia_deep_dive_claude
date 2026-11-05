@@ -1,0 +1,10 @@
+company,segment,date,event,raise_usd_m,valuation_usd_m,valuation_basis,lead_or_buyer,status,confidence,source_id,notes
+VAST Data,AI storage and data platform,2023-12,Series E,118,9100,post-money,,private,reported,S7513;S482,NVIDIA participated
+VAST Data,AI storage and data platform,2026-04,Series F,1000,30000,post-money,,private,reported,S7512;S7513,Round includes secondary; IPO under consideration
+DDN,AI and HPC storage,2025-01-08,Minority investment,300,5000,post-money,Blackstone,private,confirmed,S7514,Blackstone Tactical Opportunities
+Xsight Labs,DPU and Ethernet switch silicon,2026-07-30,Growth round,300,2800,post-money,Fidelity,private,reported,S7517,E1 800G DPU and X-series switches
+WEKA,AI data platform (parallel file system),2024-05,Series E,140,1600,post-money,Valor,private,reported,S7515,$100M primary + $40M secondary; no later priced round found
+Hammerspace,Data orchestration for AI,2025-04-16,Strategic round,100,500,floor (>$500M),Altimeter,private,reported,S7516,Valuation reported as more than $500M
+Pensando Systems,DPU and AI NIC,2022-05-26,Acquired by AMD,,1900,exit price,AMD,acquired,confirmed,S7527,
+Enfabrica,AI SuperNIC / memory fabric,2025-09-18,Team + licence to NVIDIA,,900,exit price (>$900M),NVIDIA,acquired,reported,S475,Acquihire-licence
+Fungible,DPU,2023-01,Acquired by Microsoft,,190,exit price (reported),Microsoft,acquired,reported,S7504;S7506,

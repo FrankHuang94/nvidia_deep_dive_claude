@@ -1,0 +1,6 @@
+system,path,bandwidth_gbs,basis,confidence,source_id,notes
+DGX-2,CPU bounce buffer (system memory),50,measured ceiling of the four PCIe paths through CPU memory (~48-50 GB/s),reported,S7009;S7010,Vendor figure (2019).
+DGX-2,GDS from local NVMe drives,53,'53+ GB/s',reported,S7009,Vendor figure.
+DGX-2,GDS from remote storage via NICs,100,'100 GB/s or more',reported,S7010,Vendor figure as reported by Blocks and Files.
+DGX-2,GDS via RAID cards in eight PCIe slots,112,measured,reported,S7009,Vendor figure; specific slot configuration.
+DGX-2,GDS sum of all sources,215,theoretical sum of concurrent sources,reported,S7009,Lower if NICs occupy the RAID slots.

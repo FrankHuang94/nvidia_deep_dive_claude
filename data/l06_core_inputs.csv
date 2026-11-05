@@ -1,0 +1,36 @@
+record_type,item,metric,value,unit,confidence,source_id,notes
+tail_latency_model,Synchronous training step,exposed_comm_share,0.25,fraction of step time,estimate,S34012;S6029,"Illustrative assumption: share of a step spent in communication that is not hidden behind compute. Real jobs range widely (roughly 10-40%) depending on parallelism and overlap."
+tail_latency_model,Synchronous training step,slow_flow_delay_factor,10,x,estimate,S6029,"Illustrative: a delayed flow (congested path, retransmit, incast) finishes 10x later than a normal flow; the collective waits for it."
+tail_latency_model,Synchronous training step,slow_flow_fraction_low,0.0001,fraction of flows,estimate,S6029,Scenario: 0.01% of flows delayed.
+tail_latency_model,Synchronous training step,slow_flow_fraction_mid,0.001,fraction of flows,estimate,S6029,Scenario: 0.1% of flows delayed.
+tail_latency_model,Synchronous training step,slow_flow_fraction_high,0.01,fraction of flows,estimate,S6029,Scenario: 1% of flows delayed.
+tail_latency_model,Synchronous training step,flows_per_collective_example,1000,flows,estimate,S34012,"Example: a collective over a few hundred to a few thousand GPUs involves on the order of 1,000 concurrent point-to-point flows."
+tail_latency_model,100k-GPU cluster,gpus,100000,GPUs,estimate,S294,Cluster size used in the worked example.
+tail_latency_model,100k-GPU cluster,usd_per_gpu_hour,2.0,USD per GPU-hour,reported,S393,"Late-2024 marketplace H100 rental floor (~$2/GPU-hr); used as a conservative value of a GPU-hour."
+cpo_scenario,"A · Repo count, 3.5× claim",nic_modules_per_gpu,1,modules,estimate,S294;S265,NIC-side module stays pluggable (CPO is on switches only).
+cpo_scenario,"A · Repo count, 3.5× claim",nic_module_w,15,W,estimate,S295;S282,800G DSP module ~15 W (optics_power_estimates.csv).
+cpo_scenario,"A · Repo count, 3.5× claim",switch_modules_per_gpu,2.5,modules,estimate,S294,"3-tier non-blocking fat tree with twin-port modules: 0.5 leaf-down + 1 leaf-spine + 1 spine-core (network_topology_estimates.csv)."
+cpo_scenario,"A · Repo count, 3.5× claim",switch_module_w,30,W,reported,S33020;S6016,1.6T pluggable ~30 W per NVIDIA (GTC 2025 keynote).
+cpo_scenario,"A · Repo count, 3.5× claim",cpo_power_factor,3.5,x,confirmed,S265,NVIDIA's March 2025 claim: 3.5x better power efficiency than pluggable optics.
+cpo_scenario,"B · Repo count, 5× claim (2026)",nic_modules_per_gpu,1,modules,estimate,S294;S265,As A.
+cpo_scenario,"B · Repo count, 5× claim (2026)",nic_module_w,15,W,estimate,S295;S282,As A.
+cpo_scenario,"B · Repo count, 5× claim (2026)",switch_modules_per_gpu,2.5,modules,estimate,S294,As A.
+cpo_scenario,"B · Repo count, 5× claim (2026)",switch_module_w,30,W,reported,S33020;S6016,As A.
+cpo_scenario,"B · Repo count, 5× claim (2026)",cpo_power_factor,5,x,reported,S6020;S6023,NVIDIA's 2026 Spectrum-X Photonics claim: 5x lower power than pluggables.
+cpo_scenario,"C · Keynote framing (6 × 30 W), 3.5× claim",nic_modules_per_gpu,1,modules,reported,S6016,Huang's six transceivers per GPU: one at the NIC.
+cpo_scenario,"C · Keynote framing (6 × 30 W), 3.5× claim",nic_module_w,30,W,reported,S6016;S33020,All six counted at ~30 W (1.6T class).
+cpo_scenario,"C · Keynote framing (6 × 30 W), 3.5× claim",switch_modules_per_gpu,5,modules,reported,S6016,Remaining five of six transceivers sit on switches.
+cpo_scenario,"C · Keynote framing (6 × 30 W), 3.5× claim",switch_module_w,30,W,reported,S6016;S33020,~30 W each.
+cpo_scenario,"C · Keynote framing (6 × 30 W), 3.5× claim",cpo_power_factor,3.5,x,confirmed,S265,As A.
+cpo_scenario,100k-GPU cluster,gpus,100000,GPUs,estimate,S294,Cluster size for the MW comparison.
+network_cost_share,"Reuters: networking share of total 1 GW AI data-center spend",share,13,pct,reported,S6025,"Whole data center incl. building, power and cooling in the denominator, so lower than cluster-only shares."
+network_cost_share,"Reuters: switches alone, same basis",share,3,pct,reported,S6025,Switch ASIC boxes only; cabling and optics excluded.
+network_cost_share,"AMCompute: 576-GPU B200 cluster capex",share,17,pct,estimate,S6026,Vendor blog bottom-up estimate; cluster hardware only.
+network_cost_share,"AMCompute: 24,576-GPU cluster capex",share,19,pct,estimate,S6026,Share rises with scale as tiers are added.
+network_cost_share,"SemiAnalysis: GB200 NVL72 all-in rack capex (networking + storage)",share,20.5,pct,estimate,S324,($3.9M all-in - $3.1M rack) / $3.9M; includes storage.
+network_cost_share,"NVIDIA networking ÷ Data Center revenue, Q2 FY2027",share,19.7,pct,estimate,S408;S3,"~$17.5B / ~$89.0B; includes NVLink switch trays (scale-up), so it is a vendor revenue mix, not a cluster BOM."
+network_cost_share,"Huang's optics math: $6,000 per GPU vs GB300 NVL72 price per GPU",share,10.8,pct,estimate,S6016;S332,"6 x ~$1,000 transceivers / (~$3.99M / 72 GPUs = ~$55.4k); optics alone, before switches and NICs."
+spectrum_x_claim,Standard Ethernet at 100k-GPU scale (NVIDIA claim),effective_throughput_pct,60,pct of link bandwidth,reported,S6000;S6012,Vendor claim; NVIDIA attributes the loss to flow collisions under hash-based ECMP.
+spectrum_x_claim,Spectrum-X on xAI Colossus (NVIDIA claim),effective_throughput_pct,95,pct of link bandwidth,reported,S6000;S6012,Vendor claim for the 100k-GPU Colossus fabric.
+spectrum_x_claim,Colossus GPU NIC,port_gbps,400,Gb/s per GPU,confirmed,S6000;S271,BlueField-3 SuperNIC at 400 Gb/s per GPU.
+spectrum_x_claim,Spectrum-X vs off-the-shelf Ethernet,performance_multiplier,1.6,x,reported,S6010,Headline vendor claim; 95/60 = 1.58.

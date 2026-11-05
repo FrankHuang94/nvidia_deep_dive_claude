@@ -1,0 +1,13 @@
+announce_date,close_date,buyer_or_lead,target,deal_type,value_usd_m,value_basis,scale_up_relevance,status,confidence,source_id,notes
+2019-03-11,2020-04-27,NVIDIA,Mellanox,acquisition,6900,disclosed,"Switch silicon, SerDes and in-network reduction know-how behind NVSwitch-era networking",closed,confirmed,S464,$125/share all-cash
+2025-09-18,2025-12,NVIDIA,Intel (equity),strategic-investment,5000,disclosed,Custom Intel x86 CPUs that attach over NVLink,closed,confirmed,S468,~4% stake at $23.28/share
+2024-08,2025,AMD,ZT Systems,acquisition,4900,disclosed,Rack-scale design team behind Helios; manufacturing resold to Sanmina,closed,reported,S5527,Manufacturing sold to Sanmina 2025-10-27 for $2.25B cash + $0.3B premium + up to $0.45B earn-out
+2025-12,2026-02-02,Marvell,Celestial AI,acquisition,3250,disclosed (upfront),Photonic fabric for optical scale-up,closed,confirmed,S2513,$1B cash + ~27.2M shares plus revenue-linked earn-outs
+2025-06-09,2025-12-18,Qualcomm,Alphawave Semi,acquisition,2400,reported,"SerDes, connectivity IP and chiplets",closed,confirmed,S4514;S4513,
+2026-03-31,,NVIDIA,Marvell (equity),strategic-investment,2000,reported,NVLink Fusion custom XPUs and scale-up,announced,reported,S218,
+2025-09-18,2025-09,NVIDIA,Enfabrica,acquihire-license,900,reported,AI networking and memory-fabric team and licence,closed,reported,S475,"Cash and stock, >$900M per CNBC"
+2026-03,2026-03,Investors incl. NVIDIA and AMD,Ayar Labs (Series E),funding-round,500,disclosed,Optical I/O chiplets; valuation ~$3.75B,closed,reported,S5511,Total raised $870M
+2024-10-16,2024-10,T. Rowe Price (lead),Lightmatter (Series D),funding-round,400,disclosed,Photonic interconnect; valuation $4.4B,closed,confirmed,S2510,
+2026-01-22,2026-01,Investors,Upscale AI (Series A),funding-round,200,disclosed,UALink scale-up switch (SkyHammer); valuation >$1B,closed,reported,S5506,
+2026-01,2026-02-10,Marvell,XConn Technologies,acquisition,325,cash portion only,PCIe/CXL switch team for UALink-era scale-up switching,closed,reported,S5508;S5509,Plus ~2.7M Marvell shares; total not stated
+2024-12-11,2024-12,"Investors incl. AMD, Intel Capital and NVIDIA",Ayar Labs (Series D),funding-round,155,disclosed,Optical I/O chiplets; valuation >$1B,closed,confirmed,S5512,

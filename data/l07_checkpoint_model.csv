@@ -1,0 +1,10 @@
+record_type,item,value,unit,confidence,source_id,notes
+model,Llama 3.1 70B,70,billion parameters,confirmed,S32006,Dense.
+model,Llama 3.1 405B,405,billion parameters,confirmed,S32008;S31002,Dense; trained on up to 16k H100 GPUs.
+model,DeepSeek-V3,671,billion parameters,confirmed,S34007,MoE (37B active); a full checkpoint still stores every expert.
+model,1T-parameter model (illustrative),1000,billion parameters,speculative,S7000,Round-number frontier-scale reference.
+bandwidth,One BlueField-4 link (800 Gb/s),100,GB/s,confirmed,S7001,Line rate of a single DPU port.
+bandwidth,1 TB/s storage system (round reference),1000,GB/s,speculative,S7000,Illustrative mid-size AI storage cluster.
+bandwidth,Meta Llama 3 Tectonic storage peak,7000,GB/s,reported,S34006,"240 PB on 7,500 SSD servers; ~7 TB/s peak throughput."
+cluster,Llama 3 job interruptions,466,interruptions in 54 days,reported,S34006,Mostly hardware; about one unplanned failure every ~3 hours on 16k GPUs (S31003).
+cluster,Llama 3 pretraining GPUs,16384,H100 GPUs,reported,S34006,

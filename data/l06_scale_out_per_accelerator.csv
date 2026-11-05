@@ -1,0 +1,9 @@
+vendor,system,accelerator,year,nic,nics_per_accelerator,gbps_per_nic,scale_out_gbps_per_accelerator,status,confidence,source_id,notes
+NVIDIA,HGX H100,H100,2022,ConnectX-7,1,400,400,shipping,confirmed,S266,One 400G NIC per GPU.
+NVIDIA,GB200 NVL72,B200,2024,ConnectX-7,1,400,400,shipping,confirmed,S266;S262,One 400G NIC per GPU.
+NVIDIA,GB300 NVL72,B300,2025,ConnectX-8 SuperNIC,1,800,800,shipping,confirmed,S264,
+NVIDIA,Vera Rubin NVL72,Rubin,2026,ConnectX-9 SuperNIC,1,1600,1600,shipping,confirmed,S33004;S204,
+NVIDIA,Feynman (roadmap),Feynman,2028,ConnectX-10 SuperNIC,1,1600,1600,roadmap,reported,S6524;S90004,Per-port figure reported by Counterpoint; NICs per GPU not disclosed; S213 notes 1.6 vs 3.2 Tb/s conflict.
+AMD,Helios,MI455X,2026,Pensando Vulcano (UEC),3,800,2400,shipping,confirmed,S290;S228;S90020,Three 800G NICs per GPU; ~43 TB/s bidirectional per 72-GPU rack; first shipments ~end Q3 2026.
+AWS,Trn2 instance (16 chips),Trainium2,2024,EFA v3,,,200,shipping,reported,S292,3.2 Tb/s per 16-chip instance.
+AWS,P6-B200 instance (8 GPUs),B200,2025,EFA v4,,,400,shipping,reported,S292,3.2 Tb/s per 8-GPU instance.

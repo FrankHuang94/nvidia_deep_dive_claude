@@ -1,0 +1,5 @@
+study,gpu,model,metric,tee_off,tee_on,overhead_pct,confidence,source_id,notes
+Zhu et al. 2024,H100,Llama-3.1-8B,throughput (tokens/s),132.3618,123.2985,6.85,reported,S7011,Overhead = 1 - TEE-on / TEE-off.
+Zhu et al. 2024,H100,Phi-3-14B,throughput (tokens/s),,,4.58,reported,S7011,
+Zhu et al. 2024,H100,Llama-3.1-70B,throughput (tokens/s),,,-0.13,reported,S7011,Authors attribute the negative value to measurement noise / precision; read as ~0%.
+Zhu et al. 2024,H100,Llama-3.1-8B,time to first token (s),0.0242,0.0288,19.03,reported,S7011,Latency overhead is largest for small models and short prompts.

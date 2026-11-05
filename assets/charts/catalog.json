@@ -2696,8 +2696,8 @@
   },
   {
     "id": "06-ai-cluster-fabrics",
-    "title": "Disclosed AI fabrics grew from 14,400 GPUs on InfiniBand (2023) to 100k+ on Ethernet; Oracle targets 800k",
-    "subtitle": "GPUs in one back-end fabric by cluster and year, colored by fabric; hatched = reported expansion or announced target",
+    "title": "Disclosed AI fabrics grew from 14k GPUs on InfiniBand (2023) to 100k+ on Ethernet (2024)",
+    "subtitle": "GPUs in one back-end fabric, by fabric; hatched = reported or announced (Oracle targets 800k)",
     "alt": "Horizontal log-scale bar chart of disclosed AI clusters: Microsoft Azure Eagle 14,400 H100 on InfiniBand NDR (2023 TOP500 run); Meta's two 24,576-GPU H100 clusters, one InfiniBand and one RoCE Ethernet (2024); xAI Colossus 100,000 H100 on NVIDIA Spectrum-X Ethernet (2024) with a reported expansion to 200,000; Oracle's Zettascale10 RoCE multiplanar design targeting up to 800,000 GPUs (announced for 2026). The largest fabrics since 2024 are Ethernet.",
     "data": [
       "l06_cluster_examples.csv"
@@ -2723,8 +2723,8 @@
   },
   {
     "id": "06-allreduce-traffic-sharp",
-    "title": "SHARP halves the data each GPU sends per all-reduce: 1.0× the gradient vs ~2.0× for a ring",
-    "subtitle": "Bytes each GPU must send per all-reduce, as a multiple of the message size, by number of GPUs (bandwidth term only)",
+    "title": "SHARP halves the data each GPU sends per all-reduce: 1× the message vs ~2× for a ring",
+    "subtitle": "Bytes each GPU sends per all-reduce ÷ message size, by number of GPUs (bandwidth term only)",
     "alt": "Line chart: with ring all-reduce each GPU sends 2(N-1)/N times the message, 1.75 times at 8 GPUs and approaching 2.0 times at tens of thousands of GPUs; with SHARP in-network reduction each GPU sends its data once (1.0 times) because the switches do the additions, so bandwidth-bound all-reduces can run up to about twice as fast. NVIDIA reported about 2x all-reduce bandwidth on HDR InfiniBand.",
     "data": [
       "l06_allreduce_traffic.csv"
@@ -2758,7 +2758,7 @@
       "06",
       "08"
     ],
-    "source": "NVIDIA (GTC 2025 keynote, photonics releases); repo topology counts",
+    "source": "NVIDIA claims; repo counts",
     "source_ids": [
       "S294",
       "S265",
@@ -2854,7 +2854,7 @@
   },
   {
     "id": "06-network-share-of-cluster-capex",
-    "title": "Networking is ~17–20% of AI cluster hardware capex by most estimates (13% of a whole site)",
+    "title": "Networking is ~17–21% of AI cluster hardware capex by most estimates (13% of a whole site)",
     "subtitle": "Network share of spend, %, by estimate and scope; hatched = analyst or repo estimate",
     "alt": "Horizontal bar chart of estimates of the network's share of AI spending: switches alone about 3% and all networking about 13% of a whole 1 GW data center's spend (Reuters); optics alone about 11% of a GB300 NVL72's per-GPU price using Jensen Huang's six $1,000 transceivers per GPU; about 17% (576 GPUs) and 19% (24,576 GPUs) of cluster capex in one bottom-up blog estimate; NVIDIA networking at about 20% of its Data Center revenue in Q2 FY2027; and about 20.5% networking plus storage in SemiAnalysis's all-in GB200 NVL72 cost.",
     "data": [
@@ -2878,6 +2878,81 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/06-network-share-of-cluster-capex.svg",
+    "html": null
+  },
+  {
+    "id": "06-networking-attach-per-compute",
+    "title": "NVIDIA now sells ~$0.24 of networking per $1 of compute, up from $0.09 at the Blackwell switchover",
+    "subtitle": "Data Center networking revenue ÷ Data Center compute revenue, by fiscal quarter (US$ per US$); hatched = estimate",
+    "alt": "Bar chart of NVIDIA networking revenue per dollar of compute revenue by quarter: about $0.28 in Q1FY24 (estimate), falling to $0.09 in Q4FY25 as Blackwell compute ramped ahead of its networking, then recovering to $0.24 in Q2FY27 (estimate: $17.5B networking vs $71.5B compute) as NVLink switch trays, Spectrum-X Ethernet and 800G InfiniBand shipped with GB200/GB300 racks. Networking includes NVLink scale-up switches, so this is not a pure scale-out attach rate.",
+    "data": [
+      "financials.csv"
+    ],
+    "chapters": [
+      "06",
+      "13"
+    ],
+    "source": "NVIDIA CFO commentary and filings; repo calculation",
+    "source_ids": [
+      "S440",
+      "S441",
+      "S442",
+      "S443",
+      "S425",
+      "S426",
+      "S427",
+      "S416",
+      "S444",
+      "S414",
+      "S445",
+      "S413",
+      "S446",
+      "S412",
+      "S415",
+      "S1",
+      "S402",
+      "S403",
+      "S409",
+      "S405",
+      "S408"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-networking-attach-per-compute.svg",
+    "html": null
+  },
+  {
+    "id": "06-networking-deal-values",
+    "title": "Mellanox ($6.9B) built NVIDIA's network franchise; its 2026 laser stakes add $4B",
+    "subtitle": "Disclosed or reported deal value, US$ millions (log scale), networking, optics and interconnect deals 2019–2026",
+    "alt": "Log-scale horizontal bar chart of networking deals: HPE-Juniper $14B (2024 announced), NVIDIA-Mellanox $6.9B (2019), Marvell-Celestial AI ~$3.25B upfront (2025), Qualcomm-Alphawave ~$2.4B (2025), NVIDIA's $2B stakes in each of Lumentum, Coherent and Marvell (2026), AMD-Pensando $1.9B (2022) and NVIDIA's ~$0.9B Enfabrica acquihire (2025); NVIDIA-Cumulus (2020) and Marvell-Innovium (2021) terms are not in the repo's sources.",
+    "data": [
+      "l06_networking_deals.csv"
+    ],
+    "chapters": [
+      "06",
+      "13",
+      "19"
+    ],
+    "source": "company releases and press",
+    "source_ids": [
+      "S478",
+      "S284",
+      "S475",
+      "S6521",
+      "S6511",
+      "S6512",
+      "S218",
+      "S4514",
+      "S4513",
+      "S2513",
+      "S464",
+      "S6510",
+      "S6522"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-networking-deal-values.svg",
     "html": null
   },
   {
@@ -2931,6 +3006,37 @@
     "html": null
   },
   {
+    "id": "06-networking-value-pool-by-vendor",
+    "title": "NVIDIA's ~$31B networking line is ~6× the largest optics maker and ~9× Arista's 2026 AI target",
+    "subtitle": "Latest annual revenue tied to AI networking, US$ B (period in label); hatched = annualized or includes non-networking",
+    "alt": "Horizontal bar chart of AI-networking-related revenue: NVIDIA networking $31.4B in FY2026 and a ~$70B annualized run-rate in Q2 FY2027 (both include NVLink switches); Broadcom AI semiconductors $20.2B in FY2025, which mixes custom XPUs with AI Ethernet; optics makers Innolight $5.3B and Eoptolink $3.5B in 2025; Arista's 2026 AI networking target of at least $3.6B; Credo $1.34B in fiscal 2026. NVIDIA alone books more networking revenue than the merchant switch, optics and cable specialists shown combined, excluding Broadcom.",
+    "data": [
+      "l06_networking_vendor_revenue.csv"
+    ],
+    "chapters": [
+      "06",
+      "13",
+      "15"
+    ],
+    "source": "company filings, LightCounting, press",
+    "source_ids": [
+      "S402",
+      "S1",
+      "S408",
+      "S409",
+      "S661",
+      "S6513",
+      "S6500",
+      "S6501",
+      "S6515",
+      "S6514"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-networking-value-pool-by-vendor.svg",
+    "html": null
+  },
+  {
     "id": "06-optics-per-gpu",
     "title": "Est.: each GPU needs 2.5 pluggable optics (2 tiers) or 3.5 (3 tiers); CPO switches cut that to 1",
     "subtitle": "Estimated optical modules per GPU, non-blocking rail-optimized fat tree (back-end fabric only), by NIC speed and tiers",
@@ -2954,6 +3060,87 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/06-optics-per-gpu.svg",
+    "html": null
+  },
+  {
+    "id": "06-scale-out-bandwidth-per-accelerator",
+    "title": "AMD's Helios gives each GPU 2.4 Tb/s of scale-out, 1.5× Vera Rubin's 1.6 Tb/s",
+    "subtitle": "Scale-out (back-end NIC) bandwidth per accelerator, Gb/s per direction, by system and year; hatched = roadmap",
+    "alt": "Bar chart of scale-out NIC bandwidth per accelerator: NVIDIA HGX H100 400 Gb/s (2022), GB200 NVL72 400 (2024), GB300 NVL72 800 (2025), Vera Rubin NVL72 1,600 (2026) and Feynman about 1,600 per ConnectX-10 port (2028, reported); AMD Helios 2,400 Gb/s per MI455X through three 800G UEC NICs (2026); AWS Trn2 about 200 and P6-B200 400 Gb/s per chip over EFA. NVIDIA doubles per generation; AMD jumped ahead by buying more NICs per GPU.",
+    "data": [
+      "l06_scale_out_per_accelerator.csv"
+    ],
+    "chapters": [
+      "06",
+      "07",
+      "15"
+    ],
+    "source": "vendor releases and docs",
+    "source_ids": [
+      "S266",
+      "S262",
+      "S264",
+      "S33004",
+      "S204",
+      "S6524",
+      "S90004",
+      "S290",
+      "S228",
+      "S90020",
+      "S292"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-scale-out-bandwidth-per-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "06-scale-out-competitor-heatmap",
+    "title": "Only Broadcom beats NVIDIA on switch bandwidth, 6 of 8 rivals on openness; none on NIC co-design",
+    "subtitle": "Repo verdict for each scale-out rival vs NVIDIA (InfiniBand + Spectrum-X) on six dimensions, as of 2026-11",
+    "alt": "Heatmap of 8 scale-out networking rivals against NVIDIA on six dimensions. Broadcom alone leads on switch radix and bandwidth (Tomahawk 6 at 102.4 Tb/s in 2025, about a year before Spectrum-6); 6 rivals lead on openness (merchant silicon, UEC, SONiC); none leads on NIC co-design, where Broadcom's 800G Thor Ultra trails ConnectX-9 at 1.6 Tb/s and AMD's UEC NICs reach parity only by using three per GPU; white-box ODMs led by Celestica lead on share of Ethernet AI back-end switch sales; Google and AWS run captive, different-approach fabrics.",
+    "data": [
+      "l06_competitor_verdicts.csv"
+    ],
+    "chapters": [
+      "06",
+      "15"
+    ],
+    "source": "repo analysis of vendor releases and Dell'Oro (l06_competitor_verdicts.csv)",
+    "source_ids": [
+      "S274",
+      "S6507",
+      "S277",
+      "S279",
+      "S271",
+      "S280",
+      "S33004",
+      "S257",
+      "S288",
+      "S6506",
+      "S6505",
+      "S6502",
+      "S6523",
+      "S6500",
+      "S408",
+      "S6503",
+      "S285",
+      "S90054",
+      "S284",
+      "S2513",
+      "S218",
+      "S575",
+      "S290",
+      "S228",
+      "S90020",
+      "S293",
+      "S241",
+      "S554",
+      "S292"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-scale-out-competitor-heatmap.svg",
     "html": null
   },
   {
@@ -3012,8 +3199,8 @@
   },
   {
     "id": "06-spectrum-x-effective-bandwidth",
-    "title": "NVIDIA claims Spectrum-X keeps 95% of link bandwidth vs ~60% for standard Ethernet: its '1.6×' headline",
-    "subtitle": "Effective Gb/s per GPU on a 400 Gb/s port at 100k-GPU scale (xAI Colossus); hatched = vendor claim, not independently tested",
+    "title": "NVIDIA claims Spectrum-X keeps 95% of link bandwidth vs 60% for standard Ethernet",
+    "subtitle": "Effective Gb/s per GPU, 400 Gb/s port, 100k-GPU scale (xAI Colossus); hatched = vendor claim, untested",
     "alt": "Horizontal bar chart: each Colossus GPU has a 400 Gb/s SuperNIC port; NVIDIA says Spectrum-X sustains 95% of it (~380 Gb/s) while standard Ethernet with hash-based load balancing manages ~60% (~240 Gb/s) at that scale because of flow collisions. The ratio 95/60 = 1.58 matches NVIDIA's '1.6x AI networking performance' claim. Both figures are vendor claims.",
     "data": [
       "l06_core_inputs.csv"
@@ -3036,7 +3223,7 @@
   {
     "id": "06-step-time-vs-tail-latency",
     "title": "Est.: if 1% of network flows run 10× slow, a 1,000-flow training step takes 3.2× as long",
-    "subtitle": "Expected step time (index, no slow flows = 100) vs flows per collective; 25% of the step is exposed communication, a slow flow takes 10× longer and the step waits for the last flow",
+    "subtitle": "Step time index (100 = no slow flows) vs flows per collective; 25% of step is exposed comms; slow flow = 10× longer",
     "alt": "Line chart from a simple repo model: a synchronous training step waits for its slowest network flow. With 25% of step time in exposed communication and slow flows taking 10 times longer, a step with 1,000 flows takes 121 (index) if 0.01% of flows are slow, 242 if 0.1% are slow and 325 if 1% are slow, versus 100 with none; the ceiling is 325. Bigger collectives hit the ceiling at lower slow-flow rates.",
     "data": [
       "l06_core_inputs.csv"
@@ -3088,6 +3275,37 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/06-switch-aggregate-bandwidth.svg",
+    "html": null
+  },
+  {
+    "id": "06-switch-generation-race",
+    "title": "Broadcom shipped 102.4 Tb/s ~14 months before NVIDIA's Spectrum-6 reached partners",
+    "subtitle": "Switch ASIC generations by vendor: announcement (hollow) to first shipments (filled); 51.2T and 102.4T classes",
+    "alt": "Dumbbell timeline of switch ASIC generations. 51.2 Tb/s: NVIDIA announced Spectrum-4 first (March 2022) but launched it as Spectrum-X in May 2023, while Broadcom shipped Tomahawk 5 in August 2022; Marvell Teralynx 10 (March 2023) and Cisco G200 (June 2023) followed. 102.4 Tb/s: NVIDIA announced Spectrum-6 photonics in March 2025, Broadcom shipped Tomahawk 6 in June 2025, and TrendForce reported limited Spectrum-6 shipments in July 2026, about 14 months later; Cisco's G300 (announced February 2026) is planned for H2 2026. NVIDIA's 115.2 Tb/s Quantum-X800 InfiniBand switch was announced in March 2024 and shipped in 2025.",
+    "data": [
+      "l06_switch_generations.csv"
+    ],
+    "chapters": [
+      "06",
+      "15"
+    ],
+    "source": "vendor releases and TrendForce",
+    "source_ids": [
+      "S277",
+      "S267",
+      "S271",
+      "S284",
+      "S285",
+      "S274",
+      "S6505",
+      "S265",
+      "S6507",
+      "S6503",
+      "S264"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-switch-generation-race.svg",
     "html": null
   },
   {

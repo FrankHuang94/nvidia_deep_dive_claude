@@ -1,0 +1,37 @@
+competitor,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
+AMD (MI455X / Helios),Memory per accelerator,leads,432 vs 288 GB,MI455X carries 432 GB HBM4 vs Rubin's 288 GB (1.5x),confirmed,S144;S100,Verdict is the challenger's position vs NVIDIA's current flagship.
+AMD (MI455X / Helios),Bandwidth per accelerator,parity,19.6 vs 19.2 TB/s,AMD's 19.6 TB/s vs Rubin's revised 19.2 TB/s (launch target 22),confirmed,S144;S103;S104,
+AMD (MI455X / Helios),Rack HBM bandwidth,parity,"1,411 vs 1,400 TB/s",Helios 72 x 19.6 TB/s (repo calc) vs Vera Rubin NVL72 revised 1.4 PB/s,reported,S144;S102;S90006,
+AMD (MI455X / Helios),CoWoS / HBM allocation,behind,~105k vs ~595k wafers,Est. 2026 CoWoS bookings ~10% vs NVIDIA ~60% (Morgan Stanley via press),estimate,S379,
+AMD (MI455X / Helios),Supplier relationships,parity,Samsung priority,Samsung named primary HBM4 supplier for MI455X (MOU Mar 2026); SK hynix also supports AMD,reported,S3511;S3512,
+AMD (MI455X / Helios),Independence from CoWoS+HBM,parity,same dependency,Same TSMC CoWoS + HBM4 dependency as NVIDIA,speculative,S379,Repo judgement.
+Google TPU (+Broadcom),Memory per accelerator,behind,192 GB,Ironwood 192 GB HBM3E per chip,confirmed,S151,
+Google TPU (+Broadcom),Bandwidth per accelerator,behind,7.4 TB/s,Ironwood 7.37 TB/s per chip,confirmed,S151,
+Google TPU (+Broadcom),Rack HBM bandwidth,different,1.77 PB pooled,"9,216-chip ICI domain shares 1.77 PB HBM; per-rack comparison understates it",confirmed,S151;S547,
+Google TPU (+Broadcom),CoWoS / HBM allocation,behind,~150k wafers (Broadcom),Broadcom's Est. ~150k 2026 CoWoS wafers serve Google and other custom-ASIC customers,estimate,S379,
+Google TPU (+Broadcom),Supplier relationships,different,multi-partner,Broadcom and MediaTek design partners; Google building a four-partner supply chain,reported,S90027;S2517,
+Google TPU (+Broadcom),Independence from CoWoS+HBM,parity,same dependency,Still HBM on CoWoS; reported talks with Intel on EMIB packaging,reported,S3532,
+AWS Trainium,Memory per accelerator,behind,144 GB (Trn3),Trainium3 144 GB HBM3E; Trainium4 ~288 GB (repo Est. from AWS 2x claim),confirmed,S155;S156,
+AWS Trainium,Bandwidth per accelerator,behind,4.9 TB/s (Trn3),Trainium3 4.9 TB/s; AWS claims 4x for Trainium4 (~19.6 TB/s Est.),confirmed,S353;S156,
+AWS Trainium,Rack HBM bandwidth,behind,706 TB/s,Trn3 UltraServer (144 chips) 706 TB/s vs 1.4 PB/s,confirmed,S353,
+AWS Trainium,CoWoS / HBM allocation,behind,via Alchip/Marvell,Design partners compete for CoWoS behind NVIDIA and Broadcom,reported,S2517;S379,
+AWS Trainium,Supplier relationships,different,design partners,Annapurna in-house design with Alchip / Marvell,reported,S2517,
+AWS Trainium,Independence from CoWoS+HBM,parity,same dependency,HBM on CoWoS; reported Intel packaging talks,reported,S3532,
+Huawei Ascend,Memory per accelerator,behind,144 GB (950DT),Ascend 950DT 144 GB in-house HBM (Q4 2026 roadmap),reported,S163,
+Huawei Ascend,Bandwidth per accelerator,behind,4.0 TB/s,Ascend 950DT 4.0 TB/s,reported,S163,
+Huawei Ascend,Rack HBM bandwidth,different,brute-force scale,CloudMatrix 384 spreads 49 TB over 16 racks,reported,S340,
+Huawei Ascend,CoWoS / HBM allocation,behind,export-controlled,No access to leading-edge HBM or TSMC CoWoS under US controls,reported,S163;S90042,
+Huawei Ascend,Supplier relationships,different,in-house + CXMT,Self-developed HiBL/HiZQ HBM; CXMT small-scale HBM3E,reported,S163;S3516,
+Huawei Ascend,Independence from CoWoS+HBM,different,forced self-reliance,Domestic HBM and packaging by necessity,speculative,S163,Repo judgement.
+Qualcomm AI200 / AI250,Memory per accelerator,leads,768 GB LPDDR,768 GB LPDDR per card (announced),confirmed,S173,Public information only.
+Qualcomm AI200 / AI250,Bandwidth per accelerator,behind,LPDDR (n/p),LPDDR bandwidth per card not published; LPDDR is an order of magnitude below HBM,speculative,S173,
+Qualcomm AI200 / AI250,Rack HBM bandwidth,different,no HBM,Rack design uses LPDDR; AI250 claims >10x effective bandwidth via near-memory compute,confirmed,S173,
+Qualcomm AI200 / AI250,CoWoS / HBM allocation,different,not needed,LPDDR cards avoid CoWoS and HBM allocation,confirmed,S173,
+Qualcomm AI200 / AI250,Supplier relationships,different,mobile DRAM chain,LPDDR sourced like phone memory,speculative,S173,Repo judgement.
+Qualcomm AI200 / AI250,Independence from CoWoS+HBM,leads,independent,No CoWoS or HBM in the bill of materials,confirmed,S173,
+SRAM start-ups (Cerebras / d-Matrix),Memory per accelerator,behind,44 GB SRAM (WSE-3),Cerebras WSE-3 44 GB on-wafer SRAM; d-Matrix 2 GB SRAM + 256 GB LPDDR5,confirmed,S166;S170,
+SRAM start-ups (Cerebras / d-Matrix),Bandwidth per accelerator,leads,21 PB/s on-wafer,On-chip SRAM bandwidth 21 PB/s (WSE-3) / 150 TB/s (Corsair),confirmed,S166;S170,
+SRAM start-ups (Cerebras / d-Matrix),Rack HBM bandwidth,different,no HBM,SRAM-first designs,confirmed,S166;S170,
+SRAM start-ups (Cerebras / d-Matrix),CoWoS / HBM allocation,different,not needed,No HBM; wafer capacity is the constraint,confirmed,S166,
+SRAM start-ups (Cerebras / d-Matrix),Supplier relationships,different,TSMC wafers only,Logic wafers only,speculative,S166,Repo judgement.
+SRAM start-ups (Cerebras / d-Matrix),Independence from CoWoS+HBM,leads,independent,No CoWoS or HBM,confirmed,S166;S170,

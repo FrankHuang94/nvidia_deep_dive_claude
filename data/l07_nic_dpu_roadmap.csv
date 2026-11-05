@@ -1,0 +1,17 @@
+vendor,product,category,date,status,bandwidth_gbps,confidence,source_id,notes
+NVIDIA,BlueField-3 DPU,dpu,2024-01,shipping,400,confirmed,S269,In volume since 2022-23; plotted at chart start
+NVIDIA,ConnectX-8 SuperNIC,supernic,2025-07,shipping,800,confirmed,S264;S34015,Volume with GB300 NVL72 in 2H 2025
+NVIDIA,ConnectX-9 SuperNIC,supernic,2026-08,shipping,1600,confirmed,S33004;S501;S7535,In full production at GTC 2026; GA firmware Feb 2026
+NVIDIA,BlueField-4 DPU,dpu,2026-09,announced,800,confirmed,S512;S7530,Early availability with Vera Rubin in 2026; 64-core Grace + ConnectX-9
+NVIDIA,ConnectX-10 SuperNIC,supernic,2028-06,roadmap,,reported,S109;S502,Feynman generation; speed not disclosed (secondary sources conflict)
+NVIDIA,BlueField-5 DPU,dpu,2028-06,roadmap,,reported,S109;S502,Feynman generation; no specs
+AMD,Pollara 400 AI NIC,nic,2025-03,shipping,400,confirmed,S289;S7501,Shipping 1H 2025
+AMD,Salina 400 DPU,dpu,2025-04,shipping,400,reported,S289,Third-generation Pensando DPU
+AMD,Vulcano 800 AI NIC,supernic,2026-09,shipping,800,confirmed,S7500;S538,Default Helios networking; ships with Helios from end-Q3 2026
+AMD,Como / Monza (Helios 500),nic,2027-06,roadmap,,confirmed,S538,Names only; roles not detailed
+AMD,Palma / Levanzo (Helios 600),nic,2028-06,roadmap,,confirmed,S538,Names only
+Broadcom,Thor Ultra 800G NIC,nic,2025-10,sampling,800,confirmed,S7529,Sampling from 2025-10-14
+AWS,Nitro v6,cloud-offload,2025-06,shipping,400,reported,S7503,Up to 400 Gb/s per network card; month approximate
+Microsoft,Azure Boost DPU,dpu,2025-06,announced,,reported,S7504,Planned for all new Azure servers from 2025; bandwidth not disclosed; month approximate
+Intel,IPU E2100,ipu,2024-01,shipping,200,reported,S291,In market since 2022; plotted at chart start
+Xsight Labs,E1 DPU,dpu,2026-07,sampling,800,reported,S7517,Early operator selections; month approximate (funding announcement)

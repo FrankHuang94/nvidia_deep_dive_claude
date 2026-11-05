@@ -1,0 +1,31 @@
+competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
+AMD,Helios (72x MI455X; UALink over Ethernet),Bandwidth per accelerator,leads,3.6 vs 3.0 TB/s,AMD's 260 TB/s per 72 GPUs implies 3.6 TB/s per GPU vs NVLink 6 production spec of 3.0 TB/s,reported,S226;S228;S200;S201,Per-GPU figure derived from AMD's rack aggregate; NVIDIA cut its own figure from 3.6 in Sept-Oct 2026
+AMD,Helios (72x MI455X; UALink over Ethernet),Domain size,parity,72 vs 72,Both switch 72 GPUs in one rack,confirmed,S226;S200,
+AMD,Helios (72x MI455X; UALink over Ethernet),Latency & semantics,parity,1-hop switched; UALoE,UALink memory semantics carried over Tomahawk 6 Ethernet switches; one switch hop like NVL72; latency not published by either vendor,speculative,S5523;S5522,Repo judgement
+AMD,Helios (72x MI455X; UALink over Ethernet),Openness,leads,UALink + merchant Ethernet,Open protocol on merchant Broadcom switch silicon; OEMs (HPE/Juniper) build their own switch trays,reported,S5523;S226,
+AMD,Helios (72x MI455X; UALink over Ethernet),Maturity / shipping,behind,first racks end-Q3 2026,Helios first shipments around end of Q3 2026 vs NVL72 shipping since 2024-25,reported,S90020;S121,
+Google TPU,Ironwood / TPU 8t (ICI + optical circuit switches),Bandwidth per accelerator,behind,1.2 / 2.4 vs 3.0 TB/s,Ironwood 6 ICI links x 200 GB/s = 1.2 TB/s; TPU 8t doubles to 2.4 TB/s,confirmed,S232;S238,
+Google TPU,Ironwood / TPU 8t (ICI + optical circuit switches),Domain size,leads,"9,216-9,600 vs 72",Ironwood superpod 9216 chips; TPU 8t 9600,confirmed,S232;S240,
+Google TPU,Ironwood / TPU 8t (ICI + optical circuit switches),Latency & semantics,different,3D torus; multi-hop,Neighbour links in a 3D torus closed by optical circuit switches; far chips are many hops away,confirmed,S232;S237,
+Google TPU,Ironwood / TPU 8t (ICI + optical circuit switches),Openness,different,captive; sold as TPU systems,Interconnect is not licensed; TPUs rented on Google Cloud and now sold into customer data centres,reported,S90027;S552,
+Google TPU,Ironwood / TPU 8t (ICI + optical circuit switches),Maturity / shipping,leads,OCS pods since TPU v4 (2021),4096-chip OCS-based pods in service since TPU v4; four generations of large pods,reported,S237;S236,
+AWS Trainium,Trn3 UltraServer (NeuronLink-v4 + NeuronSwitch-v1),Bandwidth per accelerator,behind,2.0 vs 3.0 TB/s,AWS lists 2 TB/s per Trainium3,confirmed,S242,NAND Research cites up to 2.5 TB/s
+AWS Trainium,Trn3 UltraServer (NeuronLink-v4 + NeuronSwitch-v1),Domain size,leads,144 vs 72,Gen2 UltraServer joins 144 Trainium3,confirmed,S242;S243,
+AWS Trainium,Trn3 UltraServer (NeuronLink-v4 + NeuronSwitch-v1),Latency & semantics,parity,switched all-to-all,NeuronSwitch-v1 gives an all-to-all fabric like NVSwitch,confirmed,S242;S556,
+AWS Trainium,Trn3 UltraServer (NeuronLink-v4 + NeuronSwitch-v1),Openness,different,captive; Trn4 adopts NVLink Fusion,Rented only; Trainium4 is designed to use NVLink Fusion,confirmed,S518;S519,
+AWS Trainium,Trn3 UltraServer (NeuronLink-v4 + NeuronSwitch-v1),Maturity / shipping,parity,GA Dec 2025,Trn3 UltraServers generally available since re:Invent 2025,confirmed,S90035;S242,
+Huawei,CloudMatrix 384 / Atlas 950 SuperPoD (UnifiedBus),Bandwidth per accelerator,behind,0.78 / 2.0 vs 3.0 TB/s,Ascend 910C 392 GB/s per direction; Ascend 950 2 TB/s,confirmed,S248;S249,
+Huawei,CloudMatrix 384 / Atlas 950 SuperPoD (UnifiedBus),Domain size,leads,"384 / 8,192 vs 72",CloudMatrix 384 NPUs; Atlas 950 SuperPoD targets 8192,confirmed,S248;S249,Full 8192 build not independently confirmed (1024 shown at WAIC 2026)
+Huawei,CloudMatrix 384 / Atlas 950 SuperPoD (UnifiedBus),Latency & semantics,different,optical all-to-all; ~4x power,All-optical UB switching; CloudMatrix 384 draws ~559 kW vs ~145 kW for GB200 NVL72,reported,S340;S250,
+Huawei,CloudMatrix 384 / Atlas 950 SuperPoD (UnifiedBus),Openness,different,China ecosystem,UnifiedBus (Lingqu) promoted to Chinese partners; export controls separate the markets,speculative,S249,Repo judgement
+Huawei,CloudMatrix 384 / Atlas 950 SuperPoD (UnifiedBus),Maturity / shipping,behind,CM384 ships; 950 ramping,CloudMatrix 384 shipping since 2025; Atlas 950 claimed in large-scale commercial use (Huawei Connect 2026),reported,S567;S250,
+UALink,UALink 1.0 / 2.0 (open spec; merchant switches),Bandwidth per accelerator,parity,200G lanes (same as NVLink 6),200G-class lanes; per-device bandwidth set by port count,confirmed,S223;S224;S200,Implementation-defined
+UALink,UALink 1.0 / 2.0 (open spec; merchant switches),Domain size,leads,"up to 1,024 (spec)",Spec allows 1024 accelerators per pod,confirmed,S573,
+UALink,UALink 1.0 / 2.0 (open spec; merchant switches),Latency & semantics,parity,load/store; no snoop coherence,Memory semantics with 640-byte flits; no snoop coherence,confirmed,S224,
+UALink,UALink 1.0 / 2.0 (open spec; merchant switches),Openness,leads,open; >65 members,"Consortium standard with >65 members incl. AMD, Intel, Google, Microsoft, Meta, AWS, Apple",confirmed,S5521;S5520,
+UALink,UALink 1.0 / 2.0 (open spec; merchant switches),Maturity / shipping,behind,silicon in labs H2 2026,Silicon reaching labs H2 2026; products expected 2027,reported,S90051;S5506,
+Ethernet scale-up,Broadcom SUE / Tomahawk Ultra and 6; OCP ESUN,Bandwidth per accelerator,parity,200G SerDes; 102.4 Tb/s switch,Same 200G lane class; per-XPU bandwidth set by ports per XPU,reported,S274;S275,Implementation-defined
+Ethernet scale-up,Broadcom SUE / Tomahawk Ultra and 6; OCP ESUN,Domain size,leads,512 XPUs single hop (TH6),Tomahawk 6 radix supports a 512-XPU single-hop domain (as announced),reported,S274,
+Ethernet scale-up,Broadcom SUE / Tomahawk Ultra and 6; OCP ESUN,Latency & semantics,different,Ethernet + LLR/CBFC; ~250 ns,Ethernet framing with link-layer retry and credit-based flow control; no native load/store,reported,S275;S576,ESUN defines a compact header to cut overhead
+Ethernet scale-up,Broadcom SUE / Tomahawk Ultra and 6; OCP ESUN,Openness,leads,Ethernet; OCP ESUN,Open Ethernet ecosystem; ESUN 1.0 published via OCP,confirmed,S576;S90052,
+Ethernet scale-up,Broadcom SUE / Tomahawk Ultra and 6; OCP ESUN,Maturity / shipping,parity,switches ship; scale-up use new,Tomahawk Ultra shipping since July 2025 and Tomahawk 6 inside Helios; few scale-up deployments yet,reported,S275;S5523,

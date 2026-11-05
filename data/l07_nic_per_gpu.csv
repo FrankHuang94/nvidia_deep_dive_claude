@@ -1,0 +1,10 @@
+system,vendor,year,status,accelerator,nic,nics_per_accelerator,nic_port_gbps,scale_out_gbps_per_accelerator,confidence,source_id,notes
+DGX-1 (V100),NVIDIA,2017,eol,V100,ConnectX-4 EDR InfiniBand,0.5,100,50,reported,S189;S273,4 x 100 Gb/s EDR ports for 8 GPUs.
+DGX A100,NVIDIA,2020,eol,A100,ConnectX-6 HDR InfiniBand,1,200,200,reported,S315;S188;S273,8 x 200 Gb/s compute-fabric ports (one per GPU) plus separate storage ports.
+DGX H100,NVIDIA,2022,shipping,H100,ConnectX-7 NDR,1,400,400,confirmed,S318;S266,8 x 400 Gb/s ConnectX-7 (one per GPU).
+GB200 NVL72,NVIDIA,2024,shipping,B200 (GB200),ConnectX-7,1,400,400,confirmed,S266;S262,One 400 Gb/s ConnectX-7 per GPU for the scale-out fabric.
+GB300 NVL72,NVIDIA,2025,shipping,B300 (GB300),ConnectX-8 SuperNIC,1,800,800,confirmed,S264,One 800 Gb/s ConnectX-8 per GPU.
+Vera Rubin NVL72,NVIDIA,2026,shipping,Rubin,ConnectX-9 SuperNIC,1,800,1600,confirmed,S33004;S7019,1.6 Tb/s per GPU (NVIDIA); ConnectX-9 ports run up to 800 Gb/s; third parties describe two ConnectX-9 per GPU (S7020).
+AWS P5 (EFAv2),AWS,2023,shipping,H100,EFA v2 (Nitro),,,400,reported,S292,"3,200 Gb/s per 8-GPU p5.48xlarge."
+AWS Trn2 (EFAv3),AWS,2024,shipping,Trainium2,EFA v3 (Nitro),,,200,reported,S292,3.2 Tb/s per 16-chip Trn2 instance.
+AMD Helios (MI455X),AMD,2026,shipping,MI455X,Pensando Vulcano 800G,3,800,2400,confirmed,S290;S226;S228,Three 800 Gb/s Vulcano NICs per GPU (2.4 Tb/s).

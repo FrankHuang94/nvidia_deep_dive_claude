@@ -1,0 +1,9 @@
+vendor,product,class_tbps,fabric,announce_date,ship_date,ship_basis,status,confidence,source_id,notes
+Broadcom,Tomahawk 5,51.2,Ethernet,2022-08-16,2022-08-16,'ships' release (first customer shipments),shipping,confirmed,S277,
+NVIDIA,Spectrum-4 (SN5600 / Spectrum-X),51.2,Ethernet,2022-03-22,2023-05-29,Spectrum-X platform launch (Computex 2023),shipping,confirmed,S267;S271,Ship date = platform launch; volume followed in 2023-24.
+Marvell,Teralynx 10,51.2,Ethernet,2023-03-01,,not disclosed,shipping,reported,S284,Announcement month only; day set to 1.
+Cisco,Silicon One G200,51.2,Ethernet,2023-06-20,,not disclosed,shipping,confirmed,S285,
+Broadcom,Tomahawk 6,102.4,Ethernet,2025-06-03,2025-06-03,'ships' release (first customer shipments),shipping,confirmed,S274;S6505,Broadcom says Tomahawk 6 is deployed at nearly all its AI hyperscaler customers by fiscal Q3 2026.
+NVIDIA,Spectrum-6 (Spectrum-X Photonics),102.4,Ethernet,2025-03-18,2026-07-27,TrendForce: limited shipments to some partners,shipping,reported,S265;S6507,Ship date = date of TrendForce report; earlier partner shipments possible.
+Cisco,Silicon One G300,102.4,Ethernet,2026-02-10,2026-10-01,planned H2 2026 (midpoint shown),announced,reported,S6503,Shipping 'this year' per Cisco; H2 2026 per press. Hollow marker = planned.
+NVIDIA,Quantum-X800 (Q3400) InfiniBand,115.2,InfiniBand,2024-03-18,2025-01-01,volume with Blackwell-era clusters in 2025,shipping,reported,S264,Ship date approximate (year only).

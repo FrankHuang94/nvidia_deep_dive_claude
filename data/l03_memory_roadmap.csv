@@ -1,0 +1,19 @@
+vendor,product,year,status,capacity_gb,bandwidth_tbs,variant,confidence,source_id,notes
+NVIDIA,B200 (HGX),2024,shipping,180,8.0,base,confirmed,S33003;S101,HBM3E; 192 GB raw.
+NVIDIA,B300,2025,shipping,288,8.0,base,confirmed,S101;S123,HBM3E 12-high.
+NVIDIA,Rubin,2026,shipping,288,19.2,base,confirmed,S102;S103;S104,HBM4; revised Sep-Oct 2026.
+NVIDIA,Rubin (launch target),2026,announced,288,22.0,launch-target,confirmed,S100;S33006,CES 2026 launch figure later revised.
+NVIDIA,Rubin Ultra,2027,roadmap,1024,32.0,base,reported,S35018;S110;S107,"1 TB HBM4E in 16 stacks as announced (GTC 2025, tray shown GTC 2026); ~32 TB/s reported."
+NVIDIA,Rubin Ultra (768 GB report),2027,roadmap,768,,alt-report,speculative,S111;S509,Low-tier report of a 768 GB (12-high) configuration; two-die variant also reported.
+AMD,MI325X,2024,shipping,256,6.0,base,confirmed,S142,HBM3E.
+AMD,MI355X,2025,shipping,288,8.0,base,confirmed,S143,HBM3E.
+AMD,MI455X,2026,shipping,432,19.6,base,confirmed,S144;S538,HBM4.
+Huawei,Ascend 910C,2025,shipping,128,3.2,base,reported,S163,HBM2E.
+Huawei,Ascend 950DT,2026,announced,144,4.0,base,reported,S163,In-house HiZQ 2.0 HBM.
+Huawei,Ascend 960,2027,roadmap,288,9.6,base,reported,S163,In-house HBM.
+Huawei,Ascend 970,2028,roadmap,288,14.4,base,reported,S163,In-house HBM; some specs described as targets.
+Google,TPU v6e Trillium,2024,shipping,32,1.64,base,confirmed,S150,
+Google,TPU7x Ironwood,2025,shipping,192,7.37,base,confirmed,S151,HBM3E.
+AWS,Trainium2,2024,shipping,96,2.9,base,confirmed,S154,HBM3.
+AWS,Trainium3,2025,shipping,144,4.9,base,confirmed,S155;S353,HBM3E.
+AWS,Trainium4 (Est.),2027,roadmap,288,19.6,base,estimate,S156;S90034,"Repo Est. from AWS multipliers (2x capacity, 4x bandwidth vs Trainium3); timing not given."

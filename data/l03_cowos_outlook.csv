@@ -1,0 +1,7 @@
+year_end,low_k_wpm,mid_k_wpm,high_k_wpm,kind,confidence,source_id,notes
+2023,13,15,15,estimate,estimate,S379,Press-reported analyst range; TSMC does not disclose CoWoS wafer capacity.
+2024,32,35,40,estimate,estimate,S379;S378,TSMC said CoWoS capacity more than doubled in 2024.
+2025,65,75,80,estimate,estimate,S379;S90039,
+2026,105,120,130,estimate,estimate,S90039;S3002;S3510,"JPMorgan ~105k; others 110-130k; Economic Daily News ~130k (via TrendForce)."
+2027,170,185,200,projection,reported,S3510;S3001,"Analysts cited by Commercial Times: 200k target; KGI ~170k (raised from 155k). Projection, not capacity in place."
+2028,260,260,260,projection,reported,S3002,"Economic Daily News via TrendForce: CoWoS to roughly double from ~130k (end-2026) to ~260k by end-2028."

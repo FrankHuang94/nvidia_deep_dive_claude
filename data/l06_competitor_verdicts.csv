@@ -1,0 +1,49 @@
+competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
+Broadcom,Tomahawk 6 / Jericho4 / Thor Ultra,Switch radix / bandwidth,leads,102.4T in 2025,Tomahawk 6 shipped in June 2025; NVIDIA's 102.4T Spectrum-6 reached partners in limited volume in July 2026.,speculative,S274;S6507,Repo judgement on cited dates.
+Broadcom,Tomahawk 6 / Jericho4 / Thor Ultra,Congestion control / tail latency,parity,cognitive routing,Tomahawk 5/6 cognitive routing plus the scheduled Jericho3-AI fabric vs Spectrum-X adaptive routing with NIC-side reordering.,speculative,S277;S279;S271,Repo judgement; no neutral benchmark at 100k-GPU scale.
+Broadcom,Tomahawk 6 / Jericho4 / Thor Ultra,NIC co-design,behind,Thor Ultra 800G,Thor Ultra 800G NIC (Oct 2025) vs ConnectX-9 at 1.6 Tb/s shipping with every Vera Rubin GPU.,speculative,S280;S33004,Repo judgement.
+Broadcom,Tomahawk 6 / Jericho4 / Thor Ultra,Openness / multi-vendor,leads,merchant + UEC,Sold to any OEM or ODM and any accelerator vendor; UEC-compliant.,speculative,S274;S257,Repo judgement.
+Broadcom,Tomahawk 6 / Jericho4 / Thor Ultra,Ecosystem / software,parity,EOS / SONiC / FBOSS,Runs under Arista EOS and hyperscaler network OSes; NVIDIA counters with NCCL and Spectrum-X software.,speculative,S288;S6506,Repo judgement.
+Broadcom,Tomahawk 6 / Jericho4 / Thor Ultra,Share / momentum,parity,AI net. >2.5x y/y,Broadcom AI networking revenue grew >2.5x y/y in fiscal Q3 2026; Tomahawk 6 at nearly all its AI hyperscaler customers.,speculative,S6505,Repo judgement; Broadcom does not disclose AI networking dollars.
+Arista,Etherlink (EOS on Broadcom silicon),Switch radix / bandwidth,different,Broadcom inside,Arista builds systems on Broadcom Tomahawk and Jericho silicon rather than its own ASIC.,speculative,S288,
+Arista,Etherlink (EOS on Broadcom silicon),Congestion control / tail latency,parity,EOS load balancing,Cluster load balancing on Tomahawk leaves and deep-buffer Jericho spines.,speculative,S288,Repo judgement.
+Arista,Etherlink (EOS on Broadcom silicon),NIC co-design,behind,no NIC,Sells no NIC; relies on NVIDIA AMD or Broadcom NICs.,speculative,S288,
+Arista,Etherlink (EOS on Broadcom silicon),Openness / multi-vendor,leads,any NIC or GPU,Multi-vendor by design; open rack architectures with AMD Broadcom Meta and Microsoft.,speculative,S288;S6502,
+Arista,Etherlink (EOS on Broadcom silicon),Ecosystem / software,parity,EOS,EOS is the network OS of many cloud operators; NVIDIA leads in GPU-collective integration (NCCL).,speculative,S288,Repo judgement.
+Arista,Etherlink (EOS on Broadcom silicon),Share / momentum,behind,#3 Ethernet AI,Dell'Oro ranks Arista third in Ethernet AI back-end switches; 2026 AI target at least $3.6B vs ~$17.5B of NVIDIA networking in one quarter.,speculative,S6523;S6500;S408,
+Cisco,Silicon One G300,Switch radix / bandwidth,parity,G300 102.4T,G300 announced Feb 2026 and shipping in 2026: the same window as Spectrum-6.,speculative,S6503,
+Cisco,Silicon One G300,Congestion control / tail latency,parity,-28% JCT claim,Cisco claims 28% faster job completion and 33% higher utilisation (vendor claims).,speculative,S6503,Vendor claim.
+Cisco,Silicon One G300,NIC co-design,behind,no AI SuperNIC,No AI SuperNIC announced alongside G300.,speculative,S6503,Repo judgement.
+Cisco,Silicon One G300,Openness / multi-vendor,leads,chips + systems,Sells Silicon One both as merchant silicon and inside Cisco N9000/8000 systems.,speculative,S285;S6503,
+Cisco,Silicon One G300,Ecosystem / software,parity,enterprise base,Large enterprise and service-provider installed base and operating software.,speculative,S6503,Repo judgement.
+Cisco,Silicon One G300,Share / momentum,behind,not top-3,Not among Dell'Oro's top three Ethernet AI back-end switch vendors in 1Q26 or 2Q26.,speculative,S90054;S6523,
+Marvell,Teralynx 10 + optical DSPs,Switch radix / bandwidth,behind,51.2T (2023),Teralynx 10 is 51.2 Tb/s; no 102.4 Tb/s Teralynx in the repo data.,speculative,S284,
+Marvell,Teralynx 10 + optical DSPs,Congestion control / tail latency,behind,latency focus,Teralynx stresses low latency; fewer AI-fabric features disclosed.,speculative,S284,Repo judgement.
+Marvell,Teralynx 10 + optical DSPs,NIC co-design,different,custom + optics,Competes through optical DSPs custom silicon and Celestial AI's photonic fabric rather than a merchant AI NIC.,speculative,S2513;S218,
+Marvell,Teralynx 10 + optical DSPs,Openness / multi-vendor,leads,merchant,Merchant switch silicon for any system vendor.,speculative,S284,
+Marvell,Teralynx 10 + optical DSPs,Ecosystem / software,behind,thin AI stack,Smaller AI-switch software ecosystem than Broadcom or NVIDIA.,speculative,S284,Repo judgement.
+Marvell,Teralynx 10 + optical DSPs,Share / momentum,behind,small in switching,Not among Dell'Oro's top Ethernet AI back-end switch vendors.,speculative,S90054,
+White-box ODMs,Celestica / Accton + SONiC or FBOSS,Switch radix / bandwidth,different,merchant inside,Built on Broadcom silicon and since 2025 also NVIDIA Spectrum (Meta Minipack3N).,speculative,S6506,
+White-box ODMs,Celestica / Accton + SONiC or FBOSS,Congestion control / tail latency,different,buyer's software,Congestion behaviour is set by the hyperscaler's own software.,speculative,S6506,
+White-box ODMs,Celestica / Accton + SONiC or FBOSS,NIC co-design,different,buyer's choice,The buyer picks NICs; no ODM NIC.,speculative,S6506,
+White-box ODMs,Celestica / Accton + SONiC or FBOSS,Openness / multi-vendor,leads,SONiC / FBOSS,Open hardware plus open or in-house network OS.,speculative,S6506,
+White-box ODMs,Celestica / Accton + SONiC or FBOSS,Ecosystem / software,different,in-house NOS,Each hyperscaler writes and runs its own stack.,speculative,S6506,
+White-box ODMs,Celestica / Accton + SONiC or FBOSS,Share / momentum,leads,#1 Ethernet AI,Celestica ranked first in Ethernet AI back-end switch sales in 1Q26 and 2Q26 (NVIDIA close second).,speculative,S90054;S6523,
+UEC ecosystem,UEC 1.0/1.1 NICs (AMD Pensando; Broadcom Thor),Switch radix / bandwidth,different,spec not ASIC,UEC defines transport and congestion control and runs on any compliant switch.,speculative,S257,
+UEC ecosystem,UEC 1.0/1.1 NICs (AMD Pensando; Broadcom Thor),Congestion control / tail latency,parity,packet spraying,UEC 1.0 (June 2025) brings multipath spraying and trimming; 1.1 (Oct 2026) adds programmable congestion control; unproven at 100k-GPU scale.,speculative,S257;S575,Parity on paper.
+UEC ecosystem,UEC 1.0/1.1 NICs (AMD Pensando; Broadcom Thor),NIC co-design,parity,3x800G per GPU,AMD Helios gives each MI455X 2.4 Tb/s through three Vulcano UEC NICs.,speculative,S290;S228,
+UEC ecosystem,UEC 1.0/1.1 NICs (AMD Pensando; Broadcom Thor),Openness / multi-vendor,leads,open spec,Open specification with many implementers.,speculative,S257,
+UEC ecosystem,UEC 1.0/1.1 NICs (AMD Pensando; Broadcom Thor),Ecosystem / software,behind,products 2025-26,First UEC NICs shipped 2025-26; collective libraries less mature than NCCL on InfiniBand/Spectrum-X.,speculative,S280;S290,Repo judgement.
+UEC ecosystem,UEC 1.0/1.1 NICs (AMD Pensando; Broadcom Thor),Share / momentum,behind,early,Deployments start with Helios racks from Q3-Q4 2026.,speculative,S90020,
+Google,Jupiter / Virgo with optical circuit switches,Switch radix / bandwidth,different,OCS spine,Optical circuit switches replace electrical spines; Virgo links >134k TPU 8t chips at 47 Pb/s.,speculative,S293;S241,
+Google,Jupiter / Virgo with optical circuit switches,Congestion control / tail latency,different,in-house,In-house transport and traffic engineering.,speculative,S293,
+Google,Jupiter / Virgo with optical circuit switches,NIC co-design,different,in-house,Co-designed with Google's own hosts and TPUs.,speculative,S293,
+Google,Jupiter / Virgo with optical circuit switches,Openness / multi-vendor,different,not sold,Not sold to third parties.,speculative,S293,
+Google,Jupiter / Virgo with optical circuit switches,Ecosystem / software,different,internal,Internal software-defined networking.,speculative,S293,
+Google,Jupiter / Virgo with optical circuit switches,Share / momentum,different,captive,Captive; Google also runs up to 80k Vera Rubin GPUs per site on Virgo.,speculative,S554,
+AWS,EFA / SRD on in-house switches,Switch radix / bandwidth,different,in-house,In-house switch fleet; specs not disclosed.,speculative,S292,
+AWS,EFA / SRD on in-house switches,Congestion control / tail latency,different,SRD multipath,SRD sprays packets over many paths and tolerates out-of-order delivery.,speculative,S292,
+AWS,EFA / SRD on in-house switches,NIC co-design,different,Nitro / EFA,3.2 Tb/s EFA per GPU instance on AWS's own Nitro hardware.,speculative,S292,
+AWS,EFA / SRD on in-house switches,Openness / multi-vendor,different,not sold,Available only inside AWS.,speculative,S292,
+AWS,EFA / SRD on in-house switches,Ecosystem / software,different,AWS-only,Software stack specific to AWS instances.,speculative,S292,
+AWS,EFA / SRD on in-house switches,Share / momentum,different,captive,Captive to AWS.,speculative,S292,

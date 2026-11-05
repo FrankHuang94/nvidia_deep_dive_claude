@@ -1,0 +1,10 @@
+company,role,period,metric,margin_pct,confidence,source_id,notes
+Micron,HBM / DRAM maker,FQ4 2026 (to 2026-09-03),gross,86.8,confirmed,S3533,GAAP gross margin; revenue $54.23B.
+SK hynix,HBM / DRAM maker,Q3 2026,operating,79.7,reported,S3502,"Preliminary: operating profit KRW 83.3T on revenue KRW 104.6T (~80%); gross margin is higher by definition."
+NVIDIA,GPU and system designer,Q2 FY2027,gross,75.0,confirmed,S405;S90012,GAAP gross margin.
+Astera Labs,connectivity silicon (PCIe/CXL),Q3 2026 guidance,gross,72.0,reported,S3525,Company guidance of ~72% GAAP gross margin.
+TSMC,foundry + CoWoS packaging,Q3 2026,gross,66.4,confirmed,S3538,"Company-wide; advanced packaging ~10% of 2025 revenue (S3509)."
+Advantest,test equipment,FY2026 forecast (to 2027-03),operating,51.9,confirmed,S3521,Company forecast raised on SoC tester demand.
+Foxconn (Hon Hai),EMS / rack ODM,Q2 2025,gross,6.3,reported,S3522,Company-wide; AI servers reported to pressure margins.
+ODM on a GB300 NVL72 rack,rack ODM (Est.),2026,gross,2.7,estimate,S332,Morgan Stanley BOM estimate.
+ODM on a Vera Rubin NVL72 rack,rack ODM (Est.),2026,gross,1.9,estimate,S332,Morgan Stanley BOM estimate.

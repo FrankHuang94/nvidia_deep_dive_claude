@@ -1,0 +1,12 @@
+announce_date,close_date,acquirer,target,deal_type,value_usd_m,value_basis,what_was_bought,status,confidence,source_id,notes
+2019-03-11,2020-04-27,NVIDIA,Mellanox,acquisition,6900,disclosed,"InfiniBand and Ethernet switches, NICs, DPUs and ~$1.3B of revenue",closed,confirmed,S464;S6510,$125 per share in cash; Intel reportedly bid ~$6B (S6509).
+2020-05-04,2020-06,NVIDIA,Cumulus Networks,acquisition,,undisclosed,Open network operating system for Spectrum switches,closed,confirmed,S478,Terms undisclosed.
+2025-09-18,2025-09,NVIDIA,Enfabrica (team + licence),acquihire-license,900,reported,CEO Rochan Sankar and team plus ACF SuperNIC / memory-fabric IP,closed,reported,S475,"Cash and stock, >$900M per CNBC."
+2026-03-02,2026-03,NVIDIA,Lumentum (stake),equity-investment,2000,disclosed,Lasers for co-packaged optics + capacity rights,closed,reported,S6511;S6512,Non-exclusive; paired with multibillion-dollar purchase commitments.
+2026-03-02,2026-03,NVIDIA,Coherent (stake),equity-investment,2000,disclosed,Lasers and optical networking products + capacity rights,closed,reported,S6511;S6512,Non-exclusive; paired with multibillion-dollar purchase commitments.
+2026-03-31,2026-03,NVIDIA,Marvell (stake),equity-investment,2000,reported,NVLink Fusion custom-XPU partnership (Marvell also sells optical DSPs),closed,reported,S218,Mainly a scale-up (layer 05) deal.
+2022-04-04,2022-05-26,AMD,Pensando,acquisition,1900,disclosed,"DPU/AI-NIC team (Pollara, Vulcano)",closed,confirmed,S6521,
+2021-08,2021-10,Marvell,Innovium,acquisition,,undisclosed in repo sources,Teralynx data-center switch silicon,closed,reported,S284,Price not verified this session.
+2025-12,2026-02-02,Marvell,Celestial AI,acquisition,3250,disclosed,Photonic fabric for memory and compute interconnect,closed,confirmed,S2513,"Upfront ~$1B cash + ~27.2M shares, plus earn-outs."
+2024-01-09,2025-07,HPE,Juniper Networks,acquisition,14000,disclosed,Routing/switching and Mist AI networking,closed,confirmed,S6522,$40 per share in cash.
+2025-06,2025-12-18,Qualcomm,Alphawave Semi,acquisition,2400,reported,High-speed SerDes / connectivity IP and chiplets,closed,confirmed,S4514;S4513,

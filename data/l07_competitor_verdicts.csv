@@ -1,0 +1,49 @@
+competitor,product_basis,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes
+AWS (Nitro + EFA),Nitro v6 card; EFA/SRD,Bandwidth per device,behind,400G per card vs 1.6T,Nitro v6 lists up to 400 Gb/s per network card vs 1.6 Tb/s for ConnectX-9,reported,S7503;S33004,Per-instance EFA reaches 3.2 Tb/s by ganging cards
+AWS (Nitro + EFA),Nitro v6 card; EFA/SRD,Programmability,different,AWS-only firmware,Offload logic is programmed by AWS for EC2; no customer SDK comparable to DOCA,speculative,S7533;S7534,analyst judgement
+AWS (Nitro + EFA),Nitro v6 card; EFA/SRD,AI-transport features,parity,SRD multipath,EFA's Scalable Reliable Datagram sprays packets over many paths; comparable aim to Spectrum-X adaptive routing,speculative,S292,analyst judgement
+AWS (Nitro + EFA),Nitro v6 card; EFA/SRD,Merchant availability,different,not sold,Nitro cards are used only inside AWS,reported,S7503,
+AWS (Nitro + EFA),Nitro v6 card; EFA/SRD,Ecosystem / software,different,captive: all of EC2,Software ecosystem is EC2 itself rather than third-party developers,speculative,S7534,analyst judgement
+AWS (Nitro + EFA),Nitro v6 card; EFA/SRD,Deployed scale,leads,every Nitro EC2 host,Every modern EC2 instance runs on Nitro; larger installed base than any merchant DPU,speculative,S7503;S7534,analyst judgement; no unit count disclosed
+AMD Pensando,Vulcano 800 / Salina 400,Bandwidth per device,behind,800G vs 1.6T (3 per GPU),Vulcano is 800 Gb/s per NIC vs 1.6 Tb/s ConnectX-9; Helios uses three per GPU,reported,S7500;S228;S33004,
+AMD Pensando,Vulcano 800 / Salina 400,Programmability,parity,P4 pipeline vs DOCA,P4-programmable data path vs BlueField Arm cores plus programmable datapath accelerator,speculative,S289,analyst judgement
+AMD Pensando,Vulcano 800 / Salina 400,AI-transport features,parity,UEC 1.0 ready,UEC transport with multipath packet spraying,reported,S290;S7500,
+AMD Pensando,Vulcano 800 / Salina 400,Merchant availability,parity,sold; Helios default,AMD sells the NICs and makes Vulcano the default Helios networking,reported,S7500,
+AMD Pensando,Vulcano 800 / Salina 400,Ecosystem / software,behind,smaller SDK base,Far fewer deployments and partners than ConnectX/DOCA,speculative,S289,analyst judgement
+AMD Pensando,Vulcano 800 / Salina 400,Deployed scale,behind,Helios ramp from Q3 2026,Volume depends on the Helios ramp starting end-Q3 2026,reported,S538,
+Broadcom Thor Ultra,800G UEC NIC,Bandwidth per device,behind,800G vs 1.6T,Thor Ultra is 800 Gb/s,reported,S7529,
+Broadcom Thor Ultra,800G UEC NIC,Programmability,behind,fixed-function NIC,No general-purpose cores comparable to a DPU,speculative,S7529,analyst judgement
+Broadcom Thor Ultra,800G UEC NIC,AI-transport features,parity,"UEC: trimming, multipath",Packet trimming; multipathing; out-of-order delivery per UEC 1.0,reported,S7529;S7528,
+Broadcom Thor Ultra,800G UEC NIC,Merchant availability,leads,works with any UEC switch,Open standard NIC not tied to one switch vendor; NVIDIA's best Spectrum-X features need NVIDIA switch + SuperNIC,speculative,S7529;S7528,analyst judgement
+Broadcom Thor Ultra,800G UEC NIC,Ecosystem / software,behind,new (sampling 2025),Software and deployments are just starting,reported,S7529,
+Broadcom Thor Ultra,800G UEC NIC,Deployed scale,behind,sampling since Oct 2025,Sampling announced 2025-10-14,reported,S7529,
+Intel IPU,E2100 (Mount Evans),Bandwidth per device,behind,200G,E2100 is 200 Gb/s,reported,S291,
+Intel IPU,E2100 (Mount Evans),Programmability,parity,P4 + 16 Arm N1,Programmable packet pipeline plus Arm cores,reported,S291,
+Intel IPU,E2100 (Mount Evans),AI-transport features,different,first Falcon platform,Hardware platform for Google's Falcon transport,reported,S7519,
+Intel IPU,E2100 (Mount Evans),Merchant availability,behind,mostly one customer,Co-developed with and mainly deployed by Google,speculative,S291,analyst judgement
+Intel IPU,E2100 (Mount Evans),Ecosystem / software,behind,NEX kept after review,Intel reviewed a sale of its networking unit before keeping it (Dec 2025),reported,S7518,
+Intel IPU,E2100 (Mount Evans),Deployed scale,different,Google fleet,Deployed inside Google rather than across the market,speculative,S7519,analyst judgement
+Google (Titanium + Falcon),in-house offload system,Bandwidth per device,different,not disclosed,No per-device figure published,reported,S7520,
+Google (Titanium + Falcon),in-house offload system,Programmability,different,in-house,Designed by Google for Google Cloud,reported,S7520,
+Google (Titanium + Falcon),in-house offload system,AI-transport features,different,Falcon (OCP spec),Hardware transport contributed to OCP in 2023,reported,S7519,
+Google (Titanium + Falcon),in-house offload system,Merchant availability,different,not sold,Captive to Google Cloud,reported,S7520,
+Google (Titanium + Falcon),in-house offload system,Ecosystem / software,different,captive: GCP,Software ecosystem is Google Cloud itself,speculative,S7520,analyst judgement
+Google (Titanium + Falcon),in-house offload system,Deployed scale,different,GCP fleet,Deployed across Google Cloud; no unit count disclosed,speculative,S7520,analyst judgement
+Microsoft Azure Boost DPU,Fungible-derived DPU,Bandwidth per device,different,not disclosed,No per-device bandwidth published,reported,S7504,
+Microsoft Azure Boost DPU,Fungible-derived DPU,Programmability,parity,programmable SoC,Fully programmable SoC with network and storage engines,reported,S7504,
+Microsoft Azure Boost DPU,Fungible-derived DPU,AI-transport features,different,front-end storage/network,Targets storage and networking offload rather than GPU back-end transport,reported,S7504,
+Microsoft Azure Boost DPU,Fungible-derived DPU,Merchant availability,different,not sold,Azure only,reported,S7504,
+Microsoft Azure Boost DPU,Fungible-derived DPU,Ecosystem / software,different,captive: Azure,Software ecosystem is Azure itself,speculative,S7504,analyst judgement
+Microsoft Azure Boost DPU,Fungible-derived DPU,Deployed scale,parity,new Azure servers (plan),Microsoft plans to put it in all new Azure servers from 2025,reported,S7504,vendor plan
+Marvell,OCTEON 10; custom NICs (Meta FBNIC),Bandwidth per device,behind,FBNIC 4x100G,The public custom NIC (FBNIC) is a 4x100G front-end adapter,reported,S7536,
+Marvell,OCTEON 10; custom NICs (Meta FBNIC),Programmability,parity,Arm Neoverse N2 DPU,OCTEON 10 integrates Neoverse N2 cores,reported,S7526,
+Marvell,OCTEON 10; custom NICs (Meta FBNIC),AI-transport features,behind,no AI back-end NIC found,No merchant AI back-end NIC found in public sources,speculative,S7525,analyst judgement
+Marvell,OCTEON 10; custom NICs (Meta FBNIC),Merchant availability,different,custom per customer,Builds NICs to a customer's design (Meta),reported,S7525,
+Marvell,OCTEON 10; custom NICs (Meta FBNIC),Ecosystem / software,behind,per-customer software,Driver and software stack owned by the customer (Meta fbnic),reported,S7524,
+Marvell,OCTEON 10; custom NICs (Meta FBNIC),Deployed scale,different,Meta front-end,Deployed in Meta's fleet,speculative,S7524,analyst judgement
+Xsight Labs,E1 800G DPU,Bandwidth per device,parity,800G = BlueField-4,E1 is an 800 Gb/s DPU like BlueField-4,reported,S7517;S512,
+Xsight Labs,E1 800G DPU,Programmability,parity,"Arm cores, SONiC-DASH",Programmable DPU validated for SONiC-DASH (company claim),reported,S7517,
+Xsight Labs,E1 800G DPU,AI-transport features,behind,front-end DPU focus,Positioned for cloud/front-end networking,speculative,S7517,analyst judgement
+Xsight Labs,E1 800G DPU,Merchant availability,parity,merchant,Sold to operators,reported,S7517,
+Xsight Labs,E1 800G DPU,Ecosystem / software,behind,startup ecosystem,Young software ecosystem,speculative,S7517,analyst judgement
+Xsight Labs,E1 800G DPU,Deployed scale,behind,early operator wins,Early design wins only,reported,S7517,

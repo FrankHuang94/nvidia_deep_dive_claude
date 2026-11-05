@@ -1,0 +1,8 @@
+entity,category,period,metric,value_usd_b,basis,confidence,source_id,notes
+NVIDIA,"Networking (InfiniBand, Spectrum-X, NVLink switches, NICs)",FY2026,networking_revenue,31.4,sum of quarters,estimate,S402;S1,NVIDIA said FY2026 networking exceeded $31B; includes NVLink scale-up switches.
+NVIDIA,"Networking (InfiniBand, Spectrum-X, NVLink switches, NICs)",Q2FY27 x 4,networking_annualized_run_rate,70.0,annualized quarter,estimate,S408;S409,$17.5B (= $14.8B x 1.18) x 4.
+Broadcom,AI semiconductors (custom XPUs + AI Ethernet),FY2025,ai_semiconductor_revenue,20.2,company,reported,S661,Networking share not disclosed; Q3 FY2026 AI revenue alone was $16.7B (S6504).
+Innolight,Optical transceivers,CY2025,revenue,5.3,company via LightCounting,reported,S6513,+61% y/y.
+Eoptolink,Optical transceivers,CY2025,revenue,3.5,company via LightCounting,reported,S6513,+189% y/y; #2 optics vendor in 2025.
+Arista,AI networking (target),CY2026,ai_revenue_target,3.6,company target (at least),confirmed,S6500;S6501,Raised from $2.75B to $3.25B to $3.5B to $3.6B during 2026; total 2026 revenue guide ~$12.6B.
+Credo,"Active electrical cables, SerDes, optical DSPs",FY2026 (to May 2026),revenue,1.34,company via press,reported,S6515;S6514,+206% y/y.
