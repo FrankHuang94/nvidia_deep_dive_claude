@@ -2695,6 +2695,86 @@
     "html": null
   },
   {
+    "id": "06-ai-cluster-fabrics",
+    "title": "Disclosed AI fabrics grew from 14,400 GPUs on InfiniBand (2023) to 100k+ on Ethernet; Oracle targets 800k",
+    "subtitle": "GPUs in one back-end fabric by cluster and year, colored by fabric; hatched = reported expansion or announced target",
+    "alt": "Horizontal log-scale bar chart of disclosed AI clusters: Microsoft Azure Eagle 14,400 H100 on InfiniBand NDR (2023 TOP500 run); Meta's two 24,576-GPU H100 clusters, one InfiniBand and one RoCE Ethernet (2024); xAI Colossus 100,000 H100 on NVIDIA Spectrum-X Ethernet (2024) with a reported expansion to 200,000; Oracle's Zettascale10 RoCE multiplanar design targeting up to 800,000 GPUs (announced for 2026). The largest fabrics since 2024 are Ethernet.",
+    "data": [
+      "l06_cluster_examples.csv"
+    ],
+    "chapters": [
+      "06",
+      "08"
+    ],
+    "source": "Microsoft, Meta, NVIDIA/xAI, Oracle announcements",
+    "source_ids": [
+      "S6006",
+      "S6007",
+      "S6002",
+      "S34022",
+      "S6000",
+      "S6001",
+      "S6008"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-ai-cluster-fabrics.svg",
+    "html": null
+  },
+  {
+    "id": "06-allreduce-traffic-sharp",
+    "title": "SHARP halves the data each GPU sends per all-reduce: 1.0× the gradient vs ~2.0× for a ring",
+    "subtitle": "Bytes each GPU must send per all-reduce, as a multiple of the message size, by number of GPUs (bandwidth term only)",
+    "alt": "Line chart: with ring all-reduce each GPU sends 2(N-1)/N times the message, 1.75 times at 8 GPUs and approaching 2.0 times at tens of thousands of GPUs; with SHARP in-network reduction each GPU sends its data once (1.0 times) because the switches do the additions, so bandwidth-bound all-reduces can run up to about twice as fast. NVIDIA reported about 2x all-reduce bandwidth on HDR InfiniBand.",
+    "data": [
+      "l06_allreduce_traffic.csv"
+    ],
+    "chapters": [
+      "06",
+      "P4",
+      "10"
+    ],
+    "source": "Patarasuk & Yuan (ring all-reduce); NCCL docs; NVIDIA SHARP docs",
+    "source_ids": [
+      "S34011",
+      "S34012",
+      "S34024",
+      "S6015"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-allreduce-traffic-sharp.svg",
+    "html": null
+  },
+  {
+    "id": "06-cpo-power-100k-gpus",
+    "title": "Est.: co-packaged optics save ~5–11 MW of optics power in a 100k-GPU cluster",
+    "subtitle": "Optics power (MW, IT load before cooling overhead) for 100,000 GPUs in a 3-tier fabric: all-pluggable vs CPO switches",
+    "alt": "Grouped bar chart (estimates). Counting twin-port modules (1 NIC module at 15 W plus 2.5 switch-side 1.6T modules at 30 W per GPU) optics draw 9.0 MW for 100,000 GPUs; CPO switches cut that to 3.6 MW with NVIDIA's 3.5x claim or 3.0 MW with its 2026 5x claim. Using Jensen Huang's keynote framing of six 30 W transceivers per GPU, optics draw 18 MW and CPO 7.3 MW. Savings range 5.4 to 10.7 MW before cooling overhead.",
+    "data": [
+      "l06_core_inputs.csv"
+    ],
+    "chapters": [
+      "06",
+      "08"
+    ],
+    "source": "NVIDIA (GTC 2025 keynote, photonics releases); repo topology counts",
+    "source_ids": [
+      "S294",
+      "S265",
+      "S295",
+      "S282",
+      "S33020",
+      "S6016",
+      "S6020",
+      "S6023"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-cpo-power-100k-gpus.svg",
+    "html": null
+  },
+  {
     "id": "06-cpo-vs-pluggable-power",
     "title": "Co-packaged optics cut optics power from ~19 to ~5–6 pJ/bit: ~90 W → ~36 W of optics per GPU",
     "subtitle": "Left: optical I/O energy, pJ/bit (label: W per 800 Gb/s). Right: Est. optics watts per GPU, non-blocking 3-tier 800G fabric",
@@ -2770,6 +2850,34 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/06-ib-vs-ethernet-ai-backend-share.svg",
+    "html": null
+  },
+  {
+    "id": "06-network-share-of-cluster-capex",
+    "title": "Networking is ~17–20% of AI cluster hardware capex by most estimates (13% of a whole site)",
+    "subtitle": "Network share of spend, %, by estimate and scope; hatched = analyst or repo estimate",
+    "alt": "Horizontal bar chart of estimates of the network's share of AI spending: switches alone about 3% and all networking about 13% of a whole 1 GW data center's spend (Reuters); optics alone about 11% of a GB300 NVL72's per-GPU price using Jensen Huang's six $1,000 transceivers per GPU; about 17% (576 GPUs) and 19% (24,576 GPUs) of cluster capex in one bottom-up blog estimate; NVIDIA networking at about 20% of its Data Center revenue in Q2 FY2027; and about 20.5% networking plus storage in SemiAnalysis's all-in GB200 NVL72 cost.",
+    "data": [
+      "l06_core_inputs.csv"
+    ],
+    "chapters": [
+      "06",
+      "08",
+      "14"
+    ],
+    "source": "Reuters, SemiAnalysis via fal.ai, AMCompute, NVIDIA, Morgan Stanley; repo calc",
+    "source_ids": [
+      "S6025",
+      "S6016",
+      "S332",
+      "S6026",
+      "S408",
+      "S3",
+      "S324"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-network-share-of-cluster-capex.svg",
     "html": null
   },
   {
@@ -2900,6 +3008,53 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/06-serdes-lane-rate-progression.svg",
+    "html": null
+  },
+  {
+    "id": "06-spectrum-x-effective-bandwidth",
+    "title": "NVIDIA claims Spectrum-X keeps 95% of link bandwidth vs ~60% for standard Ethernet: its '1.6×' headline",
+    "subtitle": "Effective Gb/s per GPU on a 400 Gb/s port at 100k-GPU scale (xAI Colossus); hatched = vendor claim, not independently tested",
+    "alt": "Horizontal bar chart: each Colossus GPU has a 400 Gb/s SuperNIC port; NVIDIA says Spectrum-X sustains 95% of it (~380 Gb/s) while standard Ethernet with hash-based load balancing manages ~60% (~240 Gb/s) at that scale because of flow collisions. The ratio 95/60 = 1.58 matches NVIDIA's '1.6x AI networking performance' claim. Both figures are vendor claims.",
+    "data": [
+      "l06_core_inputs.csv"
+    ],
+    "chapters": [
+      "06"
+    ],
+    "source": "NVIDIA (xAI Colossus release; Spectrum-X product page)",
+    "source_ids": [
+      "S6000",
+      "S6012",
+      "S271",
+      "S6010"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-spectrum-x-effective-bandwidth.svg",
+    "html": null
+  },
+  {
+    "id": "06-step-time-vs-tail-latency",
+    "title": "Est.: if 1% of network flows run 10× slow, a 1,000-flow training step takes 3.2× as long",
+    "subtitle": "Expected step time (index, no slow flows = 100) vs flows per collective; 25% of the step is exposed communication, a slow flow takes 10× longer and the step waits for the last flow",
+    "alt": "Line chart from a simple repo model: a synchronous training step waits for its slowest network flow. With 25% of step time in exposed communication and slow flows taking 10 times longer, a step with 1,000 flows takes 121 (index) if 0.01% of flows are slow, 242 if 0.1% are slow and 325 if 1% are slow, versus 100 with none; the ceiling is 325. Bigger collectives hit the ceiling at lower slow-flow rates.",
+    "data": [
+      "l06_core_inputs.csv"
+    ],
+    "chapters": [
+      "06",
+      "P4"
+    ],
+    "source": "repo model; straggler evidence from ByteDance/NYU (OSDI '25)",
+    "source_ids": [
+      "S34012",
+      "S6029",
+      "S294",
+      "S393"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/06-step-time-vs-tail-latency.svg",
     "html": null
   },
   {

@@ -523,3 +523,51 @@ NVFP4 adds 8 bits per 16 values). Used by `02-decode-throughput-by-precision`, w
 70B configuration and serving-model efficiencies from `P2_model_and_gpu_inputs.csv` (batch 64 is a chart
 constant). `02-multi-die-silicon-cost` reads wafer price, defect density and reticle limit from
 `P5_wafer_economics.csv`.
+
+## Layer 03 — memory, packaging and supply chain, strategy pages (`l03_*.csv` below; charts in `scripts/charts/ch_l03_strategy.py`; sources S3500–S3999)
+
+### l03_rack_memory.csv (one row per rack-scale system and spec version)
+`system,vendor,accelerator,accelerators,spec_version,status,hbm_capacity_tb,hbm_bandwidth_tbs,basis,confidence,source_id,notes` —
+aggregate HBM per rack-scale unit. Vera Rubin NVL72 appears twice (`launch (CES 2026)` and `revised (Sep-Oct 2026)`). Rows
+marked "repo calc" in `basis` multiply per-chip vendor figures by the accelerator count. CloudMatrix 384 spans 16 racks;
+the Ironwood row is one 64-chip cube. Used by `03-rack-hbm-after-rubin-revision`.
+
+### l03_memory_verdicts.csv (long: challenger x dimension)
+`competitor,dimension,verdict_vs_nvidia,cell_label,rationale,confidence,source_id,notes` — repo verdicts of each challenger's
+position versus NVIDIA's 2026 flagship on six memory-system dimensions (`leads` | `parity` | `behind` | `different`, from the
+challenger's point of view). `cell_label` is the short text printed in the heatmap. Used by `03-memory-supply-verdict-heatmap`.
+
+### l03_hbm_share_2026.csv (long)
+`period,supplier,share_pct,kind,confidence,source_id,notes` — HBM revenue share by supplier for 2026 quarters (Counterpoint),
+extending the 2022–2025 rows in `hbm_and_packaging.csv`; `kind` = `actual` | `forecast` (Samsung Q4 2026, KB Securities).
+Used by `03-hbm-share-shift-2025-2026`.
+
+### l03_cowos_outlook.csv (one row per year end)
+`year_end,low_k_wpm,mid_k_wpm,high_k_wpm,kind,confidence,source_id,notes` — TSMC CoWoS capacity in thousand wafers per month:
+low / midpoint / high of press-reported analyst estimates; `kind` = `estimate` (capacity in place) | `projection` (reported
+plans, 2027–2028). TSMC does not disclose these figures. Used by `03-cowos-capacity-outlook-2028`.
+
+### l03_memory_roadmap.csv (one row per accelerator)
+`vendor,product,year,status,capacity_gb,bandwidth_tbs,variant,confidence,source_id,notes` — memory per accelerator package,
+2024–2028. `variant` = `base` | `launch-target` (Rubin's 22 TB/s CES figure) | `alt-report` (Rubin Ultra 768 GB report).
+Trainium4 is a repo estimate from AWS multipliers. Used by `03-memory-roadmap-by-vendor`.
+
+### l03_value_chain_margins.csv (one row per company or estimate)
+`company,role,period,metric,margin_pct,confidence,source_id,notes` — latest margin by link of the AI-rack supply chain;
+`metric` = `gross` | `operating`. Periods differ by company (see `period`); ODM rows are Morgan Stanley rack-level
+estimates. Used by `03-value-chain-margins`.
+
+## Layer 03 — memory, packaging and supply chain, core pages (`l03_memory_scenarios.csv`, `l03_cowos_geometry.csv`; charts in `scripts/charts/ch_l03_core.py`; sources S3000–S3499)
+
+### l03_memory_scenarios.csv (one row per serving scenario)
+`scenario,model,weight_bytes_per_param,kv_bytes_per_element,users,context_tokens,confidence,source_id,notes` — repo serving
+scenarios (all `estimate`). Model shapes (layers, KV heads, head dim, MLA latent size) come from `P2_model_and_gpu_inputs.csv`;
+KV cache per token = 2 × layers × KV heads × head dim × bytes (grouped-query attention) or latent size × layers × bytes (MLA).
+Used by `03-hbm-needed-vs-per-gpu-hbm`; `03-decode-ceiling-vs-batch-32k` uses the same model shapes with a 32k context and
+90% usable HBM.
+
+### l03_cowos_geometry.csv (one row per NVIDIA package)
+`product,package_tech,compute_dies,hbm_stacks,interposer_reticles_low,interposer_reticles_high,confidence,source_id,notes` —
+repo assumptions of each package's interposer area as a multiple of the 858 mm² reticle (NVIDIA does not publish interposer
+sizes), bounded by TSMC's CoWoS-S/-L limits in `hbm_and_packaging.csv`. `03-packages-per-cowos-wafer` counts how many
+rectangles (aspect 1.25, 0.2 mm spacing) fit inside a 300-mm wafer with 3 mm edge exclusion, before yield loss.
