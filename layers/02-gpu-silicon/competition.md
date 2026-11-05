@@ -127,7 +127,7 @@ quadrantChart
 
 ![Heatmap of 12 competitors against NVIDIA's 12 stack layers. Google TPU is at parity or ahead in 5 of 12 layers, the most of any rival; 60% of all cells are 'behind', and 19 of 24 software and library cells are behind. Hyperscalers lead only in cloud services; Broadcom leads in Ethernet switching; Google's TPU leads on inference cost.](../../assets/charts/15-layer-competitor-heatmap.svg)
 
-![Stacked 100% bars of AI data-center silicon revenue share by vendor. NVIDIA 90% in 2023 and 87% in 2025; custom ASIC partners (Broadcom and Marvell) about 10% in 2025; AMD 1-4%. The pool grew from about $53B in 2023 to $224B in 2025 and an estimated $436B in 2026 (hatched).](../../assets/charts/15-ai-accelerator-market-share.svg)
+![Stacked 100% bars of AI data-center silicon revenue share by vendor. NVIDIA 90% in 2023 and 87% in 2025; custom ASIC partners (Broadcom and Marvell) about 10% in 2025; AMD 1-4%. The pool grew from about $53B in 2023 to $224B in 2025 and an estimated $448B in 2026 (hatched).](../../assets/charts/15-ai-accelerator-market-share.svg)
 
 > [!TIP]
 > **Worked example — what one point of share is worth.** The AI silicon pool was ~$224B in 2025 and is estimated

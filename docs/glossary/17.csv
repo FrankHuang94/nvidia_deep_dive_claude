@@ -1,0 +1,7 @@
+term,slug,definition,see_also
+Osborne effect,osborne-effect,"The risk that announcing a better future product makes customers stop buying the current one while they wait; named after a 1980s computer maker whose early announcement reportedly froze its sales.",annual-cadence
+pre-announcement horizon,pre-announcement-horizon,"How far ahead of volume availability a vendor publicly dates a product (name plus target year); in this repo measured in months from the first dated mention to planned availability.",annual-cadence;osborne-effect
+mid-cycle refresh,mid-cycle-refresh,"An upgraded version of a GPU generation released about a year after the original, such as Blackwell Ultra (B300) after Blackwell or Rubin Ultra after Rubin, usually adding memory and compute on the same architecture.",annual-cadence
+NVL naming,nvl-naming,"NVIDIA's rack names give the number of GPUs in one NVLink domain; from CES 2026 the number counts GPU packages rather than dies, so 'Vera Rubin NVL144' became Vera Rubin NVL72 and 'Rubin Ultra NVL576' became Kyber NVL144.",nvl72;kyber
+Rubin Ultra,rubin-ultra,"NVIDIA's 2027 GPU generation, announced with four reticle-sized dies, about 100 PFLOPS of FP4 and 1 TB of HBM4E per package for the Kyber rack; reports in 2026 describe a two-die version and 768 GB.",kyber;hbm4e
+Feynman,feynman,"NVIDIA's GPU architecture planned for 2028, shown with a Rosa CPU, an LP40 decode chip, BlueField-5 and ConnectX-10 and a Kyber NVL1152 rack mixing copper and co-packaged optics; specifications not yet published.",rubin-ultra;co-packaged-optics

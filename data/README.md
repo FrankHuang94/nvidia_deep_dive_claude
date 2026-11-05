@@ -1332,3 +1332,50 @@ AI-chip start-ups over time. `mark_type`: `private round` | `IPO` | `licence + a
 `date,lane,label,status,label_dy,confidence,source_id,notes` — Qualcomm's public datacenter moves by lane (`Server CPUs`,
 `AI accelerators`, `Connectivity & software`, `Customers & partners`). `status`: `shipped` | `closed` | `signed` | `announced` |
 `roadmap` | `exited`. `label` is the chart label (`\n` = line break) and `label_dy` its vertical offset in points (presentation only).
+
+## Chapter 14 — training vs. inference economics (`x14_tco_scenarios.csv`; model in `scripts/tco/`, charts in `scripts/charts/ch_x14_tco.py`; sources S14000–S14006)
+
+### x14_tco_scenarios.csv (long: one row per system × parameter)
+`system,vendor,parameter,base,low,high,unit,ref,basis,confidence,source_id,notes`
+
+Every assumption of the chapter-14 TCO model (`scripts/tco/tco_model.py`). `system = All` rows are global (utilisation,
+electricity price, PUE, cost of capital, IT life, facility capex per MW, network & storage ratio, operations %, idle power
+floor, reference interactivity, measured-throughput uncertainty, training-run size and goodput); other rows are per
+system (H200 HGX, B200 HGX, GB300 NVL72, Vera Rubin NVL72, MI355X platform, Helios (MI455X), TPU v7 Ironwood external /
+Google internal, Trainium2, Trainium3). `base` is the base case; `low`/`high` bound the tornado, Monte Carlo and ranges.
+`ref` pulls the base value from another file so the model cannot drift from the repo: `tco_model_inputs:<system>:<input>[:<basis
+substring>]`, `l08_power_per_gpu:<system>`, `cs3_tpu_economics:<system>:<metric>`, `frontier:<system>` (InferenceX throughput
+interpolated at the reference interactivity from `inference_benchmarks.csv`) and `anchor:<system>` (modelled throughput =
+anchor system × this system's `tokens_factor_*` rows). Parameters: `system_price_usd_m` + `accelerators_per_unit`, or
+`capex_per_accelerator_usd_k`, or `calibrate_tco_ratio_vs_gb300` (TPU: capex solved so hourly cost ÷ GB300's equals
+SemiAnalysis's owner-TCO ratio); `it_kw_per_accelerator` (all-in IT power); `vendor_margin_share` (share of system capex that
+is the accelerator vendor's gross profit; a split of capex, not an extra cost); `fp8_dense_pflops`, `training_mfu`;
+`sa_owner_tco_usd_per_hour` (cross-check only). Rows marked `speculative` (Trainium prices and power, Helios throughput, TPU
+topology bonus, operations %) are repo judgements flagged 🔴 in the chapter. Outputs are written to `scripts/tco/outputs/`
+(documented in `scripts/tco/README.md`), not to `data/`.
+
+## Chapter 16 — how NVIDIA built it (`x16_*.csv`, charts in `scripts/charts/ch_x16.py`; sources S16000–S16016)
+
+### x16_long_run_financials.csv (long; same schema as `financials.csv`)
+`period,period_type,period_end,metric,value,unit,confidence,source_id,notes` — NVIDIA fiscal-year data before FY2016, read from
+selected-financial-data tables in old 10-K/10-K405 filings: `revenue_total` FY1999–FY2015 (US$ B), `gross_margin_gaap_pct`
+FY2001–FY2003 (whole percent, as printed) and `xbox_pct_revenue` FY2002–FY2003. The chart module merges it with
+`cs2_cuda_trough.csv` (FY2007–FY2015 margin and R&D) and `financials.csv` (FY2016 onward); where files overlap,
+`financials.csv` wins, then CS2, then this file. Values were taken from search extracts of the filings (sec.gov fetches are
+blocked in the authoring session), so they are marked `confirmed` but should be spot-checked against EDGAR in QA.
+
+### x16_key_bets.csv (one row per strategic bet)
+`bet,era,start_date,payoff_date,payoff_milestone,outcome,cost_usd_b,cost_basis,confidence,source_id,notes` — twelve NVIDIA bets
+from NV1 (1995) to Hugging Face (2026) with the date the bet was made, a defined payoff milestone (or the exit date for failed
+bets) and the outcome (`won` | `lost` | `mixed` | `pending`). Months are approximate where only a year or half-year is public.
+Milestone choices (for example "Data Center revenue first exceeds R&D" for CUDA) are the repo's judgement; `cost_usd_b` is a
+disclosed or reported price where one exists (the CUDA figure is CS2's repo estimate; the Xbox figure is cash received).
+
+## Chapter 17 — roadmap 2025–2028 (`x17_preannouncement_horizon.csv`, charts in `scripts/charts/ch_x17.py`; sources S17000–S17008)
+
+### x17_preannouncement_horizon.csv (one row per accelerator or CPU)
+`vendor,product,first_dated_mention,first_mention_event,availability_date,availability_basis,status,confidence,source_id,notes`
+— the first public mention of a product with a target year, and its (planned) start of volume availability. Year-only plans
+are placed at mid-year (`YYYY-07`); `status` follows `roadmap.csv`. Used for the pre-announcement-horizon chart (months between
+the two dates). For rivals the first mention is usually the launch event recorded in `roadmap.csv`, so their horizons may be
+understated where earlier informal hints exist.

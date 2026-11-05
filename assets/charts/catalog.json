@@ -8734,7 +8734,7 @@
   {
     "id": "14-tco-depreciation-life-sensitivity",
     "title": "Est.: cutting GB300's life from 6 to 4 years lifts a useful GPU-hour from $3.51 to $4.49, close to its $5.00 rental price",
-    "subtitle": "Owner cost per useful accelerator-hour (70% utilisation) vs useful life · solid = 8% cost of capital, dashed = 0% · dotted = July 2026 rental price",
+    "subtitle": "Owner cost per useful accelerator-hour (70% utilization) vs useful life · solid = 8% cost of capital, dashed = 0% · dotted = July 2026 rental price",
     "alt": "Line chart of estimated owner cost per useful hour against depreciation life from 3 to 7 years. GB300 NVL72 at 8% cost of capital: about $5.47 at 3 years, $4.49 at 4 and $3.51 at 6, against a SemiAnalysis July 2026 rental price of $5.00; B200 about $2.91 at 6 years vs $3.70 rental; MI355X about $2.60 vs $2.90. Shorter lives squeeze a renter's margin; without a cost of capital each line drops by roughly 10-20%.",
     "data": [
       "x14_tco_scenarios.csv",
@@ -8929,7 +8929,7 @@
   {
     "id": "14-tco-gb300-cost-waterfall",
     "title": "Est.: a GB300 NVL72 token costs ~$0.16/M; NVIDIA's margin is ~24%, electricity only ~6%",
-    "subtitle": "Owner cost per million total tokens, DeepSeek-R1 1k/1k at 50 tok/s/user, 70% utilisation, 6-yr life, 8% cost of capital, $0.081/kWh, PUE 1.15",
+    "subtitle": "Owner cost per million total tokens, DeepSeek-R1 1k/1k at 50 tok/s/user, 70% utilization, 6-yr life, 8% cost of capital, $0.081/kWh, PUE 1.15",
     "alt": "Waterfall chart building GB300 NVL72's estimated cost of about $0.156 per million tokens: rack hardware at NVIDIA's and suppliers' cost $0.029, NVIDIA's gross margin in the price $0.038 (24%), scale-out network and storage $0.017, cost of capital $0.025, facility $0.022, electricity $0.010 (6%) and operations $0.015. Capital items are 70% of the total; the GPU-hour costs about $2.46 installed.",
     "data": [
       "x14_tco_scenarios.csv",
@@ -9025,9 +9025,9 @@
   },
   {
     "id": "14-tco-gb300-tornado",
-    "title": "Est.: utilisation moves GB300's $0.16/M token cost from $0.12 to $0.27; power price barely matters",
+    "title": "Est.: utilization moves GB300's $0.16/M token cost from $0.12 to $0.27; power price barely matters",
     "subtitle": "One-at-a-time sensitivity of GB300 NVL72 US$ per million tokens · label = input value → result · blue = cheaper, red = dearer",
-    "alt": "Tornado chart of GB300 NVL72's estimated cost per million tokens around a base of $0.156: Utilisation (%) 40 to 90 gives $0.268 to $0.123; Tokens/s per GPU (× measured) 0.75 to 1.25 gives $0.208 to $0.125; Cost of capital (%) 0 to 12 gives $0.120 to $0.176; Depreciation life (years) 4 to 7 gives $0.199 to $0.144; Rack price (US$ M) 3.6 to 5 gives $0.144 to $0.187; Operations (% of IT capex/yr) 2 to 5 gives $0.151 to $0.166; Network & storage (× rack price) 0.2 to 0.32 gives $0.150 to $0.162; Facility capex (US$ M/MW) 6.6 to 13 gives $0.146 to $0.158; PUE 1.09 to 1.4 gives $0.154 to $0.163; Electricity (US$/kWh) 0.05 to 0.1 gives $0.152 to $0.158; Power per GPU (kW, all-in IT) 1.95 to 2.3 gives $0.153 to $0.159; Idle power floor (share) 0.2 to 0.4 gives $0.156 to $0.156. Electricity from $0.05 to $0.10 per kWh moves the result by under a cent per million.",
+    "alt": "Tornado chart of GB300 NVL72's estimated cost per million tokens around a base of $0.156: Utilization (%) 40 to 90 gives $0.268 to $0.123; Tokens/s per GPU (× measured) 0.75 to 1.25 gives $0.208 to $0.125; Cost of capital (%) 0 to 12 gives $0.120 to $0.176; Depreciation life (years) 4 to 7 gives $0.199 to $0.144; Rack price (US$ M) 3.6 to 5 gives $0.144 to $0.187; Operations (% of IT capex/yr) 2 to 5 gives $0.151 to $0.166; Network & storage (× rack price) 0.2 to 0.32 gives $0.150 to $0.162; Facility capex (US$ M/MW) 6.6 to 13 gives $0.146 to $0.158; PUE 1.09 to 1.4 gives $0.154 to $0.163; Electricity (US$/kWh) 0.05 to 0.1 gives $0.152 to $0.158; Power per GPU (kW, all-in IT) 1.95 to 2.3 gives $0.153 to $0.159; Idle power floor (share) 0.2 to 0.4 gives $0.156 to $0.156. Electricity from $0.05 to $0.10 per kWh moves the result by under a cent per million.",
     "data": [
       "x14_tco_scenarios.csv",
       "tco_model_inputs.csv",
@@ -9123,7 +9123,7 @@
     "id": "14-tco-gb300-vs-tpu-ratio-tornado",
     "title": "Est.: throughput assumptions, not finance, decide GB300 vs TPU; base TPU cost 3.4× GB300's, ~1.0× at 100 tok/s/user",
     "subtitle": "One-at-a-time sensitivity of (TPU v7 external $/M tokens) ÷ (GB300 NVL72 $/M tokens) at 50 tok/s/user · >1 = GB300 cheaper",
-    "alt": "Tornado chart of the ratio of TPU v7 to GB300 NVL72 estimated cost per token, base 3.41: B200 anchor tokens/s (× measured) gives 4.55 to 2.73; GB300 tokens/s (× measured) gives 2.56 to 4.26; TPU pod topology bonus (×) gives 3.41 to 1.70; TPU FP8 vs Blackwell FP4 (×) gives 4.15 to 2.93; TPU capex (× calibrated) gives 2.88 to 3.94; GB300 rack price (US$ M) gives 3.70 to 2.84; TPU vs B200 at equal precision (×) gives 3.77 to 3.09; Facility capex (US$ M/MW) gives 3.39 to 3.41; Depreciation life (years) gives 3.39 to 3.42; Cost of capital (%) gives 3.40 to 3.42; Electricity (US$/kWh) gives 3.40 to 3.41; Utilisation (%) gives 3.40 to 3.41. Financial inputs (cost of capital, life, power price, utilisation, facility) move the ratio by less than 0.02; at 100 tokens/s per user the ratio is about 0.99, close to parity.",
+    "alt": "Tornado chart of the ratio of TPU v7 to GB300 NVL72 estimated cost per token, base 3.41: B200 anchor tokens/s (× measured) gives 4.55 to 2.73; GB300 tokens/s (× measured) gives 2.56 to 4.26; TPU pod topology bonus (×) gives 3.41 to 1.70; TPU FP8 vs Blackwell FP4 (×) gives 4.15 to 2.93; TPU capex (× calibrated) gives 2.88 to 3.94; GB300 rack price (US$ M) gives 3.70 to 2.84; TPU vs B200 at equal precision (×) gives 3.77 to 3.09; Facility capex (US$ M/MW) gives 3.39 to 3.41; Depreciation life (years) gives 3.39 to 3.42; Cost of capital (%) gives 3.40 to 3.42; Electricity (US$/kWh) gives 3.40 to 3.41; Utilization (%) gives 3.40 to 3.41. Financial inputs (cost of capital, life, power price, utilization, facility) move the ratio by less than 0.02; at 100 tokens/s per user the ratio is about 0.99, close to parity.",
     "data": [
       "x14_tco_scenarios.csv",
       "tco_model_inputs.csv",
@@ -9317,7 +9317,7 @@
     "id": "14-tco-training-run-cost",
     "title": "Est.: a 10²⁷-FLOP run costs ~$0.51B on GB300 vs ~$0.29B on TPU v7, but Rubin finishes in ~26 days",
     "subtitle": "Hypothetical 1e27-FLOP training run: owner cost (US$ M, whisker = P10–P90) and calendar days on 100,000 accelerators · FP8, base MFU, 90% goodput",
-    "alt": "Two-panel bar chart for a hypothetical 10 to the 27 FLOP training run. Estimated owner compute cost: Helios MI455X $249M, TPU v7 (Google itself) $250M, TPU v7 (external owner) $293M, Vera Rubin NVL72 $294M, B200 HGX $474M, MI355X (8-GPU) $475M, Trainium3 $497M, GB300 NVL72 $515M, Trainium2 $609M, H200 HGX $915M. Days on 100,000 accelerators: Helios MI455X 29, TPU v7 (Google itself) 93, TPU v7 (external owner) 93, Vera Rubin NVL72 26, B200 HGX 95, MI355X (8-GPU) 107, Trainium3 213, GB300 NVL72 86, Trainium2 412, H200 HGX 217. Per FLOP NVIDIA is not the cheapest; its training case rests on time to train and delivered utilisation.",
+    "alt": "Two-panel bar chart for a hypothetical 10 to the 27 FLOP training run. Estimated owner compute cost: Helios MI455X $249M, TPU v7 (Google itself) $250M, TPU v7 (external owner) $293M, Vera Rubin NVL72 $294M, B200 HGX $474M, MI355X (8-GPU) $475M, Trainium3 $497M, GB300 NVL72 $515M, Trainium2 $609M, H200 HGX $915M. Days on 100,000 accelerators: Helios MI455X 29, TPU v7 (Google itself) 93, TPU v7 (external owner) 93, Vera Rubin NVL72 26, B200 HGX 95, MI355X (8-GPU) 107, Trainium3 213, GB300 NVL72 86, Trainium2 412, H200 HGX 217. Per FLOP NVIDIA is not the cheapest; its training case rests on time to train and delivered utilization.",
     "data": [
       "x14_tco_scenarios.csv",
       "tco_model_inputs.csv",
@@ -9462,7 +9462,7 @@
     "id": "15-ai-accelerator-market-share",
     "title": "NVIDIA kept ~87% of AI silicon revenue in 2025 while the pool grew 4.2x from 2023",
     "subtitle": "Share of vendor-reported AI data-center revenue (NVIDIA DC, AMD Instinct, Broadcom AI, Marvell AI), %; labels = pool US$ B",
-    "alt": "Stacked 100% bars of AI data-center silicon revenue share by vendor. NVIDIA 90% in 2023 and 87% in 2025; custom ASIC partners (Broadcom and Marvell) about 10% in 2025; AMD 1-4%. The pool grew from about $53B in 2023 to $224B in 2025 and an estimated $436B in 2026 (hatched).",
+    "alt": "Stacked 100% bars of AI data-center silicon revenue share by vendor. NVIDIA 90% in 2023 and 87% in 2025; custom ASIC partners (Broadcom and Marvell) about 10% in 2025; AMD 1-4%. The pool grew from about $53B in 2023 to $224B in 2025 and an estimated $448B in 2026 (hatched).",
     "data": [
       "market_share.csv"
     ],
@@ -9492,8 +9492,7 @@
       "S542",
       "S538",
       "S451",
-      "S655",
-      "S174",
+      "S2516",
       "S453",
       "S218",
       "S113",
@@ -10043,8 +10042,7 @@
       "S660",
       "S661",
       "S451",
-      "S655",
-      "S174",
+      "S2516",
       "S662",
       "S453",
       "S218"
@@ -10399,9 +10397,9 @@
   },
   {
     "id": "15-merchant-vs-custom-asic-share",
-    "title": "Custom ASICs reach only ~11% of AI silicon revenue by 2026E, but perhaps ~28% of units",
+    "title": "Custom ASICs reach only ~14% of AI silicon revenue by 2026E, but perhaps ~14% of units",
     "subtitle": "Merchant (NVIDIA, AMD, Intel) vs custom ASIC (Broadcom, Marvell) share, %, 2023 vs 2026E; revenue basis vs unit basis",
-    "alt": "Slope chart: merchant GPUs and accelerators fall from 92% to about 89% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 11%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 28% of 2026 AI server shipments, because custom chips are far cheaper per unit.",
+    "alt": "Slope chart: merchant GPUs and accelerators fall from 92% to about 86% of AI data-center silicon revenue between 2023 and 2026E while custom ASICs rise from 8% to about 14%. On a unit basis, TrendForce-type estimates put ASIC-based servers near 14% of 2026 AI server shipments, because custom chips are far cheaper per unit.",
     "data": [
       "market_share.csv"
     ],

@@ -64,7 +64,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | 12 | Orchestration and cloud services | 6 | drafted | 10,354 | 48 | 22 (22) | 0 | 13 | 13 | 46% | 125 | pending |
 | 13 | Ecosystem, go-to-market and capital | 6 | drafted | 10,001 | 52 | 25 (25) | 0 | 12 | 15 | 48% | 180 | pending |
 | 14 | Training vs. inference economics | 7 | planned | 34 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
-| 15 | Competitive landscape | 7 | planned | 32 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
+| 15 | Competitive landscape | 7 | planned | 12,011 | 78 | 46 (46) | 0 | 8 | 24 | 59% | 208 | pending |
 | 16 | How NVIDIA built it (timeline) | 7 | planned | 35 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 17 | Roadmap 2025–2028 | 7 | planned | 33 | 0 | 0 (0) | 0 | 0 | 0 | — | 0 | pending |
 | 18 | Vulnerabilities and bear case | 7 | drafted | 7,315 | 29 | 21 (21) | 0 | 4 | 4 | 72% | 179 | pending |
@@ -76,7 +76,7 @@ no feature branch). **As-of date for data and charts:** 2026-11-05 (`AS_OF` in `
 | CS5 | The DeepSeek moment and the efficiency shock | 7 | drafted | 2,364 | 9 | 5 (5) | 0 | 2 | 2 | 56% | 52 | pending |
 | CS6 | China export controls: H20 and beyond | 7 | drafted | 2,251 | 10 | 5 (5) | 0 | 3 | 2 | 50% | 48 | pending |
 | CS7 | Gigawatt AI factories: xAI, Stargate and others | 7 | drafted | 2,373 | 10 | 6 (6) | 0 | 3 | 1 | 60% | 59 | pending |
-| **Total** | | | | **169,875** | **811** | | | | | | **1430** unique | |
+| **Total** | | | | **181,854** | **889** | | | | | | **1456** unique | |
 
 Charts in library (`assets/charts/catalog.json`): **346**. Visual = chart/diagram image, Mermaid block, or table with ≥ 2 rows (unique per unit).
 <!-- STATS:END -->
