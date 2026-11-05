@@ -81,7 +81,10 @@ def allreduce_time_by_fabric():
              + (f" A 1.6 Tb/s Rubin-generation NIC takes about {df[df.generation == '1.6 Tb/s'].seconds.iloc[0]:.1f} s."
                 if (df.generation == "1.6 Tb/s").any() else "")),
         data=[fname], chapters=["P4", "05", "06"],
-        source="NVIDIA NVLink/InfiniBand specs; PCI-SIG; ring formula", source_ids=["S34014", "S34015", "S34016", "S33004", "S34011"],
+        source=("NVLink, InfiniBand, Ethernet and PCIe specs via " + fname + "; ring formula"),
+        source_ids=list(dict.fromkeys([sid for sid in sources_of(df) if sid.startswith("S2") or sid.startswith("S3")]
+                                      + ["S34011"])) if fname == "interconnect_specs.csv"
+        else ["S34014", "S34015", "S34016", "S33004", "S34011"],
     )
     fig, ax0 = c.figure(width=10.5, height=5.6)
     ax0.remove()

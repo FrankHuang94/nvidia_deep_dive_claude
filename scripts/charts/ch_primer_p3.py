@@ -129,8 +129,8 @@ def workload_arithmetic_intensity():
     df, fname = _roof_inputs()
     bf16 = {g: df.loc[g, "bf16_tflops_dense"] / df.loc[g, "memory_bandwidth_tbs"] for g in GPU_STYLE}
     fp8 = {g: df.loc[g, "fp8_tflops_dense"] / df.loc[g, "memory_bandwidth_tbs"] for g in GPU_STYLE}
-    lo, hi = min(bf16.values()), max(bf16.values())
-    lo8, hi8 = min(fp8.values()), max(fp8.values())
+    lo, hi = (int(v + 0.5) for v in (min(bf16.values()), max(bf16.values())))
+    lo8, hi8 = (int(v + 0.5) for v in (min(fp8.values()), max(fp8.values())))
     c = Chart(
         id="P3-workload-arithmetic-intensity",
         title="Decode runs up to ~300x below the ridge point; only prefill and training clear it",

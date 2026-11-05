@@ -138,6 +138,26 @@ def deals_timeline_by_layer():
     ax.set_xlabel("Announced (2019–2026)")
     _below([axl, ax])
     c.save(fig, [axl, ax], legend=False, bottom=0.11)
+    # interactive twin: hover for every deal
+    import plotly.graph_objects as go
+    pfig = go.Figure()
+    for typ, st in TYPE_STYLE.items():
+        s = df[df.deal_type == typ]
+        if s.empty:
+            continue
+        amt = s.amt_b.fillna(0)
+        hover = [f"<b>{r.counterparty}</b><br>{r.announce_date} · {st['label']}<br>"
+                 f"{'US$ ' + format(r.amt_b, ',.2f') + 'B (' + r.amount_basis + ')' if r.amt_b == r.amt_b else 'amount undisclosed'}"
+                 f"<br>Layer {LAYERS[r.layer]}<br>{r.rationale}<br><i>{r.confidence}; status {r.status}</i>"
+                 for r in s.itertuples()]
+        pfig.add_trace(go.Scatter(
+            x=s.t, y=s.yj, mode="markers", name=st["label"], hovertext=hover, hoverinfo="text",
+            marker=dict(size=8 + np.sqrt(amt * 1000) * 0.55, color=st["color"], opacity=0.85,
+                        symbol="x" if typ == "failed-acquisition" else ("diamond" if typ.startswith("strategic") else "circle"),
+                        line=dict(color="#FFFFFF", width=0.6))))
+    pfig.update_yaxes(tickvals=[ypos[k] for k in order], ticktext=[LAYERS[k] for k in order], range=[-0.7, len(order) - 0.3])
+    pfig.update_xaxes(title="Announcement date (fractional year)", range=[1999.5, 2026.8])
+    c.save_plotly(pfig, height=640)
 
 
 # --------------------------------------------------------------------------------------

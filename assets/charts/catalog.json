@@ -34,9 +34,9 @@
   },
   {
     "id": "00-nvidia-revenue-by-fiscal-year",
-    "title": "NVIDIA revenue grew ~20× in six fiscal years, from $10.9B to $216B",
+    "title": "NVIDIA revenue grew ~43× in ten fiscal years, from $5.0B to $216B",
     "subtitle": "Total revenue by fiscal year, US$ billions (NVIDIA's fiscal year ends in late January)",
-    "alt": "Bar chart of NVIDIA total revenue by fiscal year: $10.9B in FY2020 rising to $215.9B in FY2026, roughly 20 times higher, with the inflection in FY2024.",
+    "alt": "Bar chart of NVIDIA total revenue by fiscal year: $5.0B in FY2016 rising to $215.9B in FY2026, roughly 43 times higher, with the inflection in FY2024.",
     "data": [
       "financials.csv"
     ],
@@ -48,8 +48,10 @@
     ],
     "source": "NVIDIA 10-K and 8-K filings",
     "source_ids": [
+      "S400",
       "S2",
-      "S1"
+      "S1",
+      "S401"
     ],
     "kind": "data",
     "asof": "2026-11-05",
@@ -576,6 +578,29 @@
     "html": null
   },
   {
+    "id": "03-cowos-capacity-and-nvidia-share",
+    "title": "Est.: TSMC CoWoS capacity grew ~8× from 2023 to 2026, and NVIDIA booked ~60% of 2026 wafers",
+    "subtitle": "Left: year-end CoWoS run-rate, k wafers/month (midpoint of press-reported ranges) · Right: 2026 CoWoS bookings by customer, k wafers",
+    "alt": "Two-panel chart of estimates. Left: TSMC CoWoS capacity about 15k wafers per month at end-2023, 35k in 2024, 75k in 2025 and about 115k in 2026, roughly 8 times higher. Right: of about 1,000k wafers of 2026 CoWoS demand, NVIDIA about 595k (60%), Broadcom 150k, AMD 105k and others about 150k.",
+    "data": [
+      "hbm_and_packaging.csv"
+    ],
+    "chapters": [
+      "03",
+      "13",
+      "18"
+    ],
+    "source": "TrendForce, Morgan Stanley via trade press, TSMC",
+    "source_ids": [
+      "S379",
+      "S378"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-cowos-capacity-and-nvidia-share.svg",
+    "html": null
+  },
+  {
     "id": "03-hbm-bandwidth-per-gpu",
     "title": "HBM bandwidth per GPU rose 26× from P100 to Rubin (0.73 → 19.2 TB/s)",
     "subtitle": "Peak memory bandwidth per GPU package, TB/s; Rubin shown at the revised production figure",
@@ -675,6 +700,159 @@
     "html": null
   },
   {
+    "id": "03-hbm-market-share-by-supplier",
+    "title": "SK hynix has held 50–70% of HBM revenue since 2022; Samsung and Micron each ~21–22% by Q3 2025",
+    "subtitle": "Share of HBM revenue by supplier, % (TrendForce for 2022–2023; Counterpoint for 2025 quarters) · hatched = estimate",
+    "alt": "Stacked 100% bar chart of HBM revenue share: 2022 SK hynix 50%, Samsung 40%, Micron 10%; 2023 estimate 53/38/9; Q1 2025 SK hynix about 70%; Q2 2025 SK hynix 62%, Micron 21%, Samsung 17%; Q3 2025 SK hynix 57%, Samsung 22%, Micron 21%.",
+    "data": [
+      "hbm_and_packaging.csv"
+    ],
+    "chapters": [
+      "03",
+      "18"
+    ],
+    "source": "TrendForce, Counterpoint Research",
+    "source_ids": [
+      "S376",
+      "S377"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-market-share-by-supplier.svg",
+    "html": null
+  },
+  {
+    "id": "03-hbm-stack-bandwidth-by-generation",
+    "title": "Per-stack HBM bandwidth rose 16× from HBM (128 GB/s) to JEDEC HBM4 (2,048 GB/s)",
+    "subtitle": "Peak GB/s per HBM stack by generation (bars; label = pin speed × interface width) · ◆ = as run in NVIDIA GPUs (GPU GB/s ÷ stacks)",
+    "alt": "Bar chart of peak bandwidth per HBM stack: HBM 128 GB/s (2013), HBM2 256, HBM2E 460, HBM3 819, HBM3E about 1,280, JEDEC HBM4 2,048 and SK hynix HBM4 at over 10 Gb/s about 2,560 GB/s, a 16-fold rise. Diamonds show NVIDIA's as-shipped rates per stack, from about 183 GB/s on P100 to about 2,400 GB/s on Rubin; HBM4 doubled the interface from 1,024 to 2,048 bits.",
+    "data": [
+      "hbm_and_packaging.csv"
+    ],
+    "chapters": [
+      "03",
+      "02",
+      "17"
+    ],
+    "source": "JEDEC, Micron, Samsung, SK hynix, NVIDIA",
+    "source_ids": [
+      "S370",
+      "S368",
+      "S372",
+      "S369",
+      "S374",
+      "S125",
+      "S126",
+      "S365",
+      "S33002",
+      "S32002",
+      "S358",
+      "S33003",
+      "S33006",
+      "S103",
+      "S360"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-stack-bandwidth-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "03-hbm-stack-capacity-by-generation",
+    "title": "HBM stack capacity rose 36× in a decade, from 1 GB to 36 GB; HBM4E targets 64 GB",
+    "subtitle": "Largest stack per generation, GB (label = DRAM dies stacked) · hollow ○ = JEDEC maximum · hatched = sampling or roadmap",
+    "alt": "Bar chart of maximum HBM capacity per stack: HBM 1 GB (4-high), HBM2 8 GB, HBM2E 16 GB, HBM3 24 GB, 12-high HBM3E 36 GB, 16-high HBM3E 48 GB (sampling), HBM4 as used in Rubin 36 GB and HBM4E planned for Rubin Ultra about 64 GB per stack (1 TB in 16 stacks); JEDEC's HBM3 and HBM4 standards allow up to 64 GB.",
+    "data": [
+      "hbm_and_packaging.csv"
+    ],
+    "chapters": [
+      "03",
+      "02"
+    ],
+    "source": "JEDEC, SK hynix, Samsung, NVIDIA roadmap",
+    "source_ids": [
+      "S370",
+      "S368",
+      "S372",
+      "S375",
+      "S33006",
+      "S360",
+      "S35041",
+      "S110",
+      "S369"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-stack-capacity-by-generation.svg",
+    "html": null
+  },
+  {
+    "id": "03-hbm-stacks-per-package",
+    "title": "HBM stacks per GPU package grew from 4 (P100) to 16 (Rubin Ultra), forcing ever-larger CoWoS interposers",
+    "subtitle": "HBM stacks per accelerator package (label = GB per package) · CoWoS-S silicon interposer → CoWoS-L bridges · hatched = roadmap",
+    "alt": "Bar chart of HBM stacks per package: NVIDIA P100 4, V100 4, A100 5, H100 5, H200 6, B200 8, B300 8, Rubin 8 and Rubin Ultra 16 (roadmap, 1 TB); AMD MI300X 8, MI355X 8 and MI455X 12 (432 GB). NVIDIA moved from CoWoS-S silicon interposers to CoWoS-L bridges with the two-die B200; TSMC targets about 5.5x reticle interposers in 2026 and 9.5x in 2027.",
+    "data": [
+      "hbm_and_packaging.csv"
+    ],
+    "chapters": [
+      "03",
+      "02"
+    ],
+    "source": "NVIDIA, AMD, TSMC",
+    "source_ids": [
+      "S125",
+      "S126",
+      "S365",
+      "S33002",
+      "S32002",
+      "S358",
+      "S33003",
+      "S123",
+      "S33006",
+      "S103",
+      "S360",
+      "S35041",
+      "S107",
+      "S110",
+      "S141",
+      "S143",
+      "S144",
+      "S361",
+      "S380",
+      "S35014",
+      "S35040",
+      "S35020"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-hbm-stacks-per-package.svg",
+    "html": null
+  },
+  {
+    "id": "03-memory-share-of-rack-bom",
+    "title": "Est.: memory jumps from ~9% to ~26% of an NVL72 rack's cost as HBM4 and LPDDR5X prices surge",
+    "subtitle": "Morgan Stanley rack BOM (ODM price to hyperscaler, May 2026), US$ M · memory = HBM + CPU-attached LPDDR5X",
+    "alt": "Stacked bar chart of estimated NVL72 rack cost: GB300 NVL72 $3.99M with GPUs $2.52M and memory $0.37M (9%); Vera Rubin NVL72 $7.80M with GPUs $3.96M and memory $2.00M (26%), a 5.4-fold rise in memory dollars per rack.",
+    "data": [
+      "tco_model_inputs.csv"
+    ],
+    "chapters": [
+      "03",
+      "08",
+      "14"
+    ],
+    "source": "Morgan Stanley via PC Gamer, Wccftech, iTiger",
+    "source_ids": [
+      "S332",
+      "S331",
+      "S330"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-memory-share-of-rack-bom.svg",
+    "html": null
+  },
+  {
     "id": "03-purchase-obligations-over-time",
     "title": "Supply commitments hit $279B: 2.9× quarterly revenue vs ~1.4× before the 2022 bust",
     "subtitle": "Left: purchase/supply commitments vs inventory, US$ B at quarter end. Right: commitments ÷ that quarter's revenue",
@@ -732,6 +910,39 @@
     "asof": "2026-11-05",
     "svg": "assets/charts/03-purchase-obligations-over-time.svg",
     "html": null
+  },
+  {
+    "id": "03-supply-chain-value-sankey",
+    "title": "Est.: of ~$4.8M spent on a GB300 NVL72 rack + network, NVIDIA keeps ~$2.3M as GPU gross profit",
+    "subtitle": "Where the dollars go, US$ M · rack price $3.99M (Morgan Stanley, May 2026) + ~$0.8M scale-out network/storage (SemiAnalysis GB200 basis) · GPU cost on Epoch AI B200 basis",
+    "alt": "Sankey diagram of estimated value flows for a GB300 NVL72 rack plus its share of network: of about $4.8M, NVIDIA GPU gross profit about $2.27M, TSMC logic wafers about $0.14M and CoWoS-L packaging about $0.09M, HBM makers about $0.31M, LPDDR5X about $0.06M, other rack content about $0.94M, liquid cooling $0.05M, ODM margin about $0.11M and scale-out networking and storage about $0.8M.",
+    "data": [
+      "tco_model_inputs.csv",
+      "hbm_and_packaging.csv",
+      "system_specs.csv"
+    ],
+    "chapters": [
+      "03",
+      "08",
+      "13",
+      "14"
+    ],
+    "source": "Morgan Stanley, SemiAnalysis, Epoch AI (repo calc)",
+    "source_ids": [
+      "S332",
+      "S331",
+      "S334",
+      "S32004",
+      "S35020",
+      "S324",
+      "S338",
+      "S339",
+      "S337"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/03-supply-chain-value-sankey.svg",
+    "html": "assets/interactive/03-supply-chain-value-sankey.html"
   },
   {
     "id": "04-cpu-cores-and-memory-bandwidth",
@@ -837,7 +1048,7 @@
   {
     "id": "05-nvlink-generations",
     "title": "NVLink per-GPU bandwidth rose 19× in 5 generations, from 160 GB/s (P100) to 3,000 GB/s (Rubin)",
-    "subtitle": "Left: bidirectional GB/s per GPU. Right: NVLink links per GPU, labeled with GB/s per link (bidirectional)",
+    "subtitle": "Left: bidirectional GB/s per GPU. Right: NVLink links per GPU × bidirectional GB/s per link",
     "alt": "Two-panel bar chart of NVLink generations 1 to 7: per-GPU bandwidth 160, 300, 600, 900, 1,800, 3,000, 3,600 GB/s; links per GPU 4, 6, 12, 18, 18 and 36 (NVLink 6 doubles links, with Rubin's production spec cut from 3.6 to 3.0 TB/s); NVLink 7 (Rubin Ultra, 2027) is a reported 3.6 TB/s roadmap figure.",
     "data": [
       "interconnect_specs.csv"
@@ -846,7 +1057,7 @@
       "05",
       "02"
     ],
-    "source": "NVIDIA whitepapers, NVLink page; SemiAnalysis (NVLink 7)",
+    "source": "NVIDIA whitepapers, NVLink page; SemiAnalysis",
     "source_ids": [
       "S259",
       "S200",
@@ -871,7 +1082,7 @@
   },
   {
     "id": "05-nvlink-vs-pcie-bandwidth",
-    "title": "NVLink bandwidth per GPU grew ~19× in 10 years (2016–2026) while the PCIe x16 link GPUs ship with grew 8×",
+    "title": "NVLink per-GPU bandwidth grew ~19× from 2016 to 2026; the PCIe x16 link GPUs use grew 8×",
     "subtitle": "Bidirectional GB/s per GPU (NVLink, by GPU launch year) vs one PCIe x16 slot (by specification year)",
     "alt": "Log-scale line chart: NVLink bandwidth per GPU rose from 160 GB/s (P100, 2016) to 3,000 GB/s (Rubin, 2026), about 19 times, while PCIe x16 rose from 32 GB/s (Gen3) to 256 GB/s (Gen6, used by 2025-26 GPUs), 8 times; PCIe 7.0 (512 GB/s) is ratified but not yet in GPUs.",
     "data": [
@@ -911,8 +1122,8 @@
   },
   {
     "id": "05-nvswitch-generations",
-    "title": "NVSwitch chip bandwidth grew 8× from 2018 to 2024, then held at 7.2 TB/s as NVLink 6 halved ports and doubled their speed",
-    "subtitle": "Bidirectional TB/s per NVSwitch / NVLink Switch chip, labeled with NVLink ports per chip and the largest NVLink domain",
+    "title": "NVSwitch bandwidth grew 8× by 2024, then held at 7.2 TB/s in 2026: half the ports, twice the speed",
+    "subtitle": "Bidirectional TB/s per NVSwitch / NVLink Switch chip, labeled with NVLink ports per chip and largest NVLink domain",
     "alt": "Bar chart of NVSwitch generations: gen 1 (2018) 0.9 TB/s with 18 ports, gen 2 1.8 TB/s with 36 ports, gen 3 3.2 TB/s with 64 ports, NVLink 5 Switch 7.2 TB/s with 72 ports, NVLink 6 Switch 7.2 TB/s with 36 double-speed ports, NVLink 7 Switch (2027, reported) 7.2 TB/s; domains grew from 16 GPUs to 72 and 144.",
     "data": [
       "interconnect_specs.csv"
@@ -941,8 +1152,8 @@
   },
   {
     "id": "05-scale-up-bandwidth-per-accelerator-by-vendor",
-    "title": "AMD's Helios (3.6 TB/s) now out-specs NVIDIA's production NVLink 6 (3.0 TB/s); TPU 8t, Trainium3, Ascend 950 sit at 2.0–2.4 TB/s",
-    "subtitle": "Scale-up (accelerator-to-accelerator) bandwidth per accelerator, bidirectional TB/s, current and next generation",
+    "title": "AMD's Helios (3.6 TB/s per GPU) now out-specs NVIDIA Rubin's production NVLink 6 (3.0 TB/s)",
+    "subtitle": "Scale-up bandwidth per accelerator, bidirectional TB/s. Google, AWS and Huawei next-gen parts: 2.0–2.4 TB/s",
     "alt": "Horizontal bar chart of scale-up bandwidth per accelerator: NVIDIA Blackwell 1.8 TB/s, Rubin 3.0 TB/s (cut from 3.6 TB/s) and Rubin Ultra 3.6 TB/s (roadmap); AMD MI355X 1.1 TB/s and MI455X 3.6 TB/s; Google Ironwood 1.2 and TPU 8t 2.4 TB/s; AWS Trainium2 1.0 and Trainium3 2.0 TB/s; Huawei Ascend 910C 0.8 and Ascend 950 2.0 TB/s; Intel Gaudi 3 1.2 TB/s.",
     "data": [
       "interconnect_specs.csv"
@@ -991,8 +1202,8 @@
   },
   {
     "id": "05-scale-up-domain-size-by-vendor",
-    "title": "NVIDIA's shipping NVLink domain (72 GPUs) is smaller than AWS's (144), Huawei's (384) or Google's TPU pods (9,216)",
-    "subtitle": "Accelerators per scale-up domain, shipping vs announced (log scale). Definitions differ: see note in chart",
+    "title": "NVIDIA's 72-GPU NVLink domain trails AWS (144), Huawei (384) and Google TPU pods (9,216) in size",
+    "subtitle": "Accelerators per scale-up domain, shipping vs announced. Topologies differ (box): bigger is not automatically better",
     "alt": "Horizontal log-scale bar chart of scale-up domain sizes: NVIDIA NVL72 72 GPUs today, Kyber NVL144 and NVL576 in 2027 and NVL1152 in 2028 (roadmap); AMD Helios 72; AWS Trn3 UltraServer 144; Huawei CloudMatrix 384 and Atlas 950 8,192 (Q4 2026); Google Ironwood 9,216 and TPU 8t 9,600 chips, though TPU pods are multi-hop tori rather than switched all-to-all; UALink 1.0 allows 1,024.",
     "data": [
       "interconnect_specs.csv"
@@ -1002,7 +1213,7 @@
       "15",
       "CS3"
     ],
-    "source": "NVIDIA, AMD, AWS, Google, Huawei, UALink Consortium; analysts",
+    "source": "NVIDIA, AMD, AWS, Google, Huawei, UALink; analysts",
     "source_ids": [
       "S200",
       "S205",
@@ -1048,7 +1259,7 @@
   {
     "id": "05-scale-up-vs-scale-out-per-gpu",
     "title": "NVLink gives each GPU 7.5–18× its scale-out NIC bandwidth: 3,000 vs 400 GB/s on Vera Rubin",
-    "subtitle": "Bidirectional GB/s per GPU: NVLink scale-up vs the one-per-GPU ConnectX NIC in NVIDIA reference designs (log scale)",
+    "subtitle": "Bidirectional GB/s per GPU: NVLink scale-up vs the one-per-GPU ConnectX NIC of NVIDIA reference designs",
     "alt": "Grouped log-scale bar chart comparing per-GPU NVLink and NIC bandwidth: V100 300 vs 25 GB/s, H100 900 vs 100, GB200 1,800 vs 100 (18x), GB300 1,800 vs 200, Vera Rubin 3,000 vs 400 GB/s (7.5x): the scale-up domain always has roughly an order of magnitude more bandwidth than scale-out.",
     "data": [
       "interconnect_specs.csv",
@@ -1133,8 +1344,8 @@
   },
   {
     "id": "06-switch-port-speed-by-generation",
-    "title": "Port speeds rose 80× for InfiniBand (10→800 Gb/s, 2001–2024) and 160× for Ethernet (10 Gb/s→1.6 Tb/s, 2002–2026)",
-    "subtitle": "Per-port line rate, Gb/s per direction: InfiniBand 4x ports (SDR→XDR) and IEEE Ethernet port speeds, by first-product/standard year",
+    "title": "Port speeds rose 80× on InfiniBand (2001–2024) and 160× on Ethernet (2002–2026)",
+    "subtitle": "Gb/s per direction per port: InfiniBand 4x (now 800 Gb/s XDR) and IEEE Ethernet (now 1.6 Tb/s), by first product / standard year",
     "alt": "Log-scale step chart: InfiniBand 4x port speed climbed from 10 Gb/s (SDR, 2001) through 56 (FDR), 100 (EDR), 200 (HDR), 400 (NDR) to 800 Gb/s (XDR, 2024); Ethernet from 10 GbE (2002) to 100, 400, 800 GbE and 1.6 TbE (2026); next steps (1.6 Tb/s IB GDR, 3.2 TbE) are speculative.",
     "data": [
       "interconnect_specs.csv"
@@ -1634,7 +1845,7 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/13-deals-timeline-by-layer.svg",
-    "html": null
+    "html": "assets/interactive/13-deals-timeline-by-layer.html"
   },
   {
     "id": "13-free-cash-flow-and-buybacks",
@@ -2083,6 +2294,341 @@
     "kind": "data",
     "asof": "2026-11-05",
     "svg": "assets/charts/15-memory-capacity-by-accelerator.svg",
+    "html": null
+  },
+  {
+    "id": "17-competitor-roadmap-alignment",
+    "title": "NVIDIA and AMD launched flagships in the same quarter 3 years running; both now publish annual roadmaps to 2028",
+    "subtitle": "Start of availability window for each vendor's flagship AI accelerator, 2024–2028",
+    "alt": "Timeline of flagship accelerators: NVIDIA B200 (Q4 2024), B300 (Q3 2025), Rubin (Q3 2026), Rubin Ultra (2H 2027), Feynman (2028); AMD MI325X, MI355X and MI455X landed in the same quarters (3 of 3 years) with MI500 (2027) and MI600 (2028) planned; Google Trillium, Ironwood and TPU 8t/8i arrive each December–Q4; AWS Trn2 and Trn3 each December with Trn4 estimated for 2027.",
+    "data": [
+      "roadmap.csv"
+    ],
+    "chapters": [
+      "17",
+      "15"
+    ],
+    "source": "Company announcements",
+    "source_ids": [
+      "S35014",
+      "S121",
+      "S32004",
+      "S123",
+      "S33020",
+      "S554",
+      "S100",
+      "S101",
+      "S33004",
+      "S500",
+      "S35018",
+      "S107",
+      "S110",
+      "S502",
+      "S109",
+      "S108",
+      "S119",
+      "S142",
+      "S143",
+      "S144",
+      "S544",
+      "S538",
+      "S539",
+      "S543",
+      "S541",
+      "S545",
+      "S549",
+      "S150",
+      "S151",
+      "S547",
+      "S548",
+      "S550",
+      "S551",
+      "S552",
+      "S154",
+      "S155",
+      "S555",
+      "S556",
+      "S156",
+      "S557",
+      "S518"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/17-competitor-roadmap-alignment.svg",
+    "html": null
+  },
+  {
+    "id": "17-nvidia-release-cadence",
+    "title": "NVIDIA cut the gap between data-center GPU generations from ~29 months to ~10 months",
+    "subtitle": "Months between first volume availability of successive NVIDIA data-center GPU architectures, Volta → Feynman",
+    "alt": "Bar chart of months between NVIDIA GPU generations: Volta→Ampere, Ampere→Hopper and Hopper→Blackwell averaged about 29 months; Blackwell→Blackwell Ultra and Blackwell Ultra→Rubin averaged about 10 months; planned Rubin Ultra (2H 2027) and Feynman (2028) keep a ~12-month cadence, though the Kyber rack is reported to slip to 2028.",
+    "data": [
+      "gpu_architecture_cadence.csv"
+    ],
+    "chapters": [
+      "17",
+      "02",
+      "16"
+    ],
+    "source": "NVIDIA keynotes and launch coverage",
+    "source_ids": [
+      "S126",
+      "S312",
+      "S127",
+      "S315",
+      "S35012",
+      "S532",
+      "S35014",
+      "S121",
+      "S33020",
+      "S32004",
+      "S100",
+      "S500",
+      "S35018",
+      "S502",
+      "S507",
+      "S109"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/17-nvidia-release-cadence.svg",
+    "html": null
+  },
+  {
+    "id": "17-roadmap-by-layer-small-multiples",
+    "title": "NVIDIA has disclosed 15 items for 2027–2028 across every layer; rivals 20, concentrated in silicon and racks",
+    "subtitle": "Roadmap items by layer group and vendor, plotted at the start of the availability window, 2024–2028",
+    "alt": "Seven small-multiple timelines (silicon, memory, CPU, scale-up, scale-out/NIC, systems, software) show NVIDIA items in every layer through 2028 (15 items dated 2027 or later) while AMD, Google, AWS, Microsoft, Meta, Huawei, Intel, Qualcomm, Broadcom and the standards bodies have 20 such items, mostly accelerators and racks.",
+    "data": [
+      "roadmap.csv"
+    ],
+    "chapters": [
+      "17"
+    ],
+    "source": "Company announcements and trade press",
+    "source_ids": [
+      "S35014",
+      "S121",
+      "S32004",
+      "S123",
+      "S33020",
+      "S554",
+      "S100",
+      "S101",
+      "S33004",
+      "S500",
+      "S33023",
+      "S115",
+      "S116",
+      "S117",
+      "S113",
+      "S114",
+      "S506",
+      "S108",
+      "S118",
+      "S35018",
+      "S107",
+      "S110",
+      "S502",
+      "S109",
+      "S119",
+      "S142",
+      "S143",
+      "S144",
+      "S544",
+      "S538",
+      "S539",
+      "S543",
+      "S541",
+      "S545",
+      "S549",
+      "S150",
+      "S151",
+      "S547",
+      "S548",
+      "S550",
+      "S551",
+      "S552",
+      "S154",
+      "S155",
+      "S555",
+      "S556",
+      "S156",
+      "S557",
+      "S518",
+      "S158",
+      "S558",
+      "S560",
+      "S559",
+      "S561",
+      "S562",
+      "S161",
+      "S564",
+      "S162",
+      "S563",
+      "S163",
+      "S343",
+      "S582",
+      "S567",
+      "S568",
+      "S173",
+      "S569",
+      "S174",
+      "S33006",
+      "S102",
+      "S103",
+      "S104",
+      "S540",
+      "S34014",
+      "S510",
+      "S131",
+      "S517",
+      "S519",
+      "S573",
+      "S574",
+      "S576",
+      "S575",
+      "S572",
+      "S501",
+      "S514",
+      "S515",
+      "S516",
+      "S570",
+      "S571",
+      "S34015",
+      "S512",
+      "S513",
+      "S308",
+      "S304",
+      "S511",
+      "S305",
+      "S507",
+      "S508",
+      "S309",
+      "S112",
+      "S33019",
+      "S542",
+      "S523",
+      "S527",
+      "S586",
+      "S553",
+      "S595",
+      "S590",
+      "S32015",
+      "S522",
+      "S520",
+      "S521",
+      "S581",
+      "S598"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/17-roadmap-by-layer-small-multiples.svg",
+    "html": null
+  },
+  {
+    "id": "17-roadmap-gantt-nvidia",
+    "title": "NVIDIA's roadmap refreshes every layer about yearly to 2028; 3 items carry reported slips",
+    "subtitle": "NVIDIA availability windows by product line, 2024–2028 (bar runs to the next generation; dot = confidence)",
+    "alt": "Gantt chart of NVIDIA data-center products 2024–2028 across 12 product lines: GPUs move from Blackwell (2024) to Blackwell Ultra (2025), Rubin (shipping since Aug 2026), Rubin Ultra (2H 2027) and Feynman (2028), with matching NVLink, NIC, CPU and rack generations. 15 items are announced or roadmap; 3 (Rubin CPX, its CPX rack and the Kyber NVL144 rack) carry reported slips shown against their original windows.",
+    "data": [
+      "roadmap.csv"
+    ],
+    "chapters": [
+      "17",
+      "02",
+      "08"
+    ],
+    "source": "NVIDIA keynotes, filings and trade press",
+    "source_ids": [
+      "S35014",
+      "S121",
+      "S32004",
+      "S123",
+      "S33020",
+      "S554",
+      "S100",
+      "S101",
+      "S33004",
+      "S500",
+      "S35018",
+      "S107",
+      "S110",
+      "S502",
+      "S109",
+      "S108",
+      "S119",
+      "S113",
+      "S114",
+      "S506",
+      "S118",
+      "S33023",
+      "S115",
+      "S116",
+      "S117",
+      "S34014",
+      "S103",
+      "S104",
+      "S510",
+      "S34015",
+      "S501",
+      "S514",
+      "S515",
+      "S102",
+      "S305",
+      "S507",
+      "S508",
+      "S309",
+      "S112",
+      "S308",
+      "S304",
+      "S33019",
+      "S32015",
+      "S522",
+      "S516",
+      "S523",
+      "S520",
+      "S521"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/17-roadmap-gantt-nvidia.svg",
+    "html": null
+  },
+  {
+    "id": "17-roadmap-slips-and-pull-ins",
+    "title": "4 NVIDIA items have slipped; the reported Kyber delay is the largest at 12 months; Huawei pulled Ascend 960 in by 9 months",
+    "subtitle": "Originally announced vs current (official or reported) start of availability window",
+    "alt": "Dumbbell chart of schedule changes: Ascend 960 -9 months, Rubin CPX +3 months, Quantum-X Photonics InfiniBand +3 months, Vera Rubin NVL144 CPX rack +3 months, Kyber NVL144 +12 months. The Kyber NVL144 slip is SemiAnalysis-reported and disputed by NVIDIA; the Rubin CPX return is an analyst claim.",
+    "data": [
+      "roadmap.csv"
+    ],
+    "chapters": [
+      "17",
+      "18"
+    ],
+    "source": "Company statements, SemiAnalysis, TrendForce, trade press",
+    "source_ids": [
+      "S163",
+      "S567",
+      "S568",
+      "S33023",
+      "S115",
+      "S116",
+      "S117",
+      "S514",
+      "S515",
+      "S304",
+      "S305",
+      "S502",
+      "S510",
+      "S507",
+      "S508",
+      "S309"
+    ],
+    "kind": "data",
+    "asof": "2026-11-05",
+    "svg": "assets/charts/17-roadmap-slips-and-pull-ins.svg",
     "html": null
   },
   {
@@ -2639,7 +3185,7 @@
     "id": "P3-workload-arithmetic-intensity",
     "title": "Decode runs up to ~300x below the ridge point; only prefill and training clear it",
     "subtitle": "Arithmetic intensity of common LLM operations (FLOPs per byte, BF16, 70B-class layer), vs GPU ridge points",
-    "alt": "Horizontal bar chart on a log scale of arithmetic intensity: batch-1 decode about 1 FLOP per byte, decode attention and MoE expert matrix multiplies about 8, batch-64 decode 63, batch-256 decode 241, a 2,048-token prefill 1,365 and a training matrix multiply 3,277. The BF16 ridge points of H100, B200 and Rubin fall between 208 and 295 FLOPs per byte and the FP8 ridge points between 562 and 911, so only prefill and training clear them.",
+    "alt": "Horizontal bar chart on a log scale of arithmetic intensity: batch-1 decode about 1 FLOP per byte, decode attention and MoE expert matrix multiplies about 8, batch-64 decode 63, batch-256 decode 241, a 2,048-token prefill 1,365 and a training matrix multiply 3,277. The BF16 ridge points of H100, B200 and Rubin fall between 208 and 295 FLOPs per byte and the FP8 ridge points between 563 and 911, so only prefill and training clear them.",
     "data": [
       "P3_workload_intensity.csv",
       "gpu_product_specs.csv"
@@ -2678,12 +3224,22 @@
       "05",
       "06"
     ],
-    "source": "NVIDIA NVLink/InfiniBand specs; PCI-SIG; ring formula",
+    "source": "NVLink, InfiniBand, Ethernet and PCIe specs via interconnect_specs.csv; ring formula",
     "source_ids": [
-      "S34014",
-      "S34015",
-      "S34016",
+      "S251",
+      "S252",
+      "S253",
+      "S222",
+      "S256",
+      "S254",
+      "S200",
+      "S205",
+      "S262",
+      "S263",
+      "S201",
+      "S202",
       "S33004",
+      "S203",
       "S34011"
     ],
     "kind": "data",

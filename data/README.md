@@ -93,7 +93,7 @@ Compute figures are **dense** (no sparsity) unless a column says otherwise.
 ### P3_roofline_inputs.csv (wide, one row per NVIDIA flagship GPU)
 `vendor,product,architecture,year,status,bf16_tflops_dense,fp8_tflops_dense,fp4_tflops_dense,memory_bandwidth_tbs,memory_capacity_gb,scale_up_bw_gbs_bidir,tdp_w,confidence,source_id,notes`
 
-Small, self-contained spec extract (V100 → Rubin) used for roofline ridge points and the memory-wall index. All compute is dense. V100's 16-bit value is FP16 (no BF16). Rubin uses the currently listed 19.2 TB/s HBM4 and 3.0 TB/s NVLink 6 (launched as 22 TB/s and 3.6 TB/s). Superseded by `gpu_product_specs.csv` once that file is populated.
+Small, self-contained spec extract (V100 → Rubin) used for roofline ridge points and the memory-wall index. All compute is dense. V100's 16-bit value is FP16 (no BF16). Rubin uses the currently listed 19.2 TB/s HBM4 and 3.0 TB/s NVLink 6 (launched as 22 TB/s and 3.6 TB/s). `ch_primer_p3.py` now reads H100/B200/Rubin from the shared `gpu_product_specs.csv` and falls back to this file only if those rows are missing.
 
 ### P3_workload_intensity.csv (one row per operation)
 `workload,phase,precision,batch_or_tokens,arithmetic_intensity_flops_per_byte,method,confidence,source_id,notes`
@@ -115,7 +115,7 @@ Repo analysis (all `speculative`) of which bottleneck binds for each workload: 3
 ### P4_fabric_bandwidth.csv (one row per link generation)
 `fabric,generation,first_product,year,scope,per_gpu_bw_gbs_unidir,per_gpu_bw_gbs_bidir,status,confidence,source_id,notes`
 
-Per-GPU link bandwidth (GB/s) for PCIe, InfiniBand and NVLink, used for all-reduce timing. `scope` as in `interconnect_specs.csv`. Superseded by `interconnect_specs.csv` once populated.
+Per-GPU link bandwidth (GB/s) for PCIe, InfiniBand and NVLink, used for all-reduce timing. `scope` as in `interconnect_specs.csv`. `ch_primer_p4.py` now reads the shared `interconnect_specs.csv` (adding the 1.6 Tb/s Rubin-generation NIC) and falls back to this file only if rows are missing.
 
 ### P4_comm_volume_example.csv (one row per parallelism type)
 `parallelism,degree,fabric,gb_per_gpu_per_step,critical_path,formula,confidence,source_id,notes`
@@ -269,3 +269,54 @@ roofline serving model: efficiencies, overhead, context, headroom; all `estimate
 token volumes (Google, Microsoft, OpenAI API). `value`/`unit` keep the figure as disclosed;
 `monthly_tokens_t` normalises it to trillions of tokens per month (quarter ÷ 3; per-minute × 60 × 24 × 30).
 `basis`: `reported` | `derived` (normalised or implied from a stated growth rate; drawn hollow).
+
+## Financials, peers and capital deployment (Phase 1, agent A4; sources S400–S484)
+
+### financials.csv — metric catalogue
+Long format as above. Money is `USD_B` (US$ billions, 3 decimals where filed in millions); ratios are `pct`.
+Annual rows `FY2016`–`FY2026`; quarterly rows `Q1FY23`–`Q2FY27` (plus `Q2FY22`–`Q4FY22` for purchase obligations
+and the Q1 FY23 outlook). Metrics:
+
+- Revenue: `revenue_total`, `revenue_data_center`, `revenue_dc_compute`, `revenue_dc_networking` (split disclosed from
+  Q1 FY25; FY24 quarters back-calculated from stated y/y growth = `estimate`), `revenue_gaming`,
+  `revenue_pro_visualization`, `revenue_automotive`, `revenue_oem_other`. **From Q1 FY27 NVIDIA reports only Data
+  Center (`revenue_dc_hyperscale`, `revenue_dc_acie` = AI clouds, industrial, enterprise) and `revenue_edge_computing`
+  (= former gaming + ProViz + auto + OEM)**, so gaming/ProViz/auto rows stop at Q4 FY26.
+- Margins and costs: `gross_margin_gaap_pct`, `gross_margin_nongaap_pct` (from Q1 FY27 non-GAAP no longer excludes
+  stock-based compensation), `gross_margin_nongaap_ex_h20_pct`, `h20_charge`, `inventory_provision`, `rd_expense`,
+  `sga_expense`, `operating_expenses_total`, `operating_income`, `net_income`.
+- Cash and returns: `operating_cash_flow`, `capex` (purchases of PP&E and intangibles), `free_cash_flow` (= OCF − capex,
+  `estimate`, except Q1 FY27 as reported), `share_repurchases`, `dividends_paid`, `shareholder_returns`.
+- Supply chain: `inventory`, `purchase_obligations` (inventory purchase + long-term supply and capacity obligations; from
+  Q3 FY26 "manufacturing, supply and capacity commitments"), `prepaid_supply_agreements`, `cloud_service_commitments`,
+  `ai_cloud_capacity_agreements`, `total_future_commitments`.
+- Customers and outlook: `customer_a_pct_revenue` … `customer_d_pct_revenue` (direct customers ≥10% of revenue; letters
+  are re-assigned every period), `indirect_customer_a_pct_revenue`, `guidance_next_q_revenue` (midpoint issued **with**
+  that period's results, for the following quarter).
+
+**`[recall]` tag in `notes`:** during this pass sec.gov, nvidianews and q4cdn could not be fetched and the shared web
+search budget ran out, so rows tagged `[recall]` were transcribed from the cited filing from memory and cross-checked
+arithmetically (segments sum to totals; quarters sum to filed annual totals) but not re-read online. Rows noting
+"checked via web search 2026-11-05" were verified this session. QA should re-verify `[recall]` rows first.
+
+### peer_financials.csv (long)
+`company,period,period_type,period_end,metric,value,unit,confidence,source_id,notes`
+
+Same conventions as `financials.csv` with a leading `company` column. Calendar-year periods are `CY2024`; company fiscal
+years keep the company's own label (`FY2025`) with the true `period_end`. Metrics: `revenue_data_center` (AMD,
+Marvell), `revenue_ai_semiconductor` (Broadcom), `revenue_dcai` (Intel; scope changed in 2024 and 2025 — not
+like-for-like), `hpc_share_of_revenue_pct` (TSMC), `rd_expense`, `capex` (Alphabet, Amazon, Meta, Microsoft, Oracle;
+2025–2026 outlook rows are `reported`).
+
+### acquisitions_investments.csv — conventions
+Schema above. `status`: `closed` | `announced` | `active` (ongoing commitment) | `terminated` | `superseded` |
+`closed (wound down 2015)`. `amount_usd_m` is blank (not 0) when undisclosed. `layer_strengthened` uses the two-digit
+layer number (`02`–`13`); AI labs and other demand-side stakes map to `13`, neoclouds to `12`, power/data-centre
+developers to `08`.
+
+### investments_in_customers.csv
+`counterparty,date,nvidia_investment_usd_b,investment_basis,customer_compute_commitment_gw,customer_commitment_usd_b,commitment_description,confidence,source_id,notes`
+
+One row per NVIDIA equity commitment to a company that has also announced a large compute plan (input for the
+circular-financing bubble chart `12-investments-in-customers-bubble`). `investment_basis` as `amount_basis` above;
+a commitment described as an LOI that was later replaced is treated as superseded by the chart.
